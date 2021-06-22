@@ -36,6 +36,8 @@ vi ~/.parallelcluster/config
               6) (note disks are persistent (you can't turn them off, so you need to determine the size required carefully.
               7) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
               8) The slurm queueu system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
+              9) If intel compiler is available - need separate config settings to get access to intel compiler
+              10) Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.
 
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
