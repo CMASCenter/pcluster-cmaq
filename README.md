@@ -223,4 +223,5 @@ grep 'Processing completed' CTM_LOG_034.v532_gcc_2016_CONUS_8x12pe_20151222
             Processing completed...    7.4 seconds
 
 
-
+### Sometimes get an error when shutting down 
+ *** FATAL ERROR shutting down Models-3 I/O ***
