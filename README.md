@@ -26,13 +26,16 @@ vi ~/.parallelcluster/config
 ```
 
 ### Configure the cluster
-#### Note, the compute nodes can be updated/changed, but the head node cannot be updated.
-#### The settings in the cluster configuration file determine 
-##### 1) what compute nodes are available
-##### 2) how many compute nodes can be requested using slurm
-##### 3) What network is used, and whether the compute nodes are on the same network
-##### 4) Whether hyperthreading is used or not
-##### 5) What disk is used, ie ebs or fsx  (can't be updated)
+      Note, the compute nodes can be updated/changed, but the head node cannot be updated.
+      The settings in the cluster configuration file determine 
+              1) what compute nodes are available
+              2) how many compute nodes can be requested using slurm
+              3) What network is used, and whether the compute nodes are on the same network
+              4) Whether hyperthreading is used or not
+              5) What disk is used, ie ebs or fsx  (can't be updated) 
+              6) (note disks are persistent (you can't turn them off, so you need to determine the size required carefully.
+              7) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
+              8) The slurm queueu system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
 
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
