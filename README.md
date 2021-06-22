@@ -349,7 +349,13 @@ Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cm
 ```
 
 
-### Be careful how you name your s3 buckets, the name can't be changed
-### A new name can be created, and then the objects copied or synced to the new bucket
-### and the old bucket can be removed
+### Be careful how you name your s3 buckets, the name can't be changed. A new name can be created, and then the objects copied or synced to the new bucket and the old bucket can be removed using the aws command line
 
+```
+### make new bucket
+aws s3 mb s3://t2large-head-c5.9xlarge-compute-conus-output
+### sync old bucket with new bucket
+aws s3 sync s3://t2large-head-c524xlarge-compute-pcluster-conus-output s3://t2large-head-c5.9xlarge-compute-conus-output
+### remove old bucket
+ aws s3 rb --force s3://t2large-head-c524xlarge-compute-pcluster-conus-output
+```
