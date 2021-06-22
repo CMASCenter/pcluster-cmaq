@@ -91,7 +91,10 @@ https://jimmielin.me/2019/wrf-gc-aws/
 pcluster ssh cmaq -i ~/downloads/centos.pem
 ```
 
-### Once you are on the cluster check what modules are available
+### Once you are on the cluster change from default bash shell to csh
+csh
+
+### Check what modules are available
 
 ```
 module avail
@@ -113,6 +116,13 @@ cd /shared/pcluster-cmaq
 
 ```
 ./gcc9_install.csh
+```
+
+### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
+
+```
+csh
+env
 ```
 
 ### Buiild I/O API library
@@ -140,11 +150,20 @@ aws credentials
 ./s3_copy_need_credentials_conus.csh
 ```
 
-## Link the CONUS input directory to your run script area
+### For the 12km SE Domain, copy the input data and then untar it, or use the pre-install script in the pcluster configuration file.
+
+```
+cd /shared/
+aws s3 cp --recursive s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input .
+tar -xzvf CMAQv5.3.2_Benchmark_2Day_Input.tar.gz
+'''
+
+## Link the CONUS and 12km SE Domain input benchmark directory to your run script area
 
 ```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data
 ln -s /shared/CONUS .
+ln -s /shared/CMAQv5.3.2_Benchmark_2Day_Input .
 ```
 
 
