@@ -27,9 +27,9 @@ vi ~/.parallelcluster/config
 
 ### Configure the cluster
       
-Note, the compute nodes can be updated/changed, but the head node cannot be updated.
+
 The settings in the cluster configuration file determine 
-   1) what compute nodes are available
+   1) specify the head node, and what compute nodes are available (Note, the compute nodes can be updated/changed, but the head node cannot be updated.)
    2) the maximum number of compute nodes that can be requested using slurm
    3) What network is used (elastic fabric adapter (efa) - only supported on larger instances https://docs.aws.amazon.com/parallelcluster/latest/ug/efa.html)
    4) Whether the compute nodes are on the same network (see placement groups and networking https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html)
