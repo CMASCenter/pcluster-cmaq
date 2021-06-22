@@ -1,0 +1,25 @@
+#!/bin/csh -f
+set echo
+
+#  --------------------------------------
+#  Add /usr/local/lib to the library path
+#  --------------------------------------
+#   if [ -z ${LD_LIBRARY_PATH} ]
+#   then
+#      export LD_LIBRARY_PATH=/usr/local/lib
+#   else
+#      export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+#   fi
+#  ----------------------
+#  Unpack and build IOAPI
+#  ----------------------
+   setenv BASEDIR /shared/build/ioapi-3.2
+   cd $BASEDIR
+   git clone https://github.com/cjcoats/ioapi-3.2
+   cd ioapi-3.2
+   setenv BIN Linux2_x86_64gfort
+   mkdir $BIN
+   setenv CPLMODE nocpl
+   cd ioapi 
+   cp /shared/pcluster-cmaq/Makefile.basedir_fix $BASEDIR/ioapi/Makefile
+   make |& tee make.log
