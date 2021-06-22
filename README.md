@@ -261,6 +261,7 @@ grep 'Processing completed' CTM_LOG_034.v532_gcc_2016_CONUS_8x12pe_20151222
  
 ### run m3diff to compare the output data
 
+```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
 ls */*CONC*
 
@@ -270,6 +271,7 @@ setenv BFILE output_CCTM_v532_gcc_2016_CONUS_8x12pe/CCTM_CONC_v532_gcc_2016_CONU
 m3diff
 
 grep A:B REPORT
+```
 
 should see all zeros but we don't.
 
