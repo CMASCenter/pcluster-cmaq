@@ -51,12 +51,6 @@ pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
 pcluster create cmaq
 ```
 
-### Check status of cluster
-
-```
-pcluster status cmaq
-```
-
 ### Stop cluster
 
 ```
@@ -85,6 +79,36 @@ pcluster --help
 
 ```
 pcluster list
+```
+
+cmaq-c5-4xlarge  UPDATE_COMPLETE  2.10.4
+cmaq-conus       CREATE_COMPLETE  2.10.4
+cmaq-large       UPDATE_COMPLETE  2.10.3
+cmaq             UPDATE_COMPLETE  2.10.3
+
+### Check status of cluster
+
+```
+pcluster status cmaq-c5-4xlarge
+```
+
+Status: UPDATE_COMPLETE
+MasterServer: RUNNING
+ClusterUser: centos
+MasterPrivateIP: 10.0.0.219
+ComputeFleetStatus: RUNNING
+
+### This cluster was created using the following command. I am not sure how to report out the config file used to create a pcluster.
+pcluster create cmaq-c5-4xlarge -c /Users/lizadams/.parallelcluster/config-c5.4xlarge
+
+### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
+We need a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
+We need to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory.
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+cp run*.log /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
+cp run*.csh /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
 ```
 
 ### Managing the cluster
@@ -234,3 +258,31 @@ grep 'Processing completed' CTM_LOG_034.v532_gcc_2016_CONUS_8x12pe_20151222
 
 ### Sometimes get an error when shutting down 
  *** FATAL ERROR shutting down Models-3 I/O ***
+ 
+### run m3diff to compare the output data
+
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
+ls */*CONC*
+
+setenv AFILE output_CCTM_v532_gcc_2016_CONUS_16x8pe/CCTM_CONC_v532_gcc_2016_CONUS_16x8pe_20151222.nc
+setenv BFILE output_CCTM_v532_gcc_2016_CONUS_8x12pe/CCTM_CONC_v532_gcc_2016_CONUS_8x12pe_20151222.nc
+
+m3diff
+
+grep A:B REPORT
+
+should see all zeros but we don't.
+
+[centos@ip-10-0-0-219 output]$ grep A:B REPORT
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  2.04891E-07@(293, 70, 1) -1.47149E-07@(272, 52, 1)  3.32936E-12  9.96093E-10
+ A:B  2.98023E-08@(291, 71, 1) -2.60770E-08@(277,160, 1) -2.20486E-13  5.66325E-10
+ A:B  1.13621E-07@(308,184, 1) -1.89990E-07@(240, 67, 1) -8.85402E-12  1.61171E-09
+ A:B  7.63685E-08@(310,180, 1) -7.37607E-07@(273, 52, 1) -5.05276E-12  3.60038E-09
+ A:B  5.55068E-07@(185,231, 1) -1.24797E-07@(255,166, 1)  2.47303E-11  3.99435E-09
+ A:B  5.87665E-07@(285,167, 1) -4.15370E-07@(182,232, 1)  2.54544E-11  5.64502E-09
+ A:B  3.10000E-05@(280,148, 1) -1.03656E-05@(279,148, 1)  2.16821E-10  1.07228E-07
+ A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
+
+
