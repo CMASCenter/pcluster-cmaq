@@ -10,4 +10,7 @@ cd /shared/build/
 git clone -b 5.3.2_singularity https://github.com/lizadams/CMAQ.git CMAQ_REPO
 echo "downloaded CMAQ"
 cd CMAQ_REPO
-./bldit_cctm.csh
+cp /shared/pcluster-cmaq/bldit_project.csh /shared/build/CMAQ_REPO
+./bldit_project.csh
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
+./bldit_cctm.csh gcc |& tee ./bldit_cctm.log
