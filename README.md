@@ -298,16 +298,16 @@ PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 compute*  inact   infinite     10  idle~ compute-dy-c524xlarge-[1-10] 
 ```
 
-### verify the stats of the c5.24xlarge
+### verify the stats of the the different compute cluters
 
 ```
 Model            vCPU 	Memory (GiB) Instance Storage (GiB) Network Bandwidth (Gbps) EBS Bandwidth (Mbps)
+c5.4xlarge 	     16 	        32 	  EBS-Only 	             Up to 10 	4,750
 c5.24xlarge 	96 	       192 	  EBS-Only 	                   25 	19,000
 ```
 
-### Note, -this may not be the instance that was used for benchmarking, it look like my log files specified c5.9xlarge
-### Need to add the sinfo command to the run script, so we know what configuration of the cluster each slurm job is being run on.
-
+### Note, -this may not be the instance that was used for benchmarking, it look like my log files specified c5.9xlarge.  This is a risk of being able to update the compute nodes, you need to keep track of what the compute nodes are when you do the runs.
+### We need to add the sinfo command to the run script, so we know what configuration of the cluster each slurm job is being run on.
 ### List mounted volumes. A few volumes are shared by the head-node and will be mounted on compute instances when they boot up. Both /shared and /home are accessible by all nodes.
 
 showmount -e localhost
