@@ -24,5 +24,5 @@ set echo
    # need to copy Makefile to fix BASEDIR setting from HOME to /shared/build/ioapi-3.2
    cp /shared/pcluster-cmaq/Makefile.basedir_fix $BASEDIR/ioapi/Makefile
    # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
-   cp /shared/pcluster-cmaq/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/Makefile
+   cp /shared/pcluster-cmaq/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
    make |& tee make.log
