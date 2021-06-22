@@ -129,7 +129,10 @@ pcluster ssh cmaq -i ~/downloads/centos.pem
 ```
 
 ### Once you are on the cluster change from default bash shell to csh
+
+```
 csh
+```
 
 ### Check what modules are available
 
