@@ -28,10 +28,10 @@ vi ~/.parallelcluster/config
 ### Configure the cluster
       Note, the compute nodes can be updated/changed, but the head node cannot be updated.
       The settings in the cluster configuration file determine 
-              1) what compute nodes are available
-              2) the maximum number of compute nodes that can be requested using slurm
-              3) What network is used (elastic fabric adapter (efa) - only supported on larger instances https://docs.aws.amazon.com/parallelcluster/latest/ug/efa.html)
-              4) Whether the compute nodes are on the same network (see placement groups and networking https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html)
+1) what compute nodes are available
+2) the maximum number of compute nodes that can be requested using slurm
+3) What network is used (elastic fabric adapter (efa) - only supported on larger instances https://docs.aws.amazon.com/parallelcluster/latest/ug/efa.html)
+4) 4) Whether the compute nodes are on the same network (see placement groups and networking https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html)
               5) Whether hyperthreading is used or not (can be done using config, much easier than earlier methods: https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/)
               6) What disk is used, ie ebs or fsx and the size of /shared disk that is available  (can't be updated) 
               7) Note the /shared disks are persistent as you can't turn them off, they will acrue charges until the cluster is deleted so you need to determine the size requirements carefully.
