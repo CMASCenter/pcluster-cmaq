@@ -26,6 +26,12 @@ vi ~/.parallelcluster/config
 ```
 
 ### Configure the cluster
+#### Note, the compute nodes can be modified, but the head node is unchangable.
+#### Note, the settings in the cluster configuration file determine what compute nodes are available
+#### how many compute nodes can be requested using slurm
+#### What network is used, and whether the compute nodes are on the same network
+#### Whether hyperthreading is used or not
+#### What disk is used, ie ebs or fsx
 
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
@@ -35,12 +41,6 @@ pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
 
 ```
 pcluster create cmaq
-```
-
-### Login to cluster using the permissions file
-
-```
-pcluster ssh cmaq -i ~/downloads/centos.pem
 ```
 
 ### Check status of cluster
@@ -78,6 +78,49 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluste
 
 ### Configuring Pcluster for HPC
 https://jimmielin.me/2019/wrf-gc-aws/
+
+### Login to cluster using the permissions file
+
+```
+pcluster ssh cmaq -i ~/downloads/centos.pem
+```
+
+### Once you are on the cluster check what modules are available
+
+```
+module avail
+```
+
+### Load the openmpi module
+
+```
+module load openmpi/4.1.0
+```
+
+### Change directories to Install and build the libraries and CMAQ
+
+```
+cd /shared/pcluster-cmaq
+```
+
+### Build netcdf C and netcdf F libraries
+
+```
+./gcc9_install.csh
+```
+
+### Buiild I/O API library
+
+```
+./gcc9_ioapi.csh
+```
+
+### Build CMAQ
+
+```
+./gcc9_cmaq.csh
+```
+
 
 ## Copy a preinstall script to the S3 bucket
 
