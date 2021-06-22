@@ -146,13 +146,23 @@ module avail
 module load openmpi/4.1.0
 ```
 
+### Check what version of the gcc compiler is available
+
+```
+ gcc --version
+gcc (GCC) 8.3.1 20191121 (Red Hat 8.3.1-5)
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
 ### Change directories to Install and build the libraries and CMAQ
 
 ```
 cd /shared/pcluster-cmaq
 ```
 
-### Build netcdf C and netcdf F libraries
+### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
 
 ```
 ./gcc9_install.csh
@@ -184,11 +194,48 @@ env
 aws credentials
 ```
 
-## Use the script to copy the CONUS input data to the cluster
+## Use the script to copy the CONUS input data to the cluster, this 
 
 ```
 ./s3_copy_need_credentials_conus.csh
 ```
+
+## Note, this input data requires 44 GB of disk space
+
+```
+cd /shared/CONUS
+[centos@ip-10-0-0-219 CONUS]$ du -sh
+44G	.
+```
+
+## For the output data, assuming 2 day CONUS Run, 1 layer, 12 var in the CONC output
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe
+du -sh
+18G	.
+```
+
+### For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
+du -sh
+173G	.
+```
+
+### This cluster is configured to have 2 Terrabytes of shared space, to allow multiple output runs to be stored.
+ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         16G     0   16G   0% /dev
+tmpfs            16G     0   16G   0% /dev/shm
+tmpfs            16G   17M   16G   1% /run
+tmpfs            16G     0   16G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   16G   85G  16% /
+/dev/nvme1n1    2.5T  289G  2.0T  13% /shared
+tmpfs           3.1G  4.0K  3.1G   1% /run/user/1000
+
+### Currently the /shared directory contains 296 G of data, and is only using 13% of available volume
 
 ### For the 12km SE Domain, copy the input data and then untar it, or use the pre-install script in the pcluster configuration file.
 ### Note: it is faster to copy all of the data to an S3 bucket without using tar.gz
