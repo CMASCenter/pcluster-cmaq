@@ -19,7 +19,7 @@ pcluster version
 vi ~/.parallelcluster/config
 
 ### Configure the cluster
-pcluster configure
+pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
 
 ### Create the cluster
 pcluster create cmaq
