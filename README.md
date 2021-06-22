@@ -176,7 +176,9 @@ squeue -u centos
                 28   compute     CMAQ   centos  R      10:58      8 compute-dy-c59xlarge-[3-10] 
                 ```
 
-
+## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
+## may need to put in a sleep command between the two days.
+## Temporary fix is to restart the second day.
 
 
 
