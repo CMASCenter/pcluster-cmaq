@@ -40,11 +40,6 @@ The settings in the cluster configuration file allow you to
   (Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.)
    8) specify the name of an existing ebs volume to use as a shared directory  - this can then be saved and available even after the pcluster is deleted. (?) Is this volume shared across the cluster, how do we ensure the file permissions are set correctly for each user?
    
-   
-  ### Managing the cluster
-  1) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
-  2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
-  3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
   
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
@@ -85,6 +80,17 @@ pcluster update -c /Users/lizadams/.parallelcluster/config cmaq
 ```
 pcluster --help
 ```
+
+### List the available clusters
+
+```
+pcluster list
+```
+
+### Managing the cluster
+  1) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
+  2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
+  3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
 
 ### Pcluster User Manual
 https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
