@@ -79,12 +79,12 @@ pcluster --help
 
 ```
 pcluster list
-```
 
 cmaq-c5-4xlarge  UPDATE_COMPLETE  2.10.4
 cmaq-conus       CREATE_COMPLETE  2.10.4
 cmaq-large       UPDATE_COMPLETE  2.10.3
 cmaq             UPDATE_COMPLETE  2.10.3
+```
 
 ### Check status of cluster
 
