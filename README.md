@@ -289,3 +289,26 @@ should see all zeros but we don't.
  A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
 ```
 
+### information about your cluster
+https://www.hpcworkshops.com/03-hpc-aws-parallelcluster-workshop/07-logon-pc.html
+
+```
+sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
+compute*  inact   infinite     10  idle~ compute-dy-c524xlarge-[1-10] 
+```
+
+### verify the stats of the c5.24xlarge
+Model            vCPU 	Memory (GiB) Instance Storage (GiB) Network Bandwidth (Gbps) EBS Bandwidth (Mbps)
+c5.24xlarge 	96 	       192 	  EBS-Only 	                   25 	19,000
+
+### List mounted volumes. A few volumes are shared by the head-node and will be mounted on compute instances when they boot up. Both /shared and /home are accessible by all nodes.
+
+showmount -e localhost
+Export list for localhost:
+/opt/slurm 10.0.0.0/16
+/opt/intel 10.0.0.0/16
+/home      10.0.0.0/16
+/shared    10.0.0.0/16
+
+
