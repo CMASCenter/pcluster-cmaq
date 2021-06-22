@@ -13,10 +13,10 @@ set echo
 #  ----------------------
 #  Unpack and build IOAPI
 #  ----------------------
-   setenv BASEDIR /shared/build/ioapi-3.2
-   cd $BASEDIR
+   cd /shared/build
    git clone https://github.com/cjcoats/ioapi-3.2
    cd ioapi-3.2
+   setenv BASEDIR /shared/build/ioapi-3.2
    setenv BIN Linux2_x86_64gfort
    mkdir $BIN
    setenv CPLMODE nocpl
