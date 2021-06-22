@@ -151,6 +151,7 @@ aws credentials
 ```
 
 ### For the 12km SE Domain, copy the input data and then untar it, or use the pre-install script in the pcluster configuration file.
+### Note: it is faster to copy all of the data to an S3 bucket without using tar.gz
 
 ```
 cd /shared/
@@ -200,6 +201,10 @@ squeue -u centos
 ## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
 ## may need to put in a sleep command between the two days.
 ## Temporary fix is to restart the second day.
+
+### Note this may help with networking on the parallel cluster
+If the head node must be in the placement group, use the same instance type and subnet for both the head as well as all of the compute nodes. By doing this, the compute_instance_type parameter has the same value as the master_instance_type parameter, the placement parameter is set to cluster, and the compute_subnet_id parameter isn't specified. With this configuration, the value of the master_subnet_id parameter is used for the compute nodes. 
+https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 
 
