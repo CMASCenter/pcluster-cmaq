@@ -19,7 +19,7 @@
 # ===================================================================
 
 echo 'Start Model Run At ' `date`
-lscpus
+lscpu
 
 #> Toggle Diagnostic Mode which will print verbose information to 
 #> standard output

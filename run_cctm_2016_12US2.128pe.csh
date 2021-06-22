@@ -1,9 +1,9 @@
 #!/bin/csh -f
 #SBATCH --nodes=16
-#SBATCH --ntasks-per-node=16
+#SBATCH --ntasks-per-node=8
 #SBATCH -J CMAQ
-#SBATCH -o /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.log
-#SBATCH -e /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.log
+#SBATCH -o /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
+#SBATCH -e /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
 
 
 # ===================== CCTMv5.3.X Run Script ========================= 
@@ -44,7 +44,7 @@ lscpu
  set PROC      = mpi               #> serial or mpi
  set MECH      = cb6r3_ae7_aq      #> Mechanism ID
  set EMIS      = 2016ff            #> Emission Inventory Details
- set APPL      = 2016_CONUS_16x16pe        #> Application Name (e.g. Gridname)
+ set APPL      = 2016_CONUS_16x8pe        #> Application Name (e.g. Gridname)
 
 #> Define RUNID as any combination of parameters above or others. By default,
 #> this information will be collected into this one string, $RUNID, for easy
