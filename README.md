@@ -26,12 +26,13 @@ vi ~/.parallelcluster/config
 ```
 
 ### Configure the cluster
-#### Note, the compute nodes can be modified, but the head node is unchangable.
-#### Note, the settings in the cluster configuration file determine what compute nodes are available
-#### how many compute nodes can be requested using slurm
-#### What network is used, and whether the compute nodes are on the same network
-#### Whether hyperthreading is used or not
-#### What disk is used, ie ebs or fsx
+#### Note, the compute nodes can be updated/changed, but the head node cannot be updated.
+#### The settings in the cluster configuration file determine 
+##### 1) what compute nodes are available
+##### 2) how many compute nodes can be requested using slurm
+##### 3) What network is used, and whether the compute nodes are on the same network
+##### 4) Whether hyperthreading is used or not
+##### 5) What disk is used, ie ebs or fsx  (can't be updated)
 
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
