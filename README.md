@@ -125,12 +125,42 @@ cd /shared/pcluster-cmaq
 ./gcc9_cmaq.csh
 ```
 
+## Copy the input data from a S3 bucket (this bucket is not public and needs credentials)
+## set the aws credentials
 
-## Copy a preinstall script to the S3 bucket
+```
+aws credentials
+```
+
+## Use the script to copy the CONUS input data to the cluster
+
+```
+./s3_copy_need_credentials_conus.csh
+```
+
+## Link the CONUS input directory to your run script area
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data
+ln -s /shared/CONUS .
+```
+
+
+## Copy a preinstall script to the S3 bucket (may be able to install all software and input data on spinup)
+## This example is for the 12km SE domain (not implemented for CONUS domain yet).
 
 ```
 aws s3 cp --acl public-read parallel-cluster-pre-install.sh s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input/
 ```
+
+### Copy the run scripts to the run directory
+
+```
+cd /shared/pcluster-cmaq
+cp run*  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+```
+
 
 #### Once you have logged into the queue you can submit multiple jobs to the slurm job scheduler.
 
