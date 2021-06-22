@@ -28,21 +28,24 @@ vi ~/.parallelcluster/config
 ### Configure the cluster
       
 
-The settings in the cluster configuration file determine 
+The settings in the cluster configuration file allow you to 
    1) specify the head node, and what compute nodes are available (Note, the compute nodes can be updated/changed, but the head node cannot be updated.)
-   2) the maximum number of compute nodes that can be requested using slurm
-   3) What network is used (elastic fabric adapter (efa) - only supported on larger instances https://docs.aws.amazon.com/parallelcluster/latest/ug/efa.html)
-   4) Whether the compute nodes are on the same network (see placement groups and networking https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
-   5) Whether hyperthreading is used or not (can be done using config, much easier than earlier methods: https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
-   6) What disk is used, ie ebs or fsx and the size of /shared disk that is available  (can't be updated) 
+   2) specify the maximum number of compute nodes that can be requested using slurm
+   3) specify the network used (elastic fabric adapter (efa) - only supported on larger instances https://docs.aws.amazon.com/parallelcluster/latest/ug/efa.html)
+   4) specify that the compute nodes are on the same network (see placement groups and networking https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
+   5) specify if hyperthreading is used or not (can be done using config, much easier than earlier methods: https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
+   6) specify the type of disk that is used, ie ebs or fsx and the size of /shared disk that is available  (can't be updated) 
    (Note the /shared disks are persistent as you can't turn them off, they will acrue charges until the cluster is deleted so you need to determine the size and type requirements carefully.)
-  7) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
-  8) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
-  9) Whether the intel compiler is available - need separate config settings and license to get access to intel compiler
+   7) specify availability of the intel compiler - need separate config settings and license to get access to intel compiler
   (Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.)
-  10) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis\
-  11) It is possible to add an ebs volume as a shared directory - this can then be saved and available even after the pcluster is deleted. (?)
-
+   8) specify the name of an existing ebs volume to use as a shared directory  - this can then be saved and available even after the pcluster is deleted. (?) Is this volume shared across the cluster, how do we ensure the file permissions are set correctly for each user?
+   
+   
+  ### Managing the cluster
+  1) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
+  2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
+  3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
+  
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
 ```
