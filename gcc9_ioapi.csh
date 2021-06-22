@@ -26,3 +26,6 @@ set echo
    # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
    cp /shared/pcluster-cmaq/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
    make |& tee make.log
+   cd $BASEDIR/m3tools
+   cp Makefile.nocpl Makefile
+   make HOME=/shared/build
