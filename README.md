@@ -301,6 +301,19 @@ PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 compute*  inact   infinite     10  idle~ compute-dy-c524xlarge-[1-10] 
 ```
 
+#### on a different cluster - running with hyperthreading turned off, on 64 processors, this is the output that shows only 8 compute processors are running, the other 8 that are available (according to setting maximum number of compute nodes in the pcluster configure file.
+
+```
+-rw-rw-r-- 1 centos centos 464516 Jun 22 23:20 CTM_LOG_044.v532_gcc_2016_CONUS_8x8pe_20151222
+[centos@ip-10-0-0-219 scripts]$ squeue -u centos
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
+                10   compute     CMAQ   centos  R      40:37      8 compute-dy-c54xlarge-[1-8] 
+[centos@ip-10-0-0-219 scripts]$ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
+compute*     up   infinite      8  idle~ compute-dy-c54xlarge-[9-16] 
+compute*     up   infinite      8  alloc compute-dy-c54xlarge-[1-8] 
+```
+
 ### verify the stats of the the different compute cluters
 
 ```
