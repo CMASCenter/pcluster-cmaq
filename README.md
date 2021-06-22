@@ -87,13 +87,17 @@ aws s3 cp --acl public-read parallel-cluster-pre-install.sh s3://cmaqv5.3.2-benc
 
 #### Once you have logged into the queue you can submit multiple jobs to the slurm job scheduler.
 
+ ```
 sbatch run_cctm_2016_12US2.64pe.csh
 sbatch run_cctm_2016_12US2.256pe.csh
+```
 
+```
 squeue -u centos
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                 27   compute     CMAQ   centos  R      47:41      2 compute-dy-c59xlarge-[1-2] 
                 28   compute     CMAQ   centos  R      10:58      8 compute-dy-c59xlarge-[3-10] 
+                ```
 
 
 
