@@ -160,7 +160,7 @@ aws credentials
 cd /shared/
 aws s3 cp --recursive s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input .
 tar -xzvf CMAQv5.3.2_Benchmark_2Day_Input.tar.gz
-'''
+```
 
 ## Link the CONUS and 12km SE Domain input benchmark directory to your run script area
 
@@ -199,7 +199,7 @@ squeue -u centos
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                 27   compute     CMAQ   centos  R      47:41      2 compute-dy-c59xlarge-[1-2] 
                 28   compute     CMAQ   centos  R      10:58      8 compute-dy-c59xlarge-[3-10] 
-                ```
+ ```
 
 ## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
 ## may need to put in a sleep command between the two days.
@@ -208,6 +208,17 @@ squeue -u centos
 ### Note this may help with networking on the parallel cluster
 If the head node must be in the placement group, use the same instance type and subnet for both the head as well as all of the compute nodes. By doing this, the compute_instance_type parameter has the same value as the master_instance_type parameter, the placement parameter is set to cluster, and the compute_subnet_id parameter isn't specified. With this configuration, the value of the master_subnet_id parameter is used for the compute nodes. 
 https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
+
+
+### Note you can check the timings while the job is still running using the following command
+
+```
+grep 'Processing completed' CTM_LOG_034.v532_gcc_2016_CONUS_8x12pe_20151222
+```
+
+
+            Processing completed...    8.8 seconds
+            Processing completed...    7.4 seconds
 
 
 
