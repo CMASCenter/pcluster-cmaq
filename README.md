@@ -6,7 +6,7 @@
 
 git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 
-## To configure the cluster start a virtual environment and install aws-parallelcluster
+## To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
 
 python3 -m virtualenv ~/apc-ve
 source ~/apc-ve/bin/activate
@@ -24,7 +24,7 @@ pcluster configure
 ### Create the cluster
 pcluster create cmaq
 
-### Login to cluster
+### Login to cluster using the permissions file
 pcluster ssh cmaq -i ~/downloads/centos.pem
 
 ### Check status of cluster
@@ -41,6 +41,12 @@ pcluster update -c /Users/lizadams/.parallelcluster/config cmaq
 
 ### To learn more about the pcluster commands
 pcluster --help
+
+### Pcluster User Manual
+https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
+
+### Configuring Pcluster for HPC
+https://jimmielin.me/2019/wrf-gc-aws/
 
 ## Copy a preinstall script to the S3 bucket
 aws s3 cp --acl public-read parallel-cluster-pre-install.sh s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input/
