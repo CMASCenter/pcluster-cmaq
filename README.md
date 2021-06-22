@@ -34,11 +34,13 @@ vi ~/.parallelcluster/config
               4) Whether the compute nodes are on the same network
               5) Whether hyperthreading is used or not
               6) What disk is used, ie ebs or fsx and the size of /shared disk thatis available  (can't be updated) 
-              7) (note disks are persistent (you can't turn them off, so you need to determine the size required carefully.
+              7) Note the /shared disks are persistent as you can't turn them off, they will acrue charges until the cluster is deleted so you need to determine the size requirements carefully.
               8) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
-              9) The slurm queueu system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
+              9) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
               10) If intel compiler is available - need separate config settings to get access to intel compiler
               11) Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.
+              12) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis\
+              13) It is possible to add an ebs volume as a shared directory - this can then be saved and available even after the pcluster is deleted. (?)
 
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
