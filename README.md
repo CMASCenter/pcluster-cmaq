@@ -29,8 +29,8 @@ vi ~/.parallelcluster/config
       Note, the compute nodes can be updated/changed, but the head node cannot be updated.
       The settings in the cluster configuration file determine 
               1) what compute nodes are available
-              2) how many compute nodes can be requested using slurm
-              3) What network is used, and whether the compute nodes are on the same network
+              2) the maximum number of compute nodes that can be requested using slurm
+              3) What network is used (elastic fabric adapter (efa)), and whether the compute nodes are on the same network
               4) Whether hyperthreading is used or not
               5) What disk is used, ie ebs or fsx  (can't be updated) 
               6) (note disks are persistent (you can't turn them off, so you need to determine the size required carefully.
