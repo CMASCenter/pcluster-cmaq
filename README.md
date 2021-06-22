@@ -30,14 +30,15 @@ vi ~/.parallelcluster/config
       The settings in the cluster configuration file determine 
               1) what compute nodes are available
               2) the maximum number of compute nodes that can be requested using slurm
-              3) What network is used (elastic fabric adapter (efa)), and whether the compute nodes are on the same network
-              4) Whether hyperthreading is used or not
-              5) What disk is used, ie ebs or fsx and the size of /shared disk thatis available  (can't be updated) 
-              6) (note disks are persistent (you can't turn them off, so you need to determine the size required carefully.
-              7) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
-              8) The slurm queueu system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
-              9) If intel compiler is available - need separate config settings to get access to intel compiler
-              10) Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.
+              3) What network is used (elastic fabric adapter (efa))
+              4) Whether the compute nodes are on the same network
+              5) Whether hyperthreading is used or not
+              6) What disk is used, ie ebs or fsx and the size of /shared disk thatis available  (can't be updated) 
+              7) (note disks are persistent (you can't turn them off, so you need to determine the size required carefully.
+              8) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
+              9) The slurm queueu system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
+              10) If intel compiler is available - need separate config settings to get access to intel compiler
+              11) Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.
 
 ```
 pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
