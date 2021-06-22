@@ -299,8 +299,14 @@ compute*  inact   infinite     10  idle~ compute-dy-c524xlarge-[1-10]
 ```
 
 ### verify the stats of the c5.24xlarge
+
+```
 Model            vCPU 	Memory (GiB) Instance Storage (GiB) Network Bandwidth (Gbps) EBS Bandwidth (Mbps)
 c5.24xlarge 	96 	       192 	  EBS-Only 	                   25 	19,000
+```
+
+### Note, -this may not be the instance that was used for benchmarking, it look like my log files specified c5.9xlarge
+### Need to add the sinfo command to the run script, so we know what configuration of the cluster each slurm job is being run on.
 
 ### List mounted volumes. A few volumes are shared by the head-node and will be mounted on compute instances when they boot up. Both /shared and /home are accessible by all nodes.
 
@@ -312,3 +318,32 @@ Export list for localhost:
 /shared    10.0.0.0/16
 
 
+### To determine if the cluster has hyperthreading turned off use lscpu and look at 'Thread(s) per core:'. 
+
+```
+lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              8
+On-line CPU(s) list: 0-7
+Thread(s) per core:  1                < ---- this means that hyperthreading is off
+Core(s) per socket:  8
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+Stepping:            7
+CPU MHz:             3605.996
+BogoMIPS:            5999.99
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            36608K
+NUMA node0 CPU(s):   0-7
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
+```
