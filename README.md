@@ -432,6 +432,22 @@ https://github.com/lizadams/pcluster-cmaq/blob/main/config-c5.4xlarge-nohyperthr
 https://aws.amazon.com/blogs/storage/building-an-hpc-cluster-with-aws-parallelcluster-and-amazon-fsx-for-lustre/
 https://github.com/lizadams/pcluster-cmaq/blob/main/config-lustre
 
+### Note, I tried creating an EBS volume and then attaching it to the pcluster using the following settings
+### it didn't work - need to retry this, as it would allow us to store the libraries and cmaq on an ebs volume rather than rebuilding each time
+
+[cluster default]
+ebs_settings = ebs,input,apps
+
+[ebs apps]
+shared_dir = /shared
+ebs_volume_id = vol-0ef9a574ac8e5acbb
+Name Volume ID      Size    Volume Type IOPS Throughput (MB/s) Snapshot Created Availability Zone State Alarm Status Attachment Information Monitoring Volume Status
+vol-0ef9a574ac8e5acbb 500 GiB   io1 3000 - snap-0f7bf48b384bbc975 June 21, 2021 at 3:33:24 PM UTC-4 us-east-1a  available       None
+	
+
+
+
+
 ### Additional Benchmarking resource
 https://github.com/aws/aws-parallelcluster/issues/1436
 
