@@ -602,6 +602,16 @@ supports-register-dump: no
 supports-priv-flags: no
 ```
 
+### Trying a cluster configured with c5ad.24xlarge (AMD processor) 96 vcpu with hyperthreading is 48 cpu
+
+```
+running run_cctm_2016_12US2.96pe.csh
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=48
+   @ NPCOL  =  8; @ NPROW = 12
+   ```
+
+
 ### You can login to the compute nodes by going to the AWS console, and looking for the instances named compute
 ### Get the private IP address, and then use ssh from the head node to login to the private IP
 ssh IP address
