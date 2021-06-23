@@ -476,3 +476,10 @@ c6g.16xlarge 	64 	128 	EBS-Only 	25 	19000
 ```
 c6gd.4xlarge 	16 	32 	1 x 950 NVMe SSD 	Up to 10 	4,750
 
+
+### Need to price out the different storage options
+```
+EBS, iot, gp2, lustre, etc
+```
+
+### Another question is would we have had even higher performance using lustre and turning off hyperthreading
