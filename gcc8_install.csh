@@ -48,7 +48,7 @@
 #   ended up using:
  ./configure --disable-netcdf-4 --disable-shared --disable-dap --prefix=$DIR/netcdf
    make >& make.netcdf4c.log
-   sudo make install
+   make install
 #  ---------------------------------
 #  Download and build netCDF-Fortran
 #  ---------------------------------
@@ -67,7 +67,7 @@
 #edited .cshrc to add path to /usr/local/lib where netcdf-c was installed`
 
    make >& make.netcdf.log
-   sudo make install
+   make install
 
 # Test install
 cd /shared/build/netcdf/bin
