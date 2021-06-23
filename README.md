@@ -488,3 +488,116 @@ EBS, iot, gp2, lustre, etc
 ```
 
 ### Another question is would we have had even higher performance using lustre and turning off hyperthreading
+
+### To use cloudwatch to report cpu usage for the cluster
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/US_SingleMetricPerInstance.html
+
+```
+aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name CPUUtilization  --period 3600 \
+--statistics Maximum --dimensions Name=InstanceId,Value=i-0dd4225d087abeb38 \
+--start-time 2021-06-22T00:00:00 --end-time 2021-06-22T21:05:25
+
+Each value represents the maximum CPU utilization percentage for a single EC2 instance. 
+So, this must be for the head nodes, not the compute nodes.
+{
+    "Label": "CPUUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2021-06-22T20:00:00Z",
+            "Maximum": 10.61,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2021-06-22T17:00:00Z",
+            "Maximum": 25.633760562676045,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2021-06-22T15:00:00Z",
+            "Maximum": 5.451666666666666,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2021-06-22T21:00:00Z",
+            "Maximum": 9.736666666666666,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2021-06-22T19:00:00Z",
+            "Maximum": 9.003333333333334,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2021-06-22T18:00:00Z",
+            "Maximum": 32.20446325894569,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2021-06-22T16:00:00Z",
+            "Maximum": 25.642905951567474,
+            "Unit": "Percent"
+        }
+    ]
+}
+```
+
+### Another resource
+
+```
+https://jiaweizhuang.github.io/blog/aws-hpc-guide/
+```
+
+Some of these tips don't work on the pcluster
+ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
+compute*     up   infinite     16  idle~ compute-dy-c54xlarge-[1-16] 
+
+
+### I don't see an ip address, only a name for the compute cluster, and I can't connect to it.
+
+```
+ssh compute-dy-c54xlarge-1
+ssh: connect to host compute-dy-c54xlarge-1 port 22: Connection refused
+```
+
+### ifconfig
+
+```
+ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 10.0.0.219  netmask 255.255.255.0  broadcast 10.0.0.255
+        inet6 fe80::b4:baff:fee9:331f  prefixlen 64  scopeid 0x20<link>
+        ether 02:b4:ba:e9:33:1f  txqueuelen 1000  (Ethernet)
+        RX packets 239726465  bytes 508716629442 (473.7 GiB)
+        RX errors 0  dropped 46  overruns 0  frame 0
+        TX packets 403287013  bytes 1900350587702 (1.7 TiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 42601  bytes 12642178 (12.0 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 42601  bytes 12642178 (12.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+ ```
+        
+###   network information  
+
+```
+        ethtool -i eth0
+driver: ena
+version: 2.1.0K
+firmware-version: 
+expansion-rom-version: 
+bus-info: 0000:00:05.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: no
+```
+
+
