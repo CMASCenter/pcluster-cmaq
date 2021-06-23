@@ -303,7 +303,7 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 ### Note you can check the timings while the job is still running using the following command
 
 ```
-grep 'Processing completed' CTM_LOG_034.v532_gcc_2016_CONUS_8x12pe_20151222
+grep 'Processing completed' CTM_LOG_001*
 ```
 
 
