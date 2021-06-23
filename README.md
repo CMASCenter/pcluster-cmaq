@@ -476,3 +476,21 @@ shared_dir = /shared
 volume_type = st1
 volume_size = 2500
 ```
+
+### Additional Benchmarking resource
+https://github.com/aws/aws-parallelcluster/issues/1436
+
+### The next thing to try is Graviton as a compute instance
+
+```
+Amazon EC2 C6g instances are powered by Arm-based AWS Graviton2 processors. They deliver up to 40% better price performance over current generation C5 instances for compute-intensive applications.
+https://aws.amazon.com/ec2/instance-types/#instance-details
+
+Instance Size 	vCPU 	Memory (GiB) 	Instance Storage (GiB) 	Network Bandwidth (Gbps) 	EBS Bandwidth (Mbps)
+c6g.4xlarge 	16 	32 	EBS-Only 	Up to 10 	4750
+c6g.8xlarge 	32 	64 	EBS-Only 	12 	9000
+c6g.12xlarge 	48 	96 	EBS-Only 	20 	13500
+c6g.16xlarge 	64 	128 	EBS-Only 	25 	19000
+```
+c6gd.4xlarge 	16 	32 	1 x 950 NVMe SSD 	Up to 10 	4,750
+
