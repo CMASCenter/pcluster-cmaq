@@ -165,7 +165,7 @@ cd /shared/pcluster-cmaq
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
 
 ```
-./gcc9_install.csh
+./gcc8_install.csh
 ```
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
@@ -178,13 +178,13 @@ env
 ### Buiild I/O API library
 
 ```
-./gcc9_ioapi.csh
+./gcc8_ioapi.csh
 ```
 
 ### Build CMAQ
 
 ```
-./gcc9_cmaq.csh
+./gcc8_cmaq.csh
 ```
 
 ## Copy the input data from a S3 bucket (this bucket is not public and needs credentials)
