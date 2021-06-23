@@ -449,6 +449,11 @@ shared_dir = /shared
 ebs_volume_id = vol-0ef9a574ac8e5acbb
 ```
 
+### Tried using parallel-io build of CMAQ, rebuilding the libraries to use pnetcdf and adding MPI: to the input files
+### Did this on the lustre cluster and obtained the following error.
+
+
+
 ### Looking at the volumes on EC2, I can see that it is available, perhaps there is a conflict with the name /shared
 ### I was also trying to copy the software from an S3 Bucket, and it didn't work.  It couldn't find the executable, when the job was submitted.
 ### It may have been a permissions issue, or perhaps the volume wasn't shared?
