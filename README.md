@@ -376,12 +376,14 @@ c5.24xlarge 	96 	       192 	  EBS-Only 	                   25 	19,000
 ### We need to add the sinfo command to the run script, so we know what configuration of the cluster each slurm job is being run on.
 ### List mounted volumes. A few volumes are shared by the head-node and will be mounted on compute instances when they boot up. Both /shared and /home are accessible by all nodes.
 
+```
 showmount -e localhost
 Export list for localhost:
 /opt/slurm 10.0.0.0/16
 /opt/intel 10.0.0.0/16
 /home      10.0.0.0/16
 /shared    10.0.0.0/16
+```
 
 
 ### To determine if the cluster has hyperthreading turned off use lscpu and look at 'Thread(s) per core:'. 
@@ -438,17 +440,23 @@ https://github.com/lizadams/pcluster-cmaq/blob/main/config-lustre
 ### Note, I tried creating an EBS volume and then attaching it to the pcluster using the following settings
 ### it didn't work - need to retry this, as it would allow us to store the libraries and cmaq on an ebs volume rather than rebuilding each time
 
+```
 [cluster default]
 ebs_settings = ebs,input,apps
 
 [ebs apps]
 shared_dir = /shared
 ebs_volume_id = vol-0ef9a574ac8e5acbb
+```
+
+### Looking at the volumes on EC2, I can see that it is available, perhaps there is a conflict with the name /shared
+### I was also trying to copy the software from an S3 Bucket, and it didn't work.  It couldn't find the executable, when the job was submitted.
+### It may have been a permissions issue, or perhaps the volume wasn't shared?
+
+```
 Name Volume ID      Size    Volume Type IOPS Throughput (MB/s) Snapshot Created Availability Zone State Alarm Status Attachment Information Monitoring Volume Status
 vol-0ef9a574ac8e5acbb 500 GiB   io1 3000 - snap-0f7bf48b384bbc975 June 21, 2021 at 3:33:24 PM UTC-4 us-east-1a  available       None
-	
-
-
+```
 
 
 ### Additional Benchmarking resource
