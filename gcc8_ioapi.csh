@@ -16,6 +16,7 @@ set echo
    cd /shared/build
    git clone https://github.com/cjcoats/ioapi-3.2
    cd ioapi-3.2
+   git checkout -b 20200828
    setenv BASEDIR /shared/build/ioapi-3.2
    setenv BIN Linux2_x86_64gfort
    mkdir $BIN
