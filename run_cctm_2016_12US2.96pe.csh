@@ -1,6 +1,6 @@
 #!/bin/csh -f
-#SBATCH --nodes=6
-#SBATCH --ntasks-per-node=16
+#SBATCH --nodes=12
+#SBATCH --ntasks-per-node=8
 #SBATCH -J CMAQ
 #SBATCH -o /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.8x12pe.2day.log
 #SBATCH -e /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.8x12pe.2day.log
@@ -19,7 +19,12 @@
 # ===================================================================
 
 echo 'Start Model Run At ' `date`
+echo 'information about processor including whether using hyperthreading'
 lscpu
+echo 'information about cluster'
+sinfo
+echo 'information about filesystem'
+df -h
 
 #> Toggle Diagnostic Mode which will print verbose information to 
 #> standard output
@@ -701,6 +706,7 @@ while ($TODAYJ <= $STOP_DAY )  #>Compare dates in terms of YYYYJJJ
   # set MPI = /usr/local/intel/impi/3.2.2.006/bin64
   # set MPIRUN = $MPI/mpirun
   ( /usr/bin/time -p mpirun -np $NPROCS $BLD/$EXEC ) |& tee buff_${EXECUTION_ID}.txt
+  sleep 100
 
   #> Harvest Timing Output so that it may be reported below
   set rtarray = "${rtarray} `tail -3 buff_${EXECUTION_ID}.txt | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | head -1` "
