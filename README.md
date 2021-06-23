@@ -602,4 +602,84 @@ supports-register-dump: no
 supports-priv-flags: no
 ```
 
+### You can login to the compute nodes by going to the AWS console, and looking for the instances named compute
+### Get the private IP address, and then use ssh from the head node to login to the private IP
+ssh IP address
+
+Using top, I can see 49 running tasks
+top - 22:02:36 up 23 min,  1 user,  load average: 48.27, 44.83, 27.73
+Tasks: 675 total,  49 running, 626 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 84.5 us, 14.8 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.7 hi,  0.0 si,  0.0 st
+MiB Mem : 191136.2 total, 132638.8 free,  50187.9 used,   8309.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 139383.6 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                           
+   7958 centos    20   0 1877772   1.0g  18016 R  99.7   0.5  11:12.78 CCTM_v532.exe                     
+   7963 centos    20   0 1914288   1.0g  18004 R  99.7   0.5  11:12.90 CCTM_v532.exe                     
+   7964 centos    20   0 1849700 997116  17908 R  99.7   0.5  11:12.04 CCTM_v532.exe                     
+   7965 centos    20   0 1971236   1.1g  18028 R  99.7   0.6  11:10.30 CCTM_v532.exe                     
+   7970 centos    20   0 2043228   1.1g  18048 R  99.7   0.6  11:11.22 CCTM_v532.exe                     
+   7980 centos    20   0 1896544   1.0g  18088 R  99.7   0.5  11:12.57 CCTM_v532.exe                     
+   8007 centos    20   0 1859792 987.4m  18120 R  99.7   0.5  11:09.91 CCTM_v532.exe                     
+   8011 centos    20   0 1908064   1.0g  18240 R  99.7   0.5  11:09.21 CCTM_v532.exe                     
+   8052 centos    20   0 1902952   1.0g  17944 R  99.7   0.5  11:10.44 CCTM_v532.exe                     
+   7956 centos    20   0 1840280 996668  17828 R  99.3   0.5  11:12.00 CCTM_v532.exe                     
+   7957 centos    20   0 1957164   1.1g  17780 R  99.3   0.6  11:10.21 CCTM_v532.exe                     
+   7959 centos    20   0 1928932   1.0g  17892 R  99.3   0.6  11:10.52 CCTM_v532.exe                     
+   7960 centos    20   0 1888204   1.0g  17972 R  99.3   0.5  11:10.70 CCTM_v532.exe                     
+   7961 centos    20   0 1954500   1.1g  18032 R  99.3   0.6  11:10.35 CCTM_v532.exe                     
+   7962 centos    20   0 1926924   1.0g  17868 R  99.3   0.5  11:13.01 CCTM_v532.exe                     
+   7972 centos    20   0 1960388   1.1g  17992 R  99.3   0.6  11:10.29 CCTM_v532.exe                     
+   7974 centos    20   0 1919348   1.0g  18052 R  99.3   0.5  11:12.88 CCTM_v532.exe                     
+   7983 centos    20   0 1825104 974220  18184 R  99.3   0.5  11:11.58 CCTM_v532.exe                     
+   7995 centos    20   0 1969536   1.1g  18032 R  99.3   0.6  11:10.56 CCTM_v532.exe                     
+   8013 centos    20   0 1819860 970136  18196 R  99.3   0.5  11:12.34 CCTM_v532.exe                     
+   8014 centos    20   0 1809228 961672  17744 R  99.3   0.5  11:11.85 CCTM_v532.exe                     
+   8017 centos    20   0 1970864   1.1g  18008 R  99.3   0.6  11:09.37 CCTM_v532.exe                     
+   8021 centos    20   0 1923016   1.0g  18068 R  99.3   0.5  11:09.78 CCTM_v532.exe                     
+   8024 centos    20   0 1919768   1.0g  18076 R  99.3   0.5  11:11.29 CCTM_v532.exe                     
+   8028 centos    20   0 1908988   1.0g  17992 R  99.3   0.5  11:10.51 CCTM_v532.exe                     
+   8031 centos    20   0 1975896   1.1g  17920 R  99.3   0.6  11:08.06 CCTM_v532.exe                     
+   8035 centos    20   0 1890020   1.0g  17888 R  99.3   0.5  11:08.24 CCTM_v532.exe                     
+   8038 centos    20   0 1958252   1.1g  18488 R  99.3   0.6  11:09.83 CCTM_v532.exe                     
+   8041 centos    20   0 1915840   1.0g  17916 R  99.3   0.5  11:09.67 CCTM_v532.exe                     
+   8043 centos    20   0 1830916 980432  17900 R  99.3   0.5  11:08.43 CCTM_v532.exe                     
+   8047 centos    20   0 2231128   1.3g  17964 R  99.3   0.7  11:08.91 CCTM_v532.exe                     
+   8049 centos    20   0 1907696   1.0g  18280 R  99.3   0.5  11:10.44 CCTM_v532.exe                     
+   8055 centos    20   0 2168272   1.3g  17860 R  99.3   0.7  11:10.73 CCTM_v532.exe                     
+   8058 centos    20   0 1789948 936684  17784 R  99.3   0.5  11:09.20 CCTM_v532.exe   
+     8064 centos    20   0 1810356 962336  17800 R  99.3   0.5  11:09.56 CCTM_v532.exe                     
+   8066 centos    20   0 1820544 975396  17612 R  99.3   0.5  11:09.33 CCTM_v532.exe                     
+   8069 centos    20   0 1871124   1.0g  18200 R  99.3   0.5  11:09.92 CCTM_v532.exe                     
+   8074 centos    20   0 1848644 998840  18048 R  99.3   0.5  11:09.81 CCTM_v532.exe                     
+   8078 centos    20   0 1924400   1.0g  18292 R  99.3   0.5  11:09.51 CCTM_v532.exe                     
+   8083 centos    20   0 1899244   1.0g  18096 R  99.3   0.5  11:09.10 CCTM_v532.exe                     
+   8086 centos    20   0 1806572 952816  17780 R  99.3   0.5  11:09.64 CCTM_v532.exe                     
+   7986 centos    20   0 1955908   1.1g  18184 R  99.0   0.6  11:09.66 CCTM_v532.exe     
+
+[centos@compute-dy-c5ad24xlarge-2 ~]$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              48
+On-line CPU(s) list: 0-47
+Thread(s) per core:  1
+Core(s) per socket:  48
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           AuthenticAMD
+CPU family:          23
+Model:               49
+Model name:          AMD EPYC 7R32
+Stepping:            0
+CPU MHz:             3296.186
+BogoMIPS:            5599.69
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            512K
+L3 cache:            16384K
+NUMA node0 CPU(s):   0-47
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr wbnoinvd arat npt nrip_save rdpid
 
