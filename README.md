@@ -429,6 +429,7 @@ https://github.com/lizadams/pcluster-cmaq/blob/main/config-c5.4xlarge-nohyperthr
 
 ### This is the configuration file for the pcluster with the fastest performance using the Lustre Filesystem
 ### It was very oversized - 39 TB, and was very expensive as a result.  Do not use unless you resize it.
+https://aws.amazon.com/blogs/storage/building-an-hpc-cluster-with-aws-parallelcluster-and-amazon-fsx-for-lustre/
 https://github.com/lizadams/pcluster-cmaq/blob/main/config-lustre
 
 ### Additional Benchmarking resource
