@@ -92,11 +92,13 @@ cmaq             UPDATE_COMPLETE  2.10.3
 pcluster status cmaq-c5-4xlarge
 ```
 
+```
 Status: UPDATE_COMPLETE
 MasterServer: RUNNING
 ClusterUser: centos
 MasterPrivateIP: 10.0.0.219
 ComputeFleetStatus: RUNNING
+```
 
 ### This cluster was created using the following command. I am not sure how to report out the config file used to create a pcluster.
 pcluster create cmaq-c5-4xlarge -c /Users/lizadams/.parallelcluster/config-c5.4xlarge
