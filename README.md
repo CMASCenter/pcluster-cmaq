@@ -225,6 +225,8 @@ du -sh
 ```
 
 ### This cluster is configured to have 2 Terrabytes of shared space, to allow multiple output runs to be stored.
+
+```
  df -h
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs         16G     0   16G   0% /dev
@@ -234,6 +236,7 @@ tmpfs            16G     0   16G   0% /sys/fs/cgroup
 /dev/nvme0n1p1  100G   16G   85G  16% /
 /dev/nvme1n1    2.5T  289G  2.0T  13% /shared
 tmpfs           3.1G  4.0K  3.1G   1% /run/user/1000
+```
 
 ### Currently the /shared directory contains 296 G of data, and is only using 13% of available volume
 
