@@ -28,5 +28,5 @@ set echo
    cp /shared/pcluster-cmaq/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
    make |& tee make.log
    cd $BASEDIR/m3tools
-   cp Makefile.nocpl Makefile
+   cp /shared/pcluster-cmaq/Makefile.fix_ioapi_lib_path Makefile
    make HOME=/shared/build
