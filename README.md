@@ -584,7 +584,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
  ```
         
-###   network information  
+###   network information  - from the above link "This means that "Enhanced Networking" is enabled 13. This should be the default on most modern AMIs, so you shouldn't need to change anything."
 
 ```
         ethtool -i eth0
