@@ -694,3 +694,13 @@ L3 cache:            16384K
 NUMA node0 CPU(s):   0-47
 Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr wbnoinvd arat npt nrip_save rdpid
 ```
+
+### I also submitted a job to run on 90 processors 2x45 (9 x 10)
+This is waiting in the queue - perhaps because I requested spot pricing, and none are available at that price?
+[centos@ip-10-0-0-104 scripts]$ squeue -u centos
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
+                 7   compute     CMAQ   centos PD       0:00      2 (BeginTime) 
+                 5   compute     CMAQ   centos  R      37:21      2 compute-dy-c5ad24xlarge-[1-2] 
+                 
+
+
