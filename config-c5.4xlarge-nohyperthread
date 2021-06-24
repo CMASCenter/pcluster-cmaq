@@ -10,9 +10,11 @@ update_check = true
 sanity_check = true
 
 [cluster default]
+## Need to modify key_name to use your account
 key_name = centos
 scheduler = slurm
-#I don't know how to specify the bid percentage
+#it doesn't look like you can specify the bid percentage
+#under queue section, specify spot to get the spot price
 #spot_bid_percentage = 80
 master_root_volume_size = 100
 compute_root_volume_size = 100
