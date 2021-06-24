@@ -48,4 +48,5 @@ volume_size = 100
 ### Used it after an example
 [fsx myfsx]
 shared_dir = /fsx
-storage_capacity = 39600
+#storage_capacity = 39600
+storage_capacity = 1000
