@@ -196,16 +196,17 @@ env
 aws credentials
 ```
 
-## Use the script to copy the CONUS input data to the cluster, this 
+## Use the script to copy the CONUS input data to the cluster, first change directories to the /fsx directory
 
 ```
-./s3_copy_need_credentials_conus.csh
+cd /fsx
+./shared/pcluster-cmaq/s3_copy_need_credentials_conus.csh
 ```
 
 ## Note, this input data requires 44 GB of disk space
 
 ```
-cd /shared/CONUS
+cd /fsx/CONUS
 [centos@ip-10-0-0-219 CONUS]$ du -sh
 44G	.
 ```
@@ -226,7 +227,7 @@ du -sh
 173G	.
 ```
 
-### This cluster is configured to have 2 Terrabytes of shared space, to allow multiple output runs to be stored.
+### This cluster is configured to have 1.2 Terrabytes of space on lustre fsx filesystem, to allow multiple output runs to be stored.
 
 ```
  df -h
