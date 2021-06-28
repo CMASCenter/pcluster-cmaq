@@ -232,7 +232,7 @@ du -sh
 173G	.
 ```
 
-### This cluster is configured to have 1.2 Terrabytes of space on lustre fsx filesystem, to allow multiple output runs to be stored.
+### This cluster is configured to have 2.5 Terrabytes of space on /shared filesystem, to allow multiple output runs to be stored.
 
 ```
  df -h
