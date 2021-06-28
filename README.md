@@ -634,6 +634,8 @@ running run_cctm_2016_12US2.96pe.csh
 ssh IP address
 
 Using top, I can see 49 running tasks
+
+```
 top - 22:02:36 up 23 min,  1 user,  load average: 48.27, 44.83, 27.73
 Tasks: 675 total,  49 running, 626 sleeping,   0 stopped,   0 zombie
 %Cpu(s): 84.5 us, 14.8 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.7 hi,  0.0 si,  0.0 st
@@ -682,7 +684,8 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used. 139383.6 avail Mem
    8078 centos    20   0 1924400   1.0g  18292 R  99.3   0.5  11:09.51 CCTM_v532.exe                     
    8083 centos    20   0 1899244   1.0g  18096 R  99.3   0.5  11:09.10 CCTM_v532.exe                     
    8086 centos    20   0 1806572 952816  17780 R  99.3   0.5  11:09.64 CCTM_v532.exe                     
-   7986 centos    20   0 1955908   1.1g  18184 R  99.0   0.6  11:09.66 CCTM_v532.exe     
+   7986 centos    20   0 1955908   1.1g  18184 R  99.0   0.6  11:09.66 CCTM_v532.exe   
+```
 
 ```
 [centos@compute-dy-c5ad24xlarge-2 ~]$ lscpu
@@ -714,10 +717,13 @@ Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cm
 
 ### I also submitted a job to run on 90 processors 2x45 (9 x 10)
 This is waiting in the queue - perhaps because I requested spot pricing, and none are available at that price?
+
+```
 [centos@ip-10-0-0-104 scripts]$ squeue -u centos
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                  7   compute     CMAQ   centos PD       0:00      2 (BeginTime) 
                  5   compute     CMAQ   centos  R      37:21      2 compute-dy-c5ad24xlarge-[1-2] 
+```
                  
 
 
