@@ -119,9 +119,15 @@ cp run*.csh /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
 ```
 
 ### Managing the cluster
-  1) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
+  1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
   2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
   3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
+  4) After copying output and log files to the s3 bucket the cluster can be terminated using the following command.
+  5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
+ 
+ ```
+ pcluster delete cmaq.[name]
+ ```
 
 ### Pcluster User Manual
 https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
