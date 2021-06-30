@@ -189,8 +189,26 @@ cd /shared/pcluster-cmaq
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
 
 ```
+ls ~/.cshrc
+```
+
+### If the .cshrc wasn't created use the following command to create it
+
+```
+cp dot.cshrc ~/.cshrc
+```
+
+### Execute the shell to activate it
+
+```
 csh
 env
+```
+
+### Verify that you see the following setting 
+
+```
+LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build/netcdf/lib
 ```
 
 ### Buiild I/O API library
