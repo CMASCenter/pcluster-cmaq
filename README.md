@@ -230,17 +230,16 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 aws credentials
 ```
 
-## Use the script to copy the CONUS input data to the cluster, first change directories to the /fsx directory
+## Use the script to copy the CONUS input data to the /fsx/data volume on the cluster
 
 ```
-cd /fsx
 ./shared/pcluster-cmaq/s3_copy_need_credentials_conus.csh
 ```
 
 ## Note, this input data requires 44 GB of disk space
 
 ```
-cd /fsx/CONUS
+cd /fsx/data/CONUS
 [centos@ip-10-0-0-219 CONUS]$ du -sh
 44G	.
 ```
@@ -248,7 +247,7 @@ cd /fsx/CONUS
 ## For the output data, assuming 2 day CONUS Run, 1 layer, 12 var in the CONC output
 
 ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe
+cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe
 du -sh
 18G	.
 ```
@@ -256,7 +255,7 @@ du -sh
 ### For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
 
 ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
+cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
 du -sh
 173G	.
 ```
@@ -265,17 +264,19 @@ du -sh
 
 ```
  df -h
-Filesystem      Size  Used Avail Use% Mounted on
-devtmpfs         16G     0   16G   0% /dev
-tmpfs            16G     0   16G   0% /dev/shm
-tmpfs            16G   17M   16G   1% /run
-tmpfs            16G     0   16G   0% /sys/fs/cgroup
-/dev/nvme0n1p1  100G   16G   85G  16% /
-/dev/nvme1n1    2.5T  289G  2.0T  13% /shared
-tmpfs           3.1G  4.0K  3.1G   1% /run/user/1000
+Filesystem           Size  Used Avail Use% Mounted on
+devtmpfs             2.3G     0  2.3G   0% /dev
+tmpfs                2.4G     0  2.4G   0% /dev/shm
+tmpfs                2.4G   17M  2.4G   1% /run
+tmpfs                2.4G     0  2.4G   0% /sys/fs/cgroup
+/dev/nvme0n1p1       100G   16G   85G  16% /
+/dev/nvme1n1          20G  1.6G   17G   9% /shared
+10.0.0.186@tcp:/fsx  1.1T   47G  1.1T   5% /fsx
+tmpfs                477M  4.0K  477M   1% /run/user/1000
 ```
 
-### Currently the /shared directory contains  xxG of data, and is only using xx% of available volume
+
+### Currently the /shared directory contains  1.6G of data, and is only using 9% of available volume on /shared
 
 ### For the 12km SE Domain, copy the input data and then untar it, or use the pre-install script in the pcluster configuration file.
 ### Note: it is faster to copy all of the data to an S3 bucket without using tar.gz
@@ -288,20 +289,7 @@ aws s3 cp --recursive s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input .
 tar -xzvf CMAQv5.3.2_Benchmark_2Day_Input.tar.gz
 ```
 
-### For the CONUS Domain, copy the input data
-
-## Link the CONUS and 12km SE Domain input benchmark directory to your run script area
-### Note: A better practice would be to modify the run script to directly specify the volume used to read and write the data.
-
-```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data
-ln -s /fsx/CONUS .
-ln -s /fsx/CMAQv5.3.2_Benchmark_2Day_Input .
-```
-
-
-## Alternatively, a preinstall script can be used to copy data from the S3 bucket (may be able to install all software and input data on spinup)
-## This example is for the 12km SE domain (not implemented for CONUS domain yet).
+## Alternatively, this preinstall script can be used
 
 ```
 aws s3 cp --acl public-read parallel-cluster-pre-install.sh s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input/
@@ -319,6 +307,7 @@ cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 #### Once you have logged into the queue you can submit multiple jobs to the slurm job scheduler.
 
  ```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 sbatch run_cctm_2016_12US2.64pe.csh
 sbatch run_cctm_2016_12US2.256pe.csh
 ```
@@ -354,11 +343,12 @@ grep 'Processing completed' CTM_LOG_001*
 ### Sometimes get an error when shutting down 
  *** FATAL ERROR shutting down Models-3 I/O ***
  Verify again that the same file system is being used to read and write the data to.
+ Be sure that you are reading and writing the output to the same file system, ie to /fsx to avoid this error.
  
 ### run m3diff to compare the output data
 
 ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
+cd /fsx/data/output
 ls */*CONC*
 
 setenv AFILE output_CCTM_v532_gcc_2016_CONUS_16x8pe/CCTM_CONC_v532_gcc_2016_CONUS_16x8pe_20151222.nc
@@ -406,6 +396,12 @@ PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 compute*     up   infinite      8  idle~ compute-dy-c54xlarge-[9-16] 
 compute*     up   infinite      8  alloc compute-dy-c54xlarge-[1-8] 
 ```
+
+### Once you have the software installed on the /shared directory, this volume can be saved as a snapshot and then used in the Parallel Cluster Configuration File to start a new cluster.
+
+See https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf
+
+
 
 ### verify the configuration of the the different EC2 instances that were selected as compute nodes by referring to the AWS online product guides.
 https://aws.amazon.com/ec2/instance-types/c5/
