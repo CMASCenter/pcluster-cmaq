@@ -448,6 +448,21 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
  A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
 ```
 
+### To restart the cluster using the software pre-installed on the /shared volume
+
+```
+Go to the AWS Console
+Select the Master Compute node
+Select the Block Device /dev/sv1b
+Click on that volume ID
+Then save as a snapshot.
+Copy the Snapshot ID and place it in the configuration file.
+Create a new cluster starting the /shared directory from the snapshot.
+
+ pcluster create cmaq-c5n-18xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge-cmaqebs
+ ```
+
+
 ### To learn information about your cluster from the head node use the following commmand:
 https://www.hpcworkshops.com/03-hpc-aws-parallelcluster-workshop/07-logon-pc.html
 
