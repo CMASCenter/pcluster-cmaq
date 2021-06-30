@@ -211,7 +211,7 @@ env
 LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build/netcdf/lib
 ```
 
-### Buiild I/O API library
+### Build I/O API library
 
 ```
 ./gcc8_ioapi.csh
