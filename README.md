@@ -110,7 +110,7 @@ ComputeFleetStatus: RUNNING
 ### This cluster was created using the following command. There isn't a method to report out the config file used to create a pcluster, this enhancement was requested by another user https://github.com/aws/aws-parallelcluster/issues/2700
 
 ```
-pcluster create cmaq-c5n.18xlarge -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge
+pcluster create cmaq-c5n-18xlarge -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge
 ```
 
 ### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
