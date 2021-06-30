@@ -45,7 +45,7 @@ max_count = 16
 [ebs myebs]
 shared_dir = /shared
 volume_type = gp2
-volume_size = 100
+volume_size = 20
 
 [fsx myfsx]
 shared_dir = /fsx
