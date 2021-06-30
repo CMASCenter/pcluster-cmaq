@@ -308,15 +308,15 @@ cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 
  ```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-sbatch run_cctm_2016_12US2.64pe.csh
 sbatch run_cctm_2016_12US2.256pe.csh
 ```
 
 ```
 squeue -u centos
+
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                27   compute     CMAQ   centos  R      47:41      2 compute-dy-c59xlarge-[1-2] 
-                28   compute     CMAQ   centos  R      10:58      8 compute-dy-c59xlarge-[3-10] 
+                 3   compute     CMAQ   centos  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
+
  ```
 
 ## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
@@ -340,10 +340,76 @@ grep 'Processing completed' CTM_LOG_001*
             Processing completed...    7.4 seconds
 
 
+### When the job has completed, use tail to view the timing from the log file.
+
+```
+tail run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.log
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1354.65
+02   2015-12-23   1216.64
+     Total Time = 2571.29
+      Avg. Time = 1285.64
+
+```
+
+### Run another jobs using 128 pes
+
+```
+sbatch run_cctm_2016_12US2.128pe.csh
+```
+
+### When the job has completed, use tail to view the timing from the log file.
+
+tail run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       128
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2221.42
+02   2015-12-23   1951.84
+     Total Time = 4173.26
+      Avg. Time = 2086.63
+
+### Investigate any errors in the CCTM_LOG files
+
+
+
+cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe/LOGS
+
+grep -i error CTM_LOG*
+
+CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     Error opening file at path-name:
+CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     netCDF error number  -51  processing file "BNDY_SENS_1"
+CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     Error closing netCDF file 
+CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     netCDF error number  -33
+CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:      *** FATAL ERROR shutting down Models-3 I/O ***
+
+
+ tail CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223
+     >>> WARNING in subroutine SHUT3 <<<
+     Error closing netCDF file
+     File name:  CTM_CONC_1
+     netCDF error number  -33
+
+
+      *** FATAL ERROR shutting down Models-3 I/O ***
+     The elapsed time for this simulation was    1947.9 seconds.
+
+
+
+
 ### Sometimes get an error when shutting down 
  *** FATAL ERROR shutting down Models-3 I/O ***
  Verify again that the same file system is being used to read and write the data to.
  Be sure that you are reading and writing the output to the same file system, ie to /fsx to avoid this error.
+ Not sure what else may be causing these errors...
  
 ### run m3diff to compare the output data
 
@@ -351,8 +417,8 @@ grep 'Processing completed' CTM_LOG_001*
 cd /fsx/data/output
 ls */*CONC*
 
-setenv AFILE output_CCTM_v532_gcc_2016_CONUS_16x8pe/CCTM_CONC_v532_gcc_2016_CONUS_16x8pe_20151222.nc
-setenv BFILE output_CCTM_v532_gcc_2016_CONUS_8x12pe/CCTM_CONC_v532_gcc_2016_CONUS_8x12pe_20151222.nc
+setenv AFILE output_CCTM_v532_gcc_2016_CONUS_16x16pe/CCTM_CONC_v532_gcc_2016_CONUS_16x16pe_20151222.nc
+setenv BFILE output_CCTM_v532_gcc_2016_CONUS_16x8pe/CCTM_CONC_v532_gcc_2016_CONUS_16x8pe_20151222.nc
 
 m3diff
 
