@@ -39,6 +39,7 @@ compute_type = spot
 
 [compute_resource default]
 instance_type = c5n.18xlarge
+#c5n.18xlarge 	72vcpu 	192Memory(GiB)
 max_count = 16
 
 [ebs myebs]

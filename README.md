@@ -8,6 +8,9 @@
 git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 ```
 
+## Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
+https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf
+
 ## To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
 
 ```
@@ -22,8 +25,10 @@ pcluster version
 ### Edit the configuration file for the cluster
 
 ```
-vi ~/.parallelcluster/config
+vi ~/.parallelcluster/config  ! note, see saved config.[name] files that correspond to specific cluster environments, below.
 ```
+
+Note, there isn't a way to detemine what config.[name] file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
 
 ### Configure the cluster
       
@@ -42,31 +47,31 @@ The settings in the cluster configuration file allow you to
    
   
 ```
-pcluster configure pcluster -c /Users/lizadams/.parallelcluster/config
+pcluster configure pcluster_name -c /Users/lizadams/.parallelcluster/config
 ```
 
 ### Create the cluster
 
 ```
-pcluster create cmaq
+pcluster create pcluster_name
 ```
 
 ### Stop cluster
 
 ```
-pcluster stop cmaq
+pcluster stop pcluster_name
 ```
 
 ### Start cluster
 
 ```
-pcluster start cmaq
+pcluster start pcluster_name
 ```
 
 ### Update the cluster
 
 ```
-pcluster update -c /Users/lizadams/.parallelcluster/config cmaq
+pcluster update -c /Users/lizadams/.parallelcluster/config pcluster_name
 ```
 
 ### To learn more about the pcluster commands
@@ -76,6 +81,8 @@ pcluster --help
 ```
 
 ### List the available clusters
+Note - the list of cluster names appear on the left, 
+adopted a standard of creating the pcluster_name to clearly identify the compute node: cmaq-[compute_node]
 
 ```
 pcluster list
@@ -100,12 +107,15 @@ MasterPrivateIP: 10.0.0.219
 ComputeFleetStatus: RUNNING
 ```
 
-### This cluster was created using the following command. I am not sure how to report out the config file used to create a pcluster.
+### This cluster was created using the following command. There isn't a method to report out the config file used to create a pcluster, this enhancement was requested by another user https://github.com/aws/aws-parallelcluster/issues/2700
+
+```
 pcluster create cmaq-c5-4xlarge -c /Users/lizadams/.parallelcluster/config-c5.4xlarge
+```
 
 ### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
-We need a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
-We need to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory.
+Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
+It is also important to know what volume was used to read and write the input and output data, so it is recommended to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory for each benchmark.
 
 ```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
@@ -114,14 +124,20 @@ cp run*.csh /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
 ```
 
 ### Managing the cluster
-  1) You can turn off the head node after stopping the cluster, as long as you restart it before restaring the cluster
+  1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
   2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
   3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
+  4) After copying output and log files to the s3 bucket the cluster can be terminated using the following command.
+  5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
+ 
+ ```
+ pcluster delete cmaq.[name]
+ ```
 
 ### Pcluster User Manual
 https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
 
-### Configuring Pcluster for HPC
+### Configuring Pcluster for HPC - example tutorial
 https://jimmielin.me/2019/wrf-gc-aws/
 
 ### Login to cluster using the permissions file
@@ -130,13 +146,13 @@ https://jimmielin.me/2019/wrf-gc-aws/
 pcluster ssh cmaq -i ~/downloads/centos.pem
 ```
 
-### Once you are on the cluster change from default bash shell to csh
+### After logging into the head node of the parallel cluster, change from default bash shell to csh
 
 ```
 csh
 ```
 
-### Check what modules are available
+### Check what modules are available on the head node
 
 ```
 module avail
@@ -158,7 +174,7 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-### Change directories to Install and build the libraries and CMAQ
+### Change directories to install and build the libraries and CMAQ
 
 ```
 cd /shared/pcluster-cmaq
@@ -196,16 +212,17 @@ env
 aws credentials
 ```
 
-## Use the script to copy the CONUS input data to the cluster, this 
+## Use the script to copy the CONUS input data to the cluster, first change directories to the /fsx directory
 
 ```
-./s3_copy_need_credentials_conus.csh
+cd /fsx
+./shared/pcluster-cmaq/s3_copy_need_credentials_conus.csh
 ```
 
 ## Note, this input data requires 44 GB of disk space
 
 ```
-cd /shared/CONUS
+cd /fsx/CONUS
 [centos@ip-10-0-0-219 CONUS]$ du -sh
 44G	.
 ```
@@ -226,7 +243,7 @@ du -sh
 173G	.
 ```
 
-### This cluster is configured to have 2 Terrabytes of shared space, to allow multiple output runs to be stored.
+### This cluster is configured to have 2.5 Terrabytes of space on /shared filesystem, to allow multiple output runs to be stored.
 
 ```
  df -h
@@ -260,7 +277,7 @@ ln -s /shared/CMAQv5.3.2_Benchmark_2Day_Input .
 ```
 
 
-## Copy a preinstall script to the S3 bucket (may be able to install all software and input data on spinup)
+## Alternatively, a preinstall script can be used to copy data from the S3 bucket (may be able to install all software and input data on spinup)
 ## This example is for the 12km SE domain (not implemented for CONUS domain yet).
 
 ```
@@ -292,15 +309,15 @@ squeue -u centos
 
 ## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
 
-1. Need to put in a sleep command between the two days.
-2. Temporary fix is to restart the second day.
+1. This results when you use a different file system for the input and output data.
+2. Verify that the script specifies the INPUT and OUTPUT Directory are both using the /fsx file system to read the input and write the output.
 
 ### Note this may help with networking on the parallel cluster
 If the head node must be in the placement group, use the same instance type and subnet for both the head as well as all of the compute nodes. By doing this, the compute_instance_type parameter has the same value as the master_instance_type parameter, the placement parameter is set to cluster, and the compute_subnet_id parameter isn't specified. With this configuration, the value of the master_subnet_id parameter is used for the compute nodes. 
 https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 
-### Note you can check the timings while the job is still running using the following command
+### Note - check the timings while the job is still running using the following command
 
 ```
 grep 'Processing completed' CTM_LOG_001*
@@ -313,6 +330,7 @@ grep 'Processing completed' CTM_LOG_001*
 
 ### Sometimes get an error when shutting down 
  *** FATAL ERROR shutting down Models-3 I/O ***
+ Verify again that the same file system is being used to read and write the data to.
  
 ### run m3diff to compare the output data
 
@@ -328,7 +346,7 @@ m3diff
 grep A:B REPORT
 ```
 
-should see all zeros but we don't.
+Should see all zeros. There are some non-zero values. TO DO: need to investigate to determine if this is sensitive to the compiler version.
 
 ```
 [centos@ip-10-0-0-219 output]$ grep A:B REPORT
@@ -344,7 +362,7 @@ should see all zeros but we don't.
  A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
 ```
 
-### information about your cluster
+### To learn information about your cluster from the head node use the following commmand:
 https://www.hpcworkshops.com/03-hpc-aws-parallelcluster-workshop/07-logon-pc.html
 
 ```
@@ -353,7 +371,7 @@ PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 compute*  inact   infinite     10  idle~ compute-dy-c524xlarge-[1-10] 
 ```
 
-#### on a different cluster - running with hyperthreading turned off, on 64 processors, this is the output that shows only 8 compute processors are running, the other 8 that are available (according to setting maximum number of compute nodes in the pcluster configure file.
+#### on a different cluster - running with hyperthreading turned off, on 64 processors, this is the output that shows only 8 nodes are running, the other 8 that are available (according to setting maximum number of compute nodes in the pcluster configure file) are idle. C5.4xlarge has 16 vcpu, and 8 cpus with hyperthreading turned off.
 
 ```
 -rw-rw-r-- 1 centos centos 464516 Jun 22 23:20 CTM_LOG_044.v532_gcc_2016_CONUS_8x8pe_20151222
@@ -366,17 +384,21 @@ compute*     up   infinite      8  idle~ compute-dy-c54xlarge-[9-16]
 compute*     up   infinite      8  alloc compute-dy-c54xlarge-[1-8] 
 ```
 
-### verify the stats of the the different compute cluters
+### verify the configuration of the the different EC2 instances that were selected as compute nodes by referring to the AWS online product guides.
+https://aws.amazon.com/ec2/instance-types/c5/
 
 ```
 Model            vCPU 	Memory (GiB) Instance Storage (GiB) Network Bandwidth (Gbps) EBS Bandwidth (Mbps)
 c5.4xlarge 	     16 	        32 	  EBS-Only 	             Up to 10 	4,750
 c5.24xlarge 	96 	       192 	  EBS-Only 	                   25 	19,000
+c5n.18xlarge 	72 	       192 	  EBS-Only 	                  100 	19,000
 ```
 
-### Note, -this may not be the instance that was used for benchmarking, it look like my log files specified c5.9xlarge.  This is a risk of being able to update the compute nodes, you need to keep track of what the compute nodes are when you do the runs.
-### We need to add the sinfo command to the run script, so we know what configuration of the cluster each slurm job is being run on.
-### List mounted volumes. A few volumes are shared by the head-node and will be mounted on compute instances when they boot up. Both /shared and /home are accessible by all nodes.
+### Note, -this may not be the instance that was used for benchmarking, it looks like the log files specified c5.9xlarge.  
+This is a risk of being able to update the compute nodes, the user must keep track of the identify of the compute nodes while doing the run..
+### add the sinfo command to the run script, to save the configuration information about the cluster when each slurm job is being run on.
+### difficulty is the sinfo command only works on the head nodes, the compute nodes are running the run script, will need to figure out another option.
+### List mounted volumes. A few volumes are shared by the head-node and will be mounted on compute instances when they boot up. Both /shared and /home are accessible by all nodes.  When the parallel cluster is configured to use the lustre file system, the results will be different.
 
 ```
 showmount -e localhost
@@ -430,7 +452,7 @@ aws s3 sync s3://t2large-head-c524xlarge-compute-pcluster-conus-output s3://t2la
  aws s3 rb --force s3://t2large-head-c524xlarge-compute-pcluster-conus-output
 ```
 
-### This is the configuration file that gave the fastest runtimes for the CONUS domain using EBS storage
+### This is the configuration file that gave the fastest runtimes for the CONUS domain using EBS storage, scalability was poor.
 ### Note, it uses spot pricing, rather than on demand pricing
 https://github.com/lizadams/pcluster-cmaq/blob/main/config-c5.4xlarge-nohyperthread
 
@@ -439,7 +461,14 @@ https://github.com/lizadams/pcluster-cmaq/blob/main/config-c5.4xlarge-nohyperthr
 https://aws.amazon.com/blogs/storage/building-an-hpc-cluster-with-aws-parallelcluster-and-amazon-fsx-for-lustre/
 https://github.com/lizadams/pcluster-cmaq/blob/main/config-lustre
 
-### Note, I tried creating an EBS volume and then attaching it to the pcluster using the following settings
+### This is the configuration for the pcluster with lustre filesystem and EFA Enabled and turning off hyperthreading, that showed scaling to 288 processors using the c5n.18xlarge compute ndoes.
+https://github.com/lizadams/pcluster-cmaq/blob/main/config-C5n.18xlarge
+
+
+
+### Additional work that was not successfull
+
+### Note, made an attempt to create an EBS volume and then attach it to the pcluster using the following settings
 ### it didn't work - need to retry this, as it would allow us to store the libraries and cmaq on an ebs volume rather than rebuilding each time
 
 ```
@@ -457,7 +486,7 @@ ebs_volume_id = vol-0ef9a574ac8e5acbb
 
 
 ### Looking at the volumes on EC2, I can see that it is available, perhaps there is a conflict with the name /shared
-### I was also trying to copy the software from an S3 Bucket, and it didn't work.  It couldn't find the executable, when the job was submitted.
+### Also trying to copy the software from an S3 Bucket, and it didn't work.  It couldn't find the executable, when the job was submitted.
 ### It may have been a permissions issue, or perhaps the volume wasn't shared?
 
 ```
@@ -469,7 +498,7 @@ vol-0ef9a574ac8e5acbb 500 GiB   io1 3000 - snap-0f7bf48b384bbc975 June 21, 2021 
 ### Additional Benchmarking resource
 https://github.com/aws/aws-parallelcluster/issues/1436
 
-### The next thing to try is Graviton as a compute instance
+### The next thing to try is Graviton as a compute instance with the EFA enabled c6g.16xlarge compute nodes.
 
 ```
 Amazon EC2 C6g instances are powered by Arm-based AWS Graviton2 processors. They deliver up to 40% better price performance over current generation C5 instances for compute-intensive applications.
@@ -489,9 +518,8 @@ c6gd.4xlarge 	16 	32 	1 x 950 NVMe SSD 	Up to 10 	4,750
 EBS, iot, gp2, lustre, etc
 ```
 
-### Another question is would we have had even higher performance using lustre and turning off hyperthreading
 
-### To use cloudwatch to report cpu usage for the cluster
+### To use cloudwatch command line to report cpu usage for the cluster
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/US_SingleMetricPerInstance.html
 
@@ -556,7 +584,7 @@ PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 compute*     up   infinite     16  idle~ compute-dy-c54xlarge-[1-16] 
 
 
-### I don't see an ip address, only a name for the compute cluster, and I can't connect to it.
+### I don't see an ip address, only a name for the compute cluster, and I can't connect to it from here, but it is possible to login to the Amazon AWS Console website and see the private IP address and then login using ssh
 
 ```
 ssh compute-dy-c54xlarge-1
@@ -617,6 +645,8 @@ running run_cctm_2016_12US2.96pe.csh
 ssh IP address
 
 Using top, I can see 49 running tasks
+
+```
 top - 22:02:36 up 23 min,  1 user,  load average: 48.27, 44.83, 27.73
 Tasks: 675 total,  49 running, 626 sleeping,   0 stopped,   0 zombie
 %Cpu(s): 84.5 us, 14.8 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.7 hi,  0.0 si,  0.0 st
@@ -665,7 +695,8 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used. 139383.6 avail Mem
    8078 centos    20   0 1924400   1.0g  18292 R  99.3   0.5  11:09.51 CCTM_v532.exe                     
    8083 centos    20   0 1899244   1.0g  18096 R  99.3   0.5  11:09.10 CCTM_v532.exe                     
    8086 centos    20   0 1806572 952816  17780 R  99.3   0.5  11:09.64 CCTM_v532.exe                     
-   7986 centos    20   0 1955908   1.1g  18184 R  99.0   0.6  11:09.66 CCTM_v532.exe     
+   7986 centos    20   0 1955908   1.1g  18184 R  99.0   0.6  11:09.66 CCTM_v532.exe   
+```
 
 ```
 [centos@compute-dy-c5ad24xlarge-2 ~]$ lscpu
@@ -697,10 +728,13 @@ Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cm
 
 ### I also submitted a job to run on 90 processors 2x45 (9 x 10)
 This is waiting in the queue - perhaps because I requested spot pricing, and none are available at that price?
+
+```
 [centos@ip-10-0-0-104 scripts]$ squeue -u centos
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                  7   compute     CMAQ   centos PD       0:00      2 (BeginTime) 
                  5   compute     CMAQ   centos  R      37:21      2 compute-dy-c5ad24xlarge-[1-2] 
+```
                  
 
 
