@@ -376,6 +376,13 @@ Num  Day        Wall Time
 02   2015-12-23   1951.84
      Total Time = 4173.26
       Avg. Time = 2086.63
+      
+### Compare the total time for the 2 days run 
+
+cpus     |   time (seconds)
+--------------------------
+128 pe   |   4173.26
+256 pe   |   2571.29
 
 ### Investigate any errors in the CCTM_LOG files
 
