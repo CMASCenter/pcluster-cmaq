@@ -1,6 +1,6 @@
 #!/bin/csh -f
-#SBATCH --nodes=16
-#SBATCH --ntasks-per-node=8
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=32
 #SBATCH -J CMAQ
 #SBATCH -o /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
 #SBATCH -e /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
@@ -70,9 +70,9 @@ showmount -e localhost
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts       #> Working Directory. Where the runscript is.
  #setenv CMAQ_DATA /21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output
- setenv CMAQ_DATA /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
+ setenv CMAQ_DATA /fsx/data/output
  setenv OUTDIR  ${CMAQ_DATA}/output_CCTM_${RUNID} #> Output Directory
- setenv INPDIR  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/CONUS/12US2  #Input Directory
+ setenv INPDIR  /fsx/data/CONUS/12US2  #Input Directory
  setenv LOGDIR  ${OUTDIR}/LOGS     #> Log Directory Location
  setenv NMLpath ${BLD}             #> Location of Namelists. Common places are: 
                                    #>   ${WORKDIR} | ${CCTM_SRC}/MECHS/${MECH} | ${BLD}
