@@ -47,31 +47,31 @@ The settings in the cluster configuration file allow you to
    
   
 ```
-pcluster configure pcluster_name -c /Users/lizadams/.parallelcluster/config
+pcluster configure cmaq-name -c /Users/lizadams/.parallelcluster/config-name
 ```
 
 ### Create the cluster
 
 ```
-pcluster create pcluster_name
+pcluster create cmaq-name
 ```
 
 ### Stop cluster
 
 ```
-pcluster stop pcluster_name
+pcluster stop cmaq-name
 ```
 
 ### Start cluster
 
 ```
-pcluster start pcluster_name
+pcluster start cmaq-name
 ```
 
 ### Update the cluster
 
 ```
-pcluster update -c /Users/lizadams/.parallelcluster/config pcluster_name
+pcluster update -c /Users/lizadams/.parallelcluster/config cmaq-name
 ```
 
 ### To learn more about the pcluster commands
@@ -189,11 +189,29 @@ cd /shared/pcluster-cmaq
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
 
 ```
+ls ~/.cshrc
+```
+
+### If the .cshrc wasn't created use the following command to create it
+
+```
+cp dot.cshrc ~/.cshrc
+```
+
+### Execute the shell to activate it
+
+```
 csh
 env
 ```
 
-### Buiild I/O API library
+### Verify that you see the following setting 
+
+```
+LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build/netcdf/lib
+```
+
+### Build I/O API library
 
 ```
 ./gcc8_ioapi.csh
@@ -243,7 +261,7 @@ du -sh
 173G	.
 ```
 
-### This cluster is configured to have 2.5 Terrabytes of space on /shared filesystem, to allow multiple output runs to be stored.
+### This cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 
 ```
  df -h
@@ -257,23 +275,28 @@ tmpfs            16G     0   16G   0% /sys/fs/cgroup
 tmpfs           3.1G  4.0K  3.1G   1% /run/user/1000
 ```
 
-### Currently the /shared directory contains 296 G of data, and is only using 13% of available volume
+### Currently the /shared directory contains  xxG of data, and is only using xx% of available volume
 
 ### For the 12km SE Domain, copy the input data and then untar it, or use the pre-install script in the pcluster configuration file.
 ### Note: it is faster to copy all of the data to an S3 bucket without using tar.gz
 
 ```
-cd /shared/
+cd /fsx/
+mkdir data
+cd data
 aws s3 cp --recursive s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input .
 tar -xzvf CMAQv5.3.2_Benchmark_2Day_Input.tar.gz
 ```
 
+### For the CONUS Domain, copy the input data
+
 ## Link the CONUS and 12km SE Domain input benchmark directory to your run script area
+### Note: A better practice would be to modify the run script to directly specify the volume used to read and write the data.
 
 ```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data
-ln -s /shared/CONUS .
-ln -s /shared/CMAQv5.3.2_Benchmark_2Day_Input .
+ln -s /fsx/CONUS .
+ln -s /fsx/CMAQv5.3.2_Benchmark_2Day_Input .
 ```
 
 
