@@ -47,31 +47,31 @@ The settings in the cluster configuration file allow you to
    
   
 ```
-pcluster configure pcluster_name -c /Users/lizadams/.parallelcluster/config
+pcluster configure cmaq-name -c /Users/lizadams/.parallelcluster/config-name
 ```
 
 ### Create the cluster
 
 ```
-pcluster create pcluster_name
+pcluster create cmaq-name
 ```
 
 ### Stop cluster
 
 ```
-pcluster stop pcluster_name
+pcluster stop cmaq-name
 ```
 
 ### Start cluster
 
 ```
-pcluster start pcluster_name
+pcluster start cmaq-name
 ```
 
 ### Update the cluster
 
 ```
-pcluster update -c /Users/lizadams/.parallelcluster/config pcluster_name
+pcluster update -c /Users/lizadams/.parallelcluster/config cmaq-name
 ```
 
 ### To learn more about the pcluster commands
