@@ -397,6 +397,12 @@ compute*     up   infinite      8  idle~ compute-dy-c54xlarge-[9-16]
 compute*     up   infinite      8  alloc compute-dy-c54xlarge-[1-8] 
 ```
 
+### Once you have the software installed on the /shared directory, this volume can be saved as a snapshot and then used in the Parallel Cluster Configuration File to start a new cluster.
+
+See https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf
+
+
+
 ### verify the configuration of the the different EC2 instances that were selected as compute nodes by referring to the AWS online product guides.
 https://aws.amazon.com/ec2/instance-types/c5/
 
