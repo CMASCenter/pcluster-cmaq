@@ -379,10 +379,10 @@ Num  Day        Wall Time
       
 ### Compare the total time for the 2 days run 
 
-cpus     |   time (seconds)
---------------------------
-128 pe   |   4173.26
-256 pe   |   2571.29
+| cpus     | time(sec)   |
+| -------  | ----------- |
+| 128 pe   |   4173.26   |
+| 256 pe   |   2571.29   |
 
 ### Investigate any errors in the CCTM_LOG files
 
