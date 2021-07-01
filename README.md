@@ -517,6 +517,23 @@ cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.2.csh
 ```
 
+### Results from the Parallel Cluster Started with the EBS Volume software
+
+```
+tail run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.log
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1351.40
+02   2015-12-23   1213.05
+     Total Time = 2564.45
+      Avg. Time = 1282.22
+
+```
+
 
 ### To learn information about your cluster from the head node use the following commmand:
 https://www.hpcworkshops.com/03-hpc-aws-parallelcluster-workshop/07-logon-pc.html
