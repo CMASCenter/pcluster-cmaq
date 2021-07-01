@@ -280,7 +280,7 @@ aws s3 cp --recursive s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input .
 tar -xzvf CMAQv5.3.2_Benchmark_2Day_Input.tar.gz
 ```
 
-## Alternatively, this preinstall script can be used
+## Alternatively, this preinstall script was copied to the bucket to be used in the Parallel Cluster Configuration file. (this step needs additional testing)
 
 ```
 aws s3 cp --acl public-read parallel-cluster-pre-install.sh s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input/
