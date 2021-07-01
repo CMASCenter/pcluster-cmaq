@@ -356,6 +356,7 @@ sbatch run_cctm_2016_12US2.128pe.csh
 
 ### When the job has completed, use tail to view the timing from the log file.
 
+```
 tail run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
@@ -367,6 +368,8 @@ Num  Day        Wall Time
 02   2015-12-23   1951.84
      Total Time = 4173.26
       Avg. Time = 2086.63
+      
+```
       
 ### Compare the total time for the 2 days run 
 
