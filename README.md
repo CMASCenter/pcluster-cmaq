@@ -466,11 +466,25 @@ Create a new cluster starting the /shared directory from the snapshot.
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
 
 ```
+ls /shared/build
+```
+
 ### The .cshrc file wasn't saved, so I copied it
+
+```
 cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
+```
+
 ### Source shell
+
+```
 source ~/.cshrc
-### change shell
+```
+
+
+### change shell and submit job
+
+```
 csh
 sbatch run_cctm_2016_12US2.256pe.2.csh
 ### it failed with 
@@ -479,16 +493,24 @@ sbatch run_cctm_2016_12US2.256pe.2.csh
 
      >>--->> WARNING in subroutine OPEN3
      File not available.
+     
+    ```
 
-### Need to copy the CONUS input data
+### Need to copy the CONUS input data to the /fsx directory
 
 
 ### First set up aws credentials
+
+```
 aws configure
 cd /shared/pcluster-cmaq
 ./s3_copy_need_credentials_conus.csh
+```
 
-###Then resubmit the job
+### Then resubmit the job
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.2.csh
 ```
 
