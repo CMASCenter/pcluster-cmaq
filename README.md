@@ -462,6 +462,35 @@ Create a new cluster starting the /shared directory from the snapshot.
  pcluster create cmaq-c5n-18xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge-cmaqebs
  ```
 
+### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
+
+```
+### The .cshrc file wasn't saved, so I copied it
+cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
+### Source shell
+source ~/.cshrc
+### change shell
+csh
+sbatch run_cctm_2016_12US2.256pe.2.csh
+### it failed with 
+ EXECUTION_ID: CMAQ_CCTMv532_centos_20210701_022504_836895623
+     MET_CRO_3D      :/fsx/data/CONUS/12US2/MCIP/METCRO3D.12US2.35L.151222
+
+     >>--->> WARNING in subroutine OPEN3
+     File not available.
+
+### Need to copy the CONUS input data
+
+
+### First set up aws credentials
+aws configure
+cd /shared/pcluster-cmaq
+./s3_copy_need_credentials_conus.csh
+
+###Then resubmit the job
+sbatch run_cctm_2016_12US2.256pe.2.csh
+```
+
 
 ### To learn information about your cluster from the head node use the following commmand:
 https://www.hpcworkshops.com/03-hpc-aws-parallelcluster-workshop/07-logon-pc.html
