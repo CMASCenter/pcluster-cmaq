@@ -113,15 +113,6 @@ ComputeFleetStatus: RUNNING
 pcluster create cmaq-c5n-18xlarge -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge
 ```
 
-### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
-Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
-It is also important to know what volume was used to read and write the input and output data, so it is recommended to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory for each benchmark.
-
-```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
-cp run*.log /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
-cp run*.csh /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/data/output
-```
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
@@ -383,6 +374,16 @@ Num  Day        Wall Time
 | -------  | ----------- |
 | 128 pe   |   4173.26   |
 | 256 pe   |   2571.29   |
+
+### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
+Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
+It is also important to know what volume was used to read and write the input and output data, so it is recommended to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory for each benchmark.
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+cp run*.log /fsx/data/output
+cp run*.csh /fsx/data/output
+```
 
 ### Investigate any errors in the CCTM_LOG files
 
