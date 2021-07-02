@@ -14,15 +14,17 @@ key_name = centos
 scheduler = slurm
 master_root_volume_size = 100
 compute_root_volume_size = 100
-master_instance_type = c5.4xlarge
+master_instance_type = c5n.large
 base_os = centos8
 vpc_settings = default
-ebs_settings = myebs 
+#ebs_settings = myebs 
+ebs_settings = cmaqebs
 fsx_settings = myfsx
 queue_settings = compute
 #pre_install = https://github.com/lizadams/singularity-cctm/blob/main/pcluster/parallel-cluster-pre-install.sh
 #--no-verify-ssl 
 s3_read_resource = arn:aws:s3:::dap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input*
+disable_hyperthreading = true
 
 [vpc default]
 vpc_id = vpc-0ab948b66554c71ea
@@ -31,20 +33,26 @@ compute_subnet_id = subnet-0f3dc552b99f233ed
 use_public_ips = false
 
 [queue compute]
-enable_efa = false
+enable_efa = true
 enable_efa_gdr = false
+placement_group = DYNAMIC
 compute_resource_settings = default
-compute_type = spot
+compute_type = ondemand
+#compute_type = spot
 
 [compute_resource default]
-instance_type = c5.4xlarge
+instance_type = c5n.18xlarge
+#c5n.18xlarge 	72vcpu  (36cpu_disabled_hyperthreading)	192Memory(GiB)
 max_count = 16 
 
-[ebs myebs]
-shared_dir = /shared
-volume_type = gp2
-volume_size = 100
+[ebs cmaqebs]
+ebs_snapshot_id = snap-0f5a25092995735e9
+
+#[ebs myebs]
+#shared_dir = /shared
+#volume_type = gp2
+#volume_size = 100
 
 [fsx myfsx]
 shared_dir = /fsx
-storage_capacity = 1000 
+storage_capacity = 1200

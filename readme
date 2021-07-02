@@ -1,0 +1,8 @@
+#Record of the configuration files used to start clusters 
+# Is there another way to retrieve this information?
+
+pcluster create -c /Users/lizadams/.parallelcluster/config-large cmaq-conus
+pcluster create cmaq-c5-4xlarge -c /Users/lizadams/.parallelcluster/config-c5.4xlarge
+pcluster start cmaq-large -c /Users/lizadams/.parallelcluster/config-large
+pcluster start C5n-18xlarge -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge
+plcuster create  18xlarge-cmaqebs -c /Users/lizadams/.parallelcluster/C5n.18xlarge-cmaqebs

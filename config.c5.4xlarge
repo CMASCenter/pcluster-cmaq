@@ -12,17 +12,10 @@ sanity_check = true
 [cluster default]
 key_name = centos
 scheduler = slurm
-master_root_volume_size = 100
-compute_root_volume_size = 100
 master_instance_type = c5.4xlarge
 base_os = centos8
 vpc_settings = default
-ebs_settings = myebs 
-fsx_settings = myfsx
 queue_settings = compute
-#pre_install = https://github.com/lizadams/singularity-cctm/blob/main/pcluster/parallel-cluster-pre-install.sh
-#--no-verify-ssl 
-s3_read_resource = arn:aws:s3:::dap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input*
 
 [vpc default]
 vpc_id = vpc-0ab948b66554c71ea
@@ -34,17 +27,8 @@ use_public_ips = false
 enable_efa = false
 enable_efa_gdr = false
 compute_resource_settings = default
-compute_type = spot
 
 [compute_resource default]
 instance_type = c5.4xlarge
-max_count = 16 
+max_count = 16
 
-[ebs myebs]
-shared_dir = /shared
-volume_type = gp2
-volume_size = 100
-
-[fsx myfsx]
-shared_dir = /fsx
-storage_capacity = 1000 
