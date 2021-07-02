@@ -9,4 +9,4 @@
 
 setenv AWS_REGION "us-east-1"
 
-aws s3 cp --recursive s3://conus-benchmark-2day /fsx/data/CONUS
+aws s3 cp --recursive s3://conus-benchmark-2day /fsx/data/CONUS_2
