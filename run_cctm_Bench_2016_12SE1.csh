@@ -60,7 +60,7 @@ setenv compiler gcc
 
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts          #> Working Directory. Where the runscript is.
- setenv OUTDIR  /fsx/data/output_CCTM_${RUNID}  #> Output Directory
+ setenv OUTDIR  /fsx/data/output/output_CCTM_${RUNID}  #> Output Directory
  setenv INPDIR  /fsx/data/CMAQv5.3.2_Benchmark_2Day_Input/2016_12SE1            #> Input Directory
  setenv LOGDIR  ${OUTDIR}/LOGS     #> Log Directory Location
  setenv NMLpath ${BLD}             #> Location of Namelists. Common places are: 
