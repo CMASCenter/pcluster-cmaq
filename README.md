@@ -218,6 +218,7 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ## Copy the input data from a S3 bucket (this bucket is not public and needs credentials)
 ## set the aws credentials
+##  If you don't have credentials, please contact the owner of this github project.
 
 ```
 aws credentials
