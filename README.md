@@ -250,6 +250,27 @@ cd /fsx/data/CONUS
 44G	.
 ```
 
+### Storage for the output data for the 12SE Domain, assuming 2 day run, 1 layer, 13 var in the CONC output requires 1.4 G
+
+```
+ncdump -h CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+netcdf CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702 {
+dimensions:
+	TSTEP = UNLIMITED ; // (25 currently)
+	DATE-TIME = 2 ;
+	LAY = 1 ;
+	VAR = 13 ;
+	ROW = 80 ;
+	COL = 100 ;
+	
+cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1
+[centos@ip-10-0-0-140 output_CCTM_v532_gcc_Bench_2016_12SE1]$ du -h
+83M	./LOGS
+1.4G	.
+
+```
+
+
 ## Storage for the output data for the 12SE1 Domain, assuming 2 day run, 35 layer, 220 var in the CONC output requires 13G
 
 ```
@@ -303,25 +324,6 @@ tmpfs                477M  4.0K  477M   1% /run/user/1000
 ```
 
 
-### Currently the /shared directory contains  1.6G of data, and is only using 9% of available volume on /shared
-
-### For the 12km SE Domain, copy the input data and then untar it, or use the pre-install script in the pcluster configuration file.
-### Note: it is faster to copy all of the data to an S3 bucket without using tar.gz
-
-```
-cd /fsx/
-mkdir data
-cd data
-aws s3 cp --recursive s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input .
-tar -xzvf CMAQv5.3.2_Benchmark_2Day_Input.tar.gz
-```
-
-## Alternatively, this preinstall script was copied to the bucket to be used in the Parallel Cluster Configuration file. (this step needs additional testing)
-
-```
-aws s3 cp --acl public-read parallel-cluster-pre-install.sh s3://cmaqv5.3.2-benchmark-2day-2016-12se1-input/
-```
-
 ### Copy the run scripts to the run directory
 
 ```
@@ -336,6 +338,55 @@ cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 qsub run_cctm_Bench_2016_12SE1.csh
 ```
+
+### When the job has completed examine the timing information at the end of the log file
+
+```
+tail run_cctm_Bench_2016_12SE1.8x8.log
+Number of Grid Cells:      280000  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       64
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2016-07-01   304.86
+02   2016-07-02   277.51
+     Total Time = 582.37
+      Avg. Time = 291.18
+ 
+```
+
+### The output directory of the 1 layer, 13 variables in the CONC file
+
+```
+cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1
+ls -rlt
+total 1375394
+-rw-rw-r-- 1 centos centos      3611 Jul  2 13:48 CCTM_v532_gcc_Bench_2016_12SE1_20160701.cfg
+-rw-rw-r-- 1 centos centos    881964 Jul  2 13:53 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos 104518560 Jul  2 13:53 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos   3084636 Jul  2 13:53 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos 130645456 Jul  2 13:53 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos  10416748 Jul  2 13:53 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos  29980192 Jul  2 13:53 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos 173677956 Jul  2 13:53 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos 249827776 Jul  2 13:53 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos      3611 Jul  2 13:53 CCTM_v532_gcc_Bench_2016_12SE1_20160702.cfg
+-rw-rw-r-- 1 centos centos    881964 Jul  2 13:57 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos 104518560 Jul  2 13:57 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos   3084636 Jul  2 13:57 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos 130645456 Jul  2 13:57 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos  10416748 Jul  2 13:57 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos  29980192 Jul  2 13:57 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos 173677956 Jul  2 13:57 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos 249827776 Jul  2 13:57 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160702.nc
+drwxrwxr-x 2 centos centos     50176 Jul  2 13:57 LOGS
+
+du -h
+83M	./LOGS
+1.4G	.
+```
+
 
 ### To run the 12km SE Domain for all layers, all variables in the CONC file
 
