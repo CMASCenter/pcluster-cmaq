@@ -221,31 +221,22 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 aws credentials
 ```
 
-### Use the S3 ciop script to copy the 12km SE1 Domain input data to the /fsx/data volume on the cluster
+### Use the S3 copy script to copy the 12km SE1 Domain input data to the /fsx/data volume on the cluster
 
 ```
 cd /shared/pcluster/
 ./s3_copy_12km_SE_Bench.csh
 ```
 
+### Note this input data requires 21 G of storage
 
+```
+cd /fsx/data/CMAQv5.3.2_Benchmark_2Day_Input
+du -sh
+21G	.
+```
 
-tail run_cctm_Bench_2016_12SE1.8x8.full.log
-Number of Grid Cells:      280000  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       64
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2016-07-01   331.17
-02   2016-07-02   302.13
-     Total Time = 633.30
-      Avg. Time = 316.65
-
-
-
-
-## Use the script to copy the CONUS input data to the /fsx/data volume on the cluster
+## Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
 
 ```
 ./shared/pcluster-cmaq/s3_copy_need_credentials_conus.csh
@@ -257,6 +248,27 @@ Num  Day        Wall Time
 cd /fsx/data/CONUS
 [centos@ip-10-0-0-219 CONUS]$ du -sh
 44G	.
+```
+
+## Storage for the output data for the 12SE1 Domain, assuming 2 day run, 35 layer, 220 var in the CONC output requires 13G
+
+```
+ncdump -h CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+
+netcdf CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701 {
+dimensions:
+	TSTEP = UNLIMITED ; // (25 currently)
+	DATE-TIME = 2 ;
+	LAY = 35 ;
+	VAR = 220 ;
+	ROW = 80 ;
+	COL = 100 ;
+
+
+cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1_full
+du -h
+83M	./LOGS
+13G	.
 ```
 
 ## For the output data, assuming 2 day CONUS Run, 1 layer, 12 var in the CONC output
