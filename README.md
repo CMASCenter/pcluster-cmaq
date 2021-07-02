@@ -107,7 +107,7 @@ MasterPrivateIP: 10.0.0.219
 ComputeFleetStatus: RUNNING
 ```
 
-### Copy the configuration file 
+### Use the configuration file from the github repo that was cloned to your local machine
 Use this command to start the Parallel Cluster it is created using the following command: 
 Note: There isn't a method to report out the config file used to create a pcluster, this enhancement was requested by another user https://github.com/aws/aws-parallelcluster/issues/2700
 
@@ -124,7 +124,7 @@ pcluster create cmaq-c5n-18xlarge -c /Users/lizadams/.parallelcluster/config-C5n
   5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
  
  ```
- pcluster delete cmaq.[name]
+ pcluster delete cmaq.[name]  ! don't use this yet, it is an example syntax.
  ```
 
 ### Pcluster User Manual
@@ -133,10 +133,10 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluste
 ### Configuring Pcluster for HPC - example tutorial
 https://jimmielin.me/2019/wrf-gc-aws/
 
-### Login to cluster using the permissions file
+### Login to cluster using the permissions file (need to obtain from AWS EC2 website using credentials).
 
 ```
-pcluster ssh cmaq -i ~/downloads/centos.pem
+pcluster ssh cmaq-c5n-18xlarge -i ~/downloads/centos.pem
 ```
 
 ### After logging into the head node of the parallel cluster, change from default bash shell to csh
