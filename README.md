@@ -221,6 +221,30 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 aws credentials
 ```
 
+### Use the S3 ciop script to copy the 12km SE1 Domain input data to the /fsx/data volume on the cluster
+
+```
+cd /shared/pcluster/
+./s3_copy_12km_SE_Bench.csh
+```
+
+
+
+tail run_cctm_Bench_2016_12SE1.8x8.full.log
+Number of Grid Cells:      280000  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       64
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2016-07-01   331.17
+02   2016-07-02   302.13
+     Total Time = 633.30
+      Avg. Time = 316.65
+
+
+
+
 ## Use the script to copy the CONUS input data to the /fsx/data volume on the cluster
 
 ```
@@ -294,8 +318,72 @@ cp run*  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 ```
 
+### To run the 12km SE Domain for 1 layer 12 variables in the CONC file
 
-#### Once you have logged into the queue you can submit multiple jobs to the slurm job scheduler.
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
+qsub run_cctm_Bench_2016_12SE1.csh
+```
+
+### To run the 12km SE Domain for all layers, all variables in the CONC file
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
+qsub run_cctm_Bench_2016_12SE1.full.csh
+```
+
+### When the job has completed examine the timing information at the end of the log file
+
+```
+tail run_cctm_Bench_2016_12SE1.8x8.full.log
+Number of Grid Cells:      280000  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       64
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2016-07-01   331.17
+02   2016-07-02   302.13
+     Total Time = 633.30
+      Avg. Time = 316.65
+ ```
+
+
+### The output files for the full domain requires 12 G of storage
+
+```
+cd output_CCTM_v532_gcc_Bench_2016_12SE1_full
+ls -rlt
+total 13393467
+-rw-rw-r-- 1 centos centos       3611 Jul  2 13:15 CCTM_v532_gcc_Bench_2016_12SE1_20160701.cfg
+-rw-rw-r-- 1 centos centos     881964 Jul  2 13:20 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos  104518560 Jul  2 13:20 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos    3084636 Jul  2 13:20 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos  130645456 Jul  2 13:20 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos   29980192 Jul  2 13:20 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos 6160109240 Jul  2 13:20 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos  173677956 Jul  2 13:20 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos  249827776 Jul  2 13:20 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160701.nc
+-rw-rw-r-- 1 centos centos       3611 Jul  2 13:20 CCTM_v532_gcc_Bench_2016_12SE1_20160702.cfg
+-rw-rw-r-- 1 centos centos     881964 Jul  2 13:25 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos    3084636 Jul  2 13:25 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos  130645456 Jul  2 13:25 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos  104518560 Jul  2 13:25 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos   29980192 Jul  2 13:25 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos 6160109240 Jul  2 13:25 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos  173677956 Jul  2 13:25 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos  249827776 Jul  2 13:25 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160702.nc
+drwxrwxr-x 2 centos centos      50176 Jul  2 13:25 LOGS
+
+ ls -lht  CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+-rw-rw-r-- 1 centos centos 5.8G Jul  2 13:25 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
+
+du -h
+83M	./LOGS
+13G	.
+```
+
+#### To run the CONUS Domain
 
  ```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
