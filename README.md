@@ -2,7 +2,7 @@
 
 ## Scripts and code to configure an AWS pcluster for CMAQ
 
-## To obtain this code use the following command:
+## To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
 git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
@@ -47,31 +47,31 @@ The settings in the cluster configuration file allow you to
    
   
 ```
-pcluster configure cmaq-name -c /Users/lizadams/.parallelcluster/config-name
+pcluster configure cmaq-name -c /Users/lizadams/.parallelcluster/config-name  ! note this the example syntax - don't use this yet
 ```
 
 ### Create the cluster
 
 ```
-pcluster create cmaq-name
+pcluster create cmaq-name  ! note this the example syntax - don't use this yet
 ```
 
 ### Stop cluster
 
 ```
-pcluster stop cmaq-name
+pcluster stop cmaq-name    ! note this the example syntax - don't use this yet
 ```
 
 ### Start cluster
 
 ```
-pcluster start cmaq-name
+pcluster start cmaq-name    ! note this the example syntax - don't use this yet
 ```
 
 ### Update the cluster
 
 ```
-pcluster update -c /Users/lizadams/.parallelcluster/config cmaq-name
+pcluster update -c /Users/lizadams/.parallelcluster/config cmaq-name  ! note this the example syntax - don't use this yet
 ```
 
 ### To learn more about the pcluster commands
@@ -107,7 +107,9 @@ MasterPrivateIP: 10.0.0.219
 ComputeFleetStatus: RUNNING
 ```
 
-### This cluster was created using the following command. There isn't a method to report out the config file used to create a pcluster, this enhancement was requested by another user https://github.com/aws/aws-parallelcluster/issues/2700
+### Copy the configuration file 
+Use this command to start the Parallel Cluster it is created using the following command: 
+Note: There isn't a method to report out the config file used to create a pcluster, this enhancement was requested by another user https://github.com/aws/aws-parallelcluster/issues/2700
 
 ```
 pcluster create cmaq-c5n-18xlarge -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge
