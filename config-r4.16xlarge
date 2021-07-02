@@ -14,15 +14,15 @@ key_name = centos
 scheduler = slurm
 master_root_volume_size = 100
 compute_root_volume_size = 100
-master_instance_type = c5.4xlarge
+master_instance_type = c5.large
 base_os = centos8
 vpc_settings = default
-ebs_settings = myebs 
-fsx_settings = myfsx
+ebs_settings = custom1
 queue_settings = compute
 #pre_install = https://github.com/lizadams/singularity-cctm/blob/main/pcluster/parallel-cluster-pre-install.sh
 #--no-verify-ssl 
 s3_read_resource = arn:aws:s3:::dap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input*
+disable_hyperthreading = true
 
 [vpc default]
 vpc_id = vpc-0ab948b66554c71ea
@@ -34,17 +34,16 @@ use_public_ips = false
 enable_efa = false
 enable_efa_gdr = false
 compute_resource_settings = default
-compute_type = spot
 
+# r4.16xlarge is 64 pe
+# Instance 	vCPU 	Mem (GiB)Storage 	Networking Performance (Gbps)
+# r4.16xlarge 	64 	488 	EBS-Only 	25
 [compute_resource default]
-instance_type = c5.4xlarge
-max_count = 16 
+instance_type = r4.16xlarge 
+max_count = 16
 
-[ebs myebs]
+# Create a 1 TB Throughput Optimized HDD I/O directory
+[ebs custom1]
 shared_dir = /shared
-volume_type = gp2
-volume_size = 100
-
-[fsx myfsx]
-shared_dir = /fsx
-storage_capacity = 1000 
+volume_type = st1
+volume_size = 1000
