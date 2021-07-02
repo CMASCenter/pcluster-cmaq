@@ -544,7 +544,7 @@ cp run*.csh /fsx/data/output
 ### Investigate any errors in the CCTM_LOG files
 
 
-
+```
 cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe/LOGS
 
 grep -i error CTM_LOG*
@@ -566,7 +566,57 @@ CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:      *** FATAL ERROR shutting d
       *** FATAL ERROR shutting down Models-3 I/O ***
      The elapsed time for this simulation was    1947.9 seconds.
 
+```
 
+
+### To run the CONUS domain to output all layers, all variables
+
+```
+cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+sbatch run_cctm_2016_12US2.256pe.full.csh
+```
+
+### When the run has completed, use the tail command to examing the timing information.
+
+```
+tail  run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.full.log
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2130.40
+02   2015-12-23   1996.14
+     Total Time = 4126.54
+      Avg. Time = 2063.27
+```
+
+### Examine the output files
+
+```
+cd /fsx/data/output_CCTM_v532_gcc_2016_CONUS_16x16pe_full
+ls -lht 
+total 173G
+drwxrwxr-x 2 centos centos 145K Jul  2 15:23 LOGS
+-rw-rw-r-- 1 centos centos 3.2G Jul  2 15:23 CCTM_CGRID_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
+-rw-rw-r-- 1 centos centos 2.2G Jul  2 15:23 CCTM_ACONC_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
+-rw-rw-r-- 1 centos centos  78G Jul  2 15:23 CCTM_CONC_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
+-rw-rw-r-- 1 centos centos 348M Jul  2 15:22 CCTM_APMDIAG_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
+-rw-rw-r-- 1 centos centos 1.4G Jul  2 15:22 CCTM_WETDEP1_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
+-rw-rw-r-- 1 centos centos 1.7G Jul  2 15:22 CCTM_DRYDEP_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
+-rw-rw-r-- 1 centos centos 3.6K Jul  2 14:50 CCTM_v532_gcc_2016_CONUS_16x16pe_full_20151223.cfg
+-rw-rw-r-- 1 centos centos 3.2G Jul  2 14:50 CCTM_CGRID_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
+-rw-rw-r-- 1 centos centos 2.2G Jul  2 14:49 CCTM_ACONC_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
+-rw-rw-r-- 1 centos centos  78G Jul  2 14:49 CCTM_CONC_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
+-rw-rw-r-- 1 centos centos 348M Jul  2 14:49 CCTM_APMDIAG_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
+-rw-rw-r-- 1 centos centos 1.4G Jul  2 14:49 CCTM_WETDEP1_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
+-rw-rw-r-- 1 centos centos 1.7G Jul  2 14:49 CCTM_DRYDEP_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
+-rw-rw-r-- 1 centos centos 3.6K Jul  2 14:15 CCTM_v532_gcc_2016_CONUS_16x16pe_full_20151222.cfg
+
+ du -sh
+173G	.
+```
 
 
 ### Sometimes get an error when shutting down 
