@@ -24,12 +24,14 @@ pcluster version
 
 Follow the Parallel Cluster User's Guide and install node.js
 
+```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
 chmod ug+x ~/.nvm/nvm.sh
 source ~/.nvm/nvm.sh
 nvm install node
 node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
+```
 
 ### Create a yaml configuration file for the cluster
 
@@ -113,6 +115,10 @@ Hello World from queue1-dy-t2micro-1
 Following this tutorial
 https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_03_batch_mpi.html
 ```
+git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+cd pcluster-cmaq
+module load openmpi/4.1.1
+sbatch 
 submit -n 3 submit_mpi.sh
 
 ```
