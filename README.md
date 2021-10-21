@@ -24,12 +24,14 @@ pcluster version
 
 Follow the Parallel Cluster User's Guide and install node.js
 
+```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
 chmod ug+x ~/.nvm/nvm.sh
 source ~/.nvm/nvm.sh
 nvm install node
 node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
+```
 
 ### Create a yaml configuration file for the cluster
 
