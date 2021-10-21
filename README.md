@@ -22,10 +22,19 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-### Edit the configuration file for the cluster
+Follow the Parallel Cluster User's Guide and install node.js
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
+chmod ug+x ~/.nvm/nvm.sh
+source ~/.nvm/nvm.sh
+nvm install node
+node --version
+python3 -m pip install --upgrade "aws-parallelcluster"
+
+### Create a yaml configuration file for the cluster
 
 ```
-vi ~/.parallelcluster/config  ! note, see saved config.[name] files that correspond to specific cluster environments, below.
+pcluster configure --config new-hello-world.yaml
 ```
 
 Note, there isn't a way to detemine what config.[name] file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
@@ -46,15 +55,25 @@ The settings in the cluster configuration file allow you to
    8) specify the name of the snapshot containing the application software to use as the /shared directory.  This requires a previous Parallel Cluster installation where the software was installed using the install scripts, tested, and then the /shared directory saved as a snapshot.
    
   
-```
-pcluster configure cmaq-name -c /Users/lizadams/.parallelcluster/config-name  ! note this the example syntax - don't use this yet
-```
 
 ### Create the cluster
 
 ```
-pcluster create cmaq-name  ! note this the example syntax - don't use this yet
+pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1
 ```
+
+### Check on the status of the cluster
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster
+```
+
+### List available clusters
+
+```
+pcluster list-clusters --region=us-east-1
+```
+
 
 ### Stop cluster
 
@@ -62,16 +81,55 @@ pcluster create cmaq-name  ! note this the example syntax - don't use this yet
 pcluster stop cmaq-name    ! note this the example syntax - don't use this yet
 ```
 
-### Start cluster
+### Starting the Compute nodes 
 
 ```
-pcluster start cmaq-name    ! note this the example syntax - don't use this yet
+# AWS ParallelCluster v3 - Slurm fleets
+$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
 ```
 
-### Update the cluster
+### SSH into cluster
 
 ```
-pcluster update -c /Users/lizadams/.parallelcluster/config cmaq-name  ! note this the example syntax - don't use this yet
+ pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
+```
+
+### Create hellojob.sh
+
+```
+cat hellojob.sh
+#!/bin/bash
+sleep 30
+echo "Hello World from $(hostname)"
+```
+
+### Submit job to queue
+
+```
+sbatch hellojob.sh
+```
+
+### examine the output
+
+```
+cat slurm-3.out
+Hello World from queue1-dy-t2micro-1
+```
+
+### Submit job again using 2 nodes
+
+```
+sbatch -N 2 hellojob.sh
+```
+
+### Stop the compute nodes
+
+```
+# AWS ParallelCluster v3 - Slurm fleets
+$ pcluster update-compute-fleet \
+ --region us-east-1 \
+ --cluster-name hello-pcluster  \
+ --status STOP_REQUESTED
 ```
 
 ### To learn more about the pcluster commands
