@@ -20,7 +20,6 @@ Scheduling:
       SubnetIds:
       - subnet-035d8f31ab1ba21ac
 SharedStorage:
- - Name: ebs
- MountDir: /shared
- StorageType: ebs
- FileSystemId: 
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
