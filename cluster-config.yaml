@@ -1,0 +1,41 @@
+Region: us-east-1
+Image:
+  Os: centos7
+HeadNode:
+  InstanceType: c5n.large
+  Networking:
+    SubnetId: subnet-059e613fecb21a437
+  Ssh:
+    KeyName: centos
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: c5n18xlarge
+      DisableSimultaneousMultithreading: false
+      InstanceType: c5n.18xlarge
+      MinCount: 0
+      MaxCount: 16
+    Networking:
+      SubnetIds:
+      - subnet-0d26996d4bbc32e7f
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: ht-enabled
+      Networking:
+        SubnetIds:
+          - compute_subnet_id
+      ComputeResources:
+        - Name: ht-enabled-i1
+          DisableSimultaneousMultithreading: true
+          InstanceType: c5n.18xlarge     
+    - Name: ht-disabled
+      Networking:
+        SubnetIds:
+          - compute_subnet_id
+      ComputeResources:
+        - Name: ht-disabled-i1
+          DisableSimultaneousMultithreading: false
+          InstanceType: c5.xlarge
