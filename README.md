@@ -74,13 +74,6 @@ pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster
 pcluster list-clusters --region=us-east-1
 ```
 
-
-### Stop cluster
-
-```
-pcluster stop cmaq-name    ! note this the example syntax - don't use this yet
-```
-
 ### Starting the Compute nodes 
 
 ```
@@ -116,10 +109,12 @@ cat slurm-3.out
 Hello World from queue1-dy-t2micro-1
 ```
 
-### Submit job again using 2 nodes
-
+### Submit mpirun version of hello_world
+Following this tutorial
+https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_03_batch_mpi.html
 ```
-sbatch -N 2 hellojob.sh
+submit -n 3 submit_mpi.sh
+
 ```
 
 ### Stop the compute nodes
