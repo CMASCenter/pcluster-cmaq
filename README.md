@@ -114,8 +114,11 @@ Hello World from queue1-dy-t2micro-1
 ### Submit mpirun version of hello_world
 Following this tutorial
 https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_03_batch_mpi.html
+
+
 ```
-submit -n 3 submit_mpi.sh
+module load openmpi
+sbatch -n 3 submit_mpi.sh
 
 ```
 
