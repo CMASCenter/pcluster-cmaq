@@ -15,6 +15,7 @@ set echo
 #  ----------------------
    cd /shared/build
    git clone https://github.com/cjcoats/ioapi-3.2
+   git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
    cd ioapi-3.2
    git checkout -b 20200828
    setenv BASEDIR /shared/build/ioapi-3.2
