@@ -89,6 +89,12 @@ $ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster
  pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
 ```
 
+### clone a copy of the Repo
+
+```
+git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+```
+
 ### Create hellojob.sh
 
 ```
