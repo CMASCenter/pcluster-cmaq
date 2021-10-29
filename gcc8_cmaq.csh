@@ -15,7 +15,7 @@ cp /shared/pcluster-cmaq/bldit_project.csh /shared/build/CMAQ_REPO
 module load openmpi/4.1.0
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 ./bldit_cctm.csh gcc |& tee ./bldit_cctm.log
-cp /shared/pcluster-cmaq/run* /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
+cp /shared/pcluster-cmaq/run_scripts/run* /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 
 # submit job to the queue using 
