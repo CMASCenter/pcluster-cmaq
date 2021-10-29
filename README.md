@@ -153,6 +153,24 @@ Use this command to start the Parallel Cluster it is created using the following
 pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml --cluster-name c5n.4xlarge --region us-east-1
 ```
 
+### Check on status of cluster
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name c5n-4xlarge
+```
+
+### Start the compute nodes
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name c5n-4xlarge --status START_REQUESTED
+```
+
+### Login to cluster
+
+```
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n-4xlarge
+```
+
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
@@ -162,7 +180,7 @@ pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml 
   5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
  
  ```
- pcluster delete cmaq.[name]  ! don't use this yet, it is an example syntax.
+ pcluster delete-cluster --region us-east-1 --cluster-name c5n-4xlarge  ! don't use this yet, it is an example syntax.
  ```
 
 ### Pcluster User Manual
@@ -171,11 +189,6 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluste
 ### Configuring Pcluster for HPC - example tutorial
 https://jimmielin.me/2019/wrf-gc-aws/
 
-### Login to cluster using the permissions file (need to obtain from AWS EC2 website using credentials).
-
-```
-pcluster ssh cmaq-c5n-18xlarge -i ~/downloads/centos.pem
-```
 
 ### After logging into the head node of the parallel cluster, change from default bash shell to csh
 
