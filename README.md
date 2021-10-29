@@ -132,10 +132,7 @@ sbatch -n 3 submit_mpi.sh
 
 ```
 # AWS ParallelCluster v3 - Slurm fleets
-$ pcluster update-compute-fleet \
- --region us-east-1 \
- --cluster-name hello-pcluster  \
- --status STOP_REQUESTED
+$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster  --status STOP_REQUESTED
 ```
 
 ### To learn more about the pcluster commands
@@ -144,39 +141,12 @@ $ pcluster update-compute-fleet \
 pcluster --help
 ```
 
-### List the available clusters
-Note - the list of cluster names appear on the left, 
-adopted a standard of creating the pcluster_name to clearly identify the compute node: cmaq-[compute_node]
-
-```
-pcluster list
-
-cmaq-c5-4xlarge  UPDATE_COMPLETE  2.10.4
-cmaq-conus       CREATE_COMPLETE  2.10.4
-cmaq-large       UPDATE_COMPLETE  2.10.3
-cmaq             UPDATE_COMPLETE  2.10.3
-```
-
-### Check status of cluster
-
-```
-pcluster status cmaq-c5-4xlarge
-```
-
-```
-Status: UPDATE_COMPLETE
-MasterServer: RUNNING
-ClusterUser: centos
-MasterPrivateIP: 10.0.0.219
-ComputeFleetStatus: RUNNING
-```
 
 ### Use the configuration file from the github repo that was cloned to your local machine
 Use this command to start the Parallel Cluster it is created using the following command: 
-Note: There isn't a method to report out the config file used to create a pcluster, this enhancement was requested by another user https://github.com/aws/aws-parallelcluster/issues/2700
 
 ```
-pcluster create cmaq-c5n-18xlarge -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge
+pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml --cluster-name c5n.4xlarge --region us-east-1
 ```
 
 
