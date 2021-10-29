@@ -20,4 +20,4 @@ aws --no-sign-request s3 cp --recursive --exclude "*" --include "*GRIDDESC*" s3:
 
 #need to use a link between the name that the run script is expecting, and what the directory structure is on the S3 bucket
 cd 12US2
-ln -s GRIDDESC_css GRIDDESC
+ln -s ./MCIP/GRIDDESC_css GRIDDESC

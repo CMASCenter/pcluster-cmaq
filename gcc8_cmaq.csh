@@ -39,4 +39,4 @@ cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
 # c5.4xlarge 	16 	32 	EBS-Only
 
 # created a run script to use only 8 cpu per node for 128 pe job
-sbatch run_cctm_2016_12US2.128pe.csh
+#sbatch run_cctm_2016_12US2.128pe.csh

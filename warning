@@ -1,0 +1,24 @@
+pcluster create-cluster --cluster-configuration config-C5n.18xlarge-cmaqebs.yaml --cluster-name c5n-18xlarge-cmaqebs --region us-east-1
+
+b'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n'
+b'!!                                                                                  !!\n'
+b'!!  This software has not been tested with node v17.0.1.                            !!\n'
+b'!!  You may to encounter runtime issues, and should switch to a supported release.  !!\n'
+b'!!                                                                                  !!\n'
+b'!!  As of the current release, supported versions of node are:                      !!\n'
+b'!!  - ^12.7.0                                                                       !!\n'
+b'!!  - ^14.5.0                                                                       !!\n'
+b'!!  - ^16.3.0                                                                       !!\n'
+b'!!                                                                                  !!\n'
+b'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n'
+{
+  "cluster": {
+    "clusterName": "c5n-18xlarge-cmaqebs",
+    "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/c5n-18xlarge-cmaqebs/2e7f1ed0-38e2-11ec-a477-12131286546d",
+    "region": "us-east-1",
+    "version": "3.0.1",
+    "clusterStatus": "CREATE_IN_PROGRESS"
+  }
+}
+
