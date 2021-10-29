@@ -1,6 +1,6 @@
 #!/bin/csh -f
-#SBATCH --nodes=4
-#SBATCH --ntasks-per-node=32
+#SBATCH --nodes=8
+#SBATCH --ntasks-per-node=16
 #SBATCH -J CMAQ
 #SBATCH -o /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
 #SBATCH -e /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
