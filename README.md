@@ -2,16 +2,16 @@
 
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 
-## To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
+### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
 git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 ```
 
-## Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
+### Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
 https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf
 
-## To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
+### To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
 
 ```
 python3 -m virtualenv ~/apc-ve
@@ -33,11 +33,13 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
-### Note, there are two versions of the parallel cluster command line options V2 and V3.  
-### The remainder of these instructions are using the V3 version, which uses a yaml formatted configuration file.
-### For examples see https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs
+Note, there are two versions of the parallel cluster command line options V2 and V3.  
 
-### Create a yaml configuration file for the cluster
+The remainder of these instructions are using the V3 version, which uses a yaml formatted configuration file.
+
+For examples see https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs
+
+#### Create a yaml configuration file for the cluster
 
 ```
 pcluster configure --config new-hello-world.yaml
