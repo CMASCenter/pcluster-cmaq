@@ -753,7 +753,7 @@ Then save as a snapshot.
 Copy the Snapshot ID and place it in the configuration file.
 Create a new cluster starting the /shared directory from the snapshot.
 
- pcluster create cmaq-c5n-18xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge-cmaqebs
+ pcluster create cmaq-c5n-4xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.4xlarge-cmaqebs
  ```
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
@@ -798,6 +798,13 @@ sbatch run_cctm_2016_12US2.256pe.2.csh
 aws configure
 cd /shared/pcluster-cmaq
 ./s3_copy_need_credentials_conus.csh
+```
+
+### IF you do not have aws credentials with permissions use the following
+
+```
+cd /shared/pcluster-cmaq/s3_scripts
+./s3_copy_nosign.csh
 ```
 
 ### Then resubmit the job
