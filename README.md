@@ -33,13 +33,17 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
+### Note, there are two versions of the parallel cluster command line options V2 and V3.  
+### The remainder of these instructions are using the V3 version, which uses a yaml formatted configuration file.
+### For examples see https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs
+
 ### Create a yaml configuration file for the cluster
 
 ```
 pcluster configure --config new-hello-world.yaml
 ```
 
-Note, there isn't a way to detemine what config.[name] file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
+Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
 
 ### Configure the cluster
       
