@@ -20,7 +20,7 @@ aws --no-sign-request s3 cp --recursive --exclude "*" --include "*GRIDDESC*" s3:
 
 #need to use a link between the name that the run script is expecting, and what the directory structure is on the S3 bucket
 cd /fsx/data/CONUS/12US2
-ln -s GRIDDESC_css ./MCIP/GRIDDESC
+ln -s ./MCIP/GRIDDESC_css GRIDDESC
 
 # copy missing file 
 cp /shared/pcluster-cmaq/smk_merge_dates_201512.txt /fsx/data/CONUS/12US2/emissions
