@@ -33,17 +33,12 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
-### Create a yaml configuration file for the cluster
-
-```
-pcluster configure --config new-hello-world.yaml
-```
-
+### Check later 
 Note, there isn't a way to detemine what config.[name] file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
 
 ### Configure the cluster
       
-
+### The yaml file was configured to do the following 
 The settings in the cluster configuration file allow you to 
    1) specify the head node, and what compute nodes are available (Note, the compute nodes can be updated/changed, but the head node cannot be updated.)
    2) specify the maximum number of compute nodes that can be requested using slurm
@@ -61,7 +56,7 @@ The settings in the cluster configuration file allow you to
 ### Create the cluster
 
 ```
-pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name c5n18xlarge --region us-east-1
+pcluster create-cluster --cluster-configuration config-C5n.18xlarge-cmaq-fsx.yaml --cluster-name c5n18xlarge --region us-east-1
 ```
 
 ### Check on the status of the cluster
@@ -89,15 +84,6 @@ $ pcluster update-compute-fleet --region us-east-1 --cluster-name c5n18xlarge --
  pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n18xlarge
 ```
 
-### Stop the compute nodes
-
-```
-# AWS ParallelCluster v3 - Slurm fleets
-$ pcluster update-compute-fleet \
- --region us-east-1 \
- --cluster-name hello-pcluster  \
- --status STOP_REQUESTED
-```
 
 ### To learn more about the pcluster commands
 
@@ -155,7 +141,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ```
 cd /shared/
-git clone -b conus_aws_benchmark https://github.com/christos-e/pcluster-cmaq.git pcluster-cmaq
+git clone -b conus_aws_bench https://github.com/christos-e/pcluster-cmaq.git pcluster-cmaq
 
 ```
 
@@ -210,31 +196,16 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 aws credentials
 ```
 
-### Use the S3 copy script to copy the 12km SE1 Domain input data to the /fsx/data volume on the cluster
-
-```
-cd /shared/pcluster/
-./s3_copy_12km_SE_Bench.csh
-```
-
-### Note this input data requires 21 G of storage
-
-```
-cd /fsx/data/CMAQv5.3.2_Benchmark_2Day_Input
-du -sh
-21G	.
-```
-
 ## Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
 
 ```
-./shared/pcluster-cmaq/s3_copy_need_credentials_conus.csh
+./shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh
 ```
 
 ## If you get a permissions error, try using this script
 
 ```
-./shared/pcluster-cmaq/s3_copy_nosign.csh  ! check that the resulting directory structure matches the run script
+./shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh  ! check that the resulting directory structure matches the run script
 ```
 
 ## Note, this input data requires 44 GB of disk space
@@ -245,47 +216,6 @@ cd /fsx/data/CONUS
 44G	.
 ```
 
-### Storage for the output data for the 12SE Domain, assuming 2 day run, 1 layer, 13 var in the CONC output requires 1.4 G
-
-```
-ncdump -h CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
-netcdf CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702 {
-dimensions:
-	TSTEP = UNLIMITED ; // (25 currently)
-	DATE-TIME = 2 ;
-	LAY = 1 ;
-	VAR = 13 ;
-	ROW = 80 ;
-	COL = 100 ;
-	
-cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1
-[centos@ip-10-0-0-140 output_CCTM_v532_gcc_Bench_2016_12SE1]$ du -h
-83M	./LOGS
-1.4G	.
-
-```
-
-
-## Storage for the output data for the 12SE1 Domain, assuming 2 day run, 35 layer, 220 var in the CONC output requires 13G
-
-```
-ncdump -h CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
-
-netcdf CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701 {
-dimensions:
-	TSTEP = UNLIMITED ; // (25 currently)
-	DATE-TIME = 2 ;
-	LAY = 35 ;
-	VAR = 220 ;
-	ROW = 80 ;
-	COL = 100 ;
-
-
-cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1_full
-du -h
-83M	./LOGS
-13G	.
-```
 
 ## For the output data, assuming 2 day CONUS Run, 1 layer, 12 var in the CONC output
 
@@ -322,124 +252,11 @@ tmpfs                477M  4.0K  477M   1% /run/user/1000
 ### Copy the run scripts to the run directory
 
 ```
-cd /shared/pcluster-cmaq
+cd /shared/pcluster-cmaq/run_scripts
 cp run*  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 ```
 
-### To run the 12km SE Domain for 1 layer 12 variables in the CONC file
-
-```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-qsub run_cctm_Bench_2016_12SE1.csh
-```
-
-### When the job has completed examine the timing information at the end of the log file
-
-```
-tail run_cctm_Bench_2016_12SE1.8x8.log
-Number of Grid Cells:      280000  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       64
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2016-07-01   304.86
-02   2016-07-02   277.51
-     Total Time = 582.37
-      Avg. Time = 291.18
- 
-```
-
-### The output directory of the 1 layer, 13 variables in the CONC file
-
-```
-cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1
-ls -rlt
-total 1375394
--rw-rw-r-- 1 centos centos      3611 Jul  2 13:48 CCTM_v532_gcc_Bench_2016_12SE1_20160701.cfg
--rw-rw-r-- 1 centos centos    881964 Jul  2 13:53 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 104518560 Jul  2 13:53 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos   3084636 Jul  2 13:53 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 130645456 Jul  2 13:53 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  10416748 Jul  2 13:53 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  29980192 Jul  2 13:53 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 173677956 Jul  2 13:53 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 249827776 Jul  2 13:53 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos      3611 Jul  2 13:53 CCTM_v532_gcc_Bench_2016_12SE1_20160702.cfg
--rw-rw-r-- 1 centos centos    881964 Jul  2 13:57 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 104518560 Jul  2 13:57 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos   3084636 Jul  2 13:57 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 130645456 Jul  2 13:57 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  10416748 Jul  2 13:57 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  29980192 Jul  2 13:57 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 173677956 Jul  2 13:57 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 249827776 Jul  2 13:57 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160702.nc
-drwxrwxr-x 2 centos centos     50176 Jul  2 13:57 LOGS
-
-du -h
-83M	./LOGS
-1.4G	.
-```
-
-
-### To run the 12km SE Domain for all layers, all variables in the CONC file
-
-```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-qsub run_cctm_Bench_2016_12SE1.full.csh
-```
-
-### When the job has completed examine the timing information at the end of the log file
-
-```
-tail run_cctm_Bench_2016_12SE1.8x8.full.log
-Number of Grid Cells:      280000  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       64
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2016-07-01   331.17
-02   2016-07-02   302.13
-     Total Time = 633.30
-      Avg. Time = 316.65
- ```
-
-
-### The output files for the full domain requires 12 G of storage
-
-```
-cd output_CCTM_v532_gcc_Bench_2016_12SE1_full
-ls -rlt
-total 13393467
--rw-rw-r-- 1 centos centos       3611 Jul  2 13:15 CCTM_v532_gcc_Bench_2016_12SE1_20160701.cfg
--rw-rw-r-- 1 centos centos     881964 Jul  2 13:20 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  104518560 Jul  2 13:20 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos    3084636 Jul  2 13:20 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  130645456 Jul  2 13:20 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos   29980192 Jul  2 13:20 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 6160109240 Jul  2 13:20 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  173677956 Jul  2 13:20 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  249827776 Jul  2 13:20 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos       3611 Jul  2 13:20 CCTM_v532_gcc_Bench_2016_12SE1_20160702.cfg
--rw-rw-r-- 1 centos centos     881964 Jul  2 13:25 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos    3084636 Jul  2 13:25 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  130645456 Jul  2 13:25 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  104518560 Jul  2 13:25 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos   29980192 Jul  2 13:25 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 6160109240 Jul  2 13:25 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  173677956 Jul  2 13:25 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  249827776 Jul  2 13:25 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160702.nc
-drwxrwxr-x 2 centos centos      50176 Jul  2 13:25 LOGS
-
- ls -lht  CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 5.8G Jul  2 13:25 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
-
-du -h
-83M	./LOGS
-13G	.
-```
 
 #### To run the CONUS Domain
 
