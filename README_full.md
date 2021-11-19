@@ -97,11 +97,70 @@ $ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster
 
 ### Note, the following commands are used when you are logged into the cluster.
 
-login prompt should look something like (this will depend on what OS was chosen in the yaml file).
+login prompt should look something like
 
 ```
 [centos@ip-xx-x-xx-xxx pcluster-cmaq]
+```
 
+### Change directories to the /shared filesystem
+
+```
+cd /shared
+```
+
+### clone a copy of the Repo
+
+```
+git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+```
+
+### Create hellojob.sh
+
+```
+cat hellojob.sh
+#!/bin/bash
+sleep 30
+echo "Hello World from $(hostname)"
+```
+
+### Submit job to queue
+
+```
+sbatch hellojob.sh
+```
+
+### examine the output
+
+```
+cat slurm-3.out
+Hello World from queue1-dy-t2micro-1
+```
+
+### Submit mpirun version of hello_world
+Following this tutorial
+https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_03_batch_mpi.html
+
+
+```
+module load openmpi
+sbatch -n 3 submit_mpi.sh
+
+```
+
+### Once you have finished testing logout of the cluster
+
+```
+exit
+```
+
+### The following commands assume you are back on your local machine in your virtual environment
+
+### Stop the compute nodes
+
+```
+# AWS ParallelCluster v3 - Slurm fleets
+$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster  --status STOP_REQUESTED
 ```
 
 ### Delete the cluster
