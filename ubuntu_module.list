@@ -1,0 +1,9 @@
+ubuntu@ip-10-0-2-28:~$ module avail
+------------------------------------------------------------ /usr/share/modules/modulefiles ------------------------------------------------------------
+dot  libfabric-aws/1.13.0amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own  
+
+---------------------------------------------------- /opt/intel/impi/2019.8.254/intel64/modulefiles ----------------------------------------------------
+intelmpi  
+
+gcc --version
+gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
