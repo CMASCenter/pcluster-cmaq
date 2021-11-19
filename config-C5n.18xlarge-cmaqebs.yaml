@@ -4,7 +4,7 @@ Image:
 HeadNode:
   InstanceType: c5.large
   Networking:
-    SubnetId: subnet-09dde93abd00c9cae
+    SubnetId: subnet-0ddb3159c1f56ded1
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: centos
@@ -26,12 +26,17 @@ Scheduling:
       CapacityType: ONDEMAND
       Networking:
         SubnetIds:
-          - subnet-09dde93abd00c9cae
+          - subnet-0ddb3159c1f56ded1
+        PlacementGroup:
+          Enabled: true
       ComputeResources:
         - Name: compute-resource-1
-          InstanceType: c5.4xlarge
+          InstanceType: c5n.18xlarge
           MinCount: 0
           MaxCount: 10
+          Efa:
+            Enabled: true
+            GdrSupport: false
 SharedStorage:
   - MountDir: /shared
     Name: name1
@@ -44,6 +49,3 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-AdditionalPackages:
-  IntelSoftware:
-    IntelHpcPlatform: false
