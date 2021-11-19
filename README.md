@@ -2,16 +2,16 @@
 
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 
-### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
+## To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
 git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 ```
 
-### Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
+## Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
 https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf
 
-### To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
+## To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
 
 ```
 python3 -m virtualenv ~/apc-ve
@@ -33,19 +33,13 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
-Note, there are two versions of the parallel cluster command line options V2 and V3.  
-
-The remainder of these instructions are using the V3 version, which uses a yaml formatted configuration file.
-
-For examples see https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs
-
-#### Create a yaml configuration file for the cluster
+### Create a yaml configuration file for the cluster
 
 ```
 pcluster configure --config new-hello-world.yaml
 ```
 
-Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
+Note, there isn't a way to detemine what config.[name] file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
 
 ### Configure the cluster
       
@@ -67,13 +61,13 @@ The settings in the cluster configuration file allow you to
 ### Create the cluster
 
 ```
-pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1
+pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name c5n18xlarge --region us-east-1
 ```
 
 ### Check on the status of the cluster
 
 ```
-pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster
+pcluster describe-cluster --region=us-east-1 --cluster-name c5n18xlarge
 ```
 
 ### List available clusters
@@ -86,123 +80,30 @@ pcluster list-clusters --region=us-east-1
 
 ```
 # AWS ParallelCluster v3 - Slurm fleets
-$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
+$ pcluster update-compute-fleet --region us-east-1 --cluster-name c5n18xlarge --status START_REQUESTED
 ```
 
 ### SSH into cluster
 
 ```
- pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
+ pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n18xlarge
 ```
-
-### Note, the following commands are used when you are logged into the cluster.
-
-login prompt should look something like
-
-```
-[centos@ip-xx-x-xx-xxx pcluster-cmaq]
-```
-
-### Change directories to the /shared filesystem
-
-```
-cd /shared
-```
-
-### clone a copy of the Repo
-
-```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
-```
-
-### Create hellojob.sh
-
-```
-cat hellojob.sh
-#!/bin/bash
-sleep 30
-echo "Hello World from $(hostname)"
-```
-
-### Submit job to queue
-
-```
-sbatch hellojob.sh
-```
-
-### examine the output
-
-```
-cat slurm-3.out
-Hello World from queue1-dy-t2micro-1
-```
-
-### Submit mpirun version of hello_world
-Following this tutorial
-https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_03_batch_mpi.html
-
-
-```
-module load openmpi
-sbatch -n 3 submit_mpi.sh
-
-```
-
-### Once you have finished testing logout of the cluster
-
-```
-exit
-```
-
-### The following commands assume you are back on your local machine in your virtual environment
 
 ### Stop the compute nodes
 
 ```
 # AWS ParallelCluster v3 - Slurm fleets
-$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster  --status STOP_REQUESTED
+$ pcluster update-compute-fleet \
+ --region us-east-1 \
+ --cluster-name hello-pcluster  \
+ --status STOP_REQUESTED
 ```
-
-### Delete the cluster
-
-```
-pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1
-```
-
 
 ### To learn more about the pcluster commands
 
 ```
 pcluster --help
 ```
-
-
-### Use the configuration file from the github repo that was cloned to your local machine
-Use this command to start the Parallel Cluster it is created using the following command: 
-
-```
-cd pcluster-cmaq
-pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml --cluster-name c5n.4xlarge --region us-east-1
-```
-
-### Check on status of cluster
-
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name c5n-4xlarge
-```
-
-### Start the compute nodes
-
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name c5n-4xlarge --status START_REQUESTED
-```
-
-### Login to cluster
-
-```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n-4xlarge
-```
-
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
@@ -211,13 +112,16 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n-4xlarge
   4) After copying output and log files to the s3 bucket the cluster can be terminated using the following command.
   5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
  
-
+ 
 ### Pcluster User Manual
 https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
 
-### Configuring Pcluster for HPC - example tutorial
-https://jimmielin.me/2019/wrf-gc-aws/
 
+### Login to cluster using the permissions file (need to obtain from AWS EC2 website using credentials).
+
+```
+pcluster ssh c5n18xlarge -i ~/downloads/centos.pem
+```
 
 ### After logging into the head node of the parallel cluster, change from default bash shell to csh
 
@@ -250,7 +154,9 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ### Change directories to install and build the libraries and CMAQ
 
 ```
-cd /shared/pcluster-cmaq
+cd /shared/
+git clone -b conus_aws_benchmark https://github.com/christos-e/pcluster-cmaq.git pcluster-cmaq
+
 ```
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
@@ -753,7 +659,7 @@ Then save as a snapshot.
 Copy the Snapshot ID and place it in the configuration file.
 Create a new cluster starting the /shared directory from the snapshot.
 
- pcluster create cmaq-c5n-4xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.4xlarge-cmaqebs
+ pcluster create cmaq-c5n-18xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.18xlarge-cmaqebs
  ```
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
@@ -798,13 +704,6 @@ sbatch run_cctm_2016_12US2.256pe.2.csh
 aws configure
 cd /shared/pcluster-cmaq
 ./s3_copy_need_credentials_conus.csh
-```
-
-### IF you do not have aws credentials with permissions use the following
-
-```
-cd /shared/pcluster-cmaq/s3_scripts
-./s3_copy_nosign.csh
 ```
 
 ### Then resubmit the job
@@ -1211,18 +1110,6 @@ This is waiting in the queue - perhaps because I requested spot pricing, and non
                  7   compute     CMAQ   centos PD       0:00      2 (BeginTime) 
                  5   compute     CMAQ   centos  R      37:21      2 compute-dy-c5ad24xlarge-[1-2] 
 ```
-
-### Exit the cluster
-
-```
-exit
-```
-
-### Delete cluster from your local machine virtual environment
-
- ```
- pcluster delete-cluster --region us-east-1 --cluster-name c5n-4xlarge  ! don't use this yet, it is an example syntax.
- ```
                  
 
 
