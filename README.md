@@ -366,7 +366,7 @@ cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
 
 ```
 cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-qsub run_cctm_Bench_2016_12SE1.csh
+sbatch run_cctm_Bench_2016_12SE1.csh
 ```
 
 ### When the job has completed examine the timing information at the end of the log file
