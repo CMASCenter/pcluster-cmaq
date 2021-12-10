@@ -5,7 +5,7 @@
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+git clone -b main https://github.com/christos-e/pcluster-cmaq.git pcluster-cmaq
 ```
 
 ### Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
