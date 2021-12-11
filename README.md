@@ -198,8 +198,14 @@ module avail
 ### Load the openmpi module
 
 ```
-module load openmpi/4.1.0
+module load openmpi
 ```
+
+### Loading the elastic fabric adapter (bugfix?)
+...
+module load libfabric-aws/1.13.0amzn1.0
+...
+
 
 ### Check what version of the gcc compiler is available
 
