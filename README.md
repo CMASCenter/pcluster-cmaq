@@ -161,6 +161,13 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n-4xlarge
 scontrol show nodes
 ...
 
+## Check to make sure elastic network adapter (ENA) is enabled
+...
+modinfo ena
+lspci
+A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
+...
+
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
   2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
