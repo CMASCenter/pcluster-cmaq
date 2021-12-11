@@ -14,12 +14,12 @@ echo "downloaded CMAQ"
 cd CMAQ_REPO_v533
 cp /shared/pcluster-cmaq/bldit_project_v533.csh /shared/build/CMAQ_REPO_v533
 ./bldit_project_v533.csh
-module load openmpi/4.1.0
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v533/CCTM/scripts/
+module load openmpi
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 cp /shared/pcluster-cmaq/config_cmaq.csh ../../
 ./bldit_cctm.csh gcc |& tee ./bldit_cctm.log
-cp /shared/pcluster-cmaq/run_scripts/run* /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v533/CCTM/scripts/
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v533/CCTM/scripts/
+cp /shared/pcluster-cmaq/run_scripts/run* /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 
 # submit job to the queue using 
 # sbatch run_cctm_2016_12US2.256pe.csh
