@@ -23,7 +23,7 @@ Scheduling:
       DisableManagedDns: true
   SlurmQueues:
     - Name: queue1
-      CapacityType: ONDEMAND
+      CapacityType: SPOT
       Networking:
         SubnetIds:
           - subnet-0ddb3159c1f56ded1
