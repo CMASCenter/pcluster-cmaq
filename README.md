@@ -9,7 +9,10 @@ git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 ```
 
 ### Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
-https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf
+https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pdf'
+
+### Another workshop to learn the AWS CLI 3.0
+https://hpc.news/pc3workshop
 
 ### To configure the cluster start a virtual environment on your local linux machine and install aws-parallelcluster
 
