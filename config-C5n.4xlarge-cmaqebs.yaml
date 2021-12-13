@@ -12,7 +12,7 @@ Scheduling:
   Scheduler: slurm
   SlurmQueues:
     - Name: queue1
-      CapacityType: ONDEMAND
+      CapacityType: SPOT
       Networking:
         SubnetIds:
           - subnet-035d8f31ab1ba21ac
