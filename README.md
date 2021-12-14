@@ -5,7 +5,7 @@
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+git clone -b main https://github.com/christos-e/pcluster-cmaq.git pcluster-cmaq
 ```
 
 ### Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
@@ -139,14 +139,37 @@ pcluster describe-cluster --region=us-east-1 --cluster-name c5n-4xlarge
 
 ```
 pcluster update-compute-fleet --region us-east-1 --cluster-name c5n-4xlarge --status START_REQUESTED
-```
 
+```
+### Stop the compute nodes 
+
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name c5n-4xlarge --status STOP_REQUESTED
+
+```
+### To update compute node from C5n4xlarge to C5n.n18xlarge
+```
+pcluster update-cluster --region us-east-1 --cluster-name c5n-4xlarge --cluster-configuration config-C5n.18xlarge-cmaq-fsx.yaml
+
+```
 ### Login to cluster
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n-4xlarge
 ```
 
+## Show compute nodes
+...
+scontrol show nodes
+...
+
+## Check to make sure elastic network adapter (ENA) is enabled
+...
+modinfo ena
+lspci
+A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
+...
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
@@ -178,8 +201,14 @@ module avail
 ### Load the openmpi module
 
 ```
-module load openmpi/4.1.0
+module load openmpi
 ```
+
+### Loading the elastic fabric adapter (bugfix?)
+...
+module load libfabric-aws/1.13.0amzn1.0
+...
+
 
 ### Check what version of the gcc compiler is available
 
