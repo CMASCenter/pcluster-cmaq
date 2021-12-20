@@ -1,5 +1,5 @@
 #!/bin/csh -f
-## For c5n.4xlarge (16 vcpu - 8 cpu)
+## For c5n.18xlarge (72 vcpu - 36 cpu)
 ## works with cluster-ubuntu.yaml
 ## data on /shared directory
 #SBATCH --nodes=5
