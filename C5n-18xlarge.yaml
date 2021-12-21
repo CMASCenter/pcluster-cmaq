@@ -4,7 +4,7 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-018cfea3edf3c4765
+    SubnetId: subnet-018cfea3edf3c4765 
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: centos
@@ -21,12 +21,9 @@ Scheduling:
           InstanceType: c5n.18xlarge
           MinCount: 0
           MaxCount: 10
-          Efa:
-            Enabled: true
-            GdrSupport: false
 SharedStorage:
   - MountDir: /shared
-    Name: ebs-shared 
+    Name: ebs-shared
     StorageType: Ebs
   - MountDir: /fsx
     Name: name2
