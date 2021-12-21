@@ -4,7 +4,7 @@ Image:
 HeadNode:
   InstanceType: c5.large
   Networking:
-    SubnetId: subnet-0ddb3159c1f56ded1
+    SubnetId: subnet-018cfea3edf3c4765
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: centos
@@ -26,7 +26,7 @@ Scheduling:
       CapacityType: ONDEMAND
       Networking:
         SubnetIds:
-          - subnet-0ddb3159c1f56ded1
+          - subnet-018cfea3edf3c4765
         PlacementGroup: 
           Enabled: false 
       ComputeResources:
