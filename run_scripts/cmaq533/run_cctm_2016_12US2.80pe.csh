@@ -5,8 +5,8 @@
 #SBATCH --nodes=10
 #SBATCH --ntasks-per-node=8
 #SBATCH -J CMAQ
-#SBATCH -o /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.8x10pe.2day.log
-#SBATCH -e /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.8x10pe.2day.log
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.8x10pe.2day.log
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.8x10pe.2day.log
 
 
 # ===================== CCTMv5.3.X Run Script ========================= 

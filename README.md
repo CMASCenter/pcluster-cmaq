@@ -393,7 +393,15 @@ cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.180pe.csh
 ```
 
-### If the job does not get scheduled, you may need to stop the compute nodes and edit the yaml file to change the instance type from spot to ondemand
+### If the job does not get scheduled, you may need to stop the compute nodes and edit the yaml file to change the instance type from SPOT to ONDEMAND
+
+```
+squeue -u centos
+
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 3   compute     CMAQ   centos  CG      0      10    (BeginTime) 
+
+```
 
 ```
 squeue -u centos
