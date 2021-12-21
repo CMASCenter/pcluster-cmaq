@@ -436,42 +436,28 @@ Num  Day        Wall Time
 
 ```
 
-### Run another jobs using 128 pes
+### Run another jobs using 180 pes - need to update the compute nodes
+
+### Stop the compute nodes
+
 
 ```
-sbatch run_cctm_2016_12US2.128pe.csh
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+### To update compute node from C5n4xlarge to C5n.n18xlarge
+
+```
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml
 ```
 
-### When the job has completed, use tail to view the timing from the log file.
 
-```
-tail run_cctmv5.3.2_Bench_2016_12US2.16x8pe.2day.log
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       128
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2015-12-22   2221.42
-02   2015-12-23   1951.84
-     Total Time = 4173.26
-      Avg. Time = 2086.63
-      
-```
-      
-### Compare the total time for the 2 days run 
-
-| cpus     | time(sec)   |
-| -------  | ----------- |
-| 128 pe   |   4173.26   |
-| 256 pe   |   2571.29   |
 
 ### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
 Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
 It is also important to know what volume was used to read and write the input and output data, so it is recommended to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory for each benchmark.
 
 ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 cp run*.log /fsx/data/output
 cp run*.csh /fsx/data/output
 ```
@@ -507,7 +493,7 @@ CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:      *** FATAL ERROR shutting d
 ### To run the CONUS domain to output all layers, all variables
 
 ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 sbatch run_cctm_2016_12US2.256pe.full.csh
 ```
 
@@ -590,18 +576,6 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
  A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
 ```
 
-
-### Stop the compute nodes
-
-
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
-```
-### To update compute node from C5n4xlarge to C5n.n18xlarge
-
-```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml
-```
 
 
 ### To restart the cluster using the software pre-installed on the /shared volume
