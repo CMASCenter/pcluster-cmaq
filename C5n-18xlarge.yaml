@@ -41,9 +41,6 @@ SharedStorage:
   - MountDir: /shared
     Name: ebs-shared 
     StorageType: Ebs
-    EbsSettings:
-      VolumeType: gp2  # gp2 | gp3 | io1 | io2 | sc1 | st1 | standard
-      Size: 100
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
