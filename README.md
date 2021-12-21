@@ -411,6 +411,14 @@ squeue -u centos
 
  ```
 
+### you can check on the status of the cluster using CloudWatch
+
+```
+https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq2-us-east-1
+https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/
+```
+
+
 ## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
 
 1. This results when you use a different file system for the input and output data.
