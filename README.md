@@ -163,6 +163,7 @@ pcluster --help
 ### Use the configuration file from the github repo that was cloned to your local machine
 Use this command to start the Parallel Cluster it is created using the following command: 
 
+
 ```
 cd pcluster-cmaq
 ```
@@ -246,16 +247,20 @@ module load libfabric-aws/1.13.0amzn1.0
 
 ```
  gcc --version
+
+```
+
 gcc (GCC) 8.3.1 20191121 (Red Hat 8.3.1-5)
 Copyright (C) 2018 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-```
+
 
 ### Change directories to install and build the libraries and CMAQ
 
 ```
-cd /shared/pcluster-cmaq
+cd /shared
+git clone https://github.com/lizadams/pcluster-cmaq.git
 ```
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
