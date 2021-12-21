@@ -411,6 +411,16 @@ squeue -u centos
 
  ```
 
+### If you edit the yaml file, you will need to exit the cluster and stop the comput instances
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq2 --status STOP_REQUESTED
+```
+
+### Then update the 
+
+
+
 ### you can check on the status of the cluster using CloudWatch
 
 ```
