@@ -2,7 +2,7 @@ Region: us-east-1
 Image:
   Os: ubuntu2004
 HeadNode:
-  InstanceType: c5.large
+  InstanceType: c5n.large
   Networking:
     SubnetId: subnet-018cfea3edf3c4765
   DisableSimultaneousMultithreading: true
