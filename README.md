@@ -236,6 +236,7 @@ module load openmpi
 ```
 
 ### Loading the elastic fabric adapter (bugfix?)
+
 ...
 module load libfabric-aws/1.13.0amzn1.0
 ...
