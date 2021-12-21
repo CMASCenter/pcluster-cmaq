@@ -126,37 +126,37 @@ Use this command to start the Parallel Cluster it is created using the following
 
 ```
 cd pcluster-cmaq
-pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml --cluster-name c5n.4xlarge --region us-east-1
+pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml --cluster-name cmaq --region us-east-1
 ```
 
 ### Check on status of cluster
 
 ```
-pcluster describe-cluster --region=us-east-1 --cluster-name c5n-4xlarge
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
 ### Start the compute nodes
 
 ```
-pcluster update-compute-fleet --region us-east-1 --cluster-name c5n-4xlarge --status START_REQUESTED
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
 
 ```
 ### Stop the compute nodes 
 
 
 ```
-pcluster update-compute-fleet --region us-east-1 --cluster-name c5n-4xlarge --status STOP_REQUESTED
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
 
 ```
 ### To update compute node from C5n4xlarge to C5n.n18xlarge
 ```
-pcluster update-cluster --region us-east-1 --cluster-name c5n-4xlarge --cluster-configuration config-C5n.18xlarge-cmaq-fsx.yaml
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration config-C5n.18xlarge-cmaq-fsx.yaml
 
 ```
 ### Login to cluster
 
 ```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name c5n-4xlarge
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ```
 
 ## Show compute nodes
@@ -1194,7 +1194,7 @@ exit
 ### Delete cluster from your local machine virtual environment
 
  ```
- pcluster delete-cluster --region us-east-1 --cluster-name c5n-4xlarge  ! don't use this yet, it is an example syntax.
+ pcluster delete-cluster --region us-east-1 --cluster-name cmaq  ! don't use this yet, it is an example syntax.
  ```
                  
 
