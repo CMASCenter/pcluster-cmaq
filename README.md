@@ -233,7 +233,7 @@ module avail
 ### Load the openmpi module
 
 ```
-module load openmpi
+module load openmpi/4.1.1
 ```
 
 ### Loading the elastic fabric adapter (bugfix?)
@@ -250,8 +250,8 @@ module load libfabric-aws/1.13.0amzn1.0
 
 ```
 
-gcc (GCC) 8.3.1 20191121 (Red Hat 8.3.1-5)
-Copyright (C) 2018 Free Software Foundation, Inc.
+gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
