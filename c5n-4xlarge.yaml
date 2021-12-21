@@ -1,8 +1,8 @@
 Region: us-east-1
 Image:
-  Os: centos7
+  Os: ubuntu2004
 HeadNode:
-  InstanceType: c5.large
+  InstanceType: c5n.large
   Networking:
     SubnetId: subnet-018cfea3edf3c4765 
   DisableSimultaneousMultithreading: true
@@ -18,7 +18,7 @@ Scheduling:
           - subnet-018cfea3edf3c4765
       ComputeResources:
         - Name: compute-resource-1
-          InstanceType: c5.4xlarge
+          InstanceType: c5n.4xlarge
           MinCount: 0
           MaxCount: 10
 SharedStorage:
