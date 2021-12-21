@@ -27,15 +27,15 @@ Scheduling:
       Networking:
         SubnetIds:
           - subnet-0ddb3159c1f56ded1
-        PlacementGroup:
-          Enabled: true
+        PlacementGroup: 
+          Enabled: false 
       ComputeResources:
         - Name: compute-resource-1
           InstanceType: c5n.18xlarge
           MinCount: 0
           MaxCount: 10
           Efa:
-            Enabled: true
+            Enabled: true   
             GdrSupport: false
 SharedStorage:
   - MountDir: /shared
