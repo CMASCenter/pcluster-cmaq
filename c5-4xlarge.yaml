@@ -1,0 +1,32 @@
+Region: us-east-1
+Image:
+  Os: centos7
+HeadNode:
+  InstanceType: c5.large
+  Networking:
+    SubnetId: subnet-018cfea3edf3c4765 
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: centos
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: SPOT
+      Networking:
+        SubnetIds:
+          - subnet-018cfea3edf3c4765
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: c5.4xlarge
+          MinCount: 0
+          MaxCount: 10
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+  - MountDir: /fsx
+    Name: name2
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
