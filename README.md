@@ -378,7 +378,7 @@ tmpfs                477M  4.0K  477M   1% /run/user/1000
 ### Copy the run scripts to the run directory
 
 ```
-cd /shared/pcluster-cmaq/run_scripts
+cd /shared/pcluster-cmaq/run_scripts/cmaq533
 cp run*  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 ```
