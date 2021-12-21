@@ -378,130 +378,16 @@ tmpfs                477M  4.0K  477M   1% /run/user/1000
 ### Copy the run scripts to the run directory
 
 ```
-cd /shared/pcluster-cmaq
-cp run*  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
-cd  /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts
-```
-
-### To run the 12km SE Domain for 1 layer 12 variables in the CONC file
-
-```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-sbatch run_cctm_Bench_2016_12SE1.csh
-```
-
-### When the job has completed examine the timing information at the end of the log file
-
-```
-tail run_cctm_Bench_2016_12SE1.8x8.log
-Number of Grid Cells:      280000  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       64
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2016-07-01   304.86
-02   2016-07-02   277.51
-     Total Time = 582.37
-      Avg. Time = 291.18
- 
-```
-
-### The output directory of the 1 layer, 13 variables in the CONC file
-
-```
-cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1
-ls -rlt
-total 1375394
--rw-rw-r-- 1 centos centos      3611 Jul  2 13:48 CCTM_v532_gcc_Bench_2016_12SE1_20160701.cfg
--rw-rw-r-- 1 centos centos    881964 Jul  2 13:53 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 104518560 Jul  2 13:53 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos   3084636 Jul  2 13:53 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 130645456 Jul  2 13:53 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  10416748 Jul  2 13:53 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  29980192 Jul  2 13:53 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 173677956 Jul  2 13:53 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 249827776 Jul  2 13:53 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos      3611 Jul  2 13:53 CCTM_v532_gcc_Bench_2016_12SE1_20160702.cfg
--rw-rw-r-- 1 centos centos    881964 Jul  2 13:57 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 104518560 Jul  2 13:57 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos   3084636 Jul  2 13:57 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 130645456 Jul  2 13:57 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  10416748 Jul  2 13:57 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  29980192 Jul  2 13:57 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 173677956 Jul  2 13:57 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 249827776 Jul  2 13:57 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160702.nc
-drwxrwxr-x 2 centos centos     50176 Jul  2 13:57 LOGS
-
-du -h
-83M	./LOGS
-1.4G	.
-```
-
-
-### To run the 12km SE Domain for all layers, all variables in the CONC file
-
-```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-qsub run_cctm_Bench_2016_12SE1.full.csh
-```
-
-### When the job has completed examine the timing information at the end of the log file
-
-```
-tail run_cctm_Bench_2016_12SE1.8x8.full.log
-Number of Grid Cells:      280000  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       64
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2016-07-01   331.17
-02   2016-07-02   302.13
-     Total Time = 633.30
-      Avg. Time = 316.65
- ```
-
-
-### The output files for the full domain requires 12 G of storage
-
-```
-cd output_CCTM_v532_gcc_Bench_2016_12SE1_full
-ls -rlt
-total 13393467
--rw-rw-r-- 1 centos centos       3611 Jul  2 13:15 CCTM_v532_gcc_Bench_2016_12SE1_20160701.cfg
--rw-rw-r-- 1 centos centos     881964 Jul  2 13:20 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  104518560 Jul  2 13:20 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos    3084636 Jul  2 13:20 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  130645456 Jul  2 13:20 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos   29980192 Jul  2 13:20 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos 6160109240 Jul  2 13:20 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  173677956 Jul  2 13:20 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos  249827776 Jul  2 13:20 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160701.nc
--rw-rw-r-- 1 centos centos       3611 Jul  2 13:20 CCTM_v532_gcc_Bench_2016_12SE1_20160702.cfg
--rw-rw-r-- 1 centos centos     881964 Jul  2 13:25 CCTM_SOILOUT_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos    3084636 Jul  2 13:25 CCTM_MEDIA_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  130645456 Jul  2 13:25 CCTM_DRYDEP_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  104518560 Jul  2 13:25 CCTM_WETDEP1_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos   29980192 Jul  2 13:25 CCTM_APMDIAG_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 6160109240 Jul  2 13:25 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  173677956 Jul  2 13:25 CCTM_ACONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos  249827776 Jul  2 13:25 CCTM_CGRID_v532_gcc_Bench_2016_12SE1_20160702.nc
-drwxrwxr-x 2 centos centos      50176 Jul  2 13:25 LOGS
-
- ls -lht  CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
--rw-rw-r-- 1 centos centos 5.8G Jul  2 13:25 CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
-
-du -h
-83M	./LOGS
-13G	.
+cd /shared/pcluster-cmaq/run_scripts
+cp run*  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
+cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 ```
 
 #### To run the CONUS Domain
 
  ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-sbatch run_cctm_2016_12US2.256pe.csh
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+sbatch run_cctm_2016_12US2.180pe.csh
 ```
 
 ```
