@@ -126,7 +126,7 @@ Use this command to start the Parallel Cluster it is created using the following
 
 ```
 cd pcluster-cmaq
-pcluster create-cluster --cluster-configuration config-C5n.4xlarge-cmaqebs.yaml --cluster-name cmaq --region us-east-1
+pcluster create-cluster --cluster-configuration c5-4xlarge.yaml --cluster-name cmaq --region us-east-1
 ```
 
 ### Check on status of cluster
