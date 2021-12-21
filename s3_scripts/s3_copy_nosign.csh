@@ -8,7 +8,7 @@
 #run this script from a directory named CONUS - so you can point to this directory
 
 setenv AWS_REGION "us-east-1"
-mkdir /fsx/data/CONUS/12US2
+mkdir -p /fsx/data/CONUS/12US2
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222" --include "*151223" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/MCIP /fsx/data/CONUS/12US2/MCIP
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions /fsx/data/CONUS/12US2/emissions
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*" --include "*stack_groups*" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions /fsx/data/CONUS/12US2/emissions
