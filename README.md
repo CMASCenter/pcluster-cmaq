@@ -311,6 +311,12 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ## set the aws credentials
 ##  If you don't have credentials, please contact the owner of this github project.
 
+### Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
+
+```
+ls /fsx
+```
+
 ```
 aws credentials
 ```
@@ -320,6 +326,7 @@ aws credentials
 ```
 ./shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh
 ```
+
 
 ## If you get a permissions error, try using this script
 
