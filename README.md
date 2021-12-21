@@ -153,7 +153,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 ### To update compute node from C5n4xlarge to C5n.n18xlarge
 ```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration config-C5n.18xlarge-cmaq-fsx.yaml
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml 
 
 ```
 ### Login to cluster
