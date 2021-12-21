@@ -266,7 +266,7 @@ git clone https://github.com/lizadams/pcluster-cmaq.git
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
 
 ```
-cd run_scripts/cmaq533
+cd pcluster-cmaq
 ./gcc8_install.csh
 ```
 
