@@ -42,11 +42,50 @@ The remainder of these instructions are using the V3 version, which uses a yaml 
 
 For examples see https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs
 
-#### Create a yaml configuration file for the cluster
+#### Create a yaml configuration file for the cluster following these instructions
+https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html
 
 ```
 pcluster configure --config new-hello-world.yaml
 ```
+
+Allowed values for AWS Region ID:
+15. us-east-1
+
+The key pair is selected from the key pairs registered with Amazon EC2 in the selected Region. Choose the key pair: 
+(this requires user to have created a AWS EC2 instance and created a EC2 Key pair.)
+
+Choose the scheduler to use with your cluster.
+Allowed values for Scheduler:
+1. slurm
+
+Choose the operating system.
+
+Allowed values for Operating System:
+1. alinux2
+2. centos7
+3. ubuntu1804
+4. ubuntu2004
+
+Choose 4. ubuntu2004
+
+Choose head node instance type:
+
+Head node instance type [t2.micro]:
+
+
+
+
+
+#### Examine the yaml file
+
+```
+vi new-hello-world.yaml
+```
+
+note that the yaml file format seems to be sensitive to using 2 spaces for indentation
+
+
 
 Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
 
@@ -144,18 +183,7 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
 
 ```
-### Stop the compute nodes 
 
-
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
-
-```
-### To update compute node from C5n4xlarge to C5n.n18xlarge
-```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml 
-
-```
 ### Login to cluster
 
 ```
@@ -280,21 +308,6 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 aws credentials
 ```
 
-### Use the S3 copy script to copy the 12km SE1 Domain input data to the /fsx/data volume on the cluster
-
-```
-cd /shared/pcluster/
-./s3_copy_12km_SE_Bench.csh
-```
-
-### Note this input data requires 21 G of storage
-
-```
-cd /fsx/data/CMAQv5.3.2_Benchmark_2Day_Input
-du -sh
-21G	.
-```
-
 ## Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
 
 ```
@@ -315,47 +328,6 @@ cd /fsx/data/CONUS
 44G	.
 ```
 
-### Storage for the output data for the 12SE Domain, assuming 2 day run, 1 layer, 13 var in the CONC output requires 1.4 G
-
-```
-ncdump -h CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702.nc
-netcdf CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160702 {
-dimensions:
-	TSTEP = UNLIMITED ; // (25 currently)
-	DATE-TIME = 2 ;
-	LAY = 1 ;
-	VAR = 13 ;
-	ROW = 80 ;
-	COL = 100 ;
-	
-cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1
-[centos@ip-10-0-0-140 output_CCTM_v532_gcc_Bench_2016_12SE1]$ du -h
-83M	./LOGS
-1.4G	.
-
-```
-
-
-## Storage for the output data for the 12SE1 Domain, assuming 2 day run, 35 layer, 220 var in the CONC output requires 13G
-
-```
-ncdump -h CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701.nc
-
-netcdf CCTM_CONC_v532_gcc_Bench_2016_12SE1_20160701 {
-dimensions:
-	TSTEP = UNLIMITED ; // (25 currently)
-	DATE-TIME = 2 ;
-	LAY = 35 ;
-	VAR = 220 ;
-	ROW = 80 ;
-	COL = 100 ;
-
-
-cd /fsx/data/output_CCTM_v532_gcc_Bench_2016_12SE1_full
-du -h
-83M	./LOGS
-13G	.
-```
 
 ## For the output data, assuming 2 day CONUS Run, 1 layer, 12 var in the CONC output
 
@@ -717,6 +689,20 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
  A:B  3.10000E-05@(280,148, 1) -1.03656E-05@(279,148, 1)  2.16821E-10  1.07228E-07
  A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
 ```
+
+
+### Stop the compute nodes
+
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+### To update compute node from C5n4xlarge to C5n.n18xlarge
+
+```
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml
+```
+
 
 ### To restart the cluster using the software pre-installed on the /shared volume
 
