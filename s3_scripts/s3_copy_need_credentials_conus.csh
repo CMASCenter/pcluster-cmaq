@@ -6,7 +6,7 @@
 #Note, also download the smk_merge_dates_201512.txt file and installed under your ./emissions directory
 #https://github.com/lizadams/singularity-cctm/blob/main/smk_merge_dates_201512.txt
 #run this script from a directory named CONUS - so you can point to this directory
-mkdir /fsx/data/CONUS_2
+mkdir /fsx/data/CONUS
 setenv AWS_REGION "us-east-1"
 
-aws s3 cp --recursive s3://conus-benchmark-2day /fsx/data/CONUS_2
+aws s3 cp --recursive s3://conus-benchmark-2day /fsx/data/CONUS
