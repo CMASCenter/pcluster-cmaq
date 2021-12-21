@@ -8,13 +8,6 @@ HeadNode:
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: centos
-  LocalStorage:
-    RootVolume:
-      Size: 100
-      Encrypted: false
-      VolumeType: gp2
-      Iops: 100
-      DeleteOnTermination: true
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
