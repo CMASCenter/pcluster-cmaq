@@ -168,6 +168,9 @@ Use this command to start the Parallel Cluster it is created using the following
 cd pcluster-cmaq
 ```
 
+### NOTE: the c5-4xlarge.yaml is configured to use SPOT instances for the compute nodes
+
+
 ```
 pcluster create-cluster --cluster-configuration c5-4xlarge.yaml --cluster-name cmaq --region us-east-1
 ```
@@ -389,6 +392,8 @@ cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.180pe.csh
 ```
+
+### If the job does not get scheduled, you may need to stop the compute nodes and edit the yaml file to change the instance type from spot to ondemand
 
 ```
 squeue -u centos
