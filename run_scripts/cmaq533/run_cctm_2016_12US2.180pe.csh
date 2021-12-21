@@ -74,7 +74,7 @@ showmount -e localhost
  #setenv CMAQ_DATA /21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output
  setenv CMAQ_DATA /fsx/data/output
  setenv OUTDIR  ${CMAQ_DATA}/output_CCTM_${RUNID} #> Output Directory
- setenv INPDIR  /fsx/data/CONUS_2/12US2  #Input Directory
+ setenv INPDIR  /fsx/data/CONUS/12US2  #Input Directory
  setenv LOGDIR  ${OUTDIR}/LOGS     #> Log Directory Location
  setenv NMLpath ${BLD}             #> Location of Namelists. Common places are: 
                                    #>   ${WORKDIR} | ${CCTM_SRC}/MECHS/${MECH} | ${BLD}
