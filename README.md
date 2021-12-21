@@ -126,6 +126,9 @@ Use this command to start the Parallel Cluster it is created using the following
 
 ```
 cd pcluster-cmaq
+```
+
+```
 pcluster create-cluster --cluster-configuration c5-4xlarge.yaml --cluster-name cmaq --region us-east-1
 ```
 
@@ -726,6 +729,7 @@ Then save as a snapshot.
 Copy the Snapshot ID and place it in the configuration file.
 Create a new cluster starting the /shared directory from the snapshot.
 
+ ```
  pcluster create cmaq-c5n-4xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.4xlarge-cmaqebs
  ```
 
