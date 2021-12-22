@@ -26,7 +26,6 @@ Scheduling:
           Efa:
             Enabled: true
             GdrSupport: false
-            Placement: false
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
