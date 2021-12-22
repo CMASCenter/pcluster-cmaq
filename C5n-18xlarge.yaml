@@ -16,6 +16,8 @@ Scheduling:
       Networking:
         SubnetIds:
           - subnet-018cfea3edf3c4765
+        PlacementGroup:
+          Enabled: true
       ComputeResources:
         - Name: compute-resource-1
           InstanceType: c5n.18xlarge
