@@ -87,7 +87,7 @@ note that the yaml file format seems to be sensitive to using 2 spaces for inden
 
 
 
-Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to name your cluster to match the extension of the config file that was used to create it.
+Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to keep track of what yaml configuration file was used to create the cluster. 
 
 ### Configure the cluster
       
@@ -100,7 +100,7 @@ The settings in the cluster configuration file allow you to
    5) specify if hyperthreading is used or not (can be done using config, much easier than earlier methods: https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
    6) specify the type of disk that is used, ie ebs or fsx and the size of /shared disk that is available  (can't be updated) 
    (Note the /shared disks are persistent as you can't turn them off, they will acrue charges until the cluster is deleted so you need to determine the size and type requirements carefully.)
-   7) GNU gcc 8.3.1 is the default compiler, if you need intel compiler, you need separate config settings and license to get access to intel compiler
+   7) GNU gcc 8.3.1 or higher is the default compiler, if you need intel compiler, you need separate config settings and license to get access to intel compiler
   (Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.)
    8) specify the name of the snapshot containing the application software to use as the /shared directory.  This requires a previous Parallel Cluster installation where the software was installed using the install scripts, tested, and then the /shared directory saved as a snapshot.
    
@@ -162,6 +162,7 @@ pcluster --help
 
 ### Use the configuration file from the github repo that was cloned to your local machine
 Use this command to start the Parallel Cluster it is created using the following command: 
+Note, you will need to modify the SugnetId, as this is specific to your account. 
 
 
 ```
