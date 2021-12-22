@@ -21,6 +21,9 @@ Scheduling:
           InstanceType: c5n.18xlarge
           MinCount: 0
           MaxCount: 10
+          Efa:
+            Enabled: true
+            GdrSupport: false
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
