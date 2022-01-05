@@ -204,9 +204,10 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ```
 
 ## Show compute nodes
-...
+
+```
 scontrol show nodes
-...
+```
 
 ### Before building the software, verify that you can upgrade the compute nodes from the c5n.4xlarge to the c5n.18xlarge
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file.
@@ -630,7 +631,12 @@ queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1 
 queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
 
 
-The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance.
+### It should take 31 minutes per day (62 minutes total)
+
+
+
+The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance, if you need to run on 360 processors.
+
 
 
 
