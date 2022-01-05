@@ -439,6 +439,12 @@ cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.180pe.csh
 ```
+Note, it will take about 3-5 minutes for the compute notes to start up
+This is reflected in the Status (ST) of CF (configuring)
+
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 2    queue1     CMAQ   ubuntu CF       3:00      5 queue1-dy-computeresource1-[1-5]
+
 
 ### If the job does not get scheduled, you may need to stop the compute nodes and edit the yaml file to change the instance type from SPOT to ONDEMAND
 
