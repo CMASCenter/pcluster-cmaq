@@ -620,7 +620,11 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 ```
 
 ### Check whether the scheduler thinks there are cpus or vcpus
+
+```
 sinfo -lN
+```
+
 Wed Jan 05 19:34:05 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
@@ -636,9 +640,56 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1 
 
 
 ### It should take 31 minutes per day (62 minutes total)
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1873.00
+02   2015-12-23   1699.24
+     Total Time = 3572.24
+      Avg. Time = 1786.12
 
 
+Again, the compute nodes were not stopped, even when they were idled for more than 15 minutes.  There were no jobs in the queue, but the compute nodes are not stopping.
 
+### Force the comput nodes to stop
+
+exit out of the cluster
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+
+Verify that the compute nodes have stopped in the AWS Web Interface
+
+
+Also updated the yaml file to specify the idle time before the compute nodes should be deleted.
+SlurmSettings:
+    ScaledownIdletime: 5
+And also specified to turn multithreading off at the compute node level (previously I had only specified this for the head node) 
+DisableSimultaneousMultithreading: true
+sinfo -lN
+Wed Jan 05 20:54:01 2022
+NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
+queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-2       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-3       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-4       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-5       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-6       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none   
 The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance, if you need to run on 360 processors.
 
 
@@ -688,36 +739,65 @@ cp run*.csh /fsx/data/output
 
 
 ```
-cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe/LOGS
+cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_10x18pe/LOGS
+```
 
-grep -i error CTM_LOG*
+```
+grep -i error CTM_LOG_000.v533_gcc_2016_CONUS_10x18pe_20151223
+```
+Error opening file at path-name:
+     netCDF error number  -51  processing file "BNDY_SENS_1"
+     Error closing netCDF file 
+     netCDF error number  -33
+      *** FATAL ERROR shutting down Models-3 I/O ***
 
-CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     Error opening file at path-name:
-CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     netCDF error number  -51  processing file "BNDY_SENS_1"
-CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     Error closing netCDF file 
-CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:     netCDF error number  -33
-CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223:      *** FATAL ERROR shutting down Models-3 I/O ***
+     Checking header data for file: BNDY_CONC_1
+     Error opening file at path-name:
+     netCDF error number  -51  processing file "BNDY_SENS_1"
+     NetCDF: Unknown file format
+     /
 
 
- tail CTM_LOG_127.v532_gcc_2016_CONUS_16x8pe_20151223
      >>> WARNING in subroutine SHUT3 <<<
      Error closing netCDF file
-     File name:  CTM_CONC_1
+     File name:  CTM_DRY_DEP_1
      netCDF error number  -33
 
 
       *** FATAL ERROR shutting down Models-3 I/O ***
-     The elapsed time for this simulation was    1947.9 seconds.
-
-```
 
 
-### To run the CONUS domain to output all layers, all variables
+
+### To run the CONUS domain to output all layers, all variables in the CONC file
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
-sbatch run_cctm_2016_12US2.256pe.full.csh
+sbatch run_cctm_2016_12US2.180pe.full.csh
 ```
+
+### Check on the status - note that the yaml configuratipn file was modified to remove hyperthreading, so performance may be improved.
+grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_20151222
+            Processing completed...    4.6 seconds
+            Processing completed...    4.1 seconds
+            Processing completed...    4.0 seconds
+            Processing completed...    4.0 seconds
+            Processing completed...    4.0 seconds
+            Processing completed...    4.0 seconds
+            Processing completed...    4.0 seconds
+            Processing completed...    4.0 seconds
+            Processing completed...    4.1 seconds
+            Processing completed...    3.9 seconds
+            Processing completed...    3.9 seconds
+            Processing completed...    3.9 seconds
+            Processing completed...    3.8 seconds
+            Processing completed...    3.8 seconds
+            Processing completed...    5.5 seconds
+            Processing completed...    6.3 seconds
+            Processing completed...    3.9 seconds
+
+
+
+
 
 ### When the run has completed, use the tail command to examing the timing information.
 
