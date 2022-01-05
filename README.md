@@ -509,6 +509,36 @@ grep 'Processing completed' CTM_LOG_001*
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
+CMAQ Processing of Day 20151223 Finished at Wed Jan  5 18:30:58 UTC 2022
+
+\\\\\=====\\\\\=====\\\\\=====\\\\\=====/////=====/////=====/////=====/////
+
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2481.55
+02   2015-12-23   2225.34
+     Total Time = 4706.89
+      Avg. Time = 2353.44
+
+
+
+
+
+
+
+Timing report on 256 processors
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       256
