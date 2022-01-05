@@ -186,6 +186,9 @@ pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name 
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
+After 5-10 minutes, you see the following status:
+"clusterStatus": "CREATE_COMPLETE"
+
 ### Start the compute nodes
 
 ```
@@ -213,11 +216,29 @@ Exit the pcluster and return to your local command line
 ```
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
 ```
+
+### Verify that the compute nodes are stopped
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+keep rechecking until you see the following status
+"computeFleetStatus": "STOPPED",
+
+
 ### To update compute node from c5n4xlarge to c5n.n18xlarge
 
 ```
 pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
 ```
+
+### Verify that the compute nodes have been updated
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
 
 ### Login to updated cluster
 
@@ -227,11 +248,12 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 
 
 ## Check to make sure elastic network adapter (ENA) is enabled
-...
+
+```
 modinfo ena
 lspci
 A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
-...
+```
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
