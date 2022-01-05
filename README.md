@@ -1,6 +1,7 @@
 # pcluster-cmaq
 
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
+The goal is to demonstrate how to create a parallel cluster, modify or update the cluster, and run CMAQv533 for two days on the CONUS2 domain obtaining input data from an S3 Bucket and saving the output to the S3 Bucket.
 
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
@@ -474,9 +475,9 @@ squeue -u ubuntu
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
 ```
 
-### Then update the 
+### Then update the yaml file
 
-
+### Then restart the comput nodes
 
 ### you can check on the status of the cluster using CloudWatch
 
@@ -488,7 +489,7 @@ https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluste
 
 ## Note, there are times when the second day run fails, looking for the input file that was output from the first day.
 
-1. This results when you use a different file system for the input and output data.
+1. This occurs when you use a different file system for the input and output data.
 2. Verify that the script specifies the INPUT and OUTPUT Directory are both using the /fsx file system to read the input and write the output.
 
 ### Note this may help with networking on the parallel cluster
