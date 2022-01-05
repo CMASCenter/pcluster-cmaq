@@ -10,6 +10,8 @@ HeadNode:
     KeyName: centos
 Scheduling:
   Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
   SlurmQueues:
     - Name: queue1
       CapacityType: SPOT
