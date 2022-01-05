@@ -169,11 +169,11 @@ Note, you will need to modify the SugnetId, as this is specific to your account.
 cd pcluster-cmaq
 ```
 
-### NOTE: the c5-4xlarge.yaml is configured to use SPOT instances for the compute nodes
+### NOTE: the c5n-4xlarge.yaml is configured to use SPOT instances for the compute nodes
 
 
 ```
-pcluster create-cluster --cluster-configuration c5-4xlarge.yaml --cluster-name cmaq --region us-east-1
+pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1
 ```
 
 ### Check on status of cluster
