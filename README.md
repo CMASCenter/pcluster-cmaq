@@ -506,7 +506,7 @@ grep 'Processing completed' CTM_LOG_001*
 ### When the job has completed, use tail to view the timing from the log file.
 
 ```
-tail run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.log
+tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       256
