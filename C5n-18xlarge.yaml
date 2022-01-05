@@ -23,6 +23,7 @@ Scheduling:
           InstanceType: c5n.18xlarge
           MinCount: 0
           MaxCount: 10
+          DisableSimultaneousMultithreading: true
           Efa:
             Enabled: true
             GdrSupport: false
