@@ -142,7 +142,7 @@ $ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster
 login prompt should look something like (this will depend on what OS was chosen in the yaml file).
 
 ```
-[centos@ip-xx-x-xx-xxx pcluster-cmaq]
+[ip-xx-x-xx-xxx pcluster-cmaq]
 
 ```
 
@@ -443,25 +443,25 @@ sbatch run_cctm_2016_12US2.180pe.csh
 ### If the job does not get scheduled, you may need to stop the compute nodes and edit the yaml file to change the instance type from SPOT to ONDEMAND
 
 ```
-squeue -u centos
+squeue -u ubuntu 
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 3   compute     CMAQ   centos  CG      0      10    (BeginTime) 
+                 3   compute     CMAQ   ubuntu  CG      0      10    (BeginTime) 
 
 ```
 
 ```
-squeue -u centos
+squeue -u ubuntu 
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                 3   compute     CMAQ   centos  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
+                 3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
 
  ```
 
 ### If you edit the yaml file, you will need to exit the cluster and stop the comput instances
 
 ```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq2 --status STOP_REQUESTED
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
 ```
 
 ### Then update the 
