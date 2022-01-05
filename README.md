@@ -464,6 +464,8 @@ squeue -u ubuntu
 
  ```
 
+### The 180 pe job should take 80 minutes to run (40 minutes per day)
+
 ### If you edit the yaml file, you will need to exit the cluster and stop the comput instances
 
 ```
