@@ -160,10 +160,7 @@ pcluster --help
 ```
 
 
-### Use the configuration file from the github repo that was cloned to your local machine
-Use this command to start the Parallel Cluster it is created using the following command: 
-Note, you will need to modify the SugnetId, as this is specific to your account. 
-
+### Use a configuration file from the github repo that was cloned to your local machine
 
 ```
 cd pcluster-cmaq
@@ -171,7 +168,13 @@ cd pcluster-cmaq
 
 ### NOTE: the c5n-4xlarge.yaml is configured to use SPOT instances for the compute nodes
 You will need to edit the c5n-4xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml)
+This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.4xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data).
 
+```
+vi c5n-4xlarge.yaml
+```
+
+### Create the c5n-4xlarge pcluster
 
 ```
 pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1
@@ -267,6 +270,23 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 cd /shared
 git clone https://github.com/lizadams/pcluster-cmaq.git
 ```
+
+
+### Before building the software, verify that you can upgrade the compute nodes from the c5n.4xlarge to the c5n.18xlarge
+Exit the pcluster and return to your local command line
+
+### Stop the compute nodes
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+### To update compute node from c5n4xlarge to c5n.n18xlarge
+
+```
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
+
+
+
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
 
