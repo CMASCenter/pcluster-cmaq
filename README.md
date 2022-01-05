@@ -40,6 +40,7 @@ Note, there are two versions of the parallel cluster command line options V2 and
 
 The remainder of these instructions are using the V3 version, which uses a yaml formatted configuration file.
 
+https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html
 For examples see https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs
 
 #### Create a yaml configuration file for the cluster following these instructions
