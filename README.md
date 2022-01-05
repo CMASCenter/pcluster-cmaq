@@ -585,6 +585,12 @@ squeue -u ubuntu
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  6    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 
+### Cancel the 360 pe job
+
+```
+scancel 6
+```
+
 ### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
 
 ```
@@ -595,7 +601,12 @@ sbatch run_cctm_2016_12US2.288pe.csh
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
 
-Note, it takes about 5 minutes for the compute nodes to be initialized
+Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
+
+squeue -u ubuntu
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
+
 
 ### Check the status of the run 
 
