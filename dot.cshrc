@@ -9,3 +9,9 @@ else
 endif
 
 set path = ($path /shared/build/netcdf/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort)
+
+if ($?tcsh) then
+   source /usr/share/modules/init/tcsh
+else
+   source /usr/share/modules/init/csh
+endif
