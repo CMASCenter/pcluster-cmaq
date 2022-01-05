@@ -204,6 +204,28 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 scontrol show nodes
 ...
 
+### Before building the software, verify that you can upgrade the compute nodes from the c5n.4xlarge to the c5n.18xlarge
+The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file.
+Exit the pcluster and return to your local command line
+
+### Stop the compute nodes
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+### To update compute node from c5n4xlarge to c5n.n18xlarge
+
+```
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
+```
+
+### Login to updated cluster
+
+```
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
+```
+
+
 ## Check to make sure elastic network adapter (ENA) is enabled
 ...
 modinfo ena
@@ -221,9 +243,6 @@ A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 
 ### Pcluster User Manual
 https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
-
-### Configuring Pcluster for HPC - example tutorial
-https://jimmielin.me/2019/wrf-gc-aws/
 
 
 ### After logging into the head node of the parallel cluster, change from default bash shell to csh
@@ -270,22 +289,6 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 cd /shared
 git clone https://github.com/lizadams/pcluster-cmaq.git
 ```
-
-
-### Before building the software, verify that you can upgrade the compute nodes from the c5n.4xlarge to the c5n.18xlarge
-Exit the pcluster and return to your local command line
-
-### Stop the compute nodes
-
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
-```
-### To update compute node from c5n4xlarge to c5n.n18xlarge
-
-```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
-
-
 
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
