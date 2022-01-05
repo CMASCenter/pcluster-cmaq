@@ -21,6 +21,7 @@ Scheduling:
           InstanceType: c5n.4xlarge
           MinCount: 0
           MaxCount: 10
+          DisableSimultaneousMultithreading: true
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
