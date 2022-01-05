@@ -374,14 +374,14 @@ aws credentials
 ## Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
 
 ```
-./shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh
+/shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh
 ```
 
 
 ## If you get a permissions error, try using this script
 
 ```
-./shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh  ! check that the resulting directory structure matches the run script
+/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh  ! check that the resulting directory structure matches the run script
 ```
 
 ## Note, this input data requires 44 GB of disk space
