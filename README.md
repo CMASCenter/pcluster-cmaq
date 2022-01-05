@@ -533,8 +533,76 @@ Num  Day        Wall Time
       Avg. Time = 2353.44
 
 
+### Submit a job to run on 360 processors
+
+```
+sbatch run_cctm_2016_12US2.360pe.csh
+```
+
+Note, you may get the following message
+squeue -u ubuntu
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 5    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+
+It seems like the 5 compute nodes used by the 180 pe run are not being released.
+I decided to cancel the job, and verify that they are no longer running using the AWS Web interface.
+It seems like even after there are not jobs in the queue, the compute nodes are not stopping.
+
+### Force the comput nodes to stop
+
+exit out of the cluster
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+
+Verify that the compute nodes have stopped in the AWS Web Interface
+
+### Restart the compute nodes
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
+```
 
 
+### Login to the pcluster
+
+```
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq  
+```
+
+### Resbumit the 360 pe job
+
+```
+ cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
+ sbatch run_cctm_2016_12US2.360pe.csh
+```
+
+### obtained the same message 
+
+squeue -u ubuntu
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 6    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+
+### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
+
+```
+sbatch run_cctm_2016_12US2.288pe.csh
+```
+
+ squeue -u ubuntu
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
+
+Note, it takes about 5 minutes for the compute nodes to be initialized
+
+### Check the status of the run 
+
+```
+tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
+```
+
+The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance.
 
 
 
