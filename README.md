@@ -106,7 +106,7 @@ The settings in the cluster configuration file allow you to
    
   
 
-### Create the cluster
+### Create the demo cluster 
 
 ```
 pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1
@@ -146,7 +146,7 @@ login prompt should look something like (this will depend on what OS was chosen 
 
 ```
 
-### Delete the cluster
+### Delete the demo cluster
 
 ```
 pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1
@@ -170,6 +170,7 @@ cd pcluster-cmaq
 ```
 
 ### NOTE: the c5n-4xlarge.yaml is configured to use SPOT instances for the compute nodes
+You will need to edit the c5n-4xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml)
 
 
 ```
