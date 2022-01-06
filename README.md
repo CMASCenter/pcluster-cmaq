@@ -1181,7 +1181,7 @@ cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
 ### Source shell
 
 ```
-source ~/.cshrc
+csh
 ```
 
 ### Load the modules
@@ -1190,7 +1190,21 @@ source ~/.cshrc
 ### change shell and submit job
 
 ```
-csh
+module avail
+------------------------------------------------------------ /usr/share/modules/modulefiles -------------------------------------------------------------
+dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own  
+```
+
+```
+module load openmpi/4.1.1
+module load libfabric-aws/1.13.2amzn1.0
+```
+
+Change directories
+```
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+
+
 sbatch run_cctm_2016_12US2.256pe.2.csh
 ### it failed with 
  EXECUTION_ID: CMAQ_CCTMv532_centos_20210701_022504_836895623
@@ -1201,7 +1215,7 @@ sbatch run_cctm_2016_12US2.256pe.2.csh
      
     ```
 
-### Need to copy the CONUS input data to the /fsx directory
+### First need to copy the CONUS2 input data to the /fsx directory
 
 
 ### First set up aws credentials
