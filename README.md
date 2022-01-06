@@ -485,7 +485,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ### you can check on the status of the cluster using CloudWatch
 
 ```
-https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq2-us-east-1
+https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1
 https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/
 ```
 
