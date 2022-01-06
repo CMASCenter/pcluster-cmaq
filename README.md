@@ -319,11 +319,11 @@ git clone https://github.com/lizadams/pcluster-cmaq.git
 ```
 
 
-### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8.3.1 compiler
+### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 
 ```
 cd pcluster-cmaq
-./gcc8_install.csh
+./gcc_install.csh
 ```
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
@@ -354,13 +354,13 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ### Build I/O API library
 
 ```
-./gcc8_ioapi.csh
+./gcc_ioapi.csh
 ```
 
 ### Build CMAQ
 
 ```
-./gcc8_cmaq.csh
+./gcc_cmaq.csh
 ```
 
 ## Copy the input data from a S3 bucket (this bucket is not public and needs credentials)
@@ -1078,7 +1078,7 @@ Select Snapshots
 find the snapshot that is being created
 Copy the Snapshot ID and place it in the configuration file.
 Delete the old cluster
-Create a new cluster starting the /shared directory from the snapshot.
+Create a new cluster with the /shared directory from the snapshot.
 
 
  ```
@@ -1108,10 +1108,63 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
   "clusterStatus": "DELETE_IN_PROGRESS"
 ```
 
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+{
+  "message": "Cluster 'cmaq' does not exist or belongs to an incompatible ParallelCluster major version."
+```
+
 Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed
+
 ```
 pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
+{
+  "cluster": {
+    "clusterName": "cmaq",
+    "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/6cfb1a50-6e99-11ec-8af1-0ea2256597e5",
+    "region": "us-east-1",
+    "version": "3.0.2",
+    "clusterStatus": "CREATE_IN_PROGRESS"
+  }
+}
+
  ```
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+{
+  "creationTime": "2022-01-06T02:36:18.119Z",
+  "version": "3.0.2",
+  "clusterConfiguration": {
+    "url": "https://parallelcluster-92e22c6ec33aa106-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.0.2/clusters/cmaq-h466ns1cchvrf3wd/configs/cluster-config.yaml?versionId=3F5xBNZqTGz5UDMBvk8Dj27JDaBlfQwQ&AWSAccessKeyId=AKIAWNJJ2DMFE3ARDU6L&Signature=PJ02HkkiKU3joL1QVHd5ZnNisrE%3D&Expires=1641440204"
+  },
+  "tags": [
+    {
+      "value": "3.0.2",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "CREATE_IN_PROGRESS",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "UNKNOWN",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/6cfb1a50-6e99-11ec-8af1-0ea2256597e5",
+  "lastUpdatedTime": "2022-01-06T02:36:18.119Z",
+  "region": "us-east-1",
+  "clusterStatus": "CREATE_IN_PROGRESS"
+}
+```
+
+Start the compute nodes
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
+```
+
+log into the new cluster
+
+```
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
+```
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
 
@@ -1130,6 +1183,8 @@ cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
 ```
 source ~/.cshrc
 ```
+
+### Load the modules
 
 
 ### change shell and submit job
@@ -1167,8 +1222,8 @@ cd /shared/pcluster-cmaq/s3_scripts
 ### Then resubmit the job
 
 ```
-cd /shared/build/openmpi_4.1.0_gcc_8.3.1/CMAQ_v532/CCTM/scripts/
-sbatch run_cctm_2016_12US2.256pe.2.csh
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+sbatch run_cctm_2016_12US2.256pe.csh
 ```
 
 ### Results from the Parallel Cluster Started with the EBS Volume software
