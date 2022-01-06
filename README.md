@@ -448,8 +448,11 @@ sbatch run_cctm_2016_12US2.180pe.csh
 Note, it will take about 3-5 minutes for the compute notes to start up
 This is reflected in the Status (ST) of CF (configuring)
 
+```
+squeue -u ubuntu
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  2    queue1     CMAQ   ubuntu CF       3:00      5 queue1-dy-computeresource1-[1-5]
+```
 
 
 ### If the job does not get scheduled, you may need to stop the compute nodes and edit the yaml file to change the instance type from SPOT to ONDEMAND
@@ -630,7 +633,6 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 ```
 sinfo -lN
-```
 
 Wed Jan 05 19:34:05 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
@@ -644,6 +646,7 @@ queue1-dy-computeresource1-7       1   queue1*       mixed 72     72:1:1      1 
 queue1-dy-computeresource1-8       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
 queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
 queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
+```
 
 
 ### It should take 31 minutes per day (62 minutes total)
