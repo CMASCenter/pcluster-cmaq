@@ -890,6 +890,7 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 
 Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5 minutes of idle time.
 
+```
 HeadNode	i-099e56e3677d64743	
 Running
 c5n.large	
@@ -903,6 +904,7 @@ us-east-1a	–	18.206.184.46	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Com
 us-east-1a	–	34.228.213.97	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-02432d9aca69572c2	Terminated c5n.18xlarge	–	No alarms
 us-east-1a	–	100.24.1.20	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-01573e1b477a4cb51	Terminated c5n.18xlarge	–	No alarms 
 us-east-1a	–	52.206.146.28	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-07a808910c554ef54	Terminated c5n.18xlarge
+```
 
 
 ### Submit  288 full CONC output run
