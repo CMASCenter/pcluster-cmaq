@@ -3,23 +3,25 @@
 #  -----------------------
 #  Download and build CMAQ
 #  -----------------------
-setenv IOAPI_DIR /shared/build/ioapi-3.2/Linux2_x86_64gfort
-setenv NETCDF_DIR /shared/build/netcdf/lib
-setenv NETCDFF_DIR /shared/build/netcdf/lib
-cd /shared/build/
+setenv BUILD /shared/build
+setenv IOAPI_DIR $BUILD/ioapi-3.2/Linux2_x86_64gfort
+setenv NETCDF_DIR $BUILD/netcdf/lib
+setenv NETCDFF_DIR $BUILD/netcdf/lib
+cd $BUILD
 #git clone -b 5.3.2_singularity https://github.com/lizadams/CMAQ.git CMAQ_REPO
 git clone -b main https://github.com/USEPA/CMAQ.git CMAQ_REPO_v533
 
 echo "downloaded CMAQ"
 cd CMAQ_REPO_v533
-cp /shared/pcluster-cmaq/bldit_project_v533.csh /shared/build/CMAQ_REPO_v533
-./bldit_project_v533.csh
+setenv PCLUSTER /shared/pcluster-cmaq
+cp $PCLUSTER/bldit_project_v533_pcluster.csh /shared/build/CMAQ_REPO_v533
+./bldit_project_v533_pcluster.csh
 module load openmpi
-cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-cp /shared/pcluster-cmaq/config_cmaq.csh ../../
+cd $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+cp $PCLUSTER/config_cmaq_pcluster.csh ../../config_cmaq.csh
 ./bldit_cctm.csh gcc |& tee ./bldit_cctm.log
-cp /shared/pcluster-cmaq/run_scripts/run* /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+cp $PCLUSTER/run_scripts/cmaq533/run* $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+cd $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 
 # submit job to the queue using 
 # sbatch run_cctm_2016_12US2.256pe.csh
