@@ -1068,7 +1068,6 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 
 ### To restart the cluster using the software pre-installed on the /shared volume
 
-```
 Go to the AWS Console
 Select the Master Compute node
 Select the Storage Tab
@@ -1079,6 +1078,7 @@ Select Snapshots
 find the snapshot that is being created
 Copy the Snapshot ID and place it in the configuration file.
 Create a new cluster starting the /shared directory from the snapshot.
+
 
  ```
  pcluster create cmaq-c5n-4xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.4xlarge-cmaqebs
