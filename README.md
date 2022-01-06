@@ -515,12 +515,6 @@ grep 'Processing completed' CTM_LOG_001*
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
-```
-
-CMAQ Processing of Day 20151223 Finished at Wed Jan  5 18:30:58 UTC 2022
-
-\\\\\=====\\\\\=====\\\\\=====\\\\\=====/////=====/////=====/////=====/////
-
 
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -539,6 +533,7 @@ Num  Day        Wall Time
 02   2015-12-23   2225.34
      Total Time = 4706.89
       Avg. Time = 2353.44
+```
 
 
 ### Submit a job to run on 360 processors
@@ -814,7 +809,6 @@ grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_2015122
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
-```
 
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -833,12 +827,12 @@ Num  Day        Wall Time
 02   2015-12-23   2210.19
      Total Time = 4588.92
       Avg. Time = 2294.46
+```
 
 Results from an older run using CMAQv5.3.2 model on 256 processors
 
 ```
 tail  run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.full.log
-```
 
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
@@ -850,6 +844,7 @@ Num  Day        Wall Time
 02   2015-12-23   1996.14
      Total Time = 4126.54
       Avg. Time = 2063.27
+```
 
 ### Note - the compute nodes have been idle for more than 5 minutes, but they are not being automatically shut down.
 
