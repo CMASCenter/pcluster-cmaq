@@ -34,11 +34,11 @@
 #  ---------------------------
 #  Download and build netCDF-C
 #  ---------------------------
-   mkdir /shared/build
    setenv DIR /shared/build
+   mkdir $DIR
    cd $DIR
    wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
-   tar xvf netcdf-c-4.7.1.tar.gz
+  tar xvf netcdf-c-4.7.1.tar.gz
    rm -f netcdf-c-4.7.1.tar.gz
    cd netcdf-c-4.7.1
    #./configure --with-pic --with-hdf5=/home/centos/build/hdf5-1.10.5/hdf5/ --enable-netcdf-4 --enable-shared --prefix=$DIR/netcdf
@@ -52,12 +52,12 @@
 #  ---------------------------------
 #  Download and build netCDF-Fortran
 #  ---------------------------------
-   cd /shared/build
+   cd $DIR
    wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
    tar xvf netcdf-fortran-4.5.2.tar.gz
    rm -f netcdf-fortran-4.5.2.tar.gz
    cd netcdf-fortran-4.5.2
-   setenv NCDIR /shared/build/netcdf
+   setenv NCDIR $DIR/netcdf
    setenv CPPFLAGS -I${NCDIR}/include
    setenv LDFLAGS -L${NCDIR}/lib
    setenv LIBS "-lnetcdf"
@@ -70,7 +70,7 @@
    make install
 
 # Test install
-cd /shared/build/netcdf/bin
+cd $DIR/netcdf/bin
    ./nc-config --version
    ./nf-config --version
 
@@ -81,4 +81,4 @@ cd /shared/build/netcdf/bin
 #    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib
 #endif
 
-cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
+cp pcluster-cmaq/dot.cshrc ~/.cshrc

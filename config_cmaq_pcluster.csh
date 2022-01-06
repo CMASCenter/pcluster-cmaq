@@ -20,12 +20,13 @@
  # created a separate project directory where they wish to put build-
  # and run-scripts as well as executables.
  setenv CMAQ_HOME $cwd
+ setenv BUILD /shared/build
 
  # CMAQ_REPO - this is always the location of the CMAQ repository that
  # the user will pull from to create exectuables. If the user is building
  # CMAQ inside the repository then it will be equal to CMAQ_HOME. If not,
  # the user must supply an alternative folder locaiton.
- setenv CMAQ_REPO /shared/build/CMAQ_REPO_v533
+ setenv CMAQ_REPO $BUILD/CMAQ_REPO_v533
 
  # CMAQ_DATA - this may be where the input data are located. It may be a 
  # symbolic link to another location on the system, but it should be
@@ -156,19 +157,18 @@
     case gcc:
  
  #> I/O API, netCDF, and MPI library locations
-        setenv IOAPI_INCL_DIR   /shared/build/ioapi-3.2/ioapi/fixed_src   #> I/O API include header files
-        setenv IOAPI_LIB_DIR    /shared/build/ioapi-3.2/Linux2_x86_64gfort   #> I/O API libraries
-        setenv NETCDF_LIB_DIR   /shared/build/netcdf/lib  #> netCDF C directory path
-        setenv NETCDF_INCL_DIR  /shared/build/netcdf/include  #> netCDF C directory path
-        setenv NETCDFF_LIB_DIR  /shared/build/netcdf/lib #> netCDF Fortran directory path
-        setenv NETCDFF_INCL_DIR /shared/build/netcdf/include #> netCDF Fortran directory path
-        setenv MPI_LIB_DIR      /opt/amazon/openmpi     #> MPI directory path
+        setenv IOAPI_INCL_DIR   $BUILD/ioapi-3.2/ioapi/fixed_src   #> I/O API include header files
+        setenv IOAPI_LIB_DIR    $BUILD/ioapi-3.2/Linux2_x86_64gfort   #> I/O API libraries
+        setenv NETCDF_LIB_DIR   $BUILD/netcdf/lib  #> netCDF C directory path
+        setenv NETCDF_INCL_DIR  $BUILD/netcdf/include  #> netCDF C directory path
+        setenv NETCDFF_LIB_DIR  $BUILD/netcdf/lib #> netCDF Fortran directory path
+        setenv NETCDFF_INCL_DIR $BUILD/netcdf/include #> netCDF Fortran directory path
 
         #> I/O API and netCDF for WRF-CMAQ 
-        setenv NCDIR /shared/build/netcdf                  # C netCDF install path
-        setenv NFDIR /shared/build/netcdf           # Fortran netCDF install path for CMAQ
+        setenv NCDIR $BUILD/netcdf                  # C netCDF install path
+        setenv NFDIR $BUILD/netcdf           # Fortran netCDF install path for CMAQ
 	setenv NETCDF netcdf_combined_directory_path # Note only for  WRF-CMAQ as it requires combining the netcdf C and netcdf F into a single directory. CMAQ users - don't change this setting
-        setenv IOAPI /shared/build/ioapi-3.2/                    # I/O API 
+        setenv IOAPI $BUILD/ioapi-3.2/                    # I/O API 
         setenv WRF_ARCH 34                              # [1-75] Optional, ONLY for WRF-CMAQ  
   
         #> I/O API, netCDF, and MPI library locations

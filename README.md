@@ -323,7 +323,7 @@ git clone https://github.com/lizadams/pcluster-cmaq.git
 
 ```
 cd pcluster-cmaq
-./gcc_install.csh
+./gcc_install_netcdf_pcluster.csh
 ```
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
@@ -354,13 +354,13 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ### Build I/O API library
 
 ```
-./gcc_ioapi.csh
+./gcc_ioapi_pcluseter.csh
 ```
 
 ### Build CMAQ
 
 ```
-./gcc_cmaq.csh
+./gcc_cmaq_pcluster.csh
 ```
 
 ## Copy the input data from a S3 bucket (this bucket is not public and needs credentials)
