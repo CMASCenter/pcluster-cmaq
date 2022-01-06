@@ -1028,7 +1028,6 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 
 ```
 [centos@ip-10-0-0-219 output]$ grep A:B REPORT
-```
 
  A:B  4.54485E-07@(316, 27, 1) -3.09199E-07@(318, 25, 1)  1.42188E-11  2.71295E-09
  A:B  4.73112E-07@(274,169, 1) -2.36556E-07@(200,113, 1)  3.53046E-11  3.63506E-09
@@ -1063,6 +1062,7 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
  A:B  6.33299E-07@(225,182, 1) -6.53090E-07@(202,118, 1) -2.86715E-11  4.42746E-09
  A:B  6.25849E-07@(225,182, 1) -2.21189E-07@(225,184, 1) -5.32567E-12  2.66906E-09
  A:B  3.64147E-07@(306,158, 1) -3.12924E-07@(175,  2, 1)  3.15538E-12  2.74893E-09
+```
 
 
 
