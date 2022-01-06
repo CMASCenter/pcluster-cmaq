@@ -468,7 +468,7 @@ squeue -u ubuntu
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                  3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
 
- ```
+```
 
 ### The 180 pe job should take 80 minutes to run (40 minutes per day)
 
@@ -515,6 +515,8 @@ grep 'Processing completed' CTM_LOG_001*
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
+```
+
 CMAQ Processing of Day 20151223 Finished at Wed Jan  5 18:30:58 UTC 2022
 
 \\\\\=====\\\\\=====\\\\\=====\\\\\=====/////=====/////=====/////=====/////
@@ -546,7 +548,11 @@ sbatch run_cctm_2016_12US2.360pe.csh
 ```
 
 Note, you may get the following message
+
+```
 squeue -u ubuntu
+```
+
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  5    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 
@@ -602,13 +608,18 @@ scancel 6
 sbatch run_cctm_2016_12US2.288pe.csh
 ```
 
- squeue -u ubuntu
+```
+squeue -u ubuntu
+```
+
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
 
 Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
 
+```
 squeue -u ubuntu
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
 
@@ -690,12 +701,12 @@ queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1 
 queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
 queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
 queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none   
+
+
 The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance, if you need to run on 360 processors.
 
 
-
-
-Timing report on 256 processors
+Older Timing report on 256 processors
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       256
@@ -707,7 +718,6 @@ Num  Day        Wall Time
      Total Time = 2571.29
       Avg. Time = 1285.64
 
-```
 
 ### Run another jobs using 180 pes - need to update the compute nodes
 
@@ -745,6 +755,7 @@ cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_10x18pe/LOGS
 ```
 grep -i error CTM_LOG_000.v533_gcc_2016_CONUS_10x18pe_20151223
 ```
+
 Error opening file at path-name:
      netCDF error number  -51  processing file "BNDY_SENS_1"
      Error closing netCDF file 
@@ -803,6 +814,8 @@ grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_2015122
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
+```
+
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -820,11 +833,13 @@ Num  Day        Wall Time
 02   2015-12-23   2210.19
      Total Time = 4588.92
       Avg. Time = 2294.46
-```
 
 Results from an older run using CMAQv5.3.2 model on 256 processors
+
 ```
 tail  run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.full.log
+```
+
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       256
@@ -835,14 +850,16 @@ Num  Day        Wall Time
 02   2015-12-23   1996.14
      Total Time = 4126.54
       Avg. Time = 2063.27
-```
 
 ### Note - the compute nodes have been idle for more than 5 minutes, but they are not being automatically shut down.
 
 Log file was written at -rw-rw-r-- 1 ubuntu ubuntu 563897 Jan  5 22:35 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
 
 
+```
 ip-10-0-14-227:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% sinfo -lN
+```
+
 Wed Jan 05 22:41:24 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
@@ -857,7 +874,8 @@ queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1 
 queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
 
 
-Actually, I checked again thru the web interface, and the ec2 instances are being terminated.
+Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5 minutes of idle time.
+
 HeadNode	i-099e56e3677d64743	
 Running
 c5n.large	
@@ -930,6 +948,8 @@ Num  Day        Wall Time
 ```
 cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
 ls -lht 
+```
+
 total 173G
 drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
 -rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:53 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
@@ -947,7 +967,7 @@ drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
 -rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:21 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
 -rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 22:49 CCTM_v533_gcc_2016_CONUS_16x18pe_full_20151222.cfg
 
-
+```
  du -sh
 173G	.
 ```
@@ -964,12 +984,18 @@ drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
 ```
 cd /fsx/data/output
 ls */*CONC*
-
+```
+```
 setenv AFILE output_CCTM_v533_gcc_2016_CONUS_10x18pe_full/CCTM_ACONC_v533_gcc_2016_CONUS_10x18pe_full_20151222.nc
 setenv BFILE output_CCTM_v533_gcc_2016_CONUS_16x18pe_full/CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+```
 
+```
 m3diff
+```
+hit return several times to accept the default options
 
+```
 grep A:B REPORT
 ```
 
@@ -977,6 +1003,8 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 
 ```
 [centos@ip-10-0-0-219 output]$ grep A:B REPORT
+```
+
  A:B  4.54485E-07@(316, 27, 1) -3.09199E-07@(318, 25, 1)  1.42188E-11  2.71295E-09
  A:B  4.73112E-07@(274,169, 1) -2.36556E-07@(200,113, 1)  3.53046E-11  3.63506E-09
  A:B  7.37607E-07@(226,151, 1) -2.98955E-07@(274,170, 1)  3.68974E-11  5.29013E-09
@@ -1010,8 +1038,6 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
  A:B  6.33299E-07@(225,182, 1) -6.53090E-07@(202,118, 1) -2.86715E-11  4.42746E-09
  A:B  6.25849E-07@(225,182, 1) -2.21189E-07@(225,184, 1) -5.32567E-12  2.66906E-09
  A:B  3.64147E-07@(306,158, 1) -3.12924E-07@(175,  2, 1)  3.15538E-12  2.74893E-09
-
-```
 
 
 
