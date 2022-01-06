@@ -802,6 +802,28 @@ grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_2015122
 ### When the run has completed, use the tail command to examing the timing information.
 
 ```
+tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2378.73
+02   2015-12-23   2210.19
+     Total Time = 4588.92
+      Avg. Time = 2294.46
+```
+
+Results from an older run using CMAQv5.3.2 model on 256 processors
+```
 tail  run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.full.log
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
@@ -815,27 +837,99 @@ Num  Day        Wall Time
       Avg. Time = 2063.27
 ```
 
-### Examine the output files
+### Note - the compute nodes have been idle for more than 5 minutes, but they are not being automatically shut down.
+
+Log file was written at -rw-rw-r-- 1 ubuntu ubuntu 563897 Jan  5 22:35 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
+
+
+ip-10-0-14-227:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% sinfo -lN
+Wed Jan 05 22:41:24 2022
+NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
+queue1-dy-computeresource1-1       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-2       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-3       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-4       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-5       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
+queue1-dy-computeresource1-6       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
+queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
+queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
+queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
+queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
+
+
+Actually, I checked again thru the web interface, and the ec2 instances are being terminated.
+HeadNode	i-099e56e3677d64743	
+Running
+c5n.large	
+2/2 checks passed	
+No alarms
+us-east-1a	ec2-52-70-13-180.compute-1.amazonaws.com	52.70.13.180	–	–	disabled	cmaq-HeadNodeSecurityGroup-XFONDG0QLJ8D	centos	2022/01/05 11:12 GMT-5
+	Compute	i-0ff2de727100abe26	
+Terminated
+c5n.18xlarge	–	No alarms
+us-east-1a	–	18.206.184.46	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-0b9c01acf6664f64c	Terminated c5n.18xlarge	–	No alarms
+us-east-1a	–	34.228.213.97	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-02432d9aca69572c2	Terminated c5n.18xlarge	–	No alarms
+us-east-1a	–	100.24.1.20	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-01573e1b477a4cb51	Terminated c5n.18xlarge	–	No alarms 
+us-east-1a	–	52.206.146.28	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Compute	i-07a808910c554ef54	Terminated c5n.18xlarge
+
+
+### Submit  288 full CONC output run
 
 ```
-cd /fsx/data/output_CCTM_v532_gcc_2016_CONUS_16x16pe_full
+sbatch run_cctm_2016_12US2.288pe.full.csh
+```
+
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1976.35
+02   2015-12-23   1871.61
+     Total Time = 3847.96
+      Avg. Time = 1923.98
+
+
+### Submit 360 pe run
+
+```
+sbatch run_cctm_2016_12US2.360pe.csh
+```
+
+
+
+
+ ### Examine the output files
+
+```
+cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
 ls -lht 
 total 173G
-drwxrwxr-x 2 centos centos 145K Jul  2 15:23 LOGS
--rw-rw-r-- 1 centos centos 3.2G Jul  2 15:23 CCTM_CGRID_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
--rw-rw-r-- 1 centos centos 2.2G Jul  2 15:23 CCTM_ACONC_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
--rw-rw-r-- 1 centos centos  78G Jul  2 15:23 CCTM_CONC_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
--rw-rw-r-- 1 centos centos 348M Jul  2 15:22 CCTM_APMDIAG_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
--rw-rw-r-- 1 centos centos 1.4G Jul  2 15:22 CCTM_WETDEP1_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
--rw-rw-r-- 1 centos centos 1.7G Jul  2 15:22 CCTM_DRYDEP_v532_gcc_2016_CONUS_16x16pe_full_20151223.nc
--rw-rw-r-- 1 centos centos 3.6K Jul  2 14:50 CCTM_v532_gcc_2016_CONUS_16x16pe_full_20151223.cfg
--rw-rw-r-- 1 centos centos 3.2G Jul  2 14:50 CCTM_CGRID_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
--rw-rw-r-- 1 centos centos 2.2G Jul  2 14:49 CCTM_ACONC_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
--rw-rw-r-- 1 centos centos  78G Jul  2 14:49 CCTM_CONC_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
--rw-rw-r-- 1 centos centos 348M Jul  2 14:49 CCTM_APMDIAG_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
--rw-rw-r-- 1 centos centos 1.4G Jul  2 14:49 CCTM_WETDEP1_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
--rw-rw-r-- 1 centos centos 1.7G Jul  2 14:49 CCTM_DRYDEP_v532_gcc_2016_CONUS_16x16pe_full_20151222.nc
--rw-rw-r-- 1 centos centos 3.6K Jul  2 14:15 CCTM_v532_gcc_2016_CONUS_16x16pe_full_20151222.cfg
+drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
+-rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:53 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 2.2G Jan  5 23:52 CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu  78G Jan  5 23:52 CCTM_CONC_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 348M Jan  5 23:52 CCTM_APMDIAG_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:52 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:52 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 23:22 CCTM_v533_gcc_2016_CONUS_16x18pe_full_20151223.cfg
+-rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:22 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 2.2G Jan  5 23:21 CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu  78G Jan  5 23:21 CCTM_CONC_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 348M Jan  5 23:21 CCTM_APMDIAG_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:21 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:21 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 22:49 CCTM_v533_gcc_2016_CONUS_16x18pe_full_20151222.cfg
+
 
  du -sh
 173G	.
@@ -854,8 +948,8 @@ drwxrwxr-x 2 centos centos 145K Jul  2 15:23 LOGS
 cd /fsx/data/output
 ls */*CONC*
 
-setenv AFILE output_CCTM_v532_gcc_2016_CONUS_16x16pe/CCTM_CONC_v532_gcc_2016_CONUS_16x16pe_20151222.nc
-setenv BFILE output_CCTM_v532_gcc_2016_CONUS_16x8pe/CCTM_CONC_v532_gcc_2016_CONUS_16x8pe_20151222.nc
+setenv AFILE output_CCTM_v533_gcc_2016_CONUS_10x18pe_full/CCTM_ACONC_v533_gcc_2016_CONUS_10x18pe_full_20151222.nc
+setenv BFILE output_CCTM_v533_gcc_2016_CONUS_16x18pe_full/CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
 
 m3diff
 
@@ -866,16 +960,40 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 
 ```
 [centos@ip-10-0-0-219 output]$ grep A:B REPORT
- A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
- A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
- A:B  2.04891E-07@(293, 70, 1) -1.47149E-07@(272, 52, 1)  3.32936E-12  9.96093E-10
- A:B  2.98023E-08@(291, 71, 1) -2.60770E-08@(277,160, 1) -2.20486E-13  5.66325E-10
- A:B  1.13621E-07@(308,184, 1) -1.89990E-07@(240, 67, 1) -8.85402E-12  1.61171E-09
- A:B  7.63685E-08@(310,180, 1) -7.37607E-07@(273, 52, 1) -5.05276E-12  3.60038E-09
- A:B  5.55068E-07@(185,231, 1) -1.24797E-07@(255,166, 1)  2.47303E-11  3.99435E-09
- A:B  5.87665E-07@(285,167, 1) -4.15370E-07@(182,232, 1)  2.54544E-11  5.64502E-09
- A:B  3.10000E-05@(280,148, 1) -1.03656E-05@(279,148, 1)  2.16821E-10  1.07228E-07
- A:B  1.59163E-06@(181,231, 1) -7.91997E-06@(281,148, 1) -3.21571E-10  4.46658E-08
+ A:B  4.54485E-07@(316, 27, 1) -3.09199E-07@(318, 25, 1)  1.42188E-11  2.71295E-09
+ A:B  4.73112E-07@(274,169, 1) -2.36556E-07@(200,113, 1)  3.53046E-11  3.63506E-09
+ A:B  7.37607E-07@(226,151, 1) -2.98955E-07@(274,170, 1)  3.68974E-11  5.29013E-09
+ A:B  3.15718E-07@(227,150, 1) -2.07219E-07@(273,170, 1)  2.52149E-11  3.60005E-09
+ A:B  2.65893E-07@(299,154, 1) -2.90573E-07@(201,117, 1)  1.78237E-12  4.15726E-09
+ A:B  3.11527E-07@(300,156, 1) -7.43195E-07@(202,118, 1) -9.04127E-12  6.38413E-09
+ A:B  4.59142E-07@(306,160, 1) -7.46921E-07@(203,119, 1) -2.57731E-11  8.06486E-09
+ A:B  5.25266E-07@(316,189, 1) -5.90459E-07@(291,151, 1) -2.67232E-11  9.36312E-09
+ A:B  5.31785E-07@(294,156, 1) -6.33299E-07@(339,201, 1)  3.01644E-11  1.12862E-08
+ A:B  1.01421E-06@(297,168, 1) -5.08502E-07@(317,190, 1)  9.97206E-11  1.35965E-08
+ A:B  1.28523E-06@(297,168, 1) -2.96347E-06@(295,160, 1)  1.57728E-10  1.88143E-08
+ A:B  1.69873E-06@(298,169, 1) -6.47269E-07@(343,205, 1)  1.99673E-10  1.96824E-08
+ A:B  2.10665E-06@(298,170, 1) -8.53091E-07@(290,133, 1)  2.75009E-10  2.38824E-08
+ A:B  2.77534E-06@(298,166, 1) -1.38395E-06@(339,201, 1)  4.32676E-10  3.19499E-08
+ A:B  4.05498E-06@(298,166, 1) -2.29478E-06@(292,134, 1)  5.94668E-10  4.56470E-08
+ A:B  1.64844E-06@(380,195, 1) -1.24970E-05@(312,119, 1)  2.99392E-10  6.27748E-08
+ A:B  2.40747E-06@(350,207, 1) -2.38372E-06@(313,120, 1) -1.23841E-11  4.06153E-08
+ A:B  2.54810E-06@(353,207, 1) -1.68476E-06@(258,179, 1)  4.69896E-10  4.00601E-08
+ A:B  2.92342E-06@(259,180, 1) -1.84122E-06@(258,180, 1)  3.00556E-10  3.75263E-08
+ A:B  4.37256E-06@(259,180, 1) -1.51433E-06@(258,180, 1)  3.44610E-10  4.03537E-08
+ A:B  5.51227E-06@(313,160, 1) -1.60793E-06@(312,160, 1)  6.49188E-10  4.60905E-08
+ A:B  5.58607E-06@(259,182, 1) -6.47921E-06@(278,186, 1)  3.40245E-11  4.89799E-08
+ A:B  3.61912E-06@(259,183, 1) -4.28502E-06@(278,187, 1)  2.10923E-10  4.86613E-08
+ A:B  2.02795E-06@(278,185, 1) -3.63495E-06@(278,187, 1)  5.26566E-10  5.32271E-08
+ A:B  1.25729E-07@(225,183, 1) -8.38190E-08@(200,114, 1)  2.04043E-12  7.34096E-10
+ A:B  9.66247E-08@(225,151, 1) -4.09782E-07@(225,182, 1) -6.33767E-12  1.73157E-09
+ A:B  2.10712E-07@(225,151, 1) -2.71946E-07@(200,114, 1) -5.41618E-12  1.65727E-09
+ A:B  5.45755E-07@(225,182, 1) -1.04494E-06@(200,115, 1) -1.47753E-11  4.57864E-09
+ A:B  4.30271E-07@(200,114, 1) -7.39470E-07@(200,116, 1) -3.24581E-11  5.33182E-09
+ A:B  7.71135E-07@(225,181, 1) -7.92556E-07@(201,117, 1) -2.74377E-11  6.31589E-09
+ A:B  6.33299E-07@(225,182, 1) -6.53090E-07@(202,118, 1) -2.86715E-11  4.42746E-09
+ A:B  6.25849E-07@(225,182, 1) -2.21189E-07@(225,184, 1) -5.32567E-12  2.66906E-09
+ A:B  3.64147E-07@(306,158, 1) -3.12924E-07@(175,  2, 1)  3.15538E-12  2.74893E-09
+
 ```
 
 
@@ -1080,11 +1198,6 @@ https://github.com/lizadams/pcluster-cmaq/blob/main/config-lustre
 https://github.com/lizadams/pcluster-cmaq/blob/main/config-C5n.18xlarge
 
 
-
-### Additional work that was not successfull
-
-### Note, made an attempt to create an EBS volume and then attach it to the pcluster using the following settings
-### it didn't work - need to retry this, as it would allow us to store the libraries and cmaq on an ebs volume rather than rebuilding each time
 
 ```
 [cluster default]
