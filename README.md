@@ -649,9 +649,11 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1 
 ```
 
 
-### It should take 31 minutes per day (62 minutes total)
+### Expected run time: 31 minutes per day (62 minutes total)
+Check log file to verify
 
 ````
+
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
