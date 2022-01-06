@@ -913,6 +913,9 @@ us-east-1a	–	52.206.146.28	–	–	disabled	–	–	2022/01/05 16:15 GMT-5 Com
 sbatch run_cctm_2016_12US2.288pe.full.csh
 ```
 
+review log file
+
+```
 
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -931,6 +934,7 @@ Num  Day        Wall Time
 02   2015-12-23   1871.61
      Total Time = 3847.96
       Avg. Time = 1923.98
+```
 
 
 ### Submit 256 pe run
@@ -938,7 +942,9 @@ Num  Day        Wall Time
 ```
 sbatch run_cctm_2016_12US2.256pe.csh
 ```
+review log file
 
+```
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -956,6 +962,7 @@ Num  Day        Wall Time
 02   2015-12-23   1164.53
      Total Time = 2454.12
       Avg. Time = 1227.06
+```
 
 
 
@@ -964,7 +971,6 @@ Num  Day        Wall Time
 ```
 cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
 ls -lht 
-```
 
 total 173G
 drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
@@ -982,6 +988,9 @@ drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
 -rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:21 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
 -rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:21 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
 -rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 22:49 CCTM_v533_gcc_2016_CONUS_16x18pe_full_20151222.cfg
+```
+
+Check disk space
 
 ```
  du -sh
