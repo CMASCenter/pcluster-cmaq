@@ -1245,6 +1245,375 @@ sbatch run_cctm_2016_12US2.256pe.csh
 ### Results from the Parallel Cluster Started with the EBS Volume software
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1305.99
+02   2015-12-23   1165.30
+     Total Time = 2471.29
+      Avg. Time = 1235.64
+```
+
+Information in the log file:
+
+Start Model Run At  Thu Jan 6 03:07:08 UTC 2022
+information about processor including whether using hyperthreading
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   46 bits physical, 48 bits virtual
+CPU(s):                          36
+On-line CPU(s) list:             0-35
+Thread(s) per core:              1
+Core(s) per socket:              18
+Socket(s):                       2
+NUMA node(s):                    2
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           85
+Model name:                      Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+Stepping:                        4
+CPU MHz:                         2999.996
+BogoMIPS:                        5999.99
+Hypervisor vendor:               KVM
+Virtualization type:             full
+L1d cache:                       1.1 MiB
+L1i cache:                       1.1 MiB
+L2 cache:                        36 MiB
+L3 cache:                        49.5 MiB
+NUMA node0 CPU(s):               0-17
+NUMA node1 CPU(s):               18-35
+Vulnerability Itlb multihit:     KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:              Mitigation; PTE Inversion
+Vulnerability Mds:               Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Meltdown:          Mitigation; PTI
+Vulnerability Spec store bypass: Vulnerable
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Full generic retpoline, STIBP disabled, RSB filling
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
+information about cluster
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+queue1*      up   infinite      2  idle~ queue1-dy-computeresource1-[9-10]
+queue1*      up   infinite      8  alloc queue1-dy-computeresource1-[1-8]
+information about filesystem
+Filesystem             Size  Used Avail Use% Mounted on
+/dev/root               34G   17G   18G  48% /
+devtmpfs                93G     0   93G   0% /dev
+tmpfs                   93G     0   93G   0% /dev/shm
+tmpfs                   19G  1.1M   19G   1% /run
+tmpfs                  5.0M     0  5.0M   0% /run/lock
+tmpfs                   93G     0   93G   0% /sys/fs/cgroup
+/dev/loop0              25M   25M     0 100% /snap/amazon-ssm-agent/4046
+/dev/loop2              56M   56M     0 100% /snap/core18/2246
+/dev/loop5              68M   68M     0 100% /snap/lxd/21545
+/dev/loop3              33M   33M     0 100% /snap/snapd/13640
+/dev/loop4              62M   62M     0 100% /snap/core20/1169
+/dev/loop6              44M   44M     0 100% /snap/snapd/14295
+10.0.5.119:/home        34G   17G   18G  48% /home
+10.0.5.119:/opt/intel   34G   17G   18G  48% /opt/intel
+10.0.5.119:/shared      35G  1.5G   31G   5% /shared
+/dev/loop7              56M   56M     0 100% /snap/core18/2253
+/dev/loop8              62M   62M     0 100% /snap/core20/1270
+10.0.12.184@tcp:/fsx   1.1T   44G  1.1T   4% /fsx
+10.0.5.119:/opt/slurm   34G   17G   18G  48% /opt/slurm
+/dev/loop1              68M   68M     0 100% /snap/lxd/21835
+list the mounted volumes
+Export list for localhost:
+Compiler is set to gcc
+
+Working Directory is /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
+Build Directory is /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc
+Output Directory is /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe
+Log Directory is /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/LOGS
+Executable Name is CCTM_v533.exe
+
+---CMAQ EXECUTION ID: CMAQ_CCTMv533_ubuntu_20220106_030708_720705625 ---
+
+Set up input and output files for Day 2015-12-22.
+
+Existing Logs and Output Files for Day 2015-12-22 Will Be Deleted
+/bin/rm: No match.
+
+CMAQ Processing of Day 20151222 Began at Thu Jan  6 03:07:09 UTC 2022
+
+        CTM_APPL  |  v533_gcc_2016_CONUS_16x16pe_20151222
+================================================================================
+|                                                                              |
+|               The Community Multiscale Air Quality (CMAQ) Model              |
+|                                   Version 5.3.3                              |
+|                                                                              |
+|                          Built and Maintained by the                         |
+|                        Office of Research and Development                    |
+|                   United States Environmental Protection Agency              |
+|                                                                              |
+|                            https://www.epa.gov/cmaq                          |
+|                                                                              |
+|       Source Code:   https://www.github.com/USEPA/cmaq/tree/main             |
+|       Documentation: https://www.github.com/USEPA/cmaq/tree/main/DOCS        |
+|                                                                              |
+|         The CMAQ Model is tested and released with cooperation from          |
+|         the Community Modeling and Analysis System (CMAS) Center via         |
+|         contract support. CMAS is managed by the Institute for the           |
+|         Environment, University of North Carolina at Chapel Hill.            |
+|         CMAS URL: (https://www.cmascenter.org)                               |
+|                                                                              |
+================================================================================
+
+     This program uses the EPA-AREAL/MCNC-EnvPgms/BAMS Models-3
+     I/O Applications Programming Interface, [I/O API] which is
+     built on top of the netCDF I/O library (Copyright 1993, 1996
+     University Corporation for Atmospheric Research/Unidata
+     Program) and the PVM parallel-programming library (from
+     Oak Ridge National Laboratory).
+     Copyright (C) 1992-2002 MCNC,
+     (C) 1992-2018 Carlie J. Coats, Jr.,
+     (C) 2003-2012 Baron Advanced Meteorological Systems, LLC, and
+     (C) 2014-2021 UNC Institute for the Environment.
+     Released under the GNU LGPL  License, version 2.1.  See URL
+
+         https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+     for conditions of use.
+
+     ioapi-3.2: $Id: init3.F90 200 2021-05-10 14:06:20Z coats $
+     netCDF version 4.7.1 of Jan  5 2022 16:32:07 $
+
+
+     ===========================================
+     |>---   ENVIRONMENT VARIABLE REPORT   ---<|
+     ===========================================
+
+     |> Grid and High-Level Model Parameters:
+     +=========================================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+             BLD  |             (default)
+          OUTDIR  |  /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe
+       NEW_START  |          T
+  ISAM_NEW_START  |  Y (default)
+       GRID_NAME  |  12US2
+       CTM_TSTEP  |       10000
+      CTM_RUNLEN  |      240000
+    CTM_PROGNAME  |  DRIVER (default)
+      CTM_STDATE  |     2015356
+      CTM_STTIME  |           0
+     NPCOL_NPROW  |  16 16
+     CTM_MAXSYNC  |         300
+     CTM_MINSYNC  |          60
+
+     |> Multiprocess control, output and error checking:
+     +====================================================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+ PRINT_PROC_TIME  |          T
+     FL_ERR_STOP  |          F
+       CTM_CKSUM  |          T
+AVG_FILE_ENDTIME  |          F
+   AVG_CONC_SPCS  |  ALL
+       CONC_SPCS  |  O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J
+ ACONC_BLEV_ELEV  |   1 1
+  CONC_BLEV_ELEV  |   1 1
+ IOAPI_LOG_WRITE  |          F
+         VERTEXT  |          F
+VERTEXT_COORD_PA  |  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/lonlat.csv
+   gc_matrix_nml  |  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/GC_cb6r3_ae7_aq.nml
+   ae_matrix_nml  |  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/AE_cb6r3_ae7_aq.nml
+   nr_matrix_nml  |  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/NR_cb6r3_ae7_aq.nml
+   tr_matrix_nml  |  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/Species_Table_TR_0.nml
+
+     |> Chemistry and Photolysis:
+     +=============================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+    CTM_PHOTDIAG  |          F
+CORE_SHELL_OPTIC  |          F (default)
+ OPTICS_MIE_CALC  |          F (default)
+       GEAR_ATOL  |   0.100E-08 (default)
+       GEAR_RTOL  |   0.100E-02 (default)
+         RB_RTOL  |   0.100E-02 (default)
+         RB_ATOL  |   0.100E-06 (default)
+
+     |> Aerosols:
+     +=============
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+    CTM_AVISDIAG  |          F (default)
+  CTM_ZERO_PCSOA  |          F (default)
+         CTM_AOD  |          F (default)
+      CTM_PMDIAG  |          F
+     CTM_APMDIAG  |          T
+APMDIAG_BLEV_ELE  |  1 1
+ AVG_PMDIAG_SPCS  |             (default)
+    STM_SO4TRACK  |          T
+      STM_ADJSO4  |          T
+
+     |> Cloud Processes:
+     +====================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+        CLD_DIAG  |          F
+
+     |> Air-Surface Exchange Processes:
+     +===================================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+      PX_VERSION  |          T
+      CTM_ABFLUX  |          F
+      CTM_MOSAIC  |          F
+    CTM_SFC_HONO  |          T
+     CLM_VERSION  |          F
+    NOAH_VERSION  |          F
+       CTM_STAGE  |          F (default)
+   CTM_DEPV_FILE  |          F
+      CTM_HGBIDI  |          F
+CTM_BIDI_FERT_NH  |          T
+ CTM_WBDUST_BELD  |  BELD3
+     |> Transport Processes:
+     +========================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+CTM_VDIFF_DIAG_F  |          F (default)
+  SIGMA_SYNC_TOP  |   0.700E+00
+    ADV_HDIV_LIM  |   0.900E+00 (default)
+     CTM_ADV_CFL  |   0.950E+00
+           KZMIN  |          T
+        CTM_WVEL  |          T
+   CTM_GRAV_SETL  |          T
+
+     |> Emissions Parameters:
+     +=========================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+   EMISSCTRL_NML  |  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/EmissCtrl_cb6r3_ae7_aq.nml
+      CTM_EMLAYS  |           0 (default)
+       N_EMIS_GR  |           2
+       N_EMIS_TR  |           0 (default)
+     CTM_EMISCHK  |          F
+    CTM_BIOGEMIS  |          F
+       BIOG_SPRO  |  DEFAULT (default)
+        BIOSW_YN  |          F (default)
+       SUMMER_YN  |          T (default)
+      B3GTS_DIAG  |          F
+    CTM_MGEMDIAG  |          F (default)
+  CTM_OCEAN_CHEM  |          T
+     CTM_WB_DUST  |          F
+ CTM_DUSTEM_DIAG  |          F
+    CTM_SSEMDIAG  |          F
+     CTM_LTNG_NO  |          F
+   LTNG_ASSIM_DT  |           0 (default)
+          LTNGNO  |  InLine (default)
+        USE_NLDN  |          F (default)
+        LTNGDIAG  |          F
+         MOLSNCG  |   0.350E+03 (default)
+         MOLSNIC  |   0.350E+03 (default)
+       N_EMIS_PT  |           9
+          IPVERT  |           0 (default)
+        EMISDIAG  |  F
+   EMIS_SYM_DATE  |          F (default)
+
+     |> Process Analysis Parameters:
+     +================================
+      --Env Variable-- | --Value--
+      --------------------------------------------------------------------------------
+      CTM_PROCAN  |          F
+    PA_BCOL_ECOL  |             (default)
+    PA_BROW_EROW  |             (default)
+    PA_BLEV_ELEV  |             (default)
+       MET_TSTEP  |       10000 (default)
+
+     MET data determined based on WRF ARW version 3.8
+
+
+          -=-  MPP Processor-to-Subdomain Map  -=-
+                 Number of Processors = 256
+    ____________________________________________________
+    |                                                  |
+    |  PE    #Cols    Col_Range     #Rows    Row_Range |
+    |__________________________________________________|
+    |                                                  |
+    |  0       25      1:  25         16      1:  16   |
+    |  1       25     26:  50         16      1:  16   |
+    |  2       25     51:  75         16      1:  16   |
+    |  3       25     76: 100         16      1:  16   |
+    |  4       25    101: 125         16      1:  16   |
+    |  5       25    126: 150         16      1:  16   |
+    |  6       25    151: 175         16      1:  16   |
+    |  7       25    176: 200         16      1:  16   |
+    |  8       25    201: 225         16      1:  16   |
+    |  9       25    226: 250         16      1:  16   |
+    | 10       25    251: 275         16      1:  16   |
+    | 11       25    276: 300         16      1:  16   |
+    | 12       24    301: 324         16      1:  16   |
+    | 13       24    325: 348         16      1:  16   |
+    | 14       24    349: 372         16      1:  16   |
+    | 15       24    373: 396         16      1:  16   |
+    | 16       25      1:  25         16     17:  32   |
+    | 17       25     26:  50         16     17:  32   |
+    | 18       25     51:  75         16     17:  32   |
+    | 19       25     76: 100         16     17:  32   |
+    | 20       25    101: 125         16     17:  32   |
+    | 21       25    126: 150         16     17:  32   |
+    | 22       25    151: 175         16     17:  32   |
+    | 23       25    176: 200         16     17:  32   |
+    | 24       25    201: 225         16     17:  32   |
+    | 25       25    226: 250         16     17:  32   |
+    | 26       25    251: 275         16     17:  32   |
+    | 27       25    276: 300         16     17:  32   |
+    | 28       24    301: 324         16     17:  32   |
+    | 29       24    325: 348         16     17:  32   |
+    | 30       24    349: 372         16     17:  32   |
+    | 31       24    373: 396         16     17:  32   |
+    | 32       25      1:  25         16     33:  48   |
+    | 33       25     26:  50         16     33:  48   |
+    | 34       25     51:  75         16     33:  48   |
+    | 35       25     76: 100         16     33:  48   |
+    | 36       25    101: 125         16     33:  48   |
+    | 37       25    126: 150         16     33:  48   |
+    | 38       25    151: 175         16     33:  48   |
+    | 39       25    176: 200         16     33:  48   |
+    | 40       25    201: 225         16     33:  48   |
+    | 41       25    226: 250         16     33:  48   |
+    | 42       25    251: 275         16     33:  48   |
+    | 43       25    276: 300         16     33:  48   |
+    | 44       24    301: 324         16     33:  48   |
+    | 45       24    325: 348         16     33:  48   |
+    | 46       24    349: 372         16     33:  48   |
+    | 47       24    373: 396         16     33:  48   |
+    | 48       25      1:  25         16     49:  64   |
+    | 49       25     26:  50         16     49:  64   |
+    | 50       25     51:  75         16     49:  64   |
+    | 51       25     76: 100         16     49:  64   |
+    | 52       25    101: 125         16     49:  64   |
+    | 53       25    126: 150         16     49:  64   |
+    | 54       25    151: 175         16     49:  64   |
+    | 55       25    176: 200         16     49:  64   |
+    | 56       25    201: 225         16     49:  64   |
+    | 57       25    226: 250         16     49:  64   |
+    | 58       25    251: 275         16     49:  64   |
+    | 59       25    276: 300         16     49:  64   |
+    | 60       24    301: 324         16     49:  64   |
+    | 61       24    325: 348         16     49:  64   |
+    | 62       24    349: 372         16     49:  64   |
+    | 63       24    373: 396         16     49:  64   |
+    | 64       25      1:  25         16     65:  80   |
+    | 65       25     26:  50         16     65:  80   |
+
+```
+
+Older results using CMAQv5.3.2
+```
 tail run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.log
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
@@ -1625,15 +1994,6 @@ NUMA node0 CPU(s):   0-47
 Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr wbnoinvd arat npt nrip_save rdpid
 ```
 
-### I also submitted a job to run on 90 processors 2x45 (9 x 10)
-This is waiting in the queue - perhaps because I requested spot pricing, and none are available at that price?
-
-```
-[centos@ip-10-0-0-104 scripts]$ squeue -u centos
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                 7   compute     CMAQ   centos PD       0:00      2 (BeginTime) 
-                 5   compute     CMAQ   centos  R      37:21      2 compute-dy-c5ad24xlarge-[1-2] 
-```
 
 ### Exit the cluster
 
