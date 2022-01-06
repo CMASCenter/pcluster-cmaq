@@ -899,12 +899,29 @@ Num  Day        Wall Time
       Avg. Time = 1923.98
 
 
-### Submit 360 pe run
+### Submit 256 pe run
 
 ```
-sbatch run_cctm_2016_12US2.360pe.csh
+sbatch run_cctm_2016_12US2.256pe.csh
 ```
 
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1289.59
+02   2015-12-23   1164.53
+     Total Time = 2454.12
+      Avg. Time = 1227.06
 
 
 
@@ -1003,9 +1020,12 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 ```
 Go to the AWS Console
 Select the Master Compute node
+Select the Storage Tab
 Select the Block Device /dev/sv1b
 Click on that volume ID
 Then save as a snapshot.
+Select Snapshots
+find the snapshot that is being created
 Copy the Snapshot ID and place it in the configuration file.
 Create a new cluster starting the /shared directory from the snapshot.
 

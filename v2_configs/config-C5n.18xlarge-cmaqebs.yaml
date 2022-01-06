@@ -1,0 +1,60 @@
+# Volume encrypted defaults to True in AWS ParallelCluster version 3 while it defaults to False in AWS ParallelCluster version 2.
+# In AWS ParallelCluster version 3, access to the Instance Metadata Service(IMDS) on the head node is restricted to the cluster administrator. If additional users required access to IMDS, you can set HeadNode/Imds/Secured to False.
+# vpc_id = vpc-0ab948b66554c71ea is ignored
+# update_check = true is ignored
+# ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS} is ignored
+# 'default' is not allowed as a section name for 'compute_resource default' in AWS ParallelCluster Version 3. 
+Region: us-east-1
+Image:
+  Os: centos8
+SharedStorage:
+  - Name: cmaqebs
+    StorageType: Ebs
+    EbsSettings:
+      SnapshotId: snap-0f5a25092995735e9
+  - Name: myfsx
+    StorageType: FsxLustre
+    MountDir: /fsx
+    FsxLustreSettings:
+      StorageCapacity: 1200
+HeadNode:
+  InstanceType: c5n.large
+  Networking:
+    SubnetId: subnet-09dde93abd00c9cae
+    ElasticIp: false
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: centos
+  LocalStorage:
+    RootVolume:
+      Size: 100
+  Iam:
+    S3Access:
+      - BucketName: dap-oar-data-commons
+        KeyName: 2016_Modeling_Platform/CMAQ_Input*
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: compute
+      CapacityType: ONDEMAND
+      ComputeResources:
+        - Name: default
+          InstanceType: c5n.18xlarge
+          MaxCount: 16
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+      Iam:
+        S3Access:
+          - BucketName: dap-oar-data-commons
+            KeyName: 2016_Modeling_Platform/CMAQ_Input*
+      Networking:
+        SubnetIds:
+          - subnet-0f3dc552b99f233ed
+        PlacementGroup:
+          Enabled: true
+      ComputeSettings:
+        LocalStorage:
+          RootVolume:
+            Size: 100
