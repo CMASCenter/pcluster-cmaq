@@ -650,6 +650,8 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1 
 
 
 ### It should take 31 minutes per day (62 minutes total)
+
+````
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -667,6 +669,7 @@ Num  Day        Wall Time
 02   2015-12-23   1699.24
      Total Time = 3572.24
       Avg. Time = 1786.12
+```
 
 
 Again, the compute nodes were not stopped, even when they were idled for more than 15 minutes.  There were no jobs in the queue, but the compute nodes are not stopping.
@@ -683,10 +686,18 @@ Verify that the compute nodes have stopped in the AWS Web Interface
 
 
 Also updated the yaml file to specify the idle time before the compute nodes should be deleted.
+
+```
 SlurmSettings:
     ScaledownIdletime: 5
+```
+
 And also specified to turn multithreading off at the compute node level (previously I had only specified this for the head node) 
+```
 DisableSimultaneousMultithreading: true
+```
+
+```
 sinfo -lN
 Wed Jan 05 20:54:01 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
@@ -700,11 +711,12 @@ queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1 
 queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
 queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
 queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none   
+```
 
 
 The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance, if you need to run on 360 processors.
 
-
+```
 Older Timing report on 256 processors
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
@@ -716,6 +728,7 @@ Num  Day        Wall Time
 02   2015-12-23   1216.64
      Total Time = 2571.29
       Avg. Time = 1285.64
+```
 
 
 ### Run another jobs using 180 pes - need to update the compute nodes
