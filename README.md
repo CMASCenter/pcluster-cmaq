@@ -1068,20 +1068,19 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 
 ### To restart the cluster using the software pre-installed on the /shared volume
 
-Go to the AWS Console
-Select the Master Compute node
-Select the Storage Tab
-Select the Block Device /dev/sv1b
-Click on that volume ID
-Then save as a snapshot.
-Select Snapshots
-find the snapshot that is being created
-Copy the Snapshot ID and place it in the configuration file.
-Delete the old cluster
-Create a new cluster with the /shared directory from the snapshot.
+* Go to the AWS Console
+* Select the Master Compute node
+* Select the Storage Tab
+* Select the Block Device /dev/sv1b
+* Click on that volume ID
+* Then save as a snapshot.
+* Select Snapshots
+* find the snapshot that is being created
+* Copy the Snapshot ID and place it in the configuration file.
+* Delete the old cluster
+* Create a new cluster with the /shared directory from the snapshot.
 
-
- ```
+```
 pcluster delete-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
