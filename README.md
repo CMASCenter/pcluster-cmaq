@@ -1,4 +1,4 @@
-# pcluster-cmaq
+
 
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 The goal is to demonstrate how to create a parallel cluster, modify or update the cluster, and run CMAQv533 for two days on the CONUS2 domain obtaining input data from an S3 Bucket and saving the output to the S3 Bucket.
@@ -652,7 +652,7 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1 
 ### Expected run time: 31 minutes per day (62 minutes total)
 Check log file to verify
 
-````
+```
 
 ==================================
   ***** CMAQ TIMING REPORT *****
