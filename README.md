@@ -323,7 +323,7 @@ git clone https://github.com/lizadams/pcluster-cmaq.git
 
 ```
 cd pcluster-cmaq
-./gcc_install_netcdf_pcluster.csh
+./gcc_netcdf_pcluster.csh
 ```
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
