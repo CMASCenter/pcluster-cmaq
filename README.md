@@ -507,11 +507,10 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 ```
 grep 'Processing completed' CTM_LOG_001*
-```
-
 
             Processing completed...    8.8 seconds
             Processing completed...    7.4 seconds
+```
 
 
 ### When the job has completed, use tail to view the timing from the log file.
@@ -769,7 +768,6 @@ cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_10x18pe/LOGS
 
 ```
 grep -i error CTM_LOG_000.v533_gcc_2016_CONUS_10x18pe_20151223
-```
 
 Error opening file at path-name:
      netCDF error number  -51  processing file "BNDY_SENS_1"
@@ -791,7 +789,7 @@ Error opening file at path-name:
 
 
       *** FATAL ERROR shutting down Models-3 I/O ***
-
+```
 
 
 ### To run the CONUS domain to output all layers, all variables in the CONC file
@@ -802,6 +800,8 @@ sbatch run_cctm_2016_12US2.180pe.full.csh
 ```
 
 ### Check on the status - note that the yaml configuratipn file was modified to remove hyperthreading, so performance may be improved.
+
+```
 grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_20151222
             Processing completed...    4.6 seconds
             Processing completed...    4.1 seconds
@@ -820,8 +820,7 @@ grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_2015122
             Processing completed...    5.5 seconds
             Processing completed...    6.3 seconds
             Processing completed...    3.9 seconds
-
-
+```
 
 
 
