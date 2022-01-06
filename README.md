@@ -1077,11 +1077,40 @@ Then save as a snapshot.
 Select Snapshots
 find the snapshot that is being created
 Copy the Snapshot ID and place it in the configuration file.
+Delete the old cluster
 Create a new cluster starting the /shared directory from the snapshot.
 
 
  ```
- pcluster create cmaq-c5n-4xlarge-cmaq-ebs -c /Users/lizadams/.parallelcluster/config-C5n.4xlarge-cmaqebs
+pcluster delete-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+{
+  "creationTime": "2022-01-05T16:04:00.314Z",
+  "version": "3.0.2",
+  "clusterConfiguration": {
+    "url": "https://parallelcluster-92e22c6ec33aa106-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.0.2/clusters/cmaq-inuy5d6gethxjlya/configs/cluster-config.yaml?versionId=OQmsC5fc9NKl2ZS1vLiohzdaqaHaLz3o&AWSAccessKeyId=AKIAWNJJ2DMFE3ARDU6L&Signature=joadwppofH0dmAWd6VIEoY%2F0klM%3D&Expires=1641439711"
+  },
+  "tags": [
+    {
+      "value": "3.0.2",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "DELETE_IN_PROGRESS",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "UNKNOWN",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/18477ab0-6e41-11ec-886e-0ee339b6c777",
+  "lastUpdatedTime": "2022-01-05T20:47:08.353Z",
+  "region": "us-east-1",
+  "clusterStatus": "DELETE_IN_PROGRESS"
+```
+
+Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed
+```
+pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
  ```
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
