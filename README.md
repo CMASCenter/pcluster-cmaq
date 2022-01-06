@@ -872,7 +872,6 @@ Log file was written at -rw-rw-r-- 1 ubuntu ubuntu 563897 Jan  5 22:35 run_cctmv
 
 ```
 ip-10-0-14-227:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% sinfo -lN
-```
 
 Wed Jan 05 22:41:24 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
@@ -886,6 +885,7 @@ queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1 
 queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
 queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
 queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, Scheduler health che
+```
 
 
 Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5 minutes of idle time.
