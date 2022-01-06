@@ -1240,6 +1240,9 @@ cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.csh
 ```
 
+### Note - I need to research how to modify the run script to specify the S3 Bucket path, instead of the /fsx path, as I think you can run directly from the S3 bucket.
+
+
 ### Results from the Parallel Cluster Started with the EBS Volume software
 
 ```
