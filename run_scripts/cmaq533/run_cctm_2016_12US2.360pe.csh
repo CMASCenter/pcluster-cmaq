@@ -548,8 +548,13 @@ while ($TODAYJ <= $STOP_DAY )  #>Compare dates in terms of YYYYJJJ
  setenv CTM_SWETDEP_1   "$OUTDIR/CCTM_SENWDEP_${CTM_APPL}.nc -v"
  setenv CTM_SDRYDEP_1   "$OUTDIR/CCTM_SENDDEP_${CTM_APPL}.nc -v"
  setenv CTM_NPMAX       $NPMAX
- setenv INIT_SENS_1     $S_ICpath/$S_ICfile
- setenv BNDY_SENS_1     $S_BCpath/$S_BCfile
+
+  if ( $?CTM_DDM3D ) then
+   if ( $CTM_DDM3D == 'Y' || $CTM_DDM3D == 'T' ) then
+      setenv INIT_SENS_1     $S_ICpath/$S_ICfile
+      setenv BNDY_SENS_1     $S_BCpath/$S_BCfile
+   endif
+   endif
  
 # =====================================================================
 #> Output Files
