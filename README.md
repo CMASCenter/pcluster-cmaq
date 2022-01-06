@@ -669,6 +669,7 @@ Num  Day        Wall Time
 02   2015-12-23   1699.24
      Total Time = 3572.24
       Avg. Time = 1786.12
+
 ```
 
 
