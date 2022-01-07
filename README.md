@@ -72,24 +72,27 @@ Allowed values for Operating System:
 3. ubuntu1804
 4. ubuntu2004
 
-Choose 4. ubuntu2004
+Select:
+```
+4. ubuntu2004
+```
 
 Choose head node instance type:
 
 Head node instance type [t2.micro]:
 
+Choose compute node instance type:
 
+t2.micro
 
-
-
-#### Examine the yaml file
+#### Examine the yaml file that was created
 
 ```
 vi new-hello-world.yaml
 ```
 
 note that the yaml file format seems to be sensitive to using 2 spaces for indentation
-The Key pair and SubnetId that were generated for you in the new-hello-world.yaml are unique to your account, and will be needed later in this tutorial.
+The Key pair and SubnetId that were generated during the pcluster configure generated a new-hello-world.yaml that contains settings unique to your account, and will be needed later in this tutorial.
 
 Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to keep track of what yaml configuration file was used to create the cluster. 
 
@@ -108,7 +111,7 @@ The settings in the cluster configuration file allow you to
   (Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.)
    8) specify the name of the snapshot containing the application software to use as the /shared directory.  This requires a previous Parallel Cluster installation where the software was installed using the install scripts, tested, and then the /shared directory saved as a snapshot.
    9) Need to determine how to share Snapshots across different accounts (can snapshots be made public?)
-   
+   10) specify the s3 bucket to import to the lustre file system when creating the parallel cluster
   
 
 ### Create the demo cluster 
