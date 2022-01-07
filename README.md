@@ -1,5 +1,3 @@
-
-
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 The goal is to demonstrate how to create a parallel cluster, modify or update the cluster, and run CMAQv533 for two days on the CONUS2 domain obtaining input data from an S3 Bucket and saving the output to the S3 Bucket.
 
@@ -135,23 +133,22 @@ pcluster list-clusters --region=us-east-1
 
 ```
 # AWS ParallelCluster v3 - Slurm fleets
-$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
+pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
 ```
 
 ### SSH into cluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
- pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
 ```
 
 ### Note, the following commands are used when you are logged into the cluster.
 
 login prompt should look something like (this will depend on what OS was chosen in the yaml file).
 
-```
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
-```
 
 ### Check what modules are available on the Parallel Cluster
 
@@ -216,6 +213,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 
 ### Login to cluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
@@ -263,6 +261,7 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 
 
 ### Login to updated cluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
@@ -274,8 +273,8 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ```
 modinfo ena
 lspci
-A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
 ```
+A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
@@ -322,7 +321,6 @@ module load libfabric-aws/1.13.0amzn1.0
 
 ```
  gcc --version
-
 ```
 
 gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
@@ -414,7 +412,9 @@ aws credentials
 
 ```
 cd /fsx/data/CONUS
-[centos@ip-10-0-0-219 CONUS]$ du -sh
+du -sh
+```
+```
 44G	.
 ```
 
@@ -424,21 +424,26 @@ cd /fsx/data/CONUS
 ```
 cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe
 du -sh
-18G	.
 ```
+18G	.
 
 ### For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
 
 ```
 cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
 du -sh
-173G	.
 ```
+
+173G	.
 
 ### This cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 
 ```
  df -h
+```
+
+output:
+```
 Filesystem           Size  Used Avail Use% Mounted on
 devtmpfs             2.3G     0  2.3G   0% /dev
 tmpfs                2.4G     0  2.4G   0% /dev/shm
@@ -470,6 +475,10 @@ This is reflected in the Status (ST) of CF (configuring)
 
 ```
 squeue -u ubuntu
+```
+
+output:
+```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  2    queue1     CMAQ   ubuntu CF       3:00      5 queue1-dy-computeresource1-[1-5]
 ```
@@ -479,6 +488,10 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 ```
 squeue -u ubuntu 
+```
+
+output:
+```
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  3   compute     CMAQ   ubuntu  CG      0      10    (BeginTime) 
@@ -487,6 +500,10 @@ squeue -u ubuntu
 
 ```
 squeue -u ubuntu 
+```
+
+output:
+```
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                  3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
@@ -527,7 +544,11 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 ```
 grep 'Processing completed' CTM_LOG_001*
+```
 
+output:
+
+```
             Processing completed...    8.8 seconds
             Processing completed...    7.4 seconds
 ```
@@ -537,7 +558,11 @@ grep 'Processing completed' CTM_LOG_001*
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
+```
 
+output:
+
+```
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -568,7 +593,11 @@ Note, you may get the following message
 
 ```
 squeue -u ubuntu
+```
 
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  5    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
@@ -595,6 +624,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 
 
 ### Login to the pcluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq  
@@ -611,6 +641,11 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 
 ```
 squeue -u ubuntu
+```
+
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  6    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
@@ -629,7 +664,11 @@ sbatch run_cctm_2016_12US2.288pe.csh
 
 ```
 squeue -u ubuntu
+```
 
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
 ```
@@ -638,6 +677,11 @@ Note, it takes about 5 minutes for the compute nodes to be initialized, once the
 
 ```
 squeue -u ubuntu
+```
+
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
 ```
@@ -652,7 +696,11 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 ```
 sinfo -lN
+```
 
+output:
+
+```
 Wed Jan 05 19:34:05 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
@@ -672,7 +720,6 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1 
 Check log file to verify
 
 ```
-
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -721,6 +768,11 @@ DisableSimultaneousMultithreading: true
 
 ```
 sinfo -lN
+```
+
+output:
+
+```
 Wed Jan 05 20:54:01 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
@@ -774,7 +826,11 @@ cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_10x18pe/LOGS
 
 ```
 grep -i error CTM_LOG_000.v533_gcc_2016_CONUS_10x18pe_20151223
+```
 
+output:
+
+```
 Error opening file at path-name:
      netCDF error number  -51  processing file "BNDY_SENS_1"
      Error closing netCDF file 
@@ -809,6 +865,11 @@ sbatch run_cctm_2016_12US2.180pe.full.csh
 
 ```
 grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_20151222
+```
+
+output:
+
+```
             Processing completed...    4.6 seconds
             Processing completed...    4.1 seconds
             Processing completed...    4.0 seconds
@@ -834,6 +895,11 @@ grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_2015122
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
+```
+
+output:
+
+```
 
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -858,7 +924,11 @@ Results from an older run using CMAQv5.3.2 model on 256 processors
 
 ```
 tail  run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.full.log
+```
 
+output:
+
+```
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       256
@@ -892,8 +962,12 @@ Log file was written at -rw-rw-r-- 1 ubuntu ubuntu 563897 Jan  5 22:35 run_cctmv
 
 
 ```
-ip-10-0-14-227:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% sinfo -lN
+sinfo -lN
+```
 
+output:
+
+```
 Wed Jan 05 22:41:24 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
@@ -909,7 +983,7 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 ```
 
 
-Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5 minutes of idle time.
+Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5+ minutes of idle time.
 
 ```
 HeadNode	i-099e56e3677d64743	
@@ -992,7 +1066,11 @@ Num  Day        Wall Time
 ```
 cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
 ls -lht 
+```
 
+output:
+
+```
 total 173G
 drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
 -rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:53 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
@@ -1048,8 +1126,12 @@ grep A:B REPORT
 Should see all zeros. There are some non-zero values. TO DO: need to investigate to determine if this is sensitive to the compiler version.
 
 ```
-[centos@ip-10-0-0-219 output]$ grep A:B REPORT
+grep A:B REPORT
+```
 
+output:
+
+```
  A:B  4.54485E-07@(316, 27, 1) -3.09199E-07@(318, 25, 1)  1.42188E-11  2.71295E-09
  A:B  4.73112E-07@(274,169, 1) -2.36556E-07@(200,113, 1)  3.53046E-11  3.63506E-09
  A:B  7.37607E-07@(226,151, 1) -2.98955E-07@(274,170, 1)  3.68974E-11  5.29013E-09
@@ -1107,6 +1189,11 @@ pcluster delete-cluster --region=us-east-1 --cluster-name cmaq
 
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+output:
+
+```
 {
   "creationTime": "2022-01-05T16:04:00.314Z",
   "version": "3.0.2",
@@ -1128,8 +1215,14 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
   "clusterStatus": "DELETE_IN_PROGRESS"
 ```
 
+Check cluster status again
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+output:
+
+```
 {
   "message": "Cluster 'cmaq' does not exist or belongs to an incompatible ParallelCluster major version."
 ```
@@ -1138,6 +1231,11 @@ Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries install
 
 ```
 pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
+```
+
+output:
+
+```
 {
   "cluster": {
     "clusterName": "cmaq",
@@ -1151,8 +1249,15 @@ pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --c
 
  ```
 
+Check status again
+
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+output:
+
+```
 {
   "creationTime": "2022-01-06T02:36:18.119Z",
   "version": "3.0.2",
@@ -1181,6 +1286,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 
 log into the new cluster
+(note replace centos.pem with your Key)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
