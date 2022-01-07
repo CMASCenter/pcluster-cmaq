@@ -1387,37 +1387,16 @@ Also may need to create the output directory
 mkdir -p /fsx/data/output
 ```
 
-If the import step doesn't work due to permissions errors, then copy the data from the public bucket.
-
-### First need to copy the CONUS2 input data to the /fsx directory
-
-
-### First set up aws credentials
-
-```
-aws configure
-cd /shared/pcluster-cmaq
-./s3_copy_need_credentials_conus.csh
-```
-
-### IF you do not have aws credentials with permissions use the following
-
-```
-cd /shared/pcluster-cmaq/s3_scripts
-./s3_copy_nosign.csh
-```
-
-### Then resubmit the job
+### Submit the job to the slurm queue
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.csh
 ```
 
-### Note - I need to research how to modify the run script to specify the S3 Bucket path, instead of the /fsx path, as I think you can run directly from the S3 bucket.
 
 
-### Results from the Parallel Cluster Started with the EBS Volume software
+### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 
 ```
 ==================================
@@ -1439,7 +1418,9 @@ Num  Day        Wall Time
       Avg. Time = 1235.64
 ```
 
+
 Information in the log file:
+```
 
 Start Model Run At  Thu Jan 6 03:07:08 UTC 2022
 information about processor including whether using hyperthreading
@@ -1785,6 +1766,30 @@ CTM_VDIFF_DIAG_F  |          F (default)
     | 64       25      1:  25         16     65:  80   |
     | 65       25     26:  50         16     65:  80   |
 
+
+
+### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
+
+This seems a bit slower than when the data is copied from the S3 Bucket to /fsx
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1564.90
+02   2015-12-23   1381.80
+     Total Time = 2946.70
+      Avg. Time = 1473.35
 ```
 
 Older results using CMAQv5.3.2
