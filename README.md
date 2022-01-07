@@ -3,6 +3,8 @@
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 The goal is to demonstrate how to create a parallel cluster, modify or update the cluster, and run CMAQv533 for two days on the CONUS2 domain obtaining input data from an S3 Bucket and saving the output to the S3 Bucket.
 
+### Note: The scripts have been set up to run on the AWS Parallel Cluster that has both a /shared ebs file system, and a /fsx lustre file system.  It is possible to also test the install scripts on a local machine prior to running on the AWS Parallel Cluster.  This will require modification the path that is used to install/build the libraries, CMAQ and the CONUS input data.  These paths may need to be changed in your .cshrc, install scripts, build scripts, run scripts etc.  Compiler GCC 8+ or higher and openmpi 4+ are required.
+
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
@@ -89,8 +91,7 @@ vi new-hello-world.yaml
 ```
 
 note that the yaml file format seems to be sensitive to using 2 spaces for indentation
-
-
+The Key pair and SubnetId that were generated for you in the new-hello-world.yaml are unique to your account, and will be needed later in this tutorial.
 
 Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to keep track of what yaml configuration file was used to create the cluster. 
 
@@ -108,6 +109,7 @@ The settings in the cluster configuration file allow you to
    7) GNU gcc 8.3.1 or higher is required version of the compiler, if you need intel compiler, you need separate config settings and license to get access to intel compiler
   (Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.)
    8) specify the name of the snapshot containing the application software to use as the /shared directory.  This requires a previous Parallel Cluster installation where the software was installed using the install scripts, tested, and then the /shared directory saved as a snapshot.
+   9) Need to determine how to share Snapshots across different accounts (can snapshots be made public?)
    
   
 
@@ -149,6 +151,18 @@ login prompt should look something like (this will depend on what OS was chosen 
 ```
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
+```
+
+### Check what modules are available on the Parallel Cluster
+
+```
+module avail
+```
+
+### Check what version of the compiler is available
+
+```
+gcc --version
 ```
 
 ### Delete the demo cluster
@@ -234,6 +248,8 @@ keep rechecking until you see the following status
 
 
 ### To update compute node from c5n4xlarge to c5n.n18xlarge
+You will need to edit the c5n-18xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml)
+This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.18xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data).
 
 ```
 pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
@@ -264,9 +280,13 @@ A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
   2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
-  3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
-  4) After copying output and log files to the s3 bucket the cluster can be terminated using the following command.
-  5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
+  3) The compute nodes are terminated after they have been idle for a period of time.  The yaml setting used for this is as follows:
+SlurmSettings:
+    ScaledownIdletime: 5
+  4) The default idle time is 10 minutes, but I have seen the compute nodes stay up longer than that, so it is important to double check, as you are charged when the compute nodes are available, even if they are not running a job.
+  5) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
+  6) After copying output and log files to the s3 bucket the cluster can be deleted
+  7) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
  
 
 ### Pcluster User Manual
@@ -687,7 +707,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 Verify that the compute nodes have stopped in the AWS Web Interface
 
 
-Also updated the yaml file to specify the idle time before the compute nodes should be deleted.
+Also updated the yaml file to specify an idle time of 5 minutes after which the compute nodes should be deleted.
 
 ```
 SlurmSettings:
@@ -717,20 +737,6 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 
 
 The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance, if you need to run on 360 processors.
-
-```
-Older Timing report on 256 processors
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       256
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2015-12-22   1354.65
-02   2015-12-23   1216.64
-     Total Time = 2571.29
-      Avg. Time = 1285.64
-```
 
 
 ### Run another jobs using 180 pes - need to update the compute nodes
@@ -864,6 +870,21 @@ Num  Day        Wall Time
      Total Time = 4126.54
       Avg. Time = 2063.27
 ```
+
+```
+Older Timing report on 256 processors
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1354.65
+02   2015-12-23   1216.64
+     Total Time = 2571.29
+      Avg. Time = 1285.64
+```
+
 
 ### Note - the compute nodes have been idle for more than 5 minutes, but they are not being automatically shut down.
 
