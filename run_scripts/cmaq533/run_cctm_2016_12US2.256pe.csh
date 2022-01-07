@@ -5,6 +5,7 @@
 #SBATCH --nodes=8
 #SBATCH --ntasks-per-node=36
 #SBATCH -J CMAQ
+#SBATCH --exclusive
 #SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.log
 #SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.log
 
