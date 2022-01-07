@@ -1,7 +1,7 @@
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 The goal is to demonstrate how to create a parallel cluster, modify or update the cluster, and run CMAQv533 for two days on the CONUS2 domain obtaining input data from an S3 Bucket and saving the output to the S3 Bucket.
 
-### Note: The scripts have been set up to run on the AWS Parallel Cluster that has both a /shared ebs file system, and a /fsx lustre file system.  It is possible to also test the install scripts on a local machine prior to running on the AWS Parallel Cluster.  This will require modification the path that is used to install/build the libraries, CMAQ and the CONUS input data.  These paths may need to be changed in your .cshrc, install scripts, build scripts, run scripts etc.  Compiler GCC 8+ or higher and openmpi 4+ are required.
+Note: The scripts have been set up to run on the AWS Parallel Cluster that has both a /shared ebs file system, and a /fsx lustre file system.  It is possible to also test the install scripts on a local machine prior to running on the AWS Parallel Cluster.  This will require modification the path that is used to install/build the libraries, CMAQ and the CONUS input data.  These paths may need to be changed in your .cshrc, install scripts, build scripts, run scripts etc.  Compiler GCC 8+ or higher and openmpi 4+ are required.
 
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
