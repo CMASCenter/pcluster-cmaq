@@ -1181,6 +1181,10 @@ output:
 * find the snapshot that is being created
 * Copy the Snapshot ID and place it in the configuration file.
 * Delete the old cluster
+* Specify the S3 Bucket with the 2 Days of CONUS Input to be imported from the S3 Bucket  (may require permissions)
+FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://conus-benchmark-2day
 * Create a new cluster with the /shared directory from the snapshot.
 
 ```
