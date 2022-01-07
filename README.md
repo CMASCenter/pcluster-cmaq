@@ -18,6 +18,9 @@ https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pd
 ### Another workshop to learn the AWS CLI 3.0
 https://hpc.news/pc3workshop
 
+### Youtube video
+https://www.youtube.com/watch?v=a-99esKLcls
+
 ### To configure the cluster start a virtual environment on your local linux or MacOS machine and install aws-parallelcluster
 
 ```
