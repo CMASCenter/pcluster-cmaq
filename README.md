@@ -1231,7 +1231,7 @@ output:
   "message": "Cluster 'cmaq' does not exist or belongs to an incompatible ParallelCluster major version."
 ```
 
-Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed
+Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
 
 ```
 pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
@@ -1333,17 +1333,61 @@ module load libfabric-aws/1.13.2amzn1.0
 Change directories
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+```
 
 
-sbatch run_cctm_2016_12US2.256pe.2.csh
-### it failed with 
- EXECUTION_ID: CMAQ_CCTMv532_centos_20210701_022504_836895623
-     MET_CRO_3D      :/fsx/data/CONUS/12US2/MCIP/METCRO3D.12US2.35L.151222
+### Verify that the input data was imported from the S3 bucket
 
-     >>--->> WARNING in subroutine OPEN3
-     File not available.
-     
-    ```
+```
+cd /fsx/12US2
+```
+
+Notice that the data doesn't take up much space, it must be linked, rather than copied.
+
+```
+du -h
+```
+
+output
+
+```
+27K	./land
+33K	./MCIP
+28K	./emissions/ptegu
+55K	./emissions/ptagfire
+27K	./emissions/ptnonipm
+55K	./emissions/ptfire_othna
+27K	./emissions/pt_oilgas
+26K	./emissions/inln_point/stack_groups
+51K	./emissions/inln_point
+28K	./emissions/cmv_c1c2_12
+28K	./emissions/cmv_c3_12
+28K	./emissions/othpt
+55K	./emissions/ptfire
+407K	./emissions
+27K	./icbc
+518K	.
+```
+
+The run scripts are expecting the data to be located under
+
+/fsx/data/CONUS/12US2
+
+Need to make this directory and then link it to the path created when the data was imported by the parallel cluster
+
+```
+mkdir -p /fsx/data/CONUS
+cd /fsx/data/CONUS
+ln -s /fsx/12US2 .
+```
+
+Also may need to create the output directory
+
+```
+mkdir -p /fsx/data/output
+```
+
+If the import step doesn't work due to permissions errors, then copy the data from the public bucket.
 
 ### First need to copy the CONUS2 input data to the /fsx directory
 
