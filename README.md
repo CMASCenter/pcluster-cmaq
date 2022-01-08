@@ -398,7 +398,7 @@ ls /fsx
 ```
 
 ```
-aws credentials
+aws configure
 ```
 
 ## Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
@@ -1130,12 +1130,15 @@ grep A:B REPORT
 ```
 
 Should see all zeros. There are some non-zero values. TO DO: need to investigate to determine if this is sensitive to the compiler version.
+It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differes (10 vs 16)
+NPCOL  =  10; @ NPROW = 18
+NPCOL  =  16; @ NPROW = 18
 
 ```
 grep A:B REPORT
 ```
 
-output:
+output
 
 ```
  A:B  4.54485E-07@(316, 27, 1) -3.09199E-07@(318, 25, 1)  1.42188E-11  2.71295E-09
@@ -1813,6 +1816,142 @@ Num  Day        Wall Time
       Avg. Time = 1282.22
 
 ```
+
+Timing for a 288 pe run
+
+```
+tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log
+```
+
+Output:
+
+```
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1197.19
+02   2015-12-23   1090.45
+     Total Time = 2287.64
+      Avg. Time = 1143.82
+```
+
+Note this performance seems better than earlier runs..
+I've added the #SBATCH --exclusive option.  Perhaps that made a difference.
+
+
+```
+tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
+```
+
+output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1585.67
+02   2015-12-23   1394.52
+     Total Time = 2980.19
+      Avg. Time = 1490.09
+```
+
+
+### Compare the output
+
+```
+setenv AFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc
+setenv BFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+m3diff
+```
+
+```
+grep A:B REPORT
+```
+NPCOL  =  16; @ NPROW = 16
+NPCOL  =  16; @ NPROW = 18
+
+NPCOL was the same for both runs
+
+Resulted in zero differences in the output
+
+```
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+```
+
+
+I am going to try a 18x16 pe run for comparison 
+NPCOL  =  18; @ NPROW = 16
+NPCOL  =  16; @ NPROW = 18
+
+```
+tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.18x16pe.2day.log
+```
+
+output:
+
+```
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1206.01
+02   2015-12-23   1095.76
+     Total Time = 2301.77
+      Avg. Time = 1150.88
+```
+
+Then I need to try
+
+NPCOL  =  10 NPROW 16
 
 
 ### To learn information about your cluster from the head node use the following commmand:
