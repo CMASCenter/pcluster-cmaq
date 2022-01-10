@@ -1888,6 +1888,7 @@ m3diff
 ```
 grep A:B REPORT
 ```
+
 NPCOL  =  16; @ NPROW = 16
 NPCOL  =  16; @ NPROW = 18
 
@@ -2331,6 +2332,22 @@ exit
  ```
  pcluster delete-cluster --region us-east-1 --cluster-name cmaq  ! don't use this yet, it is an example syntax.
  ```
+
+
+### Timing Information
+
+| Number of PEs | Number of Nodes| NPCOLxNPROW | 1st day Timing | 2nd day of Timing | SBATCH --exclusive | Data Imported or Copied | 
+|---------------| -----------    | ----------- | ----------     | ---------------   | ------------------ | ----------  |
+| 180           |  5x36          | 10x18       | 2481.55        | 2225.34           | no                 | copied      |
+| 180           |  5x36          | 10x18       | 2378.73        | 2378.73           | no                 | copied      |
+| 180           |  5x36          | 10x18       | 1585.67        | 1394.52           | yes                | imported    |
+| 256           |  8x36          | 16x16       |  1289.59       | 1164.53           | no                 |             | 
+| 256           |  8x36          | 16x16       |  1305.99       | 1165.30           |  no                |   imported  | 
+| 256           |  8x36          | 16x16       |  1564.90       | 1381.80           |  no                |   imported  |
+| 288           |  8x36          |  16x18      |  1976.35       | 1871.61           |  no                |  Copied     |
+| 288           |  8x36          | 16x18       |  1197.19       | 1090.45           |  yes               |  Copied     | 
+| 288           |  8x36          | 18x16       | 1206.01        | 1095.76           |  yes               |  imported   |
+
                  
 
 
