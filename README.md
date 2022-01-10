@@ -320,7 +320,7 @@ module avail
 module load openmpi/4.1.1
 ```
 
-### Loading the elastic fabric adapter (bugfix?)
+### Load the elastic fabric adapter (this may be OS specific)
 
 ```
 module load libfabric-aws/1.13.0amzn1.0
