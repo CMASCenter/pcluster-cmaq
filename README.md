@@ -1384,7 +1384,6 @@ output
 ```
 
 The run scripts are expecting the data to be located under
-
 /fsx/data/CONUS/12US2
 
 Need to make this directory and then link it to the path created when the data was imported by the parallel cluster
@@ -1434,8 +1433,8 @@ Num  Day        Wall Time
 
 
 Information in the log file:
-```
 
+```
 Start Model Run At  Thu Jan 6 03:07:08 UTC 2022
 information about processor including whether using hyperthreading
 Architecture:                    x86_64
@@ -1779,7 +1778,7 @@ CTM_VDIFF_DIAG_F  |          F (default)
     | 63       24    373: 396         16     49:  64   |
     | 64       25      1:  25         16     65:  80   |
     | 65       25     26:  50         16     65:  80   |
-
+```
 
 
 ### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
