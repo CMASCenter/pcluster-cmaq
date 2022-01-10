@@ -1954,10 +1954,6 @@ Num  Day        Wall Time
       Avg. Time = 1150.88
 ```
 
-Then I need to try
-
-NPCOL  =  10 NPROW 16
-
 
 ### To learn information about your cluster from the head node use the following commmand:
 https://www.hpcworkshops.com/03-hpc-aws-parallelcluster-workshop/07-logon-pc.html
@@ -2340,13 +2336,13 @@ exit
 
 ### Timing Information
 
-| Number of PEs | Number of Nodes| NPCOLxNPROW | 1st day Timing | 2nd day of Timing | SBATCH --exclusive | Data Imported or Copied | 
+| Number of PEs | Number of Nodes| NPCOLxNPROW | 1st day Timing | 2nd day of Timing | SBATCH --exclusive | Data Imported or Copied | Answers Matched |
 |---------------| -----------    | ----------- | ----------     | ---------------   | ------------------ | ----------  |
-| 180           |  5x36          | 10x18       | 2481.55        | 2225.34           | no                 | copied      |
-| 180           |  5x36          | 10x18       | 2378.73        | 2378.73           | no                 | copied      |
-| 180           |  5x36          | 10x18       | 1585.67        | 1394.52           | yes                | imported    |
-| 256           |  8x36          | 16x16       |  1289.59       | 1164.53           | no                 |             | 
-| 256           |  8x36          | 16x16       |  1305.99       | 1165.30           |  no                |   imported  | 
+| 180           |  5x36          | 10x18       | 2481.55        | 2225.34           |  no                 | copied      |
+| 180           |  5x36          | 10x18       | 2378.73        | 2378.73           |  no                 | copied      |
+| 180           |  5x36          | 10x18       | 1585.67        | 1394.52           |  yes                | imported    |
+| 256           |  8x36          | 16x16       |  1289.59       | 1164.53           |  no                 |             | 
+| 256           |  8x36          | 16x16       |  1305.99       | 1165.30           |  no                |   copied    | 
 | 256           |  8x36          | 16x16       |  1564.90       | 1381.80           |  no                |   imported  |
 | 288           |  8x36          |  16x18      |  1976.35       | 1871.61           |  no                |  Copied     |
 | 288           |  8x36          | 16x18       |  1197.19       | 1090.45           |  yes               |  Copied     | 
