@@ -4,6 +4,7 @@
 ## data on /shared directory
 #SBATCH --nodes=8
 #SBATCH --ntasks-per-node=36
+#SBATCH --exclusive
 #SBATCH -J CMAQ
 #SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log
 #SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log
@@ -104,7 +105,7 @@ set TSTEP      = 010000            #> output time step interval (HHMMSS)
 if ( $PROC == serial ) then
    setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
 else
-   @ NPCOL  =  20; @ NPROW = 18
+   @ NPCOL  =  16; @ NPROW = 18
    @ NPROCS = $NPCOL * $NPROW
    setenv NPCOL_NPROW "$NPCOL $NPROW"; 
 endif
