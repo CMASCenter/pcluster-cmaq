@@ -265,6 +265,10 @@ pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configu
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
+### Re-start the compute nodes
+
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
+
 
 ### Login to updated cluster
 (note, replace the centos.pem with your Key Pair)
