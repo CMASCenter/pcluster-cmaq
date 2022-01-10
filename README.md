@@ -265,6 +265,10 @@ pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configu
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
+### Re-start the compute nodes
+
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
+
 
 ### Login to updated cluster
 (note, replace the centos.pem with your Key Pair)
@@ -316,7 +320,7 @@ module avail
 module load openmpi/4.1.1
 ```
 
-### Loading the elastic fabric adapter (bugfix?)
+
 
 ```
 module load libfabric-aws/1.13.0amzn1.0
@@ -388,8 +392,9 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ```
 
 ## Copy the input data from a S3 bucket (this bucket is not public and needs credentials)
+### Note you do no need to copy the data from the S3 Bucket - you can IMPORT the data from the S3 Bucket location when you use an /fsx volume, this import is done in the yaml file prior to creating the cluster.
 ## set the aws credentials
-##  If you don't have credentials, please contact the owner of this github project.
+##  If you don't have credentials, please contact the manager of your aws account. 
 
 ### Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
 
