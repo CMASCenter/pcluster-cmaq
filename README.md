@@ -1,7 +1,7 @@
-
-
 ## Scripts and code to configure an AWS Parallel Cluster for CMAQ
 The goal is to demonstrate how to create a parallel cluster, modify or update the cluster, and run CMAQv533 for two days on the CONUS2 domain obtaining input data from an S3 Bucket and saving the output to the S3 Bucket.
+
+Note: The scripts have been set up to run on the AWS Parallel Cluster that has both a /shared ebs file system, and a /fsx lustre file system.  It is possible to also test the install scripts on a local machine prior to running on the AWS Parallel Cluster.  This will require modification the path that is used to install/build the libraries, CMAQ and the CONUS input data.  These paths may need to be changed in your .cshrc, install scripts, build scripts, run scripts etc.  Compiler GCC 8+ or higher and openmpi 4+ are required.
 
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
@@ -17,6 +17,9 @@ https://d1.awsstatic.com/Projects/P4114756/deploy-elastic-hpc-cluster_project.pd
 
 ### Another workshop to learn the AWS CLI 3.0
 https://hpc.news/pc3workshop
+
+### Youtube video
+https://www.youtube.com/watch?v=a-99esKLcls
 
 ### To configure the cluster start a virtual environment on your local linux or MacOS machine and install aws-parallelcluster
 
@@ -72,25 +75,27 @@ Allowed values for Operating System:
 3. ubuntu1804
 4. ubuntu2004
 
-Choose 4. ubuntu2004
+Select:
+```
+4. ubuntu2004
+```
 
 Choose head node instance type:
 
 Head node instance type [t2.micro]:
 
+Choose compute node instance type:
 
+t2.micro
 
-
-
-#### Examine the yaml file
+#### Examine the yaml file that was created
 
 ```
 vi new-hello-world.yaml
 ```
 
 note that the yaml file format seems to be sensitive to using 2 spaces for indentation
-
-
+The Key pair and SubnetId that were generated during the pcluster configure generated a new-hello-world.yaml that contains settings unique to your account, and will be needed later in this tutorial.
 
 Note, there isn't a way to detemine what config.yaml file was used to create a cluster, so it is important to keep track of what yaml configuration file was used to create the cluster. 
 
@@ -108,7 +113,8 @@ The settings in the cluster configuration file allow you to
    7) GNU gcc 8.3.1 or higher is required version of the compiler, if you need intel compiler, you need separate config settings and license to get access to intel compiler
   (Note: you can use intelmpi with the gcc compiler, it isn't a requirement to use ifort as the base compiler.)
    8) specify the name of the snapshot containing the application software to use as the /shared directory.  This requires a previous Parallel Cluster installation where the software was installed using the install scripts, tested, and then the /shared directory saved as a snapshot.
-   
+   9) Need to determine how to share Snapshots across different accounts (can snapshots be made public?)
+   10) specify the s3 bucket to import to the lustre file system when creating the parallel cluster
   
 
 ### Create the demo cluster 
@@ -133,22 +139,33 @@ pcluster list-clusters --region=us-east-1
 
 ```
 # AWS ParallelCluster v3 - Slurm fleets
-$ pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
+pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
 ```
 
 ### SSH into cluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
- pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
 ```
 
 ### Note, the following commands are used when you are logged into the cluster.
 
 login prompt should look something like (this will depend on what OS was chosen in the yaml file).
 
-```
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
+
+### Check what modules are available on the Parallel Cluster
+
+```
+module avail
+```
+
+### Check what version of the compiler is available
+
+```
+gcc --version
 ```
 
 ### Delete the demo cluster
@@ -202,6 +219,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 
 ### Login to cluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
@@ -234,6 +252,8 @@ keep rechecking until you see the following status
 
 
 ### To update compute node from c5n4xlarge to c5n.n18xlarge
+You will need to edit the c5n-18xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml)
+This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.18xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data).
 
 ```
 pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
@@ -247,6 +267,7 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 
 
 ### Login to updated cluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
@@ -258,15 +279,19 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ```
 modinfo ena
 lspci
-A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
 ```
+A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
 
 ### Managing the cluster
   1) The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the pcluster start -c config.[name] command to restart the cluster.
   2) The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
-  3) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
-  4) After copying output and log files to the s3 bucket the cluster can be terminated using the following command.
-  5) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
+  3) The compute nodes are terminated after they have been idle for a period of time.  The yaml setting used for this is as follows:
+SlurmSettings:
+    ScaledownIdletime: 5
+  4) The default idle time is 10 minutes, but I have seen the compute nodes stay up longer than that, so it is important to double check, as you are charged when the compute nodes are available, even if they are not running a job.
+  5) It is best to copy/backup the outputs and logs to an s3 bucket for follow-up analysis
+  6) After copying output and log files to the s3 bucket the cluster can be deleted
+  7) Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated.
  
 
 ### Pcluster User Manual
@@ -302,7 +327,6 @@ module load libfabric-aws/1.13.0amzn1.0
 
 ```
  gcc --version
-
 ```
 
 gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
@@ -374,7 +398,7 @@ ls /fsx
 ```
 
 ```
-aws credentials
+aws configure
 ```
 
 ## Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
@@ -394,7 +418,9 @@ aws credentials
 
 ```
 cd /fsx/data/CONUS
-[centos@ip-10-0-0-219 CONUS]$ du -sh
+du -sh
+```
+```
 44G	.
 ```
 
@@ -404,21 +430,26 @@ cd /fsx/data/CONUS
 ```
 cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe
 du -sh
-18G	.
 ```
+18G	.
 
 ### For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
 
 ```
 cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
 du -sh
-173G	.
 ```
+
+173G	.
 
 ### This cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 
 ```
  df -h
+```
+
+output:
+```
 Filesystem           Size  Used Avail Use% Mounted on
 devtmpfs             2.3G     0  2.3G   0% /dev
 tmpfs                2.4G     0  2.4G   0% /dev/shm
@@ -450,6 +481,10 @@ This is reflected in the Status (ST) of CF (configuring)
 
 ```
 squeue -u ubuntu
+```
+
+output:
+```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  2    queue1     CMAQ   ubuntu CF       3:00      5 queue1-dy-computeresource1-[1-5]
 ```
@@ -459,6 +494,10 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 ```
 squeue -u ubuntu 
+```
+
+output:
+```
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  3   compute     CMAQ   ubuntu  CG      0      10    (BeginTime) 
@@ -467,6 +506,10 @@ squeue -u ubuntu
 
 ```
 squeue -u ubuntu 
+```
+
+output:
+```
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                  3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
@@ -507,7 +550,11 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 ```
 grep 'Processing completed' CTM_LOG_001*
+```
 
+output:
+
+```
             Processing completed...    8.8 seconds
             Processing completed...    7.4 seconds
 ```
@@ -517,7 +564,11 @@ grep 'Processing completed' CTM_LOG_001*
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
+```
 
+output:
+
+```
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -548,7 +599,11 @@ Note, you may get the following message
 
 ```
 squeue -u ubuntu
+```
 
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  5    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
@@ -575,6 +630,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 
 
 ### Login to the pcluster
+(note, replace the centos.pem with your Key Pair)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq  
@@ -591,6 +647,11 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 
 ```
 squeue -u ubuntu
+```
+
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  6    queue1     CMAQ   ubuntu PD       0:00     10 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
@@ -609,7 +670,11 @@ sbatch run_cctm_2016_12US2.288pe.csh
 
 ```
 squeue -u ubuntu
+```
 
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
 ```
@@ -618,6 +683,11 @@ Note, it takes about 5 minutes for the compute nodes to be initialized, once the
 
 ```
 squeue -u ubuntu
+```
+
+output:
+
+```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
 ```
@@ -632,7 +702,11 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 ```
 sinfo -lN
+```
 
+output:
+
+```
 Wed Jan 05 19:34:05 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
@@ -652,7 +726,6 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1 
 Check log file to verify
 
 ```
-
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -687,7 +760,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 Verify that the compute nodes have stopped in the AWS Web Interface
 
 
-Also updated the yaml file to specify the idle time before the compute nodes should be deleted.
+Also updated the yaml file to specify an idle time of 5 minutes after which the compute nodes should be deleted.
 
 ```
 SlurmSettings:
@@ -701,6 +774,11 @@ DisableSimultaneousMultithreading: true
 
 ```
 sinfo -lN
+```
+
+output:
+
+```
 Wed Jan 05 20:54:01 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none                
@@ -717,20 +795,6 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 
 
 The other option is to update the yaml file to use an ONDEMAND instead of SPOT instance, if you need to run on 360 processors.
-
-```
-Older Timing report on 256 processors
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       256
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2015-12-22   1354.65
-02   2015-12-23   1216.64
-     Total Time = 2571.29
-      Avg. Time = 1285.64
-```
 
 
 ### Run another jobs using 180 pes - need to update the compute nodes
@@ -768,7 +832,11 @@ cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_10x18pe/LOGS
 
 ```
 grep -i error CTM_LOG_000.v533_gcc_2016_CONUS_10x18pe_20151223
+```
 
+output:
+
+```
 Error opening file at path-name:
      netCDF error number  -51  processing file "BNDY_SENS_1"
      Error closing netCDF file 
@@ -803,6 +871,11 @@ sbatch run_cctm_2016_12US2.180pe.full.csh
 
 ```
 grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_20151222
+```
+
+output:
+
+```
             Processing completed...    4.6 seconds
             Processing completed...    4.1 seconds
             Processing completed...    4.0 seconds
@@ -828,6 +901,11 @@ grep 'Processing completed' CTM_LOG_151.v533_gcc_2016_CONUS_10x18pe_full_2015122
 
 ```
 tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
+```
+
+output:
+
+```
 
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -852,7 +930,11 @@ Results from an older run using CMAQv5.3.2 model on 256 processors
 
 ```
 tail  run_cctmv5.3.2_Bench_2016_12US2.16x16pe.2day.full.log
+```
 
+output:
+
+```
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       256
@@ -865,14 +947,33 @@ Num  Day        Wall Time
       Avg. Time = 2063.27
 ```
 
+```
+Older Timing report on 256 processors
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1354.65
+02   2015-12-23   1216.64
+     Total Time = 2571.29
+      Avg. Time = 1285.64
+```
+
+
 ### Note - the compute nodes have been idle for more than 5 minutes, but they are not being automatically shut down.
 
 Log file was written at -rw-rw-r-- 1 ubuntu ubuntu 563897 Jan  5 22:35 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.full.log
 
 
 ```
-ip-10-0-14-227:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% sinfo -lN
+sinfo -lN
+```
 
+output:
+
+```
 Wed Jan 05 22:41:24 2022
 NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
 queue1-dy-computeresource1-1       1   queue1*       idle% 36     36:1:1      1        0      1 dynamic, none                
@@ -888,7 +989,7 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 ```
 
 
-Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5 minutes of idle time.
+Actually, I checked again thru the web interface, and the ec2 instances are being terminated after 5+ minutes of idle time.
 
 ```
 HeadNode	i-099e56e3677d64743	
@@ -971,7 +1072,11 @@ Num  Day        Wall Time
 ```
 cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
 ls -lht 
+```
 
+output:
+
+```
 total 173G
 drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
 -rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:53 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
@@ -1025,10 +1130,17 @@ grep A:B REPORT
 ```
 
 Should see all zeros. There are some non-zero values. TO DO: need to investigate to determine if this is sensitive to the compiler version.
+It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differes (10 vs 16)
+NPCOL  =  10; @ NPROW = 18
+NPCOL  =  16; @ NPROW = 18
 
 ```
-[centos@ip-10-0-0-219 output]$ grep A:B REPORT
+grep A:B REPORT
+```
 
+output
+
+```
  A:B  4.54485E-07@(316, 27, 1) -3.09199E-07@(318, 25, 1)  1.42188E-11  2.71295E-09
  A:B  4.73112E-07@(274,169, 1) -2.36556E-07@(200,113, 1)  3.53046E-11  3.63506E-09
  A:B  7.37607E-07@(226,151, 1) -2.98955E-07@(274,170, 1)  3.68974E-11  5.29013E-09
@@ -1078,6 +1190,10 @@ Should see all zeros. There are some non-zero values. TO DO: need to investigate
 * find the snapshot that is being created
 * Copy the Snapshot ID and place it in the configuration file.
 * Delete the old cluster
+* Specify the S3 Bucket with the 2 Days of CONUS Input to be imported from the S3 Bucket  (may require permissions)
+FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://conus-benchmark-2day
 * Create a new cluster with the /shared directory from the snapshot.
 
 ```
@@ -1086,6 +1202,11 @@ pcluster delete-cluster --region=us-east-1 --cluster-name cmaq
 
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+output:
+
+```
 {
   "creationTime": "2022-01-05T16:04:00.314Z",
   "version": "3.0.2",
@@ -1107,16 +1228,27 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
   "clusterStatus": "DELETE_IN_PROGRESS"
 ```
 
+Check cluster status again
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+output:
+
+```
 {
   "message": "Cluster 'cmaq' does not exist or belongs to an incompatible ParallelCluster major version."
 ```
 
-Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed
+Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
 
 ```
 pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
+```
+
+output:
+
+```
 {
   "cluster": {
     "clusterName": "cmaq",
@@ -1130,8 +1262,15 @@ pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --c
 
  ```
 
+Check status again
+
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+output:
+
+```
 {
   "creationTime": "2022-01-06T02:36:18.119Z",
   "version": "3.0.2",
@@ -1160,6 +1299,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 
 log into the new cluster
+(note replace centos.pem with your Key)
 
 ```
 pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
@@ -1202,47 +1342,70 @@ module load libfabric-aws/1.13.2amzn1.0
 Change directories
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-
-
-sbatch run_cctm_2016_12US2.256pe.2.csh
-### it failed with 
- EXECUTION_ID: CMAQ_CCTMv532_centos_20210701_022504_836895623
-     MET_CRO_3D      :/fsx/data/CONUS/12US2/MCIP/METCRO3D.12US2.35L.151222
-
-     >>--->> WARNING in subroutine OPEN3
-     File not available.
-     
-    ```
-
-### First need to copy the CONUS2 input data to the /fsx directory
-
-
-### First set up aws credentials
-
-```
-aws configure
-cd /shared/pcluster-cmaq
-./s3_copy_need_credentials_conus.csh
 ```
 
-### IF you do not have aws credentials with permissions use the following
+
+### Verify that the input data was imported from the S3 bucket
 
 ```
-cd /shared/pcluster-cmaq/s3_scripts
-./s3_copy_nosign.csh
+cd /fsx/12US2
 ```
 
-### Then resubmit the job
+Notice that the data doesn't take up much space, it must be linked, rather than copied.
+
+```
+du -h
+```
+
+output
+
+```
+27K	./land
+33K	./MCIP
+28K	./emissions/ptegu
+55K	./emissions/ptagfire
+27K	./emissions/ptnonipm
+55K	./emissions/ptfire_othna
+27K	./emissions/pt_oilgas
+26K	./emissions/inln_point/stack_groups
+51K	./emissions/inln_point
+28K	./emissions/cmv_c1c2_12
+28K	./emissions/cmv_c3_12
+28K	./emissions/othpt
+55K	./emissions/ptfire
+407K	./emissions
+27K	./icbc
+518K	.
+```
+
+The run scripts are expecting the data to be located under
+
+/fsx/data/CONUS/12US2
+
+Need to make this directory and then link it to the path created when the data was imported by the parallel cluster
+
+```
+mkdir -p /fsx/data/CONUS
+cd /fsx/data/CONUS
+ln -s /fsx/12US2 .
+```
+
+Also may need to create the output directory
+
+```
+mkdir -p /fsx/data/output
+```
+
+### Submit the job to the slurm queue
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.csh
 ```
 
-### Note - I need to research how to modify the run script to specify the S3 Bucket path, instead of the /fsx path, as I think you can run directly from the S3 bucket.
 
 
-### Results from the Parallel Cluster Started with the EBS Volume software
+### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 
 ```
 ==================================
@@ -1264,7 +1427,9 @@ Num  Day        Wall Time
       Avg. Time = 1235.64
 ```
 
+
 Information in the log file:
+```
 
 Start Model Run At  Thu Jan 6 03:07:08 UTC 2022
 information about processor including whether using hyperthreading
@@ -1610,6 +1775,30 @@ CTM_VDIFF_DIAG_F  |          F (default)
     | 64       25      1:  25         16     65:  80   |
     | 65       25     26:  50         16     65:  80   |
 
+
+
+### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
+
+This seems a bit slower than when the data is copied from the S3 Bucket to /fsx
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       256
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1564.90
+02   2015-12-23   1381.80
+     Total Time = 2946.70
+      Avg. Time = 1473.35
 ```
 
 Older results using CMAQv5.3.2
@@ -1627,6 +1816,142 @@ Num  Day        Wall Time
       Avg. Time = 1282.22
 
 ```
+
+Timing for a 288 pe run
+
+```
+tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log
+```
+
+Output:
+
+```
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1197.19
+02   2015-12-23   1090.45
+     Total Time = 2287.64
+      Avg. Time = 1143.82
+```
+
+Note this performance seems better than earlier runs..
+I've added the #SBATCH --exclusive option.  Perhaps that made a difference.
+
+
+```
+tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
+```
+
+output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1585.67
+02   2015-12-23   1394.52
+     Total Time = 2980.19
+      Avg. Time = 1490.09
+```
+
+
+### Compare the output
+
+```
+setenv AFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc
+setenv BFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+m3diff
+```
+
+```
+grep A:B REPORT
+```
+NPCOL  =  16; @ NPROW = 16
+NPCOL  =  16; @ NPROW = 18
+
+NPCOL was the same for both runs
+
+Resulted in zero differences in the output
+
+```
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+```
+
+
+I am going to try a 18x16 pe run for comparison 
+NPCOL  =  18; @ NPROW = 16
+NPCOL  =  16; @ NPROW = 18
+
+```
+tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.18x16pe.2day.log
+```
+
+output:
+
+```
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1206.01
+02   2015-12-23   1095.76
+     Total Time = 2301.77
+      Avg. Time = 1150.88
+```
+
+Then I need to try
+
+NPCOL  =  10 NPROW 16
 
 
 ### To learn information about your cluster from the head node use the following commmand:
