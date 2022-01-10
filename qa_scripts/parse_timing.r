@@ -1,10 +1,10 @@
 # This script assumes that the user will run in in the project directory of the code to be pushed 
 # to the CMAQ_Dev repository and that the log files are located in ./CCTM/scripts as output by the 
 # bld_check.csh. These are the single output files, not the CTM_LOG files found in the $OUTDIR/LOGS directory
-sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build/openmpi_gcc/CMAQ_v533/CCTM/scripts'
-base.dir  <- '/21dayscratch/scr/l/i/lizadams/CMAQv5.3.3/output_CCTM_v533_gcc_Bench_2016_12SE1_8x8/LOGS/'
-files     <- dir(sens.dir, pattern ='CTM_LOG_035.v533_gcc_2016_CONUS_8x8pe_20151223' )
-b.files <- dir(base.dir,pattern='CTM_LOG_063.v533_gcc_Bench_2016_12SE1_8x8_20160702')
+sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
+base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts//'
+files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_CONUS_2016.16x16.log' )
+b.files <- dir(base.dir,pattern='run_cctmv5.3.3_CONUS_2016.18x18.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.

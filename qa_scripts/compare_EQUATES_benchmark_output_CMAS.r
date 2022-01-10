@@ -9,17 +9,17 @@ my.col.warm1<- colorRampPalette(c(grey(.95),"#F0E442","orange","#E69F00","#D55E0
 my.diff.col <- function(n)c(my.col.cool1(n/2),my.col.warm1(n/2))
 
 #Directory to save output .pdf file with plots. 
-output.dir <- "/work/MOD3EVAL/fib/EQUATES/CMAS_testing/"
+output.dir <- "/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts"
 
 #Directory, file name, and label for first model simulation (sim1)
 sim1.label <- "EPA (v5.3.3 w/ GCC)"
-sim1.dir <- "/21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output/output_CCTM_v533_gcc_2016_CONUS_8x8pe/"
-sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_8x8pe_20151222.nc")
+sim1.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/"
+sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc")
 
 #Directory, file name, and label for second model simulation (sim2)
 sim2.label <- "CMAS (v5.3.3 w/ GCC)"
-sim2.dir <- "/21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output/output_CCTM_v533_gcc_2016_CONUS_8x16pe"
-sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_8x16pe_20151222.nc")
+sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"
+sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc")
 
 
 #Flags for toggling on or off different comparsions.
