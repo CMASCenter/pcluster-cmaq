@@ -2337,7 +2337,7 @@ exit
 ### Timing Information
 
 
-| Number of PEs | Number of Nodes| NPCOLxNPROW | 1st day Timing | 2nd day Timing  | Total Time(2days)    | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched |
+| Number of PEs | Number of Nodes| NPCOL x NPROW | 1st day Timing (sec) | 2nd day Timing (sec) | Total Time(2days) (sec)    | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched |
 |---------------| -----------    | ----------- | ----------     | --------------- | -------------------  | ------------------ | ----------  | --------- |   -------- |
 | 180           |  5x36          | 10x18       | 2481.55        | 2225.34         |    4706.89           |  no                 | copied      |  false        |        | 
 | 180           |  5x36          | 10x18       | 2378.73        | 2378.73         |    4588.92           |  no                 | copied      |  true        | 10x18 did not match 16x18|
