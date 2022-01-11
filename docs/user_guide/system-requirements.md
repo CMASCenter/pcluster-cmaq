@@ -77,7 +77,7 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 | 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |                   |
 | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
 
-??? is this the storage pricing that is used on parallel cluster?
+??? 1,000 MB/s/TB is this the tier of the storage pricing that is used on parallel cluster?
 
 
 Cost example:
