@@ -269,7 +269,7 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ### Build I/O API library
 
 ```
-./gcc_ioapi_pcluseter.csh
+./gcc_ioapi_pcluster.csh
 ```
 
 ### Build CMAQ
