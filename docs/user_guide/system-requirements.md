@@ -64,12 +64,13 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 
 <a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/</a>
 
+Persistant file system pricing:
 | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  | 
-Persistent file systems		
+| ----------------  |   ------------------------------------    | -----------------  |
 | 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |
-250 MB/s/TB         | 	$0.105                                  |	$0.210/month |
-500 MB/s/TB         | 	$0.170                                  | 	$0.340/month |  
-1,000 MB/s/TB       |   $0.300                                  | 	$0.600/month | .0008333/hour  |   ??? is this the storage pricing that is used on parallel cluster?
+| 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |
+| 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |  
+| 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour  |   ??? is this the storage pricing that is used on parallel cluster?
 
 
 Cost example:
@@ -103,3 +104,6 @@ Cost for annual simulation
 Cost for lustre storage of a monthly simulation
 
       2,681.5 GB x 0.00046658 USD per hour x 24 hours x 5 days = $150 USD
+
+Need to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket
+
