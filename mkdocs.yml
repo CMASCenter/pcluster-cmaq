@@ -1,0 +1,19 @@
+site_name: cmaq_parallel_cluster
+nav:
+    - Home: 'index.md'
+    - Quick Start Guide': 'quick-start.md'
+    - 'User Guide':
+        - 'Parallel Cluster Command Line v3.0': 'user_guide/pcluster-3.0.md'
+        - 'Yaml configuration': 'user_guide/yaml-configuration.md'
+        - 'Head Node and Compute Node': 'user_guide/head-node-compute-node.md'
+        - 'Demo Cluster': 'user_guide/demo-cluster.md'
+        - 'CMAQ Cluster': 'user_guide/cmaq-cluster.md'
+        - 'Elastic Network Adapter': 'user_guide/ena-cmaq-cluster.md'
+        - 'Simultaneous Multithreading': 'user_guide/multithreading-cmaq-cluser.md'
+        - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
+        - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
+    - About:
+        - 'License': 'license.md'
+        - 'Release Notes': 'release-notes.md'
+theme:
+  name: readthedocs
