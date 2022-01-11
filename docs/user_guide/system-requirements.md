@@ -42,7 +42,15 @@ Compute Node:
 with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
 
 
-Software: Ubuntu2004 
+Software: 
+
+* Ubuntu2004 
+* Disable Simultaneous Multi-threading
+* Spot Pricing 
+* Shared EBS filesystem to insall software
+* 1.2 TB Shared Lustre file system with imported S3 Bucket
+* Slurm Placement Group enabled
+
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 
