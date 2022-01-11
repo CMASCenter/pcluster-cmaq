@@ -32,7 +32,15 @@ The Parallel Cluster allows you to run the compute nodes only as long as the job
 
 #### Recommended Parallel Cluster Requirement for CONUS Domain
 
-* c5n.18xlarge running Ubuntu with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
+Head node:
+
+* c5n.large
+
+Compute Node:
+
+* c5n.18xlarge 
+
+Ubuntu with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 
