@@ -407,8 +407,8 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 ### check on the status of the cluster using CloudWatch
 
 ```
-<a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1"</a>
-<a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/"</a>
+<a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1">Cloudwatch Dashboard</a>
+<a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/">Monitoring Dashboard for P=arallel Cluster</a>
 ```
 
 ### check the timings while the job is still running using the following command
@@ -633,7 +633,7 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 
 
-(<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)>Link to the Amazon Website</a>
+(<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)>Link to the Amazon Website">Enhanced Networking Adapter Documentation</a>
 
 ### Tips to managing the parallel cluster
 
@@ -647,6 +647,6 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 ## Pcluster User Manual
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html>Parallel Cluster User Manual</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
 
 
