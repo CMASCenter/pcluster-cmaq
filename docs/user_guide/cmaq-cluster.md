@@ -281,7 +281,7 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ## Obtain the Input data from a public S3 Bucket
 Two methods are available either importing the data on the lustre file system using the yaml file to specify the s3 bucket location or copying the data using s3 copy commands.
 
-### Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
+### First Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
 
 ```
   - MountDir: /fsx
@@ -294,7 +294,7 @@ Two methods are available either importing the data on the lustre file system us
 This requires that the S3 bucket specified is publically available
 
 
-### Copy the data using the s3 command line
+### Second Method: Copy the data using the s3 command line
 
 ### set the aws credentials
 If you don't have credentials, please contact the manager of your aws account.
