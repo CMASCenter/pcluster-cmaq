@@ -16,13 +16,13 @@
 
 #### Recommended Minimum Requirements
 
-The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around time is.
-Larger hardware and memory is also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
+The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
+Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 
 
 * c4.large instance running RHEL with 3.75 GiB memory, 500 Mbps Network Bandwidth and 2 virtual cpus is used for the CMAQ Training Case 
 
-https://aws.amazon.com/blogs/aws/now-available-new-c4-instances/
+<a href="https://aws.amazon.com/blogs/aws/now-available-new-c4-instances/"</a>
 The 12km case study has a ColxRowxLayer = 67x59x35 and takes 2 hours to complete.
 
 
@@ -30,7 +30,7 @@ The 12km case study has a ColxRowxLayer = 67x59x35 and takes 2 hours to complete
 
 * c5n.18xlarge running Ubuntu with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
 
-https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/
+<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/"</a>
 
 | Instance Name	| vCPUs |  RAM      |  EBS Bandwidth	| Network Bandwidth | Linux On-Demand Price | Linux Spot Price | 
 | ------------  | ----- | --------  | ---------------   | ---------------   | --------------------  | ---------------  |
@@ -62,7 +62,7 @@ https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, as spot pricing cost of $81.00 for ec2 pricing.
 
-https://www.amazonaws.cn/en/fsx/lustre/pricing/
+<a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/</a>
 
 | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  | 
 Persistent file systems		
