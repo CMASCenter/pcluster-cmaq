@@ -8,9 +8,6 @@ user_guide/pcluster-3.0.md
     docs/
         index.md  # The documentation homepage.
         user_guide/ # User Guide
-           pcluster-3.0.md 
-           yaml-configuration.md
-           head-node-compute-node.md
            demo-cluster.md
            cmaq-cluster.md
            ena-cmaq-cluster.md
