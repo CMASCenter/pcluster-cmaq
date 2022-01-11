@@ -407,8 +407,8 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 ### check on the status of the cluster using CloudWatch
 
 ```
-https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1
-https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/
+<a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1"</a>
+<a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/"</a>
 ```
 
 ### check the timings while the job is still running using the following command
@@ -511,7 +511,7 @@ DisableSimultaneousMultithreading: true, then you should only see 36 CPUS
 
 
 
-A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
+(<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)>Link to the Amazon Website</a>
 
 ### Tips to managing the parallel cluster
 
@@ -525,6 +525,6 @@ A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 
 ## Pcluster User Manual
 
-https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html>Parallel Cluster User Manual</a>
 
 
