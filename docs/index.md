@@ -8,6 +8,8 @@
         user_guide/ # User Guide
            demo-cluster.md
            cmaq-cluster.md
+           copy_output_to_S3_Bucket.md
+           qa_cmaq_run.md
            ena-cmaq-cluster.md
            multithreading-cmaq-cluser.md
            lustre-import-from-S3-bucket.md
