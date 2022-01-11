@@ -506,8 +506,130 @@ Note: on a c5n.18xlarge, the number of virtual cpus is 72, if you run with
 ### edit run script to use
 SBATCH --exclusive 
 
-### edit the yaml file to use
+### edit the yaml file to use (note - any time you edit the yaml file, you need to update the compute cluster)
 DisableSimultaneousMultithreading: true, then you should only see 36 CPUS
+
+
+### Exit the cluster
+
+```
+exit
+```
+
+### Stop the compute nodes
+
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+
+### Verify that the compute nodes are stopped
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+```
+
+keep rechecking until you see the following status
+"computeFleetStatus": "STOPPED",
+
+
+### Update the cluster after editing the yaml file
+
+
+```
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml
+``
+
+### Restart the compute nodes
+
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
+```
+
+### Re-login to the cluster
+
+(note, replace the centos.pem with your Key Pair)
+
+```
+pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
+```
+
+
+### Confirm that there are only 36 cpus available to the slurm scheduler
+
+```
+sinfo -lN
+``` 
+
+output:
+
+```
+Wed Jan 05 20:54:01 2022
+NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
+queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-2       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-3       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-4       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-5       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-6       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
+```
+
+### Rerun the CMAQ CONUS Case
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+sbatch run_cctm_2016_12US2.288pe.csh
+```
+
+### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
+
+```
+sbatch run_cctm_2016_12US2.288pe.csh
+```
+
+```
+squeue -u ubuntu
+```
+
+output:
+
+```
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
+```
+
+Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
+
+```
+squeue -u ubuntu
+```
+
+output:
+
+```
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
+```
+
+### Check the status of the run
+
+```
+tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
+```
+
+### After run has successfully completed
+
+1. Verify answers match the CONUS output for different PE configurations
+2. Run combine and post processing scripts
+3. Run QA scripts
+4. Copy the output to the S3 Bucket
+5. exit the cluster
+6. Delete the Cluster
+
 
 
 
