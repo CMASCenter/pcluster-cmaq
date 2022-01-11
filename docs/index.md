@@ -15,6 +15,8 @@
            lustre-import-from-S3-bucket.md
            shared-ebs-load-snapshot.md
            system-requirements.md
+           key-references.md
+           aws-free-training.md
 
 Documentation created with mkdocs
 
