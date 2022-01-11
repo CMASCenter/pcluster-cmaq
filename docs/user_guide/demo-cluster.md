@@ -29,7 +29,7 @@ python3 -m pip install --upgrade "aws-parallelcluster"
 ## Configure a demo cluster
 
 ### Create a yaml configuration file for the cluster following these instructions
-https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html
+<link href='https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html'>
 
 ```
 pcluster configure --config new-hello-world.yaml
