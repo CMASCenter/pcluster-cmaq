@@ -3,6 +3,7 @@ nav:
     - Home: 'index.md'
     - Quick Start Guide': 'quick-start.md'
     - 'User Guide':
+        - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
         - 'CMAQ Cluster': 'user_guide/cmaq-cluster.md'
         - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
@@ -11,7 +12,6 @@ nav:
         - 'Simultaneous Multithreading': 'user_guide/multithreading-cmaq-cluser.md'
         - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
         - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
-        - 'System Requirements': 'user_guide/system-requirements.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
