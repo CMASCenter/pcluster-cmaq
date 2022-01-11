@@ -14,6 +14,7 @@
            multithreading-cmaq-cluser.md
            lustre-import-from-S3-bucket.md
            shared-ebs-load-snapshot.md
+           system-requirements.md
 
 Documentation created with mkdocs
 
