@@ -1,4 +1,4 @@
-# Edit an existing yaml file and create the CMAQ Cluster using SPOT pricing
+# Create CMAQ Cluster using SPOT pricing
 
 ## Use an existing yaml file to create a cluster
 
