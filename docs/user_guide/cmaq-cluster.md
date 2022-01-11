@@ -1,5 +1,7 @@
 # Edit an existing yaml file and create the CMAQ Cluster using SPOT pricing
 
+## Use an existing yaml file to create a cluster
+
 ### Use a configuration file from the github repo that was cloned to your local machine
 
 ```
@@ -51,7 +53,7 @@ SharedStorage:
       StorageCapacity: 1200
 ```
 
-### Create the c5n-4xlarge pcluster
+## Create the c5n-4xlarge pcluster
 
 ```
 pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1
@@ -70,7 +72,7 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
 ```
 
-### Login to cluster
+## Login to cluster
 (note, replace the centos.pem with your Key Pair)
 
 ```
@@ -82,6 +84,8 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ```
 scontrol show nodes
 ```
+
+## Update the compute nodes
 
 ### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
@@ -176,6 +180,8 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
 ```
+
+## Install CMAQ sofware on parallel cluster
 
 ### Login to updated cluster
 (note, replace the centos.pem with your Key Pair)
@@ -272,9 +278,21 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 ./gcc_cmaq_pcluster.csh
 ```
 
-### Obtain the Input data from an S3 Bucket
+## Obtain the Input data from a public S3 Bucket
+Two methods are available either importing the data on the lustre file system using the yaml file to specify the s3 bucket location or copying the data using s3 copy commands.
 
-### Import the data by specifying it in the yaml file
+### Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
+
+```
+  - MountDir: /fsx
+    Name: name2
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://conus-benchmark-2day    <<<  specify name of S3 bucket
+```
+This requires that the S3 bucket specified is publically available
+
 
 ### Copy the data using the s3 command line
 
@@ -491,11 +509,6 @@ DisableSimultaneousMultithreading: true, then you should only see 36 CPUS
 
 
 
-
-
- 
-
-
 A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)
 
 ### Tips to managing the parallel cluster
@@ -508,7 +521,7 @@ A link to the Amazon website (https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 6. After copying output and log files to the s3 bucket the cluster can be deleted
 7. Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated, and costs will only be incurred by the S3 Bucket storage.
 
-### Pcluster User Manual
+## Pcluster User Manual
 
 https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html
 

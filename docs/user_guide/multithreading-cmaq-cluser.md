@@ -1,1 +1,1 @@
-# Welcome to Configuring Multithreading Tutorial
+# multithreading

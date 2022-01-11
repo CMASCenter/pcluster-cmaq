@@ -2,6 +2,7 @@
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
+## Install AWS Parallel Cluster Command Line
 
 ### Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -25,7 +26,9 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
-## Create a yaml configuration file for the cluster following these instructions
+## Configure a demo cluster
+
+### Create a yaml configuration file for the cluster following these instructions
 https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html
 
 ```
@@ -45,7 +48,7 @@ cat new-hello-world.yaml
 
 ### The key pair and Subnetid in the yaml file are unique to your account.  Yaml files that are used in this tutorial will need to be edited to use your key pair and your Subnetid. 
 
-### Create a demo cluster
+## Create a demo cluster
 
 ```
 pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1
@@ -110,13 +113,13 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 exit
 ```
 
-### Delete the demo cluster
+## Delete the demo cluster
 
 ```
 pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1
 ```
 
-### To learn more about the pcluster commands
+## To learn more about the pcluster commands
 
 ```
 pcluster --help
