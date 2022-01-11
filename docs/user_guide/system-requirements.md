@@ -30,7 +30,7 @@ Note, that we run the tutorial instances for 4 days, 24 hours a day, and much of
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
 
-#### Recommended Parallel Cluster Requirement for CONUS Domain
+#### Recommended Parallel Cluster Configuration for CONUS Domain
 
 Head node:
 
@@ -39,8 +39,10 @@ Head node:
 Compute Node:
 
 * c5n.18xlarge 
+with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
 
-Ubuntu with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
+
+Software: Ubuntu2004 
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 
