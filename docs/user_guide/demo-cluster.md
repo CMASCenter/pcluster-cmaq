@@ -27,7 +27,7 @@ python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
 ### Configure AWS Command line credentials
-<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to AWS CLI Instructions</a>
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Setting up AWS Credential Instructions</a>
 
 ```
 aws configure
@@ -36,7 +36,7 @@ aws configure
 ## Configure a demo cluster
 
 ### Create a yaml configuration file for the cluster following these instructions
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to AWS Configure Instructions</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
 
 ```
 pcluster configure --config new-hello-world.yaml
