@@ -11,11 +11,11 @@ git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 
 ## Install AWS CLI
 ### Follow the instructions for configuring the Parallel Cluster v3.0 command line that uses yaml files for configuring the pcluster.
-https://docs.aws.amazon.com/parallelcluster/latest/ug/parallelcluster-version-3.html
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/parallelcluster-version-3.html"</a>
 
 ### Another workshop to learn the AWS CLI 3.0
-https://hpc.news/pc3workshop
+<a href="https://hpc.news/pc3workshop"</a>
 
 ### Youtube video
-https://www.youtube.com/watch?v=a-99esKLcls
+< a href="https://www.youtube.com/watch?v=a-99esKLcls"</a>
 
