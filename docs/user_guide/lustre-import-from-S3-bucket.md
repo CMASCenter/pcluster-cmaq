@@ -7,7 +7,7 @@
 4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GBs/s.
 
 
-<a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/>Lustre FAQs</a>
+<a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a>
 
-<a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html>Lustre Performance Documentation</a>
+<a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html">Lustre Performance Documentation</a>
 

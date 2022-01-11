@@ -22,7 +22,7 @@ Larger hardware and memory configurations are also required for instrumented ver
 
 * c4.large instance running RHEL with 3.75 GiB memory, 500 Mbps Network Bandwidth and 2 virtual cpus is used for the CMAQ Training Case 
 
-<a href="https://aws.amazon.com/blogs/aws/now-available-new-c4-instances/"</a>
+<a href="https://aws.amazon.com/blogs/aws/now-available-new-c4-instances/">AWS c4 Instance Pricing</a>
 The 12km case study has a ColxRowxLayer = 67x59x35 and takes 2 hours to complete.
 
 
@@ -30,7 +30,7 @@ The 12km case study has a ColxRowxLayer = 67x59x35 and takes 2 hours to complete
 
 * c5n.18xlarge running Ubuntu with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
 
-<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/"</a>
+<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 
 | Instance Name	| vCPUs |  RAM      |  EBS Bandwidth	| Network Bandwidth | Linux On-Demand Price | Linux Spot Price | 
 | ------------  | ----- | --------  | ---------------   | ---------------   | --------------------  | ---------------  |
@@ -62,7 +62,7 @@ The 12km case study has a ColxRowxLayer = 67x59x35 and takes 2 hours to complete
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, as spot pricing cost of $81.00 for ec2 pricing.
 
-<a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/</a>
+<a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
 Persistant file system pricing:
 | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  | 
