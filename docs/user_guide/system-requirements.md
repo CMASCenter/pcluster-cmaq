@@ -82,7 +82,7 @@ Software:
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             |
 
 
-Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, as spot pricing cost of $81.00 for ec2 pricing.
+Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using spot pricing at a total compute cost of $81.00.
 
 <a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
