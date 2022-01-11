@@ -17,5 +17,5 @@ git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 <a href="https://hpc.news/pc3workshop">Workshop on learning AWS CLI 3.0</a>
 
 ### Youtube video
-< a href="https://www.youtube.com/watch?v=a-99esKLcls">Youtube video on AWS CLI 3.0</a>
+<a href="https://www.youtube.com/watch?v=a-99esKLcls">Youtube video on AWS CLI 3.0</a>
 
