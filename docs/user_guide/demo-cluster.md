@@ -26,6 +26,13 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
+### Configure AWS Command line credentials
+<link href='https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html'>
+
+```
+aws configure
+```
+
 ## Configure a demo cluster
 
 ### Create a yaml configuration file for the cluster following these instructions
