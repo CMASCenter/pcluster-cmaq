@@ -305,7 +305,7 @@ If you don't have credentials, please contact the manager of your aws account.
 ls /fsx
 ```
 
-### Set up your credentials for using s3 copy
+### Set up your credentials for using s3 copy (you can skip this if you don't have credentials)
 
 ```
 aws configure
@@ -318,7 +318,7 @@ aws configure
 /shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh
 ```
 
-### Public S3 script to copy the CONUS input data to /fsx/data volume on the cluster
+### Public S3 script to copy the CONUS input data to /fsx/data volume on the cluster (doesn't need aws credentials)
 
 ```
 /shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh  ! check that the resulting directory structure matches the run script
