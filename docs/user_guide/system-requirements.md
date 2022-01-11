@@ -68,14 +68,14 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 
 <a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
-Persistant file system pricing:
+#### Persistant file system pricing
 
 | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
 | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
 | 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |                   |
 | 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |                   |
 | 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |                   |
-| 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour  | 
+| 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
 
 ??? is this the storage pricing that is used on parallel cluster?
 
