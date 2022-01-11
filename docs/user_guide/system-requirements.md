@@ -60,5 +60,46 @@ https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/
 | 288           |  8x36          | 18x16       | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             |
 
 
-Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year.
+Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, as spot pricing cost of $81.00 for ec2 pricing.
 
+https://www.amazonaws.cn/en/fsx/lustre/pricing/
+
+| Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  | 
+Persistent file systems		
+| 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |
+250 MB/s/TB         | 	$0.105                                  |	$0.210/month |
+500 MB/s/TB         | 	$0.170                                  | 	$0.340/month |  
+1,000 MB/s/TB       |   $0.300                                  | 	$0.600/month | .0008333/hour  |   ??? is this the storage pricing that is used on parallel cluster?
+
+
+Cost example:
+    0.600 USD per month / 730 hours in a month = 0.00046658 USD per hour
+    1,200 GB x 0.00046658 USD per hour x 24 hours x 5 days = 67.18 USD
+
+Question is 1.2 TB enough for the output of a yearly CMAQ run?
+
+#### For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
+
+cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
+du -sh
+
+173G .
+
+So we need 86.5 GB per day
+
+#### Storage requirement for an annual simulation if you assumed you would keep all data on lustre filesystem
+
+     86.5 GB * 365 days = 31,572.5 GB  = 31.5 TB
+
+
+Cost for annual simulation
+
+     31,572.5 GB x 0.00046658 USD per hour x 24 hours x 5 days = 1,767.7 USD
+
+### Assume that you do post-processing every month, and only save the combine output to S3 Bucket at the end of each month
+
+      86.5 GB * 31 days = 2,681.5 GB  =  2.6815 TB
+
+Cost for lustre storage of a monthly simulation
+
+      2,681.5 GB x 0.00046658 USD per hour x 24 hours x 5 days = $150 USD
