@@ -35,11 +35,11 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.htm
 pcluster configure --config new-hello-world.yaml
 ```
 
-####  select region: us-east-1
-#### select operating system: slurm
-#### select Operating system: ubuntu2004
-#### select head node instance type: t2.micro
-#### select head node instance type: t2.micro
+1. select region: us-east-1
+2. select operating system: slurm
+3. select Operating system: ubuntu2004
+4. select head node instance type: t2.micro
+5. select head node instance type: t2.micro
 
 ### Examine the yaml file 
 
