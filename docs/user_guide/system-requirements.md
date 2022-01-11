@@ -51,17 +51,17 @@ The Parallel Cluster allows you to run the compute nodes only as long as the job
 #### Performance of C5n.18xlarge Parallel Cluster for CONUS2 Domain
 
 | Number of PEs | Number of Nodes| NPCOL x NPROW | 1st day Timing (sec) | 2nd day Timing (sec) | Total Time(2days) (sec)    | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched |
-|---------------| -----------    | ----------- | ----------     | --------------- | -------------------  | ------------------ | ----------  | --------- |   -------- |
-| 180           |  5x36          | 10x18       | 2481.55        | 2225.34         |    4706.89           |  no                 | copied      |  false        |        |
-| 180           |  5x36          | 10x18       | 2378.73        | 2378.73         |    4588.92           |  no                 | copied      |  true        | 10x18 did not match 16x18|
-| 180           |  5x36          | 10x18       | 1585.67        | 1394.52         |    2980.19           |  yes                | imported    |  true        |            |
-| 256           |  8x36          | 16x16       |  1289.59       | 1164.53         |    2454.12           |  no                 |  copied           |  true    |            |
-| 256           |  8x36          | 16x16       |  1305.99       | 1165.30         |    2471.29           |  no                |   copied    |   true    |            |
-| 256           |  8x36          | 16x16       |  1564.90       | 1381.80         |    2946.70           |  no                |   imported  | true   |            |
-| 288           |  8x36          | 16x18       | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false       |            |
-| 288           |  8x36          |  16x18      |  1976.35       | 1871.61         |     3847.96          |  no                |  Copied     |  true         |            |
-| 288           |  8x36          | 16x18       |  1197.19       | 1090.45         |     2287.64          |  yes               |  Copied     |  true         |             16x18 matched 16x16 |
-| 288           |  8x36          | 18x16       | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- |
+| 180           |  5x36          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false                                 |            |
+| 180           |  5x36          | 10x18         | 2378.73              | 2378.73              |    4588.92                 |  no                | copied                  |  true                     | 10x18 did not match 16x18 |
+| 180           |  5x36          | 10x18         | 1585.67        | 1394.52         |    2980.19           |  yes                | imported    |  true        |            |
+| 256           |  8x36          | 16x16         |  1289.59       | 1164.53         |    2454.12           |  no                 |  copied           |  true    |            |
+| 256           |  8x36          | 16x16         |  1305.99       | 1165.30         |    2471.29           |  no                |   copied    |   true    |            |
+| 256           |  8x36          | 16x16         |  1564.90       | 1381.80         |    2946.70           |  no                |   imported  | true   |            |
+| 288           |  8x36          | 16x18         | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false       |            |
+| 288           |  8x36          |  16x18        |  1976.35       | 1871.61         |     3847.96          |  no                |  Copied     |  true         |            |
+| 288           |  8x36          | 16x18         |  1197.19       | 1090.45         |     2287.64          |  yes               |  Copied     |  true         |             16x18 matched 16x16 |
+| 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             |
 
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, as spot pricing cost of $81.00 for ec2 pricing.
