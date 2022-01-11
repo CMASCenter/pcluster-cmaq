@@ -1,7 +1,5 @@
 # Welcome to CMAQ on AWS Parallel Cluster Tutorial 
 
-user_guide/pcluster-3.0.md
-  
 ## Project layout
 
     mkdocs.yml    # The configuration file.
