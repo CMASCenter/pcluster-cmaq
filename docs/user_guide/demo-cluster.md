@@ -8,6 +8,8 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 ### Create a virtual environment on a linux machine to install aws-parallel cluster
 
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-virtual-environment.html">Guide to install AWS CL3 in Virtual Environment"</a>
+
 ```python
 python3 -m virtualenv ~/apc-ve
 source ~/apc-ve/bin/activate
