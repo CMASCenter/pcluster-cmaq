@@ -623,10 +623,10 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 ### After run has successfully completed
 
-1. (Compare timings and verify that the run completed successfully)[../parse_timing.md]
-2. (Run combine and post processing scripts)[../post_combine.md]
-3. (Run QA scripts)[../qa_cmaq_run.md] 
-4. (Copy the output to the S3 Bucket)[../copy_output_to_S3_Bucket.md]
+1. [Compare timings and verify that the run completed successfully](../parse_timing.md)
+2. [Run combine and post processing scripts](../post_combine.md)
+3. [Run QA scripts](../qa_cmaq_run.md)
+4. [Copy the output to the S3 Bucket](../copy_output_to_S3_Bucket.md)
 5. Exit the cluster
 6. Delete the Cluster
 
