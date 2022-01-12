@@ -18,7 +18,7 @@
            key-references.md
            aws-free-training.md
      help/
-           pluster_support.md
+           pcluster_support.md
            cmaq_support.md 
 
 Documentation created with mkdocs
