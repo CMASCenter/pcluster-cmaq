@@ -14,7 +14,7 @@ nav:
         - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
         - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
         - 'Parallel Cluster Update Policies': 'user_guide/update-policy.md'
-        - 'Elastic Network Adapter': 'user_guide/ena-cmaq-cluster.md'
+        - 'Elastic Fabric Adapter': 'user_guide/ena-cmaq-cluster.md'
         - 'Simultaneous Multithreading': 'user_guide/multithreading-cmaq-cluser.md'
         - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
         - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
