@@ -17,6 +17,9 @@
            system-requirements.md
            key-references.md
            aws-free-training.md
+     help/
+           pluster_support.md
+           cmaq_support.md 
 
 Documentation created with mkdocs
 
