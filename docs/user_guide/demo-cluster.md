@@ -88,7 +88,7 @@ Need a minimum of gcc 8+ for CMAQ
 
 ### Check what version of openmpi is available
 
-$ `mpirun --version`
+ `mpirun --version`
 
 Need a minimum openmpi version 4.0.1 for CMAQ
 
