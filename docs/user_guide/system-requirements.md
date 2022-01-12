@@ -7,6 +7,7 @@
 * MPI (Message Passing Interface) -  OpenMPI ≥ 3.0
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
+* Slurm Scheduler
 
 
 
