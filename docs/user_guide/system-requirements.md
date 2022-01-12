@@ -130,8 +130,9 @@ Cost for annual simulation
 
 ### Recommended Workflow
 
-Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month
-need to determine size of post-processed output
+Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
+
+Still need to determine size of post-processed output (combine output, etc).
 
       86.5 GB * 31 days = 2,681.5 GB  =  2.6815 TB
 
