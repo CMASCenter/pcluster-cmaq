@@ -6,16 +6,18 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 ### Create a virtual environment on a linux machine to install aws-parallel cluster
 
-`python3 -m virtualenv ~/apc-ve
-source ~/apc-ve/bin/activate
-python --version
+```python
+ python3 -m virtualenv ~/apc-ve
+  source ~/apc-ve/bin/activate
+  python --version
 
-python3 -m pip install --upgrade aws-parallelcluster
-pcluster version`
+  python3 -m pip install --upgrade aws-parallelcluster
+  pcluster version
+```
 
 ### Follow the Parallel Cluster User Guide and install node.js
 
-```
+```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
 chmod ug+x ~/.nvm/nvm.sh
 source ~/.nvm/nvm.sh
