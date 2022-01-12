@@ -1,6 +1,6 @@
 # Parse timings from the log file 
 
-## Compare to CONUS Parallel Cluster Runs
+## Compare CONUS Parallel Cluster Runs
 
 ### For other PE configurations
 
