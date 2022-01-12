@@ -6,6 +6,8 @@ nav:
         - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
         - 'CMAQ Cluster': 'user_guide/cmaq-cluster.md'
+        - 'Run Combine and Post Processing': 'user_guide/post_combine.md'
+        - 'Compare timings': 'user_guide/parse_timing.md'
         - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
         - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
         - 'Elastic Network Adapter': 'user_guide/ena-cmaq-cluster.md'
