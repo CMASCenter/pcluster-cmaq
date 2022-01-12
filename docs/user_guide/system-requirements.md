@@ -88,19 +88,21 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 
 #### Scratch SSD file system pricing for us-east-1 region
 
-| Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
-| ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
-| 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |                   |
-| 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |                   |
-| 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |                   |
-| 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
+| Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
+| --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
+| Persistant   | 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |                   |
+| Persistant   | 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |                   |
+| Persistant   | 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |                   |
+| Persistant   | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
+| Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month | 0.000192/hour     |	
 
-??? 1,000 MB/s/TB is this the tier of the storage pricing that is used on parallel cluster?
+Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured in the yaml for the parallel cluster.
 
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings>FSxLustreSettings</a>
 
 Cost example:
-    0.600 USD per month / 730 hours in a month = 0.00046658 USD per hour
-    1,200 GB x 0.00046658 USD per hour x 24 hours x 5 days = 67.18 USD
+    0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
+    1,200 GB x 0.00019178 USD per hour x 24 hours x 5 days = 27.6 USD
 
 Question is 1.2 TB enough for the output of a yearly CMAQ run?
 
@@ -120,7 +122,7 @@ So we need 86.5 GB per day
 
 Cost for annual simulation
 
-     31,572.5 GB x 0.00046658 USD per hour x 24 hours x 5 days = 1,767.7 USD
+     31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
 ### Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month
 need to determine size of post-processed output
@@ -129,7 +131,8 @@ need to determine size of post-processed output
 
 Cost for lustre storage of a monthly simulation
 
-      2,681.5 GB x 0.00046658 USD per hour x 24 hours x 5 days = $150 USD
+      2,681.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $61.7 USD
 
-Need to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket
+Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is stored at a time on the lustre scratch file system.
+This workflow will help with preserving the data in case the cluster or scratch file system gets pre-empted.
 
