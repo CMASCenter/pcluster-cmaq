@@ -8,7 +8,9 @@
         user_guide/ # User Guide
            demo-cluster.md
            cmaq-cluster.md
+           post-combine.md
            copy_output_to_S3_Bucket.md
+           parse_timing.md
            qa_cmaq_run.md
            ena-cmaq-cluster.md
            multithreading-cmaq-cluser.md
