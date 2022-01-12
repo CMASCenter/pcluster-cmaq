@@ -1,9 +1,11 @@
-## Parallel Cluster Update Policy
+## Parallel Cluster Update
 
-1. determine whether you can update the parallel cluster if a setting is modified.
+1. not all settings in the yaml file can be updated 
+2. it is important to know what the policy is for each setting
 
-Example:
-Update policy: If this setting is changed, the update is not allowed.
+Example Update policy: 
+
+If this setting is changed, the update is not allowed.
 After changing this setting, the cluster can't be updated. 
 Either the change must be reverted or the cluster must be deleted (using pcluster delete-cluster), and then a new cluster created (using pcluster create-cluster) in the old cluster's place.
 
