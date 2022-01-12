@@ -86,7 +86,7 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
-#### Persistant file system pricing for us-east-1 region
+#### Scratch SSD file system pricing for us-east-1 region
 
 | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
 | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |

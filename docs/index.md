@@ -19,6 +19,7 @@
            system-requirements.md
            key-references.md
            aws-free-training.md
+           update-policy.md
      help/
            pcluster_support.md
            cmaq_support.md 
