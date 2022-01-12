@@ -538,7 +538,7 @@ keep rechecking until you see the following status
 
 ```
 pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml
-``
+```
 
 ### Restart the compute nodes
 
