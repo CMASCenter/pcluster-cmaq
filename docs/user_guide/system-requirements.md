@@ -84,7 +84,7 @@ Software:
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using spot pricing at a total compute cost of $81.00.
 
-<a href="https://www.amazonaws.cn/en/fsx/lustre/pricing/">AWS Lustre Pricing</a>
+<a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
 #### Persistant file system pricing
 
