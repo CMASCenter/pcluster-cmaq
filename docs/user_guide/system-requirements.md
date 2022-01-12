@@ -4,7 +4,7 @@
 
 * Git
 * Compilers (C, C++, and Fortran) - GNU compilers version ≥ 8.3
-* MPI (Message Passing Interface) -  OpenMPI ≥ 3.0
+* MPI (Message Passing Interface) -  OpenMPI ≥ 4.0
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
 * Slurm Scheduler
