@@ -5,9 +5,7 @@ Note: The scripts have been set up to run on the AWS Parallel Cluster that has b
 
 ## Obtain code from github.
 
-```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
-```
+`git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
 
 ## Install AWS CLI
 ### Follow the instructions for configuring the Parallel Cluster v3.0 command line that uses yaml files for configuring the pcluster.
