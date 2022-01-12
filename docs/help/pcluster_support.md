@@ -10,6 +10,8 @@
 
 ## <a href="https://aws.amazon.com/fsx/lustre/faqs/">Lustre FAQ</a>
 
+## <a href="https://aws.amazon.com/hpc/faqs/#AWS_ParallelCluster">Parallel Cluster FAQ</a> (somewhat outdated..)
+
 ## Issues
 
 Please open a GitHub issue for any feedback or issues: <a href="https://github.com/aws/aws-parallelcluster/issues">Github Issues</a>
