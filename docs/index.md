@@ -8,6 +8,7 @@
         user_guide/ # User Guide
            demo-cluster.md
            cmaq-cluster.md
+           cmaq-cluster-pre-installed.md
            post-combine.md
            copy_output_to_S3_Bucket.md
            parse_timing.md
