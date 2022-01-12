@@ -11,3 +11,6 @@
 
 <a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html">Lustre Performance Documentation</a>
 
+To find the default settings for Lustre see:
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings>Lustre Settings for Parallel Cluster</a>
+
