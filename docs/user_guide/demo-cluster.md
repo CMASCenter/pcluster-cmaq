@@ -64,9 +64,7 @@ python3 -m pip install --upgrade "aws-parallelcluster"
 
 ### Start the compute nodes
 
-# AWS ParallelCluster v3 - Slurm fleets
  `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
-```
 
 ### SSH into the cluster 
 (note, replace the centos.pem key pair with your key pair)
