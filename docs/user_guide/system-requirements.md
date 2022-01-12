@@ -70,6 +70,8 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing
 
 #### Performance of C5n.18xlarge Parallel Cluster for CONUS2 Domain
 
+Table 2. Timing Results for 2 Day CONUS2 Run on Parallel Cluster
+
 | Number of PEs | Number of Nodes| NPCOL x NPROW | 1st day Timing (sec) | 2nd day Timing (sec) | Total Time(2days) (sec)    | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- |
 | 180           |  5x36          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false                                 |            |
@@ -89,6 +91,8 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
 #### Scratch SSD file system pricing for us-east-1 region
+
+Table 3. Lustre SSD File System Pricing for us-east-1 region
 
 | Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
 | --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
