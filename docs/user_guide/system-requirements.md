@@ -8,7 +8,7 @@
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
 * Slurm Scheduler
-
+* AWS CLI v3.0
 
 
 ### Hardware Requirements
