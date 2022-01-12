@@ -49,6 +49,7 @@ Software:
 * Shared EBS filesystem to insall software
 * 1.2 TB Shared Lustre file system with imported S3 Bucket
 * Slurm Placement Group enabled
+* Elastic Fabric Adapter Enabled on c5n.18xlarge
 
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
