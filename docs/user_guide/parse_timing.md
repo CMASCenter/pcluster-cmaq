@@ -2,16 +2,17 @@
 
 ## Compare CONUS Parallel Cluster Runs
 
-### For other PE configurations
-
-   - [ ] 10x18
-   - [ ] 16x16
-   - [ ] 16x18
+### For different PE configurations, using DisableSimultaneousMultithreading: true in yaml file, using 36 cpus - no virtual cpus
+         
+         NPCOL x NPROW    
+   - [ ] 10x18   #SBATCH --nodes=5, #SBATCH --ntasks-per-node=36
+   - [ ] 16x16   #SBATCH --nodes=8, #SBATCH --ntasks-per-node=36
+   - [ ] 16x18   #SBATCH --nodes=8, #SBATCH --ntasks-per-node=36
 
 ### For different compute nodes   
 
-   - [ ] c5n.18xlarge
-   - [ ] c5n.9xlarge
+   - [ ] c5n.18xlarge  (72 virtual cpus, 36 cpus) - with Elastic Fabric Adapter
+   - [ ] c5n.9xlarge   (36 virtual cpus, 18 cpus) - 
 
 ### For with and without SBATCH --exclusive
 
@@ -21,8 +22,8 @@
 
 ### For lustre
 
-   - [ ] imported from S3 bucket to lustre
-   - [ ] copied from S3 bucket to lustre
+   - [ ] input data imported from S3 bucket to lustre
+   - [ ] input data copied from S3 bucket to lustre
 
 ### For different yaml settings for slurm  
 
