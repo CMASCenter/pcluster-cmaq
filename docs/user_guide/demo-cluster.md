@@ -70,7 +70,8 @@ The key pair and Subnetid in the yaml file are unique to your account.  Yaml fil
 (note, replace the centos.pem key pair with your key pair)
 
  `pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster`
- `pcluster ssh -v -Y -i ~/[key-pair] --cluster-name hello-pcluster`
+
+ `pcluster ssh -v -Y -i ~/[your-key-pair] --cluster-name hello-pcluster`
 
 login prompt should look something like (this will depend on what OS was chosen in the yaml file).
 
