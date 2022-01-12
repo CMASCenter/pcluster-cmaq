@@ -2,31 +2,31 @@
 
 ## Compare to CONUS Parallel Cluster Runs
 
-For other PE configurations
+### For other PE configurations
 
    - [ ] 10x18
    - [ ] 16x16
    - [ ] 16x18
 
-For different compute nodes   
+### For different compute nodes   
 
    - [ ] c5n.18xlarge
    - [ ] c5n.9xlarge
 
-For with and without sbatch --exclusive
+### For with and without SBATCH --exclusive
 
-For with and without Elastic Fabric and Elastic Netaork Adapter 
+### For with and without Elastic Fabric and Elastic Netaork Adapter 
 
-For with and without network placement 
+### For with and without network placement 
 
-For lustre
+### For lustre
 
    - [ ] imported from S3 bucket to lustre
    - [ ] copied from S3 bucket to lustre
 
-For different yaml settings for slurm  
+### For different yaml settings for slurm  
 
    - [ ] DisableSimultaneousMultithreading= true
    - [ ] DisableSimultaneousMultithreading= false
 
-Others?
+### Others?
