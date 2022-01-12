@@ -633,7 +633,7 @@ tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
 
 
 
-(<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena)>Link to the Amazon Website">Enhanced Networking Adapter Documentation</a>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the Amazon Website">Enhanced Networking Adapter Documentation</a>
 
 ### Tips to managing the parallel cluster
 
