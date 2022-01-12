@@ -48,7 +48,7 @@ python3 -m pip install --upgrade "aws-parallelcluster"
 
  `cat new-hello-world.yaml`
 
-### The key pair and Subnetid in the yaml file are unique to your account.  Yaml files that are used in this tutorial will need to be edited to use your key pair and your Subnetid. 
+The key pair and Subnetid in the yaml file are unique to your account.  Yaml files that are used in this tutorial will need to be edited to use your key pair and your Subnetid. 
 
 ## Create a demo cluster
 
