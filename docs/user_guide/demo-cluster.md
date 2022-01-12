@@ -69,7 +69,8 @@ The key pair and Subnetid in the yaml file are unique to your account.  Yaml fil
 ### SSH into the cluster 
 (note, replace the centos.pem key pair with your key pair)
 
- `pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster`
+Example:
+ pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
 
  `pcluster ssh -v -Y -i ~/[your-key-pair] --cluster-name hello-pcluster`
 
