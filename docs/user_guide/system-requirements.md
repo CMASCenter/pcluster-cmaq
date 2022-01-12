@@ -122,7 +122,8 @@ Cost for annual simulation
 
      31,572.5 GB x 0.00046658 USD per hour x 24 hours x 5 days = 1,767.7 USD
 
-### Assume that you do post-processing every month, and only save the combine output to S3 Bucket at the end of each month
+### Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month
+need to determine size of post-processed output
 
       86.5 GB * 31 days = 2,681.5 GB  =  2.6815 TB
 
