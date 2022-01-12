@@ -98,7 +98,7 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 
 Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings>FSxLustreSettings</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">FSxLustreSettings</a>
 
 Cost example:
     0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
