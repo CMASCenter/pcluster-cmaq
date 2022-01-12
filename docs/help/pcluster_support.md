@@ -8,6 +8,8 @@
 
 ## <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
+## <a href="https://aws.amazon.com/fsx/lustre/faqs/">Lustre FAQ</a>
+
 ## Issues
 
 Please open a GitHub issue for any feedback or issues: <a href="https://github.com/aws/aws-parallelcluster/issues">Github Issues</a>
