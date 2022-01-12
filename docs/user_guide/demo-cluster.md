@@ -29,18 +29,14 @@ python3 -m pip install --upgrade "aws-parallelcluster"
 ### Configure AWS Command line credentials
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Setting up AWS Credential Instructions</a>
 
-```
-aws configure
-```
+* `aws configure` - Configure 
 
 ## Configure a demo cluster
 
 ### Create a yaml configuration file for the cluster following these instructions
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
 
-```
-pcluster configure --config new-hello-world.yaml
-```
+* `pcluster configure --config new-hello-world.yaml`
 
 1. select region: us-east-1
 2. select operating system: slurm
@@ -50,43 +46,33 @@ pcluster configure --config new-hello-world.yaml
 
 ### Examine the yaml file 
 
-```
-cat new-hello-world.yaml
-```
+* `cat new-hello-world.yaml`
 
 ### The key pair and Subnetid in the yaml file are unique to your account.  Yaml files that are used in this tutorial will need to be edited to use your key pair and your Subnetid. 
 
 ## Create a demo cluster
 
-```
-pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1
-```
+* `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
 ### Check on the status of the cluster
 
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster
-```
+* `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
 ### List available clusters
 
-```
-pcluster list-clusters --region=us-east-1
-```
+* `pcluster list-clusters --region=us-east-1`
 
 ### Start the compute nodes
 
-```
 # AWS ParallelCluster v3 - Slurm fleets
-pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED
+* `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
 ```
 
 ### SSH into the cluster 
 (note, replace the centos.pem key pair with your key pair)
 
-```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
-```
+* `pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster`
+* `pcluster ssh -v -Y -i ~/[key-pair] --cluster-name hello-pcluster`
 
 login prompt should look something like (this will depend on what OS was chosen in the yaml file).
 
@@ -94,22 +80,18 @@ login prompt should look something like (this will depend on what OS was chosen 
 
 ### Check what modules are available on the Parallel Cluster
 
-```
-module avail
-```
+* `module avail`
 
 ### Check what version of the compiler is available
 
-```
-gcc --version
-```
+* `gcc --version`
+
 Need a minimum of gcc 8+ for CMAQ
 
 ### Check what version of openmpi is available
 
-```
-mpirun --version
-```
+$ `mpirun --version`
+
 Need a minimum openmpi version 4.0.1 for CMAQ
 
 ### We will not install sofware on this demo cluster, as the t2.micro head node is too small
@@ -117,18 +99,13 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 
 ### Exit the cluster
 
-```
-exit
-```
+* `exit`
 
 ## Delete the demo cluster
 
-```
-pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1
-```
+
+* `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
 
 ## To learn more about the pcluster commands
 
-```
-pcluster --help
-```
+* `pcluster --help`
