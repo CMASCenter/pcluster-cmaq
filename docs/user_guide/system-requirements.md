@@ -39,7 +39,7 @@ Head node:
 Compute Node:
 
 * c5n.18xlarge 
-with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwitdth
+with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 
 
 Software: 
