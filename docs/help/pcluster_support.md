@@ -13,4 +13,4 @@
 ## Issues
 
 Please open a GitHub issue for any feedback or issues: <a href="https://github.com/aws/aws-parallelcluster/issues">Github Issues</a>
-There is also an active AWS HPC forum which may be helpful: <a href="https://forums.aws.amazon.com/forum.jspa?forumID=192">AWS HPC Forum</a>
+There is also an active community driven Q&A site that may be helpful: <a href="https://repost.aws/">AWS re:Post a community-driven Q&A site</a>
