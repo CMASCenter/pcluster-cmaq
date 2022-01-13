@@ -18,3 +18,10 @@ An ENA ENI provides traditional IP networking features necessary to support VPC 
 Q: What are the pre-requisites to enabling EFA on an instance?
 
 EFA support can be enabled either at the launch of the instance or added to a stopped instance. EFA devices cannot be attached to a running instance.
+
+<a href"https://aws.amazon.com/blogs/aws/now-available-elastic-fabric-adapter-efa-for-tightly-coupled-hpc-workloads/"</Elastic Fabric Adapter for Tightly Coupled Workloads"</a>
+
+
+What I am not sure of, is the relationship between ENA/EFA and VPCs, and created ENIs.
+
+
