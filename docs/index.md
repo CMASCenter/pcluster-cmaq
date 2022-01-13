@@ -22,6 +22,7 @@
            system-requirements.md
            key-references.md
            update-policy.md
+           vpc_management.md 
      help/
            pcluster_support.md
            cmaq_support.md 
