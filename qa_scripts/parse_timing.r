@@ -1,8 +1,9 @@
-# This script assumes that the user will run in in the project directory of the code to be pushed 
-# to the CMAQ_Dev repository and that the log files are located in ./CCTM/scripts as output by the 
-# bld_check.csh. These are the single output files, not the CTM_LOG files found in the $OUTDIR/LOGS directory
+# Script author: Jesse Bash
+# Affiliation: US EPA Office of Research and Development
+# This script assumes that the log files are located in ./CCTM/scripts as output by the CMAQ run script 
+# These are the single output files, not the CTM_LOG files found in the $OUTDIR/LOGS directory
 sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts//'
+base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
 files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_CONUS_2016.16x16.log' )
 b.files <- dir(base.dir,pattern='run_cctmv5.3.3_CONUS_2016.18x18.log')
 #Compilers <- c('intel','gcc','pgi')
