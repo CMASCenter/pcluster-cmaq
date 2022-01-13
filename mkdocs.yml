@@ -1,7 +1,7 @@
 site_name: cmaq_parallel_cluster
 nav:
     - Home: 'index.md'
-    - Quick Start Guide': 'quick-start.md'
+    - Quick Start Guide: 'quick-start.md'
     - 'User Guide':
         - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
