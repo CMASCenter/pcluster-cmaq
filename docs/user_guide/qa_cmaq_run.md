@@ -23,8 +23,11 @@ grep A:B REPORT
 
 Should see all zeros. There are some non-zero values. TO DO: need to investigate to determine if this is sensitive to the compiler version.
 It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differes (10 vs 16)
+
+```
 NPCOL  =  10; @ NPROW = 18
 NPCOL  =  16; @ NPROW = 18
+```
 
 ```
 grep A:B REPORT
@@ -71,11 +74,19 @@ output
 ### Use m3diff to compare two runs that have the same NPCOL
 
 ```
+setenv AFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc
+setenv BFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+m3diff
+```
+
+```
 grep A:B REPORT
 ```
 
+```
 NPCOL  =  16; @ NPROW = 16
 NPCOL  =  16; @ NPROW = 18
+```
 
 NPCOL was the same for both runs
 
