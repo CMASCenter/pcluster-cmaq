@@ -117,10 +117,12 @@ Resulted in zero differences in the output
 
 ### Run the following R script that was provided by Kristen Foley
 
-load the R module (may need to install R - need to check)
+load the R module (may need to install R - need to check if additional R libraries need to be installed)
 
+```
 cd qa_scripts
 ./compare_EQUATES_benchmark_output_CMAS.r
+```
 
 
 Example output plots are available for the CONUS Benchmark in the following directory
@@ -129,21 +131,32 @@ When NPCOL is fixed, we are seeing no difference in the answers.
 
 Example comparsion was done on dogwood using: 8x8 compared to 8x16
 
+```
 cd ../qa_plots/
 
 cd box_plots
 
+include a link to the plots
+
+[ANO3J_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg](../qa_plots/box_plots/16x8_vs_8x16/ANO3J_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg)
+
 cd 8x8_vs_8x16
+
+```
 
 Box plot shows no difference between ACONC output for a CMAQv5.3.3 run using different PE configurations as long as NPCOL is fixed
 
+```
 cd 16x8_vs_8x16
+```
 
 Box plot shows a difference betweeen ACONC output for a CMAQv5.3.3 run using different PE configurations when NPCOL is different
 
+```
 cd spatial_plots
 
 cd 16x8_vs_8x16
+```
 
 
 
