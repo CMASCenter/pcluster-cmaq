@@ -2,6 +2,8 @@
 
 There is a limit on the number of VPCs that are allowed per account - limit is 5.
 
+What is the difference between a private and a public vpc? (what setting is used in the yaml file, and why is one preferred over the other?)
+
 Note, there is a default VPC, that is used to create EC2 instances, that should not be deleted.
 
 Q1. is there a separate default VPC for each region?
