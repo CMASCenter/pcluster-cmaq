@@ -24,6 +24,7 @@
            update-policy.md
            vpc_management.md 
            pcluster3-config-converter.md
+           git-secrets.md
      help/
            pcluster_support.md
            cmaq_support.md 

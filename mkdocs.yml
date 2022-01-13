@@ -21,6 +21,7 @@ nav:
         - 'Virtual Private Cloud Management': 'user_guide/vpc_management.md'
         - 'Key References on Cloud Computing': 'user_guide/key-references.md'
         - 'pcluster3-config-converter': 'user_guide/pcluster3-config-converter.md'
+        - 'Git Secrets': 'user_guide/git-secrets.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
