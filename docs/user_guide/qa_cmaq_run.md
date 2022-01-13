@@ -160,6 +160,10 @@ cd spatial_plots
 cd 16x8_vs_8x16
 ```
 
+Spatial Plot for ANO3J when NPCOL is different
+
+![ANO3J_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg ](../qa_plots/spatial_plots/16x8_vs_8x16/ANO3J_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg)
+
 
 
 
