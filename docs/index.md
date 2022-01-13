@@ -23,6 +23,7 @@
            key-references.md
            update-policy.md
            vpc_management.md 
+           pcluster3-config-converter.md
      help/
            pcluster_support.md
            cmaq_support.md 
