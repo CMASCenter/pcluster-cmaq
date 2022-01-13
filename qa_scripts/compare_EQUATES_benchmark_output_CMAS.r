@@ -2,6 +2,10 @@ library(ncdf4)
 library(fields)
 library(M3)
 
+# Script author: Kristen Foley
+# Affiliation: US EPA Office of Research and Development
+
+
 #Some 'nice' color palettes.
 my.colors <- colorRampPalette(c("white",grey(.9),"#56B4E9","#0072B2","#009E73","#F0E442","#E69F00","#D55E00","#CC79A7"))
 my.col.cool1 <- colorRampPalette(c("darkorchid4","purple","#002FFF","#0072B2","#009E73","palegreen3",grey(.95)))
