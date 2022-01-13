@@ -113,16 +113,23 @@ Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured i
 
 Cost example:
     0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
+
     1,200 GB x 0.00019178 USD per hour x 24 hours x 5 days = 27.6 USD
 
 Question is 1.2 TB enough for the output of a yearly CMAQ run?
 
 For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
 
+```
 cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
 du -sh
+```
 
+Size of output directory when CMAQ is run to output all 35 layers, all 244 variables in the CONC file, includes all other output files
+
+```
 173G .
+```
 
 So we need 86.5 GB per day
 
