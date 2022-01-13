@@ -5,6 +5,8 @@
 ### For different PE configurations, using DisableSimultaneousMultithreading: true in yaml file, using 36 cpus - no virtual cpus
          
          NPCOL x NPROW    
+   - [ ] 8x8     
+   - [ ] 8x16
    - [ ] 10x18   #SBATCH --nodes=5, #SBATCH --ntasks-per-node=36
    - [ ] 16x16   #SBATCH --nodes=8, #SBATCH --ntasks-per-node=36
    - [ ] 16x18   #SBATCH --nodes=8, #SBATCH --ntasks-per-node=36
@@ -30,4 +32,17 @@
    - [ ] DisableSimultaneousMultithreading= true
    - [ ] DisableSimultaneousMultithreading= false
 
-### Others?
+### Use parse_timing.r script by Jesse Bash to examine timings of each process in CMAQ
+
+```
+cd qa_scripts
+Rscript parse_timing.r
+```
+
+Timing Plot Comparing GCC run on 16 x 8 pe versus 8 x 16 pe on Dogwood
+
+![gcc_16x8_vs_8x16](../qa_plots/timing_plots/gcc_16x8_vs_8x16.png)
+
+Timing Plot Comparing GCC run on 8 x 8 pe versus 8 x 16 pe on Dogwood
+
+![gcc_8x8_vs_8x16](../qa_plots/timing_plots/gcc_8x8_vs_8x16.png)
