@@ -1,5 +1,8 @@
 ## System Requirements
 
+### Please set up a alarm on AWS to alert you if you have gone beyond $250 per month (or what ever montly spending limit you want to set).
+It may be possible to set up daily or weekly spending alarms as well.
+
 ### Software Requirements
 
 * Git
