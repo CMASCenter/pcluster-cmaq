@@ -5,6 +5,7 @@
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
+        quick-start.md
         user_guide/ # User Guide
            demo-cluster.md
            cmaq-cluster.md
