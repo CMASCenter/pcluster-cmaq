@@ -18,6 +18,7 @@ nav:
         - 'Simultaneous Multithreading': 'user_guide/multithreading-cmaq-cluser.md'
         - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
         - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
+        - 'Virtual Private Cloud Management': 'user_guide/vpc_management.md'
         - 'Key References on Cloud Computing': 'user_guide/key-references.md'
     - About:
         - 'License': 'license.md'
