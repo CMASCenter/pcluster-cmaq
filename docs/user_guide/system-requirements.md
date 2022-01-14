@@ -107,7 +107,7 @@ Figure 2. Cost by Usage Type - AWS Console
 
 Figure 3. Cost by Service Type - AWS Console
 
-![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png/)
+![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
 Head node c5.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $.0190/hr = $ .114 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
