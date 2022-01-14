@@ -84,7 +84,7 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
 Using c5n.18xlarge as the compute node, it costs 3.888/hr/1.1732/hr = 3.314 times as much to run on demand versus spot pricing
 
-Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with C5n.large head node and C5n.18xlarge Compute Nodes
+Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
 | Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
@@ -114,7 +114,7 @@ Figure 3. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
-Head node c5.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $.0190/hr = $ .114 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
+Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
 Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $238.9
 
