@@ -95,7 +95,14 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             |
 
 
-Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using spot pricing at a total compute cost of $81.00.
+Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using 8 c5n.18xlarge compute nodes.
+
+Table 3. Extrapolated Cost of Running CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+
+| Benchmark Case | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
+| -------------  | ------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
+| 2 day CONUS    |  288          |          8       |    SPOT    |      .6997/hour |     2287.64/3600 = .635455  |    .635455* 365/2 = $115.97/node * 8 nodes = $ 933.0   |
+
 
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
