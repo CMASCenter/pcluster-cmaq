@@ -68,6 +68,8 @@ Software:
 
 <a href="https://aws.amazon.com/ec2/pricing/on-demand">EC2 On-Demand Pricing</a>
 
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html>Working with Spot Instances - Parallel CLuster</a>
+
 
 Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
