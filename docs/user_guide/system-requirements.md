@@ -96,8 +96,12 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 
 Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $43
 
+Figure 1. Cost by Instance Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
+
+
+Figure 2. Cost by Usage Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
