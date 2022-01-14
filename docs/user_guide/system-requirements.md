@@ -99,7 +99,9 @@ Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
-Head node c5.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 24 hours * $.0190/hr = $ .456 using spot pricing, 24 hours * $.108/hr = $2.592 using on demand pricing.
+![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
+
+Head node c5.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $.0190/hr = $ .114 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
 Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $238.9
 
