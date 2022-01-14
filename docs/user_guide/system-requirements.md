@@ -57,7 +57,7 @@ Software:
 * Disable Simultaneous Multi-threading
 * Spot Pricing 
 * Shared EBS filesystem to insall software
-* 1.2 TB Shared Lustre file system with imported S3 Bucket
+* 1.2 TB Shared Lustre file system with imported S3 Bucket (1.2 TB is the minimum file size that you can specify for Lustre File System)
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.18xlarge
 
@@ -143,6 +143,8 @@ Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured i
 
 Cost example:
     0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
+
+Note: 1.2 TB is the minimum file size that you can specify for the lustre file system
 
     1,200 GB x 0.00019178 USD per hour x 24 hours x 5 days = 27.6 USD
 
