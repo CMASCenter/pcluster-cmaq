@@ -105,7 +105,7 @@ Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full 
 
 Table 3. Extrapolated Cost of Running CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
-| Benchmark Case | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
+| Benchmark Case | Number of PES |  Number of c5n.18xlarge Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
 | -------------  | ------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
 | 2 day CONUS    |  288          |          8       |    SPOT    |      .6997/hour |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $.6997 = $649   |
 | 2 day CONUS    |  288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $3.888 = $3606.9 |
