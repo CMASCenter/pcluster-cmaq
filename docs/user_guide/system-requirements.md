@@ -137,6 +137,8 @@ Table 3. Lustre SSD File System Pricing for us-east-1 region
 | Persistant   | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
 | Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month | 0.000192/hour     |	
 
+Q. What is the difference between TiB and TB (I obtained the syntax from the AWS Pricing Table see link above)
+
 Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">FSxLustreSettings</a>
