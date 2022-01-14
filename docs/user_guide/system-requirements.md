@@ -82,24 +82,24 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 | c5n.9xlarge	| 36	| 96 GiB    |	7 Gbps	        | 50 Gbps           |   $1.944/hour         | $0.5971/hour     |
 | c5n.18xlarge	| 72	| 192 GiB   |	14 Gbps	        | 100 Gbps          |   $3.888/hour         | $1.1732/hour     |
 
-Using c5n.18xlarge as the compute node, it costs 3.888/hr/.6997/hr = 5.556 times as much to run on demand versus spot pricing
+Using c5n.18xlarge as the compute node, it costs 3.888/hr/1.1732/hr = 3.314 times as much to run on demand versus spot pricing
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with C5n.large head node and C5n.18xlarge Compute Nodes
 
 | Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
-| 180           |  5x36          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false                                 |            | .6997/hr * 5 nodes * 1.307 hr = $4.57 | 3.888/hr * 5 nodes * 1.307 hr = $25.4 |
-| 180           |  5x36          | 10x18         | 2378.73              | 2378.73              |    4588.92                 |  no                | copied                  |  true                     | 10x18 did not match 16x18 | .6997/hr * 5 nodes * 1.2747 = $4.459 | $ 24.77 |
-| 180           |  5x36          | 10x18         | 1585.67        | 1394.52         |    2980.19           |  yes                | imported    |  true        |            | .6997/hr * 5nodes * 2980.9 / 3600 = $2.89 | $16.05 | 
-| 256           |  8x36          | 16x16         |  1289.59       | 1164.53         |    2454.12           |  no                 |  copied           |  true    |            | .7/hr * 8nodes * 2454.12 / 3600 = $3.9  | $21.66 |
-| 256           |  8x36          | 16x16         |  1305.99       | 1165.30         |    2471.29           |  no                |   copied    |   true    |            | .7/hr * 8nodes * 2471.29 / 3600 = $3.8 | $21.11 |
-| 256           |  8x36          | 16x16         |  1564.90       | 1381.80         |    2946.70           |  no                |   imported  | true   |            | .7/hr * 8nodes * 2946.7 / 3600 = $4.58 | $25.55 |
-| 288           |  8x36          | 16x18         | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false       |            | $5.55 | $30.83 |
-| 288           |  8x36          |  16x18        |  1976.35       | 1871.61         |     3847.96          |  no                |  Copied     |  true         |            | $5.98 | $33.22 |
-| 288           |  8x36          | 16x18         |  1197.19       | 1090.45         |     2287.64          |  yes               |  Copied     |  true         |             16x18 matched 16x16 | $3.55 | $19.72
-| 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             | $3.57 | $19.83 |
+| 180           |  5x36          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false                                 |            | 1.1732/hr * 5 nodes * 1.307 hr = $7.66 | 3.888/hr * 5 nodes * 1.307 hr = $25.4 |
+| 180           |  5x36          | 10x18         | 2378.73              | 2378.73              |    4588.92                 |  no                | copied                  |  true                     | 10x18 did not match 16x18 | 1.1732/hr * 5 nodes * 1.2747 = $7.477 | $ 24.77 |
+| 180           |  5x36          | 10x18         | 1585.67        | 1394.52         |    2980.19           |  yes                | imported    |  true        |            | 1.1732/hr * 5nodes * 2980.9 / 3600 = $4.85 | $16.05 | 
+| 256           |  8x36          | 16x16         |  1289.59       | 1164.53         |    2454.12           |  no                 |  copied           |  true    |            | 1.1732/hr * 8nodes * 2454.12 / 3600 = $6.398  | $21.66 |
+| 256           |  8x36          | 16x16         |  1305.99       | 1165.30         |    2471.29           |  no                |   copied    |   true    |            | 1.1732/hr * 8nodes * 2471.29 / 3600 = $6.44 | $21.11 |
+| 256           |  8x36          | 16x16         |  1564.90       | 1381.80         |    2946.70           |  no                |   imported  | true   |            | 1.1732/hr * 8nodes * 2946.7 / 3600 = $7.68 | $25.55 |
+| 288           |  8x36          | 16x18         | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false       |            | $9.3 | $30.83 |
+| 288           |  8x36          |  16x18        |  1976.35       | 1871.61         |     3847.96          |  no                |  Copied     |  true         |            | $10.02 | $33.22 |
+| 288           |  8x36          | 16x18         |  1197.19       | 1090.45         |     2287.64          |  yes               |  Copied     |  true         |             16x18 matched 16x16 | $5.95 | $19.72
+| 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             | $5.98 | $19.83 |
 
-Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $43
+Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $71.7
 
 Figure 1. Cost by Instance Type - AWS Console
 
@@ -125,7 +125,7 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 
 | Benchmark Case | Number of PES |  Number of c5n.18xlarge Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
 | -------------  | ------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
-| 2 day CONUS    |  288          |          8       |    SPOT    |      .6997/hour |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $.6997 = $649   |
+| 2 day CONUS    |  288          |          8       |    SPOT    |    1.1732/hour |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $1.1732 = $1088.4 |
 | 2 day CONUS    |  288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $3.888 = $3606.9 |
 
 
