@@ -107,7 +107,8 @@ Table 3. Extrapolated Cost of Running CMAQv5.3.3 Annual Simulation based on 2 da
 
 | Benchmark Case | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
 | -------------  | ------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
-| 2 day CONUS    |  288          |          8       |    SPOT    |      .6997/hour |     2287.64/3600 = .635455  |    .635455* 365/2 = $115.97/node * 8 nodes = $ 933.0   |
+| 2 day CONUS    |  288          |          8       |    SPOT    |      .6997/hour |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $.6997 = $649   |
+| 2 day CONUS    |  288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $3.888 = $3606.9 |
 
 
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
