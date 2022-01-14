@@ -116,7 +116,7 @@ Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using 8 c5n.18xlarge compute nodes.
 
-Table 3. Extrapolated Cost of Running CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
 | Benchmark Case | Number of PES |  Number of c5n.18xlarge Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
 | -------------  | ------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
@@ -124,10 +124,11 @@ Table 3. Extrapolated Cost of Running CMAQv5.3.3 Annual Simulation based on 2 da
 | 2 day CONUS    |  288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $3.888 = $3606.9 |
 
 
+
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
 
 
-Table 3. Lustre SSD File System Pricing for us-east-1 region
+Table 4. Lustre SSD File System Pricing for us-east-1 region
 
 | Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
 | --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
@@ -175,6 +176,15 @@ Storage requirement for an annual simulation if you assumed you would keep all d
 Cost for annual simulation
 
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
+
+
+Table 5. Extrapolated Cost of Lustre File system for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+
+Need to create table
+
+
+Also need estimate for S3 Bucket cost for storing an annual simulation
+
 
 ### Recommended Workflow
 
