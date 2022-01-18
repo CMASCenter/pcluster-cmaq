@@ -28,6 +28,7 @@
            vpc_management.md 
            pcluster3-config-converter.md
            git-secrets.md
+           cost-allocation-tags.md
      help/
            pcluster_support.md
            cmaq_support.md 
