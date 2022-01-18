@@ -5,6 +5,6 @@
 
 We also need to have additional protections if we make these AMI's public.
 
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/building-shared-amis.html>Building Shared AMIs</a>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/building-shared-amis.html">Building Shared AMIs</a>
 
-<a href="https://aws.amazon.com/blogs/awsmarketplace/securing-access-to-amis-aws-marketplace/>Securing Access to AMIs for AWS Marketplace</a>
+<a href="https://aws.amazon.com/blogs/awsmarketplace/securing-access-to-amis-aws-marketplace/">Securing Access to AMIs for AWS Marketplace</a>
