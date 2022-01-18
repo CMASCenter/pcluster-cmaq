@@ -26,6 +26,7 @@
 
    - [ ] input data imported from S3 bucket to lustre
    - [ ] input data copied from S3 bucket to lustre
+   - [ ] input data on EBS volume vs Lustre
 
 ### For different yaml settings for slurm  
 
