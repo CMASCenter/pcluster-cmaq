@@ -47,7 +47,7 @@ output:
   }
 }
 
- ```
+```
 
 Check status again
 
@@ -80,6 +80,7 @@ output:
 ```
 
 Start the compute nodes
+
 ```
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
 ```
@@ -96,6 +97,7 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ```
 ls /shared/build
 ```
+
 ### The .cshrc file wasn't saved, so I copied it
 
 ```
@@ -119,15 +121,19 @@ module avail
 dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own
 ```
 
+### Load the modules openmpi and libfabric
+
 ```
 module load openmpi/4.1.1
 module load libfabric-aws/1.13.2amzn1.0
 ```
 
 Change directories
+
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 ```
+
 ### Verify that the input data was imported from the S3 bucket
 
 ```
