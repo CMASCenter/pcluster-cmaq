@@ -36,6 +36,15 @@ python3 -m pip install --upgrade "aws-parallelcluster"
 
 ## Configure a demo cluster
 
+### To create a parallel cluster, a yaml file needs to be configured that is unique to your account.
+
+An example of the yaml file contents is described in the following Diagram:
+
+Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.micro head node and t2.micro compute nodes
+
+![t2.micro yaml configuration](../yml_plots/hello-world-yaml.png)
+
+
 ### Create a yaml configuration file for the cluster following these instructions
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
 
