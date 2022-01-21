@@ -446,7 +446,9 @@ queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1 
 queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
 ```
 
-Note: on a c5n.18xlarge, the number of virtual cpus is 72, if you run with 
+Note: on a c5n.18xlarge, the number of virtual cpus is 72, if the yaml contains the Compute Resources Setting of DisableSimultaneousMultithreading: false
+If DisableSimultaneousMultithreading: true, then the number of cpus is 36 and there are no virtual cpus.
+
 ### edit run script to use
 SBATCH --exclusive 
 
