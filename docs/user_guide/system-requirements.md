@@ -12,6 +12,7 @@ It may be possible to set up daily or weekly spending alarms as well.
 * I/O API
 * Slurm Scheduler
 * AWS CLI v3.0
+* Edit YAML Configuration Files using vi or other editor (doesn't accept tabs as spacing)
 
 
 ### Hardware Requirements
@@ -43,9 +44,11 @@ Compute Node:
 * c5n.18xlarge 
 with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 
-Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on CPUs or NPCOLxNPROW specified in CMAQRun Script)
+Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
+
+Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  For c5n.18xlarge, there are 36 CPUs, so maximum value of YY is 36 or --ntask-per-node=36.  If running a job with 180 processors, this would require the --nodes=XX or XX to be set to 5 compute nodes, as 36x5=180.  The setting for NPCOLxNPROW must also be a maximum of 180, ie. 18 x 10 or 10 x 18 to use all of the CPUs in the parallel cluster.
 
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
