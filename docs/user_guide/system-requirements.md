@@ -43,6 +43,8 @@ Compute Node:
 * c5n.18xlarge 
 with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 
+Figure 1. AWS Recommended Parallel Cluster Configuration
+
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
@@ -105,16 +107,16 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 
 Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $71.7
 
-Figure 1. Cost by Instance Type - AWS Console
+Figure 2. Cost by Instance Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
 
-Figure 2. Cost by Usage Type - AWS Console
+Figure 3. Cost by Usage Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
-Figure 3. Cost by Service Type - AWS Console
+Figure 4. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
