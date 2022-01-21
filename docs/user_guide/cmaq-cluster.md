@@ -331,6 +331,7 @@ tmpfs                477M  4.0K  477M   1% /run/user/1000
 ### Run the CONUS Domain on 180 pes
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+
 `sbatch run_cctm_2016_12US2.180pe.csh`
 
 Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
