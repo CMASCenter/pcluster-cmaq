@@ -18,9 +18,8 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 ###  edit the c5n-4xlarge.yaml
 NOTE: the c5n-4xlarge.yaml is configured to use SPOT instances for the compute nodes
 
-```
-vi c5n-4xlarge.yaml
-```
+
+`vi c5n-4xlarge.yaml`
 
 ### replace the key pair and subnet ID in the c5n-4xlarge.yaml file with the values created when you configured the demo cluster
 
@@ -62,35 +61,27 @@ SharedStorage:
 
 ## Create the c5n-4xlarge pcluster
 
-```
-pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1
-```
+`pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1`
 
 ### Check on status of cluster
 
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
-```
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
 ### Start the compute nodes
 
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
-```
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ## Login to cluster
 (note, replace the centos.pem with your Key Pair)
 
-```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
-```
+`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
 
 ### Show compute nodes
 
-```
-scontrol show nodes
-```
+`scontrol show nodes`
 
 ## Update the compute nodes
 
@@ -100,22 +91,16 @@ The c5n.18xlarge requires that the elastic network adapter is enabled in the yam
 
 ### Exit the cluster
 
-```
-exit
-```
+`exit`
 
 
 ### Stop the compute nodes
 
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
-```
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
 
 ### Verify that the compute nodes are stopped
 
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
-```
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 keep rechecking until you see the following status "computeFleetStatus": "STOPPED",
 
@@ -130,9 +115,9 @@ Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-x
 
 You will need to edit the c5n-18xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml) This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.18xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data) and enables the elastic fabric adapter.
 
-```
-vi c5n-18xlarge.yaml
-```
+`vi c5n-18xlarge.yaml`
+
+Output:
 
 ```
 Region: us-east-1
@@ -179,61 +164,44 @@ SharedStorage:
 
 ### Update cluster to use c5n.18xlarge compute node
 
-```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml
-```
+`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml`
 
 ### Verify that the compute nodes have been updated
 
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
-```
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 ### Re-start the compute nodes
 
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
-```
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ## Install CMAQ sofware on parallel cluster
 
 ### Login to updated cluster
 (note, replace the centos.pem with your Key Pair)
 
-```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
-```
+`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
 
 ### Check to make sure elastic network adapter (ENA) is enabled
 
-```
-modinfo ena
-lspci
-```
+`modinfo ena`
+
+`lspci`
 
 ### Check what modules are available on the cluster
 
-```
-module avail
-```
+`module avail`
 
 ### Load the openmpi module
 
-```
-module load openmpi/4.1.1
-```
+`module load openmpi/4.1.1`
 
 ### Load the Libfabric module
 
-```
-module load libfabric-aws/1.13.0amzn1.0
-```
+`module load libfabric-aws/1.13.0amzn1.0`
 
 ### Verify the gcc compiler version is greater than 8.0
 
-```
- gcc --version
-```
+`gcc --version`
 
 output:
 
@@ -243,36 +211,29 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 ### Change directories to install and build the libraries and CMAQ
 
-```
-cd /shared
-git clone https://github.com/lizadams/pcluster-cmaq.git
-```
+`cd /shared`
+
+`git clone https://github.com/lizadams/pcluster-cmaq.git`
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 
-```
-cd pcluster-cmaq
-./gcc_netcdf_pcluster.csh
-```
+`cd pcluster-cmaq`
+
+`gcc_netcdf_pcluster.csh`
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
 
-```
-cat ~/.cshrc
-```
+`cat ~/.cshrc`
 
 ### If the .cshrc wasn't created use the following command to create it
 
-```
-cp dot.cshrc ~/.cshrc
-```
+`cp dot.cshrc ~/.cshrc`
 
 ### Execute the shell to activate it
 
-```
-csh
-env
-```
+`csh`
+
+`env`
 
 ### Verify that you see the following setting
 
@@ -282,15 +243,11 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ### Build I/O API library
 
-```
-./gcc_ioapi_pcluster.csh
-```
+`./gcc_ioapi_pcluster.csh`
 
 ### Build CMAQ
 
-```
-./gcc_cmaq_pcluster.csh
-```
+`./gcc_cmaq_pcluster.csh`
 
 ## Obtain the Input data from a public S3 Bucket
 Two methods are available either importing the data on the lustre file system using the yaml file to specify the s3 bucket location or copying the data using s3 copy commands.
@@ -315,28 +272,21 @@ If you don't have credentials, please contact the manager of your aws account.
 
 ### Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
 
-```
-ls /fsx
-```
+`ls /fsx`
 
 ### Set up your credentials for using s3 copy (you can skip this if you don't have credentials)
 
-```
-aws configure
-```
+`aws configure`
 
 ### Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
-(note this script is only for use by CMAS staff (due to permissions issue))
 
-```
-/shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh
-```
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh`
 
-### Public S3 script to copy the CONUS input data to /fsx/data volume on the cluster (doesn't need aws credentials)
+### Alternative S3 script to copy the CONUS input data to /fsx/data volume on the cluster (doesn't need aws credentials)
 
-```
-/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh  ! check that the resulting directory structure matches the run script
-```
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh`
+
+check that the resulting directory structure matches the run script
 
 ### Note, this input data requires 44 GB of disk space  (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
 
