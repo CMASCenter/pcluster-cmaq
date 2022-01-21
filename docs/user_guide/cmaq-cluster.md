@@ -290,10 +290,9 @@ check that the resulting directory structure matches the run script
 
 ### Note, this input data requires 44 GB of disk space  (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
 
-```
-cd /fsx/data/CONUS
-du -sh
-```
+`cd /fsx/data/CONUS`
+
+`du -sh`
 
 output:
 
@@ -303,9 +302,7 @@ output:
 
 ### CMAQ Cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 
-```
-df -h
-```
+`df -h`
 
 output:
 
@@ -325,26 +322,22 @@ tmpfs                477M  4.0K  477M   1% /run/user/1000
 
 ### Copy the run scripts to the run directory
 
-```
-cd /shared/pcluster-cmaq/run_scripts/cmaq533
-cp run*  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
-cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
-```
+`cd /shared/pcluster-cmaq/run_scripts/cmaq533`
+
+`cp run*  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
+
+`cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
 
 ### Run the CONUS Domain on 180 pes
 
-```
-cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-sbatch run_cctm_2016_12US2.180pe.csh
-```
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+`sbatch run_cctm_2016_12US2.180pe.csh`
 
 Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
 
 ### Check the status in the queue
 
-```
-squeue -u ubuntu
-```
+`squeue -u ubuntu`
 
 output:
 
@@ -354,9 +347,7 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
 After 5 minutes the status will change once the compute nodes have been created and the job is running
 
-```
-squeue -u ubuntu 
-```
+`squeue -u ubuntu`
 
 output:
 
@@ -377,9 +368,7 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 
 ### check the timings while the job is still running using the following command
 
-```
-grep 'Processing completed' CTM_LOG_001*
-```
+`grep 'Processing completed' CTM_LOG_001*`
 
 output:
 
@@ -390,9 +379,7 @@ output:
 
 ### When the job has completed, use tail to view the timing from the log file.
 
-```
-tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
-```
+`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
 
 output:
 
@@ -418,15 +405,11 @@ Num  Day        Wall Time
 
 ### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
 
-```
-sbatch run_cctm_2016_12US2.288pe.csh
-```
+`sbatch run_cctm_2016_12US2.288pe.csh`
 
 ### Check on the status in the queue
 
-```
-squeue -u ubuntu
-```
+`squeue -u ubuntu`
 
 Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
 
@@ -439,15 +422,11 @@ output:
 
 ### Check the status of the run
 
-```
-tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
-```
+`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
 
 ### Check whether the scheduler thinks there are cpus or vcpus
 
-```
-sinfo -lN
-```
+`sinfo -lN`
 
 output:
 
@@ -476,22 +455,16 @@ DisableSimultaneousMultithreading: true, then you should only see 36 CPUS
 
 ### Exit the cluster
 
-```
-exit
-```
+`exit`
 
 ### Stop the compute nodes
 
 
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
-```
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
 
 ### Verify that the compute nodes are stopped
 
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
-```
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 keep rechecking until you see the following status
 "computeFleetStatus": "STOPPED",
@@ -500,30 +473,22 @@ keep rechecking until you see the following status
 ### Update the cluster after editing the yaml file
 
 
-```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml
-```
+`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml`
 
 ### Restart the compute nodes
 
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
-```
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ### Re-login to the cluster
 
 (note, replace the centos.pem with your Key Pair)
 
-```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
-```
+`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
 
 
 ### Confirm that there are only 36 cpus available to the slurm scheduler
 
-```
-sinfo -lN
-``` 
+`sinfo -lN`
 
 output:
 
@@ -542,22 +507,17 @@ queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1 
 queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
 ```
 
-### Rerun the CMAQ CONUS Case
+### Re-run the CMAQ CONUS Case
 
-```
-cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-sbatch run_cctm_2016_12US2.288pe.csh
-```
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+
+`sbatch run_cctm_2016_12US2.288pe.csh`
 
 ### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
 
-```
-sbatch run_cctm_2016_12US2.288pe.csh
-```
+`sbatch run_cctm_2016_12US2.288pe.csh`
 
-```
-squeue -u ubuntu
-```
+`squeue -u ubuntu`
 
 output:
 
@@ -568,9 +528,7 @@ output:
 
 Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
 
-```
-squeue -u ubuntu
-```
+`squeue -u ubuntu`
 
 output:
 
@@ -581,9 +539,7 @@ output:
 
 ### Check the status of the run
 
-```
-tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222
-```
+`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
 
 ### After run has successfully completed
 
