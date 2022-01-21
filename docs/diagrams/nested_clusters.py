@@ -12,21 +12,18 @@ with Diagram("AWS Minimum Viable Product", show=False):
 
         queue = SQS("SLURM")
         
-        volume1 = EBS("Software on EBS Volume")
+        volume1 = EBS("Software/EBS Vol")
 
         with Cluster("Head Node"):
             head = [EC2("c5n.xlarge")]
 
-        with Cluster("C5n.18xlarge Nodes"):
-            workers = [EC2SpotInstance("node1"),
-                       EC2SpotInstance("node2"),
-                        EC2SpotInstance("node3"),
-                        EC2SpotInstance("node4"),
-                        EC2SpotInstance("node5"),
-                        EC2SpotInstance("node6"),
-                        EC2SpotInstance("node7"),
-                        EC2SpotInstance("node8")]
-        volume2 = FSx("InputsOutput")
+        with Cluster("C5n.18xlarge - 36CPU/compute node"):
+            workers = [EC2SpotInstance("node1-spot"),
+                       EC2SpotInstance("node2-spot"),
+                        EC2SpotInstance("node3-spot"),
+                        EC2SpotInstance("node4-spot"),
+                        EC2SpotInstance("node5-spot")]
+        volume2 = FSx("I/O - 1.2TB Lustre Vol")
 
 
     store = S3("S3 Bucket")
