@@ -43,7 +43,7 @@ Compute Node:
 * c5n.18xlarge 
 with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 
-Figure 1. AWS Recommended Parallel Cluster Configuration
+Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on CPUs or NPCOLxNPROW specified in CMAQRun Script)
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
 
