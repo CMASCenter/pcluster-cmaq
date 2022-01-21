@@ -47,6 +47,7 @@ Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute node
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
 
+
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
 Each vCPU is a hardware hyperthread on the Intel Xeon Platinum 8000 series processor. You get full control over the C-states on the two largest sizes, allowing you to run a single core at up to 3.5 Ghz using Intel Turbo Boost Technology.
 
