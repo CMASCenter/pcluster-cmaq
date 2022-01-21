@@ -340,6 +340,9 @@ CMAQ Processing of Day 20151222 Began at Thu Jan  6 03:07:09 UTC 2022
      ioapi-3.2: $Id: init3.F90 200 2021-05-10 14:06:20Z coats $
      netCDF version 4.7.1 of Jan  5 2022 16:32:07 $
 
+```
+
+
 ### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
 
 This seems a bit slower than when the data is copied from the S3 Bucket to /fsx
@@ -363,6 +366,7 @@ Num  Day        Wall Time
      Total Time = 2946.70
       Avg. Time = 1473.35
 ```
+
 Timing for a 288 pe run
 
 ```
@@ -372,7 +376,6 @@ tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log
 Output:
 
 ```
-
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -399,6 +402,9 @@ I've added the #SBATCH --exclusive option.  Perhaps that made a difference.
 ```
 tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
 ```
+
+Output:
+
 ```
 ==================================
   ***** CMAQ TIMING REPORT *****
