@@ -10,7 +10,7 @@ cd pcluster-cmaq
 
 ### Yaml file for the c5n-4xlarge contains the settings as shown in the following plot.
 
-Figure 1. YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes
+Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes
 
 ![c5n-4xlarge yaml configuration](../yml_plots/c5n-4xlarge-yaml.png)
 
@@ -122,7 +122,7 @@ keep rechecking until you see the following status "computeFleetStatus": "STOPPE
 
 ### YAML file for c5n.xlarge head node and c5n18xlarge compute Node
 
-Figure 2. YAML file used to configure a Parallel Cluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
+Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
 
 ![c5n-18xlarge yaml configuration](../yml_plots/c5n-18xlarge-yaml.png)
 
