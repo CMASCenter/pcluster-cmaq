@@ -12,7 +12,7 @@
 <a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html">Lustre Performance Documentation</a>
 
 To find the default settings for Lustre see:
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings>Lustre Settings for Parallel Cluster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for Parallel Cluster</a>
 
 ### Diagram of the YAML file that contains a Snapshot ID to pre-install the software, and the path to an S3 Bucket for importing the data to the Lustre Filesystem
 
@@ -21,6 +21,13 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 ![c5n-18xlarge Software+Data Pre-installed yaml configuration](../yml_plots/c5n-18xlarge.ebs_shared-yaml.png)
 
 ### Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
+
+Note - you need to edit the c5n-18xlarge.ebs_shared.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+
+```
+vi c5n-18xlarge.ebs_shared.yaml 
+```
+
 
 ```
 pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
