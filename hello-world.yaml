@@ -1,12 +1,12 @@
 Region: us-east-1
 Image:
-  Os: centos7
+  Os: ubuntu2004
 HeadNode:
   InstanceType: t2.micro
   Networking:
-    SubnetId: subnet-0eae0207606b49672
+    SubnetId: subnet-idXXXXXXXX
   Ssh:
-    KeyName: centos
+    KeyName: XXkeyXX 
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
@@ -18,4 +18,4 @@ Scheduling:
       MaxCount: 10
     Networking:
       SubnetIds:
-      - subnet-0b013b5e0e7904347
+      - subnet-idXXXXXXXXXX
