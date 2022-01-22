@@ -111,6 +111,18 @@ Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-x
 
 ![c5n-18xlarge yaml configuration](../yml_plots/c5n-18xlarge-yaml.png)
 
+Note, the c5n-18xlarge yaml configuration file contains a setting for PlacementGroup.
+
+```
+PlacementGroup:
+          Enabled: true
+```
+ 
+A placement group is used to get the lowest inter-node latency. 
+
+A placement group guarantees that your instances are on the same networking backbone. 
+
+
 ### Update compute node from c5n4xlarge to c5n.n18xlarge
 
 You will need to edit the c5n-18xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml) This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.18xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data) and enables the elastic fabric adapter.
