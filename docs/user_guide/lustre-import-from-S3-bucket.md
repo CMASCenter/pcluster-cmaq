@@ -425,3 +425,11 @@ Num  Day        Wall Time
       Avg. Time = 1490.09
 ```
 
+### logout of cluster when you are done
+
+`exit`
+
+### Delete Cluster
+
+`pcluster delete-cluster --region=us-east-1 --cluster-name cmaq`
+
