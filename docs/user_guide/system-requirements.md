@@ -11,8 +11,8 @@ It may be possible to set up daily or weekly spending alarms as well.
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
 * Slurm Scheduler
-* AWS CLI v3.0
-* Edit YAML Configuration Files using vi or other editor (doesn't accept tabs as spacing)
+* AWS CLI v3.0 installed in a virtual environment
+* Edit YAML Configuration Files using vi, nedit or other editor (yaml doesn't accept tabs as spacing)
 
 
 ### Hardware Requirements
