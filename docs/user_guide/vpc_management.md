@@ -12,6 +12,23 @@ Q2. Each time you run a configure cluster command, does the Parallel Cluster cre
 
 Q3. why doesn't the VPC and subnet IDs get deleted when the Parallel Clusters are deleted.
 
+
+## If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
+The following instructions are available here: <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Instructions for Cleaning Up VPCs</a>
+
+```
+$ aws --region us-east-2 cloudformation list-stacks \
+   --stack-status-filter "CREATE_COMPLETE" \
+   --query "StackSummaries[].StackName" | \
+   grep -e "parallelclusternetworking-""parallelclusternetworking-pubpriv-20191029205804"
+```
+
+The stack can be deleted using the delete-stack command.
+
+```
+$ aws --region us-west-2 cloudformation delete-stack \
+   --stack-name parallelclusternetworking-pubpriv-20191029205804
+
 If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. 
 The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
 
