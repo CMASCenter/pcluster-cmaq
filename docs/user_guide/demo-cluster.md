@@ -54,6 +54,9 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.mi
 
 ![t2.micro yaml configuration](../yml_plots/hello-world-yaml.png)
 
+For more information about the configuration file see
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>
+
 
 ### Create a yaml configuration file for the cluster following these instructions
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>

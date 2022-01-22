@@ -12,6 +12,7 @@ It may be possible to set up daily or weekly spending alarms as well.
 * I/O API
 * Slurm Scheduler
 * AWS CLI v3.0 installed in a virtual environment
+* pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml doesn't accept tabs as spacing)
 
 ### AWS CLI v3.0 is available in the following AWS Regions
