@@ -14,6 +14,12 @@ It may be possible to set up daily or weekly spending alarms as well.
 * AWS CLI v3.0 installed in a virtual environment
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml doesn't accept tabs as spacing)
 
+### AWS CLI v3.0 is available in the following AWS Regions
+Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
+
+<a href="<https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
+
+
 
 ### Hardware Requirements
 
