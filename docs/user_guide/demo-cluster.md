@@ -64,10 +64,19 @@ For more information about the configuration file see
  `pcluster configure --config new-hello-world.yaml`
 
 1. select region: us-east-1
-2. select operating system: slurm
-3. select Operating system: ubuntu2004
+2. select scheduler: slurm
+3. select operating system: ubuntu2004
 4. select head node instance type: t2.micro
-5. select head node instance type: t2.micro
+5. select number of queues: 1
+6. number of compute resources for queue1 [1]: 1
+7. select compute node instance type: t2.micro
+8. select maximum instance count [10]: 10
+9. Automate VPC creation (y/n) [n]: y
+10. select availability zone: 1
+11. select network configuration: 1
+
+Beginning VPC creation. Please do not leave the terminal until the creation is finalized
+
 
 ### Examine the yaml file 
 
