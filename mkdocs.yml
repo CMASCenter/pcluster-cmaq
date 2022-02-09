@@ -18,11 +18,14 @@ nav:
         - 'Simultaneous Multithreading': 'user_guide/multithreading-cmaq-cluser.md'
         - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
         - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
+        - 'Slurm Multiple Queues': 'user_guide/slurm_multiple_queues.md'
         - 'Virtual Private Cloud Management': 'user_guide/vpc_management.md'
+
         - 'Key References on Cloud Computing': 'user_guide/key-references.md'
         - 'pcluster3-config-converter': 'user_guide/pcluster3-config-converter.md'
         - 'Git Secrets': 'user_guide/git-secrets.md'
         - 'Tracking Costs': 'user_guide/cost-allocation-tags.md'
+        - 'Future Work': 'user_guide/future_work.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'

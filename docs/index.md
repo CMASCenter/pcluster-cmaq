@@ -29,6 +29,8 @@
            pcluster3-config-converter.md
            git-secrets.md
            cost-allocation-tags.md
+           slurm_multiple_queues.md
+           future_work.md
      help/
            pcluster_support.md
            cmaq_support.md 
