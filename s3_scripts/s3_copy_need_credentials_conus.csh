@@ -8,5 +8,7 @@
 #run this script from a directory named CONUS - so you can point to this directory
 mkdir /fsx/data/CONUS
 setenv AWS_REGION "us-east-1"
+setenv DATA /shared/proj/data/CONUS
+mkdir -p $DATA
 
-aws s3 cp --recursive s3://conus-benchmark-2day /fsx/data/CONUS
+aws s3 cp --recursive s3://conus-benchmark-2day $DATA/
