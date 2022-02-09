@@ -19,6 +19,7 @@ nav:
         - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
         - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
         - 'Slurm Multiple Queues': 'user_guide/slurm_multiple_queues.md'
+        - 'Fault Tolerance Cluster': 'user_guide/fault_tolerance_cluster.md'
         - 'Virtual Private Cloud Management': 'user_guide/vpc_management.md'
 
         - 'Key References on Cloud Computing': 'user_guide/key-references.md'

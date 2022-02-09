@@ -30,6 +30,7 @@
            git-secrets.md
            cost-allocation-tags.md
            slurm_multiple_queues.md
+           fault_tolerance_cluster.md 
            future_work.md
      help/
            pcluster_support.md
