@@ -1,6 +1,7 @@
 ## Copy Output Data and Run script logs to S3 Bucket
 
-Note, you will need permissions to copy to the S3 Bucket.
+Note, you will need permissions to copy to a S3 Bucket.
+see <a href="<https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>S3 Access Control</a>
 
 ### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
 Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
