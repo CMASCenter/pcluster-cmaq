@@ -3,6 +3,12 @@
 Note, you will need permissions to copy to a S3 Bucket.
 see <a href="<https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>S3 Access Control</a>
 
+Currently, the bucket listed below has ACL turned off
+see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>S3 disable ACL</a>
+
+See example of sharing bucket across accounts.
+see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html<Bucket owner granting cross-account permissions</a>
+
 ### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
 Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
 It is also important to know what volume was used to read and write the input and output data, so it is recommended to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory for each benchmark.
@@ -64,8 +70,8 @@ output:
 # Script to upload output data to S3 bucket
 # NOTE: a new bucket needs to be created to store each set of cluster runs
 
-aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output-01-05-2021
-aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output-01-05-2021/fsx/data/output
+aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output
+aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output/fsx/data/output/2022-02-09/
 ```
 
 If you do not have permissions to write to the s3 bucket listed above, you will need to edit the script to specify the s3 bucket that you have permissions to write to.
