@@ -67,7 +67,8 @@ aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output-01-05-2021
 aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output-01-05-2021/fsx/data/output
 ```
 
-Edit the script to include a new date stamp, then run the script.
+If you do not have permissions to write to the s3 bucket listed above, you will need to edit the script to specify the s3 bucket that you have permissions to write to.
+In addition, edit the script to include a new date stamp, then run the script to copy all of the CMAQ output and logs to the S3 bucket.
 
 ```
 ./s3_upload.c5n.18xlarge.csh
