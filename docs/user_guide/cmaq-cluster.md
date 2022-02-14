@@ -2,7 +2,13 @@
 
 ## Use an existing yaml file to create a cluster
 
+
 ### Use a configuration file from the github repo that was cloned to your local machine
+
+```
+git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+```
+
 
 ```
 cd pcluster-cmaq
