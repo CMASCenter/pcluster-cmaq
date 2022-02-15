@@ -1,15 +1,23 @@
 # Instructions for choosing filesystem or disk for fast I/O Performance and obtaining input data
 
+## AWS Parallel Cluster configured with the lustre file system provides advantages to pre-load data at cluster build time.
+
 Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
 
 `ls /fsx`
 
 
-If the lustre filesystem is not available install the input data on the /shared/data directory
+## Azure Cyclecloud bilt to allow the input data to be installed on the /shared/data directory
 
 'ls /shared/data'
 
-## Install AWS CLI 
+'df -h'
+
+Output:
+
+/dev/mapper/vg_cyclecloud_builtinshared-lv0 1000G   66G  935G   7% /shared
+
+## Install AWS CLI to obtain data from AWS S3 Bucket
 
 see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
