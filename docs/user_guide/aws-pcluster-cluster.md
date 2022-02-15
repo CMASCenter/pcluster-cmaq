@@ -195,8 +195,6 @@ SharedStorage:
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-## Install CMAQ sofware on parallel cluster
-
 ### Login to updated cluster
 (note, replace the centos.pem with your Key Pair)
 
