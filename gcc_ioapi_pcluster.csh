@@ -31,5 +31,5 @@ set echo
    cp $PDIR/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
    make HOME=$DIR |& tee make.log
    cd $BASEDIR/m3tools
-   #cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
+   cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
    make HOME=$DIR
