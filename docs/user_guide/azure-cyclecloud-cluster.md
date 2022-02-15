@@ -1,5 +1,5 @@
 # Create Cyclecloud CMAQ Cluster
-Documentation for Azure CycleCloud
+Documentation for Azure
 <a href="https://docs.microsoft.com/en-us/azure/cyclecloud/?view=cyclecloud-8">CycleCloud Documentation</a>
 
 ## Configure the Cycle Cloud Cluster using the Azure Web Interface
