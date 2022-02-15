@@ -1,4 +1,4 @@
-# Create Cyclecloud CMAQ Cluster using SPOT pricing
+# Create Cyclecloud CMAQ Cluster
 
 ## Configure the Cycle Cloud Cluster using the Azure Web Interface
 
