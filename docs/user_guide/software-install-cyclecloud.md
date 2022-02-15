@@ -64,7 +64,7 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 
-`./gcc_netcdf_pcluster.csh`
+`./gcc_netcdf_cluster.csh`
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
 
@@ -88,7 +88,7 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ### Build I/O API library
 
-`./gcc_ioapi_pcluster.csh`
+`./gcc_ioapi_cluster.csh`
 
 ### Build CMAQ
 note, the primary difference is the location of the openmpi libraries on cyclecloud, /opt/openmpi-4.1.0/lib and include, /opt/openmpi-4.1.0/include
