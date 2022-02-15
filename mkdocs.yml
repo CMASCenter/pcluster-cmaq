@@ -5,7 +5,8 @@ nav:
     - 'User Guide':
         - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
-        - 'AWS MVP Cluster': 'user_guide/aws-cluster.md'
+        - 'AWS MVP Parallel Cluster': 'user_guide/aws-pcluster-cluster.md'
+        - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'
         - 'Install CMAQ on Pcluster': 'user_guide/software-install-pcluster.md'
         - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
         - 'Install Input Data': 'user_guide/input-data-install.md'

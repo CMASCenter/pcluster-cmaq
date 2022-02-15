@@ -10,7 +10,8 @@
         quick-start.md
         user_guide/ # User Guide
            demo-cluster.md
-           aws-cluster.md
+           aws-pcluseter-cluster.md
+           azure-cyclecloud-cluster.md
            software-install-pcluster.md
            software-install-cyclecloud.md
            input-data-install.md
