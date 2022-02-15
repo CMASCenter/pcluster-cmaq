@@ -9,9 +9,11 @@ Verify that the /fsx directory exists this is a lustre file system where the I/O
 
 ## Azure Cyclecloud bilt to allow the input data to be installed on the /shared/data directory
 
-'ls /shared/data'
+`mkdir /shared/data`
 
-'df -h'
+`ls /shared/data`
+
+`df -h`
 
 Output:
 
@@ -21,9 +23,9 @@ Output:
 
 see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
-'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+`curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
-sudo ./aws/install'
+sudo ./aws/install`
 
 Set up your credentials for using s3 copy (you can skip this if you don't have credentials)
 
