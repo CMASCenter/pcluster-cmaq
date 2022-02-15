@@ -9,10 +9,10 @@
 
 setenv AWS_REGION "us-east-1"
 mkdir -p /shared/data/CONUS/12US2
-setenv DISK /shared
+setenv DISK shared
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222" --include "*151223" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/MCIP /$DISK/data/CONUS/12US2/MCIP
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions /$DISK/data/CONUS/12US2/emissions
-aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*" --include "*stack_groups*" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions /$/data/CONUS/12US2/emissions
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*" --include "*stack_groups*" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions /$DISK/data/CONUS/12US2/emissions
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*160101*" --include "*160102*"  s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions /$DISK/data/CONUS/12US2/emissions
 aws --no-sign-request s3 cp --recursive s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input/emissions/othpt /$DISK/data/CONUS/12US2/emissions/othpt
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "12US1_surf.ncf" --include "2011_US1_soil.nc" --include "beld3_12US1_459X299_output_a.ncf" s3://edap-oar-data-commons/2016_Modeling_Platform/CMAQ_Input /$DISK/data/CONUS/12US2/land
@@ -21,8 +21,8 @@ aws --no-sign-request s3 cp --recursive --exclude "*" --include "*GRIDDESC*" s3:
 
 #need to use a link between the name that the run script is expecting, and what the directory structure is on the S3 bucket
 cd /$DISK/data/CONUS/12US2
-#ln -s ./MCIP/GRIDDESC_css GRIDDESC
-cp /shared/pcluster-cmaq/s3_scripts/GRIDDESC .
+ln -s ./MCIP/GRIDDESC_css GRIDDESC
+#cp /shared/pcluster-cmaq/s3_scripts/GRIDDESC .
 
 # copy missing file 
 cp /shared/pcluster-cmaq/smk_merge_dates_201512.txt /$DISK/data/CONUS/12US2/emissions
