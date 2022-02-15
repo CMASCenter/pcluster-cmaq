@@ -11,6 +11,9 @@
         user_guide/ # User Guide
            demo-cluster.md
            cmaq-cluster.md
+           software-install.md
+           input-data-install.md
+           run-cmaq-benchmark.md
            create_ami_from_command_line.md
            cmaq-cluster-from-ami.md
            custom-bootstrap.md

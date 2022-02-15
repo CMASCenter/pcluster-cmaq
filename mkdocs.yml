@@ -5,7 +5,10 @@ nav:
     - 'User Guide':
         - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
-        - 'CMAQ Cluster': 'user_guide/cmaq-cluster.md'
+        - 'MVP Cluster': 'user_guide/cmaq-cluster.md'
+        - 'Install CMAQ': 'user_guide/software-install.md'
+        - 'Install Input Data': 'user_guide/input-data-install.md'
+        - 'Run CMAQ CONUS Benchmark': 'user_guide/run-cmaq-benchmark.md'
         - 'Create AMI from Command Line': 'user_guide/create_ami_from_command_line.md'
         - 'CMAQ Cluster Software Loaded using AMI': 'user_guide/cmaq-cluster-from-ami.md'
         - 'CMAQ Cluster Software Loaded using Custom Bootstrap': 'user_guide/custom-bootstrap.md'
