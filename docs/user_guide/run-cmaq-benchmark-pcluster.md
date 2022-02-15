@@ -1,8 +1,9 @@
 ### Copy the run scripts from the parallel_cluster repo
 To ensure you have the correct directory specified
 
-'cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts'
-'cp * /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
+
+`cp * /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 
 ### Run the CONUS Domain on 180 pes
