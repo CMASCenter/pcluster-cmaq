@@ -81,4 +81,4 @@ cd $DIR/netcdf/bin
 #    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib
 #endif
 
-cp pcluster-cmaq/dot.cshrc ~/.cshrc
+cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc

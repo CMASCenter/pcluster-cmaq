@@ -1,15 +1,27 @@
 # Install CMAQ and pre-requisite libraries on linux
 
+### Login to updated cluster
+(note, replace the centos.pem with your Key Pair)
+
+`ssh -v -Y -i ~/[your_azure].pem [your-IP-address]`
+
+
 ### Change shell to use .tcsh
 
 `sudo usermod -s /bin/tcsh lizadams`
 
-### Log out and then log back in
+### Log out and then log back in to activate the tcsh shell
+
+
+### Change permissions of /shared directory
+
+`sudo chmod 777 /shared`
+
 
 
 The following instructions assume that you will be installing the software to a /shared/build directory
 
-`sudo mkdir /shared/build`
+`mkdir /shared/build`
 
 Install the pcluster-cmaq git repo to the /shared directory
 
@@ -22,13 +34,6 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 
 `cd pcluster-cmaq`
-
-## Install CMAQ sofware on parallel cluster
-
-### Login to updated cluster
-(note, replace the centos.pem with your Key Pair)
-
-`ssh -v -Y -i ~/[your_azure].pem [your-IP-address]`
 
 
 ### Check what modules are available on the cluster
@@ -59,7 +64,7 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 
-`gcc_netcdf_pcluster.csh`
+`./gcc_netcdf_pcluster.csh`
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
 
