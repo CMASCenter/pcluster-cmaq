@@ -1,6 +1,5 @@
 # Instructions for choosing filesystem or disk for fast I/O Performance and obtaining input data
 
-
 Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
 
 `ls /fsx`
