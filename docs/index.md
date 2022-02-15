@@ -10,7 +10,12 @@
         quick-start.md
         user_guide/ # User Guide
            demo-cluster.md
-           cmaq-cluster.md
+           aws-cluster.md
+           software-install-pcluster.md
+           software-install-cyclecloud.md
+           input-data-install.md
+           run-cmaq-benchmark-pcluster.md
+           run-cmaq-benchmark-cyclecloud.md
            create_ami_from_command_line.md
            cmaq-cluster-from-ami.md
            custom-bootstrap.md

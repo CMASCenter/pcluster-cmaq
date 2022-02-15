@@ -17,7 +17,7 @@ set echo
    setenv PDIR /shared/pcluster-cmaq
    cd $DIR
    git clone https://github.com/cjcoats/ioapi-3.2
-   git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+   #git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
    cd ioapi-3.2
    #git checkout -b 20200828
    setenv BASEDIR $DIR/ioapi-3.2
@@ -29,7 +29,7 @@ set echo
    cp $PDIR/Makefile.basedir_fix $BASEDIR/ioapi/Makefile
    # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
    cp $PDIR/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
-   make |& tee make.log
+   make HOME=$DIR |& tee make.log
    cd $BASEDIR/m3tools
    #cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
    make HOME=$DIR

@@ -5,7 +5,12 @@ nav:
     - 'User Guide':
         - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
-        - 'CMAQ Cluster': 'user_guide/cmaq-cluster.md'
+        - 'AWS MVP Cluster': 'user_guide/aws-cluster.md'
+        - 'Install CMAQ on Pcluster': 'user_guide/software-install-pcluster.md'
+        - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
+        - 'Install Input Data': 'user_guide/input-data-install.md'
+        - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide/run-cmaq-benchmark-pcluster.md'
+        - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide/run-cmaq-benchmark-cyclecloud.md'
         - 'Create AMI from Command Line': 'user_guide/create_ami_from_command_line.md'
         - 'CMAQ Cluster Software Loaded using AMI': 'user_guide/cmaq-cluster-from-ami.md'
         - 'CMAQ Cluster Software Loaded using Custom Bootstrap': 'user_guide/custom-bootstrap.md'

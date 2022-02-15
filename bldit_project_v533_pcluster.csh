@@ -17,7 +17,7 @@
 #> directory.
 
 
- set CMAQ_HOME = /proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build/openmpi_gcc/CMAQ_v533 
+ set CMAQ_HOME = /shared/build/openmpi_gcc/CMAQ_v533
 
 #> This section allows users to choose explicitly which tools
 #> to make available from the repo. For each selected tool,
