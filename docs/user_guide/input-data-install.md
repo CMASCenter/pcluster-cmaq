@@ -9,15 +9,25 @@ If the lustre filesystem is not available install the input data on the /shared/
 
 'ls /shared/data'
 
+## Install AWS CLI 
+
+see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install'
+
 Set up your credentials for using s3 copy (you can skip this if you don't have credentials)
 
 `aws configure`
 
-Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
+## Use the S3 script to copy the CONUS input data 
+Modify the script if you want to use /shared/data versus the /fsx/data volume on the cluster
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh`
 
 Alternative S3 script to copy the CONUS input data to /fsx/data volume on the cluster (doesn't need aws credentials)
+this download script appears to be missing the GRIDDESC file, obtain a copy from the pcluster-cmaq git repo
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh`
 
