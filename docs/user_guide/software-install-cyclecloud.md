@@ -72,13 +72,13 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 ### If the .cshrc wasn't created use the following command to create it
 
-'cp dot.cshrc ~/.cshrc'
+`cp dot.cshrc ~/.cshrc`
 
 ### Execute the shell to activate it
 
-'csh'
+`csh`
 
-'env'
+`env`
 
 ### Verify that you see the following setting
 
@@ -88,13 +88,13 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ### Build I/O API library
 
-'./gcc_ioapi_pcluster.csh'
+`./gcc_ioapi_pcluster.csh`
 
 ### Build CMAQ
 note, the primary difference is the location of the openmpi libraries on cyclecloud, /opt/openmpi-4.1.0/lib and include, /opt/openmpi-4.1.0/include
 
-'./gcc_cmaq_cyclecloud.csh'
+`./gcc_cmaq_cyclecloud.csh`
 
 Check to see that the cmaq executable has been built
 
-'ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe'
+`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe`
