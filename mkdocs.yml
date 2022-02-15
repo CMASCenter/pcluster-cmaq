@@ -5,7 +5,7 @@ nav:
     - 'User Guide':
         - 'System Requirements': 'user_guide/system-requirements.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
-        - 'MVP Cluster': 'user_guide/cmaq-cluster.md'
+        - 'AWS MVP Cluster': 'user_guide/aws-cluster.md'
         - 'Install CMAQ': 'user_guide/software-install.md'
         - 'Install Input Data': 'user_guide/input-data-install.md'
         - 'Run CMAQ CONUS Benchmark': 'user_guide/run-cmaq-benchmark.md'

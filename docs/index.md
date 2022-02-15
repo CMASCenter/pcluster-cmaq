@@ -10,7 +10,7 @@
         quick-start.md
         user_guide/ # User Guide
            demo-cluster.md
-           cmaq-cluster.md
+           aws-cluster.md
            software-install.md
            input-data-install.md
            run-cmaq-benchmark.md
