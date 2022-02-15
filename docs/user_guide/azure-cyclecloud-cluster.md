@@ -78,7 +78,9 @@ Azure CycleCloud HPC VM Type Confirmed
 Azure CycleCloud Network Attached Storage
 ![Azure CycleCloud Network Attached Storage](../azure_web_interface_images/Azure_CycleCloud_Network_Attached_Storage.png)
 
-Azure CycleCloud Select OS
+Azure CycleCloud Select OS and Uncheck Name as HostName
 ![Azure CycleCloud Select OS](../azure_web_interface_images/Azure_CycleCloud_Advanced_Settings_Choose_OS.png)
 
+Login to Azure Cycle Cloud and verify that the following command works.
 
+'srun -t 1:30:00  -n --pty /bin/bash'

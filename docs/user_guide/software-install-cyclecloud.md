@@ -2,43 +2,46 @@
 
 ### Change shell to use .tcsh
 
-'sudo usermod -s /bin/tcsh lizadams'
+`sudo usermod -s /bin/tcsh lizadams`
+
+### Log out and then log back in
 
 
 The following instructions assume that you will be installing the software to a /shared/build directory
 
-'sudo mkdir /shared/build'
+`sudo mkdir /shared/build`
 
 Install the pcluster-cmaq git repo to the /shared directory
 
-'cd /shared'
+`cd /shared`
 
 
 ### Use a configuration file from the github repo that was cloned to your local machine
 
-'git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq'
+`git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
 
 
-'cd pcluster-cmaq'
+`cd pcluster-cmaq`
 
 ## Install CMAQ sofware on parallel cluster
 
 ### Login to updated cluster
 (note, replace the centos.pem with your Key Pair)
 
-'ssh -v -Y -i ~/[your_azure].pem [your-IP-address]'
+`ssh -v -Y -i ~/[your_azure].pem [your-IP-address]`
 
 
 ### Check what modules are available on the cluster
 
-'module avail'
+`module avail`
 
 ### Load the openmpi module
 
-'module load mpi/openmpi-4.1.0'
+`module load mpi/openmpi-4.1.0`
 
 ### Load the gcc copiler
-'gcc-9.2.0'
+
+`module load gcc-9.2.0`
 
 ### Verify the gcc compiler version is greater than 8.0
 
