@@ -1,7 +1,10 @@
 # Create CMAQ Cluster using SPOT pricing
 
-## Use an existing yaml file to create a cluster
+## Use an existing yaml file from the git repo to create a parallel cluster
 
+```
+cd /shared/build
+```
 
 ### Use a configuration file from the github repo that was cloned to your local machine
 
@@ -13,13 +16,6 @@ git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 ```
 cd pcluster-cmaq
 ```
-
-### Yaml file for the c5n-4xlarge contains the settings as shown in the following diagram.
-
-Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes
-
-![c5n-4xlarge yaml configuration](../yml_plots/c5n-4xlarge-yaml.png)
-
 
 ###  edit the c5n-4xlarge.yaml
 NOTE: the c5n-4xlarge.yaml is configured to use SPOT instances for the compute nodes
@@ -64,6 +60,13 @@ SharedStorage:
     FsxLustreSettings:
       StorageCapacity: 1200
 ```
+
+### Yaml file for the c5n-4xlarge contains the settings as shown in the following diagram.
+
+Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes using SPOT pricing
+![c5n-4xlarge yaml configuration](../yml_plots/c5n-4xlarge-yaml.png)
+
+
 
 ## Create the c5n-4xlarge pcluster
 
@@ -227,352 +230,7 @@ output:
 gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Foundation, Inc. This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-### Change directories to install and build the libraries and CMAQ
-
-`cd /shared`
-
-`git clone https://github.com/lizadams/pcluster-cmaq.git`
-
-### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
-
-`cd pcluster-cmaq`
-
-`gcc_netcdf_pcluster.csh`
-
-### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
-
-`cat ~/.cshrc`
-
-### If the .cshrc wasn't created use the following command to create it
-
-`cp dot.cshrc ~/.cshrc`
-
-### Execute the shell to activate it
-
-`csh`
-
-`env`
-
-### Verify that you see the following setting
-
-```
-LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build/netcdf/lib
-```
-
-### Build I/O API library
-
-`./gcc_ioapi_pcluster.csh`
-
-### Build CMAQ
-
-`./gcc_cmaq_pcluster.csh`
-
-## Obtain the Input data from a public S3 Bucket
-Two methods are available either importing the data on the lustre file system using the yaml file to specify the s3 bucket location or copying the data using s3 copy commands.
-
-### First Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
-
-```
-  - MountDir: /fsx
-    Name: name2
-    StorageType: FsxLustre
-    FsxLustreSettings:
-      StorageCapacity: 1200
-      ImportPath: s3://conus-benchmark-2day    <<<  specify name of S3 bucket
-```
-This requires that the S3 bucket specified is publically available
-
-
-### Second Method: Copy the data using the s3 command line
-
-### set the aws credentials
-If you don't have credentials, please contact the manager of your aws account.
-
-### Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
-
-`ls /fsx`
-
-### Set up your credentials for using s3 copy (you can skip this if you don't have credentials)
-
-`aws configure`
-
-### Use the S3 script to copy the CONUS input data to the /fsx/data volume on the cluster
-
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh`
-
-### Alternative S3 script to copy the CONUS input data to /fsx/data volume on the cluster (doesn't need aws credentials)
-
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh`
-
-check that the resulting directory structure matches the run script
-
-### Note, this input data requires 44 GB of disk space  (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
-
-`cd /fsx/data/CONUS`
-
-`du -sh`
-
-output:
-
-```
-44G	.
-```
-
-### CMAQ Cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
-
-`df -h`
-
-output:
-
-```
-Filesystem           Size  Used Avail Use% Mounted on
-devtmpfs             2.3G     0  2.3G   0% /dev
-tmpfs                2.4G     0  2.4G   0% /dev/shm
-tmpfs                2.4G   17M  2.4G   1% /run
-tmpfs                2.4G     0  2.4G   0% /sys/fs/cgroup
-/dev/nvme0n1p1       100G   16G   85G  16% /
-/dev/nvme1n1          20G  1.6G   17G   9% /shared
-10.0.0.186@tcp:/fsx  1.1T   47G  1.1T   5% /fsx
-tmpfs                477M  4.0K  477M   1% /run/user/1000
-```
-
-## Run CMAQv5.3.3 on Parallel Cluster
-
-### Copy the run scripts to the run directory
-
-`cd /shared/pcluster-cmaq/run_scripts/cmaq533`
-
-`cp run*  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
-
-`cd  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
-
-### Run the CONUS Domain on 180 pes
-
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
-
-`sbatch run_cctm_2016_12US2.180pe.csh`
-
-Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
-
-### Check the status in the queue
-
-`squeue -u ubuntu`
-
-output:
-
-```
-JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 2    queue1     CMAQ   ubuntu CF       3:00      5 queue1-dy-computeresource1-[1-5]
-```
-After 5 minutes the status will change once the compute nodes have been created and the job is running
-
-`squeue -u ubuntu`
-
-output:
-
-```
-
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                 3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8] 
-```
-
-The 180 pe job should take 60 minutes to run (30 minutes per day)
-
-### check on the status of the cluster using CloudWatch
-
-```
-<a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1">Cloudwatch Dashboard</a>
-<a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/">Monitoring Dashboard for P=arallel Cluster</a>
-```
-
-### check the timings while the job is still running using the following command
-
-`grep 'Processing completed' CTM_LOG_001*`
-
-output:
-
-```
-            Processing completed...    8.8 seconds
-            Processing completed...    7.4 seconds
-```
-
-### When the job has completed, use tail to view the timing from the log file.
-
-`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
-
-output:
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2015-12-22
-End Day:   2015-12-23
-Number of Simulation Days: 2
-Domain Name:               12US2
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       180
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2015-12-22   2481.55
-02   2015-12-23   2225.34
-     Total Time = 4706.89
-      Avg. Time = 2353.44
-```
-
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
-
-`sbatch run_cctm_2016_12US2.288pe.csh`
-
-### Check on the status in the queue
-
-`squeue -u ubuntu`
-
-Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
-
-output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
-```
-
-### Check the status of the run
-
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
-
-### Check whether the scheduler thinks there are cpus or vcpus
-
-`sinfo -lN`
-
-output:
-
-```
-Wed Jan 05 19:34:05 2022
-NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
-queue1-dy-computeresource1-1       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-2       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-3       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-4       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-5       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-6       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-7       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-8       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none                
-queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
-queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
-```
-
-Note: on a c5n.18xlarge, the number of virtual cpus is 72, if the yaml contains the Compute Resources Setting of DisableSimultaneousMultithreading: false
-If DisableSimultaneousMultithreading: true, then the number of cpus is 36 and there are no virtual cpus.
-
-### edit run script to use
-SBATCH --exclusive 
-
-### edit the yaml file to use (note - any time you edit the yaml file, you need to update the compute cluster)
-DisableSimultaneousMultithreading: true, then you should only see 36 CPUS
-
-
-### Exit the cluster
-
-`exit`
-
-### Stop the compute nodes
-
-
-`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
-
-### Verify that the compute nodes are stopped
-
-`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
-
-keep rechecking until you see the following status
-"computeFleetStatus": "STOPPED",
-
-
-### Update the cluster after editing the yaml file
-
-
-`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration C5n-18xlarge.yaml`
-
-### Restart the compute nodes
-
-`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
-
-### Re-login to the cluster
-
-(note, replace the centos.pem with your Key Pair)
-
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
-
-
-### Confirm that there are only 36 cpus available to the slurm scheduler
-
-`sinfo -lN`
-
-output:
-
-```
-Wed Jan 05 20:54:01 2022
-NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
-queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-2       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-3       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-4       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-5       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-6       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-```
-
-### Re-run the CMAQ CONUS Case
-
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
-
-`sbatch run_cctm_2016_12US2.288pe.csh`
-
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
-
-`sbatch run_cctm_2016_12US2.288pe.csh`
-
-`squeue -u ubuntu`
-
-output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
-```
-
-Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
-
-`squeue -u ubuntu`
-
-output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
-```
-
-### Check the status of the run
-
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
-
-### After run has successfully completed
-
-1. [Compare timings and verify that the run completed successfully](parse_timing.md)
-2. [Run combine and post processing scripts](post_combine.md)
-3. [Run QA scripts](qa_cmaq_run.md)
-4. [Copy the output to the S3 Bucket](copy_output_to_S3_Bucket.md)
-5. Exit the cluster
-6. Delete the Cluster
-
-
-
+See instructions for installing and running CMAQ on cluster.
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the Amazon Website">Enhanced Networking Adapter Documentation</a>
 
