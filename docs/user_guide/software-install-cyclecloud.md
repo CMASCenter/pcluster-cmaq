@@ -36,7 +36,7 @@
 
 ## Make the /shared/build directory
 
-sudo mkdir /shared/build
+`mkdir /shared/build`
 
 ### Change the group to cmaq recursively for the /shared directory
 
@@ -99,7 +99,13 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 ### Verify that you see the following setting
 
 ```
-LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build/netcdf/lib
+echo $LD_LIBRARY_PATH
+```
+
+output:
+
+```
+/opt/openmpi-4.1.0/lib:/opt/gcc-9.2.0/lib64
 ```
 
 ### Build I/O API library
