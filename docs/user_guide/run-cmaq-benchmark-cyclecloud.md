@@ -16,13 +16,13 @@ Note, it will take about 3-5 minutes for the compute notes to start up This is r
 
 ### Check the status in the queue
 
-`squeue -u lizadams`
+`squeue `
 
 output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 2       hpc     CMAQ lizadams PD       0:00      5 (PartitionConfig)
+                 1       hpc     CMAQ     chef CF       0:22      1 cmaq-hbv3-hpc-pg0-[1-2]
 ```
 After 5 minutes the status will change once the compute nodes have been created and the job is running
 
