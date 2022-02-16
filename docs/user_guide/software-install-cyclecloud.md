@@ -17,22 +17,34 @@
 
 `sudo chmod 777 /shared`
 
+### Add group name to users
+`sudo groupadd cmaq`
+
+### Add the new group for each user
+
+`sudo usermod -a -G cmaq lizadams`
+`sudo usermod -a -G cmaq robz`
+`sudo usermod -a -G cmaq chef`
+
+### Logout and log back in to reset the new group 
+
+### Check to see if the group is added to your user ID
+
+`id`
+
+## Make the /shared/build directory
+
+sudo mkdir /shared/build
+
+### Change the group to cmaq recursively for the /shared directory
+
+    `sudo chgrp -R cmaq /shared`
 
 
-The following instructions assume that you will be installing the software to a /shared/build directory
-
-`mkdir /shared/build`
-
-Install the pcluster-cmaq git repo to the /shared directory
+### Install the cluster-cmaq git repo to the /shared directory
 
 `cd /shared`
-
-
-### Use a configuration file from the github repo that was cloned to your local machine
-
 `git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
-
-
 `cd pcluster-cmaq`
 
 
