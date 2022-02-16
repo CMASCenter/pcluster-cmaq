@@ -30,6 +30,15 @@
 
 ### Logout and log back in to reset the new group 
 
+
+### Set the group to be default group for files created by the user
+
+`sudo usermod -g cmaq lizadams`
+
+`sudo usermod -g cmaq chef`
+
+`sudo usermod -g cmaq robz`
+
 ### Check to see if the group is added to your user ID
 
 `id`
