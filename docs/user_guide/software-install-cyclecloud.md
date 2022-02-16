@@ -23,7 +23,9 @@
 ### Add the new group for each user
 
 `sudo usermod -a -G cmaq lizadams`
+
 `sudo usermod -a -G cmaq robz`
+
 `sudo usermod -a -G cmaq chef`
 
 ### Logout and log back in to reset the new group 
@@ -44,7 +46,9 @@ sudo mkdir /shared/build
 ### Install the cluster-cmaq git repo to the /shared directory
 
 `cd /shared`
+
 `git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
+
 `cd pcluster-cmaq`
 
 
