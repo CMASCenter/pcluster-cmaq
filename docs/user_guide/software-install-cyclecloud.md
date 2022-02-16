@@ -39,6 +39,8 @@
 
 `sudo usermod -g cmaq robz`
 
+logout and log back in to have it take effect
+
 ### Check to see if the group is added to your user ID
 
 `id`
