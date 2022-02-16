@@ -26,14 +26,13 @@ output:
 ```
 After 5 minutes the status will change once the compute nodes have been created and the job is running
 
-`squeue -u lizadams`
+`squeue `
 
 output:
 
 ```
-
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8]
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 2       hpc     CMAQ     chef  R      58:42      2 cmaq-hbv3-hpc-pg0-[1-2]
 ```
 
 The 180 pe job should take 60 minutes to run (30 minutes per day)
@@ -52,13 +51,22 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 output:
 
 ```
-            Processing completed...    8.8 seconds
-            Processing completed...    7.4 seconds
+   Processing completed...    4.6 seconds
+            Processing completed...    4.8 seconds
+            Processing completed...    4.8 seconds
+            Processing completed...    5.2 seconds
+            Processing completed...    4.4 seconds
+            Processing completed...    5.0 seconds
+            Processing completed...    4.6 seconds
+            Processing completed...    4.7 seconds
+            Processing completed...    4.7 seconds
+            Processing completed...    5.1 seconds
+
 ```
 
 ### When the job has completed, use tail to view the timing from the log file.
 
-`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
+`tail /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log `
 
 output:
 
@@ -102,6 +110,22 @@ output:
 ### Check the status of the run
 
 `tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
+
+output
+
+```
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2097.37
+02   2015-12-23   1809.84
+     Total Time = 3907.21
+      Avg. Time = 1953.60
+```
+
 
 ### Check whether the scheduler thinks there are cpus or vcpus
 
