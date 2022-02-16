@@ -82,7 +82,7 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 ### If the .cshrc wasn't created use the following command to create it
 
-`cp dot.cshrc ~/.cshrc`
+`cp dot.cshrc.pcluster ~/.cshrc`
 
 ### Execute the shell to activate it
 
