@@ -1,7 +1,6 @@
 site_name: cmaq_parallel_cluster
 nav:
     - Home: 'index.md'
-    - Quick Start Guide: 'quick-start.md'
     - 'User Guide':
         - 'System Requirements AWS': 'user_guide/system-requirements-parallel-cluster.md'
         - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
@@ -28,12 +27,11 @@ nav:
         - 'Slurm Multiple Queues': 'user_guide/slurm_multiple_queues.md'
         - 'Fault Tolerance Cluster': 'user_guide/fault_tolerance_cluster.md'
         - 'Virtual Private Cloud Management': 'user_guide/vpc_management.md'
-
-        - 'Key References on Cloud Computing': 'user_guide/key-references.md'
         - 'pcluster3-config-converter': 'user_guide/pcluster3-config-converter.md'
         - 'Git Secrets': 'user_guide/git-secrets.md'
         - 'Tracking Costs': 'user_guide/cost-allocation-tags.md'
         - 'Future Work': 'user_guide/future_work.md'
+        - 'Goal of Cluster Cloud Development': 'user_guide/goal.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
@@ -41,6 +39,7 @@ nav:
         - 'Parallel Cluster Support': 'help/pcluster_support.md'
         - 'CMAQ Support': 'help/cmaq_support.md'
         - 'AWS Free Training': 'help/aws-free-training.md'
+        - 'Key References on Cloud Computing': 'user_guide/key-references.md'
 
 theme:
   name: readthedocs

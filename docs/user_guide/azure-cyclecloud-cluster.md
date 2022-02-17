@@ -84,3 +84,12 @@ Azure CycleCloud Select OS and Uncheck Name as HostName
 Login to Azure Cycle Cloud and verify that the following command works.
 
 'srun -t 1:30:00  -n --pty /bin/bash'
+
+## Instructions to upgrade the number of processors available to the Cycle Cloud Cluster
+
+Edit the HPC config in the cyclecloud web interface to set the CPUs to 480 
+Run the following on the scheduler node the changes should get picked up:
+
+`cd /opt/cycle/slurm`
+
+`sudo ./cyclecloud_slurm.sh scale`

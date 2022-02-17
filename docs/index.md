@@ -7,7 +7,6 @@
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        quick-start.md
         user_guide/ # User Guide
            demo-cluster.md
            aws-pcluseter-cluster.md
@@ -30,7 +29,6 @@
            shared-ebs-load-snapshot.md
            system-requirements-parallel-cluster.md
            system-requirements-cycle-cloud.md
-           key-references.md
            update-policy.md
            vpc_management.md 
            pcluster3-config-converter.md
@@ -39,10 +37,12 @@
            slurm_multiple_queues.md
            fault_tolerance_cluster.md 
            future_work.md
+           goal.md
      help/
            pcluster_support.md
            cmaq_support.md 
            aws-free-training.md
+           key-references.md
 
 Documentation created with mkdocs
 
