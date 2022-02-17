@@ -120,7 +120,7 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a equest for a 360 pe job ( 4 x 90 )
+### Submit a request for a 360 pe job ( 4 x 90 )
 
 `sbatch run_cctm_2016_12US2.360pe.4x90.csh`
 
