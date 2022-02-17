@@ -1,6 +1,8 @@
 ## System Requirements for Parallel Cluster
 
-### Please set up a alarm on AWS to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
+### Please set up a alarm on AWS 
+
+Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
 ### Software Requirements
@@ -28,17 +30,7 @@ Note, the scripts in this tutorial use the us-east-1 region, but the scripts can
 
 The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
-
-
-* c4.large instance running RHEL with 3.75 GiB memory, 500 Mbps Network Bandwidth and 2 virtual cpus is used for the CMAQ Training Case 
-
-<a href="https://aws.amazon.com/blogs/aws/now-available-new-c4-instances/">AWS c4 Instance Pricing</a>
-
-The 12km case study has a ColxRowxLayer = 67x59x35 and takes 2 hours to complete.
-Note, that we run the tutorial instances for 4 days, 24 hours a day, and much of the time the node is idle (evenings) but we pay for the instances to be available 24/7 so that we do not shut down the instances, and then need to provide new IP addresses to login to.
-
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
-
 
 #### Recommended Parallel Cluster Configuration for CONUS Domain
 
