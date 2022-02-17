@@ -32,7 +32,7 @@ If it does not exist, you can place the data directory on the /shared filesystem
 `mkdir /shared/data`
 
 
-## Azure Cyclecloud bilt to allow the input data to be installed on the /shared/data directory
+## Azure Cyclecloud install input on the /shared/data directory
 
 `mkdir /shared/data`
 
