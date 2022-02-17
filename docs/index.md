@@ -37,7 +37,6 @@
            slurm_multiple_queues.md
            fault_tolerance_cluster.md 
            future_work.md
-           goal.md
      help/
            pcluster_support.md
            cmaq_support.md 

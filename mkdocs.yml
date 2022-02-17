@@ -1,17 +1,13 @@
 site_name: cmaq_parallel_cluster
 nav:
     - Home: 'index.md'
-    - 'User Guide':
+    - 'User Guide for AWS Parallel Cluster':
         - 'System Requirements AWS': 'user_guide/system-requirements-parallel-cluster.md'
-        - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
         - 'AWS MVP Parallel Cluster': 'user_guide/aws-pcluster-cluster.md'
-        - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'
         - 'Install CMAQ on Pcluster': 'user_guide/software-install-pcluster.md'
-        - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
         - 'Install Input Data': 'user_guide/input-data-install.md'
         - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide/run-cmaq-benchmark-pcluster.md'
-        - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide/run-cmaq-benchmark-cyclecloud.md'
         - 'Create AMI from Command Line': 'user_guide/create_ami_from_command_line.md'
         - 'CMAQ Cluster Software Loaded using AMI': 'user_guide/cmaq-cluster-from-ami.md'
         - 'CMAQ Cluster Software Loaded using Custom Bootstrap': 'user_guide/custom-bootstrap.md'
@@ -30,8 +26,12 @@ nav:
         - 'pcluster3-config-converter': 'user_guide/pcluster3-config-converter.md'
         - 'Git Secrets': 'user_guide/git-secrets.md'
         - 'Tracking Costs': 'user_guide/cost-allocation-tags.md'
-        - 'Future Work': 'user_guide/future_work.md'
-        - 'Goal of Cluster Cloud Development': 'user_guide/goal.md'
+    - 'User Guide for Azure Cycle Cloud':
+        - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
+        - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'
+        - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
+        - 'Install Input Data': 'user_guide/input-data-install.md'
+        - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide/run-cmaq-benchmark-cyclecloud.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
@@ -40,6 +40,8 @@ nav:
         - 'CMAQ Support': 'help/cmaq_support.md'
         - 'AWS Free Training': 'help/aws-free-training.md'
         - 'Key References on Cloud Computing': 'user_guide/key-references.md'
+    - Future Work:
+        - 'Future Work': 'user_guide/future_work.md'
 
 theme:
   name: readthedocs
