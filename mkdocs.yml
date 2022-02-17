@@ -8,16 +8,17 @@ nav:
         - 'Install CMAQ on Pcluster': 'user_guide/software-install-pcluster.md'
         - 'Install Input Data': 'user_guide/input-data-install.md'
         - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide/run-cmaq-benchmark-pcluster.md'
-        - 'Compare timings': 'user_guide/parse_timing.md'
-        - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
-        - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
-        - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
+        - 'Running CMAQ from Existing Snapshot with pre-loaded input data': 'user_guide/lustre-import-from-S3-bucket.md'
     - User Guide for Azure Cycle Cloud:
         - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
         - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'
         - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
         - 'Install Input Data': 'user_guide/input-data-install.md'
         - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide/run-cmaq-benchmark-cyclecloud.md'
+    - Post Processing CMAQ on Cloud
+        - 'Compare timings': 'user_guide/parse_timing.md'
+        - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
+        - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
