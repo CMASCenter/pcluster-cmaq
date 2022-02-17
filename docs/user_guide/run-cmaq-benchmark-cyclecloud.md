@@ -37,12 +37,6 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 The 180 pe job should take 60 minutes to run (30 minutes per day)
 
-### check on the status of the cluster using CloudWatch
-
-```
-<a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1">Cloudwatch Dashboard</a>
-<a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/">Monitoring Dashboard for P=arallel Cluster</a>
-```
 
 ### check the timings while the job is still running using the following command
 
