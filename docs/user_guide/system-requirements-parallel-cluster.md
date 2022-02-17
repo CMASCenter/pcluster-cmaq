@@ -1,4 +1,4 @@
-## System Requirements
+## System Requirements for Parallel Cluster
 
 ### Please set up a alarm on AWS to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
