@@ -1,6 +1,6 @@
-## System Requirements for Parallel Cluster
+## System Requirements for Cycle Cloud
 
-### Please set up a alarm on Azureto receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
+### Please set up a alarm on Azure to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
 ### Software Requirements
@@ -20,7 +20,7 @@ The size of hardware depends on the domain size and resolution for  your CMAQ ca
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 
 
-#### Recommended Parallel Cluster Configuration for CONUS Domain
+#### Recommended Cycle Cloud Configuration for CONUS Domain
 
 Head node:
 
@@ -31,7 +31,7 @@ Compute Node:
 * * HBv3-120 instance running Centos7 
 448 GB of RAM, and no hyperthreading with 350 GB/sec of memory bandwidth, up to 32 MB of L3 cache per core, up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.675 GHz.
 
-Figure 1. Cycle Cloud Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
+Figure 1. Cycle Cloud Recommended Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
 ![Azure Minimum Viable Product Configuration](../diagrams/azure_minimum_viable_product.png)
 
@@ -70,7 +70,7 @@ Table 1. Azure Instance On-Demand versus Spot Pricing (price is subject to chang
 | HBv3-120	| 120	|  448 GiB   |	 350 Gbps	        | 200 Gbps(Infiniband)          |   $3.6/hour         | $?/hour     |
 
 
-Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with ? head node and HBv3-120 Compute Nodes
+Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Cycle Cloud with ? head node and HBv3-120 Compute Nodes
 
 | Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
@@ -97,7 +97,7 @@ Head node ? compute cost = entire time that the parallel cluster is running ( cr
 Total HBv3-120 cost of Running Benchmarking Suite using ONDEMAND pricing = $?
 
 
-Using 270 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using 3 HBv3-120 compute nodes.
+Using 270 cpus on the Cycle Cloud Cluster, it would take ~4.832 days to run a full year, using 3 HBv3-120 compute nodes.
 
 Table 3. Extrapolated Cost of HBv3-120 used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
