@@ -15,7 +15,7 @@ nav:
         - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
         - 'Install Input Data': 'user_guide/input-data-install.md'
         - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide/run-cmaq-benchmark-cyclecloud.md'
-    - Post Processing CMAQ on Cloud
+    - Post Processing CMAQ on Cloud:
         - 'Compare timings': 'user_guide/parse_timing.md'
         - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
         - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
