@@ -51,7 +51,6 @@ Modify the script if you want to change where the data is saved to.  Script curr
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_need_credentials_conus.csh`
 
 ## Use Alternative S3 script to copy the CONUS input data to /fsx/data volume on the cluster (does not need aws credentials)
-this download script appears to be missing the GRIDDESC file, obtain a copy from the pcluster-cmaq git repo
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign.csh`
 
