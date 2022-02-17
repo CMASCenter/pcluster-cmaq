@@ -68,15 +68,13 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 ### Change directories to install and build the libraries and CMAQ
 
-`cd /shared`
+`cd /shared/pcluster-cmaq`
 
-`git clone https://github.com/lizadams/pcluster-cmaq.git`
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 
-`cd pcluster-cmaq`
 
-`gcc_netcdf_cluster.csh`
+`./gcc_netcdf_cluster.csh`
 
 ### A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using
 
