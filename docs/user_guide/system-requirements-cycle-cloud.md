@@ -22,13 +22,17 @@ Larger hardware and memory configurations are also required for instrumented ver
 
 #### Recommended Cycle Cloud Configuration for CONUS Domain
 
-Head node:
+Scheduler node:
 
-* ? 
+* D12v2
 
-Compute Node:
+Compute Node for HTC Queue:
 
-* * HBv3-120 instance running Centos7 
+* F2sV2
+
+Compute Node for HPC Queue:
+
+*  HBv3-120 instance running Centos7 
 448 GB of RAM, and no hyperthreading with 350 GB/sec of memory bandwidth, up to 32 MB of L3 cache per core, up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.675 GHz.
 
 Figure 1. Cycle Cloud Recommended Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
