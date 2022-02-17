@@ -90,40 +90,40 @@ Num  Day        Wall Time
       Avg. Time = 2353.44
 ```
 
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
+### Submit a request for a 270 pe job ( 3 x 90 pe)  
 
-`sbatch run_cctm_2016_12US2.288pe.csh`
+`sbatch scripts/run_cctm_2016_12US2.270pe.3x90.csh`
 
 ### Check on the status in the queue
 
-`squeue -u ubuntu`
+`squeue`
 
-Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
 
-output:
+### Check the timing after the run completes
 
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
-```
-
-### Check the status of the run
-
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
+`tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.15x18pe.2day.log`
 
 output
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
 Number of Grid Cells:      3409560  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       180
+Number of Processes:       270
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2015-12-22   2097.37
-02   2015-12-23   1809.84
-     Total Time = 3907.21
-      Avg. Time = 1953.60
+01   2015-12-22   1703.19
+02   2015-12-23   1494.17
+     Total Time = 3197.36
+      Avg. Time = 1598.68
+
 ```
 
 
@@ -134,82 +134,14 @@ Num  Day        Wall Time
 output:
 
 ```
-Wed Jan 05 19:34:05 2022
-NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
-queue1-dy-computeresource1-1       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-2       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-3       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-4       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-5       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-6       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-7       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-8       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
-queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
+Thu Feb 17 14:53:19 2022
+NODELIST             NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
+cmaq-hbv3-hpc-pg0-1      1      hpc*       idle% 120   120:1:1 435814        0      1    cloud none                
+cmaq-hbv3-hpc-pg0-2      1      hpc*       idle% 120   120:1:1 435814        0      1    cloud none                
+cmaq-hbv3-hpc-pg0-3      1      hpc*       idle% 120   120:1:1 435814        0      1    cloud none                
+cmaq-hbv3-htc-1          1       htc       idle~ 1       1:1:2   3072        0      1    cloud none           
 ```
 
-Note: on a c5n.18xlarge, the number of virtual cpus is 72, if the yaml contains the Compute Resources Setting of DisableSimultaneousMultithreading: false
-If DisableSimultaneousMultithreading: true, then the number of cpus is 36 and there are no virtual cpus.
-
-### edit run script to use
-SBATCH --exclusive
-
-### Confirm that there are only 36 cpus available to the slurm scheduler
-
-`sinfo -lN`
-
-output:
-
-```
-Wed Jan 05 20:54:01 2022
-NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
-queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-2       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-3       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-4       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-5       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-6       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-```
-
-### Re-run the CMAQ CONUS Case
-
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
-
-`sbatch run_cctm_2016_12US2.288pe.csh`
-
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
-
-`sbatch run_cctm_2016_12US2.288pe.csh`
-
-`squeue -u ubuntu`
-
-output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
-```
-
-Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
-
-`squeue -u ubuntu`
-
-output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
-```
-
-### Check the status of the run
-
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
-
-### After run has successfully completed
 
 ### After run has successfully completed
 
