@@ -1,8 +1,18 @@
 # Install CMAQ and pre-requisite libraries on linux
 
+## Install CMAQ sofware on parallel cluster
+
+### Login to updated cluster
+(note, replace the centos.pem with your Key Pair)
+
+`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+
+
 ### Change shell to use .tcsh
 
 'sudo usermod -s /bin/tcsh lizadams'
+
+you may need to log out and log back in to have the tcsh shell be active
 
 
 The following instructions assume that you will be installing the software to a /shared/build directory
@@ -17,7 +27,6 @@ Install the pcluster-cmaq git repo to the /shared directory
 cd /shared
 ```
 
-
 ### Use a configuration file from the github repo that was cloned to your local machine
 
 ```
@@ -28,13 +37,6 @@ git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
 ```
 cd pcluster-cmaq
 ```
-
-## Install CMAQ sofware on parallel cluster
-
-### Login to updated cluster
-(note, replace the centos.pem with your Key Pair)
-
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
 
 ### Check to make sure elastic network adapter (ENA) is enabled
 
