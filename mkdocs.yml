@@ -1,7 +1,7 @@
 site_name: cmaq_parallel_cluster
 nav:
     - Home: 'index.md'
-    - 'User Guide for AWS Parallel Cluster':
+    - User Guide for AWS Parallel Cluster:
         - 'System Requirements AWS': 'user_guide/system-requirements-parallel-cluster.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
         - 'AWS MVP Parallel Cluster': 'user_guide/aws-pcluster-cluster.md'
@@ -26,7 +26,7 @@ nav:
         - 'pcluster3-config-converter': 'user_guide/pcluster3-config-converter.md'
         - 'Git Secrets': 'user_guide/git-secrets.md'
         - 'Tracking Costs': 'user_guide/cost-allocation-tags.md'
-    - 'User Guide for Azure Cycle Cloud':
+    - User Guide for Azure Cycle Cloud:
         - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
         - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'
         - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
