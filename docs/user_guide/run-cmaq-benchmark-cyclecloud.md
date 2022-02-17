@@ -120,6 +120,39 @@ Num  Day        Wall Time
 
 ```
 
+### Submit a equest for a 360 pe job ( 4 x 90 )
+
+`sbatch run_cctm_2016_12US2.360pe.4x90.csh`
+
+
+### Examine timing result after run completes
+
+`tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.20x18pe.2day.sleep.log`
+
+Output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       360
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1520.29
+02   2015-12-23   1375.54
+     Total Time = 2895.83
+      Avg. Time = 1447.91
+
+```
+
+
 
 ### Check whether the scheduler thinks there are cpus or vcpus
 
