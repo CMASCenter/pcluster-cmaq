@@ -3,7 +3,8 @@ nav:
     - Home: 'index.md'
     - Quick Start Guide: 'quick-start.md'
     - 'User Guide':
-        - 'System Requirements': 'user_guide/system-requirements.md'
+        - 'System Requirements AWS': 'user_guide/system-requirements-parallel-cluster.md'
+        - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
         - 'Demo Cluster': 'user_guide/demo-cluster.md'
         - 'AWS MVP Parallel Cluster': 'user_guide/aws-pcluster-cluster.md'
         - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'

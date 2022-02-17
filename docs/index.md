@@ -28,7 +28,8 @@
            multithreading-cmaq-cluser.md
            lustre-import-from-S3-bucket.md
            shared-ebs-load-snapshot.md
-           system-requirements.md
+           system-requirements-parallel-cluster.md
+           system-requirements-cycle-cloud.md
            key-references.md
            update-policy.md
            vpc_management.md 
