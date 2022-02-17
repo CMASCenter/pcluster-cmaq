@@ -49,10 +49,6 @@ logout and log back in to have it take effect
 
 `mkdir /shared/build`
 
-### Change the group to cmaq recursively for the /shared directory
-
-    `sudo chgrp -R cmaq /shared`
-
 
 ### Install the cluster-cmaq git repo to the /shared directory
 
@@ -62,6 +58,9 @@ logout and log back in to have it take effect
 
 `cd pcluster-cmaq`
 
+### Change the group to cmaq recursively for the /shared directory
+
+    `sudo chgrp -R cmaq /shared`
 
 ### Check what modules are available on the cluster
 
