@@ -73,9 +73,9 @@ CMAQ Cycle Cloud is configured to have 1 Terrabytes of space on the /shared file
 
 
 ## For Parallel Cluster: Obtain the Input data from a public S3 Bucket
-Two methods are available either importing the data on the lustre file system using the yaml file to specify the s3 bucket location or copying the data using s3 copy commands.
+A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location, rather than using the above aws s3 copy commands. 
 
-### First Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
+### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
 
 ```
   - MountDir: /fsx
@@ -86,10 +86,4 @@ Two methods are available either importing the data on the lustre file system us
       ImportPath: s3://conus-benchmark-2day    <<<  specify name of S3 bucket
 ```
 This requires that the S3 bucket specified is publically available
-
-
-### Second Method: Copy the data using the s3 command line
-
-### set the aws credentials
-If you don't have credentials, please contact the manager of your aws account.
 
