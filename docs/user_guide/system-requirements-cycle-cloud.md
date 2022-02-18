@@ -36,6 +36,7 @@ CycleCloud allows you to:
 
 
 <a href="https://docs.microsoft.com/en-us/azure/architecture/topics/high-performance-computing#azure-cyclecloud">High Performance Computing on Azure CycleCloud</a>
+
 <a href="https://docs.microsoft.com/en-us/azure/cyclecloud/?view=cyclecloud-8">Azure CycleCloud</a>
 
 #### Recommended Cycle Cloud Configuration for CONUS Domain
