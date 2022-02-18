@@ -7,6 +7,8 @@ It may be possible to set up daily or weekly spending alarms as well.
 
 ### Software Requirements
 
+* Ubuntu OS
+* Tcsh shell
 * Git
 * Compilers (C, C++, and Fortran) - GNU compilers version ≥ 8.3
 * MPI (Message Passing Interface) -  OpenMPI ≥ 4.0

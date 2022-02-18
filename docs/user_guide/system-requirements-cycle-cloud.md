@@ -6,6 +6,8 @@ It may be possible to set up daily or weekly spending alarms as well.
 
 ### Software Requirements for CMAQ on CycleCloud
 
+* Tcsh shell
+* Centos7  (tried ubuntu but the module command did not provide updated compilers and openmpi)
 * Git
 * Compilers (C, C++, and Fortran) - GNU compilers version ≥ 9.2
 * MPI (Message Passing Interface) -  OpenMPI ≥ 4.1.0
