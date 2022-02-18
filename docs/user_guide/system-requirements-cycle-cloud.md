@@ -117,14 +117,14 @@ Head node ? compute cost = entire time that the parallel cluster is running ( cr
 Total HBv3-120 cost of Running Benchmarking Suite using ONDEMAND pricing = $?
 
 
-Using 270 cpus on the Cycle Cloud Cluster, it would take ~4.832 days to run a full year, using 3 HBv3-120 compute nodes.
+Using 360 cpus on the Cycle Cloud Cluster, it would take ~6.11 days to run a full year, using 3 HBv3-120 compute nodes.
 
 Table 3. Extrapolated Cost of HBv3-120 used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
 | Benchmark Case | Number of PES |  Number of HBv3-120 Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
 | -------------  | ------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
-| 2 day CONUS    |  270          |          3       |    SPOT    |    ?/hour |     3197.36/3600 = .8881  |    .8881/2 * 365 = 162 hours/node * 3 nodes = 486 * $? = $? |
-| 2 day CONUS    |  270          |          3       |  ONDEMAND  |    3.6/hour   | 3197.36/3600 = .8881  |    .8881/2 * 365 = 162 hours/node * 3 nodes = 486 * $3.6 = $1,750 |
+| 2 day CONUS    |  360          |          3       |    SPOT    |    ?/hour |     2895.83/3600 = .8044  |    .8044/2 * 365 = 147 hours/node * 3 nodes = 441 * $? = $? |
+| 2 day CONUS    |  360          |          3       |  ONDEMAND  |    3.6/hour   | 2895.83/3600 = .8044  |    .8044/2 * 365 = 147 hours/node * 3 nodes = 441 * $3.6 = $1,587.6 |
 
 
 
