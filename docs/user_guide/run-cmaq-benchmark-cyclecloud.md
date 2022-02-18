@@ -10,7 +10,7 @@ To ensure you have the correct directory specified
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-`sbatch run_cctm_2016_12US2.180pe.csh`
+`sbatch run_cctm_2016_12US2.180pe.2x90.csh`
 
 Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of PD (pending), with the NODELIST reason being that it is configuring the partitions for the cluster
 
