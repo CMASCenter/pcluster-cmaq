@@ -27,12 +27,12 @@ Azure CycleCloud Provides the simplest way to manage HPC workloads using any sch
 
 CycleCloud allows you to:
 
-    * Deploy full clusters and other resources, including scheduler, compute VMs, storage, networking, and cache
-    * Orchestrate job, data, and cloud workflows
-    * Give admins full control over which users can run jobs, as well as where and at what cost
-    * Customize and optimize clusters through advanced policy and governance features, including cost controls, Active Directory integration, monitoring, and reporting
-    * Use your current job scheduler and applications without modification
-    * Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
+* Deploy full clusters and other resources, including scheduler, compute VMs, storage, networking, and cache
+* Orchestrate job, data, and cloud workflows
+* Give admins full control over which users can run jobs, as well as where and at what cost
+* Customize and optimize clusters through advanced policy and governance features, including cost controls, Active Directory integration, monitoring, and reporting
+* Use your current job scheduler and applications without modification
+* Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
 
 
 <a href="https://docs.microsoft.com/en-us/azure/architecture/topics/high-performance-computing#azure-cyclecloud">High Performance Computing on Azure CycleCloud</a>
