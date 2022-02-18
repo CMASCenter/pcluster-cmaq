@@ -4,7 +4,7 @@
 Set alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-### Software Requirements
+### Software Requirements for CMAQ on CycleCloud
 
 * Git
 * Compilers (C, C++, and Fortran) - GNU compilers version ≥ 9.2
@@ -20,6 +20,23 @@ It may be possible to set up daily or weekly spending alarms as well.
 The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 
+
+### Azure CycleCloud
+
+Azure CycleCloud Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
+
+CycleCloud allows you to:
+
+    * Deploy full clusters and other resources, including scheduler, compute VMs, storage, networking, and cache
+    * Orchestrate job, data, and cloud workflows
+    * Give admins full control over which users can run jobs, as well as where and at what cost
+    * Customize and optimize clusters through advanced policy and governance features, including cost controls, Active Directory integration, monitoring, and reporting
+    * Use your current job scheduler and applications without modification
+    * Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
+
+
+<a href="https://docs.microsoft.com/en-us/azure/architecture/topics/high-performance-computing#azure-cyclecloud">High Performance Computing on Azure CycleCloud</a>
+<a href="https://docs.microsoft.com/en-us/azure/cyclecloud/?view=cyclecloud-8">Azure CycleCloud</a>
 
 #### Recommended Cycle Cloud Configuration for CONUS Domain
 
