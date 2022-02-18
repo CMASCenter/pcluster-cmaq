@@ -43,7 +43,8 @@ Figure 1. Cycle Cloud Recommended Cluster Configuration (Number of compute nodes
 
 ![Azure Minimum Viable Product Configuration](../diagrams/microsoft_azure_minimum_viable_product.png)
 
-#### Azure CycleCloud does not make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
+#### Azure CycleCloud does not make job allocation or scaling decisions. 
+It simply tries to launch, terminate, and maintain resources according to Slurm’s instructions.
 
 Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  
 
