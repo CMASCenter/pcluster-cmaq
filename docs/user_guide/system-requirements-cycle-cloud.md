@@ -106,7 +106,7 @@ Table 1. Azure Instance On-Demand versus Spot Pricing (price is subject to chang
 
 
 
-Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Cycle Cloud with ? head node and HBv3-120 Compute Nodes
+Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Cycle Cloud with D12v2 schedulare node and HBv3-120 Compute Nodes
 
 | Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | compiler flag | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ | ---------------      |
@@ -134,7 +134,7 @@ Figure 4. Cost by Service Type - Azure Console
 
 ![Azure Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/Azure_Bench_Service_Type_Cost.png)
 
-Head node ? compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
+Scheduler node D12v2 compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.?/hr = $ ? using spot pricing, 6 hours * $?/hr = $? using on demand pricing.
 
 Total HBv3-120 cost of Running Benchmarking Suite using ONDEMAND pricing = $?
 
