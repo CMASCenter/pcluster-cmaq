@@ -177,6 +177,35 @@ Num  Day        Wall Time
 ```
 
 
+### Run 120 PE job
+
+`sbatch run_cctm_2016_12US2.120pe.1x120.csh`
+
+
+`tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.10x12pe.2day_remove_native_sleep.log`
+
+Output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       120
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2829.84
+02   2015-12-23   2516.07
+     Total Time = 5345.91
+      Avg. Time = 2672.95
+```
+
 
 ### Check whether the scheduler thinks there are cpus or vcpus
 
