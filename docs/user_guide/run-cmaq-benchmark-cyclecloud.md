@@ -78,11 +78,35 @@ Number of Processes:       180
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2015-12-22   2481.55
-02   2015-12-23   2225.34
-     Total Time = 4706.89
-      Avg. Time = 2353.44
+01   2015-12-22   2097.37
+02   2015-12-23   1809.84
+     Total Time = 3907.21
+      Avg. Time = 1953.60
+
 ```
+
+### Submit a request for a 180 pe job using (2 x 90 pe), without the -march=native, and the sleep 60 command after mpirun to avoid second day error
+
+`sbatch run_cctm_2016_12US2.180pe.2x90_without_native.csh`
+
+
+`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day_remove_native.sleep.log`
+
+Output:
+
+```
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1954.20
+02   2015-12-23   1773.86
+     Total Time = 3728.06
+      Avg. Time = 1864.03
+```
+
 
 ### Submit a request for a 270 pe job ( 3 x 90 pe)  
 
