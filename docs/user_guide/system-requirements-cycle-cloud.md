@@ -45,11 +45,11 @@ Scheduler node:
 
 * D12v2
 
-Compute Node for HTC Queue:
+Compute Node for HTC Queue - used for Post-Processing (combine, etc):
 
 * F2sV2
 
-Compute Node for HPC Queue:
+Compute Node for HPC Queue - used to run CMAQ:
 
 *  HBv3-120 instance running Centos7 
 
