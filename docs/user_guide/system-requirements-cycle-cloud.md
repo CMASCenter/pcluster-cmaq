@@ -77,11 +77,12 @@ Table 1. Azure Instance On-Demand versus Spot Pricing (price is subject to chang
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Cycle Cloud with ? head node and HBv3-120 Compute Nodes
 
-| Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
-| 180           |  2x90          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false                                 |            | ?hr * 2 nodes * 1.307 hr = $? | 3.6/hr * 2 nodes * 1.307 hr = $9.41 |
-| 270           |  3x90          | 15x18         | 1703.19              | 1494.17              |    3197.36                 |  no                | copied                  |  false                     | ?/hr * 3 nodes * .888 = $? | 3.6/hr * 3 nodes * .888 = $9.59  |
-| 360           |  4x90     |  20x18             | 1520.29              |  1375.54             |    2895.83                 |  no                | copied                  |  false                     | ?/hr * 4 nodes * .804 = $? | 3.6/hr * 4 nodes * .804 = $11.59 | 
+| Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | compiler flag | 
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ | ---------------      |
+| 180           |  2x90          | 10x18         | 2097.37              | 1809.84              |    3907.21                 |  no                | copied                  |  false                                 |            | ?hr * 2 nodes * 1.307 hr = $? | 3.6/hr * 2 nodes * 1.08 hr = $7.81 | with -march=native compiler flag |
+| 180          |   2x90     |    10 x 18         | 1954.20              | 1773.86              |    3728.06                 |  no                | copied                  |  false                                              | ?hr * 2 nodes * 1.036 hr = $? | 3.6/hr * 2 nodes * 1.036 hr = $7.46 | without -march=native compiler flag |
+| 270           |  3x90          | 15x18         | 1703.19              | 1494.17              |    3197.36                 |  no                | copied                  |  false                     | ?/hr * 3 nodes * .888 = $? | 3.6/hr * 3 nodes * .888 = $9.59  | with -march=native compiler flag |
+| 360           |  4x90     |  20x18             | 1520.29              |  1375.54             |    2895.83                 |  no                | copied                  |  false                     | ?/hr * 4 nodes * .804 = $? | 3.6/hr * 4 nodes * .804 = $11.59 | with -march=native compiler flag | 
 
 Total HBv3-120 compute cost of Running Benchmarking Suite using SPOT pricing = $?
 
