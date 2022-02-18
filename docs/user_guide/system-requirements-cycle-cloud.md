@@ -76,13 +76,16 @@ Software:
 
 <a href="https://azure.com/e/a5d6f8654d634e8b93973574cbda428d">Azure HBv3-120 Pricing</a>
 
+![Azure HPC HBv3_120pe Pricing](./Azure_HPC_HBv3_Pricing.png)
+
 
 
 Table 1. Azure Instance On-Demand versus Spot Pricing (price is subject to change)
 
 | Instance Name	| CPUs |  RAM      |  Memory Bandwidth	| Network Bandwidth | Linux On-Demand Price | Linux Spot Price | 
 | ------------  | ----- | --------  | ---------------   | ---------------   | --------------------  | ---------------  |
-| HBv3-120	| 120	|  448 GiB   |	 350 Gbps	        | 200 Gbps(Infiniband)          |   $3.6/hour         | $?/hour     |
+| HBv3-120	| 120	|  448 GiB   |	 350 Gbps	        | 200 Gbps(Infiniband)          |   $3.6/hour         | $1.4/hour     |
+
 
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Cycle Cloud with ? head node and HBv3-120 Compute Nodes
