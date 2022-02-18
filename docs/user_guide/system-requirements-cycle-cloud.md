@@ -41,7 +41,7 @@ Compute Node for HPC Queue:
 
 Figure 1. Cycle Cloud Recommended Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
-![Azure Minimum Viable Product Configuration](../diagrams/azure_minimum_viable_product.png)
+![Azure Minimum Viable Product Configuration](../diagrams/microsoft_azure_minimum_viable_product.png)
 
 #### Azure CycleCloud does not make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
 
