@@ -129,17 +129,15 @@ Table 3. Extrapolated Cost of HBv3-120 used for CMAQv5.3.3 Annual Simulation bas
 
 
 <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/disks-shared">Azure SSD Disk Pricing</a>
+<a href="https://azure.microsoft.com/en-us/pricing/details/managed-disks/">Azure SSD Disk Pricing</a>
 
 
-Table 4. Shared SSD File System Pricing (need to update for Azure - this is lustre pricing.
+Table 4. Shared SSD File System Pricing
 
-| Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
-| --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
-| Persistant   | 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |                   |
-| Persistant   | 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |                   |
-| Persistant   | 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |                   |
-| Persistant   | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
-| Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month | 0.000192/hour     |	
+| Storage Type | Storage options   | 	Max IOPS (Max IOPS w/ bursting)	| Pricing (monthly)  |  Pricing | Price per mount per month (Shared Disk) |
+| --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  | ------  |
+| Persistant 1TB  | 200 MB/s/TB       | 	5,000 (30,000)                                  |	$122.88/month |  $6.57                 |
+| Scratch      | 200/MB/s/TiB      |     	                               |        ?/month | 0.000192/hour     |? |	
 
 Q. What is the difference between TiB and TB (I obtained the syntax from the AWS Pricing Table see link above)
 
