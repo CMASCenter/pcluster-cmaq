@@ -11,4 +11,4 @@ setenv AWS_REGION "us-east-1"
 setenv DATA /shared/data/CONUS
 mkdir -p $DATA
 
-aws s3 cp --recursive s3://conus-benchmark-2day $DATA/
+aws s3 --no-sign-request cp --recursive s3://conus-benchmark-2day $DATA/test
