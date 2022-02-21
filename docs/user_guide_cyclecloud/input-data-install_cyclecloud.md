@@ -21,17 +21,6 @@ Set up your credentials for using s3 copy (you can skip this if you do not have 
 `aws configure`
 
 
-## AWS Parallel Cluster configured with the lustre file system provides advantages to pre-load data at cluster build time.
-
-Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
-
-`ls /fsx`
-
-If it does not exist, you can place the data directory on the /shared filesystem
-
-`mkdir /shared/data`
-
-
 ## Azure Cyclecloud install input on the /shared/data directory
 
 `mkdir /shared/data`
@@ -46,11 +35,11 @@ Output:
 
 
 ## Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
-Modify the script if you want to change where the data is saved to.  Script currently uses /shared/data Modify it if you want to copy the data to the /fsx/data volume on the cluster
+Modify the script if you want to change where the data is saved to.  Script currently uses /shared/data 
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas.csh`
 
-## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /shared/data volume on the cluster (does not need aws credentials)
+## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /shared/data volume on the cluster
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa.csh`
 
@@ -68,22 +57,4 @@ output:
 44G     .
 ```
 
-CMAQ Parallel Cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 CMAQ Cycle Cloud is configured to have 1 Terrabytes of space on the /shared filesystem, to allow multiple output runs to be stored.
-
-
-## For Parallel Cluster: Obtain the Input data from a public S3 Bucket
-A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location, rather than using the above aws s3 copy commands. 
-
-### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
-
-```
-  - MountDir: /fsx
-    Name: name2
-    StorageType: FsxLustre
-    FsxLustreSettings:
-      StorageCapacity: 1200
-      ImportPath: s3://conus-benchmark-2day    <<<  specify name of S3 bucket
-```
-This requires that the S3 bucket specified is publically available
-
