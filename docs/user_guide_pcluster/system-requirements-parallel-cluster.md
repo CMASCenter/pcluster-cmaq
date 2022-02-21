@@ -1,4 +1,4 @@
-## 1.0 Description of MVP for AWS Parallel Cluster
+## 1.0 AWS Parallel Cluster
 
 ### 1.1 Please set up a alarm on AWS 
 
