@@ -11,8 +11,7 @@ nav:
                 - '2.1 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
                 - '2.2 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
                 - '2.3 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
-            - Option 2:  (requires public permissions on snapshot or AMI)
-                - AWS Parallel Cluster Run from pre-loaded software and data:
+            - Option 2:  AWS Parallel Cluster Run from pre-loaded software and data (requires public permissions on snapshot or AMI):
                    - '3.1 Run CMAQ CONUS Benchmark from AMI/Snapshot and Imported S3 bucket on Lustre': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
         - AWS Parallel Cluster Post-Processing and QA:
             - '4.1 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
