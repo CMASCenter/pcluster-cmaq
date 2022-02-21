@@ -9,7 +9,6 @@ nav:
         - 'Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
         - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
         - 'Running CMAQ from Existing Snapshot with pre-loaded input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
-        - Post Processing CMAQ on Parallel Cluster:
         - 'Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
         - 'Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
         - 'QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
@@ -20,7 +19,6 @@ nav:
         - 'Install CMAQ on Cycle Cloud': 'user_guide_clyclecloud/software-install-cyclecloud.md'
         - 'Install Input Data': 'user_guide_cyclecloud/input-data-install_cyclecloud.md'
         - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide_cyclecloud/run-cmaq-benchmark-cyclecloud.md'
-    - Post Processing CMAQ on Azure Cycle Cloud:
         - 'Compile and Run Post-processors': 'user_guide_cyclecloud/post-process-cyclecloud.md'
         - 'Compare timings': 'user_guide_cyclecloud/parse_timing_cyclecloud.md'
         - 'QA CMAQ Output': 'user_guide_cyclecloud/qa_cmaq_run_cyclecloud.md'
