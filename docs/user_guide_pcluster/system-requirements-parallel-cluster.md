@@ -1,4 +1,4 @@
-## 1.0 System Requirements for Parallel Cluster
+## 1.0 Description of MVP for AWS Parallel Cluster
 
 ### 1.1 Please set up a alarm on AWS 
 
@@ -25,16 +25,13 @@ Note, the scripts in this tutorial use the us-east-1 region, but the scripts can
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 
 
-
-### 1.4 Hardware Requirements
-
 #### Recommended Minimum Requirements
 
 The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
-### 1.5 Recommended Parallel Cluster Configuration for CONUS Domain
+### 1.4 MVP Parallel Cluster Configuration for CONUS Domain
 
 Head node:
 
@@ -49,7 +46,7 @@ Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute node
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
 
-### 1.6 Slurm Compute Node Provisioning
+### 1.5 Slurm Compute Node Provisioning
 
 AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
 
@@ -105,7 +102,7 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
 Using c5n.18xlarge as the compute node, it costs 3.888/hr/1.1732/hr = 3.314 times as much to run on demand versus spot pricing
 
-### 1.7 Benchmark Timing Results
+### 1.6 Benchmark Timing Results
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -215,7 +212,7 @@ Need to create table
 Also need estimate for S3 Bucket cost for storing an annual simulation
 
 
-### 1.8 Recommended Workflow
+### 1.7 Recommended Workflow
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
