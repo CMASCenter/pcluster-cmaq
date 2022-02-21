@@ -13,9 +13,9 @@ nav:
         - 'Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
         - 'Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
         - 'QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
-        - 'Saving Output': 'user_guide_pcluster//copy_output_to_S3_Bucket_pcluster.md'
+        - 'Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket_pcluster.md'
     - User Guide for Azure Cycle Cloud:
-        - 'System Requirements Azure': 'user_guide_cyclecloud/system-requirements-cycle-cloud.md'
+        - 'System Requirements Azure': 'user_guide_cyclecloud/system-requirements-cyclecloud.md'
         - 'Azure CycleCloud Cluster': 'user_guide_cyclecloud/azure-cyclecloud-cluster.md'
         - 'Install CMAQ on Cycle Cloud': 'user_guide_clyclecloud/software-install-cyclecloud.md'
         - 'Install Input Data': 'user_guide_cyclecloud/input-data-install.md'
