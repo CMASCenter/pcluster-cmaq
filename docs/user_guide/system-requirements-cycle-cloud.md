@@ -165,49 +165,10 @@ Table 4. Shared SSD File System Pricing
 | Storage Type | Storage options   | 	Max IOPS (Max IOPS w/ bursting)	| Pricing (monthly)  |  Pricing | Price per mount per month (Shared Disk) |
 | --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  | ------  |
 | Persistant 1TB  | 200 MB/s/TB       | 	5,000 (30,000)                                  |	$122.88/month |  $6.57                 |
-| Scratch      | 200/MB/s/TiB      |     	                               |        ?/month | 0.000192/hour     |? |	
-
-Q. What is the difference between TiB and TB (I obtained the syntax from the AWS Pricing Table see link above)
-
-Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
-
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">FSxLustreSettings</a>
-
-Cost example:
-    0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
-
-Note: 1.2 TB is the minimum file size that you can specify for the lustre file system
-
-    1,200 GB x 0.00019178 USD per hour x 24 hours x 5 days = 27.6 USD
-
-Question is 1.2 TB enough for the output of a yearly CMAQ run?
-
-For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
-
-```
-cd /fsx/data/output/output_CCTM_v532_gcc_2016_CONUS_16x8pe_full
-du -sh
-```
-
-Size of output directory when CMAQ is run to output all 35 layers, all 244 variables in the CONC file, includes all other output files
-
-```
-173G .
-```
-
-So we need 86.5 GB per day
-
-Storage requirement for an annual simulation if you assumed you would keep all data on lustre filesystem
-
-     86.5 GB * 365 days = 31,572.5 GB  = 31.5 TB
 
 
-Cost for annual simulation
 
-     31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
-
-
-Table 5. Extrapolated Cost of Lustre File system for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Table 5. Extrapolated Cost of File system for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
 Need to create table
 
@@ -219,14 +180,6 @@ Also need estimate for S3 Bucket cost for storing an annual simulation
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
-Still need to determine size of post-processed output (combine output, etc).
-
-      86.5 GB * 31 days = 2,681.5 GB  =  2.6815 TB
-
-Cost for lustre storage of a monthly simulation
-
-      2,681.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $61.7 USD
-
-Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is stored at a time on the lustre scratch file system.
+Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is stored at a time on the /shared/data scratch file system.
 This workflow will help with preserving the data in case the cluster or scratch file system gets pre-empted.
 
