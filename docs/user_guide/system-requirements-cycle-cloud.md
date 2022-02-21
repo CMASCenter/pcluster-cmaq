@@ -142,7 +142,7 @@ Figure 4. Cost by Service Type - Azure Console
 
 Scheduler node D12v2 compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.?/hr = $ ? using spot pricing, 6 hours * $?/hr = $? using on demand pricing.
 
-Total HBv3-120 cost of Running Benchmarking Suite using ONDEMAND pricing = $?
+Total HBv3-120 cost of Running Benchmarking Suite using ONDEMAND pricing = $52.00 (sum of all ondemand cost for Table 2)
 
 
 Using 360 cpus on the Cycle Cloud Cluster, it would take ~6.11 days to run a full year, using 3 HBv3-120 compute nodes.
