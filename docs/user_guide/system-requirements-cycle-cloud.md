@@ -173,13 +173,13 @@ Table 5. Extrapolated Cost of File system for CMAQv5.3.3 Annual Simulation based
 Need to create table
 
 
-Also need estimate for S3 Bucket cost for storing an annual simulation
+Also need estimate for Archive Storage cost for storing an annual simulation
 
 
 ### Recommended Workflow
 
-Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
+Post-process monthly save output and/or post-processed outputs to archive storage at the end of each month.
 
-Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is stored at a time on the /shared/data scratch file system.
+Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to archive storage, so that only 1 month of output is stored at a time on the /shared/data scratch file system.
 This workflow will help with preserving the data in case the cluster or scratch file system gets pre-empted.
 
