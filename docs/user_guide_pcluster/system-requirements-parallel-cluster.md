@@ -25,7 +25,7 @@ Note, the scripts in this tutorial use the us-east-1 region, but the scripts can
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 
 
-#### Recommended Minimum Requirements
+#### Right-sizing Compute Nodes for the Parallel Cluster Configuration 
 
 The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
