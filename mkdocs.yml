@@ -2,23 +2,29 @@ site_name: cmaq_parallel_cluster
 nav:
     - Home: 'index.md'
     - User Guide for AWS Parallel Cluster:
-        - 'System Requirements AWS': 'user_guide/system-requirements-parallel-cluster.md'
-        - 'Demo Cluster': 'user_guide/demo-cluster.md'
-        - 'AWS MVP Parallel Cluster': 'user_guide/aws-pcluster-cluster.md'
-        - 'Install CMAQ on Pcluster': 'user_guide/software-install-pcluster.md'
-        - 'Install Input Data': 'user_guide/input-data-install.md'
-        - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide/run-cmaq-benchmark-pcluster.md'
-        - 'Running CMAQ from Existing Snapshot with pre-loaded input data': 'user_guide/lustre-import-from-S3-bucket.md'
+        - 'System Requirements AWS': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
+        - 'Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
+        - 'AWS MVP Parallel Cluster': 'user_guide_pcluster/aws-pcluster-cluster.md'
+        - 'Install CMAQ on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
+        - 'Install Input Data': 'user_guide_pcluster/input-data-install.md'
+        - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
+        - 'Running CMAQ from Existing Snapshot with pre-loaded input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
+        - Post Processing CMAQ on Parallel Cluster:
+        - 'Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
+        - 'Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
+        - 'QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
+        - 'Saving Output': 'user_guide_pcluster//copy_output_to_S3_Bucket_pcluster.md'
     - User Guide for Azure Cycle Cloud:
-        - 'System Requirements Azure': 'user_guide/system-requirements-cycle-cloud.md'
-        - 'Azure CycleCloud Cluster': 'user_guide/azure-cyclecloud-cluster.md'
-        - 'Install CMAQ on Cycle Cloud': 'user_guide/software-install-cyclecloud.md'
-        - 'Install Input Data': 'user_guide/input-data-install.md'
-        - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide/run-cmaq-benchmark-cyclecloud.md'
-    - Post Processing CMAQ on Cloud:
-        - 'Compare timings': 'user_guide/parse_timing.md'
-        - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
-        - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
+        - 'System Requirements Azure': 'user_guide_cyclecloud/system-requirements-cycle-cloud.md'
+        - 'Azure CycleCloud Cluster': 'user_guide_cyclecloud/azure-cyclecloud-cluster.md'
+        - 'Install CMAQ on Cycle Cloud': 'user_guide_clyclecloud/software-install-cyclecloud.md'
+        - 'Install Input Data': 'user_guide_cyclecloud/input-data-install.md'
+        - 'Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide_cyclecloud/run-cmaq-benchmark-cyclecloud.md'
+    - Post Processing CMAQ on Azure Cycle Cloud:
+        - 'Compile and Run Post-processors': 'user_guide_cyclecloud/post-process-pcluster.md'
+        - 'Compare timings': 'user_guide_cyclecloud/parse_timing_azure.md'
+        - 'QA CMAQ Output': 'user_guide_cyclecloud/qa_cmaq_run_azure.md'
+        - 'Saving Output': 'user_guide_cyclecloud/copy_output_to_archive_azure.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
@@ -26,7 +32,7 @@ nav:
         - 'Parallel Cluster Support': 'help/pcluster_support.md'
         - 'CMAQ Support': 'help/cmaq_support.md'
         - 'AWS Free Training': 'help/aws-free-training.md'
-        - 'Key References on Cloud Computing': 'user_guide/key-references.md'
+        - 'Key References on Cloud Computing': 'help/key-references.md'
     - Future Work:
         - 'Future Work': 'user_guide/future_work.md'
 
