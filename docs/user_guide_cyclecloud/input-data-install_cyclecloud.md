@@ -37,11 +37,11 @@ Output:
 ## Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
 Modify the script if you want to change where the data is saved to.  Script currently uses /shared/data 
 
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas.csh`
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_to_shared.csh`
 
 ## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /shared/data volume on the cluster
 
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa.csh`
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa_to_shared.csh`
 
 check that the resulting directory structure matches the run script
 
