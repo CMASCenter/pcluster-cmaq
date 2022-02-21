@@ -34,7 +34,7 @@ nav:
         - 'AWS Free Training': 'help/aws-free-training.md'
         - 'Key References on Cloud Computing': 'help/key-references.md'
     - Future Work:
-        - 'Future Work': 'user_guide/future_work.md'
+        - 'Future Work': 'user_guide_pcluster/future_work.md'
 
 theme:
   name: readthedocs
