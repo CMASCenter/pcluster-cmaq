@@ -6,12 +6,12 @@ nav:
         - AWS Parallel Cluster Configure, Create and Install Software & Data:
             - '1.1 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
             - '1.2 Create AWS MVP Parallel Cluster': 'user_guide_pcluster/aws-pcluster-cluster.md'
-              - Option 1:
-                  - '2.1 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
-                  - '2.2 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
-                  - '2.3 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
-              - Option 2:
-                   - '3.1 Run CMAQ CONUS Benchmark from AMI/Snapshot and Imported S3 bucket on Lustre': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
+        - Option 1:
+            - '2.1 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
+            - '2.2 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
+            - '2.3 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
+        - Option 2:
+            - '3.1 Run CMAQ CONUS Benchmark from AMI/Snapshot and Imported S3 bucket on Lustre': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
         - AWS Parallel Cluster Post-Processing and QA:
             - '4.1 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
             - '4.2 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
@@ -21,12 +21,12 @@ nav:
         - 'System Requirements Azure': 'user_guide_cyclecloud/system-requirements-cyclecloud.md'
         - Azure CycleCloud Cluster Configure using Azure Web Interface:
              - '1.1 Azure CycleCloud Cluster': 'user_guide_cyclecloud/azure-cyclecloud-cluster.md'
-             - Option 1:
-                - '2.1 Install CMAQ on Cycle Cloud': 'user_guide_clyclecloud/software-install-cyclecloud.md'
-                - '2.2 Install Input Data': 'user_guide_cyclecloud/input-data-install_cyclecloud.md'
-                - '2.3 Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide_cyclecloud/run-cmaq-benchmark-cyclecloud.md'
-             - Option 2:
-                - '3.1 Run CMAQ CONUS Benchmark from pre-installed Azure volume': 'user_guide_cyclecloud/preinstall.md'
+        - Option 1:
+             - '2.1 Install CMAQ on Cycle Cloud': 'user_guide_clyclecloud/software-install-cyclecloud.md'
+             - '2.2 Install Input Data': 'user_guide_cyclecloud/input-data-install_cyclecloud.md'
+             - '2.3 Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide_cyclecloud/run-cmaq-benchmark-cyclecloud.md'
+        - Option 2:
+             - '3.1 Run CMAQ CONUS Benchmark from pre-installed Azure volume': 'user_guide_cyclecloud/preinstall.md'
         - Azure CycleCloud Post-Processing and QA:
              - '4.1 Compile and Run Post-processors': 'user_guide_cyclecloud/post-process-cyclecloud.md'
              - '4.2 Compare timings': 'user_guide_cyclecloud/parse_timing_cyclecloud.md'
