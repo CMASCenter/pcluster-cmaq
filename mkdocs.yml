@@ -22,7 +22,7 @@ nav:
         - 2 Azure CycleCloud Cluster Configure using Azure Web Interface:
              - '2.1 Azure CycleCloud Cluster': 'user_guide_cyclecloud/azure-cyclecloud-cluster.md'
         - 3 CMAQ CONUS Benchark Option 1:
-             - '3.1 Install CMAQ on Cycle Cloud': 'user_guide_clyclecloud/software-install-cyclecloud.md'
+             - '3.1 Install CMAQ on Cycle Cloud': 'user_guide_cyclecloud/software-install-cyclecloud.md'
              - '3.2 Install Input Data': 'user_guide_cyclecloud/input-data-install_cyclecloud.md'
              - '3.3 Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide_cyclecloud/run-cmaq-benchmark-cyclecloud.md'
         - 4 CMAQ CONUS Benchmark Option 2:
