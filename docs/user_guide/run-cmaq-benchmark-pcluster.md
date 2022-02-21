@@ -33,12 +33,14 @@ output:
 ```
 
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 3   compute     CMAQ   ubuntu  R      16:50      8 compute-dy-c5n18xlarge-[1-8]
+                 2   compute     CMAQ   ubuntu  R      16:50      5 compute-dy-c5n18xlarge-[1-5]
 ```
 
 The 180 pe job should take 60 minutes to run (30 minutes per day)
 
 ### check on the status of the cluster using CloudWatch
+
+(optional)
 
 ```
 <a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1">Cloudwatch Dashboard</a>
@@ -96,7 +98,7 @@ output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
+                 6    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
 ```
 
 ### Check the status of the run
@@ -129,6 +131,8 @@ If DisableSimultaneousMultithreading: true, then the number of cpus is 36 and th
 
 ### edit run script to use
 SBATCH --exclusive
+
+### Edit the yaml file to use DisableSimultaneousMultithreading: true
 
 ### Confirm that there are only 36 cpus available to the slurm scheduler
 
@@ -187,12 +191,9 @@ output:
 
 ### After run has successfully completed
 
-### After run has successfully completed
-
 1. [Compare timings and verify that the run completed successfully](parse_timing.md)
 2. [Run combine and post processing scripts](post_combine.md)
 3. [Run QA scripts](qa_cmaq_run.md)
 4. [Copy the output to the S3 Bucket](copy_output_to_S3_Bucket.md)
 5. Exit the cluster
 6. Delete the Cluster
-
