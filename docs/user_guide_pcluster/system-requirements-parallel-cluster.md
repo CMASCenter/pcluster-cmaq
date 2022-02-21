@@ -212,7 +212,7 @@ Need to create table
 Also need estimate for S3 Bucket cost for storing an annual simulation
 
 
-### 1.7 Recommended Workflow
+### 1.7 Recommended Workflow for extending to annual run
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
