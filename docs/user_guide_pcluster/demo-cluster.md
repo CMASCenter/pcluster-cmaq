@@ -82,7 +82,7 @@ Beginning VPC creation. Please do not leave the terminal until the creation is f
 
  `cat new-hello-world.yaml`
 
-The key pair and Subnetid in the yaml file are unique to your account.  Yaml files that are used in this tutorial will need to be edited to use your key pair and your Subnetid. 
+The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster the key pair and subnet ID from the new-hellow-world.yaml file will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
 ## Create a demo cluster
 

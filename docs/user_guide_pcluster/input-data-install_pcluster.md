@@ -1,4 +1,4 @@
-# Instructions for choosing filesystem or disk for fast I/O Performance and obtaining input data
+# Install Input Data on Parallel Cluster
 
 ## Install AWS CLI to obtain data from AWS S3 Bucket
 
@@ -21,44 +21,29 @@ Set up your credentials for using s3 copy (you can skip this if you do not have 
 `aws configure`
 
 
-## AWS Parallel Cluster configured with the lustre file system provides advantages to pre-load data at cluster build time.
+## Copy Input Data from S3 Bucket to lustre filesystem
 
 Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
 
 `ls /fsx`
 
-If it does not exist, you can place the data directory on the /shared filesystem
-
-`mkdir /shared/data`
-
-
-## Azure Cyclecloud install input on the /shared/data directory
-
-`mkdir /shared/data`
-
-`ls /shared/data`
-
-`df -h`
-
-Output:
-
-`/dev/mapper/vg_cyclecloud_builtinshared-lv0 1000G   66G  935G   7% /shared `
-
 
 ## Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
-Modify the script if you want to change where the data is saved to.  Script currently uses /shared/data Modify it if you want to copy the data to the /fsx/data volume on the cluster
+Data will be saved to the /fsx file system
 
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas.csh`
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_to_fsx.csh`
 
-## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /shared/data volume on the cluster (does not need aws credentials)
+if the first method works, then you can skip the alternative method listed next..
 
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa.csh`
+## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /fsx volume on the cluster.
+
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa_to_fsx.csh`
 
 check that the resulting directory structure matches the run script
 
 Note, this input data requires 44 GB of disk space  (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
 
-`cd /shared/data/CONUS`
+`cd /fsx/data/CONUS`
 
 `du -sh`
 
@@ -69,11 +54,10 @@ output:
 ```
 
 CMAQ Parallel Cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
-CMAQ Cycle Cloud is configured to have 1 Terrabytes of space on the /shared filesystem, to allow multiple output runs to be stored.
 
 
-## For Parallel Cluster: Obtain the Input data from a public S3 Bucket
-A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location, rather than using the above aws s3 copy commands. 
+## For Parallel Cluster: Import the Input data from a public S3 Bucket
+A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location in the yaml file, rather than using the above aws s3 copy commands. 
 
 ### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
 

@@ -105,3 +105,6 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 `./gcc_cmaq_pcluster.csh`
 
+Check to see that the cmaq executable has been built
+
+ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe

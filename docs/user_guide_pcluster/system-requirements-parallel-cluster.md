@@ -1,11 +1,11 @@
-## System Requirements for Parallel Cluster
+## 1.0 AWS Parallel Cluster
 
-### Please set up a alarm on AWS 
+### 1.1 Please set up a alarm on AWS 
 
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-### Software Requirements
+### 1.2 Software Requirements
 
 * Ubuntu OS
 * Tcsh shell
@@ -19,22 +19,19 @@ It may be possible to set up daily or weekly spending alarms as well.
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml doesn't accept tabs as spacing)
 
-### AWS CLI v3.0 is available in the following AWS Regions
+### 1.3 AWS CLI v3.0 AWS Region Availability
 Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 
 
-
-### Hardware Requirements
-
-#### Recommended Minimum Requirements
+#### Right-sizing Compute Nodes for the Parallel Cluster Configuration 
 
 The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
-#### Recommended Parallel Cluster Configuration for CONUS Domain
+### 1.4 MVP Parallel Cluster Configuration for CONUS Domain
 
 Head node:
 
@@ -49,7 +46,9 @@ Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute node
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
 
-#### AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
+### 1.5 Slurm Compute Node Provisioning
+
+AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
 
 Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  
 
@@ -102,6 +101,8 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 | c5n.18xlarge	| 72	| 192 GiB   |	14 Gbps	        | 100 Gbps          |   $3.888/hour         | $1.1732/hour     |
 
 Using c5n.18xlarge as the compute node, it costs 3.888/hr/1.1732/hr = 3.314 times as much to run on demand versus spot pricing
+
+### 1.6 Benchmark Timing Results
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -211,7 +212,7 @@ Need to create table
 Also need estimate for S3 Bucket cost for storing an annual simulation
 
 
-### Recommended Workflow
+### 1.7 Recommended Workflow for extending to annual run
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
