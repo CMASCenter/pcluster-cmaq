@@ -231,9 +231,42 @@ Also may need to create the output directory
 mkdir -p /fsx/data/output
 ```
 
-### Copy the latest run scripts from the github repo
+### Copy the run scripts pre-configured for the parallel cluster from the github repo
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+
+### Examine how the run script is configured
+
+`head  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
+
+Output:
+
+```
+#!/bin/csh -f
+## For c5n.18xlarge (72 vcpu - 36 cpu)         <<< this run script is configured to run on c5n.18xlarge with hyperthreading turned off (36 cpus)
+## works with cluster-ubuntu.yaml
+## data on /fsx directory
+#SBATCH --nodes=8
+#SBATCH --ntasks-per-node=32                   <<<  note, there are 36 cpus per node, but we only need 32 of them to run a 256 cpu job (8x32)
+#SBATCH -J CMAQ
+#SBATCH --exclusive
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log        << NPCOLxNPROW = 16 x 16
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log
+```
+
+### Verify that the NPCOL and NPROW settings are configured to run on 256 processors
+
+`grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
+
+Output:
+
+```
+   setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
+   @ NPCOL  =  16; @ NPROW = 16
+   @ NPROCS = $NPCOL * $NPROW
+   setenv NPCOL_NPROW "$NPCOL $NPROW"; 
+```
+
 
 ### Submit the job to the slurm queue
 
