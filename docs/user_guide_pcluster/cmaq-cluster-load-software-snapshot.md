@@ -63,14 +63,12 @@ Create the output directory
 
 mkdir -p /fsx/data/output
 
+### Next Steps
 
-### Follow instructions to Install CMAQ software on parallel cluster
-
-### Verify that a job runs successfully and compare the timing
-
-### Save the EBS Volume as a snapshot in the AWS interface
-
-### Change the permissions of the EBS Volume to be PUBLIC
+1. Follow instructions to Install CMAQ software on parallel cluster
+2. Verify that a job runs successfully and compare the timing
+3. Save the EBS Volume as a snapshot in the AWS interface
+4. Change the permissions of the EBS Volume to be PUBLIC
 
 ### Submit a 180 pe job
 
@@ -117,8 +115,9 @@ Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
-Only reason that I switched to centos7 over ubuntu2004 is that when I tried to create a parallel cluster with ubuntu2004, I could not find slurm or sbatch, so I could notsubmit jobs to the queue.
-Next idea is to try the Alinux or amazon linux to see what gcc compiler, modules, and slurm versions are available
+Only reason that I switched to centos7 over ubuntu2004 is that when I tried to create a parallel cluster with ubuntu2004 on Feb. 22, 2022, I could not find slurm or sbatch, so I could notsubmit jobs to the queue. (I had not run into this previously, when I saved the EBS Snapshot as encrypted.
+
+Next idea is to try the Alinux/Amazon linux/Red Hat to see what gcc compiler, modules, and slurm versions are available
 
 ### Submit a 288 pe job
 
