@@ -14,7 +14,7 @@
 To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for Parallel Cluster</a>
 
-### Diagram of the YAML file that contains a Snapshot ID to pre-install the software, and the path to an S3 Bucket for importing the data to the Lustre Filesystem
+### Diagram of the YAML file that contains a Snapshot ID that is a volume with the CMAQ software stack pre-installed, and the path to an S3 Bucket for importing the data to the Lustre Filesystem
 
 Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
 
@@ -25,12 +25,12 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 Note - you need to edit the c5n-18xlarge.ebs_shared.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 
 ```
-vi c5n-18xlarge.ebs_shared.yaml 
+vi c5n-18xlarge.ebs_shared.fsx_import.yaml 
 ```
 
 
 ```
-pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1
+pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.fsx_import.yaml --cluster-name cmaq --region us-east-1
 ```
 
 output:
@@ -98,7 +98,7 @@ pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
 ls /shared/build
 ```
 
-### The .cshrc file wasn't saved, so I copied it
+### The .cshrc file was not saved, so I copied it from the git repo
 
 ```
 cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
