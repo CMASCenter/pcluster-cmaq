@@ -17,6 +17,8 @@ nav:
             - '5.2 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
             - '5.3 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
             - '5.4 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
+        - 6 Logout and Delete Parallel Cluster:
+            - '6.1 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
     - User Guide for Cycle Cloud:
         - '1 Description of MVP for Azure CycleCloud': 'user_guide_cyclecloud/system-requirements-cyclecloud.md'
         - 2 Azure CycleCloud Cluster Configure using Azure Web Interface:
@@ -32,6 +34,8 @@ nav:
              - '5.2 Compare timings': 'user_guide_cyclecloud/parse_timing_cyclecloud.md'
              - '5.3 QA CMAQ Output': 'user_guide_cyclecloud/qa_cmaq_run_cyclecloud.md'
              - '5.4 Saving Output': 'user_guide_cyclecloud/copy_output_to_archive_cyclecloud.md'
+        - 6 Logout and Delete CycleCloud:
+             - '6.1 Logout and Delete Cluster': 'user_guide_cyclecloud/logout_delete_cyclecloud.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
