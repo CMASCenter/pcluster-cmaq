@@ -109,7 +109,7 @@ Num  Day        Wall Time
       Avg. Time = 2353.44
 ```
 
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
+### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 5 nodes
 
 `sbatch run_cctm_2016_12US2.288pe.8x36.pcluster.csh``
 

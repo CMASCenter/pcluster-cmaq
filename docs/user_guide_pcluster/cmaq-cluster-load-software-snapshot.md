@@ -46,11 +46,31 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 `gcc --version`
 
+
+### Verify that the input data is imported to /fsx from the S3 Bucket
+
+`cd /fsx/12US2`
+
+Need to make this directory and then link it to the path created when the data is copied from the S3 Bucket This is to make the paths consistent between the two methods of obtaining the input data.
+
+`mkdir -p /fsx/data/CONUS` 
+
+`cd /fsx/data/CONUS` 
+
+`ln -s /fsx/12US2 .`
+
+Create the output directory
+
+mkdir -p /fsx/data/output
+
+
 ### Follow instructions to Install CMAQ software on parallel cluster
 
+### Verify that a job runs successfully and compare the timing
 
+### Save the EBS Volume as a snapshot in the AWS interface
 
-
+### Change the permissions of the EBS Volume to be PUBLIC
 
  
 
