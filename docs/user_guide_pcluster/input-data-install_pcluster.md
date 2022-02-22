@@ -27,23 +27,6 @@ Verify that the /fsx directory exists this is a lustre file system where the I/O
 
 `ls /fsx`
 
-If it does not exist, you can place the data directory on the /shared filesystem
-
-`mkdir /shared/data`
-
-
-## Azure Cyclecloud install input on the /shared/data directory
-
-`mkdir /shared/data`
-
-`ls /shared/data`
-
-`df -h`
-
-Output:
-
-`/dev/mapper/vg_cyclecloud_builtinshared-lv0 1000G   66G  935G   7% /shared `
-
 
 ## Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
 Data will be saved to the /fsx file system
@@ -58,7 +41,7 @@ check that the resulting directory structure matches the run script
 
 Note, this input data requires 44 GB of disk space  (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
 
-`cd /shared/data/CONUS`
+`cd /fsx/data/CONUS`
 
 `du -sh`
 
@@ -69,7 +52,6 @@ output:
 ```
 
 CMAQ Parallel Cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
-CMAQ Cycle Cloud is configured to have 1 Terrabytes of space on the /shared filesystem, to allow multiple output runs to be stored.
 
 
 ## For Parallel Cluster: Obtain the Input data from a public S3 Bucket
