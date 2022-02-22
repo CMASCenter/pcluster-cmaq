@@ -1,11 +1,12 @@
-# Use Lustre File System and Import S3 Bucket that contains input data 
+## Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software 
+
+### Importing data from S3 Bucket to Lustre
 
 1. Saves storage cost
 2. Removes need to copy data from S3 bucket to Lustre file system
      a. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3
 3. simplifies running HPC workloads on AWS
 4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GBs/s.
-
 
 <a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a>
 
@@ -14,7 +15,8 @@
 To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for Parallel Cluster</a>
 
-### Diagram of the YAML file that contains a Snapshot ID that is a volume with the CMAQ software stack pre-installed, and the path to an S3 Bucket for importing the data to the Lustre Filesystem
+### Diagram of the YAML file to build pre-installed software and input data. 
+Includes Snapshot ID of volume pre-installed with CMAQ software stack and name of S3 Bucket to import data to the Lustre Filesystem
 
 Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
 
@@ -22,11 +24,58 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 ### Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
 
-Note - you need to edit the c5n-18xlarge.ebs_shared.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+Note - you need to edit the c5n-18xlarge.ebs_shared.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 
 ```
 vi c5n-18xlarge.ebs_shared.fsx_import.yaml 
 ```
+
+```
+Region: us-east-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c5n.large
+  Networking:
+    SubnetId: subnet-018cfea3edf3c4765                <<< replace subnetID
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: centos                                   <<< replace keyname
+Scheduling:
+  Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: SPOT
+      Networking:
+        SubnetIds:
+          - subnet-018cfea3edf3c4765                   <<< replace subnetID
+        PlacementGroup:
+          Enabled: true
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: c5n.18xlarge
+          MinCount: 0
+          MaxCount: 10
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      SnapshotId: snap-0e42c77ae359bef93
+  - MountDir: /fsx
+    Name: name2
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://conus-benchmark-2day
+```
+
 
 
 ```
