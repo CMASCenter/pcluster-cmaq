@@ -85,7 +85,7 @@ output:
 
 ### When the job has completed, use tail to view the timing from the log file.
 
-`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
+`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log`
 
 output:
 
