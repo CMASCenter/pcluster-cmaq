@@ -3,9 +3,8 @@
 ### Importing data from S3 Bucket to Lustre
 
 1. Saves storage cost
-2. Removes need to copy data from S3 bucket to Lustre file system
-     a. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3
-3. simplifies running HPC workloads on AWS
+2. Removes need to copy data from S3 bucket to Lustre file system. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3
+3. Simplifies running HPC workloads on AWS
 4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GBs/s.
 
 <a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a>
