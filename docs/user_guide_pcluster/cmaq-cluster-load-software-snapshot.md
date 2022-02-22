@@ -72,6 +72,9 @@ mkdir -p /fsx/data/output
 
 ### Change the permissions of the EBS Volume to be PUBLIC
 
+### Submit a 180 pe job
+
+`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 `tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log`
 
@@ -102,3 +105,21 @@ Num  Day        Wall Time
       Avg. Time = 2102.16
 
 ```
+Question - is this performance poor due to using Centos7 and the older gcc compiler?
+
+`gcc --version`
+
+Output:
+
+```
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+Only reason that I switched to centos7 over ubuntu2004 is that when I tried to create a parallel cluster with ubuntu2004, I could not find slurm or sbatch, so I could notsubmit jobs to the queue.
+Next idea is to try the Alinux or amazon linux to see what gcc compiler, modules, and slurm versions are available
+
+### Submit a 288 pe job
+
+`sbatch run_cctm_2016_12US2.288pe.8x36.pcluster.csh`
