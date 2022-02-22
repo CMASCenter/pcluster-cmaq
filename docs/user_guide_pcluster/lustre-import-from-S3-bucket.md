@@ -185,7 +185,7 @@ mkdir -p /fsx/data/output
 
 ### Copy the latest run scripts from the github repo
 
-cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+`cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 ### Submit the job to the slurm queue
 
