@@ -183,11 +183,15 @@ Also may need to create the output directory
 mkdir -p /fsx/data/output
 ```
 
+### Copy the latest run scripts from the github repo
+
+cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+
 ### Submit the job to the slurm queue
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-sbatch run_cctm_2016_12US2.256pe.csh
+sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh
 ```
 
 ### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
@@ -213,139 +217,8 @@ Num  Day        Wall Time
 ```
 
 
-Information in the log file:
-
-```
-Start Model Run At  Thu Jan 6 03:07:08 UTC 2022
-information about processor including whether using hyperthreading
-Architecture:                    x86_64
-CPU op-mode(s):                  32-bit, 64-bit
-Byte Order:                      Little Endian
-Address sizes:                   46 bits physical, 48 bits virtual
-CPU(s):                          36
-On-line CPU(s) list:             0-35
-Thread(s) per core:              1
-Core(s) per socket:              18
-Socket(s):                       2
-NUMA node(s):                    2
-Vendor ID:                       GenuineIntel
-CPU family:                      6
-Model:                           85
-Model name:                      Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
-Stepping:                        4
-CPU MHz:                         2999.996
-BogoMIPS:                        5999.99
-Hypervisor vendor:               KVM
-Virtualization type:             full
-L1d cache:                       1.1 MiB
-L1i cache:                       1.1 MiB
-L2 cache:                        36 MiB
-L3 cache:                        49.5 MiB
-NUMA node0 CPU(s):               0-17
-NUMA node1 CPU(s):               18-35
-Vulnerability Itlb multihit:     KVM: Mitigation: VMX unsupported
-Vulnerability L1tf:              Mitigation; PTE Inversion
-Vulnerability Mds:               Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
-Vulnerability Meltdown:          Mitigation; PTI
-Vulnerability Spec store bypass: Vulnerable
-Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
-Vulnerability Spectre v2:        Mitigation; Full generic retpoline, STIBP disabled, RSB filling
-Vulnerability Srbds:             Not affected
-Vulnerability Tsx async abort:   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
-Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
-information about cluster
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-queue1*      up   infinite      2  idle~ queue1-dy-computeresource1-[9-10]
-queue1*      up   infinite      8  alloc queue1-dy-computeresource1-[1-8]
-information about filesystem
-Filesystem             Size  Used Avail Use% Mounted on
-/dev/root               34G   17G   18G  48% /
-devtmpfs                93G     0   93G   0% /dev
-tmpfs                   93G     0   93G   0% /dev/shm
-tmpfs                   19G  1.1M   19G   1% /run
-tmpfs                  5.0M     0  5.0M   0% /run/lock
-tmpfs                   93G     0   93G   0% /sys/fs/cgroup
-/dev/loop0              25M   25M     0 100% /snap/amazon-ssm-agent/4046
-/dev/loop2              56M   56M     0 100% /snap/core18/2246
-/dev/loop5              68M   68M     0 100% /snap/lxd/21545
-/dev/loop3              33M   33M     0 100% /snap/snapd/13640
-/dev/loop4              62M   62M     0 100% /snap/core20/1169
-/dev/loop6              44M   44M     0 100% /snap/snapd/14295
-10.0.5.119:/home        34G   17G   18G  48% /home
-10.0.5.119:/opt/intel   34G   17G   18G  48% /opt/intel
-10.0.5.119:/shared      35G  1.5G   31G   5% /shared
-/dev/loop7              56M   56M     0 100% /snap/core18/2253
-/dev/loop8              62M   62M     0 100% /snap/core20/1270
-10.0.12.184@tcp:/fsx   1.1T   44G  1.1T   4% /fsx
-10.0.5.119:/opt/slurm   34G   17G   18G  48% /opt/slurm
-/dev/loop1              68M   68M     0 100% /snap/lxd/21835
-list the mounted volumes
-Export list for localhost:
-Compiler is set to gcc
-
-Working Directory is /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
-Build Directory is /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc
-Output Directory is /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe
-Log Directory is /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/LOGS
-Executable Name is CCTM_v533.exe
-
----CMAQ EXECUTION ID: CMAQ_CCTMv533_ubuntu_20220106_030708_720705625 ---
-
-Set up input and output files for Day 2015-12-22.
-
-Existing Logs and Output Files for Day 2015-12-22 Will Be Deleted
-/bin/rm: No match.
-
-CMAQ Processing of Day 20151222 Began at Thu Jan  6 03:07:09 UTC 2022
-
-        CTM_APPL  |  v533_gcc_2016_CONUS_16x16pe_20151222
-================================================================================
-|                                                                              |
-|               The Community Multiscale Air Quality (CMAQ) Model              |
-|                                   Version 5.3.3                              |
-|                                                                              |
-|                          Built and Maintained by the                         |
-|                        Office of Research and Development                    |
-|                   United States Environmental Protection Agency              |
-|                                                                              |
-|                            https://www.epa.gov/cmaq                          |
-|                                                                              |
-|       Source Code:   https://www.github.com/USEPA/cmaq/tree/main             |
-|       Documentation: https://www.github.com/USEPA/cmaq/tree/main/DOCS        |
-|                                                                              |
-|         The CMAQ Model is tested and released with cooperation from          |
-|         the Community Modeling and Analysis System (CMAS) Center via         |
-|         contract support. CMAS is managed by the Institute for the           |
-|         Environment, University of North Carolina at Chapel Hill.            |
-|         CMAS URL: (https://www.cmascenter.org)                               |
-|                                                                              |
-================================================================================
-
-     This program uses the EPA-AREAL/MCNC-EnvPgms/BAMS Models-3
-     I/O Applications Programming Interface, [I/O API] which is
-     built on top of the netCDF I/O library (Copyright 1993, 1996
-     University Corporation for Atmospheric Research/Unidata
-     Program) and the PVM parallel-programming library (from
-     Oak Ridge National Laboratory).
-     Copyright (C) 1992-2002 MCNC,
-     (C) 1992-2018 Carlie J. Coats, Jr.,
-     (C) 2003-2012 Baron Advanced Meteorological Systems, LLC, and
-    (C) 2014-2021 UNC Institute for the Environment.
-     Released under the GNU LGPL  License, version 2.1.  See URL
-
-         https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
-
-     for conditions of use.
-
-     ioapi-3.2: $Id: init3.F90 200 2021-05-10 14:06:20Z coats $
-     netCDF version 4.7.1 of Jan  5 2022 16:32:07 $
-
-```
-
-
 ### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
 
-This seems a bit slower than when the data is copied from the S3 Bucket to /fsx
 
 ```
 ==================================
@@ -396,7 +269,7 @@ Num  Day        Wall Time
 ```
 
 Note this performance seems better than earlier runs..
-I've added the #SBATCH --exclusive option.  Perhaps that made a difference.
+I added the #SBATCH --exclusive option.  Perhaps that made a difference.
 
 
 ```

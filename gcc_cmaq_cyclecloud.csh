@@ -20,7 +20,7 @@ module load openmpi
 cd $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 cp $PCLUSTER/config_cmaq_cyclecloud.csh ../../config_cmaq.csh
 ./bldit_cctm.csh gcc |& tee ./bldit_cctm.log
-cp $PCLUSTER/run_scripts/cmaq533/run* $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+cp $PCLUSTER/run_scripts/cmaq533/run*cyclecloud.csh $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 cd $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 
 # submit job to the queue using 
