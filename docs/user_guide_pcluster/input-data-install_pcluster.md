@@ -21,7 +21,8 @@ Set up your credentials for using s3 copy (you can skip this if you do not have 
 `aws configure`
 
 
-## AWS Parallel Cluster configured with the lustre file system provides advantages to pre-load data at cluster build time.
+## Copy Input Data from S3 Bucket to lustre filesystem
+Note: AWS Parallel Cluster configured with the lustre file system allows users to either copy data from S3 Bucket or pre-load data at cluster build time. Pre-loading or importing the data from an S3 Bucket at the time that the Parallel Cluster is created is covered below.
 
 Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
 
@@ -32,6 +33,8 @@ Verify that the /fsx directory exists this is a lustre file system where the I/O
 Data will be saved to the /fsx file system
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_to_fsx.csh`
+
+if the first method works, then you can skip the alternative method listed next..
 
 ## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /fsx volume on the cluster.
 
