@@ -10,9 +10,17 @@
 
 ### Change shell to use .tcsh
 
-'sudo usermod -s /bin/tcsh lizadams'
+'sudo usermod -s /bin/tcsh ubuntu'
 
-you may need to log out and log back in to have the tcsh shell be active
+Log out and log back in to have the tcsh shell be active
+
+`exit`
+
+`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+
+### Check to see the tcsh shell is default
+
+`echo $SHELL`
 
 
 The following instructions assume that you will be installing the software to a /shared/build directory
@@ -54,7 +62,7 @@ cd pcluster-cmaq
 
 ### Load the Libfabric module
 
-`module load libfabric-aws/1.13.0amzn1.0`
+`module load libfabric-aws/1.13.2amzn1.0`
 
 ### Verify the gcc compiler version is greater than 8.0
 
@@ -72,6 +80,7 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
+Note, if this script fails, it is typically because NCAR has released a new version of netCDF C or Fortran, so the old version is no longer available, or if they have changed the name or location of the download file. 
 
 
 `./gcc_netcdf_cluster.csh`
