@@ -10,7 +10,7 @@ To ensure you have the correct directory specified
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-`sbatch run_cctm_2016_12US2.180pe.csh`
+`sbatch run_cctm_2016_12US2.180pe.pcluster.csh`
 
 Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
 
@@ -86,7 +86,7 @@ Num  Day        Wall Time
 
 ### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
 
-`sbatch run_cctm_2016_12US2.288pe.csh`
+`sbatch run_cctm_2016_12US2.288pe.8x36.pcluster.csh``
 
 ### Check on the status in the queue
 
@@ -159,11 +159,10 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-`sbatch run_cctm_2016_12US2.288pe.csh`
 
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
+### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes with full output
 
-`sbatch run_cctm_2016_12US2.288pe.csh`
+`sbatch run_cctm_2016_12US2.288pe.full.pcluster.csh`
 
 `squeue -u ubuntu`
 
@@ -187,7 +186,7 @@ output:
 
 ### Check the status of the run
 
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
+`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_full_20151222`
 
 ### After run has successfully completed
 
