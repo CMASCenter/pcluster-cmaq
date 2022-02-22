@@ -63,17 +63,19 @@ For more information about the configuration file see
 
  `pcluster configure --config new-hello-world.yaml`
 
-1. select region: us-east-1
-2. select scheduler: slurm
-3. select operating system: ubuntu2004
-4. select head node instance type: t2.micro
-5. select number of queues: 1
-6. number of compute resources for queue1 [1]: 1
-7. select compute node instance type: t2.micro
-8. select maximum instance count [10]: 10
-9. Automate VPC creation (y/n) [n]: y
-10. select availability zone: 1
-11. select network configuration: 1
+1. Allowed values for AWS Region ID:: us-east-1 (15)
+2. Allowed values for EC2 Key Pair Name - choose your key pair
+2. Allowed values for Scheduler: slurm (1)
+3. Allowed values for Operating System: centos7 (2) 
+4. Head node instance type: t2.micro
+5. Number of queues: 1
+6. Name of queue 1: queue1
+7. Number of compute resources for queue1 [1]: 1
+8. Compute instance type for compute resource 1 in queue1: t2.micro
+9. Maximum instance count [10]: 10
+10. Automate VPC creation?: y
+11. Allowed values for Availability Zone: 1
+12. Allowed values for Network Configuration: 2. Head node and compute fleet in the same public subnet
 
 Beginning VPC creation. Please do not leave the terminal until the creation is finalized
 
@@ -127,6 +129,10 @@ Need a minimum of gcc 8+ for CMAQ
  `mpirun --version`
 
 Need a minimum openmpi version 4.0.1 for CMAQ
+
+### Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
+
+`which sbatch`
 
 ### We will not install sofware on this demo cluster, as the t2.micro head node is too small
 Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ Cluster
