@@ -6,18 +6,19 @@ nav:
         - 2 AWS Parallel Cluster Configure using AWS CLI:
             - '2.1 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
             - '2.2 Create AWS MVP Parallel Cluster': 'user_guide_pcluster/aws-pcluster-cluster.md'
-        - 3 CMAQ Benchmark Option 1:
+        - 3 Save Snapshot with preloaded software': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md'
+        - 4 CMAQ Benchmark Option 1:
             - '3.1 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
             - '3.2 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
             - '3.3 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
-        - 4 CMAQ Benchmark Option 2:
+        - 5 CMAQ Benchmark Option 2:
             - '4.1 Run CMAQ CONUS Benchmark from AMI/Snapshot and Imported S3 bucket on Lustre': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
-        - 5 AWS Parallel Cluster Post-Processing and QA:
+        - 6 AWS Parallel Cluster Post-Processing and QA:
             - '5.1 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
             - '5.2 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
             - '5.3 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
             - '5.4 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
-        - 6 Logout and Delete Parallel Cluster:
+        - 7 Logout and Delete Parallel Cluster:
             - '6.1 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
     - User Guide for Cycle Cloud:
         - '1 Description of MVP for Azure CycleCloud': 'user_guide_cyclecloud/system-requirements-cyclecloud.md'
