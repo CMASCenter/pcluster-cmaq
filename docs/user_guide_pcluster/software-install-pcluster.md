@@ -1,4 +1,4 @@
-# Install CMAQ and pre-requisite libraries on linux
+# Install pre-requisite libraries on linux OS
 
 ## Install CMAQ sofware on parallel cluster
 
@@ -9,8 +9,13 @@
 
 
 ### Change shell to use .tcsh
+note, this command depends on what OS you have installed on the parallel cluster
 
 `sudo usermod -s /bin/tcsh ubuntu`
+
+or
+
+`sudo usermod -s /bin/tcsh centos`
 
 Log out and log back in to have the tcsh shell be active
 
