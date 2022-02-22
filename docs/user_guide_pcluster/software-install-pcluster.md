@@ -10,7 +10,7 @@
 
 ### Change shell to use .tcsh
 
-'sudo usermod -s /bin/tcsh ubuntu'
+`sudo usermod -s /bin/tcsh ubuntu`
 
 Log out and log back in to have the tcsh shell be active
 
@@ -65,6 +65,7 @@ cd pcluster-cmaq
 `module load libfabric-aws/1.13.2amzn1.0`
 
 ### Verify the gcc compiler version is greater than 8.0
+(note, gcc version on centos7 has been gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44a, and this seems to work ok.)
 
 `gcc --version`
 
@@ -116,4 +117,4 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 Check to see that the cmaq executable has been built
 
-ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe
+`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe`
