@@ -1,13 +1,12 @@
 #!/bin/csh -f
-## For c5n.18xlarge (72 vcpu - 36 cpu)
-## works with cluster-ubuntu.yaml
-## data on /shared directory
-#SBATCH --nodes=8
-#SBATCH --ntasks-per-node=36
+## For Cyclecloud HBV3  (120 cpu)
+## data on /shared/data directory
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=90
 #SBATCH --exclusive
 #SBATCH -J CMAQ
-#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.full.log
-#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.full.log
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.cyclecloud.log
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.cyclecloud.log
 
 
 # ===================== CCTMv5.3.X Run Script ========================= 
@@ -55,7 +54,7 @@ showmount -e localhost
  set PROC      = mpi               #> serial or mpi
  set MECH      = cb6r3_ae7_aq      #> Mechanism ID
  set EMIS      = 2016ff            #> Emission Inventory Details
- set APPL      = 2016_CONUS_16x18pe_full        #> Application Name (e.g. Gridname)
+ set APPL      = 2016_CONUS_10x18pe        #> Application Name (e.g. Gridname)
 
 #> Define RUNID as any combination of parameters above or others. By default,
 #> this information will be collected into this one string, $RUNID, for easy
@@ -73,7 +72,7 @@ showmount -e localhost
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts       #> Working Directory. Where the runscript is.
  #setenv CMAQ_DATA /21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output
- setenv DISK shared                             # FAST I/O DISK /shared or /fsx
+ setenv DISK      shared                       # FAST I/O DISK /shared or /fsx
  setenv CMAQ_DATA /$DISK/data/output
  setenv OUTDIR  ${CMAQ_DATA}/output_CCTM_${RUNID} #> Output Directory
  setenv INPDIR  /$DISK/data/CONUS/12US2  #Input Directory
@@ -106,7 +105,7 @@ set TSTEP      = 010000            #> output time step interval (HHMMSS)
 if ( $PROC == serial ) then
    setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
 else
-   @ NPCOL  =  16; @ NPROW = 18
+   @ NPCOL  =  10; @ NPROW = 18
    @ NPROCS = $NPCOL * $NPROW
    setenv NPCOL_NPROW "$NPCOL $NPROW"; 
 endif
@@ -141,8 +140,8 @@ set NCELLS = `echo "${NX} * ${NY} * ${NZ}" | bc -l`
 
 #> Output Species and Layer Options
    #> CONC file species; comment or set to "ALL" to write all species to CONC
-   #   setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
-   #   setenv CONC_BLEV_ELEV " 1 1" #> CONC file layer range; comment to write all layers to CONC
+      setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
+      setenv CONC_BLEV_ELEV " 1 1" #> CONC file layer range; comment to write all layers to CONC
 
    #> ACONC file species; comment or set to "ALL" to write all species to ACONC
    #setenv AVG_CONC_SPCS "O3 NO CO NO2 ASO4I ASO4J NH3" 
@@ -551,15 +550,14 @@ while ($TODAYJ <= $STOP_DAY )  #>Compare dates in terms of YYYYJJJ
  setenv CTM_SDRYDEP_1   "$OUTDIR/CCTM_SENDDEP_${CTM_APPL}.nc -v"
  setenv CTM_NPMAX       $NPMAX
 
-
  if ( $?CTM_DDM3D ) then
-   if ( $CTM_DDM3D == 'Y' || $CTM_DDM3D == 'T' ) then
-      setenv INIT_SENS_1     $S_ICpath/$S_ICfile
-      setenv BNDY_SENS_1     $S_BCpath/$S_BCfile
+  if ( $CTM_DDM3D == 'Y' || $CTM_DDM3D == 'T' ) then
+     setenv INIT_SENS_1     $S_ICpath/$S_ICfile
+     setenv BNDY_SENS_1     $S_BCpath/$S_BCfile
   endif
- endif  
+ endif
 
-
+ 
 # =====================================================================
 #> Output Files
 # =====================================================================

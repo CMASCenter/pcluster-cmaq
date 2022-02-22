@@ -1,13 +1,12 @@
 #!/bin/csh -f
-## For c5n.4xlarge (16 vcpu - 8 cpu)
-## works with cluster-ubuntu.yaml
+## For Cyclecloud HBV3  (120 cpu)
 ## data on /shared directory
-#SBATCH --nodes=10
-#SBATCH --ntasks-per-node=8
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=120
 #SBATCH --exclusive
 #SBATCH -J CMAQ
-#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.8x10pe.2day.log
-#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.8x10pe.2day.log
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.20x18pe.2day.sleep.cyclecloud.log
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.20x18pe.2day.sleep.cyclecloud.log
 
 
 # ===================== CCTMv5.3.X Run Script ========================= 
@@ -55,7 +54,7 @@ showmount -e localhost
  set PROC      = mpi               #> serial or mpi
  set MECH      = cb6r3_ae7_aq      #> Mechanism ID
  set EMIS      = 2016ff            #> Emission Inventory Details
- set APPL      = 2016_CONUS_8x10pe        #> Application Name (e.g. Gridname)
+ set APPL      = 2016_CONUS_20x18pe_sleep        #> Application Name (e.g. Gridname)
 
 #> Define RUNID as any combination of parameters above or others. By default,
 #> this information will be collected into this one string, $RUNID, for easy
@@ -73,7 +72,7 @@ showmount -e localhost
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts       #> Working Directory. Where the runscript is.
  #setenv CMAQ_DATA /21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output
- setenv DISK /shared                            # Fast I/O disk or /fsx
+ setenv DISK shared                            # FAST I/O DISK /shared or /fsx
  setenv CMAQ_DATA /$DISK/data/output
  setenv OUTDIR  ${CMAQ_DATA}/output_CCTM_${RUNID} #> Output Directory
  setenv INPDIR  /$DISK/data/CONUS/12US2  #Input Directory
@@ -106,7 +105,7 @@ set TSTEP      = 010000            #> output time step interval (HHMMSS)
 if ( $PROC == serial ) then
    setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
 else
-   @ NPCOL  =  8; @ NPROW = 10
+   @ NPCOL  =  20; @ NPROW = 18
    @ NPROCS = $NPCOL * $NPROW
    setenv NPCOL_NPROW "$NPCOL $NPROW"; 
 endif
@@ -551,12 +550,12 @@ while ($TODAYJ <= $STOP_DAY )  #>Compare dates in terms of YYYYJJJ
  setenv CTM_SDRYDEP_1   "$OUTDIR/CCTM_SENDDEP_${CTM_APPL}.nc -v"
  setenv CTM_NPMAX       $NPMAX
 
- if ( $?CTM_DDM3D ) then
-  if ( $CTM_DDM3D == 'Y' || $CTM_DDM3D == 'T' ) then
-       setenv INIT_SENS_1     $S_ICpath/$S_ICfile
-       setenv BNDY_SENS_1     $S_BCpath/$S_BCfile
-  endif
- endif
+  if ( $?CTM_DDM3D ) then
+   if ( $CTM_DDM3D == 'Y' || $CTM_DDM3D == 'T' ) then
+      setenv INIT_SENS_1     $S_ICpath/$S_ICfile
+      setenv BNDY_SENS_1     $S_BCpath/$S_BCfile
+   endif
+   endif
  
 # =====================================================================
 #> Output Files
@@ -718,6 +717,8 @@ while ($TODAYJ <= $STOP_DAY )  #>Compare dates in terms of YYYYJJJ
   # set MPI = /usr/local/intel/impi/3.2.2.006/bin64
   # set MPIRUN = $MPI/mpirun
   ( /usr/bin/time -p mpirun -np $NPROCS $BLD/$EXEC ) |& tee buff_${EXECUTION_ID}.txt
+
+ sleep 60 
 
   #> Harvest Timing Output so that it may be reported below
   set rtarray = "${rtarray} `tail -3 buff_${EXECUTION_ID}.txt | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | head -1` "
