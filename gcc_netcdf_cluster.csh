@@ -37,10 +37,11 @@
    setenv DIR /shared/build
    mkdir $DIR
    cd $DIR
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
-  tar xvf netcdf-c-4.7.1.tar.gz
-   rm -f netcdf-c-4.7.1.tar.gz
-   cd netcdf-c-4.7.1
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
+  wget https://downloads.unidata.ucar.edu/netcdf-c/4.8.1/src/netcdf-c-4.8.1.tar.gz
+  tar xvf netcdf-c-4.8.1.tar.gz
+   rm -f netcdf-c-4.8.1.tar.gz
+   cd netcdf-c-4.8.1
    #./configure --with-pic --with-hdf5=/home/centos/build/hdf5-1.10.5/hdf5/ --enable-netcdf-4 --enable-shared --prefix=$DIR/netcdf
 #configure: error: curl required for remote access. Install curl or build with --disable-dap.
    #./configure --with-pic --enable-netcdf-4 --enable-shared --disable-dap --prefix=/usr/local
@@ -53,10 +54,12 @@
 #  Download and build netCDF-Fortran
 #  ---------------------------------
    cd $DIR
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
-   tar xvf netcdf-fortran-4.5.2.tar.gz
-   rm -f netcdf-fortran-4.5.2.tar.gz
-   cd netcdf-fortran-4.5.2
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
+   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+   #tar xvf netcdf-fortran-4.5.2.tar.gz
+    tar xzvf v4.5.3.tar.gz
+   #rm -f netcdf-fortran-4.5.2.tar.gz
+   cd netcdf-fortran-4.5.3
    setenv NCDIR $DIR/netcdf
    setenv CPPFLAGS -I${NCDIR}/include
    setenv LDFLAGS -L${NCDIR}/lib
