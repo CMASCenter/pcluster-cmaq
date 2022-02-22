@@ -1,4 +1,4 @@
-# Instructions for choosing filesystem or disk for fast I/O Performance and obtaining input data
+# Install Input Data on Parallel Cluster
 
 ## Install AWS CLI to obtain data from AWS S3 Bucket
 
