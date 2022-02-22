@@ -72,5 +72,33 @@ mkdir -p /fsx/data/output
 
 ### Change the permissions of the EBS Volume to be PUBLIC
 
- 
 
+`tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log`
+
+Output:
+
+```
+CMAQ Processing of Day 20151223 Finished at Tue Feb 22 22:54:32 UTC 2022
+
+\\\\\=====\\\\\=====\\\\\=====\\\\\=====/////=====/////=====/////=====/////
+
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       180
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2241.14
+02   2015-12-23   1963.18
+     Total Time = 4204.32
+      Avg. Time = 2102.16
+
+```
