@@ -378,6 +378,13 @@ sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh
 ```
 
 
+NOte, I am trying this from a new AWS account, and the compute nodes don't appear to be provisioning.
+
+I checked and found this:
+
+If you are unable to access AWS Services, please note that some services may take up to 24 hours to fully activate. If you’re still unable to access AWS Services after that time, please visit AWS Support.
+
+
 
 
 
