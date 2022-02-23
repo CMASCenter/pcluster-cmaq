@@ -152,7 +152,7 @@ ls /shared/build
 ### The .cshrc file was not saved, so I copied it from the git repo
 
 ```
-cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
+cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc
 ```
 
 ### Source shell
