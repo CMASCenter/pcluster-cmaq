@@ -70,9 +70,9 @@ For more information about the configuration file see
 
 Input the following answers at each prompt:
 
-1. Allowed values for AWS Region ID: `us-east-1 (15)`
+1. Allowed values for AWS Region ID: `us-east-1`
 2. Allowed values for EC2 Key Pair Name:  `choose your key pair`
-2. Allowed values for Scheduler: `slurm (1)`
+2. Allowed values for Scheduler: `slurm`
 3. Allowed values for Operating System: `ubuntu2004`
 4. Head node instance type: `t2.micro`
 5. Number of queues: `1`
@@ -123,7 +123,7 @@ Scheduling:
 
 Note, the above yaml file is the very simplest form available.  If you upgrade the compute node to using a faster compute instance, then you will need to add additional configuration options (networking, elastic fabric adapter) to the yaml file.  These modifications will be highlighted in the yaml figures provided in the tutorial.
 
-The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
+The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
 ## Create a demo cluster
 
@@ -180,7 +180,7 @@ Need a minimum openmpi version 4.0.1 for CMAQ
 `which sbatch`
 
 ### We will not install sofware on this demo cluster, as the t2.micro head node is too small
-Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ Cluster
+Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ MVP Cluster
 
 ### Exit the cluster
 
