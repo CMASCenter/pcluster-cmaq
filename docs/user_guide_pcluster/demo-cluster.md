@@ -89,6 +89,32 @@ I haven't tried Alinux or Amazon Linux/Red Hat Linux
 
  `cat new-hello-world.yaml`
 
+```
+Region: us-east-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: t2.micro
+  Networking:
+    SubnetId: subnet-xx-xx-xx                  <<< unique to your account
+  Ssh:
+    KeyName: your-key                          <<< unique to your account
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: t2micro
+      InstanceType: t2.micro
+      MinCount: 0
+      MaxCount: 10
+    Networking:
+      SubnetIds:
+      - subnet-xx-xx-xx                        <<< unique to your account
+```
+
+Note, the above yaml file is the very simplest form available.  If you upgrade the compute node to using a faster compute instance, then you will need to add additional configuration options (networking, elastic fabric adapter) to the yaml file.  These modifications will be highlighted in the yaml figures provided in the tutorial.
+
 The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster the key pair and subnet ID from the new-hellow-world.yaml file will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
 ## Create a demo cluster
