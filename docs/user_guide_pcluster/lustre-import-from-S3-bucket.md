@@ -23,10 +23,10 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 ### Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
 
-Note - you need to edit the c5n-18xlarge.ebs_shared.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+Note - you need to edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 
 ```
-vi c5n-18xlarge.ebs_shared.fsx_import.yaml 
+vi c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
 ```
 
 ```
@@ -66,7 +66,7 @@ SharedStorage:
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      SnapshotId: snap-0e42c77ae359bef93
+      SnapshotId: snap-065979e115804972e
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
@@ -78,7 +78,7 @@ SharedStorage:
 
 
 ```
-pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.fsx_import.yaml --cluster-name cmaq --region us-east-1
+pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1
 ```
 
 output:
