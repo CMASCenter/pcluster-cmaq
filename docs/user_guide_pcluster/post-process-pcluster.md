@@ -3,6 +3,7 @@
 
 ### Build the POST processing routines
 
+```
 setenv DIR /shared/build/openmpi/CMAQv533/CMAQ/scripts
 
 cd $DIR/POST/combine/scripts
@@ -47,3 +48,4 @@ sed -i 's/2016-07-02/2015-12-23/g' run_bldoverlay_conus.csh
 setenv CMAQ_DATA /fsx/data
 ./run_bldoverlay_conus.csh
 
+```
