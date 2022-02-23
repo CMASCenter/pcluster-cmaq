@@ -18,8 +18,12 @@ cd pcluster-cmaq
 ```
 
 ###  edit the c5n-4xlarge.yaml
-NOTE: the c5n-4xlarge.yaml is configured to use SPOT instances for the compute nodes
-Note: the c5n-4xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (16 virtual cpus reduced to 8 cpus)
+
+NOTE: 
+
+1. the c5n-4xlarge.yaml is configured to use SPOT instance pricing for the compute nodes.
+2. the c5n-4xlarge.yaml is configured to the the c5n-4xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
+3. the c5n-4xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (16 virtual cpus reduced to 8 cpus)
 
 
 `vi c5n-4xlarge.yaml`
