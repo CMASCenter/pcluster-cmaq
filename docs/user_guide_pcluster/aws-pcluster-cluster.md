@@ -232,14 +232,97 @@ SharedStorage:
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
+Output:
+
+```
+{
+  "creationTime": "2022-02-23T17:39:42.953Z",
+  "headNode": {
+    "launchTime": "2022-02-23T17:48:03.000Z",
+    "instanceId": "xxx-xx-xx",
+    "publicIpAddress": "xx-xx-xx",
+    "instanceType": "c5n.large",
+    "state": "running",
+    "privateIpAddress": "xx-xx-xx"
+  },
+  "version": "3.1.1",
+  "clusterConfiguration": {
+  },
+  "tags": [
+    {
+      "value": "3.1.1",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "UPDATE_IN_PROGRESS",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "STOPPED",
+  "cloudformationStackArn": 
+  "lastUpdatedTime": "2022-02-23T17:56:31.114Z",
+  "region": "us-east-1",
+  "clusterStatus": "UPDATE_IN_PROGRESS"
+```
+
+### Wait 5 or 10 minutes for the update to be comleted
+
+Keep rechecking status until update is completed and computeFleetStatus is RUNNING
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+
+Output:
+
+```
+{
+  "creationTime": "2022-02-23T17:39:42.953Z",
+  "headNode": {
+    "launchTime": "2022-02-23T17:48:03.000Z",
+    "instanceId": "xx-xx-xxx",
+    "publicIpAddress": "xx-xx-xx",
+    "instanceType": "c5n.large",
+    "state": "running",
+    "privateIpAddress": "xx-xxx-xx"
+  },
+  "version": "3.1.1",
+  "clusterConfiguration": {
+  },
+  "tags": [
+    {
+      "value": "3.1.1",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "UPDATE_COMPLETE",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "STOPPED",
+  "cloudformationStackArn": 
+  "lastUpdatedTime": "2022-02-23T17:56:31.114Z",
+  "region": "us-east-1",
+  "clusterStatus": "UPDATE_COMPLETE"
+}
+```
+
+Wait until UPDATE_COMPLETE message is received, then proceed.
+
 ### Re-start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-### Login to updated cluster
-(note, replace the centos.pem with your Key Pair)
+### Verify status of cluster
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Wait until you see
+
+```
+computeFleetStatus": "RUNNING",
+```
+
+
+### Login to updated cluster
+(note, replace the your-key.pem with your Key Pair)
+
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Check to make sure elastic network adapter (ENA) is enabled
 
@@ -287,7 +370,11 @@ See instructions for installing and running CMAQ on cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
 
-### Note, if you are going to run the CMAQ Benchmark using Option 1 then you can delete this cluster.
+### If you plan to install CMAQ software and libraries yourself following Option 2, then skip option 1 and continue to use this cluster
+
+(do not delete the cluster) - skip to installing CMAQ software
+
+### Note, if you are going to run the CMAQ Benchmark using Option 1 to use pre-installed software and data specified in the yaml file, then you can delete this cluster.
 
 #### Exit the cluster
 
@@ -297,4 +384,7 @@ See instructions for installing and running CMAQ on cluster.
 
 `pcluster delete-cluster --cluster-name cmaq --region us-east-1`
 
-### If you plan to install CMAQ software and libraries yourself following Option 2, then skip option 1 and continue to use this cluster
+### Check status and confirm that it has been deleted
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+

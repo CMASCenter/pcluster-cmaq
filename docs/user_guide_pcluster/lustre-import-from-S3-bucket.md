@@ -76,6 +76,7 @@ SharedStorage:
 ```
 
 
+### Create the CMAQ MVP Parallel Cluster with software/data pre-installed
 
 ```
 pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1
@@ -109,7 +110,7 @@ output:
   "creationTime": "2022-01-06T02:36:18.119Z",
   "version": "3.0.2",
   "clusterConfiguration": {
-    "url": "https://parallelcluster-92e22c6ec33aa106-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.0.2/clusters/cmaq-h466ns1cchvrf3wd/configs/cluster-config.yaml?versionId=3F5xBNZqTGz5UDMBvk8Dj27JDaBlfQwQ&"
+    "url": "
   },
   "tags": [
     {
@@ -120,7 +121,7 @@ output:
   "cloudFormationStackStatus": "CREATE_IN_PROGRESS",
   "clusterName": "cmaq",
   "computeFleetStatus": "UNKNOWN",
-  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/6cfb1a50-6e99-11ec-8af1-0ea2256597e5",
+  "cloudformationStackArn": 
   "lastUpdatedTime": "2022-01-06T02:36:18.119Z",
   "region": "us-east-1",
   "clusterStatus": "CREATE_IN_PROGRESS"
