@@ -61,7 +61,7 @@ Need to make this directory and then link it to the path created when the data i
 
 Create the output directory
 
-mkdir -p /fsx/data/output
+`mkdir -p /fsx/data/output`
 
 ### Next Steps
 
@@ -126,6 +126,7 @@ Next idea is to try the Alinux/Amazon linux/Red Hat to see what gcc compiler, mo
 
 `tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.pcluster.log`
 
+```
 ==============================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -144,3 +145,4 @@ Num  Day        Wall Time
      Total Time = 2887.45
       Avg. Time = 1443.72
 
+```
