@@ -1,12 +1,15 @@
-# Use AWS CLI v3.0 to configure and launch a demo cluster 
+# Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
-## Install AWS Parallel Cluster Command Line
+## Install AWS Parallel Cluster Command Line Interface on your local machine
 
-### Create a virtual environment on a linux machine to install aws-parallel cluster
+
+### Instructions for LINUX
+
+Create a virtual environment on a linux machine to install aws-parallel cluster
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-virtual-environment.html">Guide to install AWS CL3 in Virtual Environment"</a>
 
@@ -29,7 +32,9 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
-### Create a virtual environment on a windows machine to install aws-parallel cluster
+###  Instructions for Windows
+
+Create a virtual environment on a windows machine to install aws-parallel cluster
 
 <a href="pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1">Guide to install AWS CL3 in Windows Environment</a>
 
@@ -39,7 +44,7 @@ Also to activate the virtual environment once it is installed run
 
 `activate`
 
-### Configure AWS Command line credentials
+### Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Setting up AWS Credential Instructions</a>
 
  `aws configure` 
