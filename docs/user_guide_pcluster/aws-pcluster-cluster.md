@@ -3,7 +3,7 @@
 ## Use an existing yaml file from the git repo to create a parallel cluster
 
 ```
-cd /shared/build
+cd /your/local/machine/install/path/ 
 ```
 
 ### Use a configuration file from the github repo that was cloned to your local machine
@@ -24,6 +24,7 @@ NOTE:
 1. the c5n-4xlarge.yaml is configured to use SPOT instance pricing for the compute nodes.
 2. the c5n-4xlarge.yaml is configured to the the c5n-4xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
 3. the c5n-4xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (16 virtual cpus reduced to 8 cpus)
+4. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 8 cpus x 10 = 80, the max settings for NPCOL, NPROW is NPCOL = 8, NPROW = 10 or NPCOL=10, NPROW=8 in the CMAQ run script.
 
 
 `vi c5n-4xlarge.yaml`
@@ -100,6 +101,8 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 ## Update the compute nodes
 
 ### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
+
+By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) this would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
 
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line.
 
