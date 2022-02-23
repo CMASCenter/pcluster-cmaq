@@ -246,4 +246,14 @@ See instructions for installing and running CMAQ on cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
 
+### Note, if you are going to run the CMAQ Benchmark using Option 1 then you can delete this cluster.
 
+#### Exit the cluster
+
+`exit`
+
+#### Delete the demo cluster
+
+`pcluster delete-cluster --cluster-name cmaq --region us-east-1`
+
+### If you plan to install CMAQ software and libraries yourself following Option 2, then skip option 1 and continue to use this cluster
