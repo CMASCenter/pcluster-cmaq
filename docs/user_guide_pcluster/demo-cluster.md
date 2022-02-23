@@ -152,10 +152,10 @@ Note, the compute nodes are not "provisioned" or "created" at this time (so they
  `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
 
 ### SSH into the cluster 
-(note, replace the centos.pem key pair with your key pair)
+(note, replace the your-key.pem key pair with your key pair)
 
 Example:
- pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
+ pcluster ssh -v -Y -i ~/your-key.pem --cluster-name hello-pcluster
 
  `pcluster ssh -v -Y -i ~/[your-key-pair] --cluster-name hello-pcluster`
 

@@ -3,9 +3,9 @@
 ## Install CMAQ sofware on parallel cluster
 
 ### Login to updated cluster
-(note, replace the centos.pem with your Key Pair)
+(note, replace the your-key.pem with your Key Pair)
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
 ### Change shell to use .tcsh
@@ -21,7 +21,7 @@ Log out and log back in to have the tcsh shell be active
 
 `exit`
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Check to see the tcsh shell is default
 

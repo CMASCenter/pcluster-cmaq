@@ -90,9 +90,9 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 #### Login to cluster
-(note, replace the centos.pem with your Key Pair)
+(note, replace the your-key.pem with your Key Pair)
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Show compute nodes
 
