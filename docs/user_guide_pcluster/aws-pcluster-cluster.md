@@ -98,6 +98,27 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 `scontrol show nodes`
 
+Output:
+
+```
+NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1 
+   CPUAlloc=0 CPUTot=8 CPULoad=N/A
+   AvailableFeatures=dynamic,c5n.4xlarge,compute-resource-1
+   ActiveFeatures=dynamic,c5n.4xlarge,compute-resource-1
+   Gres=(null)
+   NodeAddr=queue1-dy-compute-resource-1-10 NodeHostName=queue1-dy-compute-resource-1-10 
+   RealMemory=1 AllocMem=0 FreeMem=N/A Sockets=8 Boards=1
+   State=IDLE+CLOUD+POWERED_DOWN ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=queue1 
+   BootTime=None SlurmdStartTime=None
+   LastBusyTime=Unknown
+   CfgTRES=cpu=8,mem=1M,billing=8
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+```
+
 ## Update the compute nodes
 
 ### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
