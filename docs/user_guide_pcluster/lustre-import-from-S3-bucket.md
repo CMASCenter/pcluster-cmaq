@@ -36,10 +36,10 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-018cfea3edf3c4765                <<< replace subnetID
+    SubnetId: subnet-xx-xx-xx                           <<< replace subnetID
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: centos                                   <<< replace keyname
+    KeyName: your-key                                   <<< replace keyname
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
@@ -49,7 +49,7 @@ Scheduling:
       CapacityType: SPOT
       Networking:
         SubnetIds:
-          - subnet-018cfea3edf3c4765                   <<< replace subnetID
+          - subnet-xx-xx-xxx                            <<< replace subnetID
         PlacementGroup:
           Enabled: true
       ComputeResources:
@@ -137,10 +137,10 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 
 log into the new cluster
-(note replace centos.pem with your Key)
+(note replace your-key.pem with your Key)
 
 ```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
+pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq
 ```
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
