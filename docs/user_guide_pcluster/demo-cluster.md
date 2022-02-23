@@ -66,7 +66,7 @@ For more information about the configuration file see
 1. Allowed values for AWS Region ID:: us-east-1 (15)
 2. Allowed values for EC2 Key Pair Name - choose your key pair
 2. Allowed values for Scheduler: slurm (1)
-3. Allowed values for Operating System: centos7 (2) 
+3. Allowed values for Operating System: ubuntu2004 
 4. Head node instance type: t2.micro
 5. Number of queues: 1
 6. Name of queue 1: queue1
@@ -78,6 +78,11 @@ For more information about the configuration file see
 12. Allowed values for Network Configuration: 2. Head node and compute fleet in the same public subnet
 
 Beginning VPC creation. Please do not leave the terminal until the creation is finalized
+
+### Note, the chose of operating system determines what modules and gcc compiler versions are available.
+Centos7 has an older gcc version 4
+Ubuntu2004 has gcc version 9+
+I haven't tried Alinux or Amazon Linux/Red Hat Linux
 
 
 ### Examine the yaml file 
