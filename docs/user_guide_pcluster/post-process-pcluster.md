@@ -1,9 +1,17 @@
 # Scripts to post-process CMAQ output
 
+### Note, the post-processing analysis should be done on the head node.
+Verify that the compute nodes are no longer running if you have completed all of the benchmark runs
+
+### Stop the compute nodes
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED``
+
 
 ### Edit, Build and Run the POST processing routines
 
-for case 
+You need to run the post processing scripts for every benchmark case.
+
+Example for one of the cases:
 
 setenv APPL 2016_CONUS_16x18pe
 
