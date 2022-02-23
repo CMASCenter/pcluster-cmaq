@@ -3,6 +3,14 @@
 ### Note, the post-processing analysis should be done on the head node.
 Verify that the compute nodes are no longer running if you have completed all of the benchmark runs
 
+`squeue`
+
+You should see that no jobs are running.
+
+Show compute nodes
+
+`scontrol show nodes`
+
 ### Stop the compute nodes
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED``
 
