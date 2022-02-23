@@ -9,7 +9,7 @@
 
 ### User Guide Cycle Cloud: 
 1. how to configure and create CycleCloud using Azure Web Interface
-2. how to install and run CMAQ CONUS Benchamrk for 2 days
+2. how to install and run CMAQ CONUS Benchmark for 2 days
 
 
 
