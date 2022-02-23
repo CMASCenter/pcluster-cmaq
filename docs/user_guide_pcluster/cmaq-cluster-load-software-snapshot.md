@@ -20,29 +20,31 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 `pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
 
-### Show compute nodes
+### Verify Environment on Cluster
+
+#### Show compute nodes
 
 `scontrol show nodes`
 
-### Check to make sure elastic network adapter (ENA) is enabled
+#### Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
 
 `lspci`
 
-### Check what modules are available on the cluster
+#### Check what modules are available on the cluster
 
 `module avail`
 
-### Load the openmpi module
+#### Load the openmpi module
 
 `module load openmpi/4.1.1`
 
-### Load the Libfabric module
+#### Load the Libfabric module
 
 `module load libfabric-aws/1.13.0amzn1.0`
 
-### Verify the gcc compiler version is greater than 8.0
+#### Verify the gcc compiler version is greater than 8.0
 
 `gcc --version`
 
@@ -63,12 +65,9 @@ Create the output directory
 
 `mkdir -p /fsx/data/output`
 
-### Next Steps
 
-1. Follow instructions to Install CMAQ software on parallel cluster
-2. Verify that a job runs successfully and compare the timing
-3. Save the EBS Volume as a snapshot in the AWS interface
-4. Change the permissions of the EBS Volume to be PUBLIC
+###  Follow instructions to Install CMAQ software on parallel cluster
+
 
 ### Submit a 180 pe job
 
@@ -146,3 +145,9 @@ Num  Day        Wall Time
       Avg. Time = 1443.72
 
 ```
+
+### Verify that a job runs successfully and compare the timing
+
+### Save the EBS Volume as a snapshot in the AWS interface
+
+### Change the permissions of the EBS Volume to be PUBLIC
