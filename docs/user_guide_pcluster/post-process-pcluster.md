@@ -1,7 +1,11 @@
-# Scripts to run combine and post processing 
+# Scripts to post-process CMAQ output
 
 
-### Build the POST processing routines
+### Edit, Build and Run the POST processing routines
+
+for case 
+
+setenv APPL 2016_CONUS_16x18pe
 
 ```
 setenv DIR /shared/build/openmpi/CMAQv533/CMAQ/scripts
@@ -49,3 +53,5 @@ setenv CMAQ_DATA /fsx/data
 ./run_bldoverlay_conus.csh
 
 ```
+
+### These edits and scripts were saved on the ubuntu2004 snapshot
