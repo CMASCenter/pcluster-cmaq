@@ -122,3 +122,25 @@ Next idea is to try the Alinux/Amazon linux/Red Hat to see what gcc compiler, mo
 ### Submit a 288 pe job
 
 `sbatch run_cctm_2016_12US2.288pe.8x36.pcluster.csh`
+
+
+`tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.pcluster.log`
+
+==============================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1524.55
+02   2015-12-23   1362.90
+     Total Time = 2887.45
+      Avg. Time = 1443.72
+
