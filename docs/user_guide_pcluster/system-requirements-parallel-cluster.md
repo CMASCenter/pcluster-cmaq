@@ -204,12 +204,9 @@ Cost for annual simulation
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
 
-Table 5. Extrapolated Cost of Lustre File system for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Estimate for S3 Bucket cost for storing an annual simulation
 
-Need to create table
-
-
-Also need estimate for S3 Bucket cost for storing an annual simulation
+      (to-do)
 
 
 ### 1.7 Recommended Workflow for extending to annual run
