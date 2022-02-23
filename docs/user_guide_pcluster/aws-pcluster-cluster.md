@@ -32,10 +32,10 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-018cfea3edf3c4765  << replace
+    SubnetId: subnet-xx-xx-xx           << replace
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: centos                     << replace
+    KeyName: your_key                     << replace
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
@@ -43,7 +43,7 @@ Scheduling:
       CapacityType: SPOT
       Networking:
         SubnetIds:
-          - subnet-018cfea3edf3c4765    << replace
+          - subnet-xx-xx-x         x    << replace
       ComputeResources:
         - Name: compute-resource-1
           InstanceType: c5n.4xlarge
