@@ -71,8 +71,8 @@ output:
 # NOTE: a new bucket needs to be created to store each set of cluster runs
 
 aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output
-aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output/fsx/data/output/2022-02-09/
-aws s3 cp --recursive /fsx/POST s3://c5n-head-c5n.18xlarge-compute-conus-output/fsx/data/output/2022-02-09/
+aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output
+aws s3 cp --recursive /fsx/POST s3://c5n-head-c5n.18xlarge-compute-conus-output
 ```
 
 If you do not have permissions to write to the s3 bucket listed above, you will need to edit the script to specify the s3 bucket that you have permissions to write to.
