@@ -68,7 +68,7 @@ For more information about the configuration file see
 
  `pcluster configure --config new-hello-world.yaml`
 
-Input the following answers:
+Input the following answers at each prompt:
 
 1. Allowed values for AWS Region ID:: us-east-1 (15)
 2. Allowed values for EC2 Key Pair Name - choose your key pair
