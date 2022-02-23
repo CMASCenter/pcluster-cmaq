@@ -97,6 +97,7 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 ### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line
+If you only modified the yaml file to update the compute node identity, without making additional updates to the network and other settings, then you would not achieve all of the benefits of using the c5n.18xlarge compute node in the parallel cluster.
 
 ### Exit the cluster
 
