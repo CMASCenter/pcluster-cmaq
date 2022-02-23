@@ -44,7 +44,7 @@ Also to activate the virtual environment once it is installed run
 
 `activate`
 
-### Configure AWS Command line credentials on your local machine
+## Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Setting up AWS Credential Instructions</a>
 
  `aws configure` 
