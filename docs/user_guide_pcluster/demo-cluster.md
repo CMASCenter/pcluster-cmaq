@@ -84,7 +84,7 @@ For more information about the configuration file see
 
 Beginning VPC creation. Please do not leave the terminal until the creation is finalized
 
-### Note, the chose of operating system determines what modules and gcc compiler versions are available.
+### Note, the choice of operating system (specified in the yaml file) determines what modules and gcc compiler versions are available.
 Centos7 has an older gcc version 4
 Ubuntu2004 has gcc version 9+
 I haven't tried Alinux or Amazon Linux/Red Hat Linux
