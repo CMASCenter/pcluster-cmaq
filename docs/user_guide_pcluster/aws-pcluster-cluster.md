@@ -83,7 +83,7 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-## Login to cluster
+#### Login to cluster
 (note, replace the centos.pem with your Key Pair)
 
 `pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
@@ -242,7 +242,7 @@ See instructions for installing and running CMAQ on cluster.
 6. After copying output and log files to the s3 bucket the cluster can be deleted
 7. Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated, and costs will only be incurred by the S3 Bucket storage.
 
-## Pcluster User Manual
+#### Pcluster User Manual
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
 
