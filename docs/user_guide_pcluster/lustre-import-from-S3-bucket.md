@@ -234,7 +234,15 @@ Also may need to create the output directory
 mkdir -p /fsx/data/output
 ```
 
-### Copy the run scripts pre-configured for the parallel cluster from the github repo
+### Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo
+
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
+
+Example:
+
+`diff /shared/pcluster-cmaq/run_scripts/cmaq533/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
+
+Only if needed, copy the run scripts from the repo.
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
@@ -277,6 +285,31 @@ Output:
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh
 ```
+
+
+### Check status of run
+
+`squeue `
+
+Output:
+
+```
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 1    queue1     CMAQ   ubuntu PD       0:00      8 (BeginTime)
+```
+
+Note if you see the following message, you may want to submit a job that requires fewer PES.
+
+ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+
+`scancel `
+
+`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
+
+Or - you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
+
 
 ### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 
