@@ -143,6 +143,8 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
+While the cluster has been created, only the t2.micro head node is running.  Before any jobs can be submitted to the slurm queue, the compute nodes need to be started.
+
 ### Start the compute nodes
 
  `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
