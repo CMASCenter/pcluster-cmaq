@@ -310,6 +310,78 @@ ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
 
 Or - you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
 
+`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+
+Output:
+
+```
+{
+  "cluster": {
+    "clusterName": "cmaq",
+    "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
+    "cloudformationStackArn": "xx-xxx-xx",
+    "region": "us-east-1",
+    "version": "3.1.1",
+    "clusterStatus": "UPDATE_IN_PROGRESS"
+  },
+  "changeSet": [
+    {
+      "parameter": "Scheduling.SlurmQueues[queue1].CapacityType",
+      "requestedValue": "ONDEMAND",
+      "currentValue": "SPOT"
+    }
+  ]
+}
+```
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
+
+```
+"clusterStatus": "UPDATE_IN_PROGRESS"
+```
+
+once you see
+
+```
+  "clusterStatus": "UPDATE_COMPLETE"
+```
+
+Restart the compute nodes
+
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
+
+
+Verify that compute nodes have started
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
+
+```
+ "computeFleetStatus": "RUNNING",
+```
+
+Re-login to the cluster
+
+```
+pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq
+```
+
+Scancel any jobs left in the queue
+
+Submit a new job
+
+```
+sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh
+```
+
+
+
+
+
+
 
 ### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 
