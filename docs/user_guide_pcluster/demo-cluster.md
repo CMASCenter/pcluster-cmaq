@@ -6,6 +6,13 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 ## Install AWS Parallel Cluster Command Line Interface on your local machine
 
+Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
+
+AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
+It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account.
+
 
 ### Instructions for LINUX
 
