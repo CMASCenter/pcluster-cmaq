@@ -300,9 +300,11 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 Note if you see the following message, you may want to submit a job that requires fewer PES.
 
+```
 ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+```
 
 `scancel `
 
