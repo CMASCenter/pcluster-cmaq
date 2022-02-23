@@ -386,6 +386,27 @@ I checked and found this:
 
 If you are unable to access AWS Services, please note that some services may take up to 24 hours to fully activate. If you’re still unable to access AWS Services after that time, please visit AWS Support.
 
+Note, I had to enable spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
+
+One way to accomplish this is to have each user login to the EC2 Website and launch a spot instance.
+The service policy will be automatically created.
+
+
+Check to see the log on the parallel cluster
+
+`vi /var/log/parallelcluster/slurm_resume.log`
+
+ An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
+
+
+Trying to submit a 72 pe job 2 nodes x 36 cpus
+
+That appears to be working now.
+
+
+
+
+
 
 
 
