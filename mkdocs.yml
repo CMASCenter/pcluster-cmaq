@@ -3,9 +3,9 @@ nav:
     - Home: 'index.md'
     - User Guide for AWS Parallel Cluster:
         - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
-        - 2 AWS Parallel Cluster Configure using AWS CLI:
+        - 2 AWS Parallel Cluster Configure using AWS CLI 3.0 YAML file:
             - '2.1 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
-            - '2.2 Create AWS MVP Parallel Cluster': 'user_guide_pcluster/aws-pcluster-cluster.md'
+            - '2.2 Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
         - 3 CMAQ Benchmark Option 1:
             - '5.1 Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
         - 4 CMAQ Benchmark Option 2:
