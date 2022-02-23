@@ -125,6 +125,14 @@ keep rechecking until you see the following status "computeFleetStatus": "STOPPE
 
 ### YAML file for c5n.xlarge head node and c5n18xlarge compute Node
 
+NOTE:
+
+1. the c5n-18xlarge.yaml is configured to use SPOT instance pricing for the compute nodes.
+2. the c5n-18xlarge.yaml is configured to the the c5n-18xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
+3. the c5n-18xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (16 virtual cpus reduced to 8 cpus)
+4. the c5n-18xlarge.yaml is configured to enable the setting of a placement group to allow low inter-node latency
+5. the c5n-18xlarge.yaml is configured to enables the elastic fabric adapter
+
 Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
 
 ![c5n-18xlarge yaml configuration](../yml_plots/c5n-18xlarge-yaml.png)
