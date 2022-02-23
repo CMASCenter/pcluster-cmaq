@@ -103,6 +103,12 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
  `pcluster list-clusters --region=us-east-1`
 
+### Check on status of cluster again
+
+ `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
+
+After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
+
 ### Start the compute nodes
 
  `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`

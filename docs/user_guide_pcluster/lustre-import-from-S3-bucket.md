@@ -127,6 +127,8 @@ output:
 }
 ```
 
+After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
+
 Start the compute nodes
 
 ```
