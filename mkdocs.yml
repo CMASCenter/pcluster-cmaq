@@ -17,7 +17,7 @@ nav:
             - '6.2 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
             - '6.3 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
             - '6.4 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
-        - 6 How to Create Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
+        - 6 How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
         - 7 Logout and Delete Parallel Cluster:
             - '7.1 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
     - User Guide for Cycle Cloud:
