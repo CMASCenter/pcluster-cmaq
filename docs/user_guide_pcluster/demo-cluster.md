@@ -51,7 +51,7 @@ Also to activate the virtual environment once it is installed run
 
 ## Configure a demo cluster
 
-### To create a parallel cluster, a yaml file needs to be configured that is unique to your account.
+### To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
 An example of the yaml file contents is described in the following Diagram:
 
