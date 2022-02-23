@@ -127,16 +127,15 @@ Create the output directory
 
 ###  Follow instructions to Install CMAQ software on parallel cluster
 
-### Submit 180 pe job
+#### Submit 180 pe job for CMAQ 2 day Benchmark
 
-### Submit 288 pe job  (note, can't seem to get 360 pe job to be provisioned by the parallel cluster)
+#### Submit 288 pe job  (note, can't seem to get 360 pe job to be provisioned by the parallel cluster)
 
-### Verify that a job runs successfully and compare the timing
+#### Run Post-processing
 
-### Run Post-processing
-
-### Save Logs and Output to S3 Bucket
+#### Save Logs and Output to S3 Bucket
 
 ### Save the EBS Volume as a snapshot in the AWS interface
 
 ### Change the permissions of the EBS Volume to be PUBLIC
+    Record the snapshot ID and use it in the yaml file for pre-loaded software install
