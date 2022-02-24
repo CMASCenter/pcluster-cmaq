@@ -127,6 +127,8 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Cycle Cloud with D12v
 Total HBv3-120 compute cost of Running Benchmarking Suite using SPOT pricing = $1.4/hr
 <a href="https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/">Azure Spot and On-Demand Pricing</a>
 
+Figures: todo - need screenshots of Azure Pricing from Rob Zelt
+
 Figure 2. Cost by Instance Type - update for Azure 
 
 ![Azure Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/Azure_Bench_Cost.png)
