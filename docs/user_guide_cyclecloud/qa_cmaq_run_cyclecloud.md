@@ -160,9 +160,6 @@ Install packages as root - to make them available to all users
 ```
 sudo -i R
 install.packages("stringr")
-install.packages("ncdf4")
-install.packages("fields")
-install.packages("M3")
 ```
 
 Had an issue installing ncdf4
@@ -177,14 +174,34 @@ ERROR: configuration failed for package ‘ncdf4’
 * removing ‘/usr/lib64/R/library/ncdf4’
 
 
-installing also requires curl.
+building netcdf with HDF5 support requires curl.
 
 ```
 sudo yum install curl
 sudo yum install libcurl-devel 
 ```
 
+```
+cd /shared/pcluster-cmaq
+./gcc_install_hdf5.cyclecloud.csh
+```
 
+Need to specify the location of nc-config in your .cshrc
+
+set path = ($path /shared/build/install/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort /shared/build-hdf5/install/bin )
+
+Run command to install ncdf4 package
+
+sudo R CMD INSTALL ncdf4_1.13.tar.gz --configure-args="--with-nc-config=/shared/build-hdf5/install/bin/nc-config"
+
+
+Install additional packages
+
+```
+sudo -i R
+install.packages("fields")
+install.packages("M3")
+```
 
 `
 cd /shared/pcluster_cmaq/qa_scripts
