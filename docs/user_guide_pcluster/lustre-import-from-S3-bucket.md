@@ -403,6 +403,8 @@ Trying to submit a 72 pe job 2 nodes x 36 cpus
 
 That appears to be working now.
 
+`sbatch run_cctm_2016_12US2.72pe.2x36.pcluster.csh`
+
 `grep -i 'Processing completed.' CTM_LOG_036.v533_gcc_2016_CONUS_6x12pe_20151223`
 
 ```
@@ -414,11 +416,41 @@ That appears to be working now.
 ```
 
 
+`tail -n 20 run_cctmv5.3.3_Bench_2016_12US2.72.6x12pe.2day.pcluster.log `
 
 
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       72
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   3562.50
+02   2015-12-23   3151.21
+     Total Time = 6713.71
+      Avg. Time = 3356.85
+```
 
 
+`sbatch run_cctm_2016_12US2.108pe.3x36.pcluster.csh`
 
+grep -i 'Processing Completed' CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222
+
+```
+            Processing completed...    6.0 seconds
+            Processing completed...    6.0 seconds
+            Processing completed...    8.3 seconds
+            Processing completed...    8.2 seconds
+            Processing completed...    6.0 seconds
+```
 
 
 
