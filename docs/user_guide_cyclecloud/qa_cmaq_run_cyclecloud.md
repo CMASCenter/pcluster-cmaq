@@ -195,17 +195,48 @@ Run command to install ncdf4 package
 sudo R CMD INSTALL ncdf4_1.13.tar.gz --configure-args="--with-nc-config=/shared/build-hdf5/install/bin/nc-config"
 
 
-Install additional packages
+Install additional packages as root so that all users will have access.
 
 ```
 sudo -i R
 install.packages("fields")
+```
+
+M3 package requires gdal
+
+sudo yum install gdal
+sudo yum install epel-release
+sudo yum install gdal-devel
+
+configure: pkg-config proj not available
+  set PKG_CONFIG_PATH to the directory containing proj.pc
+configure: PROJ version not determined using pkg-config proj
+
+
+Lots of issues
+
+https://grasswiki.osgeo.org/wiki/Compile_and_Install
+
+Tried following above suggestion to install for GRASS
+
+```
+yum install flex bison make zlib-devel gcc-c++ gettext \
+             sqlite-devel mesa-libGL-devel mesa-libGLU-devel \
+             libXmu-devel libX11-devel fftw-devel libtiff-devel \
+             lesstif-devel python-devel numpy wxPython wxGTK-devel \
+             proj proj-devel proj-epsg proj-nad libxml2 gdal gdal-devel geos geos-devel \
+             netcdf netcdf-devel blas-devel lapack-devel atlas-devel \
+             python-dateutil python-imaging python-matplotlib python-sphinx \
+             doxygen subversion
+```
+sudo -i R
+install.packages("rgdal")
 install.packages("M3")
 ```
 
-`
+Then run the R scripts!`
 cd /shared/pcluster_cmaq/qa_scripts
-./compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
+Rscript compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
 ```
 
 
