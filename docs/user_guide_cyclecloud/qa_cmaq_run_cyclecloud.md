@@ -165,6 +165,25 @@ install.packages("fields")
 install.packages("M3")
 ```
 
+Had an issue installing ncdf4
+
+ncdf4 REQUIRES the netcdf library be version 4 or above,
+AND installed with HDF-5 support (i.e., the netcdf library must be
+compiled with the --enable-netcdf-4 flag). If you don't want to install
+the full version of netcdf-4 with HDF-5 support, then please install
+the old, deprecated ncdf package instead.
+-------------------------------------------------------------------
+ERROR: configuration failed for package ‘ncdf4’
+* removing ‘/usr/lib64/R/library/ncdf4’
+
+
+installing also requires curl.
+
+```
+sudo yum install curl
+sudo yum install libcurl-devel 
+```
+
 
 
 `
