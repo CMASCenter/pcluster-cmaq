@@ -24,7 +24,7 @@ Example for one of the cases:
 setenv APPL 2016_CONUS_16x18pe
 
 ```
-setenv DIR /shared/build/openmpi/CMAQv533/
+setenv DIR /shared/build/openmpi_gcc/CMAQv533/
 
 cd $DIR/POST/combine/scripts
 sed -i 's/CMAQv532/CMAQv533/g' bldit_combine.csh
