@@ -23,7 +23,7 @@ grep A:B REPORT
 
 Should see all zeros. 
 Recompiled CMAQ using -march=native compiler option for gcc compiler, but am still seeing differences in answers.
-It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differes (10 vs 16)
+It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)
 
 ```
 NPCOL  =  10; @ NPROW = 18
