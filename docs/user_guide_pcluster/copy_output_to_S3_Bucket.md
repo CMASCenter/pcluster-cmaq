@@ -19,6 +19,7 @@ cp run*.log /fsx/data/output
 cp run*.csh /fsx/data/output
 ```
 ### Examine the output files
+note, these commands will vary depending on what APPL or domain decomposition was run
 
 ```
 cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
