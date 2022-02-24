@@ -143,7 +143,17 @@ Resulted in differences in the output
 load the R module (may need to install R - need to check if additional R libraries need to be installed)
 edit the R script to specify the sim1.dir, sim1.file  and sim2.dir, sim2.file to correspond to the Benchmark cases that have been run.
 
+<a href="https://linuxize.com/post/how-to-install-r-on-centos-7/">How to install R on Centos7</a>
+
+Use the following commands, and also install packages - note, see website above for full details:
+
 ```
+sudo yum install epel-release
+sudo yum install R
+R --version
+```
+
+`
 cd /shared/pcluster_cmaq/qa_scripts
 ./compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
 ```
