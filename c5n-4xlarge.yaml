@@ -4,10 +4,10 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-018cfea3edf3c4765 
+    SubnetId: subnet-0dfb2fb9950fa4607
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: centos
+    KeyName: ubuntu-cmas
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
@@ -15,7 +15,7 @@ Scheduling:
       CapacityType: SPOT
       Networking:
         SubnetIds:
-          - subnet-018cfea3edf3c4765
+          - subnet-0dfb2fb9950fa4607
       ComputeResources:
         - Name: compute-resource-1
           InstanceType: c5n.4xlarge

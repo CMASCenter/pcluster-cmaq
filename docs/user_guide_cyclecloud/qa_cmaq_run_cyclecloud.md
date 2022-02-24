@@ -143,11 +143,112 @@ Resulted in differences in the output
 load the R module (may need to install R - need to check if additional R libraries need to be installed)
 edit the R script to specify the sim1.dir, sim1.file  and sim2.dir, sim2.file to correspond to the Benchmark cases that have been run.
 
+<a href="https://linuxize.com/post/how-to-install-r-on-centos-7/">How to install R on Centos7</a>
+
+Use the following commands, and also install packages - note, see website above for full details:
+
+Install R
+
 ```
-cd /shared/pcluster_cmaq/qa_scripts
-./compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
+sudo yum install epel-release
+sudo yum install R
+R --version
 ```
 
+Install packages as root - to make them available to all users
+
+```
+sudo -i R
+install.packages("stringr")
+```
+
+Had an issue installing ncdf4
+
+ncdf4 REQUIRES the netcdf library be version 4 or above,
+AND installed with HDF-5 support (i.e., the netcdf library must be
+compiled with the --enable-netcdf-4 flag). If you don't want to install
+the full version of netcdf-4 with HDF-5 support, then please install
+the old, deprecated ncdf package instead.
+-------------------------------------------------------------------
+ERROR: configuration failed for package ‘ncdf4’
+* removing ‘/usr/lib64/R/library/ncdf4’
+
+
+building netcdf with HDF5 support requires curl.
+
+```
+sudo yum install curl
+sudo yum install libcurl-devel 
+```
+
+```
+cd /shared/pcluster-cmaq
+./gcc_install_hdf5.cyclecloud.csh
+```
+
+Need to specify the location of nc-config in your .cshrc
+
+set path = ($path /shared/build/install/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort /shared/build-hdf5/install/bin )
+
+Run command to install ncdf4 package
+
+sudo R CMD INSTALL ncdf4_1.13.tar.gz --configure-args="--with-nc-config=/shared/build-hdf5/install/bin/nc-config"
+
+
+Install additional packages as root so that all users will have access.
+
+```
+sudo -i R
+install.packages("fields")
+```
+
+M3 package requires gdal
+
+sudo yum install gdal
+sudo yum install epel-release
+sudo yum install gdal-devel
+
+configure: pkg-config proj not available
+  set PKG_CONFIG_PATH to the directory containing proj.pc
+configure: PROJ version not determined using pkg-config proj
+
+
+Lots of issues
+
+https://grasswiki.osgeo.org/wiki/Compile_and_Install
+
+Tried following above suggestion to install for GRASS
+
+```
+yum install flex bison make zlib-devel gcc-c++ gettext \
+             sqlite-devel mesa-libGL-devel mesa-libGLU-devel \
+             libXmu-devel libX11-devel fftw-devel libtiff-devel \
+             lesstif-devel python-devel numpy wxPython wxGTK-devel \
+             proj proj-devel proj-epsg proj-nad libxml2 gdal gdal-devel geos geos-devel \
+             netcdf netcdf-devel blas-devel lapack-devel atlas-devel \
+             python-dateutil python-imaging python-matplotlib python-sphinx \
+             doxygen subversion
+```
+sudo -i R
+install.packages("rgdal")
+install.packages("M3")
+```
+
+Then run the R scripts!`
+cd /shared/pcluster_cmaq/qa_scripts
+Rscript compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
+```
+
+To view the script, install imagemagick
+
+```
+sudo yum install ImageMagick ImageMagick-devel
+```
+
+Make sure that you have Xquartz running on your local machine, and that you have given permission to display back from the cyclecloud server.
+
+On your local terminal:
+`host +`
 
 Example output plots are available for the CONUS Benchmark in the following directory
 
