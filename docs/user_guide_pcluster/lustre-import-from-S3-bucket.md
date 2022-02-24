@@ -439,6 +439,20 @@ Num  Day        Wall Time
       Avg. Time = 3356.85
 ```
 
+### Trying to run on 144 processors (180 processors failed due to spot node limit)
+
+`sbatch run_cctm_2016_12US2.144pe.4x36.pcluster.csh`
+
+`vi /var/log/parallelcluster/slurm_resume.log`
+
+```
+2022-02-24 02:26:45,940 - [slurm_plugin.instance_manager:add_instances_for_nodes] - ERROR - Encountered exception when launching instances for nodes (x1) ['queue1-dy-compute-resource-1-10']: An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
+2022-02-24 02:26:45,940 - [slurm_plugin.resume:_resume] - INFO - Successfully launched nodes (x0) []
+2022-02-24 02:26:45,941 - [slurm_plugin.resume:_resume] - ERROR - Failed to launch following nodes, setting nodes to down: (x1) ['queue1-dy-compute-resource-1-10']
+2022-02-24 02:26:45,941 - [slurm_plugin.resume:_handle_failed_nodes] - INFO - Setting following failed nodes into DOWN state: (x1) ['queue1-dy-compute-resource-1-10']
+2022-02-24 02:26:45,959 - [slurm_plugin.resume:main] - INFO - ResumeProgram finished.
+```
+
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.pcluster.csh`
 
@@ -452,10 +466,40 @@ grep -i 'Processing Completed' CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222
             Processing completed...    6.0 seconds
 ```
 
+`tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       108
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2454.11
+02   2015-12-23   2142.11
+     Total Time = 4596.22
+      Avg. Time = 2298.11
+```
 
 
+Trying 108 pe run with NPCOL=6, NPROW=18 to compare with 
 
+```
+run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12
+```
 
+`sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
+
+Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.
+
+Once that is done, save a snapshot of the volume prior to deleting the cluster, so that we will have updated run scripts.
 
 
 ### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket

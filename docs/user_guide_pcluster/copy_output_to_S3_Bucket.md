@@ -58,7 +58,7 @@ Check disk space
 Examine the example script
 
 ```
-cd s3_scripts
+cd /shared/pcluster-cmaq/s3_scripts
 cat s3_upload.c5n.18xlarge.csh
 
 ```
@@ -70,9 +70,9 @@ output:
 # Script to upload output data to S3 bucket
 # NOTE: a new bucket needs to be created to store each set of cluster runs
 
-aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output
-aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output
-aws s3 cp --recursive /fsx/POST s3://c5n-head-c5n.18xlarge-compute-conus-output
+aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output-02-24-2022
+aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output-02-24-2022
+aws s3 cp --recursive /fsx/data/POST s3://c5n-head-c5n.18xlarge-compute-conus-output-02-24-2022
 ```
 
 If you do not have permissions to write to the s3 bucket listed above, you will need to edit the script to specify the s3 bucket that you have permissions to write to.
