@@ -403,6 +403,19 @@ Trying to submit a 72 pe job 2 nodes x 36 cpus
 
 That appears to be working now.
 
+`grep -i 'Processing completed.' CTM_LOG_036.v533_gcc_2016_CONUS_6x12pe_20151223`
+
+```
+ Processing completed...    9.0 seconds
+            Processing completed...   12.0 seconds
+            Processing completed...   11.2 seconds
+            Processing completed...    9.0 seconds
+            Processing completed...    9.1 seconds
+```
+
+
+
+
 
 
 
