@@ -23,6 +23,10 @@ Example for one of the cases:
 
 setenv APPL 2016_CONUS_16x18pe
 
+note, you will need to change the sed command to a different configuration if you ran another case
+
+setenv APPL 2016_CONUS_9x12pe
+
 ```
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/
 
