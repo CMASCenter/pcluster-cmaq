@@ -5,7 +5,7 @@
 
 ```
 cd /fsx/data/output
-ls */*CONC*
+ls */*ACONC*
 ```
 ```
 setenv AFILE output_CCTM_v533_gcc_2016_CONUS_10x18pe_full/CCTM_ACONC_v533_gcc_2016_CONUS_10x18pe_full_20151222.nc
@@ -21,17 +21,15 @@ hit return several times to accept the default options
 grep A:B REPORT
 ```
 
-Should see all zeros. There are some non-zero values. TO DO: need to investigate to determine if this is sensitive to the compiler version.
-It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differes (10 vs 16)
+Should see all zeros. 
+Recompiled CMAQ using -march=native compiler option for gcc compiler, but am still seeing differences in answers.
+It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)
 
 ```
 NPCOL  =  10; @ NPROW = 18
 NPCOL  =  16; @ NPROW = 18
 ```
-
-```
-grep A:B REPORT
-```
+`grep A:B REPORT`
 
 output
 
@@ -69,6 +67,90 @@ output
  A:B  6.33299E-07@(225,182, 1) -6.53090E-07@(202,118, 1) -2.86715E-11  4.42746E-09
  A:B  6.25849E-07@(225,182, 1) -2.21189E-07@(225,184, 1) -5.32567E-12  2.66906E-09
  A:B  3.64147E-07@(306,158, 1) -3.12924E-07@(175,  2, 1)  3.15538E-12  2.74893E-09
+```
+
+
+Compare CMAQv533 run with -march=native compiler flag removed.
+
+`more REPORT.6x12pe_vs_9x12pe`
+
+```
+     FILE A:  AFILE (output_CCTM_v533_gcc_2016_CONUS_6x12pe/CCTM_ACONC_v533_gcc_2016_CONUS_6x12pe_20151222.nc)
+
+     FILE B:  BFILE (output_CCTM_v533_gcc_2016_CONUS_9x12pe/CCTM_ACONC_v533_gcc_2016_CONUS_9x12pe_20151222.nc)
+
+
+     -----------------------------------------------------------
+
+ Date and time  2015356:000000 (0:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma
+ A    5.19842E-02@(127, 62, 1)  1.56425E-05@(258,239, 1)  2.27752E-03  3.47514E-03
+ B    5.19842E-02@(127, 62, 1)  1.56425E-05@(258,239, 1)  2.27752E-03  3.47514E-03
+ A:B  2.27243E-07@(264,163, 1) -5.42961E-07@(264,165, 1)  9.77191E-12  2.54661E-09
+
+
+ Date and time  2015356:010000 (1:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma
+ A    6.55882E-02@(128, 62, 1)  1.29276E-05@(260,245, 1)  2.56435E-03  4.35617E-03
+ B    6.55882E-02@(128, 62, 1)  1.29276E-05@(260,245, 1)  2.56435E-03  4.35617E-03
+ A:B  2.76603E-07@(197,102, 1) -2.45869E-07@(264,163, 1)  6.01613E-12  1.72038E-09
+
+
+ Date and time  2015356:020000 (2:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma
+ A    6.86494E-02@(128, 62, 1)  1.03682E-05@(262,243, 1)  2.62483E-03  4.58060E-03
+ B    6.86494E-02@(128, 62, 1)  1.03682E-05@(262,243, 1)  2.62483E-03  4.58060E-03
+ A:B  3.27826E-07@(197,102, 1) -3.79980E-07@(264,157, 1)  7.99431E-12  2.56835E-09
+
+
+ Date and time  2015356:030000 (3:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma
+ A    6.58664E-02@( 48, 83, 1)  8.24041E-06@(265,241, 1)  2.57739E-03  4.54646E-03
+ B    6.58664E-02@( 48, 83, 1)  8.24041E-06@(265,241, 1)  2.57739E-03  4.54646E-03
+ A:B  5.47618E-07@(264,156, 1) -3.96743E-07@(264,160, 1)  9.99427E-12  3.22602E-09
+```
+
+Reconfirmed that with -march=native flag removed, still get matching answers if NPCOL is the same.
+more REPORT_6x12pe_6x18pe
+
+```
+     FILE A:  AFILE (output_CCTM_v533_gcc_2016_CONUS_6x12pe/CCTM_ACONC_v533_gcc_2016_CONUS_6x12pe_20151222.nc)
+     FILE B:  BFILE (output_CCTM_v533_gcc_2016_CONUS_6x18pe/CCTM_ACONC_v533_gcc_2016_CONUS_6x18pe_20151222.nc)
+     -----------------------------------------------------------
+ Date and time  2015356:000000 (0:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma 
+ A    5.19842E-02@(127, 62, 1)  1.56425E-05@(258,239, 1)  2.27752E-03  3.47514E-03
+ B    5.19842E-02@(127, 62, 1)  1.56425E-05@(258,239, 1)  2.27752E-03  3.47514E-03
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+
+
+ Date and time  2015356:010000 (1:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma 
+ A    6.55882E-02@(128, 62, 1)  1.29276E-05@(260,245, 1)  2.56435E-03  4.35617E-03
+ B    6.55882E-02@(128, 62, 1)  1.29276E-05@(260,245, 1)  2.56435E-03  4.35617E-03
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+
+
+ Date and time  2015356:020000 (2:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma 
+ A    6.86494E-02@(128, 62, 1)  1.03682E-05@(262,243, 1)  2.62483E-03  4.58060E-03
+ B    6.86494E-02@(128, 62, 1)  1.03682E-05@(262,243, 1)  2.62483E-03  4.58060E-03
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
+
+
+ Date and time  2015356:030000 (3:00:00   Dec. 22, 2015)
+ A:AFILE/NO2  vs  B:BFILE/NO2  vs  (A - B)
+      MAX        @(  C,  R, L)  Min        @(  C,  R, L)  Mean         Sigma 
+ A    6.58664E-02@( 48, 83, 1)  8.24041E-06@(265,241, 1)  2.57739E-03  4.54646E-03
+ B    6.58664E-02@( 48, 83, 1)  8.24041E-06@(265,241, 1)  2.57739E-03  4.54646E-03
+ A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
 ```
 
 ### Use m3diff to compare two runs that have the same NPCOL

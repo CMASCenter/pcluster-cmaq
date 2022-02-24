@@ -108,6 +108,8 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 
 | Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
+| 72            |  2x36          | 6x12          | 3562.50              | 3151.21              |    6713.71                 |  no                | imported                |  false                                 |            | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
+| 108           |  3x36          | 9x12          |                      |                      |                            |  no                | imported                | false                                  |            |                                        |                                       |
 | 180           |  5x36          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false                                 |            | 1.1732/hr * 5 nodes * 1.307 hr = $7.66 | 3.888/hr * 5 nodes * 1.307 hr = $25.4 |
 | 180           |  5x36          | 10x18         | 2378.73              | 2378.73              |    4588.92                 |  no                | copied                  |  true                     | 10x18 did not match 16x18 | 1.1732/hr * 5 nodes * 1.2747 = $7.477 | $ 24.77 |
 | 180           |  5x36          | 10x18         | 1585.67        | 1394.52         |    2980.19           |  yes                | imported    |  true        |            | 1.1732/hr * 5nodes * 2980.9 / 3600 = $4.85 | $16.05 | 
@@ -204,12 +206,9 @@ Cost for annual simulation
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
 
-Table 5. Extrapolated Cost of Lustre File system for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Estimate for S3 Bucket cost for storing an annual simulation
 
-Need to create table
-
-
-Also need estimate for S3 Bucket cost for storing an annual simulation
+      (to-do)
 
 
 ### 1.7 Recommended Workflow for extending to annual run

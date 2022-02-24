@@ -1,18 +1,31 @@
-# Install CMAQ and pre-requisite libraries on linux
+# Install pre-requisite libraries on linux OS
 
 ## Install CMAQ sofware on parallel cluster
 
 ### Login to updated cluster
-(note, replace the centos.pem with your Key Pair)
+(note, replace the your-key.pem with your Key Pair)
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
 ### Change shell to use .tcsh
+note, this command depends on what OS you have installed on the parallel cluster
 
-'sudo usermod -s /bin/tcsh lizadams'
+`sudo usermod -s /bin/tcsh ubuntu`
 
-you may need to log out and log back in to have the tcsh shell be active
+or
+
+`sudo usermod -s /bin/tcsh centos`
+
+Log out and log back in to have the tcsh shell be active
+
+`exit`
+
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
+
+### Check to see the tcsh shell is default
+
+`echo $SHELL`
 
 
 The following instructions assume that you will be installing the software to a /shared/build directory
@@ -54,9 +67,10 @@ cd pcluster-cmaq
 
 ### Load the Libfabric module
 
-`module load libfabric-aws/1.13.0amzn1.0`
+`module load libfabric-aws/1.13.2amzn1.0`
 
 ### Verify the gcc compiler version is greater than 8.0
+(note, gcc version on centos7 has been gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44a, and this seems to work ok.)
 
 `gcc --version`
 
@@ -72,6 +86,7 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
+Note, if this script fails, it is typically because NCAR has released a new version of netCDF C or Fortran, so the old version is no longer available, or if they have changed the name or location of the download file. 
 
 
 `./gcc_netcdf_cluster.csh`
@@ -107,4 +122,4 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 Check to see that the cmaq executable has been built
 
-ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe
+`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe`

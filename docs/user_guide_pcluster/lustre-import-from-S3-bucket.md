@@ -23,10 +23,10 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 ### Create cluster using ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
 
-Note - you need to edit the c5n-18xlarge.ebs_shared.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+Note - you need to edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 
 ```
-vi c5n-18xlarge.ebs_shared.fsx_import.yaml 
+vi c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
 ```
 
 ```
@@ -36,10 +36,10 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-018cfea3edf3c4765                <<< replace subnetID
+    SubnetId: subnet-xx-xx-xx                           <<< replace subnetID
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: centos                                   <<< replace keyname
+    KeyName: your-key                                   <<< replace keyname
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
@@ -49,7 +49,7 @@ Scheduling:
       CapacityType: SPOT
       Networking:
         SubnetIds:
-          - subnet-018cfea3edf3c4765                   <<< replace subnetID
+          - subnet-xx-xx-xxx                            <<< replace subnetID
         PlacementGroup:
           Enabled: true
       ComputeResources:
@@ -66,7 +66,7 @@ SharedStorage:
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      SnapshotId: snap-0e42c77ae359bef93
+      SnapshotId: snap-065979e115804972e
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
@@ -76,9 +76,10 @@ SharedStorage:
 ```
 
 
+### Create the CMAQ MVP Parallel Cluster with software/data pre-installed
 
 ```
-pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.fsx_import.yaml --cluster-name cmaq --region us-east-1
+pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1
 ```
 
 output:
@@ -109,7 +110,7 @@ output:
   "creationTime": "2022-01-06T02:36:18.119Z",
   "version": "3.0.2",
   "clusterConfiguration": {
-    "url": "https://parallelcluster-92e22c6ec33aa106-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.0.2/clusters/cmaq-h466ns1cchvrf3wd/configs/cluster-config.yaml?versionId=3F5xBNZqTGz5UDMBvk8Dj27JDaBlfQwQ&"
+    "url": "
   },
   "tags": [
     {
@@ -120,12 +121,14 @@ output:
   "cloudFormationStackStatus": "CREATE_IN_PROGRESS",
   "clusterName": "cmaq",
   "computeFleetStatus": "UNKNOWN",
-  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/6cfb1a50-6e99-11ec-8af1-0ea2256597e5",
+  "cloudformationStackArn": 
   "lastUpdatedTime": "2022-01-06T02:36:18.119Z",
   "region": "us-east-1",
   "clusterStatus": "CREATE_IN_PROGRESS"
 }
 ```
+
+After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
 Start the compute nodes
 
@@ -134,10 +137,10 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 ```
 
 log into the new cluster
-(note replace centos.pem with your Key)
+(note replace your-key.pem with your Key)
 
 ```
-pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq
+pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq
 ```
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
@@ -149,7 +152,7 @@ ls /shared/build
 ### The .cshrc file was not saved, so I copied it from the git repo
 
 ```
-cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
+cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc
 ```
 
 ### Source shell
@@ -231,7 +234,15 @@ Also may need to create the output directory
 mkdir -p /fsx/data/output
 ```
 
-### Copy the run scripts pre-configured for the parallel cluster from the github repo
+### Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo
+
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
+
+Example:
+
+`diff /shared/pcluster-cmaq/run_scripts/cmaq533/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
+
+Only if needed, copy the run scripts from the repo.
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
@@ -274,6 +285,249 @@ Output:
 cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh
 ```
+
+
+### Check status of run
+
+`squeue `
+
+Output:
+
+```
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 1    queue1     CMAQ   ubuntu PD       0:00      8 (BeginTime)
+```
+
+Note if you see the following message, you may want to submit a job that requires fewer PES.
+
+```
+ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+```
+
+`scancel `
+
+`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
+
+Or - you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
+
+`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+
+Output:
+
+```
+{
+  "cluster": {
+    "clusterName": "cmaq",
+    "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
+    "cloudformationStackArn": "xx-xxx-xx",
+    "region": "us-east-1",
+    "version": "3.1.1",
+    "clusterStatus": "UPDATE_IN_PROGRESS"
+  },
+  "changeSet": [
+    {
+      "parameter": "Scheduling.SlurmQueues[queue1].CapacityType",
+      "requestedValue": "ONDEMAND",
+      "currentValue": "SPOT"
+    }
+  ]
+}
+```
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
+
+```
+"clusterStatus": "UPDATE_IN_PROGRESS"
+```
+
+once you see
+
+```
+  "clusterStatus": "UPDATE_COMPLETE"
+```
+
+Restart the compute nodes
+
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
+
+
+Verify that compute nodes have started
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
+
+```
+ "computeFleetStatus": "RUNNING",
+```
+
+Re-login to the cluster
+
+```
+pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq
+```
+
+Scancel any jobs left in the queue
+
+Submit a new job
+
+```
+sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh
+```
+
+
+NOte, I am trying this from a new AWS account, and the compute nodes don't appear to be provisioning.
+
+I checked and found this:
+
+If you are unable to access AWS Services, please note that some services may take up to 24 hours to fully activate. If you’re still unable to access AWS Services after that time, please visit AWS Support.
+
+Note, I had to enable spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
+
+One way to accomplish this is to have each user login to the EC2 Website and launch a spot instance.
+The service policy will be automatically created.
+
+
+Check to see the log on the parallel cluster
+
+`vi /var/log/parallelcluster/slurm_resume.log`
+
+ An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
+
+
+Trying to submit a 72 pe job 2 nodes x 36 cpus
+
+That appears to be working now.
+
+`sbatch run_cctm_2016_12US2.72pe.2x36.pcluster.csh`
+
+`grep -i 'Processing completed.' CTM_LOG_036.v533_gcc_2016_CONUS_6x12pe_20151223`
+
+```
+ Processing completed...    9.0 seconds
+            Processing completed...   12.0 seconds
+            Processing completed...   11.2 seconds
+            Processing completed...    9.0 seconds
+            Processing completed...    9.1 seconds
+```
+
+
+`tail -n 20 run_cctmv5.3.3_Bench_2016_12US2.72.6x12pe.2day.pcluster.log `
+
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       72
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   3562.50
+02   2015-12-23   3151.21
+     Total Time = 6713.71
+      Avg. Time = 3356.85
+```
+
+### Trying to run on 144 processors (180 processors failed due to spot node limit)
+
+`sbatch run_cctm_2016_12US2.144pe.4x36.pcluster.csh`
+
+`vi /var/log/parallelcluster/slurm_resume.log`
+
+```
+2022-02-24 02:26:45,940 - [slurm_plugin.instance_manager:add_instances_for_nodes] - ERROR - Encountered exception when launching instances for nodes (x1) ['queue1-dy-compute-resource-1-10']: An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
+2022-02-24 02:26:45,940 - [slurm_plugin.resume:_resume] - INFO - Successfully launched nodes (x0) []
+2022-02-24 02:26:45,941 - [slurm_plugin.resume:_resume] - ERROR - Failed to launch following nodes, setting nodes to down: (x1) ['queue1-dy-compute-resource-1-10']
+2022-02-24 02:26:45,941 - [slurm_plugin.resume:_handle_failed_nodes] - INFO - Setting following failed nodes into DOWN state: (x1) ['queue1-dy-compute-resource-1-10']
+2022-02-24 02:26:45,959 - [slurm_plugin.resume:main] - INFO - ResumeProgram finished.
+```
+
+
+`sbatch run_cctm_2016_12US2.108pe.3x36.pcluster.csh`
+
+grep -i 'Processing Completed' CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222
+
+```
+            Processing completed...    6.0 seconds
+            Processing completed...    6.0 seconds
+            Processing completed...    8.3 seconds
+            Processing completed...    8.2 seconds
+            Processing completed...    6.0 seconds
+```
+
+`tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       108
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2454.11
+02   2015-12-23   2142.11
+     Total Time = 4596.22
+      Avg. Time = 2298.11
+```
+
+
+Trying 108 pe run with NPCOL=6, NPROW=18 to compare with 
+
+```
+run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12
+```
+
+`sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
+
+Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.
+Answers did not match even though I removed the -march=native compiler flag.
+
+Also ran the following to verify that if NPCOL is identical than answers match. This was confirmed.
+
+`sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
+
+`tail -n 20 /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log`
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       108
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2415.37
+02   2015-12-23   2122.62
+     Total Time = 4537.99
+      Avg. Time = 2268.99
+```
+
+Once that is done, save a snapshot of the volume prior to deleting the cluster, so that we will have updated run scripts.
+
 
 ### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 

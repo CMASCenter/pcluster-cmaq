@@ -1,16 +1,41 @@
-### Copy the run scripts from the parallel_cluster repo
+### Verify that you have an updated set of run scripts from the parallel_cluster repo
 To ensure you have the correct directory specified
 
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
+`cd /shared/pcluster-cmaq/run_scripts/cmaq533/`
 
-`cp * /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+`ls -lrt run*pcluster* `
+
+Compare with
+
+`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run*pcluster*`
+
+If they are not identical, then copy the set from the repo
+
+`cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster* /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+
+
+### Verify that the input data is imported to /fsx from the S3 Bucket
+
+`cd /fsx/12US2`
+
+Need to make this directory and then link it to the path created when the data is copied from the S3 Bucket
+This is to make the paths consistent between the two methods of obtaining the input data.
+
+`mkdir -p /fsx/data/CONUS`
+`cd /fsx/data/CONUS`
+`ln -s /fsx/12US2 .`
+
+
+### Create the output directory
+
+`mkdir -p /fsx/data/output`
 
 
 ### Run the CONUS Domain on 180 pes
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-`sbatch run_cctm_2016_12US2.180pe.pcluster.csh`
+`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
 
@@ -60,7 +85,7 @@ output:
 
 ### When the job has completed, use tail to view the timing from the log file.
 
-`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
+`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log`
 
 output:
 
@@ -84,7 +109,7 @@ Num  Day        Wall Time
       Avg. Time = 2353.44
 ```
 
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes
+### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 5 nodes
 
 `sbatch run_cctm_2016_12US2.288pe.8x36.pcluster.csh``
 
