@@ -27,7 +27,7 @@ setenv APPL 2016_CONUS_16x18pe
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/
 
 cd $DIR/POST/combine/scripts
-sed -i 's/CMAQv532/CMAQv533/g' bldit_combine.csh
+sed -i 's/v532/v533/g' bldit_combine.csh
 cp run_combine.csh run_combine_conus.csh
 sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_combine_conus.csh
 sed -i 's/intel/gcc/g' run_combine_conus.csh
@@ -47,7 +47,7 @@ setenv CMAQ_DATA /fsx/data
 ./run_calc_tmetric_conus.csh
 
 cd $DIR/POST/hr2day/scripts
-sed -i 's/CMAQv532/CMAQv533/g' bldit_hr2day.csh
+sed -i 's/v532/v533/g' bldit_hr2day.csh
 ./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
 cp run_hr2day.csh run_hr2day_conus.csh
 sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_hr2day_conus.csh
@@ -58,7 +58,7 @@ setenv CMAQ_DATA /fsx/data
 ./run_hr2day_conus.csh
 
 cd $DIR/POST/bldoverlay/scripts
-sed -i 's/CMAQv532/CMAQv533/g' bldit_bldoverlay.csh
+sed -i 's/v532/v533/g' bldit_bldoverlay.csh
 ./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
 cp run_bldoverlay.csh run_bldoverlay_conus.csh
 sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_bldoverlay_conus.csh
