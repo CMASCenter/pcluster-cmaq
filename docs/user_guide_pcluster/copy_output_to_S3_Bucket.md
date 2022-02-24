@@ -3,6 +3,10 @@
 Note, you will need permissions to copy to a S3 Bucket.
 see <a href="<https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>S3 Access Control</a>
 
+Be sure you enter your access credentials on the parallel cluster by running:
+
+`aws configure`
+
 Currently, the bucket listed below has ACL turned off
 see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>S3 disable ACL</a>
 
@@ -19,6 +23,7 @@ cp run*.log /fsx/data/output
 cp run*.csh /fsx/data/output
 ```
 ### Examine the output files
+note, these commands will vary depending on what APPL or domain decomposition was run
 
 ```
 cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
@@ -58,7 +63,7 @@ Check disk space
 Examine the example script
 
 ```
-cd s3_scripts
+cd /shared/pcluster-cmaq/s3_scripts
 cat s3_upload.c5n.18xlarge.csh
 
 ```
@@ -70,9 +75,9 @@ output:
 # Script to upload output data to S3 bucket
 # NOTE: a new bucket needs to be created to store each set of cluster runs
 
-aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output
-aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output
-aws s3 cp --recursive /fsx/POST s3://c5n-head-c5n.18xlarge-compute-conus-output
+aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output-02-24-2022
+aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output-02-24-2022
+aws s3 cp --recursive /fsx/data/POST s3://c5n-head-c5n.18xlarge-compute-conus-output-02-24-2022
 ```
 
 If you do not have permissions to write to the s3 bucket listed above, you will need to edit the script to specify the s3 bucket that you have permissions to write to.

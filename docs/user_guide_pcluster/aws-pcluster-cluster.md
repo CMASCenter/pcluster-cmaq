@@ -3,7 +3,7 @@
 ## Use an existing yaml file from the git repo to create a parallel cluster
 
 ```
-cd /shared/build
+cd /your/local/machine/install/path/ 
 ```
 
 ### Use a configuration file from the github repo that was cloned to your local machine
@@ -24,6 +24,7 @@ NOTE:
 1. the c5n-4xlarge.yaml is configured to use SPOT instance pricing for the compute nodes.
 2. the c5n-4xlarge.yaml is configured to the the c5n-4xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
 3. the c5n-4xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (16 virtual cpus reduced to 8 cpus)
+4. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 8 cpus x 10 = 80, the max settings for NPCOL, NPROW is NPCOL = 8, NPROW = 10 or NPCOL=10, NPROW=8 in the CMAQ run script.
 
 
 `vi c5n-4xlarge.yaml`
@@ -89,17 +90,40 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 #### Login to cluster
-(note, replace the centos.pem with your Key Pair)
+(note, replace the your-key.pem with your Key Pair)
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Show compute nodes
 
 `scontrol show nodes`
 
+Output:
+
+```
+NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1 
+   CPUAlloc=0 CPUTot=8 CPULoad=N/A
+   AvailableFeatures=dynamic,c5n.4xlarge,compute-resource-1
+   ActiveFeatures=dynamic,c5n.4xlarge,compute-resource-1
+   Gres=(null)
+   NodeAddr=queue1-dy-compute-resource-1-10 NodeHostName=queue1-dy-compute-resource-1-10 
+   RealMemory=1 AllocMem=0 FreeMem=N/A Sockets=8 Boards=1
+   State=IDLE+CLOUD+POWERED_DOWN ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=queue1 
+   BootTime=None SlurmdStartTime=None
+   LastBusyTime=Unknown
+   CfgTRES=cpu=8,mem=1M,billing=8
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+```
+
 ## Update the compute nodes
 
 ### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
+
+By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) this would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
 
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line.
 
@@ -208,14 +232,97 @@ SharedStorage:
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
+Output:
+
+```
+{
+  "creationTime": "2022-02-23T17:39:42.953Z",
+  "headNode": {
+    "launchTime": "2022-02-23T17:48:03.000Z",
+    "instanceId": "xxx-xx-xx",
+    "publicIpAddress": "xx-xx-xx",
+    "instanceType": "c5n.large",
+    "state": "running",
+    "privateIpAddress": "xx-xx-xx"
+  },
+  "version": "3.1.1",
+  "clusterConfiguration": {
+  },
+  "tags": [
+    {
+      "value": "3.1.1",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "UPDATE_IN_PROGRESS",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "STOPPED",
+  "cloudformationStackArn": 
+  "lastUpdatedTime": "2022-02-23T17:56:31.114Z",
+  "region": "us-east-1",
+  "clusterStatus": "UPDATE_IN_PROGRESS"
+```
+
+### Wait 5 or 10 minutes for the update to be comleted
+
+Keep rechecking status until update is completed and computeFleetStatus is RUNNING
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+
+Output:
+
+```
+{
+  "creationTime": "2022-02-23T17:39:42.953Z",
+  "headNode": {
+    "launchTime": "2022-02-23T17:48:03.000Z",
+    "instanceId": "xx-xx-xxx",
+    "publicIpAddress": "xx-xx-xx",
+    "instanceType": "c5n.large",
+    "state": "running",
+    "privateIpAddress": "xx-xxx-xx"
+  },
+  "version": "3.1.1",
+  "clusterConfiguration": {
+  },
+  "tags": [
+    {
+      "value": "3.1.1",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "UPDATE_COMPLETE",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "STOPPED",
+  "cloudformationStackArn": 
+  "lastUpdatedTime": "2022-02-23T17:56:31.114Z",
+  "region": "us-east-1",
+  "clusterStatus": "UPDATE_COMPLETE"
+}
+```
+
+Wait until UPDATE_COMPLETE message is received, then proceed.
+
 ### Re-start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-### Login to updated cluster
-(note, replace the centos.pem with your Key Pair)
+### Verify status of cluster
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Wait until you see
+
+```
+computeFleetStatus": "RUNNING",
+```
+
+
+### Login to updated cluster
+(note, replace the your-key.pem with your Key Pair)
+
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Check to make sure elastic network adapter (ENA) is enabled
 
@@ -263,7 +370,11 @@ See instructions for installing and running CMAQ on cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
 
-### Note, if you are going to run the CMAQ Benchmark using Option 1 then you can delete this cluster.
+### If you plan to install CMAQ software and libraries yourself following Option 2, then skip option 1 and continue to use this cluster
+
+(do not delete the cluster) - skip to installing CMAQ software
+
+### Note, if you are going to run the CMAQ Benchmark using Option 1 to use pre-installed software and data specified in the yaml file, then you can delete this cluster.
 
 #### Exit the cluster
 
@@ -273,4 +384,7 @@ See instructions for installing and running CMAQ on cluster.
 
 `pcluster delete-cluster --cluster-name cmaq --region us-east-1`
 
-### If you plan to install CMAQ software and libraries yourself following Option 2, then skip option 1 and continue to use this cluster
+### Check status and confirm that it has been deleted
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+

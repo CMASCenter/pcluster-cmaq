@@ -19,10 +19,10 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-018cfea3edf3c4765      <<<   replace with your subnet ID
+    SubnetId: subnet-xx-xxx-xx                <<<   replace with your subnet ID
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: centos                         <<<   replace with your KeyName
+    KeyName: your-key                         <<<   replace with your KeyName
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
@@ -32,7 +32,7 @@ Scheduling:
       CapacityType: SPOT
       Networking:
         SubnetIds:
-          - subnet-018cfea3edf3c4765        <<< replace with your subnet ID
+          - subnet-xx-xx-xxx                 <<< replace with your subnet ID
         PlacementGroup:
           Enabled: true
       ComputeResources:
@@ -75,9 +75,9 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ### Login to cluster
-(note, replace the centos.pem with your Key Pair)
+(note, replace the your-key.pem with your Key Pair)
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Verify Environment on Cluster
 

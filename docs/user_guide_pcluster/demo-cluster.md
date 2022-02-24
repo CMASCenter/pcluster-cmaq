@@ -6,7 +6,6 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 ## Install AWS Parallel Cluster Command Line Interface on your local machine
 
-
 ### Instructions for LINUX
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
@@ -152,10 +151,10 @@ Note, the compute nodes are not "provisioned" or "created" at this time (so they
  `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
 
 ### SSH into the cluster 
-(note, replace the centos.pem key pair with your key pair)
+(note, replace the your-key.pem key pair with your key pair)
 
 Example:
- pcluster ssh -v -Y -i ~/centos.pem --cluster-name hello-pcluster
+ pcluster ssh -v -Y -i ~/your-key.pem --cluster-name hello-pcluster
 
  `pcluster ssh -v -Y -i ~/[your-key-pair] --cluster-name hello-pcluster`
 
@@ -199,3 +198,12 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 ## To learn more about the pcluster commands
 
  `pcluster --help`
+
+## To use a parallel cluster
+Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
+
+AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
+It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
+
