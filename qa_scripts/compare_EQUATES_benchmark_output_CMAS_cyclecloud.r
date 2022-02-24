@@ -13,16 +13,16 @@ my.col.warm1<- colorRampPalette(c(grey(.95),"#F0E442","orange","#E69F00","#D55E0
 my.diff.col <- function(n)c(my.col.cool1(n/2),my.col.warm1(n/2))
 
 #Directory to save output .pdf file with plots. 
-output.dir <- "/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts"
+output.dir <- "/shared/data/output/plots"
 
 #Directory, file name, and label for first model simulation (sim1)
 sim1.label <- "EPA (v5.3.3 w/ GCC)"
-sim1.dir <- "/shared/data/output_CCTM_v533_gcc_2016_CONUS_10x18pe_remove_native_sleep/"
+sim1.dir <- "/shared/data/output/output_CCTM_v533_gcc_2016_CONUS_10x18pe_remove_native_sleep/"
 sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_10x18pe_remove_native_sleep_20151222.nc")
 
 #Directory, file name, and label for second model simulation (sim2)
 sim2.label <- "CMAS (v5.3.3 w/ GCC)"
-sim2.dir <- "/shared/data/output_CCTM_v533_gcc_2016_CONUS_9x10pe_remove_native_sleep"
+sim2.dir <- "/shared/data/output/output_CCTM_v533_gcc_2016_CONUS_9x10pe_remove_native_sleep/"
 sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_9x10pe_remove_native_sleep_20151222.nc")
 
 
