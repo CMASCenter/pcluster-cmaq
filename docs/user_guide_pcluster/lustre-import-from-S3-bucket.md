@@ -498,6 +498,33 @@ run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12
 `sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
 
 Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.
+Answers did not match even though I removed the -march=native compiler flag.
+
+Also ran the following to verify that if NPCOL is identical than answers match. This was confirmed.
+
+`sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
+
+`tail -n 20 /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log`
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       108
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2415.37
+02   2015-12-23   2122.62
+     Total Time = 4537.99
+      Avg. Time = 2268.99
+```
 
 Once that is done, save a snapshot of the volume prior to deleting the cluster, so that we will have updated run scripts.
 
