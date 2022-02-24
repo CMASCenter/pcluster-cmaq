@@ -201,6 +201,23 @@ Resulted in zero differences in the output
 
 load the R module (may need to install R - need to check if additional R libraries need to be installed)
 
+You will need to install packages that are required for the R script.
+Review same section for Cycle Cloud, to see how everything was installed on Centos07
+
+Try installing all packages for GRASS recommended for Ubuntu:
+https://grasswiki.osgeo.org/wiki/Compile_and_Install#Ubuntu
+
+```
+sudo apt-get apt-get install flex bison debhelper dpatch autoconf2.13 autotools-dev \
+   python-dev g++ gcc gettext graphviz libcairo2-dev libfftw3-dev tcl-dev tk-dev \
+   libfreetype6-dev libgdal1h libgdal1-dev libglu1-mesa-dev libglw1-mesa-dev \
+   libncurses5-dev libreadline-dev libsqlite3-dev libtiff5-dev \
+   libwxgtk3.0-dev libxmu-dev libxmu-headers libxt-dev mesa-common-dev \
+   libproj-dev proj-bin proj-data python-numpy python-wxgtk3.0 subversion wx-common zlib1g-dev \
+   netcdf-bin libnetcdf-dev libatlas-dev libgegl-dev doxygen postgresql mysql-server \
+   libgeotiff-dev libblas-dev libgeotiff-epsg libxmu-dev libxt-dev libx11-dev
+```
+
 ```
 cd qa_scripts
 ./compare_EQUATES_benchmark_output_CMAS.r
