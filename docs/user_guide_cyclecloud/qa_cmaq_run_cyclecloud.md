@@ -239,6 +239,16 @@ cd /shared/pcluster_cmaq/qa_scripts
 Rscript compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
 ```
 
+To view the script, install imagemagick
+
+```
+sudo yum install ImageMagick ImageMagick-devel
+```
+
+Make sure that you have Xquartz running on your local machine, and that you have given permission to display back from the cyclecloud server.
+
+On your local terminal:
+`host +`
 
 Example output plots are available for the CONUS Benchmark in the following directory
 
