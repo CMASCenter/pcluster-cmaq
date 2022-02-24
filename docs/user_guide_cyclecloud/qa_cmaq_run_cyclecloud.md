@@ -147,11 +147,25 @@ edit the R script to specify the sim1.dir, sim1.file  and sim2.dir, sim2.file to
 
 Use the following commands, and also install packages - note, see website above for full details:
 
+Install R
+
 ```
 sudo yum install epel-release
 sudo yum install R
 R --version
 ```
+
+Install packages as root - to make them available to all users
+
+```
+sudo -i R
+install.packages("stringr")
+install.packages("ncdf4")
+install.packages("fields")
+install.packages("M3")
+```
+
+
 
 `
 cd /shared/pcluster_cmaq/qa_scripts
