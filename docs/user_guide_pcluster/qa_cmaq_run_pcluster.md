@@ -299,7 +299,7 @@ Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
 
 To view the script, install imagemagick
 
-sudo apt-get install imagemagick
+`sudo apt-get install imagemagick`
 
 Ran into an issue trying to display an image back to my laptop.
 
