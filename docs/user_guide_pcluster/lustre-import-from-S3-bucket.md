@@ -137,7 +137,7 @@ log into the new cluster
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
+### Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the EBS drive snapshot
 
 `ls /shared/build`
 
