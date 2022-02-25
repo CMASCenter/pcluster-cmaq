@@ -298,6 +298,33 @@ vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
 Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
 ```
 
+To view the script, install imagemagick
+
+sudo apt-get install imagemagick
+
+Ran into an issue trying to display an image back to my laptop.
+
+srun -n1 --pty --x11 xclock
+srun: error: No DISPLAY variable set, cannot setup x11 forwarding.
+
+
+Can connect to the head node using NICE DCV software. Need to add a section to the yaml file.
+
+<a href=https://docs.aws.amazon.com/parallelcluster/latest/ug/dcv.html>NICE DCV Settings in YAML</a>
+
+Note, it looks like the examples are using the older config or CLI 2 format, and need to convert this to a yaml format to try it out.
+
+<a href="https://github.com/aws/aws-parallelcluster/issues/1508">X11 forwarding no loner enabled on master node</a>
+
+The bug says that you can use a custom post installation script to re-enable X11 Forwarding.
+
+<a href="https://docs.aws.amazon.com/en_us/parallelcluster/latest/ug/pre_post_install.html">Custom Bootstrap Actions</a>
+
+
+I have not figured out how to do this yet. Need to ask Tommy Johnson from AWS.
+
+
+
 
 Example output plots are available for the CONUS Benchmark in the following directory
 
