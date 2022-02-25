@@ -206,9 +206,11 @@ install.packages("fields")
 
 M3 package requires gdal
 
+```
 sudo yum install gdal
 sudo yum install epel-release
 sudo yum install gdal-devel
+```
 
 configure: pkg-config proj not available
   set PKG_CONFIG_PATH to the directory containing proj.pc
