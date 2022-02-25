@@ -1,6 +1,6 @@
 # List of ideas for future work
 
-AWS Parallel Cluster
+<b>AWS Parallel Cluster</b>
 
 1. Create MVP yaml and software install scripts for intel compiler
 2. Benchmark 2 day case using intel compiler version of CMAQ and compare to GCC timings
@@ -10,7 +10,7 @@ AWS Parallel Cluster
 6. Create method to automatically checkpoint and save a job prior to it being bumped from the schedule if running on spot instances.
 
 
-Azure Cycle Cloud
+<b>Azure Cycle Cloud</b>
 
 1. Test creation of Cycle Cloud on new account to verify instructions for user account permission settings and cycle cloud options to login, build and run CMAQ.
 
