@@ -7,6 +7,7 @@ It may be possible to set up daily or weekly spending alarms as well.
 
 ### 1.2 Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
 
+Software on Parallel Cluster
 * Ubuntu OS
 * Tcsh shell
 * Git
@@ -15,9 +16,14 @@ It may be possible to set up daily or weekly spending alarms as well.
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
 * Slurm Scheduler
+
+Software on Local Computer
 * AWS CLI v3.0 installed in a virtual environment
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
+* Git
+* Mac - XQuartz for X11 Display
+* Windows - MobaXterm  - to connect to Parallel Cluster IP address
 
 ### 1.3 AWS CLI v3.0 AWS Region Availability
 Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
