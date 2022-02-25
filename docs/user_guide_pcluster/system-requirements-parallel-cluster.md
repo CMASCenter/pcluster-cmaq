@@ -136,7 +136,7 @@ Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing
 
 Example Screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW. 
 
-In Figure 2 The Cost Explorer Display categorizes the cost of EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
+In Figure 2 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
 Figure 2. Cost by Instance Type - AWS Console 
 
@@ -148,7 +148,7 @@ Figure 3. Cost by Usage Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
-In Figure 4 The Cost Explorer Display categorizes the cost by EC2 Instance, S3 Bucket, and FSx Lustre File System
+In Figure 4 The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
 
 Figure 4. Cost by Service Type - AWS Console
 
