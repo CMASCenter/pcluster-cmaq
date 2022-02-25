@@ -134,21 +134,23 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $71.7
 (sum the cost of all of the runs in the above table assuming SPOT pricing)
 
-Example Screenshots of the AWS Cost Explorer obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW. 
+Example Screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW. 
+
+In Figure 2 The Cost Explorer Display categorizes the cost of EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
 Figure 2. Cost by Instance Type - AWS Console 
-Categorizes the Cost by EC2 Instance Type: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
+In Figure 3 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incurr costs
 
 Figure 3. Cost by Usage Type - AWS Console 
-Categorizes the cost by spot or OnDemand Services, NatGateway, Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incurr costs
 
 ![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
+In Figure 4 The Cost Explorer Display categorizes the cost by EC2 Instance, S3 Bucket, and FSx Lustre File System
+
 Figure 4. Cost by Service Type - AWS Console
-Categorizes the cost by EC2 Instance, S3, FSx
 
 ![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
