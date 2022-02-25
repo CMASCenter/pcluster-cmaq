@@ -132,28 +132,24 @@ Start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-log into the new cluster
+### log into the new cluster
 (note replace your-key.pem with your Key)
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-### Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the EBS drive snapshot
+Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the EBS drive snapshot
 
 `ls /shared/build`
 
-### The .cshrc file was not saved, so I copied it from the git repo
+Create a .cshrc file by copying it from the git repo that is on /shared/pcluster-cmaq
 
 `cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc`
 
-### Source shell
+Source shell
 
 `csh`
 
-### Load the modules
-
-
-### change shell and submit job
-
+Load the modules
 
 `module avail`
 
@@ -164,7 +160,7 @@ Output:
 dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own
 ```
 
-### Load the modules openmpi and libfabric
+Load the modules openmpi and libfabric
 
 `module load openmpi/4.1.1`
 
@@ -213,7 +209,13 @@ Also need to create the output directory
 
 `mkdir -p /fsx/data/output`
 
-### Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo
+### Examine the run scripts
+
+The run scripts are available in two locations, one in the CMAQ scripts directory. 
+
+Another copy is available in the pcluster-cmaq repo.
+
+Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
 
@@ -221,7 +223,7 @@ Example:
 
 `diff /shared/pcluster-cmaq/run_scripts/cmaq533/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
 
-Only if needed, copy the run scripts from the repo.
+If a run script is missing or outdated, copy the run scripts from the repo.
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
