@@ -248,7 +248,9 @@ Output:
 #SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log
 ```
 
-### Verify that the NPCOL and NPROW settings are configured to run on 256 processors
+### Note that in this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
+
+### Verify that the NPCOL and NPROW settings in the script are configured to match, in this case, to run CMAQ using on 256 cpus NPCOL=16, NPROW=16 16x16=256
 
 `grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
@@ -298,6 +300,9 @@ Try submitting a smaller job to the queue.
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 Or - you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
+
+To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND. See Chapter 2.2 for the detailed instructions.
+
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -363,7 +368,7 @@ Submit a new job
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 
-Note, I am trying this from a new AWS account, and the compute nodes don not appear to be provisioning.
+Note, I was trying this from a new AWS account, and the compute nodes don not appear to be provisioning.
 
 I checked and found that my IAM Policy needed to be created for this new account.
 
