@@ -4,7 +4,7 @@
 
 AWS Parallel Cluster and Azure Cycle Cloud are Designed to Create, manage, operate, and optimize HPC and big compute clusters of any scale
 
-This guide aims to provide the CMAS Community with instructions on how to run CMAQ on these HPC compute clusters on the cloud.
+Thes user guides contain instructions on how to configure and deply these HPC compute clusters on the cloud and run a CMAQ CONUS benchmark for two days.
 
 ### User Guide Parallel Cluster:
 
@@ -14,6 +14,8 @@ This guide aims to provide the CMAS Community with instructions on how to run CM
 ### User Guide Cycle Cloud: 
 1. how to configure and create CycleCloud using Azure Web Interface
 2. how to install and run CMAQ CONUS Benchmark for 2 days
+
+
 
 
 
