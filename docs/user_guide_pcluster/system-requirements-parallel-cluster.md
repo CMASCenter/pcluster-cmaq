@@ -132,23 +132,30 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 360           | 10x36          | 18x20         |                |                 |                      |                    |  imported   |  true        |             |       |        |
 
 Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $71.7
+(sum the cost of all of the runs in the above table assuming SPOT pricing)
 
-Figure 2. Cost by Instance Type - AWS Console
+Example Screenshots of the AWS Cost Explorer obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW. 
+
+Figure 2. Cost by Instance Type - AWS Console 
+Categorizes the Cost by EC2 Instance Type: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
 
-Figure 3. Cost by Usage Type - AWS Console
+Figure 3. Cost by Usage Type - AWS Console 
+Categorizes the cost by spot or OnDemand Services, NatGateway, Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incurr costs
 
 ![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
 Figure 4. Cost by Service Type - AWS Console
+Categorizes the cost by EC2 Instance, S3, FSx
 
 ![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
 Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $238.9
+(sum the cost of all of the runs in the above table assuming ONDEMAND pricing)
 
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using 8 c5n.18xlarge compute nodes.
