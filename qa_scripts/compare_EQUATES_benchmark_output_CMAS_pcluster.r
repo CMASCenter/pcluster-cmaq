@@ -17,13 +17,13 @@ output.dir <- "/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts"
 
 #Directory, file name, and label for first model simulation (sim1)
 sim1.label <- "EPA (v5.3.3 w/ GCC)"
-sim1.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/"
-sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc")
+sim1.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_12x9pe/"
+sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_12x9pe_20151222.nc")
 
 #Directory, file name, and label for second model simulation (sim2)
 sim2.label <- "CMAS (v5.3.3 w/ GCC)"
-sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"
-sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc")
+sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_6x18pe"
+sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_6x18pe_20151222.nc")
 
 
 #Flags for toggling on or off different comparsions.
