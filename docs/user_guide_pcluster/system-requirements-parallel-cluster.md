@@ -208,7 +208,30 @@ Cost for annual simulation
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
-      (to-do)
+https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4
+
+| S3 Standard - General purpose storage |    Storage Pricing  |
+| ------------------------------------  |    --------------   |
+| First 50 TB / Month                   |     $0.023 per GB   |
+| Next 450 TB / Month                   |     $0.022 per GB   |
+| Over 500 TB / Month                   |     $0.021 per GB   |
+
+
+Storage cost estimate for annual simulation - assuming you want to save it for 1 year
+
+31.5 TB * 1000 GB/TB * .023 per GB * 12 months  = $8,694
+
+| S3 Glacier Flexible Retrieval (Formerly S3 Glacier) |    Storage Pricing |
+| long-term archives with retrieval option from 1 minute to 12 hours|      |	
+| All Storage / Month| 	$0.0036 per GB   |
+
+Costs 6.4 times less
+
+31.5 TB * 1000 GB/TB * $.0036 per GB * 12 months  = $1,360 USD
+
+Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and restored in 12 hours)
+
+31.5 TB * 1000 GB/TB * $.00099 per GB * 12 months  = $374.2 USD
 
 
 ### 1.7 Recommended Workflow for extending to annual run
