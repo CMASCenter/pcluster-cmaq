@@ -222,6 +222,7 @@ Storage cost estimate for annual simulation - assuming you want to save it for 1
 31.5 TB * 1000 GB/TB * .023 per GB * 12 months  = $8,694
 
 | S3 Glacier Flexible Retrieval (Formerly S3 Glacier) |    Storage Pricing |
+| --------------------------------------------------  |    --------------  |
 | long-term archives with retrieval option from 1 minute to 12 hours|      |	
 | All Storage / Month| 	$0.0036 per GB   |
 
