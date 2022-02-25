@@ -215,31 +215,31 @@ load the R module (may need to install R - need to check if additional R librari
 
 Install geospatial dependencies
 
-# be sure to have an updated system
+be sure to have an updated system
 
 `sudo apt-get update && sudo apt-get upgrade -y`
 
-# install PROJ
+install PROJ
 
 `sudo apt-get install libproj-dev proj-data proj-bin unzip -y`
 
-# optionally, install (selected) datum grid files
+optionally, install (selected) datum grid files
 
 `sudo apt-get install proj-data`
 
-# install GEOS
+install GEOS
 
 `sudo apt-get install libgeos-dev -y`
 
-# install GDAL
+install GDAL
 
 `sudo apt-get install libgdal-dev python3-gdal gdal-bin -y`
 
-# install PDAL (optional)
+install PDAL (optional)
 
 `sudo apt-get install libpdal-dev pdal libpdal-plugin-python -y`
 
-# recommended to give Python3 precedence over Python2 (which is end-of-life since 2019)
+recommended to give Python3 precedence over Python2 (which is end-of-life since 2019)
 
 `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
 
@@ -281,8 +281,7 @@ sudo apt-get install \
   libavformat-dev libswscale-dev
 ```
 
-You will need to install packages that are required for the R script.
-Review same section for Cycle Cloud, to see how everything was installed on Centos07
+Install packages used in the R scripts
 
 ```
 sudo -i R 
@@ -322,7 +321,6 @@ The bug says that you can use a custom post installation script to re-enable X11
 
 
 I have not figured out how to do this yet. Need to ask Tommy Johnson from AWS.
-
 
 
 
