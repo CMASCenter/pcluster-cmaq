@@ -223,6 +223,6 @@ Cost for lustre storage of a monthly simulation
 
       2,681.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $61.7 USD
 
-Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is stored at a time on the lustre scratch file system.
+Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is imported at a time to the lustre scratch file system from the S3 bucket.
 This workflow will help with preserving the data in case the cluster or scratch file system gets pre-empted.
 
