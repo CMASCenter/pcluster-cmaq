@@ -12,7 +12,8 @@ Show compute nodes
 `scontrol show nodes`
 
 ### Stop the compute nodes
-`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED``
+
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
 
 
 ### Edit, Build and Run the POST processing routines
