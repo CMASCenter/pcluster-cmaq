@@ -125,17 +125,12 @@ Create the output directory
 `mkdir -p /fsx/data/output`
 
 
-###  Follow instructions to Install CMAQ software on parallel cluster
-
-#### Submit 180 pe job for CMAQ 2 day Benchmark
-
-#### Submit 288 pe job  (note, can't seem to get 360 pe job to be provisioned by the parallel cluster)
-
-#### Run Post-processing
-
-#### Save Logs and Output to S3 Bucket
-
-### Save the EBS Volume as a snapshot in the AWS interface
-
-### Change the permissions of the EBS Volume to be PUBLIC
-    Record the snapshot ID and use it in the yaml file for pre-loaded software install
+1. Follow instructions to Install CMAQ software on parallel cluster
+2. Submit 180 pe job for CMAQ 2 day Benchmark
+3. Submit 288 pe job  (note, can't seem to get 360 pe job to be provisioned by the parallel cluster)
+4. Run QA Check
+5. Run Post Processing
+6. Save Logs and Output to S3 Bucket
+7. Save the EBS Volume as a snapshot in the AWS interface
+8. Change the permissions of the EBS Volume to be PUBLIC
+9. Record the snapshot ID and use it in the yaml file for pre-loaded software install
