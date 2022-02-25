@@ -1,4 +1,4 @@
-site_name: cmaq_parallel_cluster
+site_name: cmaq_cloud
 nav:
     - Home: 'index.md'
     - User Guide for AWS Parallel Cluster:
@@ -7,16 +7,16 @@ nav:
             - '2.1 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
             - '2.2 Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
         - 3 CMAQ Benchmark Option 1:
-            - '5.1 Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
+            - '3.1 Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
         - 4 CMAQ Benchmark Option 2:
             - '4.1 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
             - '4.2 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
             - '4.3 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
         - 5 AWS Parallel Cluster Post-Processing and QA:
-            - '6.1 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
-            - '6.2 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
-            - '6.3 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
-            - '6.4 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
+            - '5.1 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
+            - '5.2 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
+            - '5.3 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
+            - '5.4 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
         - 6 How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
         - 7 Logout and Delete Parallel Cluster:
             - '7.1 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'

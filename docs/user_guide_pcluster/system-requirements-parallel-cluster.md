@@ -5,7 +5,9 @@
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-### 1.2 Software Requirements
+### 1.2 Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
+
+Software on Parallel Cluster
 
 * Ubuntu OS
 * Tcsh shell
@@ -15,9 +17,15 @@ It may be possible to set up daily or weekly spending alarms as well.
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
 * Slurm Scheduler
+
+Software on Local Computer
+
 * AWS CLI v3.0 installed in a virtual environment
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
-* Edit YAML Configuration Files using vi, nedit or other editor (yaml doesn't accept tabs as spacing)
+* Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
+* Git
+* Mac - XQuartz for X11 Display
+* Windows - MobaXterm  - to connect to Parallel Cluster IP address
 
 ### 1.3 AWS CLI v3.0 AWS Region Availability
 Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
@@ -67,7 +75,7 @@ The new instances also feature a higher amount of memory per core, putting them 
 The C5n instances incorporate the fourth generation of our custom Nitro hardware, allowing the high-end instances to provide up to 100 Gbps of network throughput, along with a higher ceiling on packets per second. The Elastic Network Interface (ENI) on the C5n uses up to 32 queues (in comparison to 8 on the C5 and C5d), allowing the packet processing workload to be better distributed across all available vCPUs. 
 
 
-Software: 
+Resources specified in the YAML file for the MVP: 
 
 * Ubuntu2004 
 * Disable Simultaneous Multi-threading
@@ -77,6 +85,7 @@ Software:
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.18xlarge
 
+Note, pricing information in the tables below are subject to change. The links from which this pricing data was collected are listed below.
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 
@@ -84,7 +93,7 @@ Software:
 
 <a href="https://aws.amazon.com/ec2/pricing/on-demand">EC2 On-Demand Pricing</a>
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel CLuster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel Cluster</a>
 
 
 Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
@@ -123,15 +132,23 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 360           | 10x36          | 18x20         |                |                 |                      |                    |  imported   |  true        |             |       |        |
 
 Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $71.7
+(sum the cost of all of the runs in the above table assuming SPOT pricing)
 
-Figure 2. Cost by Instance Type - AWS Console
+Example Screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW. 
+
+In Figure 2 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
+
+Figure 2. Cost by Instance Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
+In Figure 3 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incurr costs
 
-Figure 3. Cost by Usage Type - AWS Console
+Figure 3. Cost by Usage Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Usage Type](../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
+
+In Figure 4 The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
 
 Figure 4. Cost by Service Type - AWS Console
 
@@ -140,6 +157,7 @@ Figure 4. Cost by Service Type - AWS Console
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
 Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $238.9
+(sum the cost of all of the runs in the above table assuming ONDEMAND pricing)
 
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using 8 c5n.18xlarge compute nodes.
@@ -208,7 +226,31 @@ Cost for annual simulation
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
-      (to-do)
+< href="https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4">S3 Storage Pricing Tiers</a>
+
+| S3 Standard - General purpose storage |    Storage Pricing  |
+| ------------------------------------  |    --------------   |
+| First 50 TB / Month                   |     $0.023 per GB   |
+| Next 450 TB / Month                   |     $0.022 per GB   |
+| Over 500 TB / Month                   |     $0.021 per GB   |
+
+
+Storage cost estimate for annual simulation - assuming you want to save it for 1 year
+
+31.5 TB * 1024 GB/TB * .023 per GB * 12 months  = $8,903
+
+| S3 Glacier Flexible Retrieval (Formerly S3 Glacier) |    Storage Pricing |
+| --------------------------------------------------  |    --------------  |
+| long-term archives with retrieval option from 1 minute to 12 hours|      |	
+| All Storage / Month| 	$0.0036 per GB   |
+
+Costs 6.4 times less
+
+31.5 TB * 1024 GB/TB * $.0036 per GB * 12 months  = $1393.0 USD
+
+Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and restored in 12 hours)
+
+31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
 
 
 ### 1.7 Recommended Workflow for extending to annual run
@@ -217,12 +259,12 @@ Post-process monthly save output and/or post-processed outputs to S3 Bucket at t
 
 Still need to determine size of post-processed output (combine output, etc).
 
-      86.5 GB * 31 days = 2,681.5 GB  =  2.6815 TB
+      86.5 GB * 31 days = 2,681.5 GB * 1 TB/1024 GB =  2.62 TB
 
 Cost for lustre storage of a monthly simulation
 
       2,681.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $61.7 USD
 
-Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is stored at a time on the lustre scratch file system.
+Goal is to develop a reproducable workflow that does the post processing after every month, and then copies what is required to the S3 Bucket, so that only 1 month of output is imported at a time to the lustre scratch file system from the S3 bucket.
 This workflow will help with preserving the data in case the cluster or scratch file system gets pre-empted.
 

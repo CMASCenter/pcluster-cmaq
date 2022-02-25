@@ -10,8 +10,8 @@ b.files <- dir(base.dir,pattern='run_cctmv5.3.3_CONUS_2016.6x18.log')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case. 
-base.name <- 'time_ind'
-sens.name <- 'time_dep' 
+base.name <- '9x10pe'
+sens.name <- '20x18pe' 
 # ------------- Do not change below unless modifying for a different workflow ---------------------
 # compilers being considered
 #Compilers <- c('intel','gcc','pgi')

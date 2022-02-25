@@ -21,10 +21,11 @@ set echo
 #  Download and build netCDF-C
 #  ---------------------------
    cd /shared/build-hdf5
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
-   tar xvf netcdf-c-4.7.1.tar.gz
-   rm -f netcdf-c-4.7.1.tar.gz
-   cd netcdf-c-4.7.1
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
+   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+   tar xzvf v4.8.1.tar.gz 
+   #rm -f netcdf-c-4.8.1.tar.gz
+   cd netcdf-c-4.8.1
    ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=/shared/build-hdf5/install
    make |& tee  make.gcc9.log
    make install
@@ -32,10 +33,11 @@ set echo
 #  Download and build netCDF-Fortran
 #  ---------------------------------
    cd /shared/build-hdf5
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
-   tar xvf netcdf-fortran-4.5.2.tar.gz
-   rm -f netcdf-fortran-4.5.2.tar.gz
-   cd netcdf-fortran-4.5.2
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
+   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+   tar xvf v4.5.3.tar.gz
+   rm -f v4.5.3.tar.gz
+   cd netcdf-fortran-4.5.3
    export LIBS="-lnetcdf"
    ./configure --with-pic --enable-shared --prefix=/shared/build-hdf5/install
    make |& tee make.gcc9.log 
@@ -43,14 +45,15 @@ set echo
 #  -----------------------------
 #  Download and build netCDF-CXX
 #  -----------------------------
-   cd /shared/build-hdf5
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz
-   tar xvf netcdf-cxx4-4.3.1.tar.gz
-   rm -f netcdf-cxx4-4.3.1.tar.gz
-   cd netcdf-cxx4-4.3.1
-   ./configure --with-pic --enable-shared --prefix=/shared/build-hdf5/install
-   make |& tee  make.gcc9.log
-   make install
+#   cd /shared/build-hdf5
+#   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz
+    wget https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz
+#   tar xvf v4.3.1.tar.gz
+#   #rm -f netcdf-cxx4-4.3.1.tar.gz
+#   cd netcdf-cxx4-4.3.1
+#   ./configure --with-pic --enable-shared --prefix=/shared/build-hdf5/install
+#   make |& tee  make.gcc9.log
+#   make install
 #  --------------------------
 #  Download and build OpenMPI
 #  --------------------------
