@@ -4,8 +4,8 @@
 # These are the single output files, not the CTM_LOG files found in the $OUTDIR/LOGS directory
 sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
 base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_CONUS_2016.16x16.log' )
-b.files <- dir(base.dir,pattern='run_cctmv5.3.3_CONUS_2016.18x18.log')
+files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_CONUS_2016.12x9.log' )
+b.files <- dir(base.dir,pattern='run_cctmv5.3.3_CONUS_2016.6x18.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
