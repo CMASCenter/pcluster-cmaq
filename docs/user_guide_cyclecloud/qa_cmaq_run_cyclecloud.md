@@ -240,7 +240,9 @@ install.packages("rgdal")
 install.packages("M3")
 ```
 
-Then run the R scripts!`
+Then run the R scripts!
+
+```
 cd /shared/pcluster-cmaq/qa_scripts
 Rscript compare_EQUATES_benchmark_output_CMAS_cyclecloud.r
 ```
