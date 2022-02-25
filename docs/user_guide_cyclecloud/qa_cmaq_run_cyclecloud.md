@@ -232,6 +232,7 @@ yum install flex bison make zlib-devel gcc-c++ gettext \
              netcdf netcdf-devel blas-devel lapack-devel atlas-devel \
              python-dateutil python-imaging python-matplotlib python-sphinx \
              doxygen subversion
+
 ```
 sudo -i R
 install.packages("rgdal")
