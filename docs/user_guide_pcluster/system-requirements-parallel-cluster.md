@@ -67,7 +67,7 @@ The new instances also feature a higher amount of memory per core, putting them 
 The C5n instances incorporate the fourth generation of our custom Nitro hardware, allowing the high-end instances to provide up to 100 Gbps of network throughput, along with a higher ceiling on packets per second. The Elastic Network Interface (ENI) on the C5n uses up to 32 queues (in comparison to 8 on the C5 and C5d), allowing the packet processing workload to be better distributed across all available vCPUs. 
 
 
-Software: 
+Resources specified in the YAML file for the MVP: 
 
 * Ubuntu2004 
 * Disable Simultaneous Multi-threading
