@@ -25,9 +25,10 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 Note - you need to edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 
-```
-vi c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
-```
+
+`vi c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+
+Output:
 
 ```
 Region: us-east-1
@@ -78,11 +79,9 @@ SharedStorage:
 
 ### Create the CMAQ MVP Parallel Cluster with software/data pre-installed
 
-```
-pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1
-```
+`pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
-output:
+Output:
 
 ```
 {
@@ -100,10 +99,9 @@ output:
 
 Check status again
 
-```
-pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
-```
-output:
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
 
 ```
 {
@@ -132,72 +130,60 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 Start the compute nodes
 
-```
-pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
-```
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 log into the new cluster
 (note replace your-key.pem with your Key)
 
-```
-pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq
-```
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 ### Verified that starting the Parallel Cluster with the /shared volume from the EBS drive snapshot
 
-```
-ls /shared/build
-```
+`ls /shared/build`
 
 ### The .cshrc file was not saved, so I copied it from the git repo
 
-```
-cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc
-```
+`cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc`
 
 ### Source shell
 
-```
-csh
-```
+`csh`
 
 ### Load the modules
 
 
 ### change shell and submit job
 
+
+`module avail`
+
+Output:
+
 ```
-module avail
 ------------------------------------------------------------ /usr/share/modules/modulefiles -------------------------------------------------------------
 dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own
 ```
 
 ### Load the modules openmpi and libfabric
 
-```
-module load openmpi/4.1.1
-module load libfabric-aws/1.13.2amzn1.0
-```
+`module load openmpi/4.1.1`
+
+`module load libfabric-aws/1.13.2amzn1.0`
+
 
 Change directories
 
-```
-cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-```
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 ### Verify that the input data was imported from the S3 bucket
 
-```
-cd /fsx/12US2
-```
+`cd /fsx/12US2`
 
 Notice that the data doesn't take up much space, it must be linked, rather than copied.
 
-```
-du -h
-```
+`du -h`
 
-output
+Output:
 
 ```
 27K     ./land
@@ -223,16 +209,13 @@ The run scripts are expecting the data to be located under
 
 Need to make this directory and then link it to the path created when the data was imported by the parallel cluster
 
-```
-mkdir -p /fsx/data/CONUS
-cd /fsx/data/CONUS
-ln -s /fsx/12US2 .
-```
-Also may need to create the output directory
+`mkdir -p /fsx/data/CONUS`
+`cd /fsx/data/CONUS`
+`ln -s /fsx/12US2 .`
 
-```
-mkdir -p /fsx/data/output
-```
+Also need to create the output directory
+
+`mkdir -p /fsx/data/output`
 
 ### Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo
 
@@ -281,10 +264,9 @@ Output:
 
 ### Submit the job to the slurm queue
 
-```
-cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh
-```
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+
+`sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
 
 ### Check status of run
@@ -367,17 +349,14 @@ Output:
 
 Re-login to the cluster
 
-```
-pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq
-```
+
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 Scancel any jobs left in the queue
 
 Submit a new job
 
-```
-sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh
-```
+`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 
 NOte, I am trying this from a new AWS account, and the compute nodes don't appear to be provisioning.
@@ -398,6 +377,8 @@ Check to see the log on the parallel cluster
 
  An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
 
+Submitted a request to increase this limit using the AWS Website.
+
 
 Trying to submit a 72 pe job 2 nodes x 36 cpus
 
@@ -406,6 +387,8 @@ That appears to be working now.
 `sbatch run_cctm_2016_12US2.72pe.2x36.pcluster.csh`
 
 `grep -i 'Processing completed.' CTM_LOG_036.v533_gcc_2016_CONUS_6x12pe_20151223`
+
+Output:
 
 ```
  Processing completed...    9.0 seconds
@@ -418,6 +401,7 @@ That appears to be working now.
 
 `tail -n 20 run_cctmv5.3.3_Bench_2016_12US2.72.6x12pe.2day.pcluster.log `
 
+Output:
 
 ```
 ==================================
@@ -445,6 +429,8 @@ Num  Day        Wall Time
 
 `vi /var/log/parallelcluster/slurm_resume.log`
 
+Output:
+
 ```
 2022-02-24 02:26:45,940 - [slurm_plugin.instance_manager:add_instances_for_nodes] - ERROR - Encountered exception when launching instances for nodes (x1) ['queue1-dy-compute-resource-1-10']: An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
 2022-02-24 02:26:45,940 - [slurm_plugin.resume:_resume] - INFO - Successfully launched nodes (x0) []
@@ -456,7 +442,9 @@ Num  Day        Wall Time
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.pcluster.csh`
 
-grep -i 'Processing Completed' CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222
+`grep -i 'Processing Completed' CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222`
+
+Output:
 
 ```
             Processing completed...    6.0 seconds
@@ -467,6 +455,8 @@ grep -i 'Processing Completed' CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222
 ```
 
 `tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log
+
+Output:
 
 ```
 ==================================
@@ -489,22 +479,30 @@ Num  Day        Wall Time
 ```
 
 
-Trying 108 pe run with NPCOL=6, NPROW=18 to compare with 
+Trying 108 pe run with NPCOL=6, NPROW=18 to compare with the following run:
 
 ```
-run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12
+run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12`
 ```
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
 
 Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.
-Answers did not match even though I removed the -march=native compiler flag.
+
+Answers did not match if NPCOL was different, even though I removed the -march=native compiler flag.
+Christos suggested that the flag needs to be associated with the type of processor. Need to retry.
+
+1. Verify that I do a make clean and rebuild
+2. Rerun two cases with different values for NPCOL
+3. Re-check the ansswers
 
 Also ran the following to verify that if NPCOL is identical than answers match. This was confirmed.
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
 
 `tail -n 20 /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log`
+
+Output:
 
 ```
 ==================================
@@ -531,6 +529,8 @@ Once that is done, save a snapshot of the volume prior to deleting the cluster, 
 
 ### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 
+Output:
+
 ```
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -554,6 +554,7 @@ Num  Day        Wall Time
 
 ### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
 
+Output:
 
 ```
 ==================================
@@ -577,9 +578,8 @@ Num  Day        Wall Time
 
 Timing for a 288 pe run
 
-```
-tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log
-```
+
+`tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log`
 
 Output:
 
@@ -607,9 +607,7 @@ Note this performance seems better than earlier runs..
 I added the #SBATCH --exclusive option.  Perhaps that made a difference.
 
 
-```
-tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log
-```
+`tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
 
 Output:
 
