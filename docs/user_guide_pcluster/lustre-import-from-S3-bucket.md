@@ -533,7 +533,7 @@ Num  Day        Wall Time
 Once that is done, save a snapshot of the volume prior to deleting the cluster, so that we will have updated run scripts.
 
 
-### Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
+Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
 
 Output:
 
@@ -558,7 +558,7 @@ Num  Day        Wall Time
 ```
 
 
-### Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
+Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
 
 Output:
 
