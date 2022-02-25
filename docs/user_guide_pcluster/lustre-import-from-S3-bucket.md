@@ -639,4 +639,4 @@ Num  Day        Wall Time
 ```
 Submit a minimum of 2 benchmark runs (using two different NPCOLxNPROW) configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
 
-###Skip 4.2 and proceed to Chapter 5.1, Post Processing and QA.
+###Skip 4.1-4.3 and proceed to Chapter 5.1, Post Processing and QA.
