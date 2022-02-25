@@ -366,7 +366,7 @@ See instructions for installing and running CMAQ on cluster.
 
 ### If you plan to install CMAQ software and libraries yourself following Option 2, then skip option 1 and continue to use this cluster
 
-(do not delete the cluster) - skip to installing CMAQ software
+(do not delete the cluster) - skip to installing CMAQ software - use left menu to click on the following chapter: 4. CMAQ Benchmark Option 2
 
 ### Note, if you are going to run the CMAQ Benchmark using Option 1 to use pre-installed software and data specified in the yaml file, then you can delete this cluster.
 
