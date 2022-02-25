@@ -208,7 +208,7 @@ Cost for annual simulation
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
-https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4
+< href="https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4">S3 Storage Pricing Tiers</a>
 
 | S3 Standard - General purpose storage |    Storage Pricing  |
 | ------------------------------------  |    --------------   |
