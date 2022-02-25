@@ -429,7 +429,7 @@ Num  Day        Wall Time
       Avg. Time = 3356.85
 ```
 
-### Trying to run on 144 processors (180 processors failed due to spot node limit)
+Trying to run on 144 processors (180 processors failed due to spot node limit)
 
 `sbatch run_cctm_2016_12US2.144pe.4x36.pcluster.csh`
 
