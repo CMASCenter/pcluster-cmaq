@@ -5,7 +5,7 @@
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-### 1.2 Software Requirements
+### 1.2 Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
 
 * Ubuntu OS
 * Tcsh shell
@@ -17,7 +17,7 @@ It may be possible to set up daily or weekly spending alarms as well.
 * Slurm Scheduler
 * AWS CLI v3.0 installed in a virtual environment
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
-* Edit YAML Configuration Files using vi, nedit or other editor (yaml doesn't accept tabs as spacing)
+* Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
 
 ### 1.3 AWS CLI v3.0 AWS Region Availability
 Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
