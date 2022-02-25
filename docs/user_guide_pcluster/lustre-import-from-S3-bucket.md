@@ -248,9 +248,9 @@ Output:
 #SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log
 ```
 
-### Note that in this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
+Note that in this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
 
-### Verify that the NPCOL and NPROW settings in the script are configured to match, in this case, to run CMAQ using on 256 cpus NPCOL=16, NPROW=16 16x16=256
+Verify that the NPCOL and NPROW settings in the script are configured to match, in this case, to run CMAQ using on 256 cpus NPCOL=16, NPROW=16 16x16=256
 
 `grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
