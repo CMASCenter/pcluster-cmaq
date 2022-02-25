@@ -199,28 +199,103 @@ Resulted in zero differences in the output
 
 ### Run the following R script that was provided by Kristen Foley
 
+First check to see if R is already isntalled.
+
+`R --version`
+
+If not, Install R on Ubuntu 2004 using following instructions.
+
+<a "href=https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/">Install R on Ubuntu 2004>
+
+`sudo apt install build-essential`
+
 load the R module (may need to install R - need to check if additional R libraries need to be installed)
+
+<a href="https://grasswiki.osgeo.org/wiki/Compile_and_Install_Ubuntu">ubuntu install</a>
+
+Install geospatial dependencies
+
+# be sure to have an updated system
+
+`sudo apt-get update && sudo apt-get upgrade -y`
+
+# install PROJ
+
+`sudo apt-get install libproj-dev proj-data proj-bin unzip -y`
+
+# optionally, install (selected) datum grid files
+
+`sudo apt-get install proj-data`
+
+# install GEOS
+
+`sudo apt-get install libgeos-dev -y`
+
+# install GDAL
+
+`sudo apt-get install libgdal-dev python3-gdal gdal-bin -y`
+
+# install PDAL (optional)
+
+`sudo apt-get install libpdal-dev pdal libpdal-plugin-python -y`
+
+# recommended to give Python3 precedence over Python2 (which is end-of-life since 2019)
+
+`sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
+
+Install further compilation dependencies (Ubuntu 20.04)
+
+```
+sudo apt-get install \
+  build-essential \
+  flex make bison gcc libgcc1 g++ ccache \
+  python3 python3-dev \
+  python3-opengl python3-wxgtk4.0 \
+  python3-dateutil libgsl-dev python3-numpy \
+  wx3.0-headers wx-common libwxgtk3.0-gtk3-dev \
+  libwxbase3.0-dev   \
+  libncurses5-dev \
+  libbz2-dev \
+  zlib1g-dev gettext \
+  libtiff5-dev libpnglite-dev \
+  libcairo2 libcairo2-dev \
+  sqlite3 libsqlite3-dev \
+  libpq-dev \
+  libreadline6-dev libfreetype6-dev \
+  libfftw3-3 libfftw3-dev \
+  libboost-thread-dev libboost-program-options-dev  libpdal-dev\
+  subversion libzstd-dev \
+  checkinstall \
+  libglu1-mesa-dev libxmu-dev \
+  ghostscript wget -y
+```
+
+For NVIZ on Ubuntu 20.04:
+
+```
+sudo apt-get install \
+  ffmpeg libavutil-dev ffmpeg2theora \
+  libffmpegthumbnailer-dev \
+  libavcodec-dev \
+  libxmu-dev \
+  libavformat-dev libswscale-dev
+```
 
 You will need to install packages that are required for the R script.
 Review same section for Cycle Cloud, to see how everything was installed on Centos07
 
-Try installing all packages for GRASS recommended for Ubuntu:
-https://grasswiki.osgeo.org/wiki/Compile_and_Install#Ubuntu
-
 ```
-sudo apt-get apt-get install flex bison debhelper dpatch autoconf2.13 autotools-dev \
-   python-dev g++ gcc gettext graphviz libcairo2-dev libfftw3-dev tcl-dev tk-dev \
-   libfreetype6-dev libgdal1h libgdal1-dev libglu1-mesa-dev libglw1-mesa-dev \
-   libncurses5-dev libreadline-dev libsqlite3-dev libtiff5-dev \
-   libwxgtk3.0-dev libxmu-dev libxmu-headers libxt-dev mesa-common-dev \
-   libproj-dev proj-bin proj-data python-numpy python-wxgtk3.0 subversion wx-common zlib1g-dev \
-   netcdf-bin libnetcdf-dev libatlas-dev libgegl-dev doxygen postgresql mysql-server \
-   libgeotiff-dev libblas-dev libgeotiff-epsg libxmu-dev libxt-dev libx11-dev
+sudo -i R 
+install.packages("rgdal") 
+install.packages("M3")
 ```
 
+Then edit and run the R scripts:
+
 ```
-cd qa_scripts
-./compare_EQUATES_benchmark_output_CMAS.r
+cd /shared/pcluster-cmaq/qa_scripts
+vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
+Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
 ```
 
 
