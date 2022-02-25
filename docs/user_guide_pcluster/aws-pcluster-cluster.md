@@ -2,20 +2,14 @@
 
 ## Use an existing yaml file from the git repo to create a parallel cluster
 
-```
-cd /your/local/machine/install/path/ 
-```
+`cd /your/local/machine/install/path/`
 
 ### Use a configuration file from the github repo that was cloned to your local machine
 
-```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
-```
+`git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
 
 
-```
-cd pcluster-cmaq
-```
+`cd pcluster-cmaq`
 
 ###  edit the c5n-4xlarge.yaml
 
