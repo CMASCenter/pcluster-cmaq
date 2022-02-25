@@ -219,7 +219,7 @@ Estimate for S3 Bucket cost for storing an annual simulation
 
 Storage cost estimate for annual simulation - assuming you want to save it for 1 year
 
-31.5 TB * 1000 GB/TB * .023 per GB * 12 months  = $8,694
+31.5 TB * 1024 GB/TB * .023 per GB * 12 months  = $8,903
 
 | S3 Glacier Flexible Retrieval (Formerly S3 Glacier) |    Storage Pricing |
 | --------------------------------------------------  |    --------------  |
@@ -228,11 +228,11 @@ Storage cost estimate for annual simulation - assuming you want to save it for 1
 
 Costs 6.4 times less
 
-31.5 TB * 1000 GB/TB * $.0036 per GB * 12 months  = $1,360 USD
+31.5 TB * 1024 GB/TB * $.0036 per GB * 12 months  = $1393.0 USD
 
 Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and restored in 12 hours)
 
-31.5 TB * 1000 GB/TB * $.00099 per GB * 12 months  = $374.2 USD
+31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
 
 
 ### 1.7 Recommended Workflow for extending to annual run
@@ -241,7 +241,7 @@ Post-process monthly save output and/or post-processed outputs to S3 Bucket at t
 
 Still need to determine size of post-processed output (combine output, etc).
 
-      86.5 GB * 31 days = 2,681.5 GB  =  2.6815 TB
+      86.5 GB * 31 days = 2,681.5 GB * 1 TB/1024 GB =  2.62 TB
 
 Cost for lustre storage of a monthly simulation
 
