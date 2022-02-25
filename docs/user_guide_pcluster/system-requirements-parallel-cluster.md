@@ -85,6 +85,7 @@ Resources specified in the YAML file for the MVP:
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.18xlarge
 
+Note, pricing information in the tables below are subject to change. The links from which this pricing data was collected are listed below.
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 
