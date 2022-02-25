@@ -93,7 +93,7 @@ Note, pricing information in the tables below are subject to change. The links f
 
 <a href="https://aws.amazon.com/ec2/pricing/on-demand">EC2 On-Demand Pricing</a>
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel CLuster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel Cluster</a>
 
 
 Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
