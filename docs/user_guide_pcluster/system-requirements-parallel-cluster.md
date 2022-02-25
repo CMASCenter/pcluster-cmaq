@@ -8,6 +8,7 @@ It may be possible to set up daily or weekly spending alarms as well.
 ### 1.2 Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
 
 Software on Parallel Cluster
+
 * Ubuntu OS
 * Tcsh shell
 * Git
@@ -18,6 +19,7 @@ Software on Parallel Cluster
 * Slurm Scheduler
 
 Software on Local Computer
+
 * AWS CLI v3.0 installed in a virtual environment
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
