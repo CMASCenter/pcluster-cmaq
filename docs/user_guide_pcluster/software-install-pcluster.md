@@ -1,4 +1,4 @@
-# Install pre-requisite libraries on linux OS
+# Install prerequisite libraries on linux OS
 
 ## Install CMAQ sofware on parallel cluster
 
