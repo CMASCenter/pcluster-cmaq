@@ -12,5 +12,5 @@ AWS Parallel Cluster
 
 Azure Cycle Cloud
 
-1. Test creation of Cycle Cloud on new account to verify instructions to acquire needed permissions and settings to run job on cyclecloud.
+1. Test creation of Cycle Cloud on new account to verify instructions for user account permission settings and cycle cloud options to login, build and run CMAQ.
 
