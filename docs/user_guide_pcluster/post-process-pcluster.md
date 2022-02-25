@@ -20,13 +20,20 @@ Show compute nodes
 
 You need to run the post processing scripts for every benchmark case.
 
-Example for one of the cases:
+The post processing scripts are set up for one of the cases:
 
 setenv APPL 2016_CONUS_16x18pe
 
-note, you will need to change the sed command to a different configuration if you ran another case
+note, you will need to change the sed command to a different configuration if you ran another case, example: 
 
 setenv APPL 2016_CONUS_9x12pe
+
+
+Note, the following script was used to modify the base post processing scripts (set up for the Bench_2016_12SE1 case to the CONUS domain.
+
+If you used the CMAQ Benchmark Option 1, with the pre-loaded software, then these scripts have already been modified.
+
+If you used the CMAQ Bechmark Option 2 to install CMAQ yourself, you will need to save and run the following script.
 
 ```
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/
@@ -75,4 +82,3 @@ setenv CMAQ_DATA /fsx/data
 
 ```
 
-### These edits and scripts were saved on the ubuntu2004 snapshot
