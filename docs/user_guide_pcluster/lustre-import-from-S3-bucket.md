@@ -202,7 +202,9 @@ The run scripts are expecting the data to be located under
 Need to make this directory and then link it to the path created when the data was imported by the parallel cluster
 
 `mkdir -p /fsx/data/CONUS`
+
 `cd /fsx/data/CONUS`
+
 `ln -s /fsx/12US2 .`
 
 Also need to create the output directory
