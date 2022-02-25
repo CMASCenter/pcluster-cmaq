@@ -126,7 +126,7 @@ Output:
 }
 ```
 
-After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
+After 5-10 minutes, check the status again and recheck until you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
 Start the compute nodes
 
