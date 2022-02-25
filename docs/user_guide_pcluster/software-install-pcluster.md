@@ -76,6 +76,14 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 `cd /shared/pcluster-cmaq`
 
+Note: the sofware build process for CMAQ integration and continuous deployment needs improvement.
+Currently the Unidata Ucar netcdf-c download page is broken, and the location where the source code can be obtained may need to be updated from their  website to the netcdf git repository.
+For this reason, this tutorial provides a snapshot image that was compiled on a c5n.xlarge head node, and runs on the c5n.18xlarge compute node.
+A different snapshot image would need to be created to compile and run CMAQ on a c6gn.16xlarge Arm-based AWS Graviton2 processor.
+
+An alternative is to keep a copy of the source code for netcdf-C and netcdf-Fortran and all of the other underlying code on an S3 bucket and to use custom bootstrap actions to build the sofware as the Parallel Cluster is provisioned.  
+
+< ahref="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-v3.html">Bootstrap Actions</a>
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 Note, if this script fails, it is typically because NCAR has released a new version of netCDF C or Fortran, so the old version is no longer available, or if they have changed the name or location of the download file. 
