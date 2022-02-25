@@ -171,10 +171,6 @@ dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmp
 `module load libfabric-aws/1.13.2amzn1.0`
 
 
-Change directories
-
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
-
 ### Verify that the input data was imported from the S3 bucket
 
 `cd /fsx/12US2`
@@ -229,7 +225,7 @@ Only if needed, copy the run scripts from the repo.
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-### Examine how the run script is configured
+Examine how the run script is configured
 
 `head  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
@@ -288,7 +284,12 @@ ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
                  1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
 
+If you repeatedly see that the job is not successfully provisioned, cancel the job.
+
+
 `scancel `
+
+Try submitting a smaller job to the queue.
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
@@ -352,26 +353,22 @@ Re-login to the cluster
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-Scancel any jobs left in the queue
 
 Submit a new job
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 
-NOte, I am trying this from a new AWS account, and the compute nodes don't appear to be provisioning.
+Note, I am trying this from a new AWS account, and the compute nodes don not appear to be provisioning.
 
-I checked and found this:
-
-If you are unable to access AWS Services, please note that some services may take up to 24 hours to fully activate. If you’re still unable to access AWS Services after that time, please visit AWS Support.
+I checked and found that my IAM Policy needed to be created for this new account.
 
 Note, I had to enable spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
 
-One way to accomplish this is to have each user login to the EC2 Website and launch a spot instance.
-The service policy will be automatically created.
+Another way to accomplish this is to have each user login to the EC2 Website and launch a spot instance.
+The service policy will be automatically created, that can then be used by Parallel Cluster.
 
-
-Check to see the log on the parallel cluster
+Check to view any errors in the log on the parallel cluster
 
 `vi /var/log/parallelcluster/slurm_resume.log`
 
@@ -605,6 +602,7 @@ Num  Day        Wall Time
 
 Note this performance seems better than earlier runs..
 I added the #SBATCH --exclusive option.  Perhaps that made a difference.
+I modified all run scripts to use this option.
 
 
 `tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
