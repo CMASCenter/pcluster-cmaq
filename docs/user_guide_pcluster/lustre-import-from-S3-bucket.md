@@ -637,3 +637,4 @@ Num  Day        Wall Time
      Total Time = 2980.19
       Avg. Time = 1490.09
 ```
+After you have completed the a minimum of 2 benchmark runs (using two different NPCOLxNPROW) configurations, proceed to Chapter 5, Post Processing and QA.
