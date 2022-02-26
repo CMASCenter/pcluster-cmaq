@@ -13,7 +13,9 @@ see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-
 See example of sharing bucket across accounts.
 see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html<Bucket owner granting cross-account permissions</a>
 
-### The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
+### Copy scripts and logs to /fsx
+
+The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
 Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
 It is also important to know what volume was used to read and write the input and output data, so it is recommended to save a copy of the standard out and error logs, and a copy of the run scripts to the OUTPUT directory for each benchmark.
 
@@ -23,6 +25,7 @@ cp run*.log /fsx/data/output
 cp run*.csh /fsx/data/output
 ```
 ### Examine the output files
+
 note, these commands will vary depending on what APPL or domain decomposition was run
 
 ```
