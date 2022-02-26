@@ -19,3 +19,18 @@ Output:
 ```
 
 
+Verify that you see the following output
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
+{
+  "message": "Cluster 'cmaq' does not exist or belongs to an incompatible ParallelCluster major version."
+}
+```
+
+
+
