@@ -1,17 +1,17 @@
 ## Copy Output Data and Run script logs to S3 Bucket
 
 Note, you will need permissions to copy to a S3 Bucket.
-see <a href="<https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>S3 Access Control</a>
+see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">S3 Access Control</a>
 
 Be sure you enter your access credentials on the parallel cluster by running:
 
 `aws configure`
 
 Currently, the bucket listed below has ACL turned off
-see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>S3 disable ACL</a>
+see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">S3 disable ACL</a>
 
 See example of sharing bucket across accounts.
-see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html"<Bucket owner granting cross-account permissions</a>
+see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html">Bucket owner granting cross-account permissions</a>
 
 ### Copy scripts and logs to /fsx
 
