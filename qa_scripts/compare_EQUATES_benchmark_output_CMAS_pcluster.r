@@ -22,7 +22,7 @@ sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_12x9pe_20151222.nc"
 
 #Directory, file name, and label for second model simulation (sim2)
 sim2.label <- "CMAS (v5.3.3 w/ GCC)"
-sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_6x18pe"
+sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_6x18pe/"
 sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_6x18pe_20151222.nc")
 
 

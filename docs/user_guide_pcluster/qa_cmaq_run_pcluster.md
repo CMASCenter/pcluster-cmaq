@@ -295,6 +295,7 @@ Then edit and run the R scripts:
 cd /shared/pcluster-cmaq/qa_scripts
 vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
 Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
+Rscript parse_timing_pcluster.r
 ```
 
 To view the script, install imagemagick
