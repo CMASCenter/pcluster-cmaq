@@ -11,7 +11,7 @@ Currently, the bucket listed below has ACL turned off
 see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>S3 disable ACL</a>
 
 See example of sharing bucket across accounts.
-see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html<Bucket owner granting cross-account permissions</a>
+see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html"<Bucket owner granting cross-account permissions</a>
 
 ### Copy scripts and logs to /fsx
 
