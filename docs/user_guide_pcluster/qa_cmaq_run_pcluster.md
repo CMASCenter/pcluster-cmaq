@@ -281,6 +281,23 @@ sudo apt-get install \
   libavformat-dev libswscale-dev
 ```
 
+ncdf4 package REQUIRES the netcdf library be version 4 or above, AND installed with HDF-5 support (i.e., the netcdf library must be compiled with the --enable-netcdf-4 flag). If you don't want to install the full version of netcdf-4 with HDF-5 support, then please install the old, deprecated ncdf package instead.
+
+ERROR: configuration failed for package ‘ncdf4’ * removing ‘/usr/lib64/R/library/ncdf4’
+
+building netcdf with HDF5 support requires curl.
+
+sudo apt-get install curl
+sudo apt-get install libcurl-devel 
+cd /shared/pcluster-cmaq
+./gcc_install_hdf5.pcluster.csh
+
+Install ncdf4 package from source:
+
+`cd /shared/pcluster-cmaq/qa_scripts/R_packages`
+
+`sudo R CMD INSTALL ncdf4_1.13.tar.gz --configure-args="--with-nc-config=/shared/build-hdf5/install/bin/nc-config"`
+
 Install packages used in the R scripts
 
 ```
