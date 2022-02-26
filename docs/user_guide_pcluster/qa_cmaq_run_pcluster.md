@@ -23,7 +23,12 @@ grep A:B REPORT
 
 Should see all zeros. 
 Recompiled CMAQ using -march=native compiler option for gcc compiler, but am still seeing differences in answers.
-It appears to have all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)
+The answers are the same, or the differences are all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)
+
+This behavior is different from what I observed with removing the -march=native compiler option for gcc on the AMD Cyclecloud HBV3 processor.
+On cycle cloud, when I recompiled with -march=native removed, then the answers matched if NPCOL was different.
+
+
 
 ```
 NPCOL  =  10; @ NPROW = 18
@@ -281,12 +286,30 @@ sudo apt-get install \
   libavformat-dev libswscale-dev
 ```
 
+ncdf4 package REQUIRES the netcdf library be version 4 or above, AND installed with HDF-5 support (i.e., the netcdf library must be compiled with the --enable-netcdf-4 flag). If you don't want to install the full version of netcdf-4 with HDF-5 support, then please install the old, deprecated ncdf package instead.
+
+ERROR: configuration failed for package ‘ncdf4’ * removing ‘/usr/lib64/R/library/ncdf4’
+
+building netcdf with HDF5 support requires curl.
+
+sudo apt-get install curl
+sudo apt-get install libcurl-devel 
+cd /shared/pcluster-cmaq
+./gcc_install_hdf5.pcluster.csh
+
+Install ncdf4 package from source:
+
+`cd /shared/pcluster-cmaq/qa_scripts/R_packages`
+
+`sudo R CMD INSTALL ncdf4_1.13.tar.gz --configure-args="--with-nc-config=/shared/build-hdf5/install/bin/nc-config"`
+
 Install packages used in the R scripts
 
 ```
 sudo -i R 
 install.packages("rgdal") 
 install.packages("M3")
+install.packages("fields")
 ```
 
 Then edit and run the R scripts:
