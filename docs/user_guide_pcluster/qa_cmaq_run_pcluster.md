@@ -287,6 +287,7 @@ Install packages used in the R scripts
 sudo -i R 
 install.packages("rgdal") 
 install.packages("M3")
+install.packages("fields")
 ```
 
 Then edit and run the R scripts:
