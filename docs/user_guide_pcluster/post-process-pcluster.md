@@ -22,16 +22,24 @@ You need to run the post processing scripts for every benchmark case.
 
 The post processing scripts are set up for one of the cases:
 
-setenv APPL 2016_CONUS_16x18pe
+setenv APPL 2016_CONUS_6x18pe
 
 note, you will need to change the sed command to a different configuration if you ran another case, example: 
 
-setenv APPL 2016_CONUS_9x12pe
+setenv APPL 2016_CONUS_12x9pe
 
 
 Note, the following script was used to modify the base post processing scripts (set up for the Bench_2016_12SE1 case to the CONUS domain.
 
 If you used the CMAQ Benchmark Option 1, with the pre-loaded software, then these scripts have already been modified.
+
+Run the following scripts
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v533/POST/combine/scripts
+./run_combine_conus_6x18pe.csh |& tee ./run_combine_conus_6x18pe.log
+./run_combine_conus_12x9pe.csh |& tee ./run_combine_conus_12x9pe.log
+```
 
 If you used the CMAQ Bechmark Option 2 to install CMAQ yourself, you will need to save and run the following script.
 
