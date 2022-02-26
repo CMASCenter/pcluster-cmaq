@@ -1,4 +1,4 @@
-# Welcome to CMAQ on the Cloud - Parallel Cluster and Cycle Cloud Tutorial
+# Welcome to CMAQ on the HPC Cloud - Parallel Cluster and Cycle Cloud Tutorial
 
 AWS Parallel Cluster and Azure Cycle Cloud are designed to create, manage, operate, and optimize HPC and big compute clusters of any scale.
 
