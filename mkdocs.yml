@@ -1,4 +1,4 @@
-site_name: cmaq_cloud
+site_name: cmaq_cloud_hpc
 nav:
     - Home: 'index.md'
     - User Guide for AWS Parallel Cluster:

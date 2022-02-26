@@ -10,3 +10,12 @@
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
+Output:
+
+```
+"lastUpdatedTime": "2022-02-25T20:17:19.263Z",
+  "region": "us-east-1",
+  "clusterStatus": "DELETE_IN_PROGRESS"
+```
+
+
