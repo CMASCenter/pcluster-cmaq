@@ -1,4 +1,4 @@
-# Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
+## 2.0 Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
@@ -128,7 +128,7 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
-### 2.4.1 Check on the status of the cluster
+   ### 2.4.1 Check on the status of the cluster
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
