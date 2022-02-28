@@ -182,7 +182,10 @@ Need a minimum openmpi version 4.0.1 for CMAQ
 
 `which sbatch`
 
-### 2.4.10 We will not install sofware on this demo cluster, as the t2.micro head node is too small
+### 2.4.10 Do not install sofware on this demo cluster
+
+the t2.micro head node is too small
+
 Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ MVP Cluster
 
 ### 2.4.11 Exit the cluster
