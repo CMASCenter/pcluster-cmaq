@@ -195,8 +195,9 @@ Table 4. Lustre SSD File System Pricing for us-east-1 region
 | Persistent   | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | 
 | Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month |	
 
-Note, there is a difference in the storage sizing in the table according to the following article.
-<a href="https://www.techtarget.com/searchstorage/definition/tebibyte-TiB#:~:text=Tebibyte%20vs.&text=One%20tebibyte%20is%20equal%20to,when%20talking%20about%20storage%20capacity.>TB vs TiB</a>
+Note, there is a difference in the storage sizing units that were obtained from AWS. 
+See the following article for additional information:
+<a href="https://www.techtarget.com/searchstorage/definition/tebibyte-TiB#:~:text=Tebibyte%20vs.&text=One%20tebibyte%20is%20equal%20to,when%20talking%20about%20storage%20capacity">TB vs TiB</a>
 
 One tebibyte is equal to 240 or 1,099,511,627,776 bytes. 
 One terabyte is equal to 1012 or 1,000,000,000,000 bytes. 
