@@ -23,7 +23,7 @@ Set up your credentials for using s3 copy (you can skip this if you do not have 
 
 ## Copy Input Data from S3 Bucket to lustre filesystem
 
-Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
+Verify that the /fsx directory exists; this is a lustre file system where the I/O is fastest
 
 `ls /fsx`
 
