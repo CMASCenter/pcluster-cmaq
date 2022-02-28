@@ -498,14 +498,13 @@ run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12`
 
 Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.
 
-Answers did not match if NPCOL was different, even though I removed the -march=native compiler flag.
-Christos suggested that the flag needs to be associated with the type of processor. Need to retry.
+Answers did not match if NPCOL was different, despite the removal of the -march=native compiler flag.
 
-1. Verify that I do a make clean and rebuild
+1. Do a make clean and rebuild
 2. Rerun two cases with different values for NPCOL
 3. Re-check the ansswers
 
-Also ran the following to verify that if NPCOL is identical than answers match. This was confirmed.
+Also run a case to verify that if NPCOL is identical than answers match.
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh`
 
@@ -533,7 +532,7 @@ Num  Day        Wall Time
       Avg. Time = 2268.99
 ```
 
-Once that is done, save a snapshot of the volume prior to deleting the cluster, so that we will have updated run scripts.
+Once that is done, save a snapshot of the volume prior to deleting the cluster, to update the run scripts.
 
 
 Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
@@ -613,8 +612,8 @@ Num  Day        Wall Time
 ```
 
 Note this performance seems better than earlier runs..
-I added the #SBATCH --exclusive option.  Perhaps that made a difference.
-I modified all run scripts to use this option.
+Script used the #SBATCH --exclusive option.
+All run scripts have been modified to use this option.
 
 
 `tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
