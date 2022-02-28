@@ -204,7 +204,7 @@ One terabyte is equal to 1012 or 1,000,000,000,000 bytes.
 A tebibyte equals nearly 1.1 TB. 
 That's about a 10% difference between the size of a tebibyte and a terabyte, which is significant when talking about storage capacity.
 
-Scratch SSD 200 MB/s/TiB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
+Lustre Scratch SSD 200 MB/s/TiB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">YAML FSxLustreSettings</a>
 
@@ -241,6 +241,8 @@ Cost for annual simulation
 
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
+
+After the run is completed for each month, and the post-processing is done, then the data can be moved from the Lustre Filesystem to the Archived Storage.
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
