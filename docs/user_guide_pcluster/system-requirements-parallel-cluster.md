@@ -7,8 +7,6 @@ It may be possible to set up daily or weekly spending alarms as well.
 
 ### 1.2 Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
 
-Software on Parallel Cluster
-
 Tier 1: Native OS and associated system libraries, compilers
 
 * Operating System: Ubuntu2004 
