@@ -1,4 +1,4 @@
-## 3 Create CMAQ Cluster using SPOT pricing
+## 3.0 Create CMAQ Cluster using SPOT pricing
 
 ### 3.1 Use an existing yaml file from the git repo to create a parallel cluster
 
