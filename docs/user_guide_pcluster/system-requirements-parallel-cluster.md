@@ -80,6 +80,7 @@ The setting for NPCOLxNPROW must also be a maximum of 180, ie. 18 x 10 or 10 x 1
 
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
+
 Each vCPU is a hardware hyperthread on the Intel Xeon Platinum 8000 series processor. You get full control over the C-states on the two largest sizes, allowing you to run a single core at up to 3.5 Ghz using Intel Turbo Boost Technology.
 
 The new instances also feature a higher amount of memory per core, putting them in the current “sweet spot” for HPC applications that work most efficiently when there’s at least 4 GiB of memory for each core. The instances also benefit from some internal improvements that boost memory access speed by up to 19% in comparison to the C5 and C5d instances.
@@ -236,7 +237,7 @@ Cost for annual simulation
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
-< href="https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4">S3 Storage Pricing Tiers</a>
+<a href="https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4">S3 Storage Pricing Tiers</a>
 
 | S3 Standard - General purpose storage |    Storage Pricing  |
 | ------------------------------------  |    --------------   |
