@@ -242,7 +242,7 @@ Cost for annual simulation assuming it takes 5 days to complete the annual simul
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
 
-After the run is completed for each month, the post-processing scripts could be submitted, and the data moved from the Lustre Filesystem to the Archived Storage. This would reduce the data volume requirements to store 1 month of data or approximately 86.5 x 30 days = 2,595 GB or 2.6 TB.  
+To reduce storage requirements; after the CMAQ run is completed for each month, the post-processing scripts are run and completed, and then the CMAQ Output data for that month is moved from the Lustre Filesystem to the Archived Storage. Monthly data volume storage requirements to store 1 month of data on the lustre file system is approximately 86.5 x 30 days = 2,595 GB or 2.6 TB.  
 
       2,595 GB x 0.00019178 USD per hour x 24 hours x 5 days = $60 USD
 
