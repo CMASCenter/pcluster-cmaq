@@ -128,7 +128,7 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
-   ### 2.4.1 Check on the status of the cluster
+### 2.4.1 Check on the status of the cluster
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
