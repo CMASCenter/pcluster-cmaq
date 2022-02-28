@@ -33,7 +33,7 @@
    - [ ] DisableSimultaneousMultithreading= true
    - [ ] DisableSimultaneousMultithreading= false
 
-### Use parse_timing.r script by Jesse Bash to examine timings of each process in CMAQ
+### Use parse_timing.r script to examine timings of each process in CMAQ
 
 ```
 cd qa_scripts
