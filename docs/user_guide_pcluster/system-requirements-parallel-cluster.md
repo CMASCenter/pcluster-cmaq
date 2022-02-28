@@ -165,6 +165,8 @@ Figure 4. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
+### 1.7 Compute Node Cost Estimate
+
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
 Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $238.9
@@ -237,7 +239,9 @@ Storage requirement for an annual simulation if you assumed you would keep all d
      86.5 GB * 365 days = 31,572.5 GB  = 31.5 TB
 
 
-Cost for annual simulation assuming it takes 5 days to complete the annual simulation.
+### 1.8 Annual simulation local storage cost estimate
+
+Assuming it takes 5 days to complete the annual simulation, and after the annual simulation is completed, the data is moved to archive storage.
 
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
@@ -258,7 +262,7 @@ Estimate for S3 Bucket cost for storing an annual simulation
 | Over 500 TB / Month                   |     $0.021 per GB   |
 
 
-Storage cost estimate for annual simulation - assuming you want to save it for 1 year
+### 1.9 Archive Storage cost estimate for annual simulation - assuming you want to save it for 1 year
 
 31.5 TB * 1024 GB/TB * .023 per GB * 12 months  = $8,903
 
@@ -276,7 +280,7 @@ Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and
 31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
 
 
-### 1.7 Recommended Workflow for extending to annual run
+### 1.10 Recommended Workflow for extending to annual run
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
