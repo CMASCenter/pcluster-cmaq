@@ -204,7 +204,7 @@ One terabyte is equal to 1012 or 1,000,000,000,000 bytes.
 A tebibyte equals nearly 1.1 TB. 
 That's about a 10% difference between the size of a tebibyte and a terabyte, which is significant when talking about storage capacity.
 
-Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
+Scratch SSD 200 MB/s/TiB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">FSxLustreSettings</a>
 
