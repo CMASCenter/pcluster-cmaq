@@ -7,7 +7,7 @@ Justification for using the capability of importing data from an S3 bucket to th
 1. Saves storage cost
 2. Removes need to copy data from S3 bucket to Lustre file system. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3
 3. Simplifies running HPC workloads on AWS
-4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GBs/s.
+4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GB/s.
 
 <a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a>
 
@@ -255,7 +255,8 @@ Output:
 
 Note that in this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
 
-Verify that the NPCOL and NPROW settings in the script are configured to match, in this case, to run CMAQ using on 256 cpus NPCOL=16, NPROW=16 16x16=256
+Verify that the NPCOL and NPROW settings in the script are configured to match. 
+In this case, to run CMAQ using on 256 cpus, use NPCOL=16 and NPROW=16.
 
 `grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
@@ -287,7 +288,7 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  1    queue1     CMAQ   ubuntu PD       0:00      8 (BeginTime)
 ```
 
-Note if you see the following message, you may want to submit a job that requires fewer PES.
+Note if you see the following message, you may want to submit a job that requires fewer PEs.
 
 ```
 ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
@@ -304,7 +305,7 @@ Try submitting a smaller job to the queue.
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
-Or - you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
+Or, you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
 
 To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND. See Chapter 3 for the detailed instructions.
 
@@ -373,13 +374,13 @@ Submit a new job
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
 
-Note, I was trying this from a new AWS account, and the compute nodes don not appear to be provisioning.
+Note, If you still have difficulty running a job in the slurm queue, there may be other issues that need to be resolved.
 
-I checked and found that my IAM Policy needed to be created for this new account.
+Verify that your IAM Policy has been created for your account.
 
-Note, I had to enable spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
+Someone with administrative permissions should eable the spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
 
-Another way to accomplish this is to have each user login to the EC2 Website and launch a spot instance.
+An alternative way to enable this policy is to login to the EC2 Website and launch a spot instance.
 The service policy will be automatically created, that can then be used by Parallel Cluster.
 
 Check to view any errors in the log on the parallel cluster
@@ -388,12 +389,10 @@ Check to view any errors in the log on the parallel cluster
 
  An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
 
-Submitted a request to increase this limit using the AWS Website.
+If you encounter this error, you will need to submit a request to increase this spot instance limit using the AWS Website.
 
 
-Trying to submit a 72 pe job 2 nodes x 36 cpus
-
-That appears to be working now.
+Try to submit a 72 pe job 2 nodes x 36 cpus
 
 `sbatch run_cctm_2016_12US2.72pe.2x36.pcluster.csh`
 
@@ -434,22 +433,8 @@ Num  Day        Wall Time
       Avg. Time = 3356.85
 ```
 
-Trying to run on 144 processors (180 processors failed due to spot node limit)
 
-`sbatch run_cctm_2016_12US2.144pe.4x36.pcluster.csh`
-
-`vi /var/log/parallelcluster/slurm_resume.log`
-
-Output:
-
-```
-2022-02-24 02:26:45,940 - [slurm_plugin.instance_manager:add_instances_for_nodes] - ERROR - Encountered exception when launching instances for nodes (x1) ['queue1-dy-compute-resource-1-10']: An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
-2022-02-24 02:26:45,940 - [slurm_plugin.resume:_resume] - INFO - Successfully launched nodes (x0) []
-2022-02-24 02:26:45,941 - [slurm_plugin.resume:_resume] - ERROR - Failed to launch following nodes, setting nodes to down: (x1) ['queue1-dy-compute-resource-1-10']
-2022-02-24 02:26:45,941 - [slurm_plugin.resume:_handle_failed_nodes] - INFO - Setting following failed nodes into DOWN state: (x1) ['queue1-dy-compute-resource-1-10']
-2022-02-24 02:26:45,959 - [slurm_plugin.resume:main] - INFO - ResumeProgram finished.
-```
-
+Note - the following jobs were submitted using different configuration options on the Parallel Cluster. The record of these jobs is included for you to review, but it is not required to re-submit all of these benchmarks as part of this tutorial.
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.pcluster.csh`
 
@@ -490,7 +475,7 @@ Num  Day        Wall Time
 ```
 
 
-Trying 108 pe run with NPCOL=6, NPROW=18 to compare with the following run:
+108 pe run with NPCOL=6, NPROW=18 to compare with the following run:
 
 ```
 run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12`
@@ -500,7 +485,7 @@ run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12`
 
 Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.
 
-Answers did not match if NPCOL was different, despite the removal of the -march=native compiler flag.
+Note that answers do not match if NPCOL was different, despite the removal of the -march=native compiler flag.
 
 1. Do a make clean and rebuild
 2. Rerun two cases with different values for NPCOL
@@ -537,7 +522,7 @@ Num  Day        Wall Time
 Once that is done, save a snapshot of the volume prior to deleting the cluster, to update the run scripts.
 
 
-Results from the Parallel Cluster Started with the EBS Volume software from input data copied to /fsx from S3 Bucket
+Results from the Parallel Cluster Started with the pre-installed software with the input data copied to /fsx from S3 Bucket
 
 Output:
 
@@ -562,7 +547,7 @@ Num  Day        Wall Time
 ```
 
 
-Results from Parallel Cluster Started with the EBS Volume software with data imported from S3 Bucket
+Results from Parallel Cluster Started with the software with data imported from S3 Bucket to Lustre
 
 Output:
 
