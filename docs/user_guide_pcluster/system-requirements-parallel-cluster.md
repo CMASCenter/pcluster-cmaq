@@ -144,9 +144,6 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             | $5.98 | $19.83 |
 | 360           | 10x36          | 18x20         |   unable to provision  |                 |                      |                    |  imported   |  true        |    yes         |       |        |
 
-Total c5n.18xlarge compute cost of Running Benchmarking Suite using SPOT pricing = $71.7
-(sum the cost of all of the runs in the above table assuming SPOT pricing)
-
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the Parallel Cluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute node, compared to the storage, and network costs.
 
 In Figure 2 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
