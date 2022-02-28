@@ -133,7 +133,7 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
 | 72            |  2x36          | 6x12          | 3562.50              | 3151.21              |    6713.71                 |  yes         | imported                |  true              | no                   | 6x12 did not match 12x9 without -march=native   | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
 | 108           |  3x36          | 6x18          | 2415.46 | 2135.26   | 4550.72               |  yes                | imported                | true                   |   no  | 6x12 does match 6x18   |     1.1732/hr * 3 nodes * 1.26 hr = $4.45           |   3.888/hr * 3 nodes * 1.26  = $14.7  |
-| 108           | 3x36           | 12x9          | 2758.01 | 2370.92   | 5128.93               |  yes                | imported                | true         |  yes |          |   1.1732/hr * 3 nodes * 1.42 hr = $5.01    |   3.888/hr * 3 nodes * 1.42 hr = $16.6                                    |
+| 108           | 3x36           | 12x9          | 2758.01 | 2370.92   | 5128.93               |  yes                | imported                | true         |  yes |  6x12 did not match 12x9 without -march=native |   1.1732/hr * 3 nodes * 1.42 hr = $5.01    |   3.888/hr * 3 nodes * 1.42 hr = $16.6                                    |
 | 180           |  5x36          | 10x18         | 2481.55              | 2225.34              |    4706.89                 |  no                | copied                  |  false           | yes              |            | 1.1732/hr * 5 nodes * 1.307 hr = $7.66 | 3.888/hr * 5 nodes * 1.307 hr = $25.4 |
 | 180           |  5x36          | 10x18         | 2378.73              | 2378.73              |    4588.92                 |  no                | copied                  |  true        | yes       | 10x18 did not match 16x18 | 1.1732/hr * 5 nodes * 1.2747 = $7.477 | $ 24.77 |
 | 180           |  5x36          | 10x18         | 1585.67        | 1394.52         |    2980.19           |  yes                | imported    |  true        |   yes |          | 1.1732/hr * 5nodes * 2980.9 / 3600 = $4.85 | $16.05 | 
@@ -157,7 +157,7 @@ Figure 2. Cost by Instance Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Instance Type](../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
-In Figure 3 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incurr costs
+In Figure 3 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
 
 Figure 3. Cost by Usage Type - AWS Console 
 
