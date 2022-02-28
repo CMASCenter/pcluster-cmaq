@@ -304,7 +304,7 @@ Try submitting a smaller job to the queue.
 
 Or - you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
 
-To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND. See Chapter 2.2 for the detailed instructions.
+To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND. See Chapter 3 for the detailed instructions.
 
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
