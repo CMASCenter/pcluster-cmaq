@@ -489,7 +489,7 @@ Note that answers do not match if NPCOL was different, despite the removal of th
 
 1. Do a make clean and rebuild
 2. Rerun two cases with different values for NPCOL
-3. Re-check the ansswers
+3. Re-check the answers
 
 Also run a case to verify that if NPCOL is identical than answers match.
 
