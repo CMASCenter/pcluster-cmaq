@@ -117,7 +117,7 @@ NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1
 
 ### 3.3.1 Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
-By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) this would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
+By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
 
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line.
 
@@ -257,7 +257,7 @@ Output:
   "clusterStatus": "UPDATE_IN_PROGRESS"
 ```
 
-### 3.4.2 Wait 5 or 10 minutes for the update to be comleted
+### 3.4.2 Wait 5 to 10 minutes for the update to be comleted
 
 Keep rechecking status until update is completed and computeFleetStatus is RUNNING
 
@@ -348,14 +348,14 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 
 See instructions for installing and running CMAQ on cluster.
 
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the Amazon Website">Enhanced Networking Adapter Documentation</a>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the AWS Enhanced Networking Adapter Documentation</a>
 
 ## 3.5 Tips to managing the parallel cluster
 
 1. The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the command to restart the cluster.
-2. The pcluster slurm queue system will create and destroy the compute nodes, so that helps reduce manual cleanup for the cluster.
+2. The pcluster slurm queue system will create and delete the compute nodes, so that helps reduce manual cleanup for the cluster.
 3. The compute nodes are terminated after they have been idle for a period of time. The yaml setting used for this is as follows: SlurmSettings: ScaledownIdletime: 5
-4. The default idle time is 10 minutes, but I have seen the compute nodes stay up longer than that, so it is important to double check, as you are charged when the compute nodes are available, even if they are not running a job.
+4. The default idle time is 10 minutes, and can be reduced by specifing a shorter idle time in the YAML file.  It is important to verify that the are deleted after a job is finished, to avoid incurring unexpected costs.
 5. copy/backup the outputs and logs to an s3 bucket for follow-up analysis
 6. After copying output and log files to the s3 bucket the cluster can be deleted
 7. Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated, and costs will only be incurred by the S3 Bucket storage.
