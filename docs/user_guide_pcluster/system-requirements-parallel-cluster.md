@@ -187,15 +187,21 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 
 Table 4. Lustre SSD File System Pricing for us-east-1 region
 
-| Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |  Pricing (hourly) |
-| --------     | ----------------  |   ------------------------------------    | -----------------  |  ---------------  |
-| Persistant   | 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |                   |
-| Persistant   | 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |                   |
-| Persistant   | 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |                   |
-| Persistant   | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | .0008333/hour     | 
-| Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month | 0.000192/hour     |	
+| Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |
+| --------     | ----------------  |   ------------------------------------    | -----------------  |
+| Persistent   | 125 MB/s/TB       | 	$0.073                                  |	$0.145/month |
+| Persistent   | 250 MB/s/TB       | 	$0.105                                  |	$0.210/month |
+| Persistent   | 500 MB/s/TB       | 	$0.170                                  | 	$0.340/month |
+| Persistent   | 1,000 MB/s/TB     |   $0.300                                  | 	$0.600/month | 
+| Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month |	
 
-Q. What is the difference between TiB and TB (I obtained the syntax from the AWS Pricing Table see link above)
+Note, there is a difference in the storage sizing in the table according to the following article.
+<a href="https://www.techtarget.com/searchstorage/definition/tebibyte-TiB#:~:text=Tebibyte%20vs.&text=One%20tebibyte%20is%20equal%20to,when%20talking%20about%20storage%20capacity.>TB vs TiB</a>
+
+One tebibyte is equal to 240 or 1,099,511,627,776 bytes. 
+One terabyte is equal to 1012 or 1,000,000,000,000 bytes. 
+A tebibyte equals nearly 1.1 TB. 
+That's about a 10% difference between the size of a tebibyte and a terabyte, which is significant when talking about storage capacity.
 
 Scratch SSD 200 MB/s/TB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
