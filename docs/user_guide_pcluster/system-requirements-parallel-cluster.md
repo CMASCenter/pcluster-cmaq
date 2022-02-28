@@ -94,7 +94,7 @@ Resources specified in the YAML file for the MVP:
 * Disable Simultaneous Multi-threading
 * Spot Pricing 
 * Shared EBS filesystem to insall software
-* 1.2 TB Shared Lustre file system with imported S3 Bucket (1.2 TB is the minimum file size that you can specify for Lustre File System)
+* 1.2 TiB Shared Lustre file system with imported S3 Bucket (1.2 TiB is the minimum file size that you can specify for Lustre File System)
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.18xlarge
 
@@ -211,11 +211,11 @@ Lustre Scratch SSD 200 MB/s/TiB is tier of the storage pricing that we have conf
 Cost example:
     0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
 
-Note: 1.2 TB is the minimum file size that you can specify for the lustre file system
+Note: 1.2 TiB is the minimum file size that you can specify for the lustre file system
 
-    1,200 GB x 0.00019178 USD per hour x 24 hours x 5 days = 27.6 USD
+    1,200 GiB x 0.00019178 USD per hour x 24 hours x 5 days = 27.6 USD
 
-Question is 1.2 TB enough for the output of a yearly CMAQ run?
+Question is 1.2 TiB enough for the output of a yearly CMAQ run?
 
 For the output data, assuming 2 day CONUS Run, all 35 layers, all 244 variables in CONC output
 
@@ -237,12 +237,15 @@ Storage requirement for an annual simulation if you assumed you would keep all d
      86.5 GB * 365 days = 31,572.5 GB  = 31.5 TB
 
 
-Cost for annual simulation
+Cost for annual simulation assuming it takes 5 days to complete the annual simulation.
 
      31,572.5 GB x 0.00019178 USD per hour x 24 hours x 5 days = $726.5 USD
 
 
-After the run is completed for each month, and the post-processing is done, then the data can be moved from the Lustre Filesystem to the Archived Storage.
+After the run is completed for each month, the post-processing scripts could be submitted, and the data moved from the Lustre Filesystem to the Archived Storage. This would reduce the data volume requirements to store 1 month of data or approximately 86.5 x 30 days = 2,595 GB or 2.6 TB.  
+
+      2,595 GB x 0.00019178 USD per hour x 24 hours x 5 days = $60 USD
+
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
