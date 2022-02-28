@@ -9,7 +9,7 @@ It may be possible to set up daily or weekly spending alarms as well.
 
 Software on Parallel Cluster
 
-Tier 1
+Tier 1: Native OS and associated system libraries, compilers
 
 * Operating System: Ubuntu2004 
 * Tcsh shell
@@ -18,16 +18,17 @@ Tier 1
 * MPI (Message Passing Interface) -  OpenMPI ≥ 4.0
 * Slurm Scheduler
 
-Tier 2 
+Tier 2: additional libraries required for installing CMAQ 
 
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
+* R Software and packages
 
-Tier 3
+Tier 3: Software distributed thru the CMAS Center
 
 * CMAQv533
 * CMAQv533 Post Processors
-* R Software, Packages and QA Scripts
+* R QA Scripts
 
 Software on Local Computer
 
@@ -51,6 +52,8 @@ Larger hardware and memory configurations are also required for instrumented ver
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
 ### 1.4 MVP Parallel Cluster Configuration for CONUS Domain
+
+Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
 Head node:
 
