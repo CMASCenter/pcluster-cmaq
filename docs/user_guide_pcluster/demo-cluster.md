@@ -210,4 +210,4 @@ Requires the user to have AWS Identity and Access Management roles in AWS Parall
 AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
 It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
 
-Need to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster.
+Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster. (requires administrative permissions)
