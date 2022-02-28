@@ -9,14 +9,25 @@ It may be possible to set up daily or weekly spending alarms as well.
 
 Software on Parallel Cluster
 
-* Ubuntu OS
+Tier 1
+
+* Operating System: Ubuntu2004 
 * Tcsh shell
 * Git
 * Compilers (C, C++, and Fortran) - GNU compilers version ≥ 8.3
 * MPI (Message Passing Interface) -  OpenMPI ≥ 4.0
+* Slurm Scheduler
+
+Tier 2 
+
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
-* Slurm Scheduler
+
+Tier 3
+
+* CMAQv533
+* CMAQv533 Post Processors
+* R Software, Packages and QA Scripts
 
 Software on Local Computer
 
