@@ -202,9 +202,9 @@ Resulted in zero differences in the output
 ```
 
 
-### Run the following R script that was provided by Kristen Foley
+### Run the following R script
 
-First check to see if R is already isntalled.
+First check to see if R is already installed.
 
 `R --version`
 
