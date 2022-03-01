@@ -1,6 +1,7 @@
 site_name: cmaq_pcluster
 nav:
     - Home: 'index.md'
+        -  Parallel Cluster:
             - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
             - '2 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
             - '3 Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
