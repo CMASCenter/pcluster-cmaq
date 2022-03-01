@@ -1,4 +1,4 @@
-## Quality Assurance Checks for Successful CMAQ Run on Parallel Cluster
+## Quality Assurance Checks for Successful CMAQ Run on CycleCloud
 
 
 ### run m3diff to compare the output data for two runs that have different values for NPCOL
