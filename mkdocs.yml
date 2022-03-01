@@ -1,8 +1,9 @@
 site_name: cmaq_pcluster
 nav:
     - Home: 'index.md'
-    -  Parallel Cluster:
-            - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
+    - User Guide for AWS Parallel Cluster:
+        - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
+        -  AWS Parallel Cluster Configure using AWS CLI 3.0 YAML file:
             - '2 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
             - '3 Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
         - CMAQ Benchmark Option 1:
@@ -16,7 +17,7 @@ nav:
             - '9 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
             - '10 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
             - '11 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
-            - '12 How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
+        - 12 How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
         -  Logout and Delete Parallel Cluster:
             - '13 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
     - About:
