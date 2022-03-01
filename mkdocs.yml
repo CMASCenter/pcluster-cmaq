@@ -1,4 +1,4 @@
-site_name: cmaq_cloud
+site_name: cmaq_pcluster
 nav:
     - Home: 'index.md'
             - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
