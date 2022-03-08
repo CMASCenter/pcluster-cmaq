@@ -51,7 +51,7 @@ Use pip to install pcluster.
 
 Note, there are some additional instructions for installing CL2 on Windows that you may need to follow (with the exception of getting CL3 versus CL2.
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-windows.html>Guide to install AWS CL2 in Windows Environment</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-windows.html">Guide to install AWS CL2 in Windows Environment</a>
 
 You can verify that AWS ParallelCluster installed correctly by running pcluster version.
 
