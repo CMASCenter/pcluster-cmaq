@@ -68,7 +68,7 @@ Output:
 
 
 ## 2.2 Configure AWS Command line credentials on your local machine
-<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Setting up AWS Credential Instructions</a>
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
 
  `aws configure` 
 
