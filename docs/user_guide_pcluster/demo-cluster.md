@@ -31,17 +31,41 @@ node --version
 python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
+You can verify that AWS ParallelCluster installed correctly by running pcluster version.
+
+`pcluster version`
+
+Output:
+
+```
+{
+"version": "3.1.2"
+}
+```
+
 ###  2.1.2 Instructions for Windows
 
-Create a virtual environment on a windows machine to install aws-parallel cluster
+Use pip to install pcluster.
 
-<a href="pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_shared.yaml --cluster-name cmaq --region us-east-1">Guide to install AWS CL3 in Windows Environment</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-pip.html">Guide to install AWS CL3 using PIP</a>
 
-Note, it is actually a guide for CL2, but replace the commands to install CL3
+Note, there are some additional instructions for installing CL2 on Windows that you may need to follow (with the exception of getting CL3 versus CL2.
 
-Also to activate the virtual environment once it is installed run
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-windows.html>Guide to install AWS CL2 in Windows Environment</a>
 
-`activate`
+You can verify that AWS ParallelCluster installed correctly by running pcluster version.
+
+`pcluster version`
+
+Output:
+
+```
+{
+"version": "3.1.2"
+}
+```
+
+
 
 ## 2.2 Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Setting up AWS Credential Instructions</a>
