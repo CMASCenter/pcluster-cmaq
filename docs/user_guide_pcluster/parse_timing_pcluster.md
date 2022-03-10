@@ -38,10 +38,10 @@ cd qa_scripts
 Rscript parse_timing.r
 ```
 
-Timing Plot Comparing GCC run on 16 x 8 pe versus 8 x 16 pe on Dogwood
+Timing Plot Comparing GCC run on 16 x 8 pe versus 8 x 16 pe
 
 ![gcc_16x8_vs_8x16](../qa_plots/timing_plots/gcc_16x8_vs_8x16.png)
 
-Timing Plot Comparing GCC run on 8 x 8 pe versus 8 x 16 pe on Dogwood
+Timing Plot Comparing GCC run on 8 x 8 pe versus 8 x 16 pe
 
 ![gcc_8x8_vs_8x16](../qa_plots/timing_plots/gcc_8x8_vs_8x16.png)

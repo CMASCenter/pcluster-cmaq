@@ -352,7 +352,7 @@ Example output plots are available for the CONUS Benchmark in the following dire
 
 When NPCOL is fixed, we are seeing no difference in the answers.
 
-Example comparsion was done on dogwood using: 8x8 compared to 8x16
+Example comparsion using: 8x8 compared to 8x16
 
 ```
 cd ../qa_plots/
