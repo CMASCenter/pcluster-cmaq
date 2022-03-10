@@ -28,7 +28,6 @@ chmod ug+x ~/.nvm/nvm.sh
 source ~/.nvm/nvm.sh
 nvm install node
 node --version
-python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
 You can verify that AWS ParallelCluster installed correctly by running pcluster version.
