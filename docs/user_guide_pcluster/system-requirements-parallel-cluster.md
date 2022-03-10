@@ -143,7 +143,7 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 288           |  8x36          | 16x18         | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false | yes |            | 1.732/hr * 8nodes * 3572.2/3600= $13.74  | $45.6 |
 | 288           |  8x36          |  16x18        |  1976.35       | 1871.61         |     3847.96          |  no                |  copied     |  true   | yes |            | 1.732/hr*8nodes*3847.96=$14.8 | $49.0 |
 | 288           |  8x36          | 16x18         |  1197.19       | 1090.45         |     2287.64          |  yes               |  copied     |  true   | yes |             16x18 matched 16x16 | 1.732/hr*8nodes*2297.64=$8.84 | $29.3
-| 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             | $5.98 | $19.83 |
+| 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             |   | 1.732/hr*8nodes*2301.77=$8.86 | $19.88 |
 | 360           | 10x36          | 18x20         |   unable to provision  |                 |                      |                    |  imported   |  true        |    yes         |       |        |
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the Parallel Cluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
