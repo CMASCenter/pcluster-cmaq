@@ -170,8 +170,10 @@ Figure 4. Cost by Service Type - AWS Console
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
-Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $238.9
+Total c5n.18xlarge cost of Running Benchmarking Suite using ONDEMAND pricing = $297
 (sum the cost of all of the runs in the above table assuming ONDEMAND pricing)
+
+Total c5n.18xlarge cost of Running Benchmarking Suite using SPOT pricing = $89
 
 
 Using 288 cpus on the Parallel Cluster, it would take ~4.832 days to run a full year, using 8 c5n.18xlarge compute nodes.
