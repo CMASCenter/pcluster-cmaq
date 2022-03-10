@@ -140,9 +140,9 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 256           |  8x32          | 16x16         |  1289.59       | 1164.53         |    2454.12           |  no                 |  copied           |  true    | yes |            | 1.1732/hr * 8nodes * 2454.12 / 3600 = $6.398  | $21.66 |
 | 256           |  8x32          | 16x16         |  1305.99       | 1165.30         |    2471.29           |  no                |   copied    |   true    |  yes |           | 1.1732/hr * 8nodes * 2471.29 / 3600 = $6.44 | $21.11 |
 | 256           |  8x32          | 16x16         |  1564.90       | 1381.80         |    2946.70           |  no                |   imported  | true   |   yes |         | 1.1732/hr * 8nodes * 2946.7 / 3600 = $7.68 | $25.55 |
-| 288           |  8x36          | 16x18         | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false | yes |            | $9.3 | $30.83 |
-| 288           |  8x36          |  16x18        |  1976.35       | 1871.61         |     3847.96          |  no                |  copied     |  true   | yes |            | $10.02 | $33.22 |
-| 288           |  8x36          | 16x18         |  1197.19       | 1090.45         |     2287.64          |  yes               |  copied     |  true   | yes |             16x18 matched 16x16 | $5.95 | $19.72
+| 288           |  8x36          | 16x18         | 1873.00        | 1699.24         |     3572.2           |  no                |  copied     |    false | yes |            | 1.732/hr * 8nodes * 3572.2/3600= $13.74  | $45.6 |
+| 288           |  8x36          |  16x18        |  1976.35       | 1871.61         |     3847.96          |  no                |  copied     |  true   | yes |            | 1.732/hr*8nodes*3847.96=$14.8 | $49.0 |
+| 288           |  8x36          | 16x18         |  1197.19       | 1090.45         |     2287.64          |  yes               |  copied     |  true   | yes |             16x18 matched 16x16 | 1.732/hr*8nodes*2297.64=$8.84 | $29.3
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76         |     2301.77          |  yes               |  imported   |  true        |             | $5.98 | $19.83 |
 | 360           | 10x36          | 18x20         |   unable to provision  |                 |                      |                    |  imported   |  true        |    yes         |       |        |
 
