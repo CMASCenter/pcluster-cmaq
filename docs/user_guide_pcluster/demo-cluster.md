@@ -42,6 +42,18 @@ Output:
 }
 ```
 
+If you start a new terminal window, you need to acitvate the virtual environment using the following commands:
+
+```
+source ~/apc-ve/bin/activate
+source ~/.nvm/nvm.sh
+```
+
+Verify that the parallel cluster is working using:
+
+`pcluster version`
+
+
 ###  2.1.2 Instructions for Windows
 
 Use pip to install pcluster.
