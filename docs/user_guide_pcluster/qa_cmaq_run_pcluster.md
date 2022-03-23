@@ -210,7 +210,7 @@ First check to see if R is already installed.
 
 If not, Install R on Ubuntu 2004 using following instructions.
 
-<a "href=https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/">Install R on Ubuntu 2004>
+<a "href=https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/">Install R on Ubuntu 2004</a>
 
 `sudo apt install build-essential`
 
@@ -293,10 +293,14 @@ ERROR: configuration failed for package ‘ncdf4’ * removing ‘/usr/lib64/R/l
 
 building netcdf with HDF5 support requires curl.
 
+```
 sudo apt-get install curl
 sudo apt-get install libcurl-devel 
-cd /shared/pcluster-cmaq
-./gcc_install_hdf5.pcluster.csh
+```
+
+`cd /shared/pcluster-cmaq`
+
+`./gcc_install_hdf5.pcluster.csh`
 
 Install ncdf4 package from source:
 
