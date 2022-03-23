@@ -4,27 +4,28 @@ set echo
 #  -----------------------
 #  Download and build HDF5
 #  -----------------------
-   cd /shared/build-hdf5
-   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
-   tar xvf hdf5-1.10.5.tar.gz
-   rm -f hdf5-1.10.5.tar.gz
-   cd hdf5-1.10.5
+#   mkdir /shared/build-hdf5
+#   cd /shared/build-hdf5
+#   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
+#   tar xvf hdf5-1.10.5.tar.gz
+#   rm -f hdf5-1.10.5.tar.gz
+#   cd hdf5-1.10.5
    export CFLAGS="-O3"
    export FFLAGS="-O3"
    export CXXFLAGS="-O3"
    export FCFLAGS="-O3"
-   ./configure --prefix=/shared/build-hdf5/install --enable-fortran --enable-cxx --enable-shared --with-pic
-   make |& tee make.gcc9.log 
+#   ./configure --prefix=/shared/build-hdf5/install --enable-fortran --enable-cxx --enable-shared --with-pic
+#   make |& tee make.gcc9.log 
 #  make check > make.gcc9.check
-   make install
+#   make install
 #  ---------------------------
 #  Download and build netCDF-C
 #  ---------------------------
    cd /shared/build-hdf5
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
-   tar xvf netcdf-c-4.7.1.tar.gz
-   rm -f netcdf-c-4.7.1.tar.gz
-   cd netcdf-c-4.7.1
+   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
+   tar xvf v4.7.4.tar.gz
+   rm -f v4.7.4.tar.gz
+   cd netcdf-c-4.7.4
    ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=/shared/build-hdf5/install
    make |& tee  make.gcc9.log
    make install
