@@ -28,6 +28,7 @@ nav:
         - 'CMAQ Support': 'help/cmaq_support.md'
         - 'AWS Free Training': 'help/aws-free-training.md'
         - 'Key References on Cloud Computing': 'help/key-references.md'
+        - 'Frequently Asked Questions': 'help/faq.md'
     - Future Work:
         - 'Future Work': 'user_guide_pcluster/future_work.md'
 
