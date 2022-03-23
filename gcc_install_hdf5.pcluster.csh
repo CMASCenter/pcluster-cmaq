@@ -4,6 +4,7 @@ set echo
 #  -----------------------
 #  Download and build HDF5
 #  -----------------------
+   mkdir /shared/build-hdf5
    cd /shared/build-hdf5
    wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
    tar xvf hdf5-1.10.5.tar.gz
