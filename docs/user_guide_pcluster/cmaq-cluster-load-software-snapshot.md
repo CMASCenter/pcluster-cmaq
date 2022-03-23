@@ -146,3 +146,27 @@ Num  Day        Wall Time
       Avg. Time = 1443.72
 
 ```
+
+Using the Ubuntu2004 OS with gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+
+tail -n 50 run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.pcluster.log
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   1472.69
+02   2015-12-23   1302.84
+     Total Time = 2775.53
+      Avg. Time = 1387.76
+```
