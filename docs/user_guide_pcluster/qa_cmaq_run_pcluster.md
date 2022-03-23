@@ -244,6 +244,7 @@ install PDAL (optional)
 
 `sudo apt-get install libpdal-dev pdal libpdal-plugin-python -y`
 
+
 recommended to give Python3 precedence over Python2 (which is end-of-life since 2019)
 
 `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
@@ -325,11 +326,39 @@ To view the script, install imagemagick
 
 `sudo apt-get install imagemagick`
 
-Ran into an issue trying to display an image back to my laptop.
+Install X11
 
-srun -n1 --pty --x11 xclock
-srun: error: No DISPLAY variable set, cannot setup x11 forwarding.
+`sudo apt install x11-apps`
 
+Enable X11 forwarding
+
+`sudo vi /etc/ssh/sshd_config`
+
+add line
+X11Forwarding yes
+
+Verify that it was added
+
+`sudo cat /etc/ssh/sshd_config |grep -i X11Forwarding`
+
+Restart ssh
+
+`sudo service ssh restart`
+
+Exit the cluster
+
+`exit`
+
+Re-login to the cluster
+
+`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+
+
+Test display
+
+`display xclock`
+
+Need to add the above commands to the post-installation script.
 
 Can connect to the head node using NICE DCV software. Need to add a section to the yaml file.
 
@@ -343,8 +372,6 @@ The bug says that you can use a custom post installation script to re-enable X11
 
 <a href="https://docs.aws.amazon.com/en_us/parallelcluster/latest/ug/pre_post_install.html">Custom Bootstrap Actions</a>
 
-
-I have not figured out how to do this yet. Need to ask Tommy Johnson from AWS.
 
 
 
