@@ -300,6 +300,13 @@ sudo apt-get install libcurl4-openssl-dev
 
 `cd /shared/pcluster-cmaq`
 
+Install libraries with hdf5 support
+
+Load modules
+
+`module load openmpi/4.1.1 ` 
+`module load libfabric-aws/1.13.2amzn1.0`
+
 `./gcc_install_hdf5.pcluster.csh`
 
 Install ncdf4 package from source:
@@ -315,15 +322,6 @@ sudo -i R
 install.packages("rgdal") 
 install.packages("M3")
 install.packages("fields")
-```
-
-Then edit and run the R scripts:
-
-```
-cd /shared/pcluster-cmaq/qa_scripts
-vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
-Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
-Rscript parse_timing_pcluster.r
 ```
 
 To view the script, install imagemagick
@@ -377,6 +375,66 @@ The bug says that you can use a custom post installation script to re-enable X11
 <a href="https://docs.aws.amazon.com/en_us/parallelcluster/latest/ug/pre_post_install.html">Custom Bootstrap Actions</a>
 
 
+Then edit the R scripts:
+
+```
+cd /shared/pcluster-cmaq/qa_scripts
+vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
+```
+
+
+Examine the script to create the box plots and spatial plots and edit to use the output that you have generated in your runs.
+
+First check what output is available on your Parallel Cluster
+
+`ls -rlt /fsx/data/output/*/*ACONC*`
+
+Then edit the script to use the output filenames available.
+
+vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
+
+```
+#Directory, file name, and label for first model simulation (sim1)
+sim1.label <- "EPA (v5.3.3 w/ GCC)"
+sim1.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/"
+sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc")
+
+#Directory, file name, and label for second model simulation (sim2)
+sim2.label <- "CMAS (v5.3.3 w/ GCC)"
+sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"
+sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc")
+```
+
+First check to see what log files are available:
+
+`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log`
+
+Edit the R script to modify the name of the log file to match what is avaible on your system.
+
+`vi parse_timing_pcluster.r`
+
+Edit the following section of the script to specify the log file names available on your Parallel Cluster
+
+```
+sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
+base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
+files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log' )
+b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log')
+#Compilers <- c('intel','gcc','pgi')
+Compilers <- c('gcc')
+# name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
+# The project directory name is used for the sensitivity case. 
+base.name <- '12x9pe'
+sens.name <- '6x18pe'
+```
+
+Run the R scripts
+
+```
+cd /shared/pcluster-cmaq/qa_scripts
+Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
+Rscript parse_timing_pcluster.r
+```
 
 
 Example output plots are available for the CONUS Benchmark in the following directory
