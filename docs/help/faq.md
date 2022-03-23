@@ -1,4 +1,5 @@
 Q. Can you update a cluster with a Snapshot ID, ie. update a cluster to use the /shared/build pre-installed software.
+
 A. No. An existing cluster can not be updated with a Snapshot ID, solution is to delete the cluster and re-create it. see error:
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.ebs_unencrypted.fsx_import.yaml`
@@ -26,6 +27,7 @@ Output:
 ```
 
 Q. How do you figure out why a job isn't successfully running in the slurm queue
+
 A. Check the logs available in the following link
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">Pcluster Troubleshooting</a>
