@@ -295,7 +295,7 @@ building netcdf with HDF5 support requires curl.
 
 ```
 sudo apt-get install curl
-sudo apt-get install libcurl-devel 
+sudo apt-get install libcurl4-openssl-dev
 ```
 
 `cd /shared/pcluster-cmaq`
