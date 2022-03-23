@@ -4,6 +4,7 @@ set echo
 #  -----------------------
 #  Download and build HDF5
 #  -----------------------
+<<<<<<< HEAD
 #   mkdir /shared/build-hdf5
 #   cd /shared/build-hdf5
 #   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
@@ -22,10 +23,52 @@ set echo
 #  Download and build netCDF-C
 #  ---------------------------
    cd /shared/build-hdf5
+<<<<<<< HEAD:gcc_install_hdf5.pcluster.csh
    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
    tar xvf v4.7.4.tar.gz
    rm -f v4.7.4.tar.gz
    cd netcdf-c-4.7.4
+=======
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
+   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+   tar xzvf v4.8.1.tar.gz 
+   #rm -f netcdf-c-4.8.1.tar.gz
+   cd netcdf-c-4.8.1
+>>>>>>> 793b7a69712b924e4b4da536944e69c9e5d34223:gcc_install_hdf5.sh
+=======
+   mkdir /shared/build-hdf5
+   cd /shared/build-hdf5
+   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
+   tar xvf hdf5-1.10.5.tar.gz
+   rm -f hdf5-1.10.5.tar.gz
+   cd hdf5-1.10.5
+   setenv CFLAGS "-O3"
+   setenv FFLAGS "-O3"
+   setenv CXXFLAGS "-O3"
+   setenv FCFLAGS "-O3"
+   ./configure --prefix=/shared/build-hdf5/install --enable-fortran --enable-cxx --enable-shared --with-pic
+   make |& tee make.gcc9.log 
+#  make check > make.gcc9.check
+   make install
+#  ---------------------------
+#  Download and build netCDF-C
+#  ---------------------------
+   setenv DIR /shared/build-hdf5
+   cd $DIR
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
+   #wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+#   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
+   tar xzvf v4.7.4.tar.gz 
+   setenv CFLAGS "-O3 -fPIC"
+   setenv FFLAGS "-O3 -fPIC"
+   setenv CXXFLAGS "-O3 -fPIC"
+   setenv FCFLAGS "-O3 -fPIC"
+   setenv NCDIR $DIR/install
+   setenv CPPFLAGS -I${NCDIR}/include
+   setenv LDFLAGS -L${NCDIR}/lib
+
+   cd netcdf-c-4.7.4
+>>>>>>> 793b7a69712b924e4b4da536944e69c9e5d34223
    ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=/shared/build-hdf5/install
    make |& tee  make.gcc9.log
    make install
@@ -33,25 +76,38 @@ set echo
 #  Download and build netCDF-Fortran
 #  ---------------------------------
    cd /shared/build-hdf5
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
-   tar xvf netcdf-fortran-4.5.2.tar.gz
-   rm -f netcdf-fortran-4.5.2.tar.gz
-   cd netcdf-fortran-4.5.2
+   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
+   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+   tar xvf v4.5.3.tar.gz
+   rm -f v4.5.3.tar.gz
+<<<<<<< HEAD
+   cd netcdf-fortran-4.5.3
    export LIBS="-lnetcdf"
+=======
+     setenv CFLAGS "-O3 -fPIC"
+   setenv FFLAGS "-O3 -fPIC"
+   setenv CXXFLAGS "-O3 -fPIC"
+   setenv FCFLAGS "-O3 -fPIC"
+   setenv NCDIR $DIR/install
+   setenv CPPFLAGS -I${NCDIR}/include
+   setenv LDFLAGS -L${NCDIR}/lib
+   cd netcdf-fortran-4.5.3
+>>>>>>> 793b7a69712b924e4b4da536944e69c9e5d34223
    ./configure --with-pic --enable-shared --prefix=/shared/build-hdf5/install
    make |& tee make.gcc9.log 
    make install
 #  -----------------------------
 #  Download and build netCDF-CXX
 #  -----------------------------
-   cd /shared/build-hdf5
-   wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz
-   tar xvf netcdf-cxx4-4.3.1.tar.gz
-   rm -f netcdf-cxx4-4.3.1.tar.gz
-   cd netcdf-cxx4-4.3.1
-   ./configure --with-pic --enable-shared --prefix=/shared/build-hdf5/install
-   make |& tee  make.gcc9.log
-   make install
+#   cd /shared/build-hdf5
+#   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz
+    wget https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz
+#   tar xvf v4.3.1.tar.gz
+#   #rm -f netcdf-cxx4-4.3.1.tar.gz
+#   cd netcdf-cxx4-4.3.1
+#   ./configure --with-pic --enable-shared --prefix=/shared/build-hdf5/install
+#   make |& tee  make.gcc9.log
+#   make install
 #  --------------------------
 #  Download and build OpenMPI
 #  --------------------------
@@ -71,16 +127,33 @@ set echo
 #  ----------------------------------
 #  Download and build Parallel netCDF
 #  ----------------------------------
+<<<<<<< HEAD
    cd /shared/build-hdf5
+=======
+   setenv DIR /shared/build-hdf5
+   cd $DIR
+>>>>>>> 793b7a69712b924e4b4da536944e69c9e5d34223
    wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz
    tar xvf pnetcdf-1.12.1.tar.gz
    rm -f pnetcdf-1.12.1.tar.gz
    cd pnetcdf-1.12.1
+<<<<<<< HEAD
    export CFLAGS="-O3 -fPIC"
    export FFLAGS="-O3 -fPIC"
    export CXXFLAGS="-O3 -fPIC"
    export FCFLAGS="-O3 -fPIC"
    ./configure --prefix=/shared/build-hdf5/install MPIF77=mpif90 MPIF90=mpif90 MPICC=mpicc MPICXX=mpicxx --with-mpi=/opt/amazon/openmpi
+=======
+   setenv CFLAGS "-O3 -fPIC"
+   setenv FFLAGS "-O3 -fPIC"
+   setenv CXXFLAGS "-O3 -fPIC"
+   setenv FCFLAGS "-O3 -fPIC"
+   setenv NCDIR $DIR/install
+   setenv CPPFLAGS -I${NCDIR}/include
+   setenv LDFLAGS -L${NCDIR}/lib
+   setenv LIBS "-lnetcdf"
+   ./configure --prefix=$DIR/install MPIF77=mpif90 MPIF90=mpif90 MPICC=mpicc MPICXX=mpicxx --with-mpi=/opt/openmpi-4.1.0
+>>>>>>> 793b7a69712b924e4b4da536944e69c9e5d34223
    make |& tee make.gcc9.log
    make install
 #  ----------------------------------------

@@ -1,5 +1,64 @@
 ## Create parallel cluster with an un-encrypted EBS volume and load software to share publically
 
+### Examine a yaml file that has specifies that the /shared ebs volume will be un-encrypted.
+
+Change directories on your local machine to the location where the pcluster-cmaq github repo was installed.
+
+`cd pluster-cmaq`
+
+Edit the yaml file to use your account's subnet ID and KeyName
+
+`vi c5n-18xlarge.ebs_unencrypted.fsx_import.yaml`
+
+Output:
+
+```
+Region: us-east-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c5n.large
+  Networking:
+    SubnetId: subnet-xx-xxx-xx                <<<   replace with your subnet ID
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: your-key                         <<<   replace with your KeyName
+Scheduling:
+  Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: SPOT
+      Networking:
+        SubnetIds:
+          - subnet-xx-xx-xxx                 <<< replace with your subnet ID
+        PlacementGroup:
+          Enabled: true
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: c5n.18xlarge
+          MinCount: 0
+          MaxCount: 10
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      Encrypted: false                      <<<  notice option to make Encrypted is set to false (default is true)
+  - MountDir: /fsx
+    Name: name2
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://conus-benchmark-2day
+```
+
+
 
 ### Create Cluster with ebs volume set to be un-encrypted in the yaml file
 
@@ -16,33 +75,35 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ### Login to cluster
-(note, replace the centos.pem with your Key Pair)
+(note, replace the your-key.pem with your Key Pair)
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-### Show compute nodes
+### Verify Environment on Cluster
+
+#### Show compute nodes
 
 `scontrol show nodes`
 
-### Check to make sure elastic network adapter (ENA) is enabled
+#### Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
 
 `lspci`
 
-### Check what modules are available on the cluster
+#### Check what modules are available on the cluster
 
 `module avail`
 
-### Load the openmpi module
+#### Load the openmpi module
 
 `module load openmpi/4.1.1`
 
-### Load the Libfabric module
+#### Load the Libfabric module
 
 `module load libfabric-aws/1.13.0amzn1.0`
 
-### Verify the gcc compiler version is greater than 8.0
+#### Verify the gcc compiler version is greater than 8.0
 
 `gcc --version`
 
@@ -63,12 +124,6 @@ Create the output directory
 
 `mkdir -p /fsx/data/output`
 
-### Next Steps
-
-1. Follow instructions to Install CMAQ software on parallel cluster
-2. Verify that a job runs successfully and compare the timing
-3. Save the EBS Volume as a snapshot in the AWS interface
-4. Change the permissions of the EBS Volume to be PUBLIC
 
 ### Submit a 180 pe job
 
@@ -103,8 +158,6 @@ Num  Day        Wall Time
       Avg. Time = 2102.16
 
 ```
-Question - is this performance poor due to using Centos7 and the older gcc compiler?
-
 `gcc --version`
 
 Output:
@@ -115,9 +168,6 @@ Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
-Only reason that I switched to centos7 over ubuntu2004 is that when I tried to create a parallel cluster with ubuntu2004 on Feb. 22, 2022, I could not find slurm or sbatch, so I could notsubmit jobs to the queue. (I had not run into this previously, when I saved the EBS Snapshot as encrypted.
-
-Next idea is to try the Alinux/Amazon linux/Red Hat to see what gcc compiler, modules, and slurm versions are available
 
 ### Submit a 288 pe job
 
@@ -169,4 +219,16 @@ Num  Day        Wall Time
 02   2015-12-23   1302.84
      Total Time = 2775.53
       Avg. Time = 1387.76
+
 ```
+
+1.  Follow instructions to Install CMAQ software on parallel cluster
+2. Submit 180 pe job for CMAQ 2 day Benchmark
+3. Submit 288 pe job  (note, can't seem to get 360 pe job to be provisioned by the parallel cluster)
+4. Verify that a job runs successfully and compare the timing
+5. Run QA Check
+6. Run Post Processing
+7. Save Logs and Output to S3 Bucket
+8. Save the EBS Volume as a snapshot in the AWS interface
+9. Change the permissions of the EBS Volume to be PUBLIC
+10. Record the snapshot ID and use it in the yaml file for pre-loaded software install

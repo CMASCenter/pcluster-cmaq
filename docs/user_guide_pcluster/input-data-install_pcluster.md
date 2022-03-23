@@ -23,7 +23,7 @@ Set up your credentials for using s3 copy (you can skip this if you do not have 
 
 ## Copy Input Data from S3 Bucket to lustre filesystem
 
-Verify that the /fsx directory exists this is a lustre file system where the I/O is fastest
+Verify that the /fsx directory exists; this is a lustre file system where the I/O is fastest
 
 `ls /fsx`
 
@@ -59,7 +59,7 @@ CMAQ Parallel Cluster is configured to have 1.2 Terrabytes of space on /fsx file
 ## For Parallel Cluster: Import the Input data from a public S3 Bucket
 A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location in the yaml file, rather than using the above aws s3 copy commands. 
 
-### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.yaml
+### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.fsx_import.yaml  
 
 ```
   - MountDir: /fsx

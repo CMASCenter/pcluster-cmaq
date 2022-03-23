@@ -18,7 +18,8 @@ If they are not identical, then copy the set from the repo
 
 `cd /fsx/12US2`
 
-Need to make this directory and then link it to the path created when the data is copied from the S3 Bucket
+Need to make this directory and then link it to the path created when the data is copied from the S3 Bucket.
+
 This is to make the paths consistent between the two methods of obtaining the input data.
 
 `mkdir -p /fsx/data/CONUS`
@@ -37,13 +38,13 @@ This is to make the paths consistent between the two methods of obtaining the in
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
-Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
+Note, it will take about 3-5 minutes for the compute notes to start up. This is reflected in the Status (ST) of CF (configuring)
 
 ### Check the status in the queue
 
 `squeue -u ubuntu`
 
-output:
+Output:
 
 ```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -53,7 +54,7 @@ After 5 minutes the status will change once the compute nodes have been created 
 
 `squeue -u ubuntu`
 
-output:
+Output:
 
 ```
 
@@ -76,7 +77,7 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 
 `grep 'Processing completed' CTM_LOG_001*`
 
-output:
+Output:
 
 ```
             Processing completed...    8.8 seconds
@@ -87,7 +88,7 @@ output:
 
 `tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log`
 
-output:
+Output:
 
 ```
 ==================================
@@ -119,7 +120,7 @@ Num  Day        Wall Time
 
 Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
 
-output:
+Output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -134,7 +135,7 @@ output:
 
 `sinfo -lN`
 
-output:
+Output:
 
 ```
 Wed Jan 05 19:34:05 2022
@@ -151,10 +152,14 @@ queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1 
 queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
 ```
 
-Note: on a c5n.18xlarge, the number of virtual cpus is 72, if the yaml contains the Compute Resources Setting of DisableSimultaneousMultithreading: false
+Note: on a c5n.18xlarge, the number of virtual cpus is 72.
+
+If the YAML contains the Compute Resources Setting of DisableSimultaneousMultithreading: false, then all 72 vcpus will be used
+
 If DisableSimultaneousMultithreading: true, then the number of cpus is 36 and there are no virtual cpus.
 
 ### edit run script to use
+
 SBATCH --exclusive
 
 ### Edit the yaml file to use DisableSimultaneousMultithreading: true
@@ -163,7 +168,7 @@ SBATCH --exclusive
 
 `sinfo -lN`
 
-output:
+Output:
 
 ```
 Wed Jan 05 20:54:01 2022
@@ -191,7 +196,7 @@ queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1 
 
 `squeue -u ubuntu`
 
-output:
+Output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -202,7 +207,7 @@ Note, it takes about 5 minutes for the compute nodes to be initialized, once the
 
 `squeue -u ubuntu`
 
-output:
+Output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -213,11 +218,4 @@ output:
 
 `tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_full_20151222`
 
-### After run has successfully completed
-
-1. [Compare timings and verify that the run completed successfully](parse_timing.md)
-2. [Run combine and post processing scripts](post_combine.md)
-3. [Run QA scripts](qa_cmaq_run.md)
-4. [Copy the output to the S3 Bucket](copy_output_to_S3_Bucket.md)
-5. Exit the cluster
-6. Delete the Cluster
+Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
