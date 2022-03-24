@@ -441,6 +441,28 @@ To view the PDF plots use the command
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
 gio open OH_MAPS_EPAv5.3.3wGCC_vs_CMASv5.3.3wGCC.pdf
 
+To convert the PDF to a jpeg image use the script convert.csh.
+
+cd /shared/pcluster-cmaq/qa_scripts/qa_plots
+
+`./convert.csh`
+
+`more convert.csh`
+
+output:
+
+```
+#!/bin/csh
+
+foreach name (`ls *.pdf`) 
+  set name2=`basename $name .pdf`
+  echo $name
+  echo $name2
+  pdftoppm -jpeg -r 600 $name $name2
+end
+```
+
+
 
 Example output plots are available for the CONUS Benchmark in the following directory
 
