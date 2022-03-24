@@ -436,6 +436,11 @@ Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
 Rscript parse_timing_pcluster.r
 ```
 
+To view the PDF plots use the command
+
+cd /shared/pcluster-cmaq/qa_scripts/qa_plots
+gio open OH_MAPS_EPAv5.3.3wGCC_vs_CMASv5.3.3wGCC.pdf
+
 
 Example output plots are available for the CONUS Benchmark in the following directory
 
