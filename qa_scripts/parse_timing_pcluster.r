@@ -56,7 +56,8 @@ for( comp in Compilers) {
 # plot data
    my.colors <- terrain.colors(length(n.proc))
    xmax <- dim(bar.data)[2]*1.5
-   png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
+   png(file = paste(comp,'_',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
+   #png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
    barplot(bar.data, main = 'Process Timing',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc, xlim = c(0.,xmax))
    box()
    dev.off()
