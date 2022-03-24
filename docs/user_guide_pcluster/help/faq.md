@@ -46,3 +46,14 @@ Q. How do I determine what node(s) the job is running on?
 A. echo $SLURM_JOB_NODELIST
 
 <a href="https://hpcc.umd.edu/hpcc/help/slurmenv.html">Slurm Environment Variables</a>
+
+Q. If I find an issue, or need help with this CMAQ Parallel Cluster Tutorial what do I do?
+
+A. Please file an issue using github.
+
+https://github.com/lizadams/pcluster-cmaq/issues
+
+Please indicate the issue you are having, and include a link from the read the doc section that you are referring to.
+
+
+
