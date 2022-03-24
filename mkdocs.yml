@@ -24,11 +24,11 @@ nav:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
     - Help:
-        - 'Parallel Cluster Support': 'help/pcluster_support.md'
-        - 'CMAQ Support': 'help/cmaq_support.md'
-        - 'AWS Free Training': 'help/aws-free-training.md'
-        - 'Key References on Cloud Computing': 'help/key-references.md'
-        - 'Frequently Asked Questions': 'help/faq.md'
+        - 'Parallel Cluster Support': 'user_guide_pcluster/help/pcluster_support.md'
+        - 'CMAQ Support': 'user_guide_pcluster/help/cmaq_support.md'
+        - 'AWS Free Training': 'user_guide_pcluster/help/aws-free-training.md'
+        - 'Key References on Cloud Computing': 'user_guide_pcluster/help/key-references.md'
+        - 'Frequently Asked Questions': 'user_guide_pcluster/help/faq.md'
     - Future Work:
         - 'Future Work': 'user_guide_pcluster/future_work.md'
 

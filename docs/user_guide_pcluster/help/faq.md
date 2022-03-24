@@ -41,4 +41,8 @@ Output:
 2022-03-23 21:04:23,600 - [slurm_plugin.instance_manager:add_instances_for_nodes] - ERROR - Encountered exception when launching instances for nodes (x3) ['queue1-dy-compute-resource-1-4', 'queue1-dy-compute-resource-1-5', 'queue1-dy-compute-resource-1-6']: An error occurred (InsufficientInstanceCapacity) when calling the RunInstances operation (reached max retries: 1): We currently do not have sufficient c5n.18xlarge capacity in the Availability Zone you requested (us-east-1a). Our system will be working on provisioning additional capacity. You can currently get c5n.18xlarge capacity by not specifying an Availability Zone in your request or choosing us-east-1b, us-east-1c, us-east-1d, us-east-1f.
 ```
 
+Q. How do I determine what node(s) the job is running on?
 
+A. echo $SLURM_JOB_NODELIST
+
+<a href="https://hpcc.umd.edu/hpcc/help/slurmenv.html">Slurm Environment Variables</a>
