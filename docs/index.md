@@ -21,24 +21,21 @@ Welcome to pcluster-cmaq's documentation!
 :hidden:
 user_guide_pcluster/System-Req/index.md
 
-:caption: `Parallel Cluster Demo`
+:caption: `Demo Cluster`
 :hidden:
-user_guide_pcluster/demo-cluster.md
+user_guide_pcluster/demo/demo-cluster.md
 
 :caption: `Run CMAQ on Parallel Cluster`
 :hidden:
-user_guide_pcluster/aws-pcluster-cluster.md
+user_guide_pcluster/cmaq-cluster/aws-pcluster-cluster.md
 
 
 user_guide_pcluster/lustre-import-from-S3-bucket.md
 
-:caption: `Post Process CMAQ`
+:caption: `Post Process + QA CMAQ`
 :hidden:
-user_guide_pcluster/post-process-pcluster.md
-
-:caption: `QA CMAQ`
-:hidden:
-user_guide_pcluster/qa_cmaq_run_pcluster.md
+user_guide_pcluster/post/post-process-pcluster.md
+user_guide_pcluster/qa/qa_cmaq_run_pcluster.md
 
 :caption: `Help`
 :hidden:
