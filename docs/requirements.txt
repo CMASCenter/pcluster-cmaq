@@ -4,4 +4,4 @@ readthedocs-sphinx-search==0.1.1
 myst_parser
 furo
 nbsphinx
-jinja2==3.0.3
+jinja2==3.0.0
