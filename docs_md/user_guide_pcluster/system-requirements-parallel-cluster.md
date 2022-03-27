@@ -26,6 +26,9 @@ Tier 3: Software distributed thru the CMAS Center
 
 * CMAQv533
 * CMAQv533 Post Processors
+
+Tier 4: R packages and Scripts
+
 * R QA Scripts
 
 Software on Local Computer
