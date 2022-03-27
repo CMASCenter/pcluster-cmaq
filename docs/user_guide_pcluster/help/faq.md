@@ -1,3 +1,5 @@
+## FAQ
+
 Q. Can you update a cluster with a Snapshot ID, ie. update a cluster to use the /shared/build pre-installed software.
 
 A. No. An existing cluster can not be updated with a Snapshot ID, solution is to delete the cluster and re-create it. see error:
