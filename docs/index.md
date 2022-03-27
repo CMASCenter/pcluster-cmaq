@@ -13,12 +13,7 @@ This documentation is under heavy development
 Welcome to pcluster-cmaq's documentation!
 =========================================
 
-```{toctree}
-:maxdepth: 2
-:caption: `Contents:`
+.. toctree::
 
-usage
-user_guide_pcluster/system-requirements-parallel-cluster
-user_guide_pcluster/demo-cluster
-release-notes
-```
+   myfile.md
+
