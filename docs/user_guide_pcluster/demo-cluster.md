@@ -78,7 +78,7 @@ Output:
 
 
 
-### 2.2 Configure AWS Command line credentials on your local machine
+### Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
 
  `aws configure` 
@@ -227,17 +227,17 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 
  `exit`
 
-## Delete the demo cluster
+### Delete the demo cluster
 
 
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
 
 
-## To learn more about the pcluster commands
+### To learn more about the pcluster commands
 
  `pcluster --help`
 
-## To use a parallel cluster
+###  To use a parallel cluster
 Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
