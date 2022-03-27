@@ -159,7 +159,7 @@ Note, the above yaml file is the very simplest form available.  If you upgrade t
 
 The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
-## 2.4 Create a demo cluster
+## Create a demo cluster
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
@@ -227,17 +227,17 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 
  `exit`
 
-## 2.4.12 Delete the demo cluster
+## Delete the demo cluster
 
 
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
 
 
-## 2.4.13 To learn more about the pcluster commands
+## To learn more about the pcluster commands
 
  `pcluster --help`
 
-## 2.4.14 To use a parallel cluster
+## To use a parallel cluster
 Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
