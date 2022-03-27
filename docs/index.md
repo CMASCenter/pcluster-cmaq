@@ -41,12 +41,8 @@ user_guide_pcluster/install/index.md
 :hidden:
 user_guide_pcluster/help/index.md
 
-:caption: `FAQ`
-:hidden:
-user_guide_pcluster/help/faq.md
-
 :caption: `Future Work`
 :hidden:
-user_guide_pcluster/future/future_work.md
+user_guide_pcluster/future/index.md
 ```
 
