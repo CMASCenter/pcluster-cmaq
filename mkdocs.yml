@@ -2,24 +2,24 @@ site_name: cmaq_pcluster
 nav:
     - Home: 'index.md'
     - User Guide for AWS Parallel Cluster:
-        - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
+        - 'Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
         -  AWS Parallel Cluster Configure using AWS CLI 3.0 YAML file:
-            - '2 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
-            - '3 Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
+            - 'Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
+            - 'Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
         - CMAQ Benchmark Option 1:
-            - '4 Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
+            - 'Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
         - CMAQ Benchmark Option 2:
-            - '5 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
-            - '6 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
-            - '7 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
+            - 'Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
+            - 'Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
+            - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
         -  AWS Parallel Cluster Post-Processing and QA:
-            - '8 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
-            - '9 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
-            - '10 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
-            - '11 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
-        - 12 How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
+            - 'Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
+            - 'Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
+            - 'QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
+            - 'Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
+        - How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
         -  Logout and Delete Parallel Cluster:
-            - '13 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
+            - 'Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
