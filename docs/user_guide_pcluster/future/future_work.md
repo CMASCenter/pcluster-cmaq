@@ -11,13 +11,8 @@
 7. Set up an additional slurm queue that uses a smaller compute node to do the post-processing and learn how to submit the post processing jobs to this queue, rather than running them on the head node.
 
 
-<b>Azure Cycle Cloud</b>
-
-1. Test creation of Cycle Cloud on new account to verify instructions for user account permission settings and cycle cloud options to login, build and run CMAQ.
-
 <b>Documentation</b>
 
-1. Finalize documentation and implement a version for the documentation in github.  Read-the-docs will automatically use the version information in the documentation.
-2. Learn how to submit the post-processing jobs to the HTC rather than the HPC queue.
+1.
 
 

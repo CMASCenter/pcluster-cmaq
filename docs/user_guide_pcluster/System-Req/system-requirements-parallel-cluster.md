@@ -1,11 +1,11 @@
-## AWS Parallel Cluster
+## System Requirements for 12US1 CMAQ Benchmark
 
 ### Please set up a alarm on AWS 
 
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-## Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
+## Software Requirements for CMAQ on AWS Parallel Cluster
 
 Tier 1: Native OS and associated system libraries, compilers
 
@@ -61,7 +61,7 @@ with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
-![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
+![AWS Parallel Cluster Configuration](../diagrams/aws_minimum_viable_product.png)
 
 ### Right-sizing Compute Nodes for the Parallel Cluster Configuration
 
