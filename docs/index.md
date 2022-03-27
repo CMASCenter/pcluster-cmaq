@@ -17,7 +17,7 @@ Welcome to pcluster-cmaq's documentation!
 :caption: 'Contents:'
 :maxdepth: 2
 
-myfile.md
 user_guide_pcluster/demo-cluster.md
+user_guide_pcluster/system-requirements-parallel-cluster.md
 ```
 
