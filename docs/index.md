@@ -16,11 +16,10 @@ Welcome to pcluster-cmaq's documentation!
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
-:numbered:
 
 :caption: `System Requirements`
 :hidden:
-user_guide_pcluster/system-requirements-parallel-cluster.md
+user_guide_pcluster/System-Req/index.md
 
 :caption: `Parallel Cluster Demo`
 :hidden:
