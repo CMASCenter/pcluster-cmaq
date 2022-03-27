@@ -18,10 +18,7 @@ Welcome to pcluster-cmaq's documentation!
 :maxdepth: 2
 :numbered:
 
-    - Home: 'index.md'
-    - User Guide for AWS Parallel Cluster:
-        - 'Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
-        -  AWS Parallel Cluster Configure using AWS CLI 3.0 YAML file:
-            - 'Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
+user_guide_pcluster
+help
 ```
 

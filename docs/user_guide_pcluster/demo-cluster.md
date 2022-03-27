@@ -4,9 +4,9 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
-## Install AWS Parallel Cluster Command Line Interface on your local machine
+### Install AWS Parallel Cluster Command Line Interface on your local machine
 
-### Instructions for LINUX
+#### Instructions for LINUX
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -20,7 +20,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-#### Follow the Parallel Cluster User Guide and install node.js
+##### Follow the Parallel Cluster User Guide and install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
@@ -54,7 +54,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-###  Instructions for Windows
+####  Instructions for Windows
 
 Use pip to install pcluster.
 
@@ -78,7 +78,7 @@ Output:
 
 
 
-## 2.2 Configure AWS Command line credentials on your local machine
+### 2.2 Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
 
  `aws configure` 
