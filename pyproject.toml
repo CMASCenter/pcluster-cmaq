@@ -3,7 +3,7 @@ requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "pcluster-cmaq"
+name = "cmaq_cloud"
 authors = [{name = "LizAdams", email = "lizadams@email.unc.edu"}]
 dynamic = ["version", "description"]
 
