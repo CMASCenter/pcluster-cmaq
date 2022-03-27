@@ -1,0 +1,7 @@
+Generated plots using yml2dot
+https://github.com/lucasepe/yml2dot
+
+cd ../..
+yml2dot c5n-4xlarge.yaml | dot -Tpng > ./docs/yml_plots/c5n-4xlarge-yaml.png
+yml2dot c5n-18xlarge.yaml | dot -Tpng > ./docs/yml_plots/c5n-18xlarge-yaml.png
+yml2dot c5n-18xlarge.ebs_shared.yaml | dot -Tpng > ./docs/yml_plots/c5n-18xlarge.ebs_shared-yaml.png

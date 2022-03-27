@@ -1,0 +1,18 @@
+Creating diagrams for MVP using
+
+https://diagrams.mingrammer.com/
+
+install python3 and also install packages for python using pip3
+
+if you use pip rather than pip3 then the packages will not be visible to python3.
+(pip is used for python2)
+
+Example of how to run code:
+
+```
+python3 first_diagram.py
+```
+
+Output:
+
+parallel_cluster.png
