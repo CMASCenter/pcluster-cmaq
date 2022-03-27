@@ -5,7 +5,7 @@
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-### Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
+## Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
 
 Tier 1: Native OS and associated system libraries, compilers
 
@@ -46,13 +46,7 @@ Note, the scripts in this tutorial use the us-east-1 region, but the scripts can
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 
 
-#### Right-sizing Compute Nodes for the Parallel Cluster Configuration 
-
-The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
-Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
-The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
-
-###  MVP Parallel Cluster Configuration for CONUS Domain
+##  MVP Parallel Cluster Configuration for CONUS Domain
 
 Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
@@ -68,6 +62,12 @@ with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
+
+### Right-sizing Compute Nodes for the Parallel Cluster Configuration
+
+The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
+Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
+The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
 ### Slurm Compute Node Provisioning
 
@@ -111,6 +111,7 @@ Note, pricing information in the tables below are subject to change. The links f
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel Cluster</a>
 
+## Spot versus On-Demand Pricing
 
 Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
@@ -127,7 +128,7 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
 Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing.
 
-### Benchmark Timing Results
+## Benchmark Timing Results
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -288,7 +289,7 @@ Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and
 31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
 
 
-### Recommended Workflow for extending to annual run
+## Recommended Workflow for extending to annual run
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
