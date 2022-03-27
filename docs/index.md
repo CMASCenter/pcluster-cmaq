@@ -40,10 +40,7 @@ user_guide_pcluster/install/index.md
 
 :caption: `Help`
 :hidden:
-user_guide_pcluster/help/pcluster_support.md
-user_guide_pcluster/help/cmaq_support.md
-user_guide_pcluster/help/aws-free-training.md
-user_guide_pcluster/help/key-references.md
+user_guide_pcluster/help/index.md
 
 :caption: `FAQ`
 :hidden:
