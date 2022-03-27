@@ -1,4 +1,4 @@
-# Help Resources
+# Additional Resources
 
 ```{toctree}
 faq.md
