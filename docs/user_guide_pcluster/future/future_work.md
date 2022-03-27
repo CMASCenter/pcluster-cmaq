@@ -1,4 +1,4 @@
-# List of ideas for future work
+# Future Work
 
 <b>AWS Parallel Cluster</b>
 

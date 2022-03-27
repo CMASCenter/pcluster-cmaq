@@ -45,4 +45,3 @@ user_guide_pcluster/help/index.md
 :hidden:
 user_guide_pcluster/future/index.md
 ```
-
