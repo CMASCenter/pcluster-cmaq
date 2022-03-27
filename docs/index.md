@@ -13,7 +13,10 @@ This documentation is under heavy development
 Welcome to pcluster-cmaq's documentation!
 =========================================
 
-.. toctree::
+```{toctree}
+:caption: 'Contents:'
+:maxdepth: 2
 
-   myfile.md
+myfile.md
+```
 
