@@ -18,5 +18,6 @@ Welcome to pcluster-cmaq's documentation!
 :maxdepth: 2
 
 myfile.md
+user_guide_pcluster/demo-cluster.md
 ```
 
