@@ -1,12 +1,12 @@
-## 2.0 Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
+## Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
-## 2.1 Install AWS Parallel Cluster Command Line Interface on your local machine
+## Install AWS Parallel Cluster Command Line Interface on your local machine
 
-### 2.1.1 Instructions for LINUX
+### Instructions for LINUX
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -54,7 +54,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-###  2.1.2 Instructions for Windows
+###  Instructions for Windows
 
 Use pip to install pcluster.
 
@@ -83,9 +83,9 @@ Output:
 
  `aws configure` 
 
-## 2.3 Configure a demo cluster
+## Configure a demo cluster
 
-### 2.3.1 To create a parallel cluster, a yaml file needs to be created that is unique to your account.
+### To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
 An example of the yaml file contents is described in the following Diagram:
 
@@ -97,7 +97,7 @@ For more information about the configuration file see
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>
 
 
-### 2.3.2 Create a yaml configuration file for the cluster following these instructions
+### Create a yaml configuration file for the cluster following these instructions
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
 
  `pcluster configure --config new-hello-world.yaml`
@@ -120,14 +120,14 @@ Input the following answers at each prompt:
 
 Beginning VPC creation. Please do not leave the terminal until the creation is finalized
 
-### 2.3.3 Note, the choice of operating system (specified during the yaml creation, or in an existing yaml file) determines what modules and gcc compiler versions are available.
+### Note, the choice of operating system (specified during the yaml creation, or in an existing yaml file) determines what modules and gcc compiler versions are available.
 
 1. Centos7 has an older gcc version 4
 2. Ubuntu2004 has gcc version 9+
 3. Alinux or Amazon Linux/Red Hat Linux (haven't tried)
 
 
-### 2.3.4 Examine the yaml file 
+### Examine the yaml file 
 
  `cat new-hello-world.yaml`
 
@@ -163,15 +163,15 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
-### 2.4.1 Check on the status of the cluster
+### Check on the status of the cluster
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
-### 2.4.2 List available clusters
+### List available clusters
 
  `pcluster list-clusters --region=us-east-1`
 
-### 2.4.3 Check on status of cluster again
+### Check on status of cluster again
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
@@ -181,11 +181,11 @@ While the cluster has been created, only the t2.micro head node is running.  Bef
 
 Note, the compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
 
-### 2.4.4 Start the compute nodes
+### Start the compute nodes
 
  `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
 
-### 2.4.5 SSH into the cluster 
+### SSH into the cluster 
 (note, replace the your-key.pem key pair with your key pair)
 
 Example:
@@ -197,33 +197,33 @@ login prompt should look something like (this will depend on what OS was chosen 
 
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
-### 2.4.6 Check what modules are available on the Parallel Cluster
+### Check what modules are available on the Parallel Cluster
 
  `module avail`
 
-### 2.4.7 Check what version of the compiler is available
+### Check what version of the compiler is available
 
  `gcc --version`
 
 Need a minimum of gcc 8+ for CMAQ
 
-### 2.4.8 Check what version of openmpi is available
+### Check what version of openmpi is available
 
  `mpirun --version`
 
 Need a minimum openmpi version 4.0.1 for CMAQ
 
-### 2.4.9 Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
+### Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
 
 `which sbatch`
 
-### 2.4.10 Do not install sofware on this demo cluster
+### Do not install sofware on this demo cluster
 
 the t2.micro head node is too small
 
 Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ MVP Cluster
 
-### 2.4.11 Exit the cluster
+### Exit the cluster
 
  `exit`
 

@@ -1,11 +1,11 @@
-## 1.0 AWS Parallel Cluster
+## AWS Parallel Cluster
 
-### 1.1 Please set up a alarm on AWS 
+### Please set up a alarm on AWS 
 
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
 It may be possible to set up daily or weekly spending alarms as well.
 
-### 1.2 Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
+### Software Requirements for CMAQ on AWS Parallel Cluster Minimum Viable Product
 
 Tier 1: Native OS and associated system libraries, compilers
 
@@ -40,7 +40,7 @@ Software on Local Computer
 * Mac - XQuartz for X11 Display
 * Windows - MobaXterm  - to connect to Parallel Cluster IP address
 
-### 1.3 AWS CLI v3.0 AWS Region Availability
+### AWS CLI v3.0 AWS Region Availability
 Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
@@ -52,7 +52,7 @@ The size of hardware depends on the domain size and resolution for  your CMAQ ca
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
-### 1.4 MVP Parallel Cluster Configuration for CONUS Domain
+###  MVP Parallel Cluster Configuration for CONUS Domain
 
 Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
@@ -69,7 +69,7 @@ Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute node
 
 ![AWS Minimum Viable Product Configuration](../diagrams/aws_minimum_viable_product.png)
 
-### 1.5 Slurm Compute Node Provisioning
+### Slurm Compute Node Provisioning
 
 AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
 
@@ -127,7 +127,7 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
 Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing.
 
-### 1.6 Benchmark Timing Results
+### Benchmark Timing Results
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -172,7 +172,7 @@ Figure 4. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
-### 1.7 Compute Node Cost Estimate
+### Compute Node Cost Estimate
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
@@ -248,7 +248,7 @@ Storage requirement for an annual simulation if you assumed you would keep all d
      86.5 GB * 365 days = 31,572.5 GB  = 31.5 TB
 
 
-### 1.8 Annual simulation local storage cost estimate
+### Annual simulation local storage cost estimate
 
 Assuming it takes 5 days to complete the annual simulation, and after the annual simulation is completed, the data is moved to archive storage.
 
@@ -271,7 +271,7 @@ Estimate for S3 Bucket cost for storing an annual simulation
 | Over 500 TB / Month                   |     $0.021 per GB   |
 
 
-### 1.9 Archive Storage cost estimate for annual simulation - assuming you want to save it for 1 year
+### Archive Storage cost estimate for annual simulation - assuming you want to save it for 1 year
 
 31.5 TB * 1024 GB/TB * .023 per GB * 12 months  = $8,903
 
@@ -289,7 +289,7 @@ Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and
 31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
 
 
-### 1.10 Recommended Workflow for extending to annual run
+### Recommended Workflow for extending to annual run
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
