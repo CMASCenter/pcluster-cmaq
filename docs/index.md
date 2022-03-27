@@ -16,5 +16,6 @@ Welcome to pcluster-cmaq's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   user_guide_pcluster/system-requirements-parallel-cluster
-   user_guide_pcluster/demo-cluster
+
+user_guide_pcluster/system-requirements-parallel-cluster.md
+user_guide_pcluster/demo-cluster.md
