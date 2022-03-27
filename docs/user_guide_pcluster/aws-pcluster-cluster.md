@@ -1,17 +1,17 @@
-## 3.0 Create CMAQ Cluster using SPOT pricing
+## Create CMAQ Cluster using SPOT pricing
 
-### 3.1 Use an existing yaml file from the git repo to create a parallel cluster
+### Use an existing yaml file from the git repo to create a parallel cluster
 
 `cd /your/local/machine/install/path/`
 
-### 3.1.1 Use a configuration file from the github repo that was cloned to your local machine
+### Use a configuration file from the github repo that was cloned to your local machine
 
 `git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
 
 
 `cd pcluster-cmaq`
 
-###  3.1.2 Edit the c5n-4xlarge.yaml
+###  Edit the c5n-4xlarge.yaml
 
 NOTE: 
 
@@ -23,7 +23,7 @@ NOTE:
 
 `vi c5n-4xlarge.yaml`
 
-### 3.1.3 Replace the key pair and subnet ID in the c5n-4xlarge.yaml file with the values created when you configured the demo cluster
+### Replace the key pair and subnet ID in the c5n-4xlarge.yaml file with the values created when you configured the demo cluster
 
 ```
 Region: us-east-1
@@ -61,34 +61,34 @@ SharedStorage:
       StorageCapacity: 1200
 ```
 
-### 3.1.4 The Yaml file for the c5n-4xlarge contains the settings as shown in the following diagram.
+### The Yaml file for the c5n-4xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes using SPOT pricing
 ![c5n-4xlarge yaml configuration](../yml_plots/c5n-4xlarge-yaml.png)
 
 
 
-## 3.2 Create the c5n-4xlarge pcluster
+## Create the c5n-4xlarge pcluster
 
 `pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1`
 
-### 3.2.1 Check on status of cluster
+### Check on status of cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-### 3.2.2 Start the compute nodes
+### Start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-#### 3.2.3 Login to cluster
+#### Login to cluster
 (note, replace the your-key.pem with your Key Pair)
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-### 3.2.4  Show compute nodes
+### Show compute nodes
 
 `scontrol show nodes`
 
@@ -113,9 +113,9 @@ NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1
    ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
 ```
 
-## 3.3 Update the compute nodes
+## Update the compute nodes
 
-### 3.3.1 Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
+### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
 By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
 
@@ -125,23 +125,23 @@ If you only modified the yaml file to update the compute node identity, without 
 
 For this reason, a yaml file that contains these advanced options to support the c5n.18xlarge compute instance will be used to upgrade the parallel cluster from c5n.5xlarge to c5n.18xlarge.
 
-### 3.3.2 Exit the cluster
+### Exit the cluster
 
 `exit`
 
 
-### 3.3.3 Stop the compute nodes
+### Stop the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
 
-### 3.3.4 Verify that the compute nodes are stopped
+### Verify that the compute nodes are stopped
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 keep rechecking until you see the following status "computeFleetStatus": "STOPPED",
 
 
-### 3.3.5 The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains additional settings than the YAML file that used the c5n.4xlarge as the compute node.
+### The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains additional settings than the YAML file that used the c5n.4xlarge as the compute node.
 
 NOTE:
 
@@ -167,7 +167,7 @@ A placement group is used to get the lowest inter-node latency.
 A placement group guarantees that your instances are on the same networking backbone. 
 
 
-### 3.3.6 Edit the YAML file for c5n.n18xlarge
+### Edit the YAML file for c5n.n18xlarge
 
 You will need to edit the c5n-18xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml) This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.18xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data) and enables the elastic fabric adapter.
 
@@ -218,11 +218,11 @@ SharedStorage:
       StorageCapacity: 1200
 ```
 
-## 3.4 Use the pcluster command to update cluster to use c5n.18xlarge compute node
+## Use the pcluster command to update cluster to use c5n.18xlarge compute node
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml`
 
-### 3.4.1 Verify that the compute nodes have been updated
+###  Verify that the compute nodes have been updated
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -257,7 +257,7 @@ Output:
   "clusterStatus": "UPDATE_IN_PROGRESS"
 ```
 
-### 3.4.2 Wait 5 to 10 minutes for the update to be comleted
+### Wait 5 to 10 minutes for the update to be comleted
 
 Keep rechecking status until update is completed and computeFleetStatus is RUNNING
 
@@ -298,11 +298,11 @@ Output:
 
 Wait until UPDATE_COMPLETE message is received, then proceed.
 
-### 3.4.3 Re-start the compute nodes
+### Re-start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-### 3.4.4 Verify status of cluster
+### Verify status of cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -313,30 +313,30 @@ computeFleetStatus": "RUNNING",
 ```
 
 
-### 3.4.5 Login to updated cluster
+### Login to updated cluster
 (note, replace the your-key.pem with your Key Pair)
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-### 3.4.6 Check to make sure elastic network adapter (ENA) is enabled
+### Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
 
 `lspci`
 
-### 3.4.7 Check what modules are available on the cluster
+### Check what modules are available on the cluster
 
 `module avail`
 
-### 3.4.8 Load the openmpi module
+### Load the openmpi module
 
 `module load openmpi/4.1.1`
 
-### 3.4.9 Load the Libfabric module
+### Load the Libfabric module
 
 `module load libfabric-aws/1.13.0amzn1.0`
 
-### 3.4.10 Verify the gcc compiler version is greater than 8.0
+### Verify the gcc compiler version is greater than 8.0
 
 `gcc --version`
 
@@ -350,7 +350,7 @@ See instructions for installing and running CMAQ on cluster.
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the AWS Enhanced Networking Adapter Documentation</a>
 
-## 3.5 Tips to managing the parallel cluster
+## Tips to managing the parallel cluster
 
 1. The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the command to restart the cluster.
 2. The pcluster slurm queue system will create and delete the compute nodes, so that helps reduce manual cleanup for the cluster.
@@ -364,21 +364,21 @@ See instructions for installing and running CMAQ on cluster.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
 
-## 3.6 To install CMAQ software and libraries using Option 2, then skip option 1 and continue to use this cluster
+## To install CMAQ software and libraries using Option 2, then skip option 1 and continue to use this cluster
 
 (do not delete the cluster) - skip to installing CMAQ software - use left menu to click on the following chapter: 4. CMAQ Benchmark Option 2
 
-## 3.7 To run the CMAQ Benchmark using pre-installed software and data using Option 1, then you can delete this cluster.
+## To run the CMAQ Benchmark using pre-installed software and data using Option 1, then you can delete this cluster.
 
-### 3.7.1 Exit the cluster (for Option 1)
+### Exit the cluster (for Option 1)
 
 `exit`
 
-### 3.7.2 Delete the demo cluster (for Option 1)
+### Delete the demo cluster (for Option 1)
 
 `pcluster delete-cluster --cluster-name cmaq --region us-east-1`
 
-### 3.7.3 Check status and confirm that it has been deleted (for Option 1)
+### Check status and confirm that it has been deleted (for Option 1)
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 

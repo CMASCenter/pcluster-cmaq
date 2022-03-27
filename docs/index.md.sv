@@ -1,17 +1,32 @@
-# Welcome to CMAQ on the HPC Cloud - Parallel Cluster Tutorial
+% pcluster-cmaq documentation master file, created by
+%   sphinx-quickstart on Tue Jan 11 11:07:40 2022.
+%   You can adapt this file completely to your liking, but it should at least
+%   contain the root `toctree` directive.
 
-AWS Parallel Cluster is designed to create, manage, operate, and optimize HPC and big compute clusters of any scale.
+```{include} ../README.md
+:relative-images:
+```
+```{warning}
+This documentation is under heavy development
+```
 
-This user guides contain instructions on how to configure and deploy HPC compute clusters on the cloud and to build and run a CMAQ CONUS benchmark for two days.
+Welcome to pcluster-cmaq's documentation!
+=========================================
 
-### User Guide Parallel Cluster:
+```{toctree}
+:caption: 'Contents:'
+:maxdepth: 2
+:numbered:
 
-1. how to configure and create Parallel Cluster using AWS CL3.0 YAML files
-2. how to install and run CMAQ CONUS Benchmark for 2 days
-
-### Note - this is under development and has not been reviewed.
-
-
-
-
+user_guide_pcluster/system-requirements-parallel-cluster.md
+user_guide_pcluster/demo-cluster.md
+user_guide_pcluster/aws-pcluster-cluster.md
+user_guide_pcluster/lustre-import-from-S3-bucket.md
+user_guide_pcluster/help/pcluster_support.md
+user_guide_pcluster/help/cmaq_support.md
+user_guide_pcluster/help/aws-free-training.md
+user_guide_pcluster/help/key-references.md
+user_guide_pcluster/help/faq.md
+user_guide_pcluster/future_work.md
+```
 
