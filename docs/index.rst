@@ -9,8 +9,8 @@ Welcome to pcluster-cmaq's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   user_guide/demo-cluster.md
-   user_guide/cmaq-cluster.md
+   user_guide_pcluster/demo-cluster.md
+   user_guide_pcluster/cmaq-cluster.md
 
 
 
