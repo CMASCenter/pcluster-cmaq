@@ -47,6 +47,6 @@ user_guide_pcluster/help/faq.md
 
 :caption: `Future Work`
 :hidden:
-user_guide_pcluster/future_work.md
+user_guide_pcluster/future/future_work.md
 ```
 
