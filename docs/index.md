@@ -17,10 +17,6 @@ Welcome to pcluster-cmaq's documentation!
 :caption: 'Contents:'
 :maxdepth: 2
 
-:caption: `System Requirements`
-:hidden:
-user_guide_pcluster/System-Req/index.md
-
 :caption: `Demo Cluster`
 :hidden:
 user_guide_pcluster/demo/index.md
@@ -36,6 +32,10 @@ user_guide_pcluster/post/index.md
 :caption: `Software and Data Install`
 :hidden:
 user_guide_pcluster/install/index.md
+
+:caption: `System Requirements and Timing Information`
+:hidden:
+user_guide_pcluster/System-Req/index.md
 
 
 :caption: `Help`
