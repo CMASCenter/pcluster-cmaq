@@ -6,6 +6,6 @@ cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 cp run*.log /fsx/data/output
 cp run*.csh /fsx/data/output
 
-#aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output-02-23-2022
-aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output-02-23-2022/
-aws s3 cp --recursive /fsx/data/POST s3://c5n-head-c5n.18xlarge-compute-conus-output-02-23-2022/
+aws s3 mb s3://c5n-head-c5n.18xlarge-compute-conus-output
+aws s3 cp --recursive /fsx/data/output/ s3://c5n-head-c5n.18xlarge-compute-conus-output
+aws s3 cp --recursive /fsx/data/POST s3://c5n-head-c5n.18xlarge-compute-conus-output
