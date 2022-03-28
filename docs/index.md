@@ -14,9 +14,9 @@ Welcome to pcluster-cmaq's documentation!
 =========================================
 
 ```{toctree}
+   :numbered:
 :caption: 'Contents:'
 :maxdepth: 2
-:numbered:
 
 :caption: `Demo Cluster`
 :hidden:
