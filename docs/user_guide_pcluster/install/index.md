@@ -4,3 +4,4 @@
 aws-pcluster-cluster.md
 input-data-install_pcluster.md
 software-install-pcluster.md
+run-cmaq-benchmark-pcluster.md
