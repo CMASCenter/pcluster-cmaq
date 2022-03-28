@@ -1,4 +1,7 @@
-## Create CMAQ Cluster using SPOT pricing
+## Advanced tutorial  
+Step by step instructions on configuring and running a ParallelCluster for the CMAQ 12US1 benchmark
+
+### Create CMAQ Cluster using SPOT pricing
 
 ### Use an existing yaml file from the git repo to create a parallel cluster
 

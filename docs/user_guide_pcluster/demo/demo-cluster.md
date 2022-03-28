@@ -1,4 +1,8 @@
-## Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
+## Intro tutorial
+
+Step by step instructions on building a demo ParallelCluster.  The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
+
+### Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 

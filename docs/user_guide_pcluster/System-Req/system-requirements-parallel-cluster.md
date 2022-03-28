@@ -1,4 +1,5 @@
-## System Requirements for 12US1 CMAQ Benchmark
+## Information on all the AWS options 
+Recommended Parallel Cluster configurations for running CMAQ on AWS Parallel Cluster
 
 ### Please set up a alarm on AWS 
 
