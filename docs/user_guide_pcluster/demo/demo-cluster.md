@@ -7,7 +7,7 @@ Step by step instructions on building a demo ParallelCluster.  The goal is for u
 ### AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
 ```
 
@@ -22,7 +22,7 @@ Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 ```
 
@@ -32,7 +32,7 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-virtual-environment.html">Guide to install AWS CL3 in Virtual Environment"</a>
 ```
 
@@ -82,13 +82,13 @@ Verify that the parallel cluster is working using:
 
 Use pip to install pcluster.
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-pip.html">Guide to install AWS CL3 using PIP</a>
 ```
 
 Note, there are some additional instructions for adding pip3 to your path on Windows that you may need to follow (do not reinstall aws-parallel cluster).
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-windows.html">Guide to install AWS CL2 in Windows Environment</a>
 ```
 
@@ -108,7 +108,7 @@ Output:
 
 ### Configure AWS Command line credentials on your local machine
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
 ```
 
@@ -124,14 +124,14 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.mi
 
 ![t2.micro yaml configuration](../../yml_plots/hello-world-yaml.png)
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>
 ```
 
 
 #### Create a yaml configuration file for the cluster following these instructions
 
-```{note}
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
 ```
 
