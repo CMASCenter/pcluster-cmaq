@@ -33,7 +33,6 @@ setenv APPL 2016_CONUS_12x9pe
 
 Note, the following script was used to modify the base post processing scripts (set up for the Bench_2016_12SE1 case to the CONUS domain.
 
-If you used the CMAQ Benchmark Option 1, with the pre-loaded software, then these scripts have already been modified.
 
 Run the following scripts
 
@@ -60,7 +59,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v533/POST/bldoverlay/scripts
 ./run_bldoverlay_conus.csh | & tee ./run_bldoverlay_conus.log
 ```
 
-If you used the CMAQ Bechmark Option 2 to install CMAQ yourself, you will need to save and run the following script.
+If you used a different domain composition, you will need to edit and run the following scripts.
 
 ```
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/
