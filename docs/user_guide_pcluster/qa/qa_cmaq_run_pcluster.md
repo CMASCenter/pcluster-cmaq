@@ -293,11 +293,8 @@ sudo apt-get install \
   libavformat-dev libswscale-dev
 ```
 
-ncdf4 package REQUIRES the netcdf library be version 4 or above, AND installed with HDF-5 support (i.e., the netcdf library must be compiled with the --enable-netcdf-4 flag). If you don't want to install the full version of netcdf-4 with HDF-5 support, then please install the old, deprecated ncdf package instead.
-
-ERROR: configuration failed for package ‘ncdf4’ * removing ‘/usr/lib64/R/library/ncdf4’
-
-building netcdf with HDF5 support requires curl.
+ncdf4 package REQUIRES the netcdf library be version 4 or above, AND installed with HDF-5 support (i.e., the netcdf library must be compiled with the --enable-netcdf-4 flag). 
+Building netcdf with HDF5 support requires curl.
 
 ```
 sudo apt-get install curl
@@ -366,9 +363,6 @@ Test display
 
 `display xclock`
 
-Need to add the above commands to the post-installation script.
-
-Can connect to the head node using NICE DCV software. Need to add a section to the yaml file.
 
 ```{seealso}
 <a href=https://docs.aws.amazon.com/parallelcluster/latest/ug/dcv.html>NICE DCV Settings in YAML</a>
@@ -407,12 +401,12 @@ vi compare_EQUATES_benchmark_output_CMAS_pcluster.r
 
 ```
 #Directory, file name, and label for first model simulation (sim1)
-sim1.label <- "EPA (v5.3.3 w/ GCC)"
+sim1.label <- "CMAQ 16x16pe"
 sim1.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/"
 sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc")
 
 #Directory, file name, and label for second model simulation (sim2)
-sim2.label <- "CMAS (v5.3.3 w/ GCC)"
+sim2.label <- "CMAQ 16x18pe"
 sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"
 sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc")
 ```
