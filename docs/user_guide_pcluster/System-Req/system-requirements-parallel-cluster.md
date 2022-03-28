@@ -46,7 +46,7 @@ Note, the scripts in this tutorial use the us-east-1 region, but the scripts can
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 
 
-##  MVP Parallel Cluster Configuration for CONUS Domain
+##  Parallel Cluster Configuration for CONUS Domain
 
 Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
@@ -91,7 +91,7 @@ The new instances also feature a higher amount of memory per core, putting them 
 The C5n instances incorporate the fourth generation of our custom Nitro hardware, allowing the high-end instances to provide up to 100 Gbps of network throughput, along with a higher ceiling on packets per second. The Elastic Network Interface (ENI) on the C5n uses up to 32 queues (in comparison to 8 on the C5 and C5d), allowing the packet processing workload to be better distributed across all available vCPUs. 
 
 
-Resources specified in the YAML file for the MVP: 
+Resources specified in the YAML file: 
 
 * Ubuntu2004 
 * Disable Simultaneous Multi-threading

@@ -12,7 +12,7 @@ Requires the user to have AWS Identity and Access Management roles in AWS Parall
 ```
 
 AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
-It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
+It appears you can create the demo cluster, and even the intermediate or advanced cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
 
 Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster. (requires administrative permissions)
 
@@ -192,7 +192,7 @@ Scheduling:
 
 Note, the above yaml file is the very simplest form available.  If you upgrade the compute node to using a faster compute instance, then you will need to add additional configuration options (networking, elastic fabric adapter) to the yaml file.  These modifications will be highlighted in the yaml figures provided in the tutorial.
 
-The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
+The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS Intermediate Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the Yaml files that will be used to create the Intermediate Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
 ## Create a demo cluster
 

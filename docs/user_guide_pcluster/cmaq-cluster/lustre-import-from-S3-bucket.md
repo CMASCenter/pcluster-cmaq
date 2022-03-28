@@ -83,7 +83,7 @@ SharedStorage:
 ```
 
 
-## Create CMAQ MVP Parallel Cluster with software/data pre-installed
+## Create CMAQ Parallel Cluster with software/data pre-installed
 
 `pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
