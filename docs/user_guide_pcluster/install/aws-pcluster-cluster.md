@@ -1,3 +1,4 @@
+## Advanced Tutorial
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 
 ### Create CMAQ Cluster using SPOT pricing
@@ -259,7 +260,7 @@ Output:
   "clusterStatus": "UPDATE_IN_PROGRESS"
 ```
 
-#### Wait 5 to 10 minutes for the update to be comleted
+#### Wait 5 to 10 minutes for the update to be completed
 
 Keep rechecking status until update is completed and computeFleetStatus is RUNNING
 
