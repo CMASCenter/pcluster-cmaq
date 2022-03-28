@@ -84,7 +84,7 @@ An alternative is to keep a copy of the source code for netcdf-C and netcdf-Fort
 
 The following link provides instructions on how to create a custom bootstrap action to pre-load software from an S3 bucket to the parallel cluster at the time that the cluster is created.
 
-< ahref="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-v3.html">Custom Bootstrap Actions</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-v3.html">Custom Bootstrap Actions</a>
 
 ### Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler
 Note, if this script fails, it is typically because NCAR has released a new version of netCDF C or Fortran, so the old version is no longer available, or if they have changed the name or location of the download file. 
