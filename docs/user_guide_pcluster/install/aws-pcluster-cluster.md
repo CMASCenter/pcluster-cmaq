@@ -1,7 +1,7 @@
 ## Advanced Tutorial
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 
-### Create CMAQ Cluster using SPOT pricing
+## Create CMAQ Cluster using SPOT pricing
 
 #### Use an existing yaml file from the git repo to create a parallel cluster
 
@@ -71,7 +71,7 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 
 
-### Create the c5n-4xlarge pcluster
+## Create the c5n-4xlarge pcluster
 
 `pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1`
 
@@ -116,9 +116,9 @@ NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1
    ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
 ```
 
-### Update the compute nodes
+## Update the compute nodes
 
-#### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
+### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
 By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
 
@@ -128,23 +128,23 @@ If you only modified the yaml file to update the compute node identity, without 
 
 For this reason, a yaml file that contains these advanced options to support the c5n.18xlarge compute instance will be used to upgrade the parallel cluster from c5n.5xlarge to c5n.18xlarge.
 
-#### Exit the cluster
+### Exit the cluster
 
 `exit`
 
 
-#### Stop the compute nodes
+### Stop the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
 
-#### Verify that the compute nodes are stopped
+### Verify that the compute nodes are stopped
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 keep rechecking until you see the following status "computeFleetStatus": "STOPPED",
 
 
-#### The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains additional settings than the YAML file that used the c5n.4xlarge as the compute node.
+### The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains additional settings than the YAML file that used the c5n.4xlarge as the compute node.
 
 NOTE:
 
@@ -170,7 +170,7 @@ A placement group is used to get the lowest inter-node latency.
 A placement group guarantees that your instances are on the same networking backbone. 
 
 
-#### Edit the YAML file for c5n.n18xlarge
+### Edit the YAML file for c5n.n18xlarge
 
 You will need to edit the c5n-18xlarge.yaml to specify your KeyName and SubnetId (use the values generated in your new-hello-world.yaml) This yaml file specifies ubuntu2004 as the OS, c5n.large for the head node, c5n.18xlarge as the compute nodes and both a /shared Ebs directory(for software install) and a /fsx Lustre File System (for Input and Output Data) and enables the elastic fabric adapter.
 
@@ -221,11 +221,13 @@ SharedStorage:
       StorageCapacity: 1200
 ```
 
-### Use the pcluster command to update cluster to use c5n.18xlarge compute node
+## Create the c5n.18xlarge cluster
+
+Use the pcluster command to update cluster to use c5n.18xlarge compute node
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml`
 
-####  Verify that the compute nodes have been updated
+###  Verify that the compute nodes have been updated
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -260,7 +262,7 @@ Output:
   "clusterStatus": "UPDATE_IN_PROGRESS"
 ```
 
-#### Wait 5 to 10 minutes for the update to be completed
+### Wait 5 to 10 minutes for the update to be completed
 
 Keep rechecking status until update is completed and computeFleetStatus is RUNNING
 
@@ -301,11 +303,11 @@ Output:
 
 Wait until UPDATE_COMPLETE message is received, then proceed.
 
-#### Re-start the compute nodes
+### Re-start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-#### Verify status of cluster
+### Verify status of cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -316,30 +318,30 @@ computeFleetStatus": "RUNNING",
 ```
 
 
-#### Login to updated cluster
+## Login to c5n.18xlarge cluster
 (note, replace the your-key.pem with your Key Pair)
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-#### Check to make sure elastic network adapter (ENA) is enabled
+### Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
 
 `lspci`
 
-#### Check what modules are available on the cluster
+### Check what modules are available on the cluster
 
 `module avail`
 
-#### Load the openmpi module
+### Load the openmpi module
 
 `module load openmpi/4.1.1`
 
-#### Load the Libfabric module
+### Load the Libfabric module
 
 `module load libfabric-aws/1.13.0amzn1.0`
 
-#### Verify the gcc compiler version is greater than 8.0
+### Verify the gcc compiler version is greater than 8.0
 
 `gcc --version`
 
