@@ -1,4 +1,13 @@
-##Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
+## Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
+
+```{admonition} Notice
+:class: warning
+
+Skip this tutorial if you successfully completed the Intermediate Tutorial.
+Unless you need to build the CMAQ libraries and code and run on a different family of compute nodes, such as the c6gn.16xlarge compute nodes AMD Graviton.
+
+```
+
 
 ### Create CMAQ Cluster using SPOT pricing
 

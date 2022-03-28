@@ -4,9 +4,10 @@ Install CMAQ Software and Libraries, copy input data, and run CMAQ.
 ```{admonition} Notice
 :class: warning
 
-Skip this tutorial if you successfully completed the Intermediate Tutorial
+Skip this tutorial if you successfully completed the Intermediate Tutorial.
+Unless you need to build the CMAQ libraries and code and run on a different family of compute nodes, such as the c6gn.16xlarge compute nodes AMD Graviton.
+
 ```
-Note: you can skip this tutorial
 
 ```{toctree}
 aws-pcluster-cluster.md
