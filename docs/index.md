@@ -18,31 +18,11 @@ Welcome to pcluster-cmaq's documentation!
 :caption: 'Contents:'
 :maxdepth: 2
 
-:caption: `Demo Cluster`
-:hidden:
 user_guide_pcluster/demo/index.md
-
-:caption: `Run CMAQ on Parallel Cluster`
-:hidden:
 user_guide_pcluster/cmaq-cluster/index.md
-
-:caption: `Software and Data Install`
-:hidden:
 user_guide_pcluster/install/index.md
-
-:caption: `Post Process + QA CMAQ`
-:hidden:
 user_guide_pcluster/post/index.md
-
-:caption: `System Requirements and Timing Information`
-:hidden:
 user_guide_pcluster/System-Req/index.md
-
-:caption: `Help`
-:hidden:
 user_guide_pcluster/help/index.md
-
-:caption: `Future Work`
-:hidden:
 user_guide_pcluster/future/index.md
 ```
