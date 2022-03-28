@@ -58,7 +58,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-#####  Instructions for Windows
+######  Instructions for Windows
 
 Use pip to install pcluster.
 
