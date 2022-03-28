@@ -1,5 +1,7 @@
 # Advanced Tutorial
 
+Install CMAQ Software and Libraries, copy input data, and run CMAQ.
+
 ```{toctree}
 aws-pcluster-cluster.md
 input-data-install_pcluster.md
