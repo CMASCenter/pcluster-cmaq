@@ -442,8 +442,10 @@ Rscript parse_timing_pcluster.r
 
 To view the PDF plots use the command
 
+```
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
 gio open OH_MAPS_EPAv5.3.3wGCC_vs_CMASv5.3.3wGCC.pdf
+```
 
 To convert the PDF to a jpeg image use the script convert.csh.
 
