@@ -1,5 +1,7 @@
 ### Logout of cluster when you are done
 
+To avoid incurring costs for the lustre file system and the c5n.xlarge compute node, it is best to delete the cluster after you have copied the output data to the S3 Bucket.
+
 If you are logged into the Parallel Cluster then use the following command
 
 `exit`
