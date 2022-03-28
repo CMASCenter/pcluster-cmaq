@@ -1,6 +1,6 @@
-## Introductory Tutorial
+##Step by Step Instructions to Build a Demo ParallelCluster.  
 
-Step by step instructions on building a demo ParallelCluster.  The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
+The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
 
 ## Establish Identity and Permissions 
 

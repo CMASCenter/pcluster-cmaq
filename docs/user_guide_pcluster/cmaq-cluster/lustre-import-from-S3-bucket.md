@@ -1,8 +1,8 @@
-## Intermediate Tutorial
+Intermediate Tutorial
 
-Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
+## Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
 
-## Use YAML pre-loaded with input data and software 
+### Use YAML pre-loaded with input data and software 
 
 Importing data from S3 Bucket to Lustre
 
