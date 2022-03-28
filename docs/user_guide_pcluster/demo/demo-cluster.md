@@ -2,6 +2,8 @@
 
 Step by step instructions on building a demo ParallelCluster.  The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
 
+## Establish Identity and Permissions 
+
 ### AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
 
@@ -94,12 +96,12 @@ Output:
 
 
 
-## Configure AWS Command line credentials on your local machine
+### Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
 
  `aws configure` 
 
-## configure a demo cluster
+## Configure a Demo Cluster
 
 ### To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
@@ -175,7 +177,7 @@ Note, the above yaml file is the very simplest form available.  If you upgrade t
 
 The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
-### Create a demo cluster
+## Create a demo cluster
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
@@ -197,7 +199,7 @@ While the cluster has been created, only the t2.micro head node is running.  Bef
 
 Note, the compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
 
-### Login and Examine Cluster
+## Login and Examine Cluster
 
 #### SSH into the cluster 
 (note, replace the your-key.pem key pair with your key pair)
@@ -241,7 +243,7 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 
  `exit`
 
-### Delete the demo cluster
+## Delete the demo cluster
 
 
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
