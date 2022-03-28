@@ -54,7 +54,9 @@ nvm install node
 node --version
 ```
 
-You can verify that AWS ParallelCluster installed correctly by running pcluster version.
+### Verify that AWS ParallelCluster is installed on local machine 
+
+Run pcluster version.
 
 `pcluster version`
 
