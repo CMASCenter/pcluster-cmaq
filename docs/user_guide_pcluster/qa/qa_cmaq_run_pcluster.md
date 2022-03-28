@@ -210,7 +210,7 @@ First check to see if R is already installed.
 
 `R --version`
 
-If not, Install R on Ubuntu 2004 using following instructions.
+If not, Install R on Ubuntu 2004 instructions available in the link below.
 
 ```{seealso}
 <a href="https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04">Install R on Ubuntu 2004</a>
@@ -220,7 +220,9 @@ If not, Install R on Ubuntu 2004 using following instructions.
 
 load the R module (may need to install R - need to check if additional R libraries need to be installed)
 
+```{seealso}
 <a href="https://grasswiki.osgeo.org/wiki/Compile_and_Install_Ubuntu">ubuntu install</a>
+```
 
 Install geospatial dependencies
 
@@ -368,15 +370,21 @@ Need to add the above commands to the post-installation script.
 
 Can connect to the head node using NICE DCV software. Need to add a section to the yaml file.
 
+```{seealso}
 <a href=https://docs.aws.amazon.com/parallelcluster/latest/ug/dcv.html>NICE DCV Settings in YAML</a>
+```
 
 Note, it looks like the examples are using the older config or CLI 2 format, and need to convert this to a yaml format to try it out.
 
+```{seealso}
 <a href="https://github.com/aws/aws-parallelcluster/issues/1508">X11 forwarding no loner enabled on master node</a>
+```
 
 The bug says that you can use a custom post installation script to re-enable X11 Forwarding.
 
+```{seealso}
 <a href="https://docs.aws.amazon.com/en_us/parallelcluster/latest/ug/pre_post_install.html">Custom Bootstrap Actions</a>
+```
 
 
 Then edit the R scripts:
