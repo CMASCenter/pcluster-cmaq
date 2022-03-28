@@ -181,7 +181,7 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
-#### Check on the status of the cluster
+### Check on the status of the cluster
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
@@ -201,7 +201,7 @@ Note, the compute nodes are not "provisioned" or "created" at this time (so they
 
 ## Login and Examine Cluster
 
-#### SSH into the cluster 
+### SSH into the cluster 
 (note, replace the your-key.pem key pair with your key pair)
 
 Example:
@@ -237,7 +237,7 @@ Need a minimum openmpi version 4.0.1 for CMAQ
 
 the t2.micro head node is too small
 
-Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ MVP Cluster
+Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the Intermediate Tutorial
 
 #### Exit the cluster
 
@@ -249,6 +249,6 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
 
 
-#### To learn more about the pcluster commands
+##### To learn more about the pcluster commands
 
  `pcluster --help`
