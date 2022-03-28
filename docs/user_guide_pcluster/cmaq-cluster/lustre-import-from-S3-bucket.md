@@ -1,4 +1,7 @@
-## Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software 
+## Advanced Tutorial (Option 1)
+Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
+
+### Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software 
 
 ### Import data from S3 Bucket to Lustre
 
