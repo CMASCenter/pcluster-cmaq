@@ -30,4 +30,5 @@ user_guide_pcluster/logout/index.md
 user_guide_pcluster/System-Req/index.md
 user_guide_pcluster/help/index.md
 user_guide_pcluster/future/index.md
+user_guide_pcluster/contribute/index.md
 ```
