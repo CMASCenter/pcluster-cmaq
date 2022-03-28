@@ -1,4 +1,6 @@
-## Quality Assurance Checks for Successful CMAQ Run on Parallel Cluster
+## Quality Assurance 
+
+Instructions on how to to verify a successful CMAQ Run on Parallel Cluster.
 
 
 ### run m3diff to compare the output data for two runs that have different values for NPCOL

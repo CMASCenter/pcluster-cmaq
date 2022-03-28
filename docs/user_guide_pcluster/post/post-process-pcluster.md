@@ -1,4 +1,4 @@
-## Scripts to post-process CMAQ output
+## Post-process CMAQ
 
 ### Note, the post-processing analysis should be done on the head node.
 Verify that the compute nodes are no longer running if you have completed all of the benchmark runs
