@@ -213,7 +213,7 @@ First check to see if R is already installed.
 If not, Install R on Ubuntu 2004 using following instructions.
 
 ```{note}
-<a "href=https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/">Install R on Ubuntu 2004</a>
+<a "href=https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04">Install R on Ubuntu 2004</a>
 ```
 
 `sudo apt install build-essential`
