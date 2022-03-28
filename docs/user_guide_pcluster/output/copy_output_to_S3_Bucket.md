@@ -13,7 +13,7 @@ see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-
 See example of sharing bucket across accounts.
 see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html">Bucket owner granting cross-account permissions</a>
 
-### Copy scripts and logs to /fsx
+## Copy scripts and logs to /fsx
 
 The CTM_LOG files don't contain any information about the compute nodes that the jobs were run on.
 Note, it is important to keep a record of the NPCOL, NPROW setting and the number of nodes and tasks used as specified in the run script: #SBATCH --nodes=16 #SBATCH --ntasks-per-node=8
@@ -24,7 +24,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 cp run*.log /fsx/data/output
 cp run*.csh /fsx/data/output
 ```
-### Examine the output files
+## Examine the output files
 
 note, these commands will vary depending on what APPL or domain decomposition was run
 
@@ -61,7 +61,7 @@ Check disk space
 173G    .
 ```
 
-### Copy the output to an S3 Bucket
+## Copy the output to an S3 Bucket
 
 Examine the example script
 
