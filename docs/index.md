@@ -14,7 +14,7 @@ Welcome to pcluster-cmaq's documentation!
 =========================================
 
 ```{toctree}
-   :numbered: 2
+   :numbered: 3
 :caption: 'Contents:'
 :maxdepth: 2
 
