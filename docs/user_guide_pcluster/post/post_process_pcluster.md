@@ -39,19 +39,16 @@ Run the following scripts
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/combine/scripts
 ./run_combine_conus_6x18pe.csh |& tee ./run_combine_conus_6x18pe.log
-./run_combine_conus_12x9pe.csh |& tee ./run_combine_conus_12x9pe.log
 ```
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/calc_tmetric/scripts
-./run_calc_tmetric_conus_12x9pe.csh | & tee ./run_calc_tmetric_conus_12x9pe.log
 ./run_calc_tmetric_conus_6x18pe.csh | & tee ./run_calc_tmetric_conus_6x18pe.log
 ```
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/hr2day/scripts
 ./run_hr2day_conus_6x18.csh |& tee ./run_hr2day_conus_6x18.log
-./run_hr2day_conus_12x9pe.csh | & tee ./run_hr2day_conus_12x9pe.log
 ```
 
 ```
