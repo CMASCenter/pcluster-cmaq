@@ -1,8 +1,8 @@
-## Intro tutorial
+## Introductory Tutorial
 
 Step by step instructions on building a demo ParallelCluster.  The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
 
-## AWS Identity and Access Management Roles
+### AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
@@ -12,7 +12,7 @@ It appears you can create the demo cluster, and even the MVP cluster, but you ca
 
 Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster. (requires administrative permissions)
 
-## AWS CLI 3.0 
+### AWS CLI 3.0 
 
 Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
@@ -20,9 +20,9 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
-### Install AWS Parallel Cluster Command Line Interface on your local machine
+#### Install AWS Parallel Cluster Command Line Interface on your local machine
 
-#### Instructions for LINUX
+##### Instructions for LINUX
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -36,7 +36,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-##### Follow the Parallel Cluster User Guide and install node.js
+###### Follow the Parallel Cluster User Guide and install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
@@ -70,7 +70,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-####  Instructions for Windows
+#####  Instructions for Windows
 
 Use pip to install pcluster.
 
@@ -113,7 +113,7 @@ For more information about the configuration file see
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>
 
 
-### Create a yaml configuration file for the cluster following these instructions
+#### Create a yaml configuration file for the cluster following these instructions
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
 
  `pcluster configure --config new-hello-world.yaml`
@@ -136,14 +136,14 @@ Input the following answers at each prompt:
 
 Beginning VPC creation. Please do not leave the terminal until the creation is finalized
 
-### Note, the choice of operating system (specified during the yaml creation, or in an existing yaml file) determines what modules and gcc compiler versions are available.
+#### Note, the choice of operating system (specified during the yaml creation, or in an existing yaml file) determines what modules and gcc compiler versions are available.
 
 1. Centos7 has an older gcc version 4
 2. Ubuntu2004 has gcc version 9+
 3. Alinux or Amazon Linux/Red Hat Linux (haven't tried)
 
 
-### Examine the yaml file 
+#### Examine the yaml file 
 
  `cat new-hello-world.yaml`
 
@@ -175,19 +175,19 @@ Note, the above yaml file is the very simplest form available.  If you upgrade t
 
 The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS MVP Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the c5n-4xlarge.yaml and c5n-18xlarge.yaml Yaml files that will be used to create the MVP Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
-## Create a demo cluster
+### Create a demo cluster
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
-### Check on the status of the cluster
+#### Check on the status of the cluster
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
-### List available clusters
+#### List available clusters
 
  `pcluster list-clusters --region=us-east-1`
 
-### Check on status of cluster again
+#### Check on status of cluster again
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
@@ -197,9 +197,9 @@ While the cluster has been created, only the t2.micro head node is running.  Bef
 
 Note, the compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
 
-## Login and Examine Cluster
+### Login and Examine Cluster
 
-### SSH into the cluster 
+#### SSH into the cluster 
 (note, replace the your-key.pem key pair with your key pair)
 
 Example:
@@ -211,42 +211,42 @@ login prompt should look something like (this will depend on what OS was chosen 
 
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
-### Check what modules are available on the Parallel Cluster
+#### Check what modules are available on the Parallel Cluster
 
  `module avail`
 
-### Check what version of the compiler is available
+#### Check what version of the compiler is available
 
  `gcc --version`
 
 Need a minimum of gcc 8+ for CMAQ
 
-### Check what version of openmpi is available
+#### Check what version of openmpi is available
 
  `mpirun --version`
 
 Need a minimum openmpi version 4.0.1 for CMAQ
 
-### Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
+#### Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
 
 `which sbatch`
 
-### Do not install sofware on this demo cluster
+#### Do not install sofware on this demo cluster
 
 the t2.micro head node is too small
 
 Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the CMAQ MVP Cluster
 
-### Exit the cluster
+#### Exit the cluster
 
  `exit`
 
-## Delete the demo cluster
+### Delete the demo cluster
 
 
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
 
 
-### To learn more about the pcluster commands
+#### To learn more about the pcluster commands
 
  `pcluster --help`
