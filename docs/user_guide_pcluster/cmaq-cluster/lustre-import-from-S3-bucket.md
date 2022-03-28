@@ -1,10 +1,10 @@
-### Intermediate Tutorial
+## Intermediate Tutorial
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
 
-#### Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software 
+### Run CMAQ using Parallel Cluster YAML pre-loaded with input data and software 
 
-#### Import data from S3 Bucket to Lustre
+Importing data from S3 Bucket to Lustre
 
 Justification for using the capability of importing data from an S3 bucket to the lustre file system over using elastic block storage file system and copying the data from the S3 bucket for the input and output data storage volume on the cluster.
 
@@ -20,14 +20,14 @@ Justification for using the capability of importing data from an S3 bucket to th
 To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for Parallel Cluster</a>
 
-#### Examine Diagram of the YAML file to build pre-installed software and input data. 
+### Examine Diagram of the YAML file to build pre-installed software and input data. 
 Includes Snapshot ID of volume pre-installed with CMAQ software stack and name of S3 Bucket to import data to the Lustre Filesystem
 
 Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
 
 ![c5n-18xlarge Software+Data Pre-installed yaml configuration](../yml_plots/c5n-18xlarge.ebs_shared-yaml.fsx_import.png)
 
-#### Edit Yaml file that specifies ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
+### Edit Yaml file that specifies ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system
 
 Note - you need to edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 
@@ -83,7 +83,7 @@ SharedStorage:
 ```
 
 
-#### Create the CMAQ MVP Parallel Cluster with software/data pre-installed
+### Create CMAQ MVP Parallel Cluster with software/data pre-installed
 
 `pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
@@ -138,7 +138,7 @@ Start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-#### Log into the new cluster
+### Log into the new cluster
 (note replace your-key.pem with your Key)
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
@@ -173,7 +173,7 @@ Load the modules openmpi and libfabric
 `module load libfabric-aws/1.13.2amzn1.0`
 
 
-#### Verify that the input data was imported from the S3 bucket
+### Verify that the input data was imported from the S3 bucket
 
 `cd /fsx/12US2`
 
@@ -217,7 +217,7 @@ Also need to create the output directory
 
 `mkdir -p /fsx/data/output`
 
-#### Examine the run scripts
+### Examine the run scripts
 
 The run scripts are available in two locations, one in the CMAQ scripts directory. 
 
@@ -274,14 +274,14 @@ Output:
 ```
 
 
-#### Submit the job to the slurm queue
+### Submit job to the slurm queue
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 `sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
 
-#### Check status of run
+### Check status of run
 
 `squeue `
 
@@ -631,7 +631,3 @@ Num  Day        Wall Time
       Avg. Time = 1490.09
 ```
 Submit a minimum of 2 benchmark runs (using two different NPCOLxNPROW) configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
-
-#### CMAQ Benchmark Option 2 (install software on cluster) and proceed to Chapter 8, Post Processing and QA.
-
-(go to left menu and click on 8 Compile and Run Post Processors)
