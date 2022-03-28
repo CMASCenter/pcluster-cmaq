@@ -8,6 +8,9 @@ HeadNode:
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: centos
+  LocalStorage:
+    RootVolume:
+      Encrypted: false
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
@@ -35,6 +38,7 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       Encrypted: false
+      SnapshotId: snap-065979e115804972e
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
