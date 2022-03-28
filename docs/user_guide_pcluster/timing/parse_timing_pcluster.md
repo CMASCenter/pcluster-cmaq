@@ -1,6 +1,12 @@
 # Parse timings from the log file 
 
-## Compare the timings for the following CONUS Parallel Cluster Runs
+## Compare the timings for the CONUS Parallel Cluster Runs
+
+```{note]
+Parallel Cluster Configurations can impact the model run times.
+```
+
+These model run configurations are only listed for reference.
 
 ### Using different PE configurations, using DisableSimultaneousMultithreading: true in yaml file, using 36 cpus - no virtual cpus
          
@@ -31,7 +37,7 @@
    - [ ] DisableSimultaneousMultithreading= true
    - [ ] DisableSimultaneousMultithreading= false
 
-### Use parse_timing.r script to examine timings of each process in CMAQ
+### parse_timing.r script can be used examine timings of each process in CMAQ
 
 ```
 cd qa_scripts
