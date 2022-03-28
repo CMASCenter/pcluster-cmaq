@@ -1,8 +1,12 @@
-### logout of cluster when you are done
+### Logout of cluster when you are done
+
+If you are logged into the Parallel Cluster then use the following command
 
 `exit`
 
 ### Delete Cluster
+
+Run the following command on your local computer.
 
 `pcluster delete-cluster --region=us-east-1 --cluster-name cmaq`
 
