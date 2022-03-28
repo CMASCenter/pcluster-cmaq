@@ -1,4 +1,6 @@
-## Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
+## Install, Build and Run CMAQ and Libraries on Parallel Cluster
+
+Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 
 ```{admonition} Notice
 :class: warning
