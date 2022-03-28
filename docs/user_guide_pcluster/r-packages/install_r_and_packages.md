@@ -12,8 +12,6 @@ If not, Install R on Ubuntu 2004 instructions available in the link below.
 
 `sudo apt install build-essential`
 
-load the R module (may need to install R - need to check if additional R libraries need to be installed)
-
 ```{seealso}
 <a href="https://grasswiki.osgeo.org/wiki/Compile_and_Install_Ubuntu">ubuntu install</a>
 ```
