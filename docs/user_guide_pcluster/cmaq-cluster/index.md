@@ -1,5 +1,4 @@
-# CMAQ on Parallel Cluster
+# Advanced Tutorial (Option 1) 
 
 ```{toctree}
 lustre-import-from-S3-bucket.md
-aws-pcluster-cluster.md
