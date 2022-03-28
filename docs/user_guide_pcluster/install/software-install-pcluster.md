@@ -1,14 +1,18 @@
 ## Install CMAQ sofware and libraries on parallel cluster
 
 ### Login to updated cluster
-(note, replace the your-key.pem with your Key Pair)
+```{note}
+Replace the your-key.pem with your Key Pair.
+```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
 ### Change shell to use .tcsh
 
-note, this command depends on what OS you have installed on the parallel cluster
+```{note}
+This command depends on what OS you have installed on the parallel cluster
+```
 
 `sudo usermod -s /bin/tcsh ubuntu`
 
@@ -61,7 +65,6 @@ Install the pcluster-cmaq git repo to the /shared directory
 `module load libfabric-aws/1.13.2amzn1.0`
 
 ### Verify the gcc compiler version is greater than 8.0
-(note, gcc version on centos7 has been gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44a, and this seems to work ok.)
 
 `gcc --version`
 

@@ -139,7 +139,9 @@ Start the compute nodes
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ## Log into the new cluster
-(note replace your-key.pem with your Key)
+```{note}
+replace your-key.pem with your Key Name
+```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 

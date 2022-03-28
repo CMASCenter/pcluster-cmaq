@@ -75,7 +75,9 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 ### Login to cluster
-(note, replace the your-key.pem with your Key Pair)
+```{note}
+Replace the your-key.pem with your Key Pair.
+```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
@@ -127,7 +129,7 @@ Create the output directory
 
 1. Follow instructions to Install CMAQ software on parallel cluster
 2. Submit 180 pe job for CMAQ 2 day Benchmark
-3. Submit 288 pe job  (note, can't seem to get 360 pe job to be provisioned by the parallel cluster)
+3. Submit 288 pe job for CMAQ 2 day Benchmark 
 4. Run QA Check
 5. Run Post Processing
 6. Save Logs and Output to S3 Bucket

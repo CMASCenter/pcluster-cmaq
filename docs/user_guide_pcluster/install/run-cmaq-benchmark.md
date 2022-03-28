@@ -11,7 +11,7 @@ To ensure you have the correct directory specified
 
 `sbatch run_cctm_2016_12US2.180pe.csh`
 
-Note, it will take about 3-5 minutes for the compute notes to start up This is reflected in the Status (ST) of CF (configuring)
+Note, it will take about 3-5 minutes for the compute nodes to start up This is reflected in the Status (ST) of CF (configuring)
 
 ### Check the status in the queue
 

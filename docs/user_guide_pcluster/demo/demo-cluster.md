@@ -219,7 +219,9 @@ Note, the compute nodes are not "provisioned" or "created" at this time (so they
 ## Login and Examine Cluster
 
 ### SSH into the cluster 
-(note, replace the your-key.pem key pair with your key pair)
+```{note}
+replace the your-key.pem key pair with your key pair
+```
 
 Example:
  pcluster ssh -v -Y -i ~/your-key.pem --cluster-name hello-pcluster

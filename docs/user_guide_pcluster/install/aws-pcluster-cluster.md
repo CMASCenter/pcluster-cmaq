@@ -95,7 +95,9 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 #### Login to cluster
-(note, replace the your-key.pem with your Key Pair)
+```{note}
+Replace the your-key.pem with your Key Pair.
+```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
@@ -327,7 +329,9 @@ computeFleetStatus": "RUNNING",
 
 
 ## Login to c5n.18xlarge cluster
-(note, replace the your-key.pem with your Key Pair)
+```{note}
+Replace the your-key.pem with your Key Pair.
+```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
