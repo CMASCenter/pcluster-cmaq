@@ -2,15 +2,27 @@
 
 Step by step instructions on building a demo ParallelCluster.  The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
 
-### Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
+## AWS Identity and Access Management Roles
+Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
+
+AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
+It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
+
+Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster. (requires administrative permissions)
+
+## AWS CLI 3.0 
+
+Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
-##### Install AWS Parallel Cluster Command Line Interface on your local machine
+### Install AWS Parallel Cluster Command Line Interface on your local machine
 
-###### Instructions for LINUX
+#### Instructions for LINUX
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -24,7 +36,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-###### Follow the Parallel Cluster User Guide and install node.js
+##### Follow the Parallel Cluster User Guide and install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
@@ -58,7 +70,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-######  Instructions for Windows
+####  Instructions for Windows
 
 Use pip to install pcluster.
 
@@ -87,7 +99,7 @@ Output:
 
  `aws configure` 
 
-## Configure a demo cluster
+## configure a demo cluster
 
 ### To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
@@ -185,9 +197,7 @@ While the cluster has been created, only the t2.micro head node is running.  Bef
 
 Note, the compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
 
-### Start the compute nodes
-
- `pcluster update-compute-fleet --region us-east-1 --cluster-name hello-pcluster --status START_REQUESTED`
+## Login and Examine Cluster
 
 ### SSH into the cluster 
 (note, replace the your-key.pem key pair with your key pair)
@@ -231,7 +241,7 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 
  `exit`
 
-### Delete the demo cluster
+## Delete the demo cluster
 
 
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
@@ -240,13 +250,3 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 ### To learn more about the pcluster commands
 
  `pcluster --help`
-
-###  To use a parallel cluster
-Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
-
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
-
-AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
-It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
-
-Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster. (requires administrative permissions)
