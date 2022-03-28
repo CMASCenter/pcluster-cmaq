@@ -2,7 +2,7 @@
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
 
-### Run CMAQ using Parallel Cluster YAML pre-loaded with input data and software 
+## Run CMAQ using Parallel Cluster YAML pre-loaded with input data and software 
 
 Importing data from S3 Bucket to Lustre
 
@@ -83,7 +83,7 @@ SharedStorage:
 ```
 
 
-### Create CMAQ MVP Parallel Cluster with software/data pre-installed
+## Create CMAQ MVP Parallel Cluster with software/data pre-installed
 
 `pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
@@ -138,7 +138,7 @@ Start the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
-### Log into the new cluster
+## Log into the new cluster
 (note replace your-key.pem with your Key)
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
@@ -217,7 +217,7 @@ Also need to create the output directory
 
 `mkdir -p /fsx/data/output`
 
-### Examine the run scripts
+## Examine CMAQ Run Scripts
 
 The run scripts are available in two locations, one in the CMAQ scripts directory. 
 
@@ -274,7 +274,7 @@ Output:
 ```
 
 
-### Submit job to the slurm queue
+## Submit Job to Slurm Queue
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
@@ -602,10 +602,6 @@ Num  Day        Wall Time
       Avg. Time = 1143.82
 ```
 
-Note this performance seems better than earlier runs..
-Script used the #SBATCH --exclusive option.
-All run scripts have been modified to use this option.
-
 
 `tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log`
 
@@ -630,4 +626,5 @@ Num  Day        Wall Time
      Total Time = 2980.19
       Avg. Time = 1490.09
 ```
-Submit a minimum of 2 benchmark runs (using two different NPCOLxNPROW) configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
+## Submit a minimum of 2 benchmark runs 
+Use two different NPCOLxNPROW) configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
