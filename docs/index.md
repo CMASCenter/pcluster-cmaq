@@ -25,13 +25,13 @@ user_guide_pcluster/demo/index.md
 :hidden:
 user_guide_pcluster/cmaq-cluster/index.md
 
-:caption: `Post Process + QA CMAQ`
-:hidden:
-user_guide_pcluster/post/index.md
-
 :caption: `Software and Data Install`
 :hidden:
 user_guide_pcluster/install/index.md
+
+:caption: `Post Process + QA CMAQ`
+:hidden:
+user_guide_pcluster/post/index.md
 
 :caption: `System Requirements and Timing Information`
 :hidden:
