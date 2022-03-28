@@ -1,6 +1,6 @@
-# Install Input Data on Parallel Cluster
+## Install Input Data on Parallel Cluster
 
-## Install AWS CLI to obtain data from AWS S3 Bucket
+### Install AWS CLI to obtain data from AWS S3 Bucket
 
 see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
@@ -21,21 +21,21 @@ Set up your credentials for using s3 copy (you can skip this if you do not have 
 `aws configure`
 
 
-## Copy Input Data from S3 Bucket to lustre filesystem
+### Copy Input Data from S3 Bucket to lustre filesystem
 
 Verify that the /fsx directory exists; this is a lustre file system where the I/O is fastest
 
 `ls /fsx`
 
 
-## Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
+### Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
 Data will be saved to the /fsx file system
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_to_fsx.csh`
 
 if the first method works, then you can skip the alternative method listed next..
 
-## Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /fsx volume on the cluster.
+### Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /fsx volume on the cluster.
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa_to_fsx.csh`
 
@@ -56,10 +56,10 @@ output:
 CMAQ Parallel Cluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 
 
-## For Parallel Cluster: Import the Input data from a public S3 Bucket
+### For Parallel Cluster: Import the Input data from a public S3 Bucket
 A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location in the yaml file, rather than using the above aws s3 copy commands. 
 
-### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.fsx_import.yaml  
+#### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.fsx_import.yaml  
 
 ```
   - MountDir: /fsx
