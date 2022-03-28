@@ -365,22 +365,3 @@ See instructions for installing and running CMAQ on cluster.
 #### Pcluster User Manual
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
-
-### To install CMAQ software and libraries using Option 2, then skip option 1 and continue to use this cluster
-
-(do not delete the cluster) - skip to installing CMAQ software - use left menu to click on the following chapter: 4. CMAQ Benchmark Option 2
-
-### To run the CMAQ Benchmark using pre-installed software and data using Option 1, then you can delete this cluster.
-
-#### Exit the cluster (for Option 1)
-
-`exit`
-
-### Delete the demo cluster (for Option 1)
-
-`pcluster delete-cluster --cluster-name cmaq --region us-east-1`
-
-### Check status and confirm that it has been deleted (for Option 1)
-
-`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
-
