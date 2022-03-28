@@ -8,9 +8,9 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 
-### Install AWS Parallel Cluster Command Line Interface on your local machine
+##### Install AWS Parallel Cluster Command Line Interface on your local machine
 
-#### Instructions for LINUX
+###### Instructions for LINUX
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -24,7 +24,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-##### Follow the Parallel Cluster User Guide and install node.js
+###### Follow the Parallel Cluster User Guide and install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
@@ -58,7 +58,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-####  Instructions for Windows
+#####  Instructions for Windows
 
 Use pip to install pcluster.
 
@@ -82,7 +82,7 @@ Output:
 
 
 
-### Configure AWS Command line credentials on your local machine
+## Configure AWS Command line credentials on your local machine
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
 
  `aws configure` 
@@ -95,7 +95,7 @@ An example of the yaml file contents is described in the following Diagram:
 
 Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.micro head node and t2.micro compute nodes
 
-![t2.micro yaml configuration](../yml_plots/hello-world-yaml.png)
+![t2.micro yaml configuration](../../yml_plots/hello-world-yaml.png)
 
 For more information about the configuration file see
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>
