@@ -1,4 +1,4 @@
-# Compare Timing CMAQ of Routines
+# Compare Timing of CMAQ Routines
 
 Compare the timing of CMAQ Routines for two different run configurations.
 
