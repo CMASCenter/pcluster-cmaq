@@ -1,6 +1,4 @@
-# Install prerequisite libraries on linux OS
-
-## Install CMAQ sofware on parallel cluster
+## Install CMAQ sofware and libraries on parallel cluster
 
 ### Login to updated cluster
 (note, replace the your-key.pem with your Key Pair)
