@@ -3,7 +3,7 @@
 Instructions on how to to verify a successful CMAQ Run on Parallel Cluster.
 
 
-### run m3diff to compare the output data for two runs that have different values for NPCOL
+## run m3diff to compare the output data for two runs that have different values for NPCOL
 
 ```
 cd /fsx/data/output
@@ -160,7 +160,7 @@ more REPORT_6x12pe_6x18pe
  A:B  0.00000E+00@(  1,  0, 0)  0.00000E+00@(  1,  0, 0)  0.00000E+00  0.00000E+00
 ```
 
-### Use m3diff to compare two runs that have the same NPCOL
+## Use m3diff to compare two runs that have the same NPCOL
 
 ```
 setenv AFILE /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc
@@ -204,7 +204,7 @@ Resulted in zero differences in the output
 ```
 
 
-### Run the following R script
+## Run an R script to create the box plots and spatial plots comparing the output of two runs
 
 First check to see if R is already installed.
 
