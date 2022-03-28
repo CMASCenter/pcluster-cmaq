@@ -106,4 +106,3 @@ setenv CMAQ_DATA /fsx/data
 ./run_bldoverlay_conus.csh
 
 ```
-
