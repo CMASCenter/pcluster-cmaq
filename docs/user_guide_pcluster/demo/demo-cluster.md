@@ -194,7 +194,7 @@ Note, the above yaml file is the very simplest form available.  If you upgrade t
 
 The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS Intermediate Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the Yaml files that will be used to create the Intermediate Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
-## Create a demo cluster
+## Create a Demo Cluster
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
@@ -260,7 +260,7 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 
  `exit`
 
-## Delete the demo cluster
+## Delete the Demo Cluster
 
 
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
