@@ -627,4 +627,4 @@ Num  Day        Wall Time
       Avg. Time = 1490.09
 ```
 ## Submit a minimum of 2 benchmark runs 
-Use two different NPCOLxNPROW) configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
+Use two different NPCOLxNPROW configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
