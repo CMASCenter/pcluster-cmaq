@@ -1,17 +1,28 @@
 ## Copy Output Data and Run script logs to S3 Bucket
 
-Note, you will need permissions to copy to a S3 Bucket.
-see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">S3 Access Control</a>
+```{note}
+You need permissions to copy to a S3 Bucket.
+```
+
+```{seealso}
+<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">S3 Access Control</a>
+```
 
 Be sure you enter your access credentials on the parallel cluster by running:
 
 `aws configure`
 
 Currently, the bucket listed below has ACL turned off
-see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">S3 disable ACL</a>
+
+```{seealso}
+<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">S3 disable ACL</a>
+```
 
 See example of sharing bucket across accounts.
-see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html">Bucket owner granting cross-account permissions</a>
+
+```{seealso}
+<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html">Bucket owner granting cross-account permissions</a>
+```
 
 ## Copy scripts and logs to /fsx
 
@@ -26,10 +37,12 @@ cp run*.csh /fsx/data/output
 ```
 ## Examine the output files
 
-note, these commands will vary depending on what APPL or domain decomposition was run
+```{note}
+The following commands will vary depending on what APPL or domain decomposition was run
+```
 
 ```
-cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe_full
+cd /fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe
 ls -lht
 ```
 
@@ -38,20 +51,20 @@ output:
 ```
 total 173G
 drwxrwxr-x 2 ubuntu ubuntu 145K Jan  5 23:53 LOGS
--rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:53 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
--rw-rw-r-- 1 ubuntu ubuntu 2.2G Jan  5 23:52 CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
--rw-rw-r-- 1 ubuntu ubuntu  78G Jan  5 23:52 CCTM_CONC_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
--rw-rw-r-- 1 ubuntu ubuntu 348M Jan  5 23:52 CCTM_APMDIAG_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
--rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:52 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
--rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:52 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_full_20151223.nc
--rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 23:22 CCTM_v533_gcc_2016_CONUS_16x18pe_full_20151223.cfg
--rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:22 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
--rw-rw-r-- 1 ubuntu ubuntu 2.2G Jan  5 23:21 CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
--rw-rw-r-- 1 ubuntu ubuntu  78G Jan  5 23:21 CCTM_CONC_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
--rw-rw-r-- 1 ubuntu ubuntu 348M Jan  5 23:21 CCTM_APMDIAG_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
--rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:21 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
--rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:21 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_full_20151222.nc
--rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 22:49 CCTM_v533_gcc_2016_CONUS_16x18pe_full_20151222.cfg
+-rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:53 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 2.2G Jan  5 23:52 CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu  78G Jan  5 23:52 CCTM_CONC_v533_gcc_2016_CONUS_16x18pe_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 348M Jan  5 23:52 CCTM_APMDIAG_v533_gcc_2016_CONUS_16x18pe_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:52 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:52 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_20151223.nc
+-rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 23:22 CCTM_v533_gcc_2016_CONUS_16x18pe_20151223.cfg
+-rw-rw-r-- 1 ubuntu ubuntu 3.2G Jan  5 23:22 CCTM_CGRID_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 2.2G Jan  5 23:21 CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu  78G Jan  5 23:21 CCTM_CONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 348M Jan  5 23:21 CCTM_APMDIAG_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.5G Jan  5 23:21 CCTM_WETDEP1_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 1.7G Jan  5 23:21 CCTM_DRYDEP_v533_gcc_2016_CONUS_16x18pe_20151222.nc
+-rw-rw-r-- 1 ubuntu ubuntu 3.6K Jan  5 22:49 CCTM_v533_gcc_2016_CONUS_16x18pe_20151222.cfg
 ```
 
 Check disk space
