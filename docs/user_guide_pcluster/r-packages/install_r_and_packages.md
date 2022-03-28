@@ -1,4 +1,4 @@
-## Run an R script to create the box plots and spatial plots comparing the output of two runs
+## Install R and required packages for Rscripts used for QA and Timing Comparisons
 
 First check to see if R is already installed.
 
