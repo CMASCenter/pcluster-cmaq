@@ -1,4 +1,4 @@
-### Run CMAQ
+## Run CMAQ
 
 ### Verify that you have an updated set of run scripts from the parallel_cluster repo
 To ensure you have the correct directory specified
