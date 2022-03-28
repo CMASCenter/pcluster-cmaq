@@ -10,7 +10,7 @@
 This documentation is under heavy development
 ```
 
-Welcome to pcluster-cmaq's documentation!
+Welcome to CMAQ Parallel Cluster documentation!
 =========================================
 
 ```{toctree}
