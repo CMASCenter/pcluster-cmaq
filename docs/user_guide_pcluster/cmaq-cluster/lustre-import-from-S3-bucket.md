@@ -236,7 +236,7 @@ If a run script is missing or outdated, copy the run scripts from the repo.
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 Note, the time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used.
-See Table 1.6 Benchmark Timing Results in Chapter 1 for reference.
+See Table 1.6 Benchmark Timing Results in Chapter 9 for reference.
 
 Examine how the run script is configured
 
@@ -311,7 +311,7 @@ Try submitting a smaller job to the queue.
 
 Or, you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
 
-To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND. See Chapter 3 for the detailed instructions.
+To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND.
 
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
@@ -627,4 +627,4 @@ Num  Day        Wall Time
       Avg. Time = 1490.09
 ```
 ## Submit a minimum of 2 benchmark runs 
-Use two different NPCOLxNPROW configurations, to create output needed for the QA and Post Processing Sections in Chapter 5. 
+Use two different NPCOLxNPROW configurations, to create output needed for the QA and Post Processing Sections in Chapter 6. 
