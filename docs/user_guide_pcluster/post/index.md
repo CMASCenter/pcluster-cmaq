@@ -1,8 +1,6 @@
-# Post-process and QA CMAQ
+# Post-process
 
-Post-processing and Quality Assurance of CMAQ Run 
+Post-processing CMAQ Run 
 
 ```{toctree}
-post_process_pcluster.md 
-qa_cmaq_run_pcluster.md
-
+post_process_pcluster.md
