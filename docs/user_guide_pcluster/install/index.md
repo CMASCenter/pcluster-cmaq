@@ -1,4 +1,4 @@
-# Advanced Tutorial (Option 2)
+# Advanced Tutorial
 
 ```{toctree}
 input-data-install_pcluster.md

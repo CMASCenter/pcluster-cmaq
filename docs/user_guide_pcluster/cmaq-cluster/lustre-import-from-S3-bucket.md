@@ -1,4 +1,4 @@
-### Advanced Tutorial (Option 1)
+### Intermediate Tutorial
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
 
