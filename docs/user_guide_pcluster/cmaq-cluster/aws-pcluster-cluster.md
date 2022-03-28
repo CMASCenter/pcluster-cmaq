@@ -72,7 +72,7 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 
 
-## Create the c5n-4xlarge pcluster
+### Create the c5n-4xlarge pcluster
 
 `pcluster create-cluster --cluster-configuration c5n-4xlarge.yaml --cluster-name cmaq --region us-east-1`
 
@@ -222,7 +222,7 @@ SharedStorage:
       StorageCapacity: 1200
 ```
 
-## Use the pcluster command to update cluster to use c5n.18xlarge compute node
+### Use the pcluster command to update cluster to use c5n.18xlarge compute node
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c5n-18xlarge.yaml`
 
