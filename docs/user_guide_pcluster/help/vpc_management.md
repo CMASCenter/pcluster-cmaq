@@ -1,4 +1,4 @@
-### VPC Management
+## VPC Management
 
 There is a limit on the number of VPCs that are allowed per account - limit is 5.
 
@@ -13,8 +13,11 @@ Q2. Each time you run a configure cluster command, does the Parallel Cluster cre
 Q3. why doesn't the VPC and subnet IDs get deleted when the Parallel Clusters are deleted.
 
 
-## If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
-The following instructions are available here: <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Instructions for Cleaning Up VPCs</a>
+### Deleting VPCs
+If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
+The following instructions are available here: 
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Instructions for Cleaning Up VPCs</a>
 
 ```
 $ aws --region us-east-2 cloudformation list-stacks \
@@ -32,7 +35,7 @@ $ aws --region us-west-2 cloudformation delete-stack \
 If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. 
 The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
 
-https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster.configure.html
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster.configure.html">Pcluster Configure</a>
 
 Note: I can see why you wouldn't want to delete the VPC, if you want to reuse the yaml file that contains the SubnetID that is tied to that VPC.
 
