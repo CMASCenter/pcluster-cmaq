@@ -77,7 +77,7 @@ SharedStorage:
 #### The Yaml file for the c5n-4xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes using SPOT pricing
-![c5n-4xlarge yaml configuration](../yml_plots/c5n-4xlarge-yaml.png)
+![c5n-4xlarge yaml configuration](../../yml_plots/c5n-4xlarge-yaml.png)
 
 
 
@@ -168,7 +168,7 @@ NOTE:
 
 Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
 
-![c5n-18xlarge yaml configuration](../yml_plots/c5n-18xlarge-yaml.png)
+![c5n-18xlarge yaml configuration](../../yml_plots/c5n-18xlarge-yaml.png)
 
 Note, the c5n-18xlarge yaml configuration file contains a setting for PlacementGroup.
 
