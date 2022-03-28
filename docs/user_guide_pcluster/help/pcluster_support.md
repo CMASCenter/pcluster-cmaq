@@ -12,5 +12,5 @@
 
 ## Issues
 
-Please open a GitHub issue for any feedback or issues: <a href="https://github.com/aws/aws-parallelcluster/issues">Github Issues</a>
+For AWS Parallel Cluster you can create a GitHub issue for feedback or issues: <a href="https://github.com/aws/aws-parallelcluster/issues">Github Issues</a>
 There is also an active community driven Q&A site that may be helpful: <a href="https://repost.aws/">AWS re:Post a community-driven Q&A site</a>
