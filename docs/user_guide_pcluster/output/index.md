@@ -1,4 +1,4 @@
-# Copy Output 
+# Copy Output to S3 Bucket
 
 Copy output from Parallel Cluster to an S3 Bucket
 
