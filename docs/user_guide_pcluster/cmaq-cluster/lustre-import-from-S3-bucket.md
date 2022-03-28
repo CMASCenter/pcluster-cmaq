@@ -1,6 +1,8 @@
 Intermediate Tutorial
 
-## Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark using pre-installed software and data.
+## Parallel Cluster with pre-installed software and data.
+
+Step by step instructions for running the CMAQ 12US1 Benchmark for 2 days on a Parallel Cluster.
 
 ### Use YAML pre-loaded with input data and software 
 
