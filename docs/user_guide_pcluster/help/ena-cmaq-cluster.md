@@ -41,8 +41,3 @@ EFA Kernel Module – The EFA Driver is in the Amazon GitHub repo; read Getting 
 Libfabric Network Stack – You will need to use an AWS-custom version for now; again, the Getting Started document contains installation information. We are working to get our changes into the next release (1.8) of libfabric.
 
 Note the parallel cluster deplopyment takes care of setting this up for you.
-
-
-What I am not sure of, is the relationship between ENA/EFA and VPCs, and created ENIs.
-
-
