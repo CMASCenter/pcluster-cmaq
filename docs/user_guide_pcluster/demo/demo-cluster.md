@@ -7,7 +7,9 @@ Step by step instructions on building a demo ParallelCluster.  The goal is for u
 ### AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
 
+```{see also}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
+```
 
 AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
 It appears you can create the demo cluster, and even the MVP cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
@@ -20,7 +22,9 @@ Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
+```{see also}
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
+```
 
 #### Install AWS Parallel Cluster Command Line Interface on your local machine
 
@@ -28,7 +32,9 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
+```{see also}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-virtual-environment.html">Guide to install AWS CL3 in Virtual Environment"</a>
+```
 
 ```python
 python3 -m virtualenv ~/apc-ve
@@ -76,11 +82,15 @@ Verify that the parallel cluster is working using:
 
 Use pip to install pcluster.
 
+```{see also}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-pip.html">Guide to install AWS CL3 using PIP</a>
+```
 
 Note, there are some additional instructions for adding pip3 to your path on Windows that you may need to follow (do not reinstall aws-parallel cluster).
 
+```{see also}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-windows.html">Guide to install AWS CL2 in Windows Environment</a>
+```
 
 You can verify that AWS ParallelCluster installed correctly by running pcluster version.
 
@@ -97,7 +107,10 @@ Output:
 
 
 ### Configure AWS Command line credentials on your local machine
+
+```{see also}
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
+```
 
  `aws configure` 
 
@@ -111,12 +124,16 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.mi
 
 ![t2.micro yaml configuration](../../yml_plots/hello-world-yaml.png)
 
-For more information about the configuration file see
+```{see also}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>
+```
 
 
 #### Create a yaml configuration file for the cluster following these instructions
+
+```{see also}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
+```
 
  `pcluster configure --config new-hello-world.yaml`
 
