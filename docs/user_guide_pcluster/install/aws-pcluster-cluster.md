@@ -1,7 +1,6 @@
-## Advanced Tutorial
-Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
+##Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 
-## Create CMAQ Cluster using SPOT pricing
+### Create CMAQ Cluster using SPOT pricing
 
 #### Use an existing yaml file from the git repo to create a parallel cluster
 
