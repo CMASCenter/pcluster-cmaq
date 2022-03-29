@@ -47,7 +47,10 @@ if the first method works, then you can skip the alternative method listed next.
 
 check that the resulting directory structure matches the run script
 
-Note, this input data requires 44 GB of disk space  (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
+```{note}
+The CONUS 12US1 input data requires 44 GB of disk space  
+(if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
+```
 
 `cd /fsx/data/CONUS`
 
