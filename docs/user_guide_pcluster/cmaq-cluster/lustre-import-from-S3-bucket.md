@@ -8,7 +8,7 @@ Step by step instructions for running the CMAQ 12US1 Benchmark for 2 days on a P
 
 `cd /your/local/machine/install/path/`
 
-#### Use a configuration file from the github repo that was cloned to your local machine
+#### Use a configuration file from the github by cloning the repo to your local machine 
 
 `git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
 
