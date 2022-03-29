@@ -161,7 +161,7 @@ replace your-key.pem with your Key Name
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the EBS drive snapshot
+## Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the snapshot
 
 `ls /shared/build`
 
@@ -191,7 +191,7 @@ Load the modules openmpi and libfabric
 `module load libfabric-aws/1.13.2amzn1.0`
 
 
-### Verify that the input data was imported from the S3 bucket
+## Verify that the input data was imported from the S3 bucket
 
 `cd /fsx/12US2`
 
