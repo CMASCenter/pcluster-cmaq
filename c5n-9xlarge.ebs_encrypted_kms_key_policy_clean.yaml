@@ -1,0 +1,45 @@
+Region: us-east-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c5n.large
+  Networking:
+    SubnetId: subnet-xxxxxxxxxxxxxxxxx
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: centos
+  LocalStorage:
+    RootVolume:
+        Encrypted: true
+  Iam:
+     InstanceRole: arn:aws:iam::xxxxxacccountidxxxxxx:role/ParallelClusterInstanceRole
+Scheduling:
+  Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: ONDEMAND
+      Networking:
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx
+        PlacementGroup:
+          Enabled: true
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: c5n.9xlarge
+          MinCount: 0
+          MaxCount: 10
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      Size: 500
+      Encrypted: true
+      SnapshotId: snap-xxxxxxxxxxxxxxxxx
+      KmsKeyId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
