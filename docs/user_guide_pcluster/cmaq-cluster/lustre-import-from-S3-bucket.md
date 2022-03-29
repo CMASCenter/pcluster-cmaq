@@ -1,10 +1,10 @@
 Intermediate Tutorial
 
-## Parallel Cluster with pre-installed software and data.
+## Use Parallel Cluster pre-installed with software and data.
 
 Step by step instructions for running the CMAQ 12US1 Benchmark for 2 days on a Parallel Cluster.
 
-### Use YAML pre-loaded with input data and software 
+### Obtain YAML file pre-loaded with input data and software 
 
 #### Choose a directory on your local machine to obtain a copy of the github repo.
 
