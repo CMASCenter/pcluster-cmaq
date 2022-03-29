@@ -10,7 +10,6 @@
 This documentation is under heavy development
 ```
 
-=========================================
 
 ```{toctree}
    :numbered: 3
