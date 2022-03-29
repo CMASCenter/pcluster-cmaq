@@ -6,7 +6,8 @@
 Parallel Cluster Configurations can impact the model run times.
 ```
 
-These model run configurations are only listed for reference.
+It is up the the user, as to what model run configurations are used to run CMAQ on the Parallel Cluster.
+The following configurations may impact the run time of the model.
 
 ### Using different PE configurations, using DisableSimultaneousMultithreading: true in yaml file, using 36 cpus - no virtual cpus
          
