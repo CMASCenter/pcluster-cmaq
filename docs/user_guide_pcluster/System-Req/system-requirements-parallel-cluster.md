@@ -99,17 +99,29 @@ Resources specified in the YAML file:
 * Shared EBS filesystem to insall software
 * 1.2 TiB Shared Lustre file system with imported S3 Bucket (1.2 TiB is the minimum file size that you can specify for Lustre File System)
 * Slurm Placement Group enabled
-* Elastic Fabric Adapter Enabled on c5n.18xlarge
+* Elastic Fabric Adapter Enabled on c5n.9xlarge and c5n.18xlarge
+
+```<seealso>
+https://aws.amazon.com/ec2/instance-types/c5/
+```
 
 Note, pricing information in the tables below are subject to change. The links from which this pricing data was collected are listed below.
 
+```<seealso>
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
+```
 
+```<seealso>
 <a href="https://aws.amazon.com/ec2/spot/pricing/">EC2 SPOT Pricing</a>
+```
 
+```<seealso>
 <a href="https://aws.amazon.com/ec2/pricing/on-demand">EC2 On-Demand Pricing</a>
+```
 
+```<seealso>
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel Cluster</a>
+```
 
 ## Spot versus On-Demand Pricing
 
