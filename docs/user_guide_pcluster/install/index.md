@@ -1,4 +1,4 @@
-# Advanced Tutorial
+# Advanced Tutorial (optional)
 
 Install CMAQ Software and Libraries, copy input data, and run CMAQ.
 ```{admonition} Notice
