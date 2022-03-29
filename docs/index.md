@@ -10,7 +10,6 @@
 This documentation is under heavy development
 ```
 
-Welcome to CMAQ Parallel Cluster documentation!
 =========================================
 
 ```{toctree}
