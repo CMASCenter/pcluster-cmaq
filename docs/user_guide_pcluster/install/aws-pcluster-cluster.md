@@ -131,11 +131,13 @@ NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1
 
 ## Update the compute nodes
 
-### Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
+Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
 By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
 
+```{note}
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line.
+```
 
 If you only modified the yaml file to update the compute node identity, without making additional updates to the network and other settings, then you would not achieve all of the benefits of using the c5n.18xlarge compute node in the parallel cluster.
 
