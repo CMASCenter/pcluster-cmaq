@@ -2,7 +2,9 @@
 
 ### Install AWS CLI to obtain data from AWS S3 Bucket
 
-see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+```{seealso}
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+```
 
 `cd /shared`
 
@@ -15,6 +17,10 @@ sudo ./aws/install`
 ` aws --help`
 
 If not, you may need to logout and back in.
+
+```{note}
+If you do not have credintials, skip this. The data is on a public bucket, so you do not need credentials.
+```
 
 Set up your credentials for using s3 copy (you can skip this if you do not have credentials)
 
@@ -59,7 +65,16 @@ CMAQ Parallel Cluster is configured to have 1.2 Terrabytes of space on /fsx file
 ### For Parallel Cluster: Import the Input data from a public S3 Bucket
 A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location in the yaml file, rather than using the above aws s3 copy commands. 
 
-#### Second Method: Import the data by specifying it in the yaml file - example available in c5n-18xlarge.ebs_shared.fsx_import.yaml  
+```{seealso}
+Example available in c5n-18xlarge.ebs_shared.fsx_import.yaml  
+```
+
+```
+cd /shared/pcluster-cmaq/
+vi c5n-18xlarge.ebs_shared.fsx_import.yaml   
+```
+
+Section that of the YAML file that specifies the name of the S3 Bucket.
 
 ```
   - MountDir: /fsx
