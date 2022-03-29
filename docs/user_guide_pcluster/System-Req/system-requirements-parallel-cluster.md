@@ -56,7 +56,7 @@ Head node:
 
 Compute Node:
 
-* c5n.18xlarge 
+* c5n.18xlarge  (36 cpus)
 with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
@@ -105,7 +105,9 @@ Resources specified in the YAML file:
 https://aws.amazon.com/ec2/instance-types/c5/
 ```
 
-Note, pricing information in the tables below are subject to change. The links from which this pricing data was collected are listed below.
+```{note}
+Pricing information in the tables below are subject to change. The links from which this pricing data was collected are listed below.
+```
 
 ```<seealso>
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
