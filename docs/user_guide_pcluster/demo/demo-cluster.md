@@ -28,8 +28,6 @@ Requires the user to have a key.pair that was created on an ec2.instance
 
 #### Install AWS Parallel Cluster Command Line Interface on your local machine
 
-##### Instructions for LINUX
-
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
 ```{seealso}
@@ -44,7 +42,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-###### Follow the Parallel Cluster User Guide and install node.js
+##### Follow the Parallel Cluster User Guide and install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
@@ -54,7 +52,7 @@ nvm install node
 node --version
 ```
 
-### Verify that AWS ParallelCluster is installed on local machine 
+##### Verify that AWS ParallelCluster is installed on local machine 
 
 Run pcluster version.
 
@@ -78,34 +76,6 @@ source ~/.nvm/nvm.sh
 Verify that the parallel cluster is working using:
 
 `pcluster version`
-
-
-#####  Instructions for Windows
-
-Use pip to install pcluster.
-
-```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-pip.html">Guide to install AWS CL3 using PIP</a>
-```
-
-Note, there are some additional instructions for adding pip3 to your path on Windows that you may need to follow (do not reinstall aws-parallel cluster).
-
-```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-windows.html">Guide to install AWS CL2 in Windows Environment</a>
-```
-
-You can verify that AWS ParallelCluster installed correctly by running pcluster version.
-
-`pcluster version`
-
-Output:
-
-```
-{
-"version": "3.1.2"
-}
-```
-
 
 
 ### Configure AWS Command line credentials on your local machine
