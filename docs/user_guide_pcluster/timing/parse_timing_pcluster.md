@@ -2,7 +2,7 @@
 
 ## Compare the timings for the CONUS Parallel Cluster Runs
 
-```{note]
+```{note}
 Parallel Cluster Configurations can impact the model run times.
 ```
 
