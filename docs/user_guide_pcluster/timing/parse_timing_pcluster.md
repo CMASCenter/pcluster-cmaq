@@ -19,11 +19,12 @@ The following configurations may impact the run time of the model.
 * Using different compute nodes   
 
    - [ ] c5n.18xlarge  (72 virtual cpus, 36 cpus) - with Elastic Fabric Adapter
-   - [ ] c5n.9xlarge   (36 virtual cpus, 18 cpus) - no Eleastic Fabric Adapter
+   - [ ] c5n.9xlarge   (36 virtual cpus, 18 cpus) - with Eleastic Fabric Adapter
+   - [ ] c5n.4xlarge   (16 virtual cpus, 4 cpus) - without Elastic Fabric Adapter
 
 * With and without SBATCH --exclusive option
 
-* With and without Elastic Fabric and Elastic Netaork Adapter turned on
+* With and without Elastic Fabric and Elastic Network Adapter turned on
 
 * With and without network placement turned on
 
