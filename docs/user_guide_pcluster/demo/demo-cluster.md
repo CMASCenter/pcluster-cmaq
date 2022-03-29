@@ -240,6 +240,6 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
  `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
 
 
-##### To learn more about the pcluster commands
-
+```{seealso}
  `pcluster --help`
+```
