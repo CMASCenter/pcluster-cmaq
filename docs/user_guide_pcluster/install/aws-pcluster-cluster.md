@@ -133,7 +133,11 @@ NodeName=queue1-dy-compute-resource-1-10 CoresPerSocket=1
 
 Before building the software, verify that you can update the compute nodes from the c5n.4xlarge to c5n.18xlarge 
 
-By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  Note - the provisioning of 10 c5n.18xlarge in one region may be difficult, so in practice, it is possible to obtain 8 c5n.18xlarge compute nodes, so 36 cpu/node x 8 nodes = 288 cpus.   
+By updating the compute node from a c5n.4xlarge (max 8 cpus per compute node)  to c5n.18xlarge (max 36 cpus per compute node) would allow the benchmark case to be run on up to 360 cpus ( 36 cpu/node x 10 nodes ).  
+
+```{note}
+Provisioning 10 c5n.18xlarge in one region may be difficult. In practice, it is possible to obtain 8 c5n.18xlarge compute nodes, with 36 cpu/node x 8 nodes = 288 cpus.   
+```
 
 ```{note}
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line.
@@ -159,21 +163,25 @@ For this reason, a yaml file that contains these advanced options to support the
 keep rechecking until you see the following status "computeFleetStatus": "STOPPED",
 
 
-### The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains additional settings than the YAML file that used the c5n.4xlarge as the compute node.
+### Examine the differences between YAML files
 
-NOTE:
+The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains additional settings than the YAML file that used the c5n.4xlarge as the compute node.
 
+```{note}
 1. the c5n-18xlarge.yaml is configured to use SPOT instance pricing for the compute nodes.
 2. the c5n-18xlarge.yaml is configured to the the c5n-18xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
 3. the c5n-18xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (72 virtual cpus reduced to 36 cpus)
 4. the c5n-18xlarge.yaml is configured to enable the setting of a placement group to allow low inter-node latency
 5. the c5n-18xlarge.yaml is configured to enables the elastic fabric adapter
+```
 
 Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
 
 ![c5n-18xlarge yaml configuration](../../yml_plots/c5n-18xlarge-yaml.png)
 
-Note, the c5n-18xlarge yaml configuration file contains a setting for PlacementGroup.
+```{note}
+Notice that the c5n-18xlarge yaml configuration file contains a setting for PlacementGroup.
+```
 
 ```
 PlacementGroup:
