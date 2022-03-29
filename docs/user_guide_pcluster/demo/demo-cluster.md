@@ -42,7 +42,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-##### Follow the Parallel Cluster User Guide and install node.js
+##### Install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
