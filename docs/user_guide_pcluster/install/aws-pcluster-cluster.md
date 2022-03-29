@@ -1,4 +1,4 @@
-Advanced Tutorial
+Advanced Tutorial (optional)
 
 ## Use Parallel Cluster without Software and Data pre-installed
 
@@ -28,12 +28,12 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 
 ####  Edit the c5n-4xlarge.yaml
 
-NOTE: 
-
+```{note}
 1. the c5n-4xlarge.yaml is configured to use SPOT instance pricing for the compute nodes.
 2. the c5n-4xlarge.yaml is configured to the the c5n-4xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
 3. the c5n-4xlarge.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (16 virtual cpus reduced to 8 cpus)
 4. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 8 cpus x 10 = 80, the max settings for NPCOL, NPROW is NPCOL = 8, NPROW = 10 or NPCOL=10, NPROW=8 in the CMAQ run script.
+```
 
 
 `vi c5n-4xlarge.yaml`
