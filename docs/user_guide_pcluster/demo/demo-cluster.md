@@ -127,7 +127,9 @@ Input the following answers at each prompt:
 
 Beginning VPC creation. Please do not leave the terminal until the creation is finalized
 
-#### Note, the choice of operating system (specified during the yaml creation, or in an existing yaml file) determines what modules and gcc compiler versions are available.
+```{note}
+The choice of operating system (specified during the yaml creation, or in an existing yaml file) determines what modules and gcc compiler versions are available.
+```
 
 1. Centos7 has an older gcc version 4
 2. Ubuntu2004 has gcc version 9+
