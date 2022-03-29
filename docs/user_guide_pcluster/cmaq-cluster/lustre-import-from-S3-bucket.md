@@ -46,7 +46,9 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.l
 
 This Yaml file specifies the /shared directory that contains the CMAQv5.3.3 and libraries, and the input data that will be imported from an S3 bucket to the /fsx lustre file system
 
-Note - you need to edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+```{note}
+Edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+```
 
 `vi c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -257,8 +259,10 @@ If a run script is missing or outdated, copy the run scripts from the repo.
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-Note, the time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used.
+```{note}
+The time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used.
 See Table 1.6 Benchmark Timing Results in [this chapter](../System-Req/system-requirements-parallel-cluster.md) for reference.
+```
 
 Examine how the run script is configured
 
@@ -279,7 +283,9 @@ Output:
 #SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log
 ```
 
-Note that in this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
+```{note}
+In this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
+```
 
 Verify that the NPCOL and NPROW settings in the script are configured to match. 
 In this case, to run CMAQ using on 256 cpus, use NPCOL=16 and NPROW=16.
@@ -314,7 +320,9 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  1    queue1     CMAQ   ubuntu PD       0:00      8 (BeginTime)
 ```
 
-Note if you see the following message, you may want to submit a job that requires fewer PEs.
+```{note}
+if you see the following message, you may want to submit a job that requires fewer PEs.
+```
 
 ```
 ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
@@ -322,8 +330,9 @@ ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
                  1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
 
+```{note}
 If you repeatedly see that the job is not successfully provisioned, cancel the job.
-
+```
 
 `scancel `
 
@@ -334,7 +343,6 @@ Try submitting a smaller job to the queue.
 Or, you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
 
 To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND.
-
 
 `pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -354,7 +362,7 @@ Output:
     {
       "parameter": "Scheduling.SlurmQueues[queue1].CapacityType",
       "requestedValue": "ONDEMAND",
-      "currentValue": "SPOT"
+      "currentValue": "SPOT"                                      <<<  Modify to use ONDEMAND
     }
   ]
 }
@@ -399,8 +407,9 @@ Submit a new job
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
-
-Note, If you still have difficulty running a job in the slurm queue, there may be other issues that need to be resolved.
+```{note}
+If you still have difficulty running a job in the slurm queue, there may be other issues that need to be resolved.
+```
 
 Verify that your IAM Policy has been created for your account.
 
@@ -415,7 +424,9 @@ Check to view any errors in the log on the parallel cluster
 
  An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
 
+```{note}
 If you encounter this error, you will need to submit a request to increase this spot instance limit using the AWS Website.
+```
 
 
 Try to submit a 72 pe job 2 nodes x 36 cpus
@@ -460,7 +471,9 @@ Num  Day        Wall Time
 ```
 
 
-Note - the following jobs were submitted using different configuration options on the Parallel Cluster. The record of these jobs is included for you to review, but it is not required to re-submit all of these benchmarks as part of this tutorial.
+```{note}
+The following jobs were submitted using different configuration options on the Parallel Cluster. The record of these jobs is included for you to review, but it is not required to re-submit all of these benchmarks as part of this tutorial.
+```
 
 `sbatch run_cctm_2016_12US2.108pe.3x36.pcluster.csh`
 
