@@ -14,3 +14,13 @@
 
 For AWS Parallel Cluster you can create a GitHub issue for feedback or issues: <a href="https://github.com/aws/aws-parallelcluster/issues">Github Issues</a>
 There is also an active community driven Q&A site that may be helpful: <a href="https://repost.aws/">AWS re:Post a community-driven Q&A site</a>
+
+## Tips to managing the parallel cluster
+
+1. The head node can be stopped from the AWS Console after stopping compute nodes of the cluster, as long as it is restarted before issuing the command to restart the cluster.
+2. The pcluster slurm queue system will create and delete the compute nodes, so that helps reduce manual cleanup for the cluster.
+3. The compute nodes are terminated after they have been idle for a period of time. The yaml setting used for this is as follows: SlurmSettings: ScaledownIdletime: 5
+4. The default idle time is 10 minutes, and can be reduced by specifing a shorter idle time in the YAML file.  It is important to verify that the are deleted after a job is finished, to avoid incurring unexpected costs.
+5. copy/backup the outputs and logs to an s3 bucket for follow-up analysis
+6. After copying output and log files to the s3 bucket the cluster can be deleted
+7. Once the pcluster is deleted all of the volumes, head node, and compute node will be terminated, and costs will only be incurred by the S3 Bucket storage.
