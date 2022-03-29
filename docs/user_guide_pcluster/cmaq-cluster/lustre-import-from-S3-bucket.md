@@ -161,7 +161,9 @@ replace your-key.pem with your Key Name
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
-## Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the snapshot
+## Verify Software
+
+The software is pre-loaded on the /shared volume of the Parallel Cluster.  The software was previously loaded and saved to the snapshot.
 
 `ls /shared/build`
 
@@ -191,7 +193,9 @@ Load the modules openmpi and libfabric
 `module load libfabric-aws/1.13.2amzn1.0`
 
 
-## Verify that the input data was imported from the S3 bucket
+## Verify Input Data
+
+The input data was imported from the S3 bucket to the lustre file system (/fsx).
 
 `cd /fsx/12US2`
 
