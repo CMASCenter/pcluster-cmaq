@@ -1,4 +1,6 @@
-## Install, Build and Run CMAQ and Libraries on Parallel Cluster
+Advanced Tutorial
+
+## Use Parallel Cluster without Software and Data pre-installed
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 
