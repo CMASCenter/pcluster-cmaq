@@ -168,7 +168,7 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 
 Figure 2. Scaling on C5n.18xlarge Compute Nodes
 
-![Scaling Plot for C5n.18xlarge Compute Nodes](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
+![Scaling Plot for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
 
 
 
