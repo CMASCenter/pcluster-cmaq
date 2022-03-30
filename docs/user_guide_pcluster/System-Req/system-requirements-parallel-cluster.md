@@ -166,6 +166,12 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76  |     2301.77  | .32        |  yes               |  imported   |  true        |             |   | 1.1732/hr * 8nodes * 2301.77=$6.00 | $19.46 |
 | 360           | 10x36          | 18x20         |   unable to provision  |                 |            |                     |                    |  imported   |  true        |    yes         |       |        |
 
+Figure 2. Scaling on C5n.18xlarge versus Perfect Scaling
+
+![Scaling Plot for C5n.18xlarge Compute Nodes](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
+
+
+
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
 | Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| with -march=native | Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing |
