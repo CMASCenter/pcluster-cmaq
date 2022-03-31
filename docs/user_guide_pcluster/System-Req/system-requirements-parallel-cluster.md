@@ -98,8 +98,9 @@ If you submit a slurm job requesting more nodes than are available in the region
 In the scaling tables below, this is indicated as "Unable to provision".
 ```
 
-
+```{seealso}
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
+```
 
 Each vCPU is a hardware hyperthread on the Intel Xeon Platinum 8000 series processor. You get full control over the C-states on the two largest sizes, allowing you to run a single core at up to 3.5 Ghz using Intel Turbo Boost Technology.
 
@@ -126,19 +127,19 @@ https://aws.amazon.com/ec2/instance-types/c5/
 Pricing information in the tables below are subject to change. The links from which this pricing data was collected are listed below.
 ```
 
-```<seealso>
+```{seealso}
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">AWS c5n Pricing</a>
 ```
 
-```<seealso>
+```{seealso}
 <a href="https://aws.amazon.com/ec2/spot/pricing/">EC2 SPOT Pricing</a>
 ```
 
-```<seealso>
+```{seealso}
 <a href="https://aws.amazon.com/ec2/pricing/on-demand">EC2 On-Demand Pricing</a>
 ```
 
-```<seealso>
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel Cluster</a>
 ```
 
@@ -252,8 +253,9 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 | 2 day CONUS    |  288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $3.888 = $3606.9 |
 
 
-
+```{seealso}
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
+```
 
 
 Table 4. Lustre SSD File System Pricing for us-east-1 region
@@ -267,8 +269,10 @@ Table 4. Lustre SSD File System Pricing for us-east-1 region
 | Scratch      | 200/MB/s/TiB      |    $0.070 	                               |        $0.140/month |	
 
 Note, there is a difference in the storage sizing units that were obtained from AWS. 
-See the following article for additional information:
+
+```{seealso}
 <a href="https://www.techtarget.com/searchstorage/definition/tebibyte-TiB#:~:text=Tebibyte%20vs.&text=One%20tebibyte%20is%20equal%20to,when%20talking%20about%20storage%20capacity">TB vs TiB</a>
+```
 
 One tebibyte is equal to 240 or 1,099,511,627,776 bytes. 
 One terabyte is equal to 1012 or 1,000,000,000,000 bytes. 
@@ -277,7 +281,9 @@ That's about a 10% difference between the size of a tebibyte and a terabyte, whi
 
 Lustre Scratch SSD 200 MB/s/TiB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
+```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">YAML FSxLustreSettings</a>
+```
 
 Cost example:
     0.14 USD per month / 730 hours in a month = 0.00019178 USD per hour
@@ -322,7 +328,9 @@ To reduce storage requirements; after the CMAQ run is completed for each month, 
 
 Estimate for S3 Bucket cost for storing an annual simulation
 
+```{seealso}
 <a href="https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4">S3 Storage Pricing Tiers</a>
+```
 
 | S3 Standard - General purpose storage |    Storage Pricing  |
 | ------------------------------------  |    --------------   |
