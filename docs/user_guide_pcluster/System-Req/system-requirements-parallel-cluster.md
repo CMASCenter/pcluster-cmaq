@@ -56,10 +56,12 @@ Head node:
 
 Compute Node:
 
-* c5n.9xlarge (16 cpus )
+* c5n.9xlarge (16 cpus/node with Multithreading disabled)
 with 96 GiB memory, 50 Gbps Network Bandwidth, 9,500 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
+
 or
-* c5n.18xlarge  (36 cpus)
+
+* c5n.18xlarge  (36 cpus/node with Multithreading disabled)
 with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
@@ -78,11 +80,15 @@ AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple 
 
 Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  
 
-For c5n.18xlarge, there are 36 CPUs, so maximum value of YY is 36 or --ntask-per-node=36.  
+For c5n.18xlarge, there are 36 CPUs/node, so maximum value of YY is 36 or --ntask-per-node=36.  
 
 If running a job with 180 processors, this would require the --nodes=XX or XX to be set to 5 compute nodes, as 36x5=180.  
 
 The setting for NPCOLxNPROW must also be a maximum of 180, ie. 18 x 10 or 10 x 18 to use all of the CPUs in the parallel cluster.
+
+For c5n.9xlarge, there are 18 CPUS/node, so maximum value of YY is 18 or --ntask-per-node=18.
+
+If running a job with 180 processors, this would require the --nodes=XX or XX to be set to 10 compute nodes, as 18x10=180.
 
 ```{note}
 If you submit a slurm job requesting more nodes than are available in the region, then you will get the following message when you use the squeue command under NODELIST(REASON): (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partition)
