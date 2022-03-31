@@ -159,6 +159,13 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 | c5n.18xlarge	| 72	| 192 GiB   |	14 Gbps	        | 100 Gbps          |   $3.888/hour         | $1.1732/hour     |
 
 Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing.
+Using c5n.9xlarge as the compute node, it costs ($1.944/hr)/($0.5971/hr) = 3.25 times as much to run on demand versus spot pricing.
+
+```{note}
+Sometimes, the nodes are not available for SPOT pricing in the region you are using. 
+If this is the case, the job will not start runnning in the queue, see AWS Troubleshooting. 
+https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
+```
 
 ## Benchmark Timing Results
 
