@@ -119,7 +119,7 @@ Resources specified in the YAML file:
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.9xlarge and c5n.18xlarge
 
-```<seealso>
+```{seealso}
 https://aws.amazon.com/ec2/instance-types/c5/
 ```
 
