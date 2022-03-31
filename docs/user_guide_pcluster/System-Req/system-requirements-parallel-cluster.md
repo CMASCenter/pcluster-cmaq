@@ -250,6 +250,10 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 | 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   .5971/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $.5971/hr = $856|
 | 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $1.944/hr = $2788.8 |
 
+```{note}
+These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as long as the scaling is good.
+```
+
 
 ```{seealso}
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
