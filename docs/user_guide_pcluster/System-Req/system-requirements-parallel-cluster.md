@@ -245,10 +245,10 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 |  
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |
-| 2 day CONUS    |  c5n.18xlarge | 288          |          8       |    SPOT    |    1.1732/hour |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $1.1732 = $1088.4 |
-| 2 day CONUS    |  c5n.18xlarge | 288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 * $3.888 = $3606.9 |
-| 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   .5971/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 * .5971 = $856|
-| 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = $1434.6* $1.944 = $2788.8 |
+| 2 day CONUS    |  c5n.18xlarge | 288          |          8       |    SPOT    |    1.1732/hour |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7hr * $1.1732/hr = $1088.4 |
+| 2 day CONUS    |  c5n.18xlarge | 288          |          8       |  ONDEMAND  |    3.888/hour   |     2287.64/3600 = .635455  |    .635455/2 * 365 = 115.97 hours/node * 8 nodes = 927.7 hr * $3.888/hr = $3606.9 |
+| 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   .5971/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $.5971/hr = $856|
+| 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $1.944/hr = $2788.8 |
 
 
 ```{seealso}
