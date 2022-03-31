@@ -56,8 +56,11 @@ Head node:
 
 Compute Node:
 
+* c5n.9xlarge (16 cpus )
+with 96 GiB memory, 50 Gbps Network Bandwidth, 9,500 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
+or
 * c5n.18xlarge  (36 cpus)
-with 192 GiB memory, 14 Gbps EBS Bandwidth, and 100 Gbps Network Bandwidth
+with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
@@ -71,7 +74,7 @@ The Parallel Cluster allows you to run the compute nodes only as long as the job
 
 ### Slurm Compute Node Provisioning
 
-AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions.
+AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions. The YAML file for Parallel Cluster is used to set the identity of the head node and the compute node, and the maximum number of machines that can be submitted to the queue.  
 
 Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  
 
@@ -80,6 +83,11 @@ For c5n.18xlarge, there are 36 CPUs, so maximum value of YY is 36 or --ntask-per
 If running a job with 180 processors, this would require the --nodes=XX or XX to be set to 5 compute nodes, as 36x5=180.  
 
 The setting for NPCOLxNPROW must also be a maximum of 180, ie. 18 x 10 or 10 x 18 to use all of the CPUs in the parallel cluster.
+
+```{note}
+If you submit a slurm job requesting more nodes than are available in the region, then you will get the following message when you use the squeue command under NODELIST(REASON): (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partition)
+In the scaling tables below, this is indicated as "Unable to provision".
+```
 
 
 <a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
