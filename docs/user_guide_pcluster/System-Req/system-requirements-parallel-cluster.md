@@ -160,8 +160,12 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 | c6gn.16xlarge | 64	| 128 GiB   |                   |  100 Gbps         |   $2.7648/hour        | $0.6385/hour     |	
 
 
-Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing.
-Using c5n.9xlarge as the compute node, it costs ($1.944/hr)/($0.5971/hr) = 3.25 times as much to run on demand versus spot pricing.
+Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand pricing.
+
+Using c5n.9xlarge as the compute node, it costs ($1.944/hr)/($0.5971/hr) = 3.25 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand prici
+ng.
+
+Using c6gn.16xlarge as the compute node, it costs ($2.7648/hr)/(.6385/hr) = 4.3 times as much to run on demand versus spot pricing. Savings is 77% for SPOT versus ondemand pricing for this instance type.
 
 ```{note}
 Sometimes, the nodes are not available for SPOT pricing in the region you are using. 
