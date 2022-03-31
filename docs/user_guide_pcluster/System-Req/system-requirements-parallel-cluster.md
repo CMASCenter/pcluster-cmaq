@@ -41,9 +41,12 @@ Software on Local Computer
 * Windows - MobaXterm  - to connect to Parallel Cluster IP address
 
 ### AWS CLI v3.0 AWS Region Availability
-Note, the scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
 
+
+```{note}
+The scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
+```
 
 
 ##  Parallel Cluster Configuration for CONUS Domain
@@ -76,7 +79,7 @@ The Parallel Cluster allows you to run the compute nodes only as long as the job
 
 ### Slurm Compute Node Provisioning
 
-AWS ParallelCluster doesn't make job allocation or scaling decisions. It simple tries to launch, terminate, and maintain resources according to Slurm’s instructions. The YAML file for Parallel Cluster is used to set the identity of the head node and the compute node, and the maximum number of machines that can be submitted to the queue.  
+AWS ParallelCluster relies on SLURM to make the job allocation and scaling decisions. The jobs are launched, terminated, and resources maintained according to the Slurm instructions in the CMAQ run script. The YAML file for Parallel Cluster is used to set the identity of the head node and the compute node, and the maximum number of machines that can be submitted to the queue.  
 
 Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  
 
