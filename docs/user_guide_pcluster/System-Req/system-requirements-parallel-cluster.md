@@ -49,7 +49,18 @@ The scripts in this tutorial use the us-east-1 region, but the scripts can be mo
 ```
 
 
-##  Parallel Cluster Configuration for CONUS Domain
+
+### CONUS 12US2 Domain Description
+
+```
+GRIDDESC
+'12US2'
+'12CONUS'     -2412000.0 -1620000.0 12000.0 12000.0 396 246 1
+```
+![CMAQ Domain](../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
+
+
+##  Parallel Cluster Configuration for CONUS 12US2 Domain
 
 Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
