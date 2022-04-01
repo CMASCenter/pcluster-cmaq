@@ -276,7 +276,7 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 | 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |  ONDEMAND    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $1.944/hr = $2788.8 |
 
 ```{note}
-These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as the CONUS 12US1 Domain Benchmark scales well up to this number of nodes.
+These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as the CONUS 12US2 Domain Benchmark scales well up to this number of nodes.
 ```
 
 
