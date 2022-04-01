@@ -58,7 +58,7 @@ GRIDDESC
 '12CONUS'     -2412000.0 -1620000.0 12000.0 12000.0 396 246 1
 ```
 
-![CMAQ Domain](../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
+![CMAQ Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
 
 
 ##  Parallel Cluster Configuration for CONUS 12US2 Domain
