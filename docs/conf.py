@@ -37,7 +37,7 @@ extensions = ["myst_parser",
               "nbsphinx", "edit_on_github" #MyST-NB
 ]
 
-edit_on_github_project = 'CmasCenter'
+edit_on_github_project = 'CMASCenter/pcluster-cmaq'
 edit_on_github_branch = 'master'
 
 # Add any paths that contain templates here, relative to this directory.
