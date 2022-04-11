@@ -104,6 +104,8 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 ## Benchmark Timings
 
+Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xlarge (18 cpus per node)
+
 ### Benchmark Timing Results for c5n.18xlarge
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
@@ -147,23 +149,25 @@ Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 180            |  10x18          | 10x18        | unable to provision          |     |               |                    |          |                 |                    |                   |        |  |
 
 
-## Benchmark Scaling Plots
+# Benchmark Scaling Plots
 
-### Benchmark Scaling Plot for c5n.18xlarge
+## Benchmark Scaling Plot for c5n.18xlarge
 
 Figure 2. Scaling on C5n.18xlarge Compute Nodes (36 cpu/node)
 
 ![Scaling Plot for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
 
 
-### Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
+## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
 Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
 
-## Cost Information 
+# Cost Information 
+
+Cost information is available within the AWS Web Console for your account as you use resources, and there are also ways to forecast your costs using the pricing information available from AWS.
 
 ### Cost Explorer
 
@@ -315,7 +319,7 @@ Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and
 31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
 
 
-## Recommended Workflow for extending to annual run
+# Recommended Workflow for extending to annual run
 
 Post-process monthly save output and/or post-processed outputs to S3 Bucket at the end of each month.
 
