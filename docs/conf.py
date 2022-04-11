@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('_ext'))
 # -- Project information -----------------------------------------------------
 
 project = 'pcluster-cmaq'
-copyright = '2022, Liz Adams'
+copyright = '2022, CMAS Center'
 author = 'Liz Adams'
 html_logo = 'CMAQLogo.jpg'
 github_url = 'https://github.com/CMASCenter/pcluster-cmaq'
