@@ -31,7 +31,9 @@ The AWS ParallelCluster may be configured to be the equivalent of a High Perform
 Additional information on AWS ParallelCluster:
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">AWS ParallelCluster documentation</a>
+
 <a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
+
 <a href="https://repost.aws/tags/TAjBvP4otfT3eX8PswbXo9AQ">AWS HPC discussion forum</a>
 
 
