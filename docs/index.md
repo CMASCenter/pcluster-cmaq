@@ -10,6 +10,30 @@
 This documentation is under heavy development
 ```
 
+## Overview
+
+This document provides tutorials and information on using the ParallelCluster on Amazon Web Service (AWS). The tutorials are aimed at users with cloud computing experience that are already familiar with Amazong Web Service (AWS).  For those with no cloud computing experience we recommend the Beginner Tutorial provided by GEOS-Chem as well as the Additional Resources listed in section 11 of this document.
+
+ 
+
+## Format of this documentation
+
+This document provides three hands-on tutorials that are designed to be read in order.  The Introductory Tutorial will walk you through creating a demo ParallelCluster.  You will learn how to set up your AWS Identity and Access Management Roles, configure and create a demo cluster, and terminate and delete the cluster.  The Intermedial Tutorial steps you through running a CMAQ test case on ParallelCluster using pre-loaded software and input data.  The Advanced Tutorial explains how to scale the ParallelCluster for larger compute jobs and install CMAQ and required libraries from scratch on the cloud.  The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.
+
+ 
+
+## Why might I need to use ParallelCluster? ( I just pulled this text from section 4.1.1. of your June 2021 report)
+
+The AWS ParallelCluster may be configured to be the equivalent of a High Performance Computing (HPC) environment, including using job schedulers such as Slurm, running on multiple nodes using code compiled with Message Passing Interface (MPI), and reading and writing output to a high performance, low latency shared disk.  The advantage of using the AWS ParallelCluster command line interface is that the compute nodes can be easily scaled up or down to match the compute requirements of a given simulation. In addition, the user can reduce costs by using Spot instances rather than On-Demand for the compute nodes. ParallelCluster supports submitting multiple jobs to the job submission queue.
+
+ 
+
+Additional information on AWS ParallelCluster:
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">AWS ParallelCluster documentation</a>
+<a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
+<a href="https://repost.aws/tags/TAjBvP4otfT3eX8PswbXo9AQ">AWS HPC discussion forum</a>
+
 
 ```{toctree}
    :numbered: 3
