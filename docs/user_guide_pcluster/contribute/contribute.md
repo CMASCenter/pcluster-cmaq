@@ -4,7 +4,7 @@ Please take note of any issues and submit to <a href="https://github.com/lizadam
 
 ```{note}
 At the top of each page of the documentation, there is also an pencil icon, that you can click.
-It will create a fork of the project on your github account that you can make edits and then submit a poll request.
+It will create a fork of the project on your github account that you can make edits and then submit a pull request.
 ```
 ![Figure with Pencil: Edit this Page Icon](./Edit_this_page_icon.png)
 
