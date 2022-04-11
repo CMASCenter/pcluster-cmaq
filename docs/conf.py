@@ -21,7 +21,7 @@ project = 'pcluster-cmaq'
 copyright = '2022, Liz Adams'
 author = 'Liz Adams'
 html_logo = 'CMAQLogo.jpg'
-#github_url = https://github.com/CMASCenter/pcluster-cmaq
+github_url = 'https://github.com/CMASCenter/pcluster-cmaq'
 
 
 # -- General configuration ---------------------------------------------------
