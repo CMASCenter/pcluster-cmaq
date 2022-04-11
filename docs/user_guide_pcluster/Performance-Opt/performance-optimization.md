@@ -102,7 +102,7 @@ If this is the case, the job will not start runnning in the queue, see AWS Troub
 https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 ```
 
-## Benchmark Timing Results
+## Benchmark Timing Results for c5n.18xlarge
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -126,11 +126,15 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76  |     2301.77  | .32        |  yes               |  imported   |  true        |             |   | 1.1732/hr * 8nodes * 2301.77=$6.00 | $19.46 |
 | 360           | 10x36          | 18x20         |   unable to provision  |                 |            |                     |                    |  imported   |  true        |    yes         |       |        |
 
+
+# Benchmark Scaling Plot for c5n.18xlarge
+
 Figure 2. Scaling on C5n.18xlarge Compute Nodes (36 cpu/node)
 
 ![Scaling Plot for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
 
 
+# Benchmark Timing Results for c5n.9xlarge
 
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes using /shared volume
 
@@ -148,6 +152,7 @@ Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 180            |  10x18          | 10x18        | unable to provision          |     |               |                    |          |                 |                    |                   |        |  |
 
 
+# Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
 Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
