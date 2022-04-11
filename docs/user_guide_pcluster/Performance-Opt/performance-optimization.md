@@ -102,7 +102,9 @@ If this is the case, the job will not start runnning in the queue, see AWS Troub
 https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 ```
 
-## Benchmark Timing Results for c5n.18xlarge
+## Benchmark Timings
+
+# Benchmark Timing Results for c5n.18xlarge
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -127,14 +129,7 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 360           | 10x36          | 18x20         |   unable to provision  |                 |            |                     |                    |  imported   |  true        |    yes         |       |        |
 
 
-# Benchmark Scaling Plot for c5n.18xlarge
-
-Figure 2. Scaling on C5n.18xlarge Compute Nodes (36 cpu/node)
-
-![Scaling Plot for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
-
-
-# Benchmark Timing Results for c5n.9xlarge
+### Benchmark Timing Results for c5n.9xlarge
 
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes using /shared volume
 
@@ -152,13 +147,23 @@ Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 180            |  10x18          | 10x18        | unable to provision          |     |               |                    |          |                 |                    |                   |        |  |
 
 
-# Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
+## Benchmark Scaling Plots
+
+### Benchmark Scaling Plot for c5n.18xlarge
+
+Figure 2. Scaling on C5n.18xlarge Compute Nodes (36 cpu/node)
+
+![Scaling Plot for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
+
+
+### Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
 Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
 
+## Cost Explorer
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the Parallel Cluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
@@ -180,7 +185,9 @@ Figure 6. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
-## Compute Node Cost Estimate
+## Cost Estimates
+
+### Compute Node Cost Estimate
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
