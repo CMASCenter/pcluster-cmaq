@@ -1,4 +1,4 @@
-# Performance Optimization
+Performance Optimization
 
 ## Right-sizing Compute Nodes for the Parallel Cluster Configuration
 
