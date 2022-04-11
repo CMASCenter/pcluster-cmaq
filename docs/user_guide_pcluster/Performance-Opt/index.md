@@ -1,8 +1,8 @@
 (myst-sphinx)=
 
-# System Requirements 
+# Performance Optimization 
 
-Description of the compute node and head nodes used for the Parallel Cluster
+Timing information and scaling plots to assist users in optimizing the performance of their parallel cluster.
 
 ```{toctree}
 performance-optimization.md
