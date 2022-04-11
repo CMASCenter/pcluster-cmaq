@@ -104,7 +104,7 @@ https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
 
 ## Benchmark Timings
 
-# Benchmark Timing Results for c5n.18xlarge
+### Benchmark Timing Results for c5n.18xlarge
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -163,9 +163,9 @@ Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (3
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
 
-# Cost Information 
+## Cost Information 
 
-## Cost Explorer
+### Cost Explorer
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the Parallel Cluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
@@ -188,7 +188,7 @@ Figure 6. Cost by Service Type - AWS Console
 ![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
 
-## Compute Node Cost Estimate
+### Compute Node Cost Estimate
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
@@ -209,7 +209,7 @@ Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation
 These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as the CONUS 12US2 Domain Benchmark scales well up to this number of nodes.
 ```
 
-## Storage Cost Estimate
+### Storage Cost Estimate
 
 ```{seealso}
 <a href="https://aws.amazon.com/fsx/lustre/pricing/">AWS Lustre Pricing</a>
