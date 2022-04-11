@@ -1,12 +1,12 @@
-## Performance Optimization
+# Performance Optimization
 
-### Right-sizing Compute Nodes for the Parallel Cluster Configuration
+## Right-sizing Compute Nodes for the Parallel Cluster Configuration
 
 The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
 Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
 
-### Slurm Compute Node Provisioning
+## Slurm Compute Node Provisioning
 
 AWS ParallelCluster relies on SLURM to make the job allocation and scaling decisions. The jobs are launched, terminated, and resources maintained according to the Slurm instructions in the CMAQ run script. The YAML file for Parallel Cluster is used to set the identity of the head node and the compute node, and the maximum number of machines that can be submitted to the queue.  
 
@@ -175,7 +175,7 @@ Figure 6. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
-### Compute Node Cost Estimate
+## Compute Node Cost Estimate
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
