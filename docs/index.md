@@ -12,7 +12,7 @@ This documentation is under heavy development
 
 ## Overview
 
-This document provides tutorials and information on using the ParallelCluster on Amazon Web Service (AWS). The tutorials are aimed at users with cloud computing experience that are already familiar with Amazong Web Service (AWS).  For those with no cloud computing experience we recommend the Beginner Tutorial provided by GEOS-Chem as well as the Additional Resources listed in section 11 of this document.
+This document provides tutorials and information on using the ParallelCluster on Amazon Web Service (AWS). The tutorials are aimed at users with cloud computing experience that are already familiar with Amazong Web Service (AWS).  For those with no cloud computing experience we recommend the <a href="https://cloud-gc.readthedocs.io/en/latest/chapter06_appendix/index.html">Beginner Tutorial</a> provided by GEOS-Chem as well as the Additional Resources listed in section 11 of this document.
 
  
 
