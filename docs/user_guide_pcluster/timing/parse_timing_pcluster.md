@@ -54,6 +54,6 @@ Timing Plot Comparing GCC run on 8 x 8 pe versus 8 x 16 pe
 
 ![gcc_8x8_vs_8x16](../../qa_plots/timing_plots/gcc_8x8_vs_8x16.png)
 
-Timing Plot Comparing GCC run on 8 x 9 pe versus 9 x 8 pe
+Timing Plot Comparing GCC run on 9 x 8 pe versus 8 x 9 pe
 
 ![gcc_9x8_vs_8x9](../../qa_plots/timing_plots/gcc_9x8pe_8x9pe.png)
