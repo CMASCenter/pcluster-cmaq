@@ -1,0 +1,52 @@
+site_name: cmaq_cloud
+nav:
+    - Home: 'index.md'
+    - User Guide for AWS Parallel Cluster:
+        - '1 Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
+        -  AWS Parallel Cluster Configure using AWS CLI 3.0 YAML file:
+            - '2 Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
+            - '3 Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
+        - CMAQ Benchmark Option 1:
+            - '4 Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
+        - CMAQ Benchmark Option 2:
+            - '5 Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
+            - '6 Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
+            - '7 Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
+        -  AWS Parallel Cluster Post-Processing and QA:
+            - '8 Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
+            - '9 Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
+            - '10 QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
+            - '11 Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
+        - 12 How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
+        -  Logout and Delete Parallel Cluster:
+            - '13 Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
+    - User Guide for Cycle Cloud:
+        - '1 Description of MVP for Azure CycleCloud': 'user_guide_cyclecloud/system-requirements-cyclecloud.md'
+        - 2 Azure CycleCloud Cluster Configure using Azure Web Interface:
+             - '2.1 Azure CycleCloud Cluster': 'user_guide_cyclecloud/azure-cyclecloud-cluster.md'
+        - 3 CMAQ CONUS Benchark Option 1:
+             - '3.1 Install CMAQ on Cycle Cloud': 'user_guide_cyclecloud/software-install-cyclecloud.md'
+             - '3.2 Install Input Data': 'user_guide_cyclecloud/input-data-install_cyclecloud.md'
+             - '3.3 Run CMAQ CONUS Benchmark on Cycle Cloud': 'user_guide_cyclecloud/run-cmaq-benchmark-cyclecloud.md'
+        - 4 CMAQ CONUS Benchmark Option 2:
+             - '4.1 Run CMAQ CONUS Benchmark from pre-installed Azure volume': 'user_guide_cyclecloud/preinstall.md'
+        - 5 Azure CycleCloud Post-Processing and QA:
+             - '5.1 Compile and Run Post-processors': 'user_guide_cyclecloud/post-process-cyclecloud.md'
+             - '5.2 Compare timings': 'user_guide_cyclecloud/parse_timing_cyclecloud.md'
+             - '5.3 QA CMAQ Output': 'user_guide_cyclecloud/qa_cmaq_run_cyclecloud.md'
+             - '5.4 Saving Output': 'user_guide_cyclecloud/copy_output_to_archive_cyclecloud.md'
+        - 6 Logout and Delete CycleCloud:
+             - '6.1 Logout and Delete Cluster': 'user_guide_cyclecloud/logout_delete_cyclecloud.md'
+    - About:
+        - 'License': 'license.md'
+        - 'Release Notes': 'release-notes.md'
+    - Help:
+        - 'Parallel Cluster Support': 'help/pcluster_support.md'
+        - 'CMAQ Support': 'help/cmaq_support.md'
+        - 'AWS Free Training': 'help/aws-free-training.md'
+        - 'Key References on Cloud Computing': 'help/key-references.md'
+    - Future Work:
+        - 'Future Work': 'user_guide_pcluster/future_work.md'
+
+theme:
+  name: readthedocs
