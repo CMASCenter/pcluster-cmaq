@@ -330,25 +330,45 @@ ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
                  1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
 
-```{note}
-If you repeatedly see that the job is not successfully provisioned, cancel the job.
-```
+### If you repeatedly see that the job is not successfully provisioned, cancel the job.
 
-`scancel `
+To cancel the job use the following command
 
-Try submitting a smaller job to the queue.
+`scancel 1`
+
+### Try submitting a smaller job to the queue.
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
-Or, you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.
+### Check status of run
+
+`squeue `
+
+### Check to view any errors in the log on the parallel cluster
+
+`vi /var/log/parallelcluster/slurm_resume.log`
+
+ An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
+
+```{note}
+If you encounter this error, you will need to submit a request to increase this spot instance limit using the AWS Website.
+```
+
+
+### if the job will not run using SPOT pricing, then update the compute nodes to use ONDEMAND pricing
 
 To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND.
 
 `exit`
 
+
+### Stop compute nodes
+
 On your local computer use the following command to stop the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
+
+### Edit YAML file to change SPOT to ONDEMAND
 
 Edit the yaml file to modify SPOT to ONDEMAND, then update the cluster using the following command:
 
@@ -376,6 +396,8 @@ Output:
 }
 ```
 
+### Check status of updated cluster
+
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 Output:
@@ -390,12 +412,12 @@ once you see
   "clusterStatus": "UPDATE_COMPLETE"
 ```
 
-Restart the compute nodes
+### Restart the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 
-Verify that compute nodes have started
+## Verify that compute nodes have started
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -405,13 +427,13 @@ Output:
  "computeFleetStatus": "RUNNING",
 ```
 
-Re-login to the cluster
+### Re-login to the cluster
 
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
-Submit a new job
+### Submit a new job using ondemand compute nodes
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
@@ -426,18 +448,7 @@ Someone with administrative permissions should eable the spot instances IAM Poli
 An alternative way to enable this policy is to login to the EC2 Website and launch a spot instance.
 The service policy will be automatically created, that can then be used by Parallel Cluster.
 
-Check to view any errors in the log on the parallel cluster
-
-`vi /var/log/parallelcluster/slurm_resume.log`
-
- An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
-
-```{note}
-If you encounter this error, you will need to submit a request to increase this spot instance limit using the AWS Website.
-```
-
-
-Try to submit a 72 pe job 2 nodes x 36 cpus
+### Submit a 72 pe job 2 nodes x 36 cpus
 
 `sbatch run_cctm_2016_12US2.72pe.2x36.pcluster.csh`
 
