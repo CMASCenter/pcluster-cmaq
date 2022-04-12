@@ -84,5 +84,5 @@ with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
-![AWS Parallel Cluster Configuration](../../diagrams/aws_minimum_viable_product.png)
+![AWS Parallel Cluster Configuration](../../diagrams/aws_parallel_cluster_configuration.png)
 
