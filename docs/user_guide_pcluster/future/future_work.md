@@ -10,9 +10,8 @@
 * Create method to automatically checkpoint and save a job prior to it being bumped from the schedule if running on spot instances.
 * Set up an additional slurm queue that uses a smaller compute node to do the post-processing and learn how to submit the post processing jobs to this queue, rather than running them on the head node.
 
-
 <b>Documentation</b>
 
-* Add instructions for how to submit an issue to contribute/improve the github documentation.
+* Create instructions on how to create a parallel cluster using encrypted ebs volume and snapshot. 
 
 
