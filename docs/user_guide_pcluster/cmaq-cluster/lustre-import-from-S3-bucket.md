@@ -287,8 +287,8 @@ Output:
 In this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
 ```
 
-Verify that the NPCOL and NPROW settings in the script are configured to match. 
-In this case, to run CMAQ using on 256 cpus, use NPCOL=16 and NPROW=16.
+Verify that the NPCOL and NPROW settings in the script are configured to match what is being requested in the SBATCH commands that tell slurm how many compute nodes to  provision. 
+In this case, to run CMAQ using on 256 cpus (SBATCH --nodes=8 and --ntasks-per-node=32), use NPCOL=16 and NPROW=16.
 
 `grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
 
