@@ -1,4 +1,4 @@
-## Recommended Parallel Cluster configurations for running CMAQ on AWS Parallel Cluster
+## Configurations for running CMAQ on AWS Parallel Cluster
 
 ### Recommend that users set up a spending alarm using AWS 
 
