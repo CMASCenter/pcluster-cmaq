@@ -362,13 +362,10 @@ To do this, exit the cluster, stop the compute nodes, then edit the yaml file to
 `exit`
 
 
-### Stop compute nodes
-
 On your local computer use the following command to stop the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED`
 
-### Edit YAML file to change SPOT to ONDEMAND
 
 Edit the yaml file to modify SPOT to ONDEMAND, then update the cluster using the following command:
 
@@ -396,7 +393,7 @@ Output:
 }
 ```
 
-### Check status of updated cluster
+Check status of updated cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -412,12 +409,12 @@ once you see
   "clusterStatus": "UPDATE_COMPLETE"
 ```
 
-### Restart the compute nodes
+Restart the compute nodes
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 
-## Verify that compute nodes have started
+Verify that compute nodes have started
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -427,13 +424,13 @@ Output:
  "computeFleetStatus": "RUNNING",
 ```
 
-### Re-login to the cluster
+Re-login to the cluster
 
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
-### Submit a new job using ondemand compute nodes
+### Submit a new job using the updated ondemand compute nodes
 
 `sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
 
