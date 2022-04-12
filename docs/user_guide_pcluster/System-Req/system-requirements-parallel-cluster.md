@@ -1,9 +1,12 @@
-## Information on all the AWS options 
-Recommended Parallel Cluster configurations for running CMAQ on AWS Parallel Cluster
+## Recommended Parallel Cluster configurations for running CMAQ on AWS Parallel Cluster
 
-### Please set up a alarm on AWS 
+### Recommend that users set up a spending alarm using AWS 
 
 Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
+
+```{see also}
+<a href="https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets/">AWS Free Tier Budgets</a>
+```
 
 ## Software Requirements for CMAQ on AWS Parallel Cluster
 
