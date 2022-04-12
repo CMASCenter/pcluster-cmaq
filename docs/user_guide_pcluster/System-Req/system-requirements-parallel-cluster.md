@@ -67,6 +67,10 @@ GRIDDESC
 
 ##  Parallel Cluster Configuration for CONUS 12US2 Domain
 
+```{note}
+It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
+```
+
 Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
 Head node:
@@ -82,6 +86,20 @@ or
 
 * c5n.18xlarge  (36 cpus/node with Multithreading disabled)
 with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
+
+
+```{note}
+Additional best practice of allowing the Parallel Cluster to create a placement group .
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html>Network Performance</a>
+```
+
+This is specified in the yaml file in the slurm queue's network settings.
+
+```
+Networking:
+  PlacementGroup:
+    Enabled: true
+```
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
