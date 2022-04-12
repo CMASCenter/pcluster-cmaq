@@ -68,7 +68,9 @@ Output:
 }
 ```
 
-If you start a new terminal window, you need to acitvate the virtual environment using the following commands:
+```{note}
+If you start a new terminal window, you need to re-activate the virtual environment using the following commands:
+```
 
 ```
 source ~/apc-ve/bin/activate

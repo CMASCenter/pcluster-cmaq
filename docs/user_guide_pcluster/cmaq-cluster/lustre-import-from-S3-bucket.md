@@ -260,8 +260,8 @@ If a run script is missing or outdated, copy the run scripts from the repo.
 `cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 ```{note}
-The time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used.
-See Table 1.6 Benchmark Timing Results in [this chapter](../System-Req/system-requirements-parallel-cluster.md) for reference.
+The time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used, and the compute node that is being used.
+See Figure 3 Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge in [chapter 11](../Performance-Opt/performance-optimization.md) for reference.
 ```
 
 Examine how the run script is configured
