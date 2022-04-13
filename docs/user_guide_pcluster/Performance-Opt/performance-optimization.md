@@ -102,7 +102,7 @@ Using c6gn.16xlarge as the compute node, it costs ($2.7648/hr)/(.6385/hr) = 4.3 
 ```{note}
 Sometimes, the nodes are not available for SPOT pricing in the region you are using. 
 If this is the case, the job will not start runnning in the queue, see AWS Troubleshooting. 
-https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">Parallel Cluster Troubleshooting</a>
 ```
 
 ## Benchmark Timings
