@@ -149,7 +149,7 @@ Exit the cluster
 
 Re-login to the cluster
 
-`pcluster ssh -v -Y -i ~/[your-key].pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
 Test display
