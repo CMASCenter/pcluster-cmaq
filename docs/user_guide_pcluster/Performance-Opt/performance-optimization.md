@@ -129,7 +129,7 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 | 288           |  8x36          |  16x18        |  1976.35       | 1871.61   |   3847.96   | .53       |  no                |  copied     |  true   | yes |            | 1.1732/hr * 8nodes * 3847.96=$10.0 | $33.18 |
 | 288           |  8x36          | 16x18         |  1197.19       | 1090.45  |     2287.64  | .31        |  yes               |  copied     |  true   | yes |             16x18 matched 16x16 | 1.1732/hr * 8nodes * 2297.64=$5.99 | $19.81
 | 288           |  8x36          | 18x16         | 1206.01        | 1095.76  |     2301.77  | .32        |  yes               |  imported   |  true        |             |   | 1.1732/hr * 8nodes * 2301.77=$6.00 | $19.46 |
-| 360           | 10x36          | 18x20         |   unable to provision  |                 |            |                     |                    |  imported   |  true        |    yes         |       |        |
+| 360           | 10x36          | 18x20         |   Unable to provision  |                 |            |                     |                    |     |        |           |       |        |
 
 
 ### Benchmark Timing Results for c5n.9xlarge
