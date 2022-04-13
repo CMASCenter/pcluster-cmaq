@@ -91,7 +91,19 @@ with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and
 ```{note}
 Additional best practice of allowing the Parallel Cluster to create a placement group .
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html>Network Performance</a>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>Placement Groups</a>
 ```
+```{note}
+To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking. For more information, see Enhanced Networking.
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html">Enhanced Networking (ENA)</a>
+```
+
+```{note}
+Elastic Fabric Adapter(EFA)
+"EFA provides lower and more consistent latency and higher throughput than the TCP transport traditionally used in cloud-based HPC systems. It enhances the performance of inter-instance communication that is critical for scaling HPC and machine learning applications. It is optimized to work on the existing AWS network infrastructure and it can scale depending on application requirements." "An EFA is an Elastic Network Adapter (ENA) with added capabilities. It provides all of the functionality of an ENA, with an additional OS-bypass functionality. OS-bypass is an access model that allows HPC and machine learning applications to communicate directly with the network interface hardware to provide low-latency, reliable transport functionality."
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter(EFA)</a>
+```
+
 
 This is specified in the yaml file in the slurm queue's network settings.
 
