@@ -296,7 +296,6 @@ Use display to view the plots
 
 They are also displayed in the following plots:
 
-```
 Box Plot for ANO3J when NPCOL is identical 
 
 ![O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg](../../qa_plots/box_plots/6x6_vs_6x9/O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg)
@@ -342,6 +341,7 @@ SO2
 
 
 Example of Spatial Plots for when NPCOL is different
+Note, the differences are small, but they grow with time. There is one plot for each of the 24 hours.  The plot that contains the most differences will be in the bottom right of the panel for each species. You will need to zoom in to see the differences, as most of the grid cells do not have any difference, and they are displayed as grey. For the NO2 plot, you can see the most differences over the state of Pennsylvania at hour 12/22/2015 at hour 23:00, with the the magnitude of the maximum difference of +/- 4. E-6. 
 
 ```
 cd ../spatial_plots/12x9_vs_8x9
