@@ -2,7 +2,7 @@ Performance Optimization
 
 ## Right-sizing Compute Nodes for the Parallel Cluster Configuration
 
-Selecting of the compute nodes depends on the domain size and resolution for the CMAQ case, and what your model run time requirements are.
+Selection of the compute nodes depends on the domain size and resolution for the CMAQ case, and what your model run time requirements are.
 Larger hardware and memory configurations may also be required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain.
 
