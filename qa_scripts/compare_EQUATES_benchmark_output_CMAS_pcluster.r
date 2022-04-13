@@ -4,6 +4,7 @@ library(M3)
 
 # Script author: Kristen Foley
 # Affiliation: US EPA Office of Research and Development
+# Revisions: Christos Efstathiou, UNC
 
 
 #Some 'nice' color palettes.
@@ -16,15 +17,19 @@ my.diff.col <- function(n)c(my.col.cool1(n/2),my.col.warm1(n/2))
 output.dir <- "/shared/pcluster-cmaq/qa_scripts/qa_plots/"
 
 #Directory, file name, and label for first model simulation (sim1)
-sim1.label <- "EPA (v5.3.3 w/ GCC)"
+sim1.label <- "CMAQv533 12x9pe"
 sim1.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_12x9pe/"
 sim1.file <- paste0(sim1.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_12x9pe_20151222.nc")
 
 #Directory, file name, and label for second model simulation (sim2)
-sim2.label <- "CMAS (v5.3.3 w/ GCC)"
+sim2.label <- "CMAQv533 6x18pe"
 sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_6x18pe/"
 sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_6x18pe_20151222.nc")
 
+#Remove spaces and special characters (parentheses and backslash) from simulation 1 and 2 labels
+#so that they can be used in the .pdf and .jpeg file names.
+sim1.label.simple <- gsub(" |\\(|\\)|/","",sim1.label)
+sim2.label.simple <- gsub(" |\\(|\\)|/","",sim2.label)
 
 #Flags for toggling on or off different comparsions.
 #SAVE.DIFFERENCES: Data frame with max difference between sim1 and sim2 across all 
@@ -149,8 +154,8 @@ for(species.name in species.compare.list){
   
   #Remove spaces and special characters (parentheses and backslash) from simulation 1 and 2 labels 
   #so that they can be used in the .pdf and .jpeg file names.
-  sim1.label.simple <- gsub(" |\\(|\\)|/","",sim1.label)
-  sim2.label.simple <- gsub(" |\\(|\\)|/","",sim2.label)
+  #sim1.label.simple <- gsub(" |\\(|\\)|/","",sim1.label)
+  #sim2.label.simple <- gsub(" |\\(|\\)|/","",sim2.label)
   
   jpeg(paste0(output.dir,species.name,"_BOXPLOT_",sim1.label.simple,"_vs_",sim2.label.simple,".jpeg"))
   par(mfrow=c(1,1))
@@ -174,7 +179,7 @@ for(species.name in species.compare.list){
   for(t in plotting.seq){
     par(mar=c(.1,.1,2,8))
     plot(1,1,axes=F,type="n",xlab="",ylab="")
-    image.plot(legend.only=T,zlim=zlim.range,legend.width=4,col=my.diff.col(20))
+    image.plot(legend.only=T,zlim=zlim.range,legend.width=4,col=my.diff.col(100))
 	legend("center",bty="n",text.font=2,cex=1.5,legend=paste0(species.name," (",species.units,"): ",sim1.label," - ","\n",sim2.label))
     for(i in t:(t+23)){
 	  if(n.time < i) break
@@ -184,7 +189,7 @@ for(species.name in species.compare.list){
       plot.diff.i[plot.diff.i==0] <- NA
       image(x.proj.coord,y.proj.coord,plot.diff.i,zlim=zlim.range,
       main=paste(date.seq.overlap.format[i],species.name),
-      axes=F,xlab="",ylab="",col=my.diff.col(20))
+      axes=F,xlab="",ylab="",col=my.diff.col(100))
       lines(map.lines,lwd=.5,col=grey(.3)) 
       box()
     }
