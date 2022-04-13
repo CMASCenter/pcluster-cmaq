@@ -296,7 +296,6 @@ Use display to view the plots
 
 They are also displayed in the following plots:
 
-```
 Box Plot for ANO3J when NPCOL is identical 
 
 ![O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg](../../qa_plots/box_plots/6x6_vs_6x9/O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg)
