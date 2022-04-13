@@ -39,10 +39,37 @@ The following configurations may impact the run time of the model.
    - [ ] DisableSimultaneousMultithreading= true
    - [ ] DisableSimultaneousMultithreading= false
 
+## Edit the R script 
+
+First check to see what log files are available:
+
+`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log`
+
+
+Modify the name of the log file to match what is avaible on your system.
+
+cd /shared/pcluster-cmaq/qa_scripts
+`vi parse_timing_pcluster.r`
+
+Edit the following section of the script to specify the log file names available on your Parallel Cluster
+
+```
+sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
+base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
+files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log' )
+b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log')
+#Compilers <- c('intel','gcc','pgi')
+Compilers <- c('gcc')
+# name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
+# The project directory name is used for the sensitivity case.
+base.name <- '12x9pe'
+sens.name <- '6x18pe'
+```
+
+
 ### Run parse_timing.r script to examine timings of each science process in CMAQ
 
 ```
-cd qa_scripts
 Rscript parse_timing.r
 ```
 

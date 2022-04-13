@@ -237,35 +237,11 @@ sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"
 sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc")
 ```
 
-First check to see what log files are available:
-
-`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log`
-
-Edit the R script to modify the name of the log file to match what is avaible on your system.
-
-`vi parse_timing_pcluster.r`
-
-Edit the following section of the script to specify the log file names available on your Parallel Cluster
-
-```
-sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log' )
-b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log')
-#Compilers <- c('intel','gcc','pgi')
-Compilers <- c('gcc')
-# name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
-# The project directory name is used for the sensitivity case. 
-base.name <- '12x9pe'
-sens.name <- '6x18pe'
-```
-
-Run the R scripts
+Run the R script
 
 ```
 cd /shared/pcluster-cmaq/qa_scripts
 Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
-Rscript parse_timing_pcluster.r
 ```
 
 To view the PDF plots use the command
@@ -279,8 +255,7 @@ To convert the PDF to a jpeg image use the script convert.csh.
 
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
 
-`./convert.csh`
-
+First examine what the covert.csh script is doing
 `more convert.csh`
 
 output:
@@ -295,6 +270,10 @@ foreach name (`ls *.pdf`)
   pdftoppm -jpeg -r 600 $name $name2
 end
 ```
+
+Run the convert script.
+
+`./convert.csh`
 
 
 
