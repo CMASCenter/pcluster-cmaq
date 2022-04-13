@@ -131,11 +131,12 @@ Enable X11 forwarding
 `sudo vi /etc/ssh/sshd_config`
 
 add line
+
 X11Forwarding yes
 
 Verify that it was added
 
-`sudo cat /etc/ssh/sshd_config |grep -i X11Forwarding`
+`sudo cat /etc/ssh/sshd_config | grep -i X11Forwarding`
 
 Restart ssh
 

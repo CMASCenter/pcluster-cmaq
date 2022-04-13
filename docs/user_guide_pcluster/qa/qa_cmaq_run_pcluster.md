@@ -279,18 +279,19 @@ Run the convert script.
 
 
 
-Example output plots are available for the CONUS Benchmark in the following directory
-
 When NPCOL is fixed, we are seeing no difference in the answers.
 
 Example comparsion using: 8x8 compared to 8x16
 
 ```
-cd ../qa_plots/
+cd /shared/pcluster-cmaq/docs/qa_plots/box_plots/8x8_vs_8x16/
 
-cd box_plots
+Use display to view the plots
 
-cd 8x8_vs_8x16
+`display SO2_BOXPLOT_CMAQv5.3.3wGCC8x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg`
+
+
+They are also displayed in the following plots:
 
 ```
 Box Plot for ANO3J when NPCOL is identical 
