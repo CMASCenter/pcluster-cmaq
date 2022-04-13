@@ -24,11 +24,12 @@ grep A:B REPORT
 ```
 
 Should see all zeros. 
-Recompiled CMAQ using -march=native compiler option for gcc compiler, but am still seeing differences in answers.
-The answers are the same, or the differences are all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)
 
-This behavior is different from what I observed with removing the -march=native compiler option for gcc on the AMD Cyclecloud HBV3 processor.
-On cycle cloud, when I recompiled with -march=native removed, then the answers matched if NPCOL was different.
+Recompiled CMAQ using -march=native compiler option for gcc compiler, but still see differences in answers.
+The answers are the same, or the differences are all zeros if the domain decomposition uses the same NPCOL, here, NPCOL differs (10 vs 16)
+
+This behavior is different from what was observed with removing the -march=native compiler option for gcc on the AMD Cyclecloud HBV3 processor.
+On cycle cloud, if CMAQ is compiled with -march=native removed from the compiler options, then the answers match if NPCOL differs.
 
 
 
@@ -122,7 +123,8 @@ Compare CMAQv533 run with -march=native compiler flag removed.
 ```
 
 Reconfirmed that with -march=native flag removed, still get matching answers if NPCOL is the same.
-more REPORT_6x12pe_6x18pe
+
+`more REPORT_6x12pe_6x18pe`
 
 ```
      FILE A:  AFILE (output_CCTM_v533_gcc_2016_CONUS_6x12pe/CCTM_ACONC_v533_gcc_2016_CONUS_6x12pe_20151222.nc)
@@ -236,35 +238,11 @@ sim2.dir <- "/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"
 sim2.file <- paste0(sim2.dir,"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc")
 ```
 
-First check to see what log files are available:
-
-`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log`
-
-Edit the R script to modify the name of the log file to match what is avaible on your system.
-
-`vi parse_timing_pcluster.r`
-
-Edit the following section of the script to specify the log file names available on your Parallel Cluster
-
-```
-sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log' )
-b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log')
-#Compilers <- c('intel','gcc','pgi')
-Compilers <- c('gcc')
-# name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
-# The project directory name is used for the sensitivity case. 
-base.name <- '12x9pe'
-sens.name <- '6x18pe'
-```
-
-Run the R scripts
+Run the R script
 
 ```
 cd /shared/pcluster-cmaq/qa_scripts
 Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
-Rscript parse_timing_pcluster.r
 ```
 
 To view the PDF plots use the command
@@ -278,7 +256,7 @@ To convert the PDF to a jpeg image use the script convert.csh.
 
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
 
-`./convert.csh`
+First examine what the covert.csh script is doing
 
 `more convert.csh`
 
@@ -295,20 +273,25 @@ foreach name (`ls *.pdf`)
 end
 ```
 
+Run the convert script.
+
+`./convert.csh`
 
 
-Example output plots are available for the CONUS Benchmark in the following directory
 
 When NPCOL is fixed, we are seeing no difference in the answers.
 
 Example comparsion using: 8x8 compared to 8x16
 
 ```
-cd ../qa_plots/
+cd /shared/pcluster-cmaq/docs/qa_plots/box_plots/8x8_vs_8x16/
 
-cd box_plots
+Use display to view the plots
 
-cd 8x8_vs_8x16
+`display SO2_BOXPLOT_CMAQv5.3.3wGCC8x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg`
+
+
+They are also displayed in the following plots:
 
 ```
 Box Plot for ANO3J when NPCOL is identical 

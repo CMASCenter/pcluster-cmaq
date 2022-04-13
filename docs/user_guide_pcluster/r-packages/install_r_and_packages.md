@@ -100,6 +100,7 @@ Install libraries with hdf5 support
 Load modules
 
 `module load openmpi/4.1.1 `
+
 `module load libfabric-aws/1.13.2amzn1.0`
 
 `./gcc_install_hdf5.pcluster.csh`
@@ -131,11 +132,12 @@ Enable X11 forwarding
 `sudo vi /etc/ssh/sshd_config`
 
 add line
+
 X11Forwarding yes
 
 Verify that it was added
 
-`sudo cat /etc/ssh/sshd_config |grep -i X11Forwarding`
+`sudo cat /etc/ssh/sshd_config | grep -i X11Forwarding`
 
 Restart ssh
 
@@ -147,7 +149,7 @@ Exit the cluster
 
 Re-login to the cluster
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
 
 Test display

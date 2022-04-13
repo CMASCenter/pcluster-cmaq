@@ -2,15 +2,17 @@ Performance Optimization
 
 ## Right-sizing Compute Nodes for the Parallel Cluster Configuration
 
-The size of hardware depends on the domain size and resolution for  your CMAQ case, and how quickly your turn-around requirements are.
-Larger hardware and memory configurations are also required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
-The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain
+Selection of the compute nodes depends on the domain size and resolution for the CMAQ case, and what your model run time requirements are.
+Larger hardware and memory configurations may also be required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
+The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain.
 
 ## Slurm Compute Node Provisioning
 
-AWS ParallelCluster relies on SLURM to make the job allocation and scaling decisions. The jobs are launched, terminated, and resources maintained according to the Slurm instructions in the CMAQ run script. The YAML file for Parallel Cluster is used to set the identity of the head node and the compute node, and the maximum number of machines that can be submitted to the queue.  
+AWS ParallelCluster relies on SLURM to make the job allocation and scaling decisions. The jobs are launched, terminated, and resources maintained according to the Slurm instructions in the CMAQ run script. The YAML file for Parallel Cluster is used to set the identity of the head node and the compute node, and the maximum number of compute nodes that can be submitted to the queue. The head node can't be updated after a cluster is created. The compute nodes, and the maximum number of compute nodes can be updated after a cluster is created. 
 
-Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.  
+Number of compute nodes dispatched by the slurm scheduler is specified in the run script using #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY where the maximum value of tasks per node or YY limited by many CPUs are on the compute node.
+
+As an example:
 
 For c5n.18xlarge, there are 36 CPUs/node, so maximum value of YY is 36 or --ntask-per-node=36.  
 
@@ -28,28 +30,27 @@ In the scaling tables below, this is indicated as "Unable to provision".
 ```
 
 ```{seealso}
-<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
+<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance</a>
 ```
 
-Each vCPU is a hardware hyperthread on the Intel Xeon Platinum 8000 series processor. You get full control over the C-states on the two largest sizes, allowing you to run a single core at up to 3.5 Ghz using Intel Turbo Boost Technology.
+Quoted from the above link:
 
-The new instances also feature a higher amount of memory per core, putting them in the current “sweet spot” for HPC applications that work most efficiently when there’s at least 4 GiB of memory for each core. The instances also benefit from some internal improvements that boost memory access speed by up to 19% in comparison to the C5 and C5d instances.
-
-The C5n instances incorporate the fourth generation of our custom Nitro hardware, allowing the high-end instances to provide up to 100 Gbps of network throughput, along with a higher ceiling on packets per second. The Elastic Network Interface (ENI) on the C5n uses up to 32 queues (in comparison to 8 on the C5 and C5d), allowing the packet processing workload to be better distributed across all available vCPUs. 
-
+"Each vCPU is a hardware hyperthread on the Intel Xeon Platinum 8000 series processor. You get full control over the C-states on the two largest sizes, allowing you to run a single core at up to 3.5 Ghz using Intel Turbo Boost Technology.  The C5n instances also feature a higher amount of memory per core, putting them in the current “sweet spot” for HPC applications that work most efficiently when there’s at least 4 GiB of memory for each core. The instances also benefit from some internal improvements that boost memory access speed by up to 19% in comparison to the C5 and C5d instances.  The C5n instances incorporate the fourth generation of our custom Nitro hardware, allowing the high-end instances to provide up to 100 Gbps of network throughput, along with a higher ceiling on packets per second. The Elastic Network Interface (ENI) on the C5n uses up to 32 queues (in comparison to 8 on the C5 and C5d), allowing the packet processing workload to be better distributed across all available vCPUs."
 
 Resources specified in the YAML file: 
 
 * Ubuntu2004 
 * Disable Simultaneous Multi-threading
 * Spot Pricing 
-* Shared EBS filesystem to insall software
-* 1.2 TiB Shared Lustre file system with imported S3 Bucket (1.2 TiB is the minimum file size that you can specify for Lustre File System)
+* Shared EBS filesystem to install software
+
+* 1.2 TiB Shared Lustre file system with imported S3 Bucket (1.2 TiB is the minimum file size that you can specify for Lustre File System) mounted as /fsx <b>or</b> EBS volume 500 GB size mounted as /shared/data
+
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.9xlarge and c5n.18xlarge
 
 ```{seealso}
-https://aws.amazon.com/ec2/instance-types/c5/
+<a href="https://aws.amazon.com/ec2/instance-types/c5/">EC2 Instance Types</a>
 ```
 
 ```{note}
@@ -91,15 +92,14 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 
 Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand pricing.
 
-Using c5n.9xlarge as the compute node, it costs ($1.944/hr)/($0.5971/hr) = 3.25 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand prici
-ng.
+Using c5n.9xlarge as the compute node, it costs ($1.944/hr)/($0.5971/hr) = 3.25 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand pricing.
 
 Using c6gn.16xlarge as the compute node, it costs ($2.7648/hr)/(.6385/hr) = 4.3 times as much to run on demand versus spot pricing. Savings is 77% for SPOT versus ondemand pricing for this instance type.
 
 ```{note}
 Sometimes, the nodes are not available for SPOT pricing in the region you are using. 
 If this is the case, the job will not start runnning in the queue, see AWS Troubleshooting. 
-https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">Parallel Cluster Troubleshooting</a>
 ```
 
 ## Benchmark Timings
@@ -110,43 +110,46 @@ Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xl
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
-| Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive | Data Imported or Copied | DisableSimultaneousMultithreading(yaml)| with -march=native | Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ | ---- | ----- |
-| 36            |  1x36          | 6x6           | 6726.72 | 5821.47   |   12548.19      | 1.74          |  yes         |  imported | true               | yes                   |                      |    1.1732/hr * 1 node * 3.486 hr= $4.09           | 3.888/hr * 1 node * 3.496 hr = $13.59 |
-| 72            |  2x36          | 6x12          | 3562.50 | 3151.21   |    6713.71      | .95          |  yes         | imported |  true              | yes                   | 6x12 did not match 12x9  | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
-| 72            |  2x36        | 8x9             | 3665.65 | 3159.12   |    6824.77      | .95           |  yes         | imported     |  true              | yes                   |                          | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
-| 72            |  2x36        | 9x8             | 3562.61 | 2999.69   |    6562.30      |  .91          |  yes         | imported     |  true              | yes                   |                          | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
-| 108           |  3x36          | 6x18          | 2415.46 | 2135.26   | 4550.72          | .63     |  yes                | imported                | true                   |   yes  | 6x12 does match 6x18   |     1.1732/hr * 3 nodes * 1.26 hr = $4.45           |   3.888/hr * 3 nodes * 1.26  = $14.7  |
-| 108           | 3x36           | 12x9          | 2758.01 | 2370.92   | 5128.93          | .71     |  yes                | imported                | true         |  yes |  6x12 did not match 12x9 |   1.1732/hr * 3 nodes * 1.42 hr = $5.01    |   3.888/hr * 3 nodes * 1.42 hr = $16.6                                    |
-| 180           |  5x36          | 10x18         | 2481.55  | 2225.34  |    4706.89     | .65            |  no               | copied                  |  false           | yes              |            | 1.1732/hr * 5 nodes * 1.307 hr = $7.66 | 3.888/hr * 5 nodes * 1.307 hr = $25.4 |
-| 180           |  5x36          | 10x18         | 2378.73    | 2378.73    |    4588.92    | .637             |  no                | copied                  |  true        | yes       | 10x18 did not match 16x18 | 1.1732/hr * 5 nodes * 1.2747 = $7.477 | $ 24.77 |
-| 180           |  5x36          | 10x18         | 1585.67        | 1394.52  |    2980.19  | .41         |  yes                | imported    |  true        |   yes |          | 1.1732/hr * 5nodes * 2980.9 / 3600 = $4.85 | $16.05 | 
-| 256           |  8x32          | 16x16         |  1289.59       | 1164.53  |    2454.12  | .34         |  no                 |  copied           |  true    | yes |            | 1.1732/hr * 8nodes * 2454.12 / 3600 = $6.398  | $21.66 |
-| 256           |  8x32          | 16x16         |  1305.99       | 1165.30  |    2471.29  | .34         |  no                |   copied    |   true    |  yes |           | 1.1732/hr * 8nodes * 2471.29 / 3600 = $6.44 | $21.11 |
-| 256           |  8x32          | 16x16         |  1564.90       | 1381.80  |    2946.70   | .40        |  no                |   imported  | true   |   yes |         | 1.1732/hr * 8nodes * 2946.7 / 3600 = $7.68 | $25.55 |
-| 288           |  8x36          | 16x18         | 1873.00        | 1699.24  |     3572.2   | .49        |  no                |  copied     |    false | yes |            | 1.1732/hr * 8nodes * 3572.2/3600= $9.313  | $30.8 |
-| 288           |  8x36          |  16x18        |  1976.35       | 1871.61   |   3847.96   | .53       |  no                |  copied     |  true   | yes |            | 1.1732/hr * 8nodes * 3847.96=$10.0 | $33.18 |
-| 288           |  8x36          | 16x18         |  1197.19       | 1090.45  |     2287.64  | .31        |  yes               |  copied     |  true   | yes |             16x18 matched 16x16 | 1.1732/hr * 8nodes * 2297.64=$5.99 | $19.81
-| 288           |  8x36          | 18x16         | 1206.01        | 1095.76  |     2301.77  | .32        |  yes               |  imported   |  true        |             |   | 1.1732/hr * 8nodes * 2301.77=$6.00 | $19.46 |
-| 360           | 10x36          | 18x20         |   unable to provision  |                 |            |                     |                    |  imported   |  true        |    yes         |       |        |
+| Number of PEs | #Nodes x #CPU | NPCOL x NPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive | Data Imported or Copied | Disable Simultaneous Multithreading (yaml)| with -march=native |  Cost using Spot Pricing | Cost using On Demand Pricing | 
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ---- | ----- |
+| 36            |  1x36          | 6x6           | 6726.72 | 5821.47   |   12548.19      | 1.74          |  yes         |  imported | true               | yes      |    1.1732/hr * 1 node * 3.486 hr= $4.09           | 3.888/hr * 1 node * 3.496 hr = $13.59 |
+| 72            |  2x36          | 6x12          | 3562.50 | 3151.21   |    6713.71      | .95          |  yes         | imported |  true              | yes       | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
+| 72            |  2x36        | 8x9             | 3665.65 | 3159.12   |    6824.77      | .95           |  yes         | imported     |  true              | yes  | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
+| 72            |  2x36        | 9x8             | 3562.61 | 2999.69   |    6562.30      |  .91          |  yes         | imported     |  true              | yes  | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
+| 108           |  3x36          | 6x18          | 2415.46 | 2135.26   | 4550.72          | .63     |  yes                | imported                | true   |   yes  |     1.1732/hr * 3 nodes * 1.26 hr = $4.45           |   3.888/hr * 3 nodes * 1.26  = $14.7  |
+| 108           | 3x36           | 12x9          | 2758.01 | 2370.92   | 5128.93          | .71     |  yes                | imported                | true         |  yes |   1.1732/hr * 3 nodes * 1.42 hr = $5.01    |   3.888/hr * 3 nodes * 1.42 hr = $16.6                                    |
+| 180           |  5x36          | 10x18         | 2481.55  | 2225.34  |    4706.89     | .65            |  no               | copied                  |  false    | yes  | 1.1732/hr * 5 nodes * 1.307 hr = $7.66 | 3.888/hr * 5 nodes * 1.307 hr = $25.4 |
+| 180           |  5x36          | 10x18         | 2378.73    | 2378.73    |    4588.92    | .637             |  no                | copied            |  true     | yes  | 1.1732/hr * 5 nodes * 1.2747 = $7.477 | $ 24.77 |
+| 180           |  5x36          | 10x18         | 1585.67        | 1394.52  |    2980.19  | .41         |  yes                | imported    |  true        |   yes     | 1.1732/hr * 5nodes * 2980.9 / 3600 = $4.85 | $16.05 | 
+| 256           |  8x32          | 16x16         |  1289.59       | 1164.53  |    2454.12  | .34         |  no                 |  copied           |  true    | yes     | 1.1732/hr * 8nodes * 2454.12 / 3600 = $6.398  | $21.66 |
+| 256           |  8x32          | 16x16         |  1305.99       | 1165.30  |    2471.29  | .34         |  no                |   copied    |   true    |  yes       | 1.1732/hr * 8nodes * 2471.29 / 3600 = $6.44 | $21.11 |
+| 256           |  8x32          | 16x16         |  1564.90       | 1381.80  |    2946.70   | .40        |  no                |   imported  | true   |   yes          | 1.1732/hr * 8nodes * 2946.7 / 3600 = $7.68 | $25.55 |
+| 288           |  8x36          | 16x18         | 1873.00        | 1699.24  |     3572.2   | .49        |  no                |  copied     |    false | yes             | 1.1732/hr * 8nodes * 3572.2/3600= $9.313  | $30.8 |
+| 288           |  8x36          |  16x18        |  1976.35       | 1871.61   |   3847.96   | .53       |  no                |  copied     |  true   | yes             | 1.1732/hr * 8nodes * 3847.96=$10.0 | $33.18 |
+| 288           |  8x36          | 16x18         |  1197.19       | 1090.45  |     2287.64  | .31        |  yes               |  copied     |  true   | yes              16x18 matched 16x16 | 1.1732/hr * 8nodes * 2297.64=$5.99 | $19.81
+| 288           |  8x36          | 18x16         | 1206.01        | 1095.76  |     2301.77  | .32        |  yes               |  imported   |  true   | yes       | 1.1732/hr * 8nodes * 2301.77=$6.00 | $19.46 |
+| 360           | 10x36          | 18x20         |   Unable to provision  |                 |            |                     |                    |     |        |       |        |
 
 
 ### Benchmark Timing Results for c5n.9xlarge
 
-Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes using /shared volume
+Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
-| Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive |  DisableSimultaneousMultithreading(yaml)| with -march=native | Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing |
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ |
-| 18            |  1x18          | 3x6           |  14341.77     | 12881.59 | 27223.36    | 3.78         |  yes         |  true               | yes                   |                      |    0.5971/hr * 1 node * 7.56 hr= $4.51         | 1.944/hr * 1 node * 7.56 hr = $14.69 |
-| 36            |  2x18          | 6x6           |   6473.95     | 5599.76  |  12073.71   | 1.67         |  yes         |  true               | yes                   |                      |    0.5971/hr * 2 node * 3.35 hr= $4.0        | 1.944/hr * 2 node * 3.35 hr = $13.02 |
-| 54            |  3x18          | 6x9           |   4356.33     | 3790.13  |  8146.46  |  1.13        |  yes         |  true               | yes                   |                      |    0.5971/hr * 3 node * 2.26 hr= $4.05           | 1.944/hr * 3 node * 2.26 hr = $13.2 |
-| 72            |  4x18          | 8x9           |    3382.01    | 2936.66  |  6318.67  |  .8775      |  yes         |  true               | yes                   |                      |    0.5971/hr * 4 node * 1.755 hr= $4.19           | 1.944/hr * 4 node * 1.755 hr = $13.2 |
-| 90            |  5x18          | 9x10          |    2878.55    |  2483.56 | 5362.11   |  .745     |  yes         |  true               | yes                   |                      |    0.5971/hr * 5 node * 1.49 hr= $4.45           | 1.944/hr * 5 node * 1.49 hr = $14.44 |
-| 108            |  6x18          | 9x12         |   2463.41     |2161.07        | 4624.48  | .642 |  yes         |  true               | yes                   |                      |    0.5971/hr * 6 node * 1.28 hr= $4.6           | 1.944/hr * 6 node * 1.28 hr = $14.9 |
-| 126            |  7x18          | 9x14         | 2144.86     | 1897.85      | 4042.71     | .56              |  yes         |  true               | yes                   |                      |    0.5971/hr * 7 node * 1.12 hr= $4.69           | 1.944/hr * 7 node * 1.12 hr = $15.24 |
-| 144            |  8x18          | 12x12        | unable to provision    |    |            |                    |           |                 |                    |                      |               |  |
-| 162            |  9x18          | 9x18        | unable to provision    |      |          |                    |           |                 |                    |                      |              |  |
-| 180            |  10x18          | 10x18        | unable to provision          |     |               |                    |          |                 |                    |                   |        |  |
+| Number of PEs | #Nodes x #CPU | NPCOL x NPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | I/O Volume   |    Cost using Spot Pricing | Cost using On Demand Pricing |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  |   -------- | --------- |
+| 18            |  1x18          | 3x6           |  14341.77     | 12881.59 | 27223.36    | 3.78         |  yes  |  true | no | /fsx   | 0.5971/hr * 1 node * 7.56 hr= $4.51         | 1.944/hr * 1 node * 7.56 hr = $14.69 |
+| 18            |  1x18          | 3x6           |  12955.32     | 11399.07 | 24354.39    | 3.38         |  yes  |  true | no | /shared   | 0.5971/hr * 1 node * 6.76 hr = $4.03  |  1.944/hr * 1 node * 6.76 = $13.15 |  
+| 36            |  2x18          | 6x6           |   6473.95     | 5599.76  |  12073.71   | 1.67         |  yes  |  true | no  | /shared   |  0.5971/hr * 2 node * 3.35 hr= $4.0        | 1.944/hr * 2 node * 3.35 hr = $13.02 |
+| 36            | 2x18           | 6x6           |   6726.72     | 5821.47  | 12548.19    | 1.74         |  yes  |  true | no  | /fsx     | 0.5971/hr * 2 node * 3.48 hr = $4.16  | 1.944/hr * 2 node * 3.48 hr = $13.5 |
+| 54            |  3x18          | 6x9           |   4356.33     | 3790.13  |  8146.46  |  1.13        |  yes    |  true | no  | /shared   |   0.5971/hr * 3 node * 2.26 hr= $4.05           | 1.944/hr * 3 node * 2.26 hr = $13.2 |
+| 72            |  4x18          | 8x9           |    3382.01    | 2936.66  |  6318.67  |  .8775      |  yes     |  true | no  | /shared |    0.5971/hr * 4 node * 1.755 hr= $4.19           | 1.944/hr * 4 node * 1.755 hr = $13.2 |
+| 90            |  5x18          | 9x10          |    2878.55    |  2483.56 | 5362.11   |  .745     |  yes       |  true | no  | /shared  |   0.5971/hr * 5 node * 1.49 hr= $4.45           | 1.944/hr * 5 node * 1.49 hr = $14.44 |
+| 108           |  6x18          | 6x18          |   2415.46     | 2135.26       | 4550.72  | .632 |  yes       | true   | no  | /fsx  |   0.5971/hr * 6 node * 1.26 hr = $4.53         | 1.944/hr * 6 node * 1.26 hr = $14.70 |
+| 108            |  6x18          | 9x12         |   2463.41     |2161.07        | 4624.48  | .642 |  yes       |  true  | no  | /shared |  0.5971/hr * 6 node * 1.28 hr= $4.6           | 1.944/hr * 6 node * 1.28 hr = $14.9 |
+| 126            |  7x18          | 9x14         | 2144.86     | 1897.85      | 4042.71     | .56  |  yes        |  true | no  | /shared |      0.5971/hr * 7 node * 1.12 hr= $4.69           | 1.944/hr * 7 node * 1.12 hr = $15.24 |
+| 144            |  8x18          | 12x12        | unable to provision    |      |          |                    |          |                 |     | |  |  |
+| 162            |  9x18          | 9x18         | unable to provision    |      |          |                    |          |                 |     | |  |  |
+| 180            |  10x18          | 10x18       | unable to provision    |      |          |                    |          |                 |     | |  |  |
 
 
 # Benchmark Scaling Plots
