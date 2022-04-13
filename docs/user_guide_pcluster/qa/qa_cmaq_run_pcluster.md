@@ -259,7 +259,7 @@ To view the PDF plots use the command:
 
 ```
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
-gio open O3_MAPS_CMAQv5.3.3*.pdf
+gio open O3_MAPS_CMAQ*.pdf
 ```
 
 To convert the PDF to a jpeg image use the script convert.csh.
