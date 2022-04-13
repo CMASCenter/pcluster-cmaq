@@ -220,7 +220,13 @@ Examine the script to create the box plots and spatial plots and edit to use the
 
 First check what output is available on your Parallel Cluster
 
+If your I/O directory is /fsx
+
 `ls -rlt /fsx/data/output/*/*ACONC*`
+
+If your I/O directory is /shared/data
+
+`ls -lrt /shared/data/output/*/*ACONC*`
 
 Then edit the script to use the output filenames available.
 
@@ -245,11 +251,15 @@ cd /shared/pcluster-cmaq/qa_scripts
 Rscript compare_EQUATES_benchmark_output_CMAS_pcluster.r
 ```
 
-To view the PDF plots use the command
+Note: your plots will be created based on the setting of the output directory in the script
+
+An example set of scripts are available, but these instructions can be modified to use the output generated in the script above. 
+
+To view the PDF plots use the command:
 
 ```
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
-gio open OH_MAPS_EPAv5.3.3wGCC_vs_CMASv5.3.3wGCC.pdf
+gio open O3_MAPS_CMAQv5.3.3*.pdf
 ```
 
 To convert the PDF to a jpeg image use the script convert.csh.
