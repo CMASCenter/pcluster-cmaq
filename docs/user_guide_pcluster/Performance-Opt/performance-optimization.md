@@ -110,7 +110,7 @@ Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xl
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
-| Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive | Data Imported or Copied | Disable Simultaneous Multithreading (yaml)| with -march=native | Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
+| Number of PEs | #Nodes x #CPU | NPCOL x NPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive | Data Imported or Copied | Disable Simultaneous Multithreading (yaml)| with -march=native | Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ------ | ---- | ----- |
 | 36            |  1x36          | 6x6           | 6726.72 | 5821.47   |   12548.19      | 1.74          |  yes         |  imported | true               | yes                   |                      |    1.1732/hr * 1 node * 3.486 hr= $4.09           | 3.888/hr * 1 node * 3.496 hr = $13.59 |
 | 72            |  2x36          | 6x12          | 3562.50 | 3151.21   |    6713.71      | .95          |  yes         | imported |  true              | yes                   | 6x12 did not match 12x9  | 1.1732/hr * 2 nodes * 1.8649 hr = $4.37 | 3.888/hr * 2 nodes * 1.8649 = $14.5  |
@@ -135,7 +135,7 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
-| Number of PEs | #Nodesx#CPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | I/O Volume   |   Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing |
+| Number of PEs | #Nodes x #CPU | NPCOL x NPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | I/O Volume   |   Answers Matched | Cost using Spot Pricing | Cost using On Demand Pricing |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  |   -------- | --------- | ------ |
 | 18            |  1x18          | 3x6           |  14341.77     | 12881.59 | 27223.36    | 3.78         |  yes         |  true               | no                   |                  /fsx |  | 0.5971/hr * 1 node * 7.56 hr= $4.51         | 1.944/hr * 1 node * 7.56 hr = $14.69 |
 | 18            |  1x18          | 3x6           |  12955.32     | 11399.07 | 24354.39    | 3.38         |  yes         |  true               | no                   |                  /shared |  | 0.5971/hr * 1 node * 6.76 hr = $4.03  |  1.944/hr * 1 node * 6.76 = $13.15 |  
