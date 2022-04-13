@@ -283,6 +283,10 @@ foreach name (`ls *.pdf`)
 end
 ```
 
+Change the permissions on the convert.csh script to be executable.
+
+chmod 755 convert.csh
+
 Run the convert script.
 
 `./convert.csh`
@@ -291,7 +295,7 @@ Run the convert script.
 
 When NPCOL is fixed, we are seeing no difference in the answers.
 
-Example comparsion using: 8x8 compared to 8x16
+Example comparison using: 8x8 compared to 8x16
 
 ```
 cd /shared/pcluster-cmaq/docs/qa_plots/box_plots/8x8_vs_8x16/
