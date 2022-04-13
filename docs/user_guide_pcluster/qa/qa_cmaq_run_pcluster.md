@@ -123,7 +123,8 @@ Compare CMAQv533 run with -march=native compiler flag removed.
 ```
 
 Reconfirmed that with -march=native flag removed, still get matching answers if NPCOL is the same.
-more REPORT_6x12pe_6x18pe
+
+`more REPORT_6x12pe_6x18pe`
 
 ```
      FILE A:  AFILE (output_CCTM_v533_gcc_2016_CONUS_6x12pe/CCTM_ACONC_v533_gcc_2016_CONUS_6x12pe_20151222.nc)
@@ -256,6 +257,7 @@ To convert the PDF to a jpeg image use the script convert.csh.
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
 
 First examine what the covert.csh script is doing
+
 `more convert.csh`
 
 output:
