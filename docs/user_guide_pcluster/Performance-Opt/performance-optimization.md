@@ -167,6 +167,8 @@ Figure 2. Scaling on C5n.18xlarge Compute Nodes (36 cpu/node)
 
 Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
+Note, these plots show the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  The plot would look the same, if plotted based on number of cores, with the demoninator being the 2 day wall-clock time for either 18cpus (c5n.9xlarge) or 36 cpus (c5n.18xlarge).  CMAQ was not run on 1 cpu, as this would have been costly and inefficient.
+
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
 
