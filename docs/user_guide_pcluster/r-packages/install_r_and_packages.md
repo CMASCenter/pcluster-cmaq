@@ -100,6 +100,7 @@ Install libraries with hdf5 support
 Load modules
 
 `module load openmpi/4.1.1 `
+
 `module load libfabric-aws/1.13.2amzn1.0`
 
 `./gcc_install_hdf5.pcluster.csh`
@@ -148,7 +149,7 @@ Exit the cluster
 
 Re-login to the cluster
 
-`pcluster ssh -v -Y -i ~/centos.pem --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/[your-key].pem --cluster-name cmaq`
 
 
 Test display
