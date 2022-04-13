@@ -24,11 +24,12 @@ grep A:B REPORT
 ```
 
 Should see all zeros. 
-Recompiled CMAQ using -march=native compiler option for gcc compiler, but am still seeing differences in answers.
-The answers are the same, or the differences are all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)
 
-This behavior is different from what I observed with removing the -march=native compiler option for gcc on the AMD Cyclecloud HBV3 processor.
-On cycle cloud, when I recompiled with -march=native removed, then the answers matched if NPCOL was different.
+Recompiled CMAQ using -march=native compiler option for gcc compiler, but still see differences in answers.
+The answers are the same, or the differences are all zeros if the domain decomposition uses the same NPCOL, here, NPCOL differs (10 vs 16)
+
+This behavior is different from what was observed with removing the -march=native compiler option for gcc on the AMD Cyclecloud HBV3 processor.
+On cycle cloud, if CMAQ is compiled with -march=native removed from the compiler options, then the answers match if NPCOL differs.
 
 
 
