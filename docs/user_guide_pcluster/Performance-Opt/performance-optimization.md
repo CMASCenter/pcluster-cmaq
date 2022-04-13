@@ -42,8 +42,12 @@ Resources specified in the YAML file:
 * Ubuntu2004 
 * Disable Simultaneous Multi-threading
 * Spot Pricing 
-* Shared EBS filesystem to insall software
-* 1.2 TiB Shared Lustre file system with imported S3 Bucket (1.2 TiB is the minimum file size that you can specify for Lustre File System)
+* Shared EBS filesystem to install software
+
+* 1.2 TiB Shared Lustre file system with imported S3 Bucket (1.2 TiB is the minimum file size that you can specify for Lustre File System) mounted as /fsx
+or
+* EBS volume 500 GB size mounted as /shared/data
+
 * Slurm Placement Group enabled
 * Elastic Fabric Adapter Enabled on c5n.9xlarge and c5n.18xlarge
 
