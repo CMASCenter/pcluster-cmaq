@@ -80,12 +80,12 @@ Head node:
 Compute Node:
 
 * c5n.9xlarge (16 cpus/node with Multithreading disabled)
-with 96 GiB memory, 50 Gbps Network Bandwidth, 9,500 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
+with 96 GiB memory, 50 Gbps Network Bandwidth, 9,500 EBS Bandwidth (Mbps) and Elastic Fabric Adapter (EFA)
 
 or
 
 * c5n.18xlarge  (36 cpus/node with Multithreading disabled)
-with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter
+with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter (EFA)
 
 
 ```{note}
@@ -93,6 +93,16 @@ Additional best practice of allowing the Parallel Cluster to create a placement 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html>Network Performance</a>
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>Placement Groups</a>
 ```
+
+This is specified in the yaml file in the slurm queue's network settings.
+
+```
+Networking:
+  PlacementGroup:
+    Enabled: true
+```
+
+
 ```{note}
 To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking. For more information, see Enhanced Networking.
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html">Enhanced Networking (ENA)</a>
@@ -104,14 +114,6 @@ Elastic Fabric Adapter(EFA)
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter(EFA)</a>
 ```
 
-
-This is specified in the yaml file in the slurm queue's network settings.
-
-```
-Networking:
-  PlacementGroup:
-    Enabled: true
-```
 
 Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
