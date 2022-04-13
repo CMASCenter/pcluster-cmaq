@@ -30,7 +30,7 @@ In the scaling tables below, this is indicated as "Unable to provision".
 ```
 
 ```{seealso}
-<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance </a>
+<a href="https://aws.amazon.com/blogs/aws/new-c5n-instances-with-100-gbps-networking/">C5n Instance</a>
 ```
 
 Quoted from the above link:
@@ -52,7 +52,7 @@ or
 * Elastic Fabric Adapter Enabled on c5n.9xlarge and c5n.18xlarge
 
 ```{seealso}
-< href="https://aws.amazon.com/ec2/instance-types/c5/">EC2 Instance Types</a>
+<a href="https://aws.amazon.com/ec2/instance-types/c5/">EC2 Instance Types</a>
 ```
 
 ```{note}
