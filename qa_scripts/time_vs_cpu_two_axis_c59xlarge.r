@@ -20,6 +20,9 @@ par(mar = c(7, 5, 5, 4) + 0.2)
 
 plot(x, y1, pch = 13, col = 2, xlab = "CPUs", ylab = "2 Day Total Time (sec)", main = "CMAQv533 Benchmark 2 Day Run Time (seconds) and OnDemand Cost vs CPUs on Parallel Cluster uing c5n.9xlarge Compute Nodes")
 
+# Add a line
+lines(x, y1, pch=13, col="red", type="b", lty=2)
+
 text(x, y1, labels, cex=0.65, pos=3,col="black")
 
 # set parameter new=True for a new axis
