@@ -175,12 +175,12 @@ Note, the following plot shows the timings for many configuration options listed
 
 ## Total Time and Cost versus CPU Plot for c5n.18xlarge
 
-Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
-Note, this plot shows the timings for many options listed in the table above.  Eventually, the options such as running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The  scripts and yaml settings used for the c5n.9xlarge were all fixed, other than using the lustre file system or the /shared ebs volume for I/O.  
-
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_Cost_CPUs.png)
 
 ## Total Time and Cost versus CPU Plot for c5n.9xlarge
+
+Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
+Note, this plot shows the timings for many options listed in the table above.  These benchmark runs were performed with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The  scripts and yaml settings used for the c5n.9xlarge were all fixed, other than using the lustre file system or the /shared ebs volume for I/O.
 
 Figure 5. Plot of Total Time and On Demand Cost versus CPUs for c5n.9xlarge
 
