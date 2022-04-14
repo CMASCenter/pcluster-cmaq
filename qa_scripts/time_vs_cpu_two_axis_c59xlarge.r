@@ -2,7 +2,7 @@
 # Affiliation: UNC CMAS Center 
 
 csv_data<-read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/timing_c5n9xlarge.csv",sep="\t", skip =0, header = TRUE, comment.char = "",check.names = FALSE, quote="", )
-print(csv_data)
+#print(csv_data)
 
 # ------------- Do not change below unless modifying for a different workflow ---------------------
 

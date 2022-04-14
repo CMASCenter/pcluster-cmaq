@@ -2,7 +2,7 @@
 # Affiliation: UNC CMAS Center 
 
 csv_data<-read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/timing_c5n18xlarge.csv",sep="\t", skip =0, header = TRUE, comment.char = "",check.names = FALSE, quote="", )
-print(csv_data)
+#print(csv_data)
 
 # ------------- Do not change below unless modifying for a different workflow ---------------------
 
@@ -19,6 +19,9 @@ print(csv_data)
 par(mar = c(7, 5, 5, 4) + 0.2)
 
 plot(x, y1, pch = 13, col = 2, xlab = "CPUs", ylab = "2 Day Total Time (sec)", main = "CMAQv533 Benchmark 2 Day Run Time (seconds) and OnDemand Cost vs CPUs on Parallel Cluster uing c5n.18xlarge Compute Nodes")
+
+# Add a line
+lines(x, y1, pch=13, col="red", type="b", lty=2)
 
 text(x, y1, labels, cex=0.65, pos=3,col="black")
 
