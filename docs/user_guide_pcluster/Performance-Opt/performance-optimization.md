@@ -171,6 +171,13 @@ Note, these plots show the scaling per-node, as the configurations that were run
 
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
+Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
+
+![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_Cost_CPUs.png)
+
+Figure 5. Plot of Total Time and On Demand Cost versus CPUs for c5n.9xlarge
+
+![Plot of Total Time and On Demand Cost versus CPUs for c5n9xlarge](../../qa_plots/scaling_plots/c5n9xlarge_Time_Cost_CPUs.png)
 
 # Cost Information 
 
