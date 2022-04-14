@@ -173,6 +173,7 @@ Note, these plots show the scaling per-node, as the configurations that were run
 
 Note, the following plot shows the timings for many configuration options listed in the table above for the c5n.18xlarge cluster.  Eventually, the options such as running with no hyperthr eading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The  scripts and yaml settings used for the c5n.9xlarge were all fixed to use thesse fastest configuration options, other than using the lustre file system or the /shared ebs volume for I/O.  
 
+
 Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
 Note, this plot shows the timings for many options listed in the table above.  Eventually, the options such as running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The  scripts and yaml settings used for the c5n.9xlarge were all fixed, other than using the lustre file system or the /shared ebs volume for I/O.  
 
