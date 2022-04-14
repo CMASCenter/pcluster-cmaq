@@ -1,0 +1,17 @@
+CPUs	NodesxCPU	NPCOLxNPROW	Day1 Timing (sec)	Day2 Timing (sec)	TotalTime	CPU Hours/day	SBATCH –exclusive	Data Imported or Copied	Disable Simultaneous Multithreading (yaml)	with -march=native	Equation using Spot Pricing	SpotCost	Equation using On Demand Pricing	OnDemandCost
+36	1x36	6x6	6726.72	5821.47	12548.19	1.74	yes	imported	TRUE	yes	1.1732/hr * 1 node * 3.486 hr=	4.09	3.888/hr * 1 node * 3.496 hr =	13.59
+72	2x36	6x12	3562.5	3151.21	6713.71	0.95	yes	imported	TRUE	yes	1.1732/hr * 2 nodes * 1.8649 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5
+72	2x36	8x9	3665.65	3159.12	6824.77	0.95	yes	imported	TRUE	yes	1.1732/hr * 2 nodes * 1.8649 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5
+72	2x36	9x8	3562.61	2999.69	6562.3	0.91	yes	imported	TRUE	yes	1.1732/hr * 2 nodes * 1.8649 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5
+108	3x36	6x18	2415.46	2135.26	4550.72	0.63	yes	imported	TRUE	yes	1.1732/hr * 3 nodes * 1.26 hr =	4.45	3.888/hr * 3 nodes * 1.26 =	14.7
+108	3x36	12x9	2758.01	2370.92	5128.93	0.71	yes	imported	TRUE	yes	1.1732/hr * 3 nodes * 1.42 hr =	5.01	3.888/hr * 3 nodes * 1.42 hr =	16.6
+180	5x36	10x18	2481.55	2225.34	4706.89	0.65	no	copied	FALSE	yes	1.1732/hr * 5 nodes * 1.307 hr =	7.66	3.888/hr * 5 nodes * 1.307 hr =	25.4
+180	5x36	10x18	2378.73	2378.73	4588.92	0.637	no	copied	TRUE	yes	1.1732/hr * 5 nodes * 1.2747 hr =	7.477	3.888/hr * 5 nodes * 1.2747 hr =	24.77
+180	5x36	10x18	1585.67	1394.52	2980.19	0.41	yes	imported	TRUE	yes	1.1732/hr * 5nodes * 2980.9 / 3600 =	4.85	3.888/hr * 5 nodes * .82 hr =	16.05
+256	8x32	16x16	1289.59	1164.53	2454.12	0.34	no	copied	TRUE	yes	1.1732/hr * 8nodes * 2454.12 / 3600 =	$6.40 	3.888/hr * 8 nodes * .6817 hr =	21.66
+256	8x32	16x16	1305.99	1165.3	2471.29	0.34	no	copied	TRUE	yes	1.1732/hr * 8nodes * 2471.29 / 3600 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11
+256	8x32	16x16	1564.9	1381.8	2946.7	0.4	no	imported	TRUE	yes	1.1732/hr * 8nodes * 2946.7 / 3600 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45
+288	8x36	16x18	1873	1699.24	3572.2	0.49	no	copied	FALSE	yes	1.1732/hr * 8nodes * 3572.2/3600=	9.313	3.888/hr * 8 nodes * .992 hr =	30.8
+288	8x36	16x18	1976.35	1871.61	3847.96	0.53	no	copied	TRUE	yes	1.1732/hr * 8nodes * 3847.96=	10	3.888/hr * 8 nodes * 1.069 =	33.24
+288	8x36	16x18	1197.19	1090.45	2287.64	0.31	yes	copied	TRUE	yes 16x18 matched 16x16	1.1732/hr * 8nodes * 2297.64=	5.99	3.888/hr * 8 nodes * .638 =	19.81
+288	8x36	18x16	1206.01	1095.76	2301.77	0.32	yes	imported	TRUE	yes	1.1732/hr * 8nodes * 2301.77=	6	3.888/hr * 8 nodes * .639 =	19.88
