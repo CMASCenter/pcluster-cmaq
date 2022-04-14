@@ -135,8 +135,8 @@ Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with
 
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
-| Number of PEs | #Nodes x #CPU | NPCOL x NPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | I/O Volume   |    Cost using Spot Pricing | Cost using On Demand Pricing |
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  |   -------- | --------- |
+| CPUs | NodesxCPU | NPCOLxNPROW | Day1 Timing (sec) | Day2 Timing (sec) | Total Time(2days)(sec) | CPU Hours/day | SBATCH --exclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | I/O Volume   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  |   -------- | --------- | -- | -- | 
 | 18            |  1x18          | 3x6           |  14341.77     | 12881.59 | 27223.36    | 3.78         |  yes  |  true | no | /fsx   | 0.5971/hr * 1 node * 7.56 hr= $4.51         | 1.944/hr * 1 node * 7.56 hr = $14.69 |
 | 18            |  1x18          | 3x6           |  12955.32     | 11399.07 | 24354.39    | 3.38         |  yes  |  true | no | /shared   | 0.5971/hr * 1 node * 6.76 hr = $4.03  |  1.944/hr * 1 node * 6.76 = $13.15 |  
 | 18            |  1x18          | 6x3           |  13297.84     | 11491.99 | 24789.83    | 3.44         |  yes  | true  | no | /shared   | 0.5971/hr * 1 node * 6.89 hr = $4.11 |   1.944/hr * 1 node * 6.89 = $13.39 | 
