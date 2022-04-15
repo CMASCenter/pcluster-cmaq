@@ -1,3 +1,5 @@
+library(purrr)
+
 # Script author: Liz Adams
 # Affiliation: UNC CMAS Center 
 # examples from https://r-coder.com/plot-r/
@@ -14,15 +16,16 @@ csv_data<-read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/timing_c5n
    y1 <- csv_data$TotalTime
    y2 <- csv_data$OnDemandCost
    #ymin <- min(c(csv_data$CPUs,csv_data$OnDemandCost))
-   ymin <- min(csv_data$OnDemandCost)
-   print(ymin)
+   #sampleminy2 <- map_dbl(y2, min)
+   #length(sampleminy2)
    labels <- csv_data$NodesxCPU
+
 
 # Draw first plot using axis y1
 # sets the bottom, left, top and right margins respectively of the plot region in number of lines of text, + 0.2 gives extra room on the right margin for second legend.
 par(mar = c(7, 5, 5, 4) + 0.2)
 
-plot(x, y1, pch = 13, col = 2, xlab = "CPUs", ylab = "2 Day Total Time (sec)", main = "CMAQv533 Benchmark 2 Day Run Time (seconds) and OnDemand Cost vs CPUs on Parallel Cluster uing c5n.18xlarge Compute Nodes")
+plot(x, y1, type="b", pch = 13, col = 2, xlab = "CPUs", ylab = "2 Day Total Time (sec)", main = "CMAQv533 Benchmark 2 Day Run Time (seconds) and OnDemand Cost vs CPUs on Parallel Cluster uing c5n.18xlarge Compute Nodes")
 
 # Add a line
 lines(x, y1, pch=13, col="red", type="b", lty=2)
@@ -36,7 +39,7 @@ par(new = TRUE)
 plot(x, y2, pch = 15, col = 3, axes = FALSE, xlab = "", ylab = "")
 
 # Add a line to second plot
-lines(x, ymin, pch=13, col="red", type="b", lty=2)
+lines(x, y2, pch=13, col="green", type="b", lty=2)
 
 axis(side = 4, at = pretty(range(y2)))
 mtext("OnDemand Cost $", side = 4, line = 3, col="black")

@@ -1,4 +1,4 @@
-CPUs	NodesxCPU	NPCOLxNPROW	Day1 Timing (sec)	Day2 Timing (sec)	TotalTime	CPU Hours/day	SBATCH –exclusive	Data Imported or Copied	Disable Simultaneous Multithreading (yaml)	with -march=native	Equation using Spot Pricing	SpotCost	Equation using On Demand Pricing	OnDemandCost
+CPUs	NodesxCPU	COLROW	Day1 Timing (sec)	Day2 Timing (sec)	TotalTime	CPU Hours/day	SBATCHexclusive	InputData	Disable Simultaneous Multithreading (yaml)	with -march=native	Equation using Spot Pricing	SpotCost	Equation using On Demand Pricing	OnDemandCost
 36	1x36	6x6	6726.72	5821.47	12548.19	1.74	yes	imported	TRUE	yes	1.1732/hr * 1 node * 3.486 hr=	4.09	3.888/hr * 1 node * 3.496 hr =	13.59
 72	2x36	6x12	3562.5	3151.21	6713.71	0.95	yes	imported	TRUE	yes	1.1732/hr * 2 nodes * 1.8649 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5
 72	2x36	8x9	3665.65	3159.12	6824.77	0.95	yes	imported	TRUE	yes	1.1732/hr * 2 nodes * 1.8649 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5
