@@ -9,10 +9,10 @@ library(patchwork) # To display 2 charts together
 png(file = paste('c5n18xlarge','_','Time','_','CPUs','.png',sep=''), width = 1024, height = 768, bg='white')
 csv_data<- read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/timing_c5n18xlarge.csv",sep="\t", skip =0, header = TRUE, comment.char = "",check.names = FALSE, quote="", )
 print(csv_data)
-p1 <- ggplot(csv_data, aes(y=TotalTime, x=CPUs, size=InputData, color=SBATCHexclusive)) +
+p1 <- ggplot(csv_data, aes(y=TotalTime, x=CPUs, size=InputData, color=COLROW, shape=SBATCHexclusive)) +
     geom_point() + ggtitle("2 Day Benchmark Total Time versus CPUs")
 
-p2 <- ggplot(csv_data, aes(y=OnDemandCost, x=CPUs, size=InputData, color=SBATCHexclusive)) +
+p2 <- ggplot(csv_data, aes(y=OnDemandCost, x=CPUs, size=InputData, color=COLROW, shape=SBATCHexclusive)) +
     geom_point() + ggtitle("2 Day Benchmark On Demand Cost versus CPUs")
 
 # Display both charts side by side thanks to the patchwork package
