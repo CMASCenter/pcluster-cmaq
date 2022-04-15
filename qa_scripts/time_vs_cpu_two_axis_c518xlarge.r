@@ -1,5 +1,6 @@
 # Script author: Liz Adams
 # Affiliation: UNC CMAS Center 
+# examples from https://r-coder.com/plot-r/
 
 csv_data<-read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/timing_c5n18xlarge.csv",sep="\t", skip =0, header = TRUE, comment.char = "",check.names = FALSE, quote="", )
 #print(csv_data)
@@ -12,6 +13,9 @@ csv_data<-read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/timing_c5n
    x <- csv_data$CPUs
    y1 <- csv_data$TotalTime
    y2 <- csv_data$OnDemandCost
+   #ymin <- min(c(csv_data$CPUs,csv_data$OnDemandCost))
+   ymin <- min(csv_data$OnDemandCost)
+   print(ymin)
    labels <- csv_data$NodesxCPU
 
 # Draw first plot using axis y1
@@ -30,6 +34,9 @@ par(new = TRUE)
 
 # Draw second plot using axis y2
 plot(x, y2, pch = 15, col = 3, axes = FALSE, xlab = "", ylab = "")
+
+# Add a line to second plot
+lines(x, ymin, pch=13, col="red", type="b", lty=2)
 
 axis(side = 4, at = pretty(range(y2)))
 mtext("OnDemand Cost $", side = 4, line = 3, col="black")

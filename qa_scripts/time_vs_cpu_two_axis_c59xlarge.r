@@ -31,6 +31,10 @@ par(new = TRUE)
 # Draw second plot using axis y2
 plot(x, y2, pch = 15, col = 3, axes = FALSE, xlab = "", ylab = "")
 
+# Add a line to second plot
+lines(x, y2, pch=13, col="green", type="b", lty=2)
+
+
 axis(side = 4, at = pretty(range(y2)))
 mtext("OnDemand Cost $", side = 4, line = 3, col="black")
 text(x, y2, labels, cex=0.65, pos=3,col="black")
