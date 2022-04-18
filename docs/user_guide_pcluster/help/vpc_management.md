@@ -10,7 +10,7 @@ Q1. is there a separate default VPC for each region?
 
 Q2. Each time you run a configure cluster command, does the Parallel Cluster create a new VPC?
 
-Q3. why doesn't the VPC and subnet IDs get deleted when the Parallel Clusters are deleted.
+Q3. Why don't the VPC and subnet IDs get deleted when the Parallel Clusters are deleted.
 
 
 ### Deleting VPCs
@@ -31,6 +31,7 @@ The stack can be deleted using the delete-stack command.
 ```
 $ aws --region us-west-2 cloudformation delete-stack \
    --stack-name parallelclusternetworking-pubpriv-20191029205804
+```
 
 If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. 
 The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
@@ -42,6 +43,7 @@ Note: I can see why you wouldn't want to delete the VPC, if you want to reuse th
 I was able to use the Amazon Website to find the SubnetID, and then identify the VPC that it is part of.
 
 I currently have the following VPCs
+
 
 | Name | VPC ID | State | IPv4 CIDR |  IPv6 CIDR (Network border group) | IPv6 pool |DHCP options set | Main route table | Main network ACL | Tenancy | Default VPC | Owner ID |
 | ---- | -----  | ----  | --------  |  -------------------------------  | --------  | -------------   | ---------------- | ---------------  | ------- | ----------- | -------- |
