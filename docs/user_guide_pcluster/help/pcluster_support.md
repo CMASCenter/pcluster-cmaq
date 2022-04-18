@@ -7,7 +7,7 @@
 5. <a href="https://aws.amazon.com/fsx/lustre/faqs/">Lustre FAQ</a>
 6. <a href="https://aws.amazon.com/hpc/faqs/#AWS_ParallelCluster">Parallel Cluster FAQ</a> (somewhat outdated..)
 7. <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster3-config-converter.html">Tool to convert v2 config files to v3 yaml files for Parallel Cluster</a>
-8. <a href="https://github.com/aws-samples/parallelcluster-spot-fsxlustre>Instructions for creating a fault tolerance parallel cluster using lustre filesystem</a>
+8. <a href="https://github.com/aws-samples/parallelcluster-spot-fsxlustre">Instructions for creating a fault tolerance parallel cluster using lustre filesystem</a>
 
 
 ## Issues

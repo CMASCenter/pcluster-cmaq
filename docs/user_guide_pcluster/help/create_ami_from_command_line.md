@@ -12,4 +12,4 @@ We also need to have additional protections if we make these AMI's public.
 
 Building Pcluster from existing AMI
 
-<a href="https://aws.amazon.com/blogs/hpc/custom-amis-with-parallelcluster-3/>Building Pcluster from Existing AMI</a>
+<a href="https://aws.amazon.com/blogs/hpc/custom-amis-with-parallelcluster-3/">Building Pcluster from Existing AMI</a>

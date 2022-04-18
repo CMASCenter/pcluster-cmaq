@@ -11,4 +11,4 @@ Either the change must be reverted or the cluster must be deleted (using pcluste
 
 see more information
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/using-pcluster-update-cluster-v3.html#update-policy-fail-v3">Parallel Cluster Update Policy"</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/using-pcluster-update-cluster-v3.html#update-policy-fail-v3">Parallel Cluster Update Policy</a>
