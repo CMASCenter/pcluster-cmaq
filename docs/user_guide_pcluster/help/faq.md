@@ -1,6 +1,6 @@
 ## FAQ
 
-Q. Can you update a cluster with a Snapshot ID, ie. update a cluster to use the /shared/build pre-installed software.
+Q. Can you update a cluster with a Snapshot ID, ie. update a cluster to use the /shared/build pre-installed software?
 
 A. No. An existing cluster can not be updated with a Snapshot ID, solution is to delete the cluster and re-create it. see error:
 
@@ -28,7 +28,7 @@ Output:
 }
 ```
 
-Q. How do you figure out why a job isn't successfully running in the slurm queue
+Q. How do you figure out why a job isn't successfully running in the slurm queue?
 
 A. Check the logs available in the following link
 
@@ -53,7 +53,7 @@ Q. If I find an issue, or need help with this CMAQ Parallel Cluster Tutorial wha
 
 A. Please file an issue using github.
 
-https://github.com/lizadams/pcluster-cmaq/issues
+https://github.com/CMASCenter/pcluster-cmaq/issues
 
 Please indicate the issue you are having, and include a link from the read the doc section that you are referring to.
 
