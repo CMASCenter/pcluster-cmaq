@@ -18,7 +18,7 @@ This document provides tutorials and information on using the ParallelCluster on
 
 ## Format of this documentation
 
-This document provides three hands-on tutorials that are designed to be read in order.  The Introductory Tutorial will walk you through creating a demo ParallelCluster.  You will learn how to set up your AWS Identity and Access Management Roles, configure and create a demo cluster, and terminate and delete the cluster.  The Intermediate Tutorial steps you through running a CMAQ test case on ParallelCluster using pre-loaded software and input data.  The Advanced Tutorial explains how to scale the ParallelCluster for larger compute jobs and install CMAQ and required libraries from scratch on the cloud.  The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.
+This document provides three hands-on tutorials that are designed to be read in order.  The Introductory Tutorial will walk you through creating a demo ParallelCluster.  You will learn how to set up your AWS Identity and Access Management Roles, configure and create a demo cluster, and exit and delete the cluster.  The Intermediate Tutorial steps you through running a CMAQ test case on ParallelCluster using pre-loaded software and input data.  The Advanced Tutorial explains how to scale the ParallelCluster for larger compute jobs and install CMAQ and required libraries from scratch on the cloud.  The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.
 
  
 
