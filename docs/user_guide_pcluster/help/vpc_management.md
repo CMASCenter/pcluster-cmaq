@@ -8,9 +8,9 @@ Note, there is a default VPC, that is used to create EC2 instances, that should 
 
 Q1. is there a separate default VPC for each region?
 
-Q2. Each time you run a configure cluster command, does the Parallel Cluster create a new VPC?
+Q2. Each time you run a configure cluster command, does the ParallelCluster create a new VPC?
 
-Q3. Why don't the VPC and subnet IDs get deleted when the Parallel Clusters are deleted?
+Q3. Why don't the VPC and subnet IDs get deleted when the ParallelClusters are deleted?
 
 
 ### Deleting VPCs

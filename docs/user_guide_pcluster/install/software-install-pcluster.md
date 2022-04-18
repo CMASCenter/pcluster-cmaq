@@ -1,4 +1,4 @@
-## Install CMAQ sofware and libraries on parallel cluster
+## Install CMAQ sofware and libraries on ParallelCluster
 
 ### Login to updated cluster
 ```{note}
@@ -11,7 +11,7 @@ Replace the your-key.pem with your Key Pair.
 ### Change shell to use .tcsh
 
 ```{note}
-This command depends on what OS you have installed on the parallel cluster
+This command depends on what OS you have installed on the ParallelCluster
 ```
 
 `sudo usermod -s /bin/tcsh ubuntu`
@@ -83,9 +83,9 @@ Currently the Unidata Ucar netcdf-c download page is broken, and the location wh
 For this reason, this tutorial provides a snapshot image that was compiled on a c5n.xlarge head node, and runs on the c5n.18xlarge compute node.
 A different snapshot image would need to be created to compile and run CMAQ on a c6gn.16xlarge Arm-based AWS Graviton2 processor.
 
-An alternative is to keep a copy of the source code for netcdf-C and netcdf-Fortran and all of the other underlying code on an S3 bucket and to use custom bootstrap actions to build the sofware as the Parallel Cluster is provisioned.  
+An alternative is to keep a copy of the source code for netcdf-C and netcdf-Fortran and all of the other underlying code on an S3 bucket and to use custom bootstrap actions to build the sofware as the ParallelCluster is provisioned.  
 
-The following link provides instructions on how to create a custom bootstrap action to pre-load software from an S3 bucket to the parallel cluster at the time that the cluster is created.
+The following link provides instructions on how to create a custom bootstrap action to pre-load software from an S3 bucket to the ParallelCluster at the time that the cluster is created.
 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-v3.html">Custom Bootstrap Actions</a>
 

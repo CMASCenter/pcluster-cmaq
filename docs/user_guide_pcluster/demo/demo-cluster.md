@@ -7,16 +7,16 @@ The goal is for users to get started and make sure they can spin up a node, laun
 ## Establish Identity and Permissions 
 
 ### AWS Identity and Access Management Roles
-Requires the user to have AWS Identity and Access Management roles in AWS Parallel Cluster
+Requires the user to have AWS Identity and Access Management roles in AWS ParallelCluster
 
 ```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS Parallel Cluster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS ParallelCluster</a>
 ```
 
 AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
 It appears you can create the demo cluster, and even the intermediate or advanced cluster, but you can't submit a slurm job and have it provision compute nodes until you have the IAM Policies set for your account. This likely requires the system administrator who has permissions to access the AWS Web Interface with root access to add these policies and then to attach them to each user account.
 
-Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the Parallel Cluster. (requires administrative permissions)
+Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job on the ParallelCluster. (requires administrative permissions)
 
 ### AWS CLI 3.0 
 
@@ -28,7 +28,7 @@ Requires the user to have a key.pair that was created on an ec2.instance
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 ```
 
-#### Install AWS Parallel Cluster Command Line Interface on your local machine
+#### Install AWS ParallelCluster Command Line Interface on your local machine
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -96,7 +96,7 @@ Verify that the parallel cluster is working using:
 
 An example of the yaml file contents is described in the following Diagram:
 
-Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.micro head node and t2.micro compute nodes
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a t2.micro head node and t2.micro compute nodes
 
 ![t2.micro yaml configuration](../../yml_plots/hello-world-yaml.png)
 
@@ -108,7 +108,7 @@ Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a t2.mi
 #### Create a yaml configuration file for the cluster following these instructions
 
 ```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to Parallel Cluster Configure Instructions</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to ParallelCluster Configure Instructions</a>
 ```
 
  `pcluster configure --config new-hello-world.yaml`
@@ -172,7 +172,7 @@ Scheduling:
 The above yaml file is the very simplest form available.  If you upgrade the compute node to using a faster compute instance, then you will need to add additional configuration options (networking, elastic fabric adapter) to the yaml file.  These modifications will be highlighted in the yaml figures provided in the tutorial.
 ```
 
-The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS Intermediate Parallel Cluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the Yaml files that will be used to create the Intermediate Parallel Cluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
+The key pair and Subnetid in the yaml file are unique to your account.  To create the AWS Intermediate ParallelCluster, the key pair and subnet ID from the new-hello-world.yaml file that you created using your account will need to be transferred to the Yaml files that will be used to create the Intermediate ParallelCluster in the next section of the tutorial. You will need to edit these yaml files to use the key pair and your Subnetid that are valid for your AWS Account.
 
 ## Create a Demo Cluster
 
@@ -214,7 +214,7 @@ login prompt should look something like (this will depend on what OS was chosen 
 
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
-#### Check what modules are available on the Parallel Cluster
+#### Check what modules are available on the ParallelCluster
 
  `module avail`
 

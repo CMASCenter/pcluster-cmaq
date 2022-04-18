@@ -1,10 +1,10 @@
 Performance Optimization
 
-## Right-sizing Compute Nodes for the Parallel Cluster Configuration
+## Right-sizing Compute Nodes for the ParallelCluster Configuration
 
 Selection of the compute nodes depends on the domain size and resolution for the CMAQ case, and what your model run time requirements are.
 Larger hardware and memory configurations may also be required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
-The Parallel Cluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain.
+The ParallelCluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain.
 
 ## Slurm Compute Node Provisioning
 
@@ -70,7 +70,7 @@ Pricing information in the tables below are subject to change. The links from wh
 ```
 
 ```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - Parallel Cluster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - ParallelCluster</a>
 ```
 
 ## Spot versus On-Demand Pricing
@@ -99,7 +99,7 @@ Using c6gn.16xlarge as the compute node, it costs ($2.7648/hr)/(.6385/hr) = 4.3 
 ```{note}
 Sometimes, the nodes are not available for SPOT pricing in the region you are using. 
 If this is the case, the job will not start runnning in the queue, see AWS Troubleshooting. 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">Parallel Cluster Troubleshooting</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">ParallelCluster Troubleshooting</a>
 ```
 
 ## Benchmark Timings
@@ -108,7 +108,7 @@ Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xl
 
 ### Benchmark Timing Results for c5n.18xlarge
 
-Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.18xlarge Compute Nodes
+Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
 Note for the C5n.18xlarge, I/O was done using /fsx (need to verify), the InputData refers to whether the data was copied to /fsx or imported from fsx.
 
@@ -135,7 +135,7 @@ Note for the C5n.18xlarge, I/O was done using /fsx (need to verify), the InputDa
 
 ### Benchmark Timing Results for c5n.9xlarge
 
-Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on Parallel Cluster with c5n.large head node and C5n.9xlarge Compute Nodes
+Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  |   -------- | --------- | -- | -- | 
@@ -201,7 +201,7 @@ Cost information is available within the AWS Web Console for your account as you
 
 ### Cost Explorer
 
-Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the Parallel Cluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
+Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
 In Figure 4 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
@@ -226,9 +226,9 @@ Figure 6. Cost by Service Type - AWS Console
 
 Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
 
-Using 288 cpus on the Parallel Cluster, it would take ~4.83 days to run a full year, using 8 c5n.18xlarge (36cpu/node) compute nodes.
+Using 288 cpus on the ParallelCluster, it would take ~4.83 days to run a full year, using 8 c5n.18xlarge (36cpu/node) compute nodes.
 
-Using 126 cpus  on the Parallel Cluster, it would take ~9.76 days to run a full year, using 7 c5n.9xlarge (18cpu/node) compute nodes.
+Using 126 cpus  on the ParallelCluster, it would take ~9.76 days to run a full year, using 7 c5n.9xlarge (18cpu/node) compute nodes.
 
 Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 

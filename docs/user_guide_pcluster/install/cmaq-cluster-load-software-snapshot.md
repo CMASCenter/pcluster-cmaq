@@ -1,4 +1,4 @@
-## Create parallel cluster with an un-encrypted EBS volume and load software to share publically
+## Create parallelcluster with an un-encrypted EBS volume and load software to share publically
 
 ### Examine a yaml file that has specifies that the /shared ebs volume will be un-encrypted.
 
@@ -127,7 +127,7 @@ Create the output directory
 `mkdir -p /fsx/data/output`
 
 
-1. Follow instructions to Install CMAQ software on parallel cluster
+1. Follow instructions to Install CMAQ software on parallelcluster
 2. Submit 180 pe job for CMAQ 2 day Benchmark
 3. Submit 288 pe job for CMAQ 2 day Benchmark 
 4. Run QA Check

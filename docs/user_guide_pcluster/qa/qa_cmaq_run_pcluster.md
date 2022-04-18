@@ -1,6 +1,6 @@
 ## Quality Assurance 
 
-Instructions on how to to verify a successful CMAQ Run on Parallel Cluster.
+Instructions on how to to verify a successful CMAQ Run on ParallelCluster.
 
 
 ## run m3diff to compare the output data for two runs that have different values for NPCOL
@@ -210,7 +210,7 @@ Resulted in zero differences in the output
 
 Examine the script to create the box plots and spatial plots and edit to use the output that you have generated in your runs.
 
-First check what output is available on your Parallel Cluster
+First check what output is available on your ParallelCluster
 
 If your I/O directory is /fsx
 

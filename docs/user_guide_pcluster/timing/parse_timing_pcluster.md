@@ -1,12 +1,12 @@
 # Parse timings from the log file 
 
-## Compare the timings for the CONUS Parallel Cluster Runs
+## Compare the timings for the CONUS ParallelCluster Runs
 
 ```{note}
-Parallel Cluster Configurations can impact the model run times.
+ParallelCluster Configurations can impact the model run times.
 ```
 
-It is up the the user, as to what model run configurations are used to run CMAQ on the Parallel Cluster.
+It is up the the user, as to what model run configurations are used to run CMAQ on the ParallelCluster.
 The following configurations may impact the run time of the model.
 
 * Using different PE configurations, using DisableSimultaneousMultithreading: true in yaml file, using 36 cpus - no virtual cpus
@@ -51,7 +51,7 @@ Modify the name of the log file to match what is avaible on your system.
 cd /shared/pcluster-cmaq/qa_scripts
 `vi parse_timing_pcluster.r`
 
-Edit the following section of the script to specify the log file names available on your Parallel Cluster
+Edit the following section of the script to specify the log file names available on your ParallelCluster
 
 ```
 sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'

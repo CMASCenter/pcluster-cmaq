@@ -1,6 +1,6 @@
 Advanced Tutorial (optional)
 
-## Use Parallel Cluster without Software and Data pre-installed
+## Use ParallelCluster without Software and Data pre-installed
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US2 benchmark with instructions to install the libraries and software.
 
@@ -15,7 +15,7 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 
 ### Create CMAQ Cluster using SPOT pricing
 
-#### Use an existing yaml file from the git repo to create a parallel cluster
+#### Use an existing yaml file from the git repo to create a ParallelCluster
 
 `cd /your/local/machine/install/path/`
 
@@ -77,7 +77,7 @@ SharedStorage:
 
 #### The Yaml file for the c5n-4xlarge contains the settings as shown in the following diagram.
 
-Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.4xlarge compute nodes using SPOT pricing
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.large head node and c5n.4xlarge compute nodes using SPOT pricing
 ![c5n-4xlarge yaml configuration](../../yml_plots/c5n-4xlarge-yaml.png)
 
 
@@ -143,9 +143,9 @@ Provisioning 10 c5n.18xlarge in one region may be difficult. In practice, it is 
 The c5n.18xlarge requires that the elastic network adapter is enabled in the yaml file. Exit the pcluster and return to your local command line.
 ```
 
-If you only modified the yaml file to update the compute node identity, without making additional updates to the network and other settings, then you would not achieve all of the benefits of using the c5n.18xlarge compute node in the parallel cluster.
+If you only modified the yaml file to update the compute node identity, without making additional updates to the network and other settings, then you would not achieve all of the benefits of using the c5n.18xlarge compute node in the ParallelCluster.
 
-For this reason, a yaml file that contains these advanced options to support the c5n.18xlarge compute instance will be used to upgrade the parallel cluster from c5n.5xlarge to c5n.18xlarge.
+For this reason, a yaml file that contains these advanced options to support the c5n.18xlarge compute instance will be used to upgrade the ParallelCluster from c5n.5xlarge to c5n.18xlarge.
 
 ### Exit the cluster
 
@@ -175,7 +175,7 @@ The YAML file for the c5n.xlarge head node and c5n18xlarge compute Node contains
 5. the c5n-18xlarge.yaml is configured to enables the elastic fabric adapter
 ```
 
-Figure 2. Diagram of YAML file used to configure a Parallel Cluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
+Figure 2. Diagram of YAML file used to configure a ParallelCluster with a c5n-xlarge head node and c5n-18xlarge compute nodes(36CPU per Node)
 
 ![c5n-18xlarge yaml configuration](../../yml_plots/c5n-18xlarge-yaml.png)
 
@@ -381,5 +381,5 @@ gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Founda
 ```
 
 ```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">Parallel Cluster User Manual</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">ParallelCluster User Manual</a>
 ```

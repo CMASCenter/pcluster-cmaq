@@ -49,7 +49,7 @@ A. echo $SLURM_JOB_NODELIST
 
 <a href="https://hpcc.umd.edu/hpcc/help/slurmenv.html">Slurm Environment Variables</a>
 
-Q. If I find an issue, or need help with this CMAQ Parallel Cluster Tutorial what do I do?
+Q. If I find an issue, or need help with this CMAQ ParallelCluster Tutorial what do I do?
 
 A. Please file an issue using github.
 

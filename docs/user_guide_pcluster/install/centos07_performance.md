@@ -43,7 +43,7 @@ Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
-Only reason that I switched to centos7 over ubuntu2004 is that when I tried to create a parallel cluster with ubuntu2004 on Feb. 22, 2022, I could not find slurm or sbatch, so I could notsubmit jobs to the queue. (I had not run into this previously, when I saved the EBS Snapshot as encrypted.
+Only reason that I switched to centos7 over ubuntu2004 is that when I tried to create a ParallelCluster with ubuntu2004 on Feb. 22, 2022, I could not find slurm or sbatch, so I could notsubmit jobs to the queue. (I had not run into this previously, when I saved the EBS Snapshot as encrypted.
 
 
 ### Submit a 288 pe job

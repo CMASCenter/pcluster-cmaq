@@ -1,8 +1,8 @@
 Intermediate Tutorial
 
-## Use Parallel Cluster pre-installed with software and data.
+## Use ParallelCluster pre-installed with software and data.
 
-Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a Parallel Cluster.
+Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a ParallelCluster.
 
 ### Obtain YAML file pre-loaded with input data and software 
 
@@ -32,13 +32,13 @@ Justification for using the capability of importing data from an S3 bucket to th
 ```
 
 ```{note} To find the default settings for Lustre see:
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for Parallel Cluster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for ParallelCluster</a>
 ```
 
 ### Examine Diagram of the YAML file to build pre-installed software and input data. 
 Includes Snapshot ID of volume pre-installed with CMAQ software stack and name of S3 Bucket to import data to the Lustre Filesystem
 
-Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
 
 ![c5n-18xlarge Software+Data Pre-installed yaml configuration](../../yml_plots/c5n-18xlarge.ebs_shared-yaml.fsx_import.png)
 
@@ -101,7 +101,7 @@ SharedStorage:
 ```
 
 
-## Create CMAQ Parallel Cluster with software/data pre-installed
+## Create CMAQ ParallelCluster with software/data pre-installed
 
 `pcluster create-cluster --cluster-configuration c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
@@ -165,7 +165,7 @@ replace your-key.pem with your Key Name
 
 ## Verify Software
 
-The software is pre-loaded on the /shared volume of the Parallel Cluster.  The software was previously loaded and saved to the snapshot.
+The software is pre-loaded on the /shared volume of the ParallelCluster.  The software was previously loaded and saved to the snapshot.
 
 `ls /shared/build`
 
@@ -443,7 +443,7 @@ Verify that your IAM Policy has been created for your account.
 Someone with administrative permissions should eable the spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
 
 An alternative way to enable this policy is to login to the EC2 Website and launch a spot instance.
-The service policy will be automatically created, that can then be used by Parallel Cluster.
+The service policy will be automatically created, that can then be used by ParallelCluster.
 
 ### Submit a 72 pe job 2 nodes x 36 cpus
 

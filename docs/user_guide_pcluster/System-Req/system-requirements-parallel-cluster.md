@@ -1,4 +1,4 @@
-## Configurations for running CMAQ on AWS Parallel Cluster
+## Configurations for running CMAQ on AWS ParallelCluster
 
 ### Recommend that users set up a spending alarm using AWS 
 
@@ -9,7 +9,7 @@ See the AWS Tutorial on setting up an alarm for AWS Free Tier.
 <a href="https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets">AWS Free Tier Budgets</a>
 ```
 
-## Software Requirements for CMAQ on AWS Parallel Cluster
+## Software Requirements for CMAQ on AWS ParallelCluster
 
 Tier 1: Native OS and associated system libraries, compilers
 
@@ -42,7 +42,7 @@ Software on Local Computer
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
 * Git
 * Mac - XQuartz for X11 Display
-* Windows - MobaXterm  - to connect to Parallel Cluster IP address
+* Windows - MobaXterm  - to connect to ParallelCluster IP address
 
 ### AWS CLI v3.0 AWS Region Availability
 
@@ -65,13 +65,13 @@ GRIDDESC
 ![CMAQ Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
 
 
-##  Parallel Cluster Configuration for CONUS 12US2 Domain
+##  ParallelCluster Configuration for CONUS 12US2 Domain
 
 ```{note}
 It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
 ```
 
-Recommended configuration of the Parallel Cluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
+Recommended configuration of the ParallelCluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
 
 Head node:
 
@@ -89,7 +89,7 @@ with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and
 
 
 ```{note}
-Additional best practice of allowing the Parallel Cluster to create a placement group .
+Additional best practice of allowing the ParallelCluster to create a placement group .
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html>Network Performance</a>
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>Placement Groups</a>
 ```
@@ -115,7 +115,7 @@ Elastic Fabric Adapter(EFA)
 ```
 
 
-Figure 1. AWS Recommended Parallel Cluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
+Figure 1. AWS Recommended ParallelCluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
-![AWS Parallel Cluster Configuration](../../diagrams/aws_parallel_cluster_configuration.png)
+![AWS ParallelCluster Configuration](../../diagrams/aws_parallel_cluster_configuration.png)
 
