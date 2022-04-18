@@ -1,3 +1,4 @@
+## Side by Side Comparison of the information in the log files for 12x9 pe run compared to 9x12 pe run.
 
 `cd /shared/pcluster-cmaq/c5n.18xlarge_scripts_logs`
 `sdiff run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log | more`
