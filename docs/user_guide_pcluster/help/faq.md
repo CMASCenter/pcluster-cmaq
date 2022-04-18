@@ -53,9 +53,10 @@ Q. If I find an issue, or need help with this CMAQ Parallel Cluster Tutorial wha
 
 A. Please file an issue using github.
 
-https://github.com/CMASCenter/pcluster-cmaq/issues
+<a href="https://github.com/CMASCenter/pcluster-cmaq/issues">Submit Github Issue for help with documentation</a>
 
 Please indicate the issue you are having, and include a link from the read the doc section that you are referring to.
+The tutorial documentation has an edit icon in the upper right corner of each page. You can click on that, and github will fork the repo and allow you to edit the page. After you have made the edits, you can submit a pull request, and then include the link to the pull request in the github issue.
 
 
 
