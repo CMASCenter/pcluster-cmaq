@@ -258,7 +258,7 @@ To convert the PDF to a jpeg image use the script convert.csh.
 
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
 
-First examine what the covert.csh script is doing
+First examine what the convert.csh script is doing
 
 `more convert.csh`
 
