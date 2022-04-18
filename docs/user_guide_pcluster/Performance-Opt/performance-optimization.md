@@ -200,6 +200,8 @@ Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
 
 ![Side by Side Difference of log files revealed the answer](./sdiff_compare.md)
 
+A comparison of the log files revealed that the CPU speed for the run of the 12x9 benchmark case was slower than the CPU speed for the run of the 9x12 benchmark case.
+
 ## Total Time and Cost versus CPU Plot for c5n.9xlarge
 
 Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
