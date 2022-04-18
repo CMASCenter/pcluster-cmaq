@@ -3,7 +3,7 @@
 Instructions on how to to verify a successful CMAQ Run on ParallelCluster.
 
 
-## run m3diff to compare the output data for two runs that have different values for NPCOL
+## Run m3diff to compare the output data for two runs that have different values for NPCOL
 
 ```
 cd /fsx/data/output
