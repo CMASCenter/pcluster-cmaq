@@ -7,7 +7,7 @@
 :relative-images:
 ```
 ```{warning}
-This documentation is under heavy development
+This documentation is under continuous development
 ```
 
 ## Overview

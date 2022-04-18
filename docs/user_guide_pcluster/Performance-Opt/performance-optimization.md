@@ -266,10 +266,11 @@ Note, there is a difference in the storage sizing units that were obtained from 
 <a href="https://www.techtarget.com/searchstorage/definition/tebibyte-TiB#:~:text=Tebibyte%20vs.&text=One%20tebibyte%20is%20equal%20to,when%20talking%20about%20storage%20capacity">TB vs TiB</a>
 ```
 
-One tebibyte is equal to 240 or 1,099,511,627,776 bytes. 
+Quote from the above website;
+"One tebibyte is equal to 2^40 or 1,099,511,627,776 bytes. 
 One terabyte is equal to 1012 or 1,000,000,000,000 bytes. 
 A tebibyte equals nearly 1.1 TB. 
-That's about a 10% difference between the size of a tebibyte and a terabyte, which is significant when talking about storage capacity.
+That's about a 10% difference between the size of a tebibyte and a terabyte, which is significant when talking about storage capacity."
 
 Lustre Scratch SSD 200 MB/s/TiB is tier of the storage pricing that we have configured in the yaml for the cmaq parallel cluster.
 
