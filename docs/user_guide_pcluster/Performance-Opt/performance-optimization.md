@@ -191,7 +191,14 @@ Note, these plots show the scaling per-node, as the configurations that were run
 
 Note, the following plot shows the timings for many configuration options listed in the table above for the c5n.18xlarge cluster.  Running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The run script and yaml settings used for the c5n.9xlarge were all fixed to use the configuration options that were optimized for running CMAQ on the cluster. Benchmark runs to determine the impact on performance when linking the input data using the lustre file system or copying the data and using the /shared ebs volume for I/O.
 
+Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
+
+
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_CPUs.png)
+
+## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
+
+![Side by Side Difference of log files revealed the answer](./sdiff_compare.md)
 
 ## Total Time and Cost versus CPU Plot for c5n.9xlarge
 
