@@ -17,9 +17,9 @@ What are the differences between an EFA ENI and an ENA ENI?
 
 Q: What are the pre-requisites to enabling EFA on an instance?
 
-EFA support can be enabled either at the launch of the instance or added to a stopped instance. EFA devices cannot be attached to a running instance.
+"EFA support can be enabled either at the launch of the instance or added to a stopped instance. EFA devices cannot be attached to a running instance."
 
-<a href"https://aws.amazon.com/blogs/aws/now-available-elastic-fabric-adapter-efa-for-tightly-coupled-hpc-workloads/">Elastic Fabric Adapter for Tightly Coupled Workloads</a>
+<a href="https://aws.amazon.com/blogs/aws/now-available-elastic-fabric-adapter-efa-for-tightly-coupled-hpc-workloads">Elastic Fabric Adapter for Tightly Coupled Workloads</a>
 
 Quoted from the above link.
 
