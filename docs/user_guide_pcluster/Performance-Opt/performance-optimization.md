@@ -193,8 +193,7 @@ Note, the following plot shows the timings for many configuration options listed
 
 Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
 
-
-![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_CPUs.png)
+![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_CPUs_update.png)
 
 ## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
 
@@ -215,7 +214,7 @@ Figure 5. Plot of Total Time and On Demand Cost versus CPUs for c5n.9xlarge
 
 Figure 6. Plot of Total Time and On Demand Cost versus CPUs for both c5n.18xlarge and c5n.9xlarge
 
-![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and c5n9xlarge](../../qa_plots/scaling_plots/c5n18xlarge_c5n9xlarge_Time_CPUs.png)
+![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and c5n9xlarge](../../qa_plots/scaling_plots/c5n18xlarge_c5n9xlarge_Time_CPUs_update.png)
 
 # Cost Information 
 
