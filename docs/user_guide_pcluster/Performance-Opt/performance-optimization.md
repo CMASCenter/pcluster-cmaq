@@ -189,12 +189,14 @@ Figure 3. Scaling per CPU on c5n.18xlarge compute node
 
 Note, there are several timings that were obtained using 8 nodes.  The 288 cpu timings were fully utilizing the 36 pe nodes using 8x36 = 288 cpus, and different NPCOLxNPROW options were used 16x18 and 18x16.
 The 256 cpu timings were obtained using a NPCOLxNPROW configuration of 16x16. This benchmark configuration doesn't fully utilize all of the cpus/node, so the efficiency per node is lower, and the cost is higher.
-It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands
+It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands.
 
 ```
 #SBATCH --nodes=8
 #SBATCH --ntasks-per-node=36
 ```
+
+The scaling efficiency using 5 nodes of 36 cpus/node =  180 cpus was 84%.  The scaling efficiency dropped to 68% when using 8 nodes of 36 cpus/node = 288 cpus.
 
 
 Figure 4.  Scaling per Node on C5n.9xlarge Compute Nodes (18 cpu/node)
@@ -208,6 +210,7 @@ Figure 5. Scaling per CPU on C5n.9xlarge Compute Node (18 cpu/node)
 ![Scaling per CPU for C5n.9xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_CPUs.png)
 
 Scaling is also good when compared to the number of cpus used. Note that all benchmark runs performed using the c5n.9xlarge compute nodes fully utilized the number of cpus available on a node.
+The scaling efficiency using 7 nodes of 18 cpus/node = 126 cpus was 86%.
 
 ## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
