@@ -180,6 +180,16 @@ Figure 2. Scaling per Node on C5n.18xlarge Compute Nodes (36 cpu/node)
 
 ![Scaling per Node for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_Node.png)
 
+
+Note, there are several timings that were obtained using 8 nodes.  The 288 cpu timings were fully utilizing the 36 pe nodes using 8x36 = 288 cpus, and different NPCOLxNPROW options were used 16x18 and 18x16.
+The 256 cpu timings were obtained using a NPCOLxNPROW configuration of 16x16. This benchmark configuration doesn't fully utilize all of the cpus/node, so the efficiency per node is lower, and the cost is higher.
+It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands  
+
+```
+#SBATCH --nodes=8
+#SBATCH --ntasks-per-node=36
+```
+ 
 Figure 3. Scaling per CPU on c5n.18xlarge compute node
 
 ![Scaling per CPU for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_CPUs.png)
@@ -194,7 +204,7 @@ Figure 5. Scaling per CPU on C5n.9xlarge Compute Node (18 cpu/node)
 
 ## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
-Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
+Figure 6. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
 Note, these plots show the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  CMAQ was not run on 1 cpu, as this would have been costly and inefficient.
 
@@ -205,7 +215,7 @@ Note, these plots show the scaling per-node, as the configurations that were run
 
 Note, the following plot shows the timings for many configuration options listed in the table above for the c5n.18xlarge cluster.  Running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The run script and yaml settings used for the c5n.9xlarge were all fixed to use the configuration options that were optimized for running CMAQ on the cluster. Benchmark runs to determine the impact on performance when linking the input data using the lustre file system or copying the data and using the /shared ebs volume for I/O.
 
-Figure 4. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
+Figure 7. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
 
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_CPUs.png)
 
@@ -216,13 +226,13 @@ A comparison of the log files (sdiff  run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe
 
 ## Total Time and Cost versus CPU Plot for c5n.9xlarge
 
-Figure 5. Plot of Total Time and On Demand Cost versus CPUs for c5n.9xlarge
+Figure 8. Plot of Total Time and On Demand Cost versus CPUs for c5n.9xlarge
 
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n9xlarge](../../qa_plots/scaling_plots/c5n9xlarge_Time_CPUs.png)
 
 ## Total Time and Cost versus CPU Plot for both c5n.18xlarge and c5n.9xlarge
 
-Figure 6. Plot of Total Time and On Demand Cost versus CPUs for both c5n.18xlarge and c5n.9xlarge
+Figure 9. Plot of Total Time and On Demand Cost versus CPUs for both c5n.18xlarge and c5n.9xlarge
 
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and c5n9xlarge](../../qa_plots/scaling_plots/c5n18xlarge_c5n9xlarge_Time_CPUs.png)
 
@@ -234,21 +244,21 @@ Cost information is available within the AWS Web Console for your account as you
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
-In Figure 4 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
+In Figure 10 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
-Figure 4. Cost by Instance Type - AWS Console 
+Figure 10. Cost by Instance Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Instance Type](../../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
-In Figure 5 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
+In Figure 11 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
 
-Figure 5. Cost by Usage Type - AWS Console 
+Figure 11. Cost by Usage Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Usage Type](../../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
-In Figure 6 The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
+In Figure 12. The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
 
-Figure 6. Cost by Service Type - AWS Console
+Figure 12. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
