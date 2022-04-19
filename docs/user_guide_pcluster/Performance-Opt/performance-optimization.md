@@ -126,7 +126,7 @@ Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xl
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
-Note for the C5n.18xlarge, I/O was done using /fsx (need to verify), the InputData refers to whether the data was copied to /fsx or imported from fsx.
+Note for the C5n.18xlarge, I/O was done using /fsx, the InputData refers to whether the data was copied to /fsx or imported from fsx.
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive | InputData | Disable Simultaneous Multithreading (yaml)| with -march=native |  Equation using Spot Pricing | SpotCost   | Equation using On Demand Pricing |  OnDemandCost | 
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | -------------------        | ------------------ | --------------          | ---------                              |   -------- | --------- | ---- | ----- | --- | --- | 
