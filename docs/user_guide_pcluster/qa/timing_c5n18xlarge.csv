@@ -10,8 +10,8 @@ CPUs	NodesxCPU	COLROW	Day1 Timing (sec)	Day2 Timing (sec)	TotalTime	CPU Hours/da
 180	5x36	10x18	2378.73	2378.73	4588.92	0.637	no	copied	TRUE	yes	1.1732/hr * 5 nodes * 1.2747 hr =	7.477	3.888/hr * 5 nodes * 1.2747 hr =	24.77
 180	5x36	10x18	1585.67	1394.52	2980.19	0.41	yes	imported	TRUE	yes	1.1732/hr * 5nodes * 2980.9 / 3600 =	4.85	3.888/hr * 5 nodes * .82 hr =	16.05
 256	8x32	16x16	1289.59	1164.53	2454.12	0.34	no	copied	TRUE	yes	1.1732/hr * 8nodes * 2454.12 / 3600 =	$6.40 	3.888/hr * 8 nodes * .6817 hr =	21.66
-256	8x32	16x16	1305.99	1165.3	2471.29	0.34	no	copied	TRUE	yes	1.1732/hr * 8nodes * 2471.29 / 3600 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11
-256	8x32	16x16	1564.9	1381.8	2946.7	0.4	no	imported	TRUE	yes	1.1732/hr * 8nodes * 2946.7 / 3600 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45
+256	8x32	16x16	1305.99	1165.3	2471.29	0.34	yes	copied	TRUE	yes	1.1732/hr * 8nodes * 2471.29 / 3600 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11
+256	8x32	16x16	1564.9	1381.8	2946.7	0.4	yes	imported	TRUE	yes	1.1732/hr * 8nodes * 2946.7 / 3600 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45
 288	8x36	16x18	1873	1699.24	3572.2	0.49	no	copied	FALSE	yes	1.1732/hr * 8nodes * 3572.2/3600=	9.313	3.888/hr * 8 nodes * .992 hr =	30.8
 288	8x36	16x18	1472.69	1302.84	2775.53	.385	yes	imported	TRUE	yes	1.1732/hr * 8nodes * .771 =	7.24	3.888/hr * 8 nodes * .771 =	23.98
 288	8x36	16x18	1976.35	1871.61	3847.96	0.53	no	copied	TRUE	yes	1.1732/hr * 8nodes * 3847.96=	10	3.888/hr * 8 nodes * 1.069 =	33.24

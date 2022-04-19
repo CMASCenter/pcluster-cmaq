@@ -21,8 +21,8 @@ CPUs	NodesxCPU	COLROW	Day1Timing(sec)	Day2Timing(sec)	TotalTime	CPUHours/day	SBA
 180	5x36	10x18	2378.730	2378.730	4588.920	0.637	no	TRUE	yes	/fsxc	1.1732/hr * 5 nodes * 1.27 hr =	7.477	3.888/hr * 5 nodes * 1.275 hr =	24.77	c5n.18xlarge
 180	5x36	10x18	1585.670	1394.520	2980.190	0.41	yes	TRUE	yes	/fsx	1.1732/hr * 5nodes * .828 =	4.85	3.888/hr * 5 nodes * .82 hr =	16.05	c5n.18xlarge
 256	8x32	16x16	1289.590	1164.530	2454.120	0.32	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * .6817 =	6.40 	3.888/hr * 8 nodes * .6817 hr =	21.66	c5n.18xlarge
-256	8x32	16x16	1305.990	1165.300	2471.290	0.34	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * .686 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11	c5n.18xlarge
-256	8x32	16x16	1564.900	1381.800	2946.700	0.4	no	TRUE	yes	/fsx	1.1732/hr * 8nodes * .819 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45	c5n.18xlarge
+256	8x32	16x16	1305.990	1165.300	2471.290	0.34	yes	TRUE	yes	/fsxc	1.1732/hr * 8nodes * .686 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11	c5n.18xlarge
+256	8x32	16x16	1564.900	1381.800	2946.700	0.4	yes	TRUE	yes	/fsx	1.1732/hr * 8nodes * .819 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45	c5n.18xlarge
 288	8x36	16x18	1873.000	1699.240	3572.200	0.49	no	FALSE	yes	/fsx	1.1732/hr * 8nodes * .992 =	9.313	3.888/hr * 8 nodes * .992 hr =	30.8	c5n.18xlarge
 288	8x36	16x18	1472.690	1302.840	2775.530	0.385	yes	TRUE	yes	/fsx	1.1732/hr * 8nodes * .771 =	7.24	3.888/hr * 8 nodes * .771 =	23.98	c5n.18xlarge
 288	8x36	16x18	1976.350	1871.610	3847.960	0.53	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * 1.069 =	10	3.888/hr * 8 nodes * 1.069 =	33.24	c5n.18xlarge
