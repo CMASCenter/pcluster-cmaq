@@ -207,9 +207,10 @@ Figure 5. Scaling per CPU on C5n.9xlarge Compute Node (18 cpu/node)
 
 ## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
+Note, these plots show the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  CMAQ was not run on 1 cpu, as this would have been costly and inefficient.
+
 Figure 6. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
-Note, these plots show the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  CMAQ was not run on 1 cpu, as this would have been costly and inefficient.
 
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
@@ -274,7 +275,7 @@ Using 288 cpus on the ParallelCluster, it would take ~4.83 days to run a full ye
 
 Using 126 cpus  on the ParallelCluster, it would take ~9.76 days to run a full year, using 7 c5n.9xlarge (18cpu/node) compute nodes.
 
-Table 3. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Table 4. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Extrapolate Cost for Annual Simulation                 | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  --------------------------------------------------    |  -------------------------------    |
@@ -296,7 +297,7 @@ These cost estimates depend on the availability of number of nodes for the insta
 ```
 
 
-Table 4. Lustre SSD File System Pricing for us-east-1 region
+Table 5. Lustre SSD File System Pricing for us-east-1 region
 
 | Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |
 | --------     | ----------------  |   ------------------------------------    | -----------------  |
