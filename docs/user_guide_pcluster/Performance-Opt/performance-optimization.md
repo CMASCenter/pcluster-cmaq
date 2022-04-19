@@ -172,16 +172,27 @@ Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with 
 
 ## Benchmark Scaling Plot for c5n.18xlarge
 
-Figure 2. Scaling on C5n.18xlarge Compute Nodes (36 cpu/node)
+Figure 2. Scaling per Node on C5n.18xlarge Compute Nodes (36 cpu/node)
 
-![Scaling Plot for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_on_C5n.18xlarge_Pcluster.png)
+![Scaling per Node for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_Node.png)
 
+Figure 3. Scaling per CPU on c5n.18xlarge compute node
+
+![Scaling per CPU for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_CPUs.png)
+
+Figure 4.  Scaling per Node on C5n.9xlarge Compute Nodes (18 cpu/node)
+
+![Scaling per Node for C5n.9xlarge Compute Nodes (18cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_Node.png)
+
+Figure 5. Scaling per CPU on C5n.9xlarge Compute Node (18 cpu/node)
+
+![Scaling per CPU for C5n.9xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_CPUs.png)
 
 ## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
 Figure 3. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
 
-Note, these plots show the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  The plot would look the same, if plotted based on number of cores, with the demoninator being the 2 day wall-clock time for either 18cpus (c5n.9xlarge) or 36 cpus (c5n.18xlarge).  CMAQ was not run on 1 cpu, as this would have been costly and inefficient.
+Note, these plots show the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  CMAQ was not run on 1 cpu, as this would have been costly and inefficient.
 
 ![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
 
