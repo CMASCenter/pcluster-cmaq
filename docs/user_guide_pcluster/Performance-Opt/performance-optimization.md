@@ -201,9 +201,13 @@ Figure 4.  Scaling per Node on C5n.9xlarge Compute Nodes (18 cpu/node)
 
 ![Scaling per Node for C5n.9xlarge Compute Nodes (18cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_Node.png)
 
+Scaling is very good for the c5n.9xlarge compute nodes up to 7 nodes, the largest number of nodes that could be provisioned at the time this benchmark was done.
+
 Figure 5. Scaling per CPU on C5n.9xlarge Compute Node (18 cpu/node)
 
 ![Scaling per CPU for C5n.9xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_CPUs.png)
+
+Scaling is also good when compared to the number of cpus used. Note that all benchmark runs performed using the c5n.9xlarge compute nodes fully utilized the number of cpus available on a node.
 
 ## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
 
