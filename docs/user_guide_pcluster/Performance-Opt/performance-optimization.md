@@ -182,6 +182,11 @@ Figure 2. Scaling per Node on C5n.18xlarge Compute Nodes (36 cpu/node)
 
 Note, poor performance was obtained for the runs using 180 processors when SBATCH --exclusive option was not used.  After this finding, the run scripts were modified to always use this option.
 The benchmark runs that were done on c5n.9xlarge always used the SBATCH --exclusive option.
+
+## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
+
+A comparison of the log files (sdiff  run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log) revealed that the CPU speed for the Parallel Cluster run of the 12x9 benchmark case was slower than the CPU speed used for the 9x12 benchmark case.
+
  
 Figure 3. Scaling per CPU on c5n.18xlarge compute node
 
@@ -224,16 +229,12 @@ Figure 6. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (3
 
 ## Total Time and Cost versus CPU Plot for c5n.18xlarge
 
-Note, the following plot shows the timings for many configuration options listed in the table above for the c5n.18xlarge cluster.  Running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The run script and yaml settings used for the c5n.9xlarge were all fixed to use the configuration options that were optimized for running CMAQ on the cluster. Benchmark runs to determine the impact on performance when linking the input data using the lustre file system or copying the data and using the /shared ebs volume for I/O.
+Note, the following plot shows the timings for many configuration options listed in the table above for the c5n.18xlarge cluster.  Running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  The run script and yaml settings used for the c5n.9xlarge were all fixed to use the configuration options that were optimized for running CMAQ on the cluster. Additional benchmark runs may be needed to determine the impact on performance when linking the input data using the lustre file system or copying the data to lustre and/or using the /shared ebs volume for I/O.
 
 Figure 7. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
 
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_CPUs.png)
 
-
-## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
-
-A comparison of the log files (sdiff  run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log) revealed that the CPU speed for the Parallel Cluster run of the 12x9 benchmark case was slower than the CPU speed used for the 9x12 benchmark case.
 
 ## Total Time and Cost versus CPU Plot for c5n.9xlarge
 
