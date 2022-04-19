@@ -9,10 +9,10 @@ library(patchwork) # To display 2 charts together
 png(file = paste('c5n9xlarge','_','Scaling','_','Node','.png',sep=''), width = 1024, height = 768, bg='white')
 csv_data<- read.csv("/shared/pcluster-cmaq/docs/user_guide_pcluster/qa/scaling_c5n9xlarge.csv",sep="\t", skip =0, header = TRUE, comment.char = "",check.names = FALSE, quote="", )
 print(csv_data)
-p1 <- ggplot(csv_data, aes(y=Scaling, x=Nodes, color=COLROW)) +
+p1 <- ggplot(csv_data, aes(y=Scaling, x=Nodes, color=COLROW, size=CPUs)) +
     geom_point() + ggtitle("2 Day Benchmark Scaling versus Nodes(18cpu/node) using c5n.9xlarge") + xlim(0,8) + ylim(0,8) 
 
-p2 <- ggplot(csv_data, aes(y=Efficiency, x=Nodes, color=COLROW)) +
+p2 <- ggplot(csv_data, aes(y=Efficiency, x=Nodes, color=COLROW, size=CPUs)) +
     geom_point() + ggtitle("2 Day Benchmark Parallel Efficiency versus Node(18cpu/node) using c5n.9xlarge")
 
 # Display both charts side by side thanks to the patchwork package
