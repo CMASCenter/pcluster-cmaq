@@ -2,28 +2,29 @@ CPUs	NodesxCPU	COLROW	Day1Timing(sec)	Day2Timing(sec)	TotalTime	CPUHours/day	SBA
 18	1x18	3x6	14341.77	12881.59	27223.36	3.78	yes	TRUE	no	/fsx	0.5971/hr * 1 node * 7.56 hr=	4.51	1.944/hr * 1 node * 7.56 hr =	14.69	c5n.9xlarge
 18	1x18	3x6	12955.32	11399.07	24354.39	3.38	yes	TRUE	no	/shared	0.5971/hr * 1 node * 6.76 hr =	4.03	1.944/hr * 1 node * 6.76 =	13.15	c5n.9xlarge
 18	1x18	6x3	13297.84	11491.99	24789.83	3.44	yes	TRUE	no	/shared	0.5971/hr * 1 node * 6.89 hr =	4.11	1.944/hr * 1 node * 6.89 =	13.39	c5n.9xlarge
-36	2x18	6x6	6473.950	5599.760	12073.71	1.67	yes	TRUE	no	/shared	0.5971/hr * 2 node * 3.35 hr=	4	1.944/hr * 2 node * 3.35 hr =	13.02	c5n.9xlarge
+36	2x18	6x6	6473.950	5599.760	12073.71	1.67	yes	TRUE	no	/shared	0.5971/hr * 2 node * 3.35 hr=	4.00	1.944/hr * 2 node * 3.35 hr =	13.02	c5n.9xlarge
 36	2x18	6x6	6726.720	5821.470	12548.19	1.74	yes	TRUE	no	/fsx	0.5971/hr * 2 node * 3.48 hr =	4.16	1.944/hr * 2 node * 3.48 hr =	13.5	c5n.9xlarge
 36	1x36	6x6	6726.720	5821.470	12548.19	1.74	yes	TRUE	yes	/fsx	1.1732/hr * 1 node * 3.486 hr=	4.09	3.888/hr * 1 node * 3.496 hr =	13.59	c5n.18xlarge
 54	3x18	6x9	4356.330	3790.130	8146.460	1.13	yes	TRUE	no	/shared	0.5971/hr * 3 node * 2.26 hr=	4.05	1.944/hr * 3 node * 2.26 hr =	13.2	c5n.9xlarge
 54	3x18	9x6	4500.290	3876.760	8377.050	1.16	yes	TRUE	no	/shared	0.5971/hr * 3 node * 2.33 hr =	4.17	1.944/hr * 3 node * 2.33 =	13.58	c5n.9xlarge
 72	4x18	8x9	3382.010	2936.660	6318.670	0.8775	yes	TRUE	no	/shared	0.5971/hr * 4 node * 1.755 hr=	4.19	1.944/hr * 4 node * 1.755 hr =	13.2	c5n.9xlarge
-72	2x36	6x12	3562.500	3151.210	6713.710	0.93	yes	TRUE	yes	/fsx	1.1732/hr * 2 nodes * 1.8649 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5	c5n.18xlarge
-72	2x36	8x9	3665.650	3159.120	6824.770	0.95	yes	TRUE	yes	/fsx	1.1732/hr * 2 nodes * 1.8649 hr =	4.45	3.888/hr * 2 nodes * 1.8649 =	14.7	c5n.18xlarge
-72	2x36	9x8	3562.610	2999.690	6562.300	0.91	yes	TRUE	yes	/fsx	1.1732/hr * 2 nodes * 1.8649 hr =	4.28	3.888/hr * 2 nodes * 1.8649 =	14.16	c5n.18xlarge
+72	2x36	6x12	3562.500	3151.210	6713.710	0.93	yes	TRUE	yes	/fsx	1.1732/hr * 2 nodes * 1.86 hr =	4.37	3.888/hr * 2 nodes * 1.8649 =	14.5	c5n.18xlarge
+72	2x36	8x9	3665.650	3159.120	6824.770	0.95	yes	TRUE	yes	/fsx	1.1732/hr * 2 nodes * 1.9 hr =	4.45	3.888/hr * 2 nodes * 1.8649 =	14.7	c5n.18xlarge
+72	2x36	9x8	3562.610	2999.690	6562.300	0.91	yes	TRUE	yes	/fsx	1.1732/hr * 2 nodes * 1.82 hr =	4.28	3.888/hr * 2 nodes * 1.8649 =	14.16	c5n.18xlarge
 90	5x18	9x10	2878.550	2483.560	5362.110	0.745	yes	TRUE	no	/shared	0.5971/hr * 5 node * 1.49 hr=	4.45	1.944/hr * 5 node * 1.49 hr =	14.44	c5n.9xlarge
-108	6x18	6x18	2415.460	2135.260	4550.720	0.632	yes	TRUE	no	/fsx	0.5971/hr * 6 node * 1.26 hr =	4.53	1.944/hr * 6 node * 1.26 hr =	14.7	c5n.9xlarge
 108	6x18	9x12	2463.410	2161.070	4624.480	0.642	yes	TRUE	no	/shared	0.5971/hr * 6 node * 1.28 hr=	4.6	1.944/hr * 6 node * 1.28 hr =	14.9	c5n.9xlarge
 108	3x36	6x18	2415.460	2135.260	4550.720	0.63	yes	TRUE	yes	/fsx	1.1732/hr * 3 nodes * 1.26 hr =	4.45	3.888/hr * 3 nodes * 1.26 =	14.7	c5n.18xlarge
 108	3x36	12x9	2758.010	2370.920	5128.930	0.71	yes	TRUE	yes	/fsx	1.1732/hr * 3 nodes * 1.42 hr =	5.01	3.888/hr * 3 nodes * 1.42 hr =	16.6	c5n.18xlarge
+108	3x36	9x12	2454.110	2142.110	4596.220	0.638	yes	TRUE	yes	/fsx	1.1732/hr * 3 nodes * 1.276 =	4.49	3.888/hr * 3 nodes * 1.276 hr =	14.88	c5n.18xlarge
 126	7x18	9x14	2144.860	1897.850	4042.710	0.56	yes	TRUE	no	/shared	0.5971/hr * 7 node * 1.12 hr=	4.69	1.944/hr * 7 node * 1.12 hr =	15.24	c5n.9xlarge
-180	5x36	10x18	2481.550	2225.340	4706.890	0.65	no	FALSE	yes	/fsxc	1.1732/hr * 5 nodes * 1.307 hr =	7.66	3.888/hr * 5 nodes * 1.307 hr =	25.4	c5n.18xlarge
-180	5x36	10x18	2378.730	2378.730	4588.920	0.637	no	TRUE	yes	/fsxc	1.1732/hr * 5 nodes * 1.2747 hr =	7.477	3.888/hr * 5 nodes * 1.2747 hr =	24.77	c5n.18xlarge
-180	5x36	10x18	1585.670	1394.520	2980.190	0.41	yes	TRUE	yes	/fsx	1.1732/hr * 5nodes * 2980.9 / 3600 =	4.85	3.888/hr * 5 nodes * .82 hr =	16.05	c5n.18xlarge
-256	8x32	16x16	1289.590	1164.530	2454.120	0.34	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * 2454.12 / 3600 =	6.40 	3.888/hr * 8 nodes * .6817 hr =	21.66	c5n.18xlarge
-256	8x32	16x16	1305.990	1165.300	2471.290	0.34	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * 2471.29 / 3600 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11	c5n.18xlarge
-256	8x32	16x16	1564.900	1381.800	2946.700	0.4	no	TRUE	yes	/fsx	1.1732/hr * 8nodes * 2946.7 / 3600 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45	c5n.18xlarge
-288	8x36	16x18	1873.000	1699.240	3572.200	0.49	no	FALSE	yes	/fsx	1.1732/hr * 8nodes * 3572.2/3600=	9.313	3.888/hr * 8 nodes * .992 hr =	30.8	c5n.18xlarge
-288	8x36	16x18	1976.350	1871.610	3847.960	0.53	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * 3847.96=	10	3.888/hr * 8 nodes * 1.069 =	33.24	c5n.18xlarge
-288	8x36	16x18	1197.190	1090.450	2287.640	0.31	yes	TRUE	yes 	/fsxc	1.1732/hr * 8nodes * 2297.64=	5.99	3.888/hr * 8 nodes * .638 =	19.81	c5n.18xlarge
-288	8x36	18x16	1206.010	1095.760	2301.770	0.32	yes	TRUE	yes	/fsx	1.1732/hr * 8nodes * 2301.77=	6	3.888/hr * 8 nodes * .639 =	19.88	c5n.18xlarge
+180	5x36	10x18	2481.550	2225.340	4706.890	0.65	no	FALSE	yes	/fsxc	1.1732/hr * 5 nodes * 1.31 hr =	7.66	3.888/hr * 5 nodes * 1.307 hr =	25.4	c5n.18xlarge
+180	5x36	10x18	2378.730	2378.730	4588.920	0.637	no	TRUE	yes	/fsxc	1.1732/hr * 5 nodes * 1.27 hr =	7.477	3.888/hr * 5 nodes * 1.275 hr =	24.77	c5n.18xlarge
+180	5x36	10x18	1585.670	1394.520	2980.190	0.41	yes	TRUE	yes	/fsx	1.1732/hr * 5nodes * .828 =	4.85	3.888/hr * 5 nodes * .82 hr =	16.05	c5n.18xlarge
+256	8x32	16x16	1289.590	1164.530	2454.120	0.32	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * .6817 =	6.40 	3.888/hr * 8 nodes * .6817 hr =	21.66	c5n.18xlarge
+256	8x32	16x16	1305.990	1165.300	2471.290	0.34	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * .686 =	6.44	3.888/hr * 8 nodes * .686 hr =	21.11	c5n.18xlarge
+256	8x32	16x16	1564.900	1381.800	2946.700	0.4	no	TRUE	yes	/fsx	1.1732/hr * 8nodes * .819 =	7.68	3.888/hr * 8 nodes * .818 hr =	25.45	c5n.18xlarge
+288	8x36	16x18	1873.000	1699.240	3572.200	0.49	no	FALSE	yes	/fsx	1.1732/hr * 8nodes * .992 =	9.313	3.888/hr * 8 nodes * .992 hr =	30.8	c5n.18xlarge
+288	8x36	16x18	1472.690	1302.840	2775.530	0.385	yes	TRUE	yes	/fsx	1.1732/hr * 8nodes * .771 =	7.24	3.888/hr * 8 nodes * .771 =	23.98	c5n.18xlarge
+288	8x36	16x18	1976.350	1871.610	3847.960	0.53	no	TRUE	yes	/fsxc	1.1732/hr * 8nodes * 1.069 =	10	3.888/hr * 8 nodes * 1.069 =	33.24	c5n.18xlarge
+288	8x36	16x18	1197.190	1090.450	2287.640	0.31	yes	TRUE	yes 	/fsxc	1.1732/hr * 8nodes * .638 =	5.99	3.888/hr * 8 nodes * .638 =	19.81	c5n.18xlarge
+288	8x36	18x16	1206.010	1095.760	2301.770	0.32	yes	TRUE	yes	/fsx	1.1732/hr * 8nodes * .639 =	6	3.888/hr * 8 nodes * .639 =	19.88	c5n.18xlarge
