@@ -180,25 +180,23 @@ Figure 2. Scaling per Node on C5n.18xlarge Compute Nodes (36 cpu/node)
 
 ![Scaling per Node for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_Node.png)
 
-Note, poor performance was obtained for the runs using 180 processors when SBATCH --exclusive option was not used.  After this finding, the run scripts were modified to always use this option.
-The benchmark runs that were done on c5n.9xlarge always used the SBATCH --exclusive option.
-
 Note, there are several timings that were obtained using 8 nodes.  The 288 cpu timings were fully utilizing the 36 pe nodes using 8x36 = 288 cpus, and different NPCOLxNPROW options were used 16x18 and 18x16.
 The 256 cpu timings were obtained using a NPCOLxNPROW configuration of 16x16. This benchmark configuration doesn't fully utilize all of the cpus/node, so the efficiency per node is lower, and the cost is higher.
 It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands.
-
 
 ```
 #SBATCH --nodes=8
 #SBATCH --ntasks-per-node=36
 ```
 
-
-
  
 Figure 3. Scaling per CPU on c5n.18xlarge compute node
 
 ![Scaling per CPU for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_CPUs.png)
+
+Note, poor performance was obtained for the runs using 180 processors when SBATCH --exclusive option was not used.  After this finding, the run scripts were modified to always use this option.
+The benchmark runs that were done on c5n.9xlarge always used the SBATCH --exclusive option.
+
 
 ## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
 
