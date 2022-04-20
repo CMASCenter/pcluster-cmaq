@@ -183,23 +183,27 @@ Figure 2. Scaling per Node on C5n.18xlarge Compute Nodes (36 cpu/node)
 Note, poor performance was obtained for the runs using 180 processors when SBATCH --exclusive option was not used.  After this finding, the run scripts were modified to always use this option.
 The benchmark runs that were done on c5n.9xlarge always used the SBATCH --exclusive option.
 
-## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
+Note, there are several timings that were obtained using 8 nodes.  The 288 cpu timings were fully utilizing the 36 pe nodes using 8x36 = 288 cpus, and different NPCOLxNPROW options were used 16x18 and 18x16.
+The 256 cpu timings were obtained using a NPCOLxNPROW configuration of 16x16. This benchmark configuration doesn't fully utilize all of the cpus/node, so the efficiency per node is lower, and the cost is higher.
+It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands.
 
-A comparison of the log files (sdiff  run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log) revealed that the CPU speed for the Parallel Cluster run of the 12x9 benchmark case was slower than the CPU speed used for the 9x12 benchmark case. See the following section for details. <a href="https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/Performance-Opt/sdiff_compare.html">Comparison of log filesfor 12x9 versus 9x12 Benchmark runs</a> 
+
+```
+#SBATCH --nodes=8
+#SBATCH --ntasks-per-node=36
+```
+
+
 
  
 Figure 3. Scaling per CPU on c5n.18xlarge compute node
 
 ![Scaling per CPU for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_CPUs.png)
 
-Note, there are several timings that were obtained using 8 nodes.  The 288 cpu timings were fully utilizing the 36 pe nodes using 8x36 = 288 cpus, and different NPCOLxNPROW options were used 16x18 and 18x16.
-The 256 cpu timings were obtained using a NPCOLxNPROW configuration of 16x16. This benchmark configuration doesn't fully utilize all of the cpus/node, so the efficiency per node is lower, and the cost is higher.
-It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands.
+## Investigation of why there was such a difference between the NPCOLxNPROW using 12x9 as compared to 9x12 and 6x18.
 
-```
-#SBATCH --nodes=8
-#SBATCH --ntasks-per-node=36
-```
+A comparison of the log files (sdiff  run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log) revealed that the CPU speed for the Parallel Cluster run of the 12x9 benchmark case was slower than the CPU speed used for the 9x12 benchmark case. See the following section for details. <a href="https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/Performance-Opt/sdiff_compare.html">Comparison of log filesfor 12x9 versus 9x12 Benchmark runs</a>
+
 
 The scaling efficiency using 5 nodes of 36 cpus/node =  180 cpus was 84%.  The scaling efficiency dropped to 68% when using 8 nodes of 36 cpus/node = 288 cpus.
 
