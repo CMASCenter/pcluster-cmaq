@@ -59,4 +59,8 @@ Please indicate the issue you are having, and include a link from the read the d
 The tutorial documentation has an edit icon in the upper right corner of each page. You can click on that, and github will fork the repo and allow you to edit the page. After you have made the edits, you can submit a pull request, and then include the link to the pull request in the github issue.
 
 
+Q. I see other tutorials that use a configure file instead of a yaml file to create the cluster. Can I use this instead?
+A. No, you must convert the text based config file to a yaml file to use with the Parallel Cluster CLI 3.+ version used in this tutorial.
+An example of this type of tutorial is  < a href="https://aws.amazon.com/blogs/compute/fire-dynamics-simulation-cfd-workflow-using-aws-parallelcluster-elastic-fabric-adapter-amazon-fsx-for-lustre-and-nice-dcv/"> Fire Dynamics Simulation CFD workflow using AWS ParallelCluster, Elastic Fabric Adapter, Amazon FSx for Lustre and NICE DCV</a>
+You can try to use the v2 to v3 converter, see more: <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/moving-from-v2-to-v3.html">moving from v2 to v3</a>
 
