@@ -24,7 +24,7 @@ Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a P
 ### Examine Diagram of the YAML file to build pre-installed software and input data. 
 Includes Snapshot ID of volume pre-installed with CMAQ software stack and name of S3 Bucket to import data to the Lustre Filesystem
 
-Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed (linked on lustre filesystem)
 
 ![c5n-18xlarge Software+Data Pre-installed yaml configuration](../../yml_plots/c5n-18xlarge.ebs_shared-yaml.fsx_import.png)
 
