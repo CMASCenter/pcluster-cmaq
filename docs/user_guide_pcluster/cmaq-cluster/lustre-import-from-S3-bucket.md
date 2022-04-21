@@ -17,20 +17,6 @@ Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a P
 
 `cd pcluster-cmaq`
 
-Importing data from S3 Bucket to Lustre
-
-Justification for using the capability of importing data from an S3 bucket to the lustre file system over using elastic block storage file system and copying the data from the S3 bucket for the input and output data storage volume on the cluster.
-
-1. Saves storage cost
-2. Removes need to copy data from S3 bucket to Lustre file system. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3
-3. Simplifies running HPC workloads on AWS
-4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GB/s.
-
-```{seealso}
-<a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a>
-<a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html">Lustre Performance Documentation</a>
-```
-
 ```{note} To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for ParallelCluster</a>
 ```
