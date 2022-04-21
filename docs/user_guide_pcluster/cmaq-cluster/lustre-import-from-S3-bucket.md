@@ -152,7 +152,23 @@ Output:
 
 After 5-10 minutes, check the status again and recheck until you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-Start the compute nodes
+Check status again
+
+`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+
+Output:
+
+```
+  "cloudFormationStackStatus": "CREATE_COMPLETE",
+  "clusterName": "cmaq",
+  "computeFleetStatus": "RUNNING",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/3cd2ba10-c18f-11ec-9f57-0e9b4dd12971",
+  "lastUpdatedTime": "2022-04-21T16:22:28.879Z",
+  "region": "us-east-1",
+  "clusterStatus": "CREATE_COMPLETE"
+```
+
+Start the compute nodes, if the computeFleetStatus is not set to RUNNING
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
