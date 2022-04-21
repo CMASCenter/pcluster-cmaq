@@ -41,7 +41,7 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 ### Use a configuration file from the github repo that was cloned to your local machine
 
-`git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
+`git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
 `cd pcluster-cmaq`
