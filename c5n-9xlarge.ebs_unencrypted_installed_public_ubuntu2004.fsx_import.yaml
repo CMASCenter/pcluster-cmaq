@@ -17,7 +17,7 @@ Scheduling:
     ScaledownIdletime: 5
   SlurmQueues:
     - Name: queue1
-      CapacityType: SPOT
+      CapacityType: ONDEMAND
       Networking:
         SubnetIds:
           - subnet-0eed3f3567767ce4d 
@@ -38,7 +38,7 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       Encrypted: false
-      SnapshotId: snap-0d93df8c45d47bf91
+      SnapshotId: snap-017568d24a4cedc83
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
