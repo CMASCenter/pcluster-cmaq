@@ -45,7 +45,7 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.la
 ### Edit Yaml file 
 
 This Yaml file specifies the /shared directory that contains the CMAQv5.3.3 and libraries, and the input data that will be imported from an S3 bucket to the /fsx lustre file system
-Note, the following yaml file is using a c5n-9xlarge compute node. 
+Note, the following yaml file is using a c5n-9xlarge compute node, and is using ONDEMAND pricing. 
 
 ```{note}
 Edit the c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
