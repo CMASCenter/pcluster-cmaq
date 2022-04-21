@@ -332,6 +332,30 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  5    queue1     CMAQ   ubuntu  R      22:39      6 queue1-dy-compute-resource-1-[1-6]
 ```
 
+### Once the job is successfully running 
+
+Check on the log file status
+
+`grep -i 'Processing completed.' CTM_LOG_001*_gcc_2016*`
+
+Output:
+
+```
+            Processing completed...    6.5 seconds
+            Processing completed...    6.5 seconds
+            Processing completed...    6.5 seconds
+            Processing completed...    6.5 seconds
+            Processing completed...    6.4 seconds
+```
+
+Once the job has completed running the two day benchmark check the log file for the timings.
+
+`tail -n 30 run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.fsx_copied.log`
+
+Output:
+
+
+
 ```{note}
 if you see the following message, you may want to submit a job that requires fewer PEs.
 ```
