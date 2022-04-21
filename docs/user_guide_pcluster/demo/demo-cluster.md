@@ -203,6 +203,8 @@ The compute nodes are not "provisioned" or "created" at this time (so they do no
 ### SSH into the cluster 
 ```{note}
 replace the your-key.pem key pair with your key pair
+you will need to change the permissions on your key pair so to be read only by owner.
+chmod 400 your-key.pem
 ```
 
 Example:
