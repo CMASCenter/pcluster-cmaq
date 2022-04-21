@@ -4,10 +4,10 @@ Image:
 HeadNode:
   InstanceType: c5n.large
   Networking:
-    SubnetId: subnet-0dfb2fb9950fa4607
+    SubnetId: subnet-0eed3f3567767ce4d 
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: ubuntu-cmas
+    KeyName: cmas
   LocalStorage:
     RootVolume:
       Encrypted: false
@@ -20,7 +20,7 @@ Scheduling:
       CapacityType: SPOT
       Networking:
         SubnetIds:
-          - subnet-0dfb2fb9950fa4607
+          - subnet-0eed3f3567767ce4d 
         PlacementGroup:
           Enabled: true
       ComputeResources:
@@ -38,7 +38,7 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       Encrypted: false
-      SnapshotId: snap-0ab8f74496134e4ab
+      SnapshotId: snap-0d93df8c45d47bf91
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
