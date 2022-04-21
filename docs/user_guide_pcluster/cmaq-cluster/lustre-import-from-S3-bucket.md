@@ -354,6 +354,25 @@ Once the job has completed running the two day benchmark check the log file for 
 
 Output:
 
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       108
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2421.19
+02   2015-12-23   2144.16
+     Total Time = 4565.35
+      Avg. Time = 2282.67
+
+
 
 
 ```{note}
