@@ -215,7 +215,7 @@ Load the modules openmpi and libfabric
 
 The input data was imported from the S3 bucket to the lustre file system (/fsx).
 
-`cd /fsx/12US2`
+`cd /fsx/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/`
 
 Notice that the data doesn't take up much space, it must be linked, rather than copied.
 
@@ -242,18 +242,7 @@ Output:
 518K    .
 ```
 
-The run scripts are expecting the data to be located under
-/fsx/data/CONUS/12US2
-
-Need to make this directory and then link it to the path created when the data was imported by the parallel cluster
-
-`mkdir -p /fsx/data/CONUS`
-
-`cd /fsx/data/CONUS`
-
-`ln -s /fsx/12US2 .`
-
-Also need to create the output directory
+Create the output directory
 
 `mkdir -p /fsx/data/output`
 
@@ -272,8 +261,9 @@ Example:
 `diff /shared/pcluster-cmaq/run_scripts/cmaq533/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
 
 If a run script is missing or outdated, copy the run scripts from the repo.
+Note, there are different run scripts depending on what compute node is used. This tutorial assumes c5n.9xlarge is the compute node.
 
-`cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+`cp /shared/pcluster-cmaq/run_scripts/cmaq533/c5n.9xlarge/run*pcluster.csh /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 ```{note}
 The time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used, and the compute node that is being used.
@@ -282,39 +272,38 @@ See Figure 3 Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge in [chapter
 
 Examine how the run script is configured
 
-`head  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
-
-Output:
+`head -n 30 /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.108pe.6x18.pcluster.csh`
 
 ```
 #!/bin/csh -f
-## For c5n.18xlarge (72 vcpu - 36 cpu)         <<< this run script is configured to run on c5n.18xlarge with hyperthreading turned off (36 cpus)
+## For c5n.9xlarge (36 vcpu - 18 cpu)
 ## works with cluster-ubuntu.yaml
 ## data on /fsx directory
-#SBATCH --nodes=8
-#SBATCH --ntasks-per-node=32                   <<<  note, there are 36 cpus per node, but we only need 32 of them to run a 256 cpu job (8x32)
-#SBATCH -J CMAQ
+#SBATCH --nodes=6
+#SBATCH --ntasks-per-node=18
 #SBATCH --exclusive
-#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log        << NPCOLxNPROW = 16 x 16
-#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log
+#SBATCH -J CMAQ
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.sharedvol.log
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.sharedvol.log
 ```
 
 ```{note}
-In this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes
+In this run script, slurm or SBATCH requests 6 nodes, each node with 18 pes, or 6x18 = 108 pes
 ```
 
 Verify that the NPCOL and NPROW settings in the script are configured to match what is being requested in the SBATCH commands that tell slurm how many compute nodes to  provision. 
-In this case, to run CMAQ using on 256 cpus (SBATCH --nodes=8 and --ntasks-per-node=32), use NPCOL=16 and NPROW=16.
+In this case, to run CMAQ using on 108 cpus (SBATCH --nodes=6 and --ntasks-per-node=18), use NPCOL=9 and NPROW=12.
 
-`grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
+`grep NPCOL /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.108pe.6x18.pcluster.csh`
 
 Output:
 
 ```
    setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
-   @ NPCOL  =  16; @ NPROW = 16
+   @ NPCOL  =  9; @ NPROW = 12
    @ NPROCS = $NPCOL * $NPROW
    setenv NPCOL_NPROW "$NPCOL $NPROW"; 
+
 ```
 
 
@@ -322,7 +311,7 @@ Output:
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
-`sbatch run_cctm_2016_12US2.256pe.8x32.pcluster.csh`
+`sbatch run_cctm_2016_12US2.108pe.6x18.pcluster.csh`
 
 
 ### Check status of run
@@ -333,7 +322,7 @@ Output:
 
 ```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 1    queue1     CMAQ   ubuntu PD       0:00      8 (BeginTime)
+                 1    queue1     CMAQ   ubuntu PD       0:00      6 (BeginTime)
 ```
 
 ```{note}
@@ -343,7 +332,7 @@ if you see the following message, you may want to submit a job that requires few
 ```
 ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 1    queue1     CMAQ   ubuntu PD       0:00      8 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+                 1    queue1     CMAQ   ubuntu PD       0:00      6 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
 
 ### If you repeatedly see that the job is not successfully provisioned, cancel the job.
@@ -354,7 +343,7 @@ To cancel the job use the following command
 
 ### Try submitting a smaller job to the queue.
 
-`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
+`sbatch run_cctm_2016_12US2.90pe.5x18.pcluster.csh`
 
 ### Check status of run
 
