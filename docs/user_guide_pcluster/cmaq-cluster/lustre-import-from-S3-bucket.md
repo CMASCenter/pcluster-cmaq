@@ -229,6 +229,11 @@ Output:
 518K    .
 ```
 
+Change the group and ownership permissions on the /fsx/data directory
+
+`sudo chown ubuntu /fsx/data`
+`sudo chgrp ubuntu /fsx/data`
+
 Create the output directory
 
 `mkdir -p /fsx/data/output`
