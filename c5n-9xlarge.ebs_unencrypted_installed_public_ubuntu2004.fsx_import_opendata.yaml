@@ -1,0 +1,47 @@
+Region: us-east-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c5n.large
+  Networking:
+    SubnetId: subnet-0eed3f3567767ce4d 
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: cmas
+  LocalStorage:
+    RootVolume:
+      Encrypted: false
+Scheduling:
+  Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: ONDEMAND
+      Networking:
+        SubnetIds:
+          - subnet-0eed3f3567767ce4d 
+        PlacementGroup:
+          Enabled: true
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: c5n.9xlarge
+          MinCount: 0
+          MaxCount: 10
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      Encrypted: false
+      SnapshotId: snap-017568d24a4cedc83
+  - MountDir: /fsx
+    Name: name2
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS
