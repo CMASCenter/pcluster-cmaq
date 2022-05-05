@@ -14,7 +14,7 @@ aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --inc
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*" --include "*stack_groups*" s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/emissions /$DISK/data/CONUS/12US2/emissions
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*160101*" --include "*160102*"  s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/emissions /$DISK/data/CONUS/12US2/emissions
 aws --no-sign-request s3 cp --recursive s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/emissions/othpt /$DISK/data/CONUS/12US2/emissions/othpt
-aws --no-sign-request s3 cp --recursive --exclude "*" --include "12US1_surf.ncf" --include "2011_US1_soil.nc" --include "beld3_12US1_459X299_output_a.ncf" s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2 /$DISK/data/CONUS/12US2/land
+aws --no-sign-request s3 cp --recursive s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/land /$DISK/data/CONUS/12US2/land
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*151222*" --include "*151223*"  s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/icbc /$DISK/data/CONUS/12US2/icbc
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*GRIDDESC*" s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS/12US2 /$DISK/data/CONUS/12US2
 
