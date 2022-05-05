@@ -5,7 +5,7 @@
 ### To obtain this code use the following command. Note, you need a copy of the configure scripts for the local workstation. You will also run this command on the Parallel Cluster once it is created.
 
 ```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq
 ```
 
 ### Please attempt this tutorial from AWS on how to create an HPC Cluster using Parallel Cluster prior to running the CMAQ Parallel Cluster instructions below.
@@ -112,7 +112,7 @@ cd /shared
 ### clone a copy of the Repo
 
 ```
-git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
+git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq
 ```
 
 ### Create hellojob.sh
@@ -930,15 +930,15 @@ aws s3 sync s3://t2large-head-c524xlarge-compute-pcluster-conus-output s3://t2la
 
 ### This is the configuration file that gave the fastest runtimes for the CONUS domain using EBS storage, scalability was poor.
 ### Note, it uses spot pricing, rather than on demand pricing
-https://github.com/lizadams/pcluster-cmaq/blob/main/config-c5.4xlarge-nohyperthread
+https://github.com/CMASCenter/pcluster-cmaq/blob/main/config-c5.4xlarge-nohyperthread
 
 ### This is the configuration file for the pcluster with the fastest performance using the Lustre Filesystem
 ### It was very oversized - 39 TB, and was very expensive as a result.  Do not use unless you resize it.
 https://aws.amazon.com/blogs/storage/building-an-hpc-cluster-with-aws-parallelcluster-and-amazon-fsx-for-lustre/
-https://github.com/lizadams/pcluster-cmaq/blob/main/config-lustre
+https://github.com/CMASCenter/pcluster-cmaq/blob/main/config-lustre
 
 ### This is the configuration for the pcluster with lustre filesystem and EFA Enabled and turning off hyperthreading, that showed scaling to 288 processors using the c5n.18xlarge compute ndoes.
-https://github.com/lizadams/pcluster-cmaq/blob/main/config-C5n.18xlarge
+https://github.com/CMASCenter/pcluster-cmaq/blob/main/config-C5n.18xlarge
 
 
 

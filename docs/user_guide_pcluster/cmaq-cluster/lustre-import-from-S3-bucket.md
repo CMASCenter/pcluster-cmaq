@@ -12,24 +12,10 @@ Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a P
 
 #### Use a configuration file from the github by cloning the repo to your local machine 
 
-`git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq`
+`git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
 `cd pcluster-cmaq`
-
-Importing data from S3 Bucket to Lustre
-
-Justification for using the capability of importing data from an S3 bucket to the lustre file system over using elastic block storage file system and copying the data from the S3 bucket for the input and output data storage volume on the cluster.
-
-1. Saves storage cost
-2. Removes need to copy data from S3 bucket to Lustre file system. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3
-3. Simplifies running HPC workloads on AWS
-4. Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GB/s.
-
-```{seealso}
-<a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a>
-<a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html">Lustre Performance Documentation</a>
-```
 
 ```{note} To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for ParallelCluster</a>
@@ -38,13 +24,14 @@ Justification for using the capability of importing data from an S3 bucket to th
 ### Examine Diagram of the YAML file to build pre-installed software and input data. 
 Includes Snapshot ID of volume pre-installed with CMAQ software stack and name of S3 Bucket to import data to the Lustre Filesystem
 
-Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed (linked on lustre filesystem)
 
 ![c5n-18xlarge Software+Data Pre-installed yaml configuration](../../yml_plots/c5n-18xlarge.ebs_shared-yaml.fsx_import.png)
 
 ### Edit Yaml file 
 
 This Yaml file specifies the /shared directory that contains the CMAQv5.3.3 and libraries, and the input data that will be imported from an S3 bucket to the /fsx lustre file system
+Note, the following yaml file is using a c5n-9xlarge compute node, and is using ONDEMAND pricing. 
 
 ```{note}
 Edit the c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
@@ -91,7 +78,7 @@ SharedStorage:
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      SnapshotId: snap-0d93df8c45d47bf91
+      SnapshotId: snap-017568d24a4cedc83
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
@@ -258,7 +245,7 @@ Verify that the run scripts are updated and pre-configured for the parallel clus
 
 Example:
 
-`diff /shared/pcluster-cmaq/run_scripts/cmaq533/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
+`diff /shared/pcluster-cmaq/run_scripts/cmaq533/c5n.18xlarge/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
 
 If a run script is missing or outdated, copy the run scripts from the repo.
 Note, there are different run scripts depending on what compute node is used. This tutorial assumes c5n.9xlarge is the compute node.
@@ -324,6 +311,58 @@ Output:
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  1    queue1     CMAQ   ubuntu PD       0:00      6 (BeginTime)
 ```
+
+### Successfully started run
+
+`squeue`
+
+```
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 5    queue1     CMAQ   ubuntu  R      22:39      6 queue1-dy-compute-resource-1-[1-6]
+```
+
+### Once the job is successfully running 
+
+Check on the log file status
+
+`grep -i 'Processing completed.' CTM_LOG_001*_gcc_2016*`
+
+Output:
+
+```
+            Processing completed...    6.5 seconds
+            Processing completed...    6.5 seconds
+            Processing completed...    6.5 seconds
+            Processing completed...    6.5 seconds
+            Processing completed...    6.4 seconds
+```
+
+Once the job has completed running the two day benchmark check the log file for the timings.
+
+`tail -n 30 run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.fsx_copied.log`
+
+Output:
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2015-12-22
+End Day:   2015-12-23
+Number of Simulation Days: 2
+Domain Name:               12US2
+Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       108
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2015-12-22   2421.19
+02   2015-12-23   2144.16
+     Total Time = 4565.35
+      Avg. Time = 2282.67
+
+
+
 
 ```{note}
 if you see the following message, you may want to submit a job that requires fewer PEs.
