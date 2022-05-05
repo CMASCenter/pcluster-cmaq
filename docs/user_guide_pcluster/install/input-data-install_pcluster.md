@@ -37,13 +37,9 @@ Verify that the /fsx directory exists; this is a lustre file system where the I/
 ### Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
 Data will be saved to the /fsx file system
 
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_to_fsx.csh`
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_opendata_to_fsx.csh`
 
 if the first method works, then you can skip the alternative method listed next..
-
-### Use Alternative S3 script to copy the CONUS input data from the EPA s3 bucket to /fsx volume on the cluster.
-
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_epa_to_fsx.csh`
 
 check that the resulting directory structure matches the run script
 
