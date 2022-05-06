@@ -44,4 +44,4 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://conus-benchmark-2day
+      ImportPath: s3://cmas-cmaq-conus2-benchmark
