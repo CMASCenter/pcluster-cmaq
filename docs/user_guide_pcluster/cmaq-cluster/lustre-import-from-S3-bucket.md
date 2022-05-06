@@ -232,6 +232,7 @@ Output:
 Change the group and ownership permissions on the /fsx/data directory
 
 `sudo chown ubuntu /fsx/data`
+
 `sudo chgrp ubuntu /fsx/data`
 
 Create the output directory
@@ -243,6 +244,11 @@ Create the output directory
 The run scripts are available in two locations, one in the CMAQ scripts directory. 
 
 Another copy is available in the pcluster-cmaq repo.
+Do a git pull to obtain the latest scripts in the pcluster-cmaq repo.
+
+`cd /shared/pcluster-cmaq`
+
+`git pull`
 
 Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo
 
@@ -250,7 +256,7 @@ Verify that the run scripts are updated and pre-configured for the parallel clus
 
 Example:
 
-`diff /shared/pcluster-cmaq/run_scripts/cmaq533/c5n.18xlarge/run_cctm_2016_12US2.180pe.5x36.pcluster.csh .`
+`diff /shared/pcluster-cmaq/run_scripts/cmaq533/c5n.9xlarge/run_cctm_2016_12US2.108pe.6x18.pcluster.csh .`
 
 If a run script is missing or outdated, copy the run scripts from the repo.
 Note, there are different run scripts depending on what compute node is used. This tutorial assumes c5n.9xlarge is the compute node.

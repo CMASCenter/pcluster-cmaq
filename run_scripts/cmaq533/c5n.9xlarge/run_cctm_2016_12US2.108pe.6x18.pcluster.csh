@@ -1,7 +1,7 @@
 #!/bin/csh -f
 ## For c5n.9xlarge (36 vcpu - 18 cpu)
 ## works with cluster-ubuntu.yaml
-## data on /shared directory
+## data on /fsx directory
 #SBATCH --nodes=6
 #SBATCH --ntasks-per-node=18
 #SBATCH --exclusive
@@ -73,10 +73,10 @@ showmount -e localhost
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts       #> Working Directory. Where the runscript is.
  #setenv CMAQ_DATA /21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output
- setenv DISK      shared                       # FAST I/O DISK /shared or /fsx
+ setenv DISK      fsx                       # FAST I/O DISK /shared or /fsx
  setenv CMAQ_DATA /$DISK/data/output
  setenv OUTDIR  ${CMAQ_DATA}/output_CCTM_${RUNID} #> Output Directory
- setenv INPDIR  /$DISK/data/CONUS/12US2  #Input Directory
+ setenv INPDIR  /$DISK/data/CMAQ_Modeling_Platform_2016/CONUS/12US2  #Input Directory
  setenv LOGDIR  ${OUTDIR}/LOGS     #> Log Directory Location
  setenv NMLpath ${BLD}             #> Location of Namelists. Common places are: 
                                    #>   ${WORKDIR} | ${CCTM_SRC}/MECHS/${MECH} | ${BLD}
