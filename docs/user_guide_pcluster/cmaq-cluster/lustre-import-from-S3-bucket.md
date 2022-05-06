@@ -34,10 +34,10 @@ This Yaml file specifies the /shared directory that contains the CMAQv5.3.3 and 
 Note, the following yaml file is using a c5n-9xlarge compute node, and is using ONDEMAND pricing. 
 
 ```{note}
-Edit the c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+Edit the c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_opendata.yaml file to specify your subnet-id and your keypair prior to creating the cluster
 ```
 
-`vi c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+`vi c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_opendata.yaml`
 
 Output:
 
@@ -84,7 +84,7 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://conus-benchmark-2day
+      ImportPath: s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS
 ```
 
 
