@@ -39,8 +39,6 @@ Data will be saved to the /fsx file system
 
 `/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_conus_cmas_opendata_to_fsx.csh`
 
-if the first method works, then you can skip the alternative method listed next..
-
 check that the resulting directory structure matches the run script
 
 ```{note}
@@ -48,7 +46,7 @@ The CONUS 12US2 input data requires 44 GB of disk space
 (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
 ```
 
-`cd /fsx/data/CONUS`
+`cd /fsx/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/`
 
 `du -sh`
 
@@ -81,7 +79,7 @@ Section that of the YAML file that specifies the name of the S3 Bucket.
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://conus-benchmark-2day    <<<  specify name of S3 bucket
+      ImportPath: s3://cmas-cmaq-conus2-benchmark/data/CMAQ_Modeling_Platform_2016/CONUS    <<<  specify name of S3 bucket
 ```
 This requires that the S3 bucket specified is publically available
 
