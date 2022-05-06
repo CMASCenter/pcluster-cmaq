@@ -354,6 +354,7 @@ Once the job has completed running the two day benchmark check the log file for 
 
 Output:
 
+```
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -371,6 +372,7 @@ Num  Day        Wall Time
 02   2015-12-23   2144.16
      Total Time = 4565.35
       Avg. Time = 2282.67
+```
 
 
 
