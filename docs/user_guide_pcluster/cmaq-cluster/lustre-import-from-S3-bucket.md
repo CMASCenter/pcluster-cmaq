@@ -90,7 +90,7 @@ SharedStorage:
 
 ## Create CMAQ ParallelCluster with software/data pre-installed
 
-`pcluster create-cluster --cluster-configuration c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
+`pcluster create-cluster --cluster-configuration c5n-9xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_opendata.yaml --cluster-name cmaq --region us-east-1`
 
 Output:
 
@@ -426,7 +426,7 @@ On your local computer use the following command to stop the compute nodes
 
 Edit the yaml file to modify SPOT to ONDEMAND, then update the cluster using the following command:
 
-`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+`pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration  c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_opendata.yaml`
 
 Output:
 
