@@ -1,6 +1,14 @@
 ## Install Input Data on ParallelCluster
 
-### Install AWS CLI to obtain data from AWS S3 Bucket
+### Verify AWS CLI is available obtain data from AWS S3 Bucket
+
+Check to see if the aws command line interface (CLI) is installed
+
+`which aws`
+
+If it is installed, skip to the next step.
+
+If it is not available please follow these instructions to install it.
 
 ```{seealso}
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
@@ -11,12 +19,6 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"`
 
 `unzip awscliv2.zip`
-
-Check to see if the aws command line interface (CLI) is installed
-
-`which aws`
-
-If not, install the aws command line using:
 
 `sudo ./aws/install`
 
