@@ -8,9 +8,17 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 `cd /shared`
 
-`curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install`
+`curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"`
+
+`unzip awscliv2.zip`
+
+Check to see if the aws command line interface (CLI) is installed
+
+`which aws`
+
+If not, install the aws command line using:
+
+`sudo ./aws/install`
 
 ### Verify you can run the aws command
 
@@ -33,6 +41,13 @@ Verify that the /fsx directory exists; this is a lustre file system where the I/
 
 `ls /fsx`
 
+If you are unable to use the lustre file system, the data can be installed on the /shared volume, if you have resized the volume to be large enough to store the input and output data.
+
+Install the parallel cluster scripts using the commands:
+
+`cd /shared`
+
+`git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 ### Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
 Data will be saved to the /fsx file system
