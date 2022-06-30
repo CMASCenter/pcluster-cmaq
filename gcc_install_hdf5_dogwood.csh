@@ -14,7 +14,8 @@ set echo
    export FFLAGS="-O3"
    export CXXFLAGS="-O3"
    export FCFLAGS="-O3"
-   ./configure --prefix=/proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build-hdf5/install --enable-fortran --enable-cxx --enable-shared --with-pic
+   #./configure --prefix=/proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build-hdf5/install --enable-fortran --enable-cxx --enable-shared --with-pic
+   ./configure --prefix=/proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build-hdf5/install --with-zlib=/proj/ie/proj/CMAS/EQUATES/LIBRARIES/zlib-1.2.11_gcc9.1.0/include,/proj/ie/proj/CMAS/EQUATES/LIBRARIES/zlib-1.2.11_gcc9.1.0/lib --enable-hl
    make |& tee make.gcc9.log 
 #  make check > make.gcc9.check
    make install
