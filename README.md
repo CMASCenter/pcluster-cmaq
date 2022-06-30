@@ -1,3 +1,1 @@
-## Documentation for CMAQ Parallel Cluster is available here:
-
-https://pcluster-cmaq.readthedocs.io/en/latest/
+## Documentation for CMAQ on AWS ParallelCluster

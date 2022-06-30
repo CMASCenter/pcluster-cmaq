@@ -1,35 +1,36 @@
-site_name: cmaq_parallel_cluster
+site_name: cmaq_pcluster
 nav:
     - Home: 'index.md'
-    - Quick Start Guide: 'quick-start.md'
-    - 'User Guide':
-        - 'System Requirements': 'user_guide/system-requirements.md'
-        - 'Demo Cluster': 'user_guide/demo-cluster.md'
-        - 'CMAQ Cluster': 'user_guide/cmaq-cluster.md'
-        - 'Create AMI from Command Line': 'user_guide/create_ami_from_command_line.md'
-        - 'CMAQ Cluster Software Loaded using AMI': 'user_guide/cmaq-cluster-from-ami.md'
-        - 'CMAQ Cluster Software Loaded using Custom Bootstrap': 'user_guide/custom-bootstrap.md'
-        - 'Run Combine and Post Processing': 'user_guide/post_combine.md'
-        - 'Compare timings': 'user_guide/parse_timing.md'
-        - 'QA CMAQ Output': 'user_guide/qa_cmaq_run.md'
-        - 'Saving Output': 'user_guide/copy_output_to_S3_Bucket.md'
-        - 'Parallel Cluster Update Policies': 'user_guide/update-policy.md'
-        - 'Elastic Fabric Adapter': 'user_guide/ena-cmaq-cluster.md'
-        - 'Simultaneous Multithreading': 'user_guide/multithreading-cmaq-cluser.md'
-        - 'Shared Lustre File System & Importing from S3 Bucket': 'user_guide/lustre-import-from-S3-bucket.md'
-        - 'Shared EBS File System & Loading Sofware from Snapshot or AMI': 'user_guide/shared-ebs-load-snapshot.md'
-        - 'Virtual Private Cloud Management': 'user_guide/vpc_management.md'
-        - 'Key References on Cloud Computing': 'user_guide/key-references.md'
-        - 'pcluster3-config-converter': 'user_guide/pcluster3-config-converter.md'
-        - 'Git Secrets': 'user_guide/git-secrets.md'
-        - 'Tracking Costs': 'user_guide/cost-allocation-tags.md'
+    - User Guide for AWS Parallel Cluster:
+        - 'Description of MVP for Parallel Cluster': 'user_guide_pcluster/system-requirements-parallel-cluster.md'
+        -  AWS Parallel Cluster Configure using AWS CLI 3.0 YAML file:
+            - 'Create Demo Cluster': 'user_guide_pcluster/demo-cluster.md'
+            - 'Create Parallel Cluster and upgrade compute node to c5n.18xlarge': 'user_guide_pcluster/aws-pcluster-cluster.md'
+        - CMAQ Benchmark Option 1:
+            - 'Run CMAQ CONUS Benchmark on cluster pre-loaded with software and input data': 'user_guide_pcluster/lustre-import-from-S3-bucket.md'
+        - CMAQ Benchmark Option 2:
+            - 'Install CMAQ Software on Pcluster': 'user_guide_pcluster/software-install-pcluster.md'
+            - 'Install Input Data': 'user_guide_pcluster/input-data-install_pcluster.md'
+            - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
+        -  AWS Parallel Cluster Post-Processing and QA:
+            - 'Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
+            - 'Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
+            - 'QA CMAQ Output': 'user_guide_pcluster/qa_cmaq_run_pcluster.md'
+            - 'Saving Output': 'user_guide_pcluster/copy_output_to_S3_Bucket.md'
+        - How to Create a Public Snapshot with preloaded software (used in CMAQ Benchmark Option 1) ': 'user_guide_pcluster/cmaq-cluster-load-software-snapshot.md' 
+        -  Logout and Delete Parallel Cluster:
+            - 'Logout and Delete Cluster': 'user_guide_pcluster/logout_delete_pcluster.md'
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
     - Help:
-        - 'Parallel Cluster Support': 'help/pcluster_support.md'
-        - 'CMAQ Support': 'help/cmaq_support.md'
-        - 'AWS Free Training': 'help/aws-free-training.md'
+        - 'Parallel Cluster Support': 'user_guide_pcluster/help/pcluster_support.md'
+        - 'CMAQ Support': 'user_guide_pcluster/help/cmaq_support.md'
+        - 'AWS Free Training': 'user_guide_pcluster/help/aws-free-training.md'
+        - 'Key References on Cloud Computing': 'user_guide_pcluster/help/key-references.md'
+        - 'Frequently Asked Questions': 'user_guide_pcluster/help/faq.md'
+    - Future Work:
+        - 'Future Work': 'user_guide_pcluster/future_work.md'
 
 theme:
   name: readthedocs

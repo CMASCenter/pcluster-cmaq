@@ -10,16 +10,19 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('_ext'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'pcluster-cmaq'
-copyright = '2022, Liz Adams'
+copyright = '2022, CMAS Center'
 author = 'Liz Adams'
+html_logo = 'CMAQLogo.jpg'
+github_url = 'https://github.com/CMASCenter/pcluster-cmaq'
 
 
 # -- General configuration ---------------------------------------------------
@@ -27,7 +30,15 @@ author = 'Liz Adams'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["myst_parser"]
+extensions = ["myst_parser",
+              "sphinx.ext.duration",
+              "sphinx.ext.autosectionlabel",
+              "sphinx.ext.autodoc",
+              "nbsphinx", "edit_on_github" #MyST-NB
+]
+
+edit_on_github_project = 'CMASCenter/pcluster-cmaq'
+edit_on_github_branch = 'master'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -43,7 +54,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'furo'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
