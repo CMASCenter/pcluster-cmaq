@@ -24,9 +24,9 @@ set echo
 #  ---------------------------
    cd  /proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build-hdf5
    #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
-   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
-   tar xvf v4.7.4.tar.gz
-   cd netcdf-c-4.7.4
+   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.0.tar.gz
+   tar xvf v4.8.0.tar.gz
+   cd netcdf-c-4.8.0
    ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=/proj/ie/proj/CMAS/CMAQ/CMAQv5.3.3/build-hdf5/install
    make |& tee  make.gcc9.log
    make install
