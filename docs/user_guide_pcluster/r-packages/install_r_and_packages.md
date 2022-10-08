@@ -117,6 +117,7 @@ sudo -i R
 install.packages("rgdal")
 install.packages("M3")
 install.packages("fields")
+install.packages("ggplot2")
 ```
 
 To view the script, install imagemagick
