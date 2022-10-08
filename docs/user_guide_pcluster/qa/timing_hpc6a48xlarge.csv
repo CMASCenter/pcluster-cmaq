@@ -1,0 +1,7 @@
+CPUs	NodesxCPU	COLROW	Day1 Timing (sec)	Day2 Timing (sec)	TotalTime	CPU Hours/day	SBATCHexclusive	Disable Simultaneous Multithreading (yaml)	with -march=native	With_Pinning	InputData	Equation using Spot Pricing	SpotCost	Equation using On Demand Pricing	OnDemandCost
+96	1x96	12x8	2996.56	2556.5	5553.06	0.771	yes	N/A	no	no	/fsx linked ?	?/hr * 1 node * 1.54 =	?	7.344/hr * 1 node * 1.54 =	11.33
+96	1x96	12x8	2786.72	2374.83	5161.55	0.716	yes	N/A	no	yes	/fsx linked ?	?/hr * 1 node * 1.43 =	?	7.344/hr * 2 node * 1.43 =	21
+192	2x96	16x12	1643.19	1491.94	3135.13	0.435	yes	N/A	no	yes	/fsx linked ?	?/hr * 1 node * .87 =	?	7.344/hr * 2 node * .87 =	12.8
+192	3x64	16x12	1793.09	1586.95	3380.04	0.469	yes	N/A	no	yes	/fsx linked ?	?/hr * 1 node * .94 =	?	7.344/hr * 3 node * .94 =	20.68
+288	3x96	16x18	1287.99	1177.42	2465.41	0.342	yes	N/A	no	yes	/fsx linked ?	?/hr * 1 node * .684 =	?	7.344/hr * 3 node * .684 =	15.09
+288	3x96	16x18	1266.97	1201.9	2468.87	0.342	yes	N/A	no	yes	/fsx linked ?	?/hr * 1 node * .684 =	?	7.344/hr * 3 node * .684 =	15.09
