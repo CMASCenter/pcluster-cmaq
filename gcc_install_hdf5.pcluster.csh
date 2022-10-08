@@ -57,7 +57,7 @@ set echo
    cd $DIR
    #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
    #wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
-#   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
+   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
    tar xzvf v4.7.4.tar.gz 
    setenv CFLAGS "-O3 -fPIC"
    setenv FFLAGS "-O3 -fPIC"
@@ -152,8 +152,12 @@ set echo
    setenv CPPFLAGS -I${NCDIR}/include
    setenv LDFLAGS -L${NCDIR}/lib
    setenv LIBS "-lnetcdf"
+<<<<<<< HEAD
    ./configure --prefix=$DIR/install MPIF77=mpif90 MPIF90=mpif90 MPICC=mpicc MPICXX=mpicxx --with-mpi=/opt/openmpi-4.1.0
 >>>>>>> 793b7a69712b924e4b4da536944e69c9e5d34223
+=======
+   ./configure --prefix=$DIR/install MPIF77=mpif90 MPIF90=mpif90 MPICC=mpicc MPICXX=mpicxx --with-mpi=/opt/amazon/openmpi
+>>>>>>> 7d8784ed1938caf49a2b8496ed374e4a3553a973
    make |& tee make.gcc9.log
    make install
 #  ----------------------------------------

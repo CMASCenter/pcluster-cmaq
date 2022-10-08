@@ -1,0 +1,2 @@
+Note, the Spatial Plots will not run if there is no difference in the output.
+Run the box plots first, and if there are differences, run the spatial plot

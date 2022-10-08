@@ -36,4 +36,4 @@ SharedStorage:
     EbsSettings:
       SnapshotId: snap-0e42c77ae359bef93
       StorageCapacity: 250
-      ImportPath: s3://conus-benchmark-2day
+      ImportPath: s3://cmas-cmaq-conus2-benchmark

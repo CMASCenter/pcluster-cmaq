@@ -38,7 +38,8 @@
    mkdir $DIR
    cd $DIR
    #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
-  wget https://downloads.unidata.ucar.edu/netcdf-c/4.8.1/src/netcdf-c-4.8.1.tar.gz
+  #wget https://downloads.unidata.ucar.edu/netcdf-c/4.8.1/src/netcdf-c-4.8.1.tar.gz
+  wget https://downloads.unidata.ucar.edu/netcdf-c/4.8.1/netcdf-c-4.8.1.tar.gz
   tar xvf netcdf-c-4.8.1.tar.gz
    rm -f netcdf-c-4.8.1.tar.gz
    cd netcdf-c-4.8.1
