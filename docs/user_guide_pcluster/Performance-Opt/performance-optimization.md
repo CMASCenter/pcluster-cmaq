@@ -180,18 +180,18 @@ Table 4. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 96            | 1x96           | 2815.56      | 2368.43           | 5183.99   | .71          |  yes          |   N/A  |  no    | no      |    /fsx linked ?        |  ?/hr * 1 node * 1.44 = | ? | 2.88/hr * 1 node * 1.44 = | 4.147 |           
-| 96            | 1x96           | 2715.78      |  2318.15          | 5033.93   | .699         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * 1.39 = | ? | 2.88/hr * 1 node * 1.39 = | 4.03 |
-| 192           | 2x96           |  1586.15     | 1448.35           |  3034.50  | .421         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .842 = | ? | 2.88/hr * 2 node * .842 = | 4.84 |
-| 192           | 2x96           |  1576.05     | 1447.76           |  3023.81  | .419         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .839 = | ? | 2.88/hr * 2 node * .839 = | 4.83 |
-| 288           | 3x96           |  1282.31     |  1189.40          |  2471.71  | .343         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .842 = | ? | 2.88/hr * 3 node * .686 = | 5.93 |
-| 288           | 3x96           | 1377.44      |  1223.15          |  2600.59  | .361         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .842 = | ? | 2.88/hr * 3 node * .722 = | 6.24 |
-| 384           | 4x96           | 1211.88     |   1097.68         |  2309.56  | .321         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .642 = | ? | 2.88/hr * 4 node * .642 = | 7.39 |
-| 384           | 4x96           | 1246.72     |  1095.40          |  2342.12  | .325         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .650 = | ? | 2.88/hr * 4 node * .650 = | 7.49 |
-|  480          | 5x96           |  1120.61    |   1010.33         |  2130.94  | .296         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .592 = | ? | 2.88/hr * 5 node * .592 = | 8.52 |
-|  480          | 5x96           | 1114.46     |  1017.47          |  2131.93  | .296         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .592 = | ? | 2.88/hr * 5 node * .592 = | 8.52 |
-|  576          | 6x96           | 1041.13     |    952.11        |  1993.24  | .277         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .553 = | ? | 2.88/hr * 6 node * .553 = | 9.57 |
-|  576          | 6x96           | 1066.59     |   955.88         | 2022.47   | .281         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .561 = | ? | 2.88/hr * 6 node * .561 = | 9.71 |
+| 96            | 1x96 | 12x8    | 2815.56      | 2368.43           | 5183.99   | .71          |  yes          |   N/A  |  no    | no      |    /fsx linked ?        |  ?/hr * 1 node * 1.44 = | ? | 2.88/hr * 1 node * 1.44 = | 4.147 |           
+| 96            | 1x96 | 12x8    | 2715.78      |  2318.15          | 5033.93   | .699         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * 1.39 = | ? | 2.88/hr * 1 node * 1.39 = | 4.03 |
+| 192           | 2x96 | 16x12   |  1586.15     | 1448.35           |  3034.50  | .421         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .842 = | ? | 2.88/hr * 2 node * .842 = | 4.84 |
+| 192           | 2x96 | 16x12    |  1576.05     | 1447.76           |  3023.81  | .419         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .839 = | ? | 2.88/hr * 2 node * .839 = | 4.83 |
+| 288           | 3x96 | 16x18    |  1282.31     |  1189.40          |  2471.71  | .343         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .842 = | ? | 2.88/hr * 3 node * .686 = | 5.93 |
+| 288           | 3x96 | 16x18    | 1377.44      |  1223.15          |  2600.59  | .361         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .842 = | ? | 2.88/hr * 3 node * .722 = | 6.24 |
+| 384           | 4x96 | 24x16    | 1211.88     |   1097.68         |  2309.56  | .321         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .642 = | ? | 2.88/hr * 4 node * .642 = | 7.39 |
+| 384           | 4x96 | 24x16    | 1246.72     |  1095.40          |  2342.12  | .325         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .650 = | ? | 2.88/hr * 4 node * .650 = | 7.49 |
+|  480          | 5x96 | 24x20       |  1120.61    |   1010.33         |  2130.94  | .296         |  yes          |   N/A  |  no    |   no       | /fsx linked?       | ?/hr * 1 node * .592 = | ? | 2.88/hr * 5 node * .592 = | 8.52 |
+|  480          | 5x96 | 24x20    | 1114.46     |  1017.47          |  2131.93  | .296         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .592 = | ? | 2.88/hr * 5 node * .592 = | 8.52 |
+|  576          | 6x96 | 24x24    | 1041.13     |    952.11        |  1993.24  | .277         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .553 = | ? | 2.88/hr * 6 node * .553 = | 9.57 |
+|  576          | 6x96 | 24x24        | 1066.59     |   955.88         | 2022.47   | .281         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .561 = | ? | 2.88/hr * 6 node * .561 = | 9.71 |
 
 ### Benchmark Timing Results for c6a.48xlarge
 
@@ -199,12 +199,12 @@ Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 96            | 1x96           | 2996.56      |     2556.50       |  5553.06  | .771          |  yes          |   N/A  |  no    | no      |    /fsx linked ?        |  ?/hr * 1 node * 1.54 = | ? | 7.344/hr * 1 node * 1.54 = | 11.33 |
-| 96            | 1x96           | 2786.72      |    2374.83        |  5161.55  | .716         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * 1.43 = | ? | 7.344/hr * 2 node * 1.43 = | 21.0 |
-| 192            | 2x96           | 1643.19       |   1491.94       |  3135.13  | .435          |  yes          |   N/A  |  no    | yes      |    /fsx linked ?        |  ?/hr * 1 node * .87 = | ? | 7.344/hr * 2 node * .87 = | 12.8 |
-| 192            | 3x64           | 1793.09       |  1586.95        | 3380.04   | .469          |  yes          |   N/A  |  no    | yes      |    /fsx linked ?        |  ?/hr * 1 node * .94 = | ? | 7.344/hr * 3 node * .94 = | 20.68 |
-| 288            | 3x96           | 1287.99      |  1177.42          | 2465.41   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
-| 288            | 3x96           | 1266.97      |  1201.90          | 2468.87   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
+| 96            | 1x96  | 12x8         | 2996.56      |     2556.50       |  5553.06  | .771          |  yes          |   N/A  |  no    | no      |    /fsx linked ?        |  ?/hr * 1 node * 1.54 = | ? | 7.344/hr * 1 node * 1.54 = | 11.33 |
+| 96            | 1x96  | 12x8      | 2786.72      |    2374.83        |  5161.55  | .716         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * 1.43 = | ? | 7.344/hr * 2 node * 1.43 = | 21.0 |
+| 192            | 2x96 | 16x12          | 1643.19       |   1491.94       |  3135.13  | .435          |  yes          |   N/A  |  no    | yes      |    /fsx linked ?        |  ?/hr * 1 node * .87 = | ? | 7.344/hr * 2 node * .87 = | 12.8 |
+| 192            | 3x64 | 16x12          | 1793.09       |  1586.95        | 3380.04   | .469          |  yes          |   N/A  |  no    | yes      |    /fsx linked ?        |  ?/hr * 1 node * .94 = | ? | 7.344/hr * 3 node * .94 = | 20.68 |
+| 288            | 3x96 | 16x18          | 1287.99      |  1177.42          | 2465.41   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
+| 288            | 3x96 | 16x18          | 1266.97      |  1201.90          | 2468.87   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
 
 
 
