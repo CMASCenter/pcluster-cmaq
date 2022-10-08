@@ -1,13 +1,13 @@
-Region: us-east-1
+Region: us-east-2
 Image:
   Os: ubuntu2004
 HeadNode:
   InstanceType: c6a.xlarge
   Networking:
-    SubnetId: subnet-0eed3f3567767ce4d 
+    SubnetId: subnet-018fdd14871ed2b0d
   DisableSimultaneousMultithreading: true
   Ssh:
-    KeyName: cmas
+    KeyName: cmas-east-2
   LocalStorage:
     RootVolume:
       Encrypted: false
@@ -20,15 +20,14 @@ Scheduling:
       CapacityType: ONDEMAND 
       Networking:
         SubnetIds:
-          - subnet-0eed3f3567767ce4d 
+          - subnet-018fdd14871ed2b0d
         PlacementGroup:
           Enabled: true
       ComputeResources:
         - Name: compute-resource-1
-          InstanceType: c6a.48xlarge
+          InstanceType: hpc6a.48xlarge
           MinCount: 0
-          MaxCount: 2
-          DisableSimultaneousMultithreading: true
+          MaxCount: 10
           Efa:
             Enabled: true
             GdrSupport: false
@@ -38,7 +37,7 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       Encrypted: false
-      SnapshotId: snap-0d93df8c45d47bf91
+      SnapshotId: snap-0a42094c6c2786ab5
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
