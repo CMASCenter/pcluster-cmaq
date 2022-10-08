@@ -292,6 +292,14 @@ Figure 8. Plot of Total Time and On Demand Cost versus CPUs for both c5n.18xlarg
 
 ![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and c5n9xlarge](../../qa_plots/scaling_plots/c5n18xlarge_c5n9xlarge_Time_CPUs.png)
 
+## Total Time and Cost versus CPU Plot for hpc6a.48xlarge
+
+Figure 9 shows how the total run time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings used for the hpc6a.48xlarge used settings that were optimized for running CMAQ on the cluster.
+
+Figure 9. Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge
+
+![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
+
 # Cost Information 
 
 Cost information is available within the AWS Web Console for your account as you use resources, and there are also ways to forecast your costs using the pricing information available from AWS.
@@ -300,21 +308,21 @@ Cost information is available within the AWS Web Console for your account as you
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
-In Figure 9 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
+In Figure 10 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
-Figure 9. Cost by Instance Type - AWS Console 
+Figure 10. Cost by Instance Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Instance Type](../../qa_plots/cost_plots/AWS_Bench_Cost.png)
 
-In Figure 10 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
+In Figure 11 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
 
-Figure 10. Cost by Usage Type - AWS Console 
+Figure 11. Cost by Usage Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Usage Type](../../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
 
-In Figure 11. The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
+In Figure 12. The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
 
-Figure 11. Cost by Service Type - AWS Console
+Figure 12. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
 
