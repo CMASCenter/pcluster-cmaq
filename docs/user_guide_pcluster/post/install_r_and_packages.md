@@ -1,4 +1,4 @@
-## Install R and required packages for Rscripts used for QA and Timing Comparisons
+## Install R, Rscripts and Packages
 
 First check to see if R is already installed.
 
