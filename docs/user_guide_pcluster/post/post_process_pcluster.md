@@ -23,7 +23,6 @@ Instructions on how to Post-process CMAQ using the utilities under the POST dire
 ```{note}
 The post-processing analysis is run on the head node.
 ```
->>>>>>> 7d8784ed1938caf49a2b8496ed374e4a3553a973:docs/user_guide_pcluster/post/post_process_pcluster.md
 
 Verify that the compute nodes are no longer running if you have completed all of the benchmark runs
 
