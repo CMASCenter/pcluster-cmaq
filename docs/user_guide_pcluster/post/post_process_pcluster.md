@@ -1,5 +1,5 @@
 <<<<<<< HEAD:docs/user_guide_pcluster/post-process-pcluster.md
-## Scripts to run combine and post processing 
+# Scripts to run combine and post processing 
 
 
 ### Build the POST processing routines
@@ -17,7 +17,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v533/POST/bldoverlay/scripts
 ./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
 
 
-## Scripts to post-process CMAQ output
+# Scripts to post-process CMAQ output
 =======
 ## Post-process CMAQ
 
