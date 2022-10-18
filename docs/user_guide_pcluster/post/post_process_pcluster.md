@@ -1,6 +1,5 @@
 ## Scripts to run combine and post processing 
 
-
 ### Build the POST processing routines
 
 Copy the buildit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
@@ -52,6 +51,7 @@ cp /shared/pcluster-cmaq/run_scripts/bldit_bldoverlay.csh .
 
 
 # Scripts to post-process CMAQ output
+
 
 Instructions on how to Post-process CMAQ using the utilities under the POST directory
 
