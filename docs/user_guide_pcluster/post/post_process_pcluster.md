@@ -1,6 +1,6 @@
-## Scripts to run combine and post processing 
+# Scripts to run combine and post processing 
 
-### Build the POST processing routines
+## Build the POST processing routines
 
 Copy the buildit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
 
@@ -70,7 +70,7 @@ Show compute nodes
 `scontrol show nodes`
 
 
-### Edit, Build and Run the POST processing routines
+## Edit, Build and Run the POST processing routines
 
 ```
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/
