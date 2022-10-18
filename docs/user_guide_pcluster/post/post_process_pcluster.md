@@ -3,20 +3,55 @@
 
 ### Build the POST processing routines
 
+Copy the buildit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/combine/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_combine.csh .
+```
+
+Run the bldit script for combine.
+
+```
 ./bldit_combine.csh gcc |& tee ./bldit_combine.gcc.log
+```
 
+Copy the bldit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/calc_tmetric/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_calc_tmetric.csh .
+```
+
+Run the bldit script for calc_tmetric
+
+```
 ./bldit_calc_tmetric.csh gcc |& tee ./bldit_calc_tmetric.gcc.log
+```
 
+Copy the bldit script from the repo
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/hr2day/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_hr2day.csh
+```
+
+Run the bldit script
+
+```
 ./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
+```
 
+Copy the bldit script from the repo and run
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/bldoverlay/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_bldoverlay.csh .
 ./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
+```
 
 
-## Scripts to post-process CMAQ output
+# Scripts to post-process CMAQ output
 
 Instructions on how to Post-process CMAQ using the utilities under the POST directory
 
