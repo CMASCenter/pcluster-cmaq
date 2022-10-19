@@ -6,7 +6,7 @@ from diagrams.aws.storage import S3, EBS, FSx
 from diagrams.aws.devtools import CLI
 from diagrams.azure.compute import Disks
 
-with Diagram("Microsoft Azure Minimum Viable Product", show=False):
+with Diagram("Cycle Cloud Cluster", show=False):
     source = CLI("Azure")
 
     with Cluster("Cycle Cloud"):
@@ -15,16 +15,17 @@ with Diagram("Microsoft Azure Minimum Viable Product", show=False):
         
 
         with Cluster("Scheduler Node"):
-            head = [EC2("F2sV2")]
+            head = [EC2("D4ds_v5")]
 
         with Cluster("HBv3 - 120CPU/compute node"):
-            workers = [EC2("HBv3-120"),
-                       EC2("HBv3-120"),
-                        EC2("HBv3-120")]
+            workers = [EC2("HB120-64rs_v3"),
+                       EC2("HB120-64rs_v3"),
+                        EC2("HB120-64rs_v3")]
         volume1 = Disks("/shared - 1.0TB")
+        volume2 = FSx("I/O - 1.2TB Lustre Vol")
 
 
     store = S3("S3 Bucket")
 
-    source >> head >> queue >> workers
-    workers >> volume1 >> store
+    source >> head >> volume1 >> queue >> workers
+    workers >> volume2 >> store
