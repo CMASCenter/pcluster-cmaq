@@ -6,7 +6,11 @@ from diagrams.aws.storage import S3, EBS, FSx
 from diagrams.aws.devtools import CLI
 from diagrams.azure.compute import Disks
 
-with Diagram("Cycle Cloud Cluster", show=False):
+graph_attr = {
+    "fontsize": "90",
+}
+
+with Diagram("Azure Cycle Cloud", graph_attr=graph_attr, show=False):
     source = CLI("Azure")
 
     with Cluster("Cycle Cloud"):
@@ -17,10 +21,12 @@ with Diagram("Cycle Cloud Cluster", show=False):
         with Cluster("Scheduler Node"):
             head = [EC2("D4ds_v5")]
 
-        with Cluster("HBv3 - 120CPU/compute node"):
-            workers = [EC2("HB120-64rs_v3"),
-                       EC2("HB120-64rs_v3"),
-                        EC2("HB120-64rs_v3")]
+        with Cluster("Autoscaling Compute Nodes"):
+            workers = [EC2("HB120rs_v3"),
+                       EC2("HB120rs_v3"),
+                        EC2("HB120rs_v3"),
+                         EC2("HB120rs_v3"),
+                          EC2("HB120rs_v3") ]
         volume1 = Disks("/shared - 1.0TB")
         volume2 = FSx("I/O - 1.2TB Lustre Vol")
 
