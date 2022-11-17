@@ -1,32 +1,63 @@
-<<<<<<< HEAD:docs/user_guide_pcluster/post-process-pcluster.md
 # Scripts to run combine and post processing 
 
+## Build the POST processing routines
 
-### Build the POST processing routines
+Copy the buildit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
 
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/combine/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_combine.csh .
+```
+
+Run the bldit script for combine.
+
+```
 ./bldit_combine.csh gcc |& tee ./bldit_combine.gcc.log
+```
 
+Copy the bldit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/calc_tmetric/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_calc_tmetric.csh .
+```
+
+Run the bldit script for calc_tmetric
+
+```
 ./bldit_calc_tmetric.csh gcc |& tee ./bldit_calc_tmetric.gcc.log
+```
 
+Copy the bldit script from the repo
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/hr2day/scripts
-./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
+cp /shared/pcluster-cmaq/run_scripts/bldit_hr2day.csh
+```
 
+Run the bldit script
+
+```
+./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
+```
+
+Copy the bldit script from the repo and run
+
+```
 cd /shared/build/openmpi_gcc/CMAQ_v533/POST/bldoverlay/scripts
+cp /shared/pcluster-cmaq/run_scripts/bldit_bldoverlay.csh .
 ./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
+```
 
 
 # Scripts to post-process CMAQ output
-=======
-## Post-process CMAQ
+
 
 Instructions on how to Post-process CMAQ using the utilities under the POST directory
 
 ```{note}
 The post-processing analysis is run on the head node.
 ```
->>>>>>> 7d8784ed1938caf49a2b8496ed374e4a3553a973:docs/user_guide_pcluster/post/post_process_pcluster.md
 
 Verify that the compute nodes are no longer running if you have completed all of the benchmark runs
 
@@ -39,7 +70,7 @@ Show compute nodes
 `scontrol show nodes`
 
 
-### Edit, Build and Run the POST processing routines
+## Edit, Build and Run the POST processing routines
 
 ```
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/

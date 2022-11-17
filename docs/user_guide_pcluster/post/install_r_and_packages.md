@@ -1,4 +1,4 @@
-## Install R and required packages for Rscripts used for QA and Timing Comparisons
+## Install R, Rscripts and Packages
 
 First check to see if R is already installed.
 
@@ -118,6 +118,7 @@ install.packages("rgdal")
 install.packages("M3")
 install.packages("fields")
 install.packages("ggplot2")
+install.packages("patchwork")
 ```
 
 To view the script, install imagemagick
