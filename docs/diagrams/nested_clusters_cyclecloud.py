@@ -6,7 +6,11 @@ from diagrams.aws.storage import S3, EBS, FSx
 from diagrams.aws.devtools import CLI
 from diagrams.azure.compute import Disks
 
-with Diagram("Cycle Cloud Cluster", show=False):
+graph_attr = {
+    "fontsize": "90",
+}
+
+with Diagram("Azure Cycle Cloud", graph_attr=graph_attr, show=False):
     source = CLI("Azure")
 
     with Cluster("Cycle Cloud"):
