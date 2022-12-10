@@ -136,5 +136,5 @@ Justification for using the capability of importing data from an S3 bucket to th
 
 Figure 1. AWS Recommended ParallelCluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
-![AWS ParallelCluster Configuration](../../diagrams/aws_parallel_cluster_configuration.png)
+![AWS ParallelCluster Configuration](../../diagrams/aws_parallel_cluster.png)
 

@@ -24,9 +24,9 @@ with Diagram("Azure Cycle Cloud", graph_attr=graph_attr, show=False):
         with Cluster("Autoscaling Compute Nodes"):
             workers = [EC2("HB120rs_v3"),
                        EC2("HB120rs_v3"),
-                        EC2("HB120rs_v3"),
-                         EC2("HB120rs_v3"),
-                          EC2("HB120rs_v3") ]
+		       EC2("HB120rs_v3"),
+		       EC2("HB120rs_v3"),
+                        EC2("HB120rs_v3")]
         volume1 = Disks("/shared - 1.0TB")
         volume2 = FSx("I/O - 1.2TB Lustre Vol")
 
@@ -35,3 +35,4 @@ with Diagram("Azure Cycle Cloud", graph_attr=graph_attr, show=False):
 
     source >> head >> volume1 >> queue >> workers
     workers >> volume2 >> store
+
