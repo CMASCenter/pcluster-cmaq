@@ -87,6 +87,10 @@ or
 * c5n.18xlarge  (36 cpus/node with Multithreading disabled)
 with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter (EFA)
 
+```{note}
+CMAQ is developed using OpenMPI and can take advantage of increasing the number of CPUs and memory. 
+ParallelCluster provides a ready-made auto scaling solution.
+```
 
 ```{note}
 Additional best practice of allowing the ParallelCluster to create a placement group .
