@@ -1,16 +1,32 @@
-Had trouble getting Arm Map profiler to work on Parallel Cluster
+If get an error
 
-Had error:
+Arm Forge 22.1.1 - Arm MAP
+
+MAP: Your Arm MAP licence 17712 is due to expire on Mon Dec 19 2022.
+MAP: Please e-mail HPCToolsSales@arm.com for renewal options.
+No protocol specified
+MAP: Your system does not allow the debugger to connect to an executable.
+MAP:
+MAP: To ensure that Arm MAP functions correctly, disable the ptrace scope control feature.
+MAP:
+MAP: See 'The system does not allow connecting debuggers to processes (Fedora, Ubuntu)' in the user guide for instructions.
+Command exited with non-zero status 1
+real 25.60
+user 1.32
+sys 0.43
+
+
 The system does not allow connecting debuggers to processes (Fedora, Ubuntu)
 
-Tried to do this on the compute node and head node.
+Login to the compute node and do:
 Solution
-To disable this feature until the next reboot, run the following command:
-echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 
-It didn't seem to work.
+First become sudo, then run command:
+$ sudo su -
+$ echo 0 > /proc/sys/kernel/yama/ptrace_scope
 
-Then tried using the map --profile before the mpirun command instead of map --connect.
+
+https://developer.arm.com/documentation/101136/2101/Appendix/General-troubleshooting-and-known-issues/Attaching/The-system-does-not-allow-connecting-debuggers-to-processes--Fedora--Ubuntu-
 
 had to set the following on the head node
 
@@ -43,7 +59,3 @@ module load libfabric-aws/1.13.2amzn1.0
 
 alias SCR 'cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts'
 
-
-Couldn't use reverse connect method on ubuntu due to a pthread issue.
-
-/usr/bin/time -p  map --profile mpirun -np $NPROCS
