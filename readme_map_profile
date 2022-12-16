@@ -1,0 +1,49 @@
+Had trouble getting Arm Map profiler to work on Parallel Cluster
+
+Had error:
+The system does not allow connecting debuggers to processes (Fedora, Ubuntu)
+
+Tried to do this on the compute node and head node.
+Solution
+To disable this feature until the next reboot, run the following command:
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+
+It didn't seem to work.
+
+Then tried using the map --profile before the mpirun command instead of map --connect.
+
+had to set the following on the head node
+
+setenv FI_EFA_FORK_SAFE 1
+
+Also had to add the path and LD_LIBRARY_PATH for  arm
+
+cat ~/.cshrc
+# start .cshrc
+
+umask 002
+
+if ( ! $?LD_LIBRARY_PATH ) then
+    setenv LD_LIBRARY_PATH /shared/build/netcdf/lib
+else
+    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib:/shared/build/arm/forge/22.1.1/lib
+endif
+
+set path = ($path /shared/build/netcdf/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort /opt/slurm/bin/ /shared/build/arm/forge/22.1.1/bin )
+
+if ($?tcsh) then
+   source /usr/share/modules/init/tcsh
+else
+   source /usr/share/modules/init/csh
+endif
+
+module load openmpi/4.1.1
+
+module load libfabric-aws/1.13.2amzn1.0
+
+alias SCR 'cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts'
+
+
+Couldn't use reverse connect method on ubuntu due to a pthread issue.
+
+/usr/bin/time -p  map --profile mpirun -np $NPROCS
