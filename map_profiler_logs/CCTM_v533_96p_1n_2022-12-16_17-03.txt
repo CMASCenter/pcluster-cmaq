@@ -1,0 +1,64 @@
+Command:        mpirun -np 96 --bind-to l3cache --map-by ppr:24:numa -x LD_LIBRARY_PATH -x PATH -x PWD /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc_profile/CCTM_v533.exe
+Resources:      1 node (96 physical, 96 logical cores per node)
+Memory:         370 GiB per node
+Tasks:          96 processes
+Machine:        queue1-dy-compute-resource-1-2
+Start time:     Fri Dec 16 17:03:39 2022
+Total time:     1 second
+Full path:      /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc_profile
+
+Summary: CCTM_v533.exe is Compute-bound in this configuration
+Compute:                                     63.0% |=====|
+MPI:                                          0.0% |
+I/O:                                         37.0% |===|
+This application run was Compute-bound. A breakdown of this time and advice for investigating further is in the CPU section below. 
+As very little time is spent in MPI calls, this code may also benefit from running at larger scales.
+
+CPU:
+A breakdown of the 63.0% CPU time:
+Scalar numeric ops:                           0.0% |
+Vector numeric ops:                           0.0% |
+Memory accesses:                             38.7% |===|
+The per-core performance is memory-bound. Use a profiler to identify time-consuming loops and check their cache performance.
+No time is spent in vectorized instructions. Check the compiler's vectorization advice to see why key loops could not be vectorized.
+
+MPI:
+A breakdown of the 0.0% MPI time:
+Time in collective calls:                     0.0% |
+Time in point-to-point calls:                 0.0% |
+Effective process collective rate:            0.00 bytes/s
+Effective process point-to-point rate:        0.00 bytes/s
+No time is spent in MPI operations. There's nothing to optimize here!
+
+I/O:
+A breakdown of the 37.0% I/O time:
+Time in reads:                               70.2% |======|
+Time in writes:                              29.8% |==|
+Effective process read rate:                  44.6 kB/s
+Effective process write rate:                  521 kB/s
+Most of the time is spent in read operations with a very low effective transfer rate. This may be caused by contention for the filesystem or inefficient access patterns. Use an I/O profiler to investigate which write calls are affected.
+
+Threads:
+A breakdown of how multiple threads were used:
+Computation:                                100.0% |=========|
+Synchronization:                              0.0% |
+Physical core utilization:                   13.5% ||
+System load:                                 26.6% |==|
+Physical core utilization is low. Try increasing the number of threads or processes to improve performance.
+
+Memory:
+Per-process memory usage may also affect scaling:
+Mean process memory usage:                     208 MiB
+Peak process memory usage:                     220 MiB
+Peak node memory usage:                      12.0% ||
+The peak node memory usage is very low. Running with fewer MPI processes and more data on each process may be more efficient.
+
+Energy:
+A breakdown of how energy was used:
+CPU:                                      not supported
+System:                                   not supported
+Mean node power:                          not supported
+Peak node power:                              0.00 W
+Energy metrics are not available on this system.
+CPU metrics are not supported (no intel_rapl module)
+
