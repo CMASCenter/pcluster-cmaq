@@ -6,8 +6,8 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaq/hpc6a/logs/'
-base.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaq/hpc6a/logs/'
+sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a/logs/'
+base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a/logs/'
 files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.log')
 #b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.576.24x24pe.2day.cyclecloud.shared.codemod.nopin.redo.log')
 b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.pin.log')
