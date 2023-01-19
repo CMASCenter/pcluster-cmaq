@@ -6,17 +6,17 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaq/run_scripts/hpc6a/logs/'
-base.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaq/run_scripts/hpc6a/logs/'
+sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_shared/'
+base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_shared/'
 #files   <- dir(sens.dir, pattern ='CTM_LOG_000.v533_gcc_2016_CONUS_480_24x20pe_lustre3_codemod_pin_precision_20151222')
-files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.pin.shared.log')
+files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.nopin.codemod.log')
 #b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.480.24x20pe.2day.cyclecloud.lustre3.codemod.pin.log')
-b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.288.3x96.16x18pe.2day.pcluster.pin.shared.codemod.log')
+b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.shared.nopin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.288.3x96.16x18pe.2day.pcluster.shared.nopin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.384.4x96.24x16pe.2day.pcluster.shared.nopin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.480.5x96.24x20pe.2day.pcluster.shared.nopin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.shared.nopin.codemod.log')
 #b.files <- c('CTM_LOG_000.v533_gcc_2016_CONUS_480_24x20pe_lustre3_codemod_pin_precision_20151222')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case. 
-base.name <- c('288pe')
+base.name <- c('192','288','384','480','576')
 #base.name <- c('data_pin')
 sens.name <- c('96pe')
 
@@ -90,9 +90,9 @@ for( comp in Compilers) {
    my.colors <- brewer.pal(12, "Paired")
    #my.colors <- terrain.colors(length(n.proc))
    xmax <- dim(bar.data)[2]*1.5
-   png(file = paste('hpc6a_shared_35GB_1+3nodes_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
+   png(file = paste('hpc6a_shared_500GB_1-6nodes_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on /shared using 1+3 nodes with 96 cpus/node on HPC6a with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,6000.))
+   barplot(bar.data, main = 'Process Timing on /shared using 1-6 nodes with 96 cpus/node on HPC6a with no pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,6000.))
    box()
    dev.off()
  
