@@ -6,18 +6,18 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a/logs/'
+sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_shared/'
 base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_shared/'
-files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.log')
+files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.shared.nopin.codemod.log')
 #b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.576.24x24pe.2day.cyclecloud.shared.codemod.nopin.redo.log')
-b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.fsx.pin.codemod.3.log')
+b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.shared.pin.codemod.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case.
 #base.name <- c('data_pin','lustre_pin','shared_pin')
-base.name <- c('lustre_pin')
-sens.name <- c('lustre_nopin')
+base.name <- c('shared_pin')
+sens.name <- c('shared_nopin')
 
 # Simulation parameters
 
@@ -89,9 +89,9 @@ for( comp in Compilers) {
    my.colors <- brewer.pal(12, "Paired")
    #my.colors <- terrain.colors(length(n.proc))
    xmax <- dim(bar.data)[2]*1.5
-   png(file = paste('hpc6a_6nodes_576pe_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
+   png(file = paste('hpc6a_6nodes_576pe_shared',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on /lustre using 6 nodes with 96 cpus/node on HPC6a without and with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,2500.))
+   barplot(bar.data, main = 'Process Timing on /shared using 6 nodes with 96 cpus/node on HPC6a without and with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,2500.))
    box()
    dev.off()
  

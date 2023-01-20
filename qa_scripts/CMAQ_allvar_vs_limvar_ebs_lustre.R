@@ -6,18 +6,17 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a/logs/'
-base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_shared/'
-files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.log')
-#b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.576.24x24pe.2day.cyclecloud.shared.codemod.nopin.redo.log')
-b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.fsx.pin.codemod.3.log')
+sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_ebs_fsx/'
+base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_ebs_fsx/'
+files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.allvar.log')
+b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.allvar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case.
 #base.name <- c('data_pin','lustre_pin','shared_pin')
-base.name <- c('lustre_pin')
-sens.name <- c('lustre_nopin')
+base.name <- c('shared_lim','lustre_full','lustre_lim')
+sens.name <- c('shared_full')
 
 # Simulation parameters
 
@@ -89,9 +88,9 @@ for( comp in Compilers) {
    my.colors <- brewer.pal(12, "Paired")
    #my.colors <- terrain.colors(length(n.proc))
    xmax <- dim(bar.data)[2]*1.5
-   png(file = paste('hpc6a_6nodes_576pe_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
+   png(file = paste('full_vs_lim_output_ebs_lustre_hpc6a_1nodes_96pe_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on /lustre using 6 nodes with 96 cpus/node on HPC6a without and with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,2500.))
+   barplot(bar.data, main = 'Process Timing on EBS and Lustre using 1 node with 96 cpus/node on Parallel Cluster full vs limited output',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
    box()
    dev.off()
  
