@@ -1,0 +1,10 @@
+1 GB = 8,192 Mb
+
+How do you convert 12000 Megabit (Mb) to Gigabyte (GB)?
+12000 Megabit is equal to 1.46484 Gigabyte. Formula to convert 12000 Mb to GB is 12000 / 8192
+
+
+https://www.hpcworkshops.com/08-efa/04-complie-run-osu.html
+What does this mean? How was this conversion done?
+In the above example, once we reached a message size of about 4k, we acheived a multi-pair bandwidth of 12k MBps or 96.9 Gbps, roughly the 100Gbps bandwidth availible on hpc6a instances.
+e
