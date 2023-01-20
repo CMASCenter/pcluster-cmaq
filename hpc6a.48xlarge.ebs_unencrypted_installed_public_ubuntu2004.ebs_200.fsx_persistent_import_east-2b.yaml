@@ -37,9 +37,9 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       VolumeType: gp3
+      Size: 500
       Encrypted: false
       SnapshotId: snap-0f9592e0ea1749b5b
-      Size: 200
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre

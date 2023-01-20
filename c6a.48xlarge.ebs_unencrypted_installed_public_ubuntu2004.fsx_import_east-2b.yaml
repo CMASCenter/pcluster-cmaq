@@ -25,9 +25,10 @@ Scheduling:
           Enabled: true
       ComputeResources:
         - Name: compute-resource-1
-          InstanceType: hpc6a.48xlarge
+          InstanceType: c6a.48xlarge
           MinCount: 0
           MaxCount: 10
+          DisableSimultaneousMultithreading: true
           Efa:
             Enabled: true
             GdrSupport: false
@@ -36,10 +37,8 @@ SharedStorage:
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      VolumeType: gp3
       Encrypted: false
-      SnapshotId: snap-0f9592e0ea1749b5b
-      Size: 200
+      SnapshotId: snap-0a42094c6c2786ab5
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
