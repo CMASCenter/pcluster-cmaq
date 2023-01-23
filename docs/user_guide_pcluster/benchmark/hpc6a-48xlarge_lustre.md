@@ -496,6 +496,8 @@ Num  Day        Wall Time
 ## Submit a run script to run on the EBS volume
 
 To run on the EBS volume, you need to copy the input data from the s3 bucket to the /shared volume.
+You don't want to copy directly from the /fsx volume, as this will copy more files than you need. The s3 copy script below copies only two days worth of data from the s3 bucket.
+If you copy from /fsx directory, you would be copying all of the files on the s3 bucket.
 
 ```
 cd /shared/pcluster-cmaq/s3_scripts
