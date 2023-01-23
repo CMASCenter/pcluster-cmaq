@@ -265,7 +265,13 @@ The input data was imported from the S3 bucket to the lustre file system (/fsx).
 
 `cd /fsx/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/`
 
-Notice that the data doesn't take up much space, it must be linked, rather than copied.
+Notice that the data doesn't take up much space, only the metadata are loaded, the datasets will not be loaded to the /fsx volume until they are used either by the run scripts.
+
+```{note} More information about enhanced s3 integration for Lustre see:
+<a href="https://aws.amazon.com/blogs/aws/enhanced-amazon-s3-integration-for-amazon-fsx-for-lustre/">Enhanced S3 integration with lustre</a>
+```
+
+
 
 `du -h`
 
