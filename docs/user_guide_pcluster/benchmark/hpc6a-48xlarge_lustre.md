@@ -273,7 +273,7 @@ Log out and then log back in to have the shell take effect.
 Copy a file to set paths
 
 ```
-cd /shared/cyclecloud-cmaq
+cd /shared/pcluster-cmaq
 cp dot.cshrc.vm ~/.cshrc
 ```
 
@@ -659,7 +659,7 @@ Getting a CREATE_FAILED error message
 ## Query the stack formation log messages
 
 ```
-pcluster get-cluster-stack-events --cluster-name cmaq2 --region us-east-2 \\n    --query 'events[?resourceStatus==`CREATE_FAILED`]'
+pcluster get-cluster-stack-events --cluster-name cmaq2 --region us-east-2  --query 'events[?resourceStatus==`CREATE_FAILED`]'
 ```
 
 Output
