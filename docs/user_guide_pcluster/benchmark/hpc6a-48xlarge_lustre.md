@@ -495,6 +495,12 @@ Num  Day        Wall Time
 
 ## Submit a run script to run on the EBS volume
 
+To run on the EBS volume, you need to copy the input data from the s3 bucket to the /shared volume.
+
+```
+cd /shared/pcluster-cmaq/s3_scripts
+./s3_copy_nosign_conus_cmas_opendata_to_shared.csh
+```
 
 
 ## Modify YAML and then Update Parallel Cluster.
