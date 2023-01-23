@@ -1,0 +1,28 @@
+pcluster create-cluster --cluster-configuration hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.ebs_200.fsx_import_east-2b.yaml --cluster-name cmaq --region us-east-2 
+{
+  "cluster": {
+    "clusterName": "cmaq",
+    "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:440858712842:stack/cmaq/276abf10-94fc-11ed-885c-02032a236214",
+    "region": "us-east-2",
+    "version": "3.1.2",
+    "clusterStatus": "CREATE_IN_PROGRESS"
+  },
+  "validationMessages": [
+    {
+      "level": "WARNING",
+      "type": "EbsVolumeSizeSnapshotValidator",
+      "message": "The specified volume size is larger than snapshot size. In order to use the full capacity of the volume, you'll need to manually resize the partition according to this doc: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html"
+    }
+  ]
+}
+
+
+
+this command worked
+ubuntu@ip-10-0-15-136:/shared$ sudo resize2fs /dev/nvme1n1 
+resize2fs 1.45.5 (07-Jan-2020)
+Filesystem at /dev/nvme1n1 is mounted on /shared; on-line resizing required
+old_desc_blocks = 5, new_desc_blocks = 63
+The filesystem on /dev/nvme1n1 is now 131072000 (4k) blocks long.
+

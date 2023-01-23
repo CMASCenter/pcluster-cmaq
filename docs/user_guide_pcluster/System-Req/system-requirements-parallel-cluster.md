@@ -93,7 +93,7 @@ ParallelCluster provides a ready-made auto scaling solution.
 ```
 
 ```{note}
-Additional best practice of allowing the ParallelCluster to create a placement group .
+Additional best practice of allowing the ParallelCluster to create a placement group.
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html>Network Performance</a>
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>Placement Groups</a>
 ```
@@ -111,6 +111,10 @@ Networking:
 To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking. For more information, see Enhanced Networking.
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html">Enhanced Networking (ENA)</a>
 ```
+
+To measure the network performance, you can use iPerf to measure network bandwidth.
+
+<a href="https://iperf.fr/">Iperf</a>
 
 ```{note}
 Elastic Fabric Adapter(EFA)
