@@ -520,7 +520,7 @@ Re-login to the cluster
 `pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-2 --cluster-name cmaq`
 
 
-### Submit a new job using the updated ondemand compute nodes
+### Submit a new job using the updated compute nodes
 
 `sbatch run_cctm_2016_12US2.576pe.6x96.24x24.pcluster.hpc6a.48xlarge.fsx.pin.codemod.csh`
 
