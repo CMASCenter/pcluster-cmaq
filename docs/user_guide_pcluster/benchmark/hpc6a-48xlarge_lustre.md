@@ -641,3 +641,37 @@ Num  Day        Wall Time
 
 Ideally, two CMAQ runs should be submitted to the slurm queue, using two different NPCOLxNPROW configurations, to create output needed for the QA and Post Processing Sections in Chapter 6.
 If the NPCOL are different, then the answers in the ACONC file will not be identical, and you will see the differences in the QA step.
+
+## upgrade pcluster version to try Persistent 2 Lustre Filesystem
+
+```
+/Users/lizadams/apc-ve/bin/python3 -m pip install --upgrade pip'\n'
+python3 -m pip install --upgrade "aws-parallelcluster"
+```
+
+Create a new configuration file
+
+pcluster configure -r us-east-2 --config hpc6a.48xlarge.ebs.fsx.us-east-2.yaml
+
+
+Getting a CREATE_FAILED error message
+
+## Query the stack formation log messages
+
+```
+pcluster get-cluster-stack-events --cluster-name cmaq2 --region us-east-2 \\n    --query 'events[?resourceStatus==`CREATE_FAILED`]'
+```
+
+Output
+```
+    "eventId": "FSX39ea84acf1fef629-CREATE_FAILED-2023-01-23T17:14:19.869Z",
+    "physicalResourceId": "",
+    "resourceStatus": "CREATE_FAILED",
+    "resourceStatusReason": "Linking a Persistent 2 file system to an S3 bucket using the LustreConfiguraton is not supported. Create a file system and then create a data repository association to link S3 buckets to the file system. For more details, visit https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html (Service: AmazonFSx; Status Code: 400; Error Code: BadRequest; Request ID: dd4df24a-0eed-4e94-8205-a9d5a9605aae; Proxy: null)",
+    "resourceProperties": "{\"FileSystemTypeVersion\":\"2.12\",\"StorageCapacity\":\"1200\",\"FileSystemType\":\"LUSTRE\",\"LustreConfiguration\":{\"ImportPath\":\"s3://cmas-cmaq-conus2-benchmark\",\"DeploymentType\":\"PERSISTENT_2\",\"PerUnitStorageThroughput\":\"1000\"},\"SecurityGroupIds\":[\"sg-00ab9ad20ea71b395\"],\"SubnetIds\":[\"subnet-02800a67052ad340a\"],\"Tags\":[{\"Value\":\"name2\",\"Key\":\"Name\"}]}",
+    "stackId": "arn:aws:cloudformation:us-east-2:440858712842:stack/cmaq2/561cc920-9b41-11ed-a8d2-0a9db28fc6a2",
+    "stackName": "cmaq2",
+    "logicalResourceId": "FSX39ea84acf1fef629",
+    "resourceType": "AWS::FSx::FileSystem",
+    "timestamp": "2023-01-23T17:14:19.869Z"
+```
