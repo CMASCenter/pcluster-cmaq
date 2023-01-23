@@ -391,7 +391,7 @@ Verify that the executable has been created
 
 
 
-## Submit Job to Slurm Queue
+## Submit Job to Slurm Queue to run CMAQ on Lustre
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
