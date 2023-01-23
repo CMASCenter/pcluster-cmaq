@@ -364,7 +364,35 @@ Output:
 ```
 
 
-## Submit Job to Slurm Queue
+## To run on the EBS Volume a code modification is required. 
+Note, we will use this modification when running on both lustre and EBS.
+
+Copy the BLD directory with a code modification to wr_conc.F and wr_aconc.F to your directory.
+
+`cp -rp /shared/pcluster-cmaq/run_scripts/BLD_CCTM_v533_gcc_codemod /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+
+## Build the code by running the makefile
+
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc_codemod
+
+Check to see you have the modules loaded
+
+`module list`
+
+```
+openmpi/4.1.1   2) libfabric-aws/1.13.2amzn1.0
+```
+
+Run the Make command
+
+`make`
+
+Verify that the executable has been created
+
+`ls -lrt CCTM_v533.exe`
+
+
+## Submit Job to Slurm Queue to run CMAQ on Lustre
 
 `cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
@@ -421,24 +449,9 @@ Num  Day        Wall Time
       Avg. Time = 972.32
 ```
 
+## Submit a run script to run on the EBS volume
 
 
-
-```{note}
-if you see the following message, you may want to submit a job that requires fewer PEs.
-```
-
-```
-ip-10-0-5-165:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts% squeue
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 1    queue1     CMAQ   ubuntu PD       0:00      6 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
-```
-
-### If you repeatedly see that the job is not successfully provisioned, cancel the job.
-
-To cancel the job use the following command
-
-`scancel 1`
 
 ## Modify YAML and then Update Parallel Cluster.
 

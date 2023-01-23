@@ -1,0 +1,54 @@
+ERROR: Unable to locate a modulefile for 'openmmpi'
+IOR-3.3.0+dev: MPI Coordinated Test of Parallel I/O
+Began               : Fri Jan 20 22:41:23 2023
+Command line        : /shared/build/perf_bench/ior/bin/ior -w -r -o=/fsx/build/test_dir -b=256m -a=POSIX -i=5 -F -z -t=64m -C
+Machine             : Linux queue1-dy-compute-resource-1-1
+TestID              : 0
+StartTime           : Fri Jan 20 22:41:23 2023
+Path                : /fsx/build
+FS                  : 1.1 TiB   Used FS: 21.7%   Inodes: 6.8 Mi   Used Inodes: 0.0%
+
+Options: 
+api                 : POSIX
+apiVersion          : 
+test filename       : /fsx/build/test_dir
+access              : file-per-process
+type                : independent
+segments            : 1
+ordering in a file  : random
+ordering inter file : constant task offset
+task offset         : 1
+tasks               : 16
+clients per node    : 16
+repetitions         : 5
+xfersize            : 64 MiB
+blocksize           : 256 MiB
+aggregate filesize  : 4 GiB
+
+Results: 
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s) iter
+------    ---------  ---------- ---------  --------   --------   --------   -------- ----
+write     264.25     262144     65536      0.006912   15.50      5.14       15.50      0   
+read      19677      262144     65536      0.001004   0.207500   0.050496   0.208166   0   
+remove    -          -          -          -          -          -          0.625057   0   
+write     171.85     262144     65536      0.005549   23.83      9.57       23.83      1   
+read      19835      262144     65536      0.001026   0.205856   0.042184   0.206503   1   
+remove    -          -          -          -          -          -          0.594885   1   
+write     162.47     262144     65536      0.004572   25.21      7.85       25.21      2   
+read      19786      262144     65536      0.001237   0.206347   0.048811   0.207014   2   
+remove    -          -          -          -          -          -          0.655276   2   
+write     160.24     262144     65536      0.004985   25.56      8.09       25.56      3   
+read      19759      262144     65536      0.001627   0.206592   0.038799   0.207300   3   
+remove    -          -          -          -          -          -          0.573051   3   
+write     160.25     262144     65536      0.006126   25.56      7.51       25.56      4   
+read      19863      262144     65536      0.001105   0.205500   0.055469   0.206212   4   
+remove    -          -          -          -          -          -          0.555091   4   
+Max Write: 264.25 MiB/sec (277.08 MB/sec)
+Max Read:  19863.03 MiB/sec (20827.89 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev   Max(OPs)   Min(OPs)  Mean(OPs)     StdDev    Mean(s) Stonewall(s) Stonewall(MiB) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt   blksiz    xsize aggs(MiB)   API RefNum
+write         264.25     160.24     183.81      40.45       4.13       2.50       2.87       0.63   23.13346         NA            NA     0     16  16    5   1     1        1         0    0      1 268435456 67108864    4096.0 POSIX      0
+read        19863.03   19676.59   19783.91      64.85     310.36     307.45     309.12       1.01    0.20704         NA            NA     0     16  16    5   1     1        1         0    0      1 268435456 67108864    4096.0 POSIX      0
+Finished            : Fri Jan 20 22:43:23 2023
