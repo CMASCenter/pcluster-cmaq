@@ -35,7 +35,57 @@ Note, the following yaml file is using a hpc6a-48xlarge compute node, and is usi
 
 ```{note}
 Edit the hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.ebs_200.fsx_import_east-2b.yaml file to specify your subnet-id and your keypair prior to creating the cluster
+In order to obtain these subnet id you will need to run pcluster configure
 ```
+
+```
+pcluster configure -r us-east-2 --config hpc6a.48xlarge.ebs.fsx.us-east-2.yaml
+```
+
+Example of the answers that were used to create the yaml for this benchmark:
+
+```
+Allowed values for EC2 Key Pair Name:
+1. xxx-xxx
+2. xxx-xxx-xxx
+EC2 Key Pair Name [xxx-xxx]: 1
+Allowed values for Scheduler:
+1. slurm
+2. awsbatch
+Scheduler [slurm]: 1
+Allowed values for Operating System:
+1. alinux2
+2. centos7
+3. ubuntu1804
+4. ubuntu2004
+Operating System [alinux2]: 4
+Head node instance type [t2.micro]: c6a.xlarge
+Number of queues [1]: 
+Name of queue 1 [queue1]: 
+Number of compute resources for queue1 [1]: 1
+Compute instance type for compute resource 1 in queue1 [t2.micro]: hpc6a.48xlarge
+The EC2 instance selected supports enhanced networking capabilities using Elastic Fabric Adapter (EFA). EFA enables you to run applications requiring high levels of inter-node communications at scale on AWS at no additional charge (https://docs.aws.amazon.com/parallelcluster/latest/ug/efa-v3.html).
+Enable EFA on hpc6a.48xlarge (y/n) [y]: y
+Maximum instance count [10]: 
+Enabling EFA requires compute instances to be placed within a Placement Group. Please specify an existing Placement Group name or leave it blank for ParallelCluster to create one.
+Placement Group name []: 
+Automate VPC creation? (y/n) [n]: y
+Allowed values for Availability Zone:
+1. us-east-2b
+Availability Zone [us-east-2b]: 
+Allowed values for Network Configuration:
+1. Head node in a public subnet and compute fleet in a private subnet
+2. Head node and compute fleet in the same public subnet
+Network Configuration [Head node in a public subnet and compute fleet in a private subnet]: 2
+Beginning VPC creation. Please do not leave the terminal until the creation is finalized
+Creating CloudFormation stack...
+Do not leave the terminal until the process has finished.
+Status: parallelclusternetworking-pub-20230123170628 - CREATE_COMPLETE          
+The stack has been created.
+Configuration file written to hpc6a.48xlarge.ebs.fsx.us-east-2.yaml
+You can edit your configuration file or simply run 'pcluster create-cluster --cluster-configuration hpc6a.48xlarge.ebs.fsx.us-east-2.yaml --cluster-name cluster-name --region us-east-2' to create your cluster.
+```
+
 
 `vi hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.ebs_200.fsx_import_east-2b.yaml`
 
