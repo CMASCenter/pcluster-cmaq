@@ -1,0 +1,21 @@
+Region: us-east-2
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c6a.xlarge
+  Networking:
+    SubnetId: subnet-018fdd14871ed2b0d
+  Ssh:
+    KeyName: cmas-east-2
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: c6a48xlarge
+      InstanceType: c6a.48xlarge
+      MinCount: 0
+      MaxCount: 10
+    Networking:
+      SubnetIds:
+      - subnet-018fdd14871ed2b0d

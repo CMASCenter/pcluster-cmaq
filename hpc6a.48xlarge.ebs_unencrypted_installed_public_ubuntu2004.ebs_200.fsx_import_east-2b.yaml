@@ -39,7 +39,7 @@ SharedStorage:
       VolumeType: gp3
       Size: 500
       Encrypted: false
-      SnapshotId: snap-0f9592e0ea1749b5b
+      SnapshotId: snap-0d40f0e5e222d6993
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
