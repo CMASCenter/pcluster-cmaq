@@ -440,14 +440,13 @@ To cancel the job use the following command
 
 `scancel 1`
 
-### Try submitting a smaller job to the queue.
+### Modify YAML and then Update Parallel Cluster.
 
-`sbatch run_cctm_2016_12US2.96pe.1x96.16x8.pcluster.hpc6a.48xlarge.fsx.pin.codemod.csh`
+Note, not all settings in the yaml file can be updated, for some settings, such as using a different snapshot, you will need to terminate this cluster and create a new one.
 
 If you want to edit the yaml file to update a setting such as the maximum number of compute nodes available, use the following command to stop the compute nodes
 
 `pcluster update-compute-fleet --region us-east-2 --cluster-name cmaq --status STOP_REQUESTED`
-
 
 Edit the yaml file to modify MaxCount under ComputeResoureces, then update the cluster using the following command:
 
@@ -490,6 +489,14 @@ once you see
 
 ```
   "clusterStatus": "UPDATE_COMPLETE"
+  "clusterName": "cmaq",
+  "computeFleetStatus": "STOPPED",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:440858712842:stack/cmaq2/d68e5180-9698-11ed-b06c-06cfae76125a",
+  "lastUpdatedTime": "2023-01-23T14:39:44.670Z",
+  "region": "us-east-2",
+  "clusterStatus": "UPDATE_COMPLETE"
+}
+
 ```
 
 Restart the compute nodes
