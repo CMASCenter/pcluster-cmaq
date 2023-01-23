@@ -440,7 +440,7 @@ To cancel the job use the following command
 
 `scancel 1`
 
-### Modify YAML and then Update Parallel Cluster.
+## Modify YAML and then Update Parallel Cluster.
 
 Note, not all settings in the yaml file can be updated, for some settings, such as using a different snapshot, you will need to terminate this cluster and create a new one.
 
