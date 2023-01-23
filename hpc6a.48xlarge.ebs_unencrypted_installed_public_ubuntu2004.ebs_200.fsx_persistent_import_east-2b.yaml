@@ -45,4 +45,6 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
+      DeploymentType: PERSISTENT_2
+      PerUnitStorageThroughput: 1000
       ImportPath: s3://cmas-cmaq-conus2-benchmark
