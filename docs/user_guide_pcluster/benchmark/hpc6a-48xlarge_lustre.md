@@ -364,11 +364,12 @@ Output:
 ```
 
 
-## To run on the EBS Volume a code modification is required
+## To run on the EBS Volume a code modification is required. 
+Note, we will use this modification when running on both lustre and EBS.
 
 Copy the BLD directory with a code modification to wr_conc.F and wr_aconc.F to your directory.
 
-cp -rp /shared/pcluster-cmaq/run_scripts/BLD_CCTM_v533_gcc_codemod /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+`cp -rp /shared/pcluster-cmaq/run_scripts/BLD_CCTM_v533_gcc_codemod /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
 
 ## Build the code by running the makefile
 
@@ -388,7 +389,7 @@ Run the Make command
 
 Verify that the executable has been created
 
-
+`ls -lrt CCTM_v533.exe`
 
 
 ## Submit Job to Slurm Queue to run CMAQ on Lustre
