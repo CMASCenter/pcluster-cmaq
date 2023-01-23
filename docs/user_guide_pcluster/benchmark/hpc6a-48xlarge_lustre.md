@@ -143,6 +143,30 @@ Output:
 }
 ```
 
+Note, the snapshot image used is smaller than the EBS volume requested in the yaml file.
+Therefore you will get a warning from Parallel Cluster:
+
+```
+pcluster create-cluster --cluster-configuration hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.ebs_200.fsx_import_east-2b.yaml --cluster-name cmaq --region us-east-2
+{
+  "cluster": {
+    "clusterName": "cmaq",
+    "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:440858712842:stack/cmaq/276abf10-94fc-11ed-885c-02032a236214",
+    "region": "us-east-2",
+    "version": "3.1.2",
+    "clusterStatus": "CREATE_IN_PROGRESS"
+  },
+  "validationMessages": [
+    {
+      "level": "WARNING",
+      "type": "EbsVolumeSizeSnapshotValidator",
+      "message": "The specified volume size is larger than snapshot size. In order to use the full capacity of the volume, you'll need to manually resize the partition according to this doc: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html"
+    }
+  ]
+}
+```
+
 After 5-10 minutes, check the status again and recheck until you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
 Check status again
@@ -171,6 +195,22 @@ replace your-key.pem with your Key Name
 ```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-2 --cluster-name cmaq`
+
+## Resize the EBS Volume
+
+To resize the EBS volume, you will need to login to the cluster and then run the following command:
+
+`sudo resize2fs /dev/nvme1n1`
+
+output:
+
+```
+resize2fs 1.45.5 (07-Jan-2020)
+Filesystem at /dev/nvme1n1 is mounted on /shared; on-line resizing required
+old_desc_blocks = 5, new_desc_blocks = 63
+The filesystem on /dev/nvme1n1 is now 131072000 (4k) blocks long.
+```
+
 
 ## Change shell to use tcsh
 
