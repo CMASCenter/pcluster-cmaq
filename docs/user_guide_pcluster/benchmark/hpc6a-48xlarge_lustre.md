@@ -438,35 +438,12 @@ To cancel the job use the following command
 
 `sbatch run_cctm_2016_12US2.96pe.1x96.16x8.pcluster.hpc6a.48xlarge.fsx.pin.codemod.csh`
 
-### Check status of run
-
-`squeue `
-
-### Check to view any errors in the log on the parallel cluster
-
-`vi /var/log/parallelcluster/slurm_resume.log`
-
- An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded
-
-```{note}
-If you encounter this error, you will need to submit a request to increase this spot instance limit using the AWS Website.
-```
-
-
-### if the job will not run using SPOT pricing, then update the compute nodes to use ONDEMAND pricing
-(note - hpc6a-48xlarge does not offer SPOT pricing!)
-
-To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND.
-
-`exit`
-
-
-On your local computer use the following command to stop the compute nodes
+If you want to edit the yaml file to update a setting such as the maximum number of compute nodes available, use the following command to stop the compute nodes
 
 `pcluster update-compute-fleet --region us-east-2 --cluster-name cmaq --status STOP_REQUESTED`
 
 
-Edit the yaml file to modify SPOT to ONDEMAND, then update the cluster using the following command:
+Edit the yaml file to modify MaxCount under ComputeResoureces, then update the cluster using the following command:
 
 `pcluster update-cluster --region us-east-2 --cluster-name cmaq --cluster-configuration  hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.ebs_200.fsx_import_east-2b.yaml`
 
@@ -482,14 +459,15 @@ Output:
     "version": "3.1.1",
     "clusterStatus": "UPDATE_IN_PROGRESS"
   },
-  "changeSet": [
+    "changeSet": [
     {
-      "parameter": "Scheduling.SlurmQueues[queue1].CapacityType",
-      "requestedValue": "ONDEMAND",
-      "currentValue": "SPOT"                                      <<<  Modify to use ONDEMAND
+      "parameter": "Scheduling.SlurmQueues[queue1].ComputeResources[compute-resource-1].MaxCount",
+      "requestedValue": 15,
+      "currentValue": 10
     }
   ]
 }
+
 ```
 
 Check status of updated cluster
@@ -536,13 +514,6 @@ Re-login to the cluster
 ```{note}
 If you still have difficulty running a job in the slurm queue, there may be other issues that need to be resolved.
 ```
-
-Verify that your IAM Policy has been created for your account.
-
-Someone with administrative permissions should eable the spot instances IAM Policy: AWSEC2SpotServiceRolePolicy
-
-An alternative way to enable this policy is to login to the EC2 Website and launch a spot instance.
-The service policy will be automatically created, that can then be used by ParallelCluster.
 
 ### Submit a 576 pe job 6 nodes x 96 cpus on the EBS volume /shared
 
