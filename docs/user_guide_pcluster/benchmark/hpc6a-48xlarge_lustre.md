@@ -677,3 +677,6 @@ Output
     "resourceType": "AWS::FSx::FileSystem",
     "timestamp": "2023-01-23T17:14:19.869Z"
 ```
+
+Not sure the best way to set the VPC and security groups. Do you match the Parallel Cluster settings, or as the parallel cluster failed to build with the persistent2 lustre settings, do you create a new VPC and modify the yaml to have the parallel cluster use the VPC settings established when you create the lustre filesystem?
+
