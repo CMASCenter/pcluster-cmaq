@@ -166,6 +166,21 @@ replace your-key.pem with your Key Name
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
 
+## Change shell to use tcsh
+
+```
+sudo usermod -s /bin/tcsh ubuntu
+```
+
+Log out and then log back in to have the shell take effect.
+
+Copy a file to set paths
+
+```
+cd /shared/cyclecloud-cmaq
+cp dot.cshrc.vm ~/.cshrc
+```
+
 ## Verify Software
 
 The software is pre-loaded on the /shared volume of the ParallelCluster.  The software was previously loaded and saved to the snapshot.

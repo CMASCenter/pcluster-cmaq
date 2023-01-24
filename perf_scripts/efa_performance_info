@@ -1,0 +1,16 @@
+running this command on compute node
+
+fi_info -p efa
+provider: efa
+    fabric: EFA-fe80::4f9:91ff:fe8d:a3dc
+    domain: rdmap0s6-rdm
+    version: 113.20
+    type: FI_EP_RDM
+    protocol: FI_PROTO_EFA
+provider: efa
+    fabric: EFA-fe80::4f9:91ff:fe8d:a3dc
+    domain: rdmap0s6-dgrm
+    version: 113.20
+    type: FI_EP_DGRAM
+    protocol: FI_PROTO_EFA
+

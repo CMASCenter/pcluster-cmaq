@@ -1,0 +1,61 @@
+If get an error
+
+Arm Forge 22.1.1 - Arm MAP
+
+MAP: Your Arm MAP licence 17712 is due to expire on Mon Dec 19 2022.
+MAP: Please e-mail HPCToolsSales@arm.com for renewal options.
+No protocol specified
+MAP: Your system does not allow the debugger to connect to an executable.
+MAP:
+MAP: To ensure that Arm MAP functions correctly, disable the ptrace scope control feature.
+MAP:
+MAP: See 'The system does not allow connecting debuggers to processes (Fedora, Ubuntu)' in the user guide for instructions.
+Command exited with non-zero status 1
+real 25.60
+user 1.32
+sys 0.43
+
+
+The system does not allow connecting debuggers to processes (Fedora, Ubuntu)
+
+Login to the compute node and do:
+Solution
+
+First become sudo, then run command:
+$ sudo su -
+$ echo 0 > /proc/sys/kernel/yama/ptrace_scope
+
+
+https://developer.arm.com/documentation/101136/2101/Appendix/General-troubleshooting-and-known-issues/Attaching/The-system-does-not-allow-connecting-debuggers-to-processes--Fedora--Ubuntu-
+
+had to set the following on the head node
+
+setenv FI_EFA_FORK_SAFE 1
+
+Also had to add the path and LD_LIBRARY_PATH for  arm
+
+cat ~/.cshrc
+# start .cshrc
+
+umask 002
+
+if ( ! $?LD_LIBRARY_PATH ) then
+    setenv LD_LIBRARY_PATH /shared/build/netcdf/lib
+else
+    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib:/shared/build/arm/forge/22.1.1/lib
+endif
+
+set path = ($path /shared/build/netcdf/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort /opt/slurm/bin/ /shared/build/arm/forge/22.1.1/bin )
+
+if ($?tcsh) then
+   source /usr/share/modules/init/tcsh
+else
+   source /usr/share/modules/init/csh
+endif
+
+module load openmpi/4.1.1
+
+module load libfabric-aws/1.13.2amzn1.0
+
+alias SCR 'cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts'
+

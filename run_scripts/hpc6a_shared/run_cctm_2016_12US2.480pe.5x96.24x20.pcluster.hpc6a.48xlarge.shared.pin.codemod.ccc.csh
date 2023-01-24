@@ -1,13 +1,13 @@
 #!/bin/csh -f
-## For c5n.18xlarge (72 vcpu - 36 cpu)
+## For hpc6a.48xlarge (96 cpu)
 ## works with cluster-ubuntu.yaml
-## data on /fsx directory
+## data on /shared directory
 #SBATCH --nodes=5
-#SBATCH --ntasks-per-node=36
+#SBATCH --ntasks-per-node=96
 #SBATCH --exclusive
 #SBATCH -J CMAQ
-#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log
-#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.480.5x96.24x20pe.2day.pcluster.shared.pin.codemod.ccc.log
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.480.5x96.24x20pe.2day.pcluster.shared.pin.codemod.ccc.log
 
 
 # ===================== CCTMv5.3.X Run Script ========================= 
@@ -31,6 +31,9 @@ echo 'information about filesystem'
 df -h
 echo 'list the mounted volumes'
 showmount -e localhost
+echo 'slurm config file /opt/slurm/etc/cgroup.conf, to verify that ConstrainCores=yes is commented out'
+echo 'note config file was edited; Then, restarted slurmctld service: sudo systemctl restart slurmctld'
+cat /opt/slurm/etc/cgroup.conf
 
 #> Toggle Diagnostic Mode which will print verbose information to 
 #> standard output
@@ -55,7 +58,7 @@ showmount -e localhost
  set PROC      = mpi               #> serial or mpi
  set MECH      = cb6r3_ae7_aq      #> Mechanism ID
  set EMIS      = 2016ff            #> Emission Inventory Details
- set APPL      = 2016_CONUS_10x18pe        #> Application Name (e.g. Gridname)
+ set APPL      = 2016_CONUS_hpc6a.48xlarge_480_5x96_24x20pe_shared_pin_codemod_ccc        #> Application Name (e.g. Gridname)
 
 #> Define RUNID as any combination of parameters above or others. By default,
 #> this information will be collected into this one string, $RUNID, for easy
@@ -64,7 +67,7 @@ showmount -e localhost
 
 #> Set the build directory (this is where the CMAQ executable
 #> is located by default).
- set BLD       = ${CMAQ_HOME}/CCTM/scripts/BLD_CCTM_${VRSN}_${compilerString}
+ set BLD       = ${CMAQ_HOME}/CCTM/scripts/BLD_CCTM_${VRSN}_${compilerString}_codemod
  set EXEC      = CCTM_${VRSN}.exe  
 
 #> Output Each line of Runscript to Log File
@@ -73,10 +76,10 @@ showmount -e localhost
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts       #> Working Directory. Where the runscript is.
  #setenv CMAQ_DATA /21dayscratch/scr/l/i/lizadams/CMAQv5.3.2_CONUS/output
- setenv DISK      fsx                       # FAST I/O DISK /shared or /fsx
+ setenv DISK      shared                       # FAST I/O DISK /shared or /fsx
  setenv CMAQ_DATA /$DISK/data/output
  setenv OUTDIR  ${CMAQ_DATA}/output_CCTM_${RUNID} #> Output Directory
- setenv INPDIR  /$DISK/data/CONUS/12US2  #Input Directory
+ setenv INPDIR  /$DISK/data/CMAQ_Modeling_Platform_2016/CONUS/12US2  #Input Directory
  setenv LOGDIR  ${OUTDIR}/LOGS     #> Log Directory Location
  setenv NMLpath ${BLD}             #> Location of Namelists. Common places are: 
                                    #>   ${WORKDIR} | ${CCTM_SRC}/MECHS/${MECH} | ${BLD}
@@ -106,7 +109,7 @@ set TSTEP      = 010000            #> output time step interval (HHMMSS)
 if ( $PROC == serial ) then
    setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
 else
-   @ NPCOL  =  10; @ NPROW = 18
+   @ NPCOL  =  24; @ NPROW = 20
    @ NPROCS = $NPCOL * $NPROW
    setenv NPCOL_NPROW "$NPCOL $NPROW"; 
 endif
@@ -715,10 +718,12 @@ while ($TODAYJ <= $STOP_DAY )  #>Compare dates in terms of YYYYJJJ
   #> Executable call for single PE, uncomment to invoke
   #( /usr/bin/time -p $BLD/$EXEC ) |& tee buff_${EXECUTION_ID}.txt
 
+
   #> Executable call for multi PE, configure for your system 
   # set MPI = /usr/local/intel/impi/3.2.2.006/bin64
   # set MPIRUN = $MPI/mpirun
-  ( /usr/bin/time -p mpirun -np $NPROCS $BLD/$EXEC ) |& tee buff_${EXECUTION_ID}.txt
+  #  ( /usr/bin/time -p mpirun -np $NPROCS --report-bindings $BLD/$EXEC ) |& tee buff_${EXECUTION_ID}.txt
+   (/usr/bin/time -p mpirun -np $NPROCS --report-bindings --bind-to l3cache --map-by ppr:24:numa -x LD_LIBRARY_PATH -x PATH -x PWD $BLD/$EXEC ) |& tee buff_${EXECUTION_ID}.txt
 
   #> Harvest Timing Output so that it may be reported below
   set rtarray = "${rtarray} `tail -3 buff_${EXECUTION_ID}.txt | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | head -1` "

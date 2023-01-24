@@ -1,0 +1,65 @@
+Command:        mpirun -np 96 --bind-to l3cache --map-by ppr:24:numa -x LD_LIBRARY_PATH -x PATH -x PWD /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/CCTM_v533.exe
+Resources:      1 node (96 physical, 96 logical cores per node)
+Memory:         370 GiB per node
+Tasks:          96 processes
+Machine:        queue1-dy-compute-resource-1-2
+Start time:     Fri Dec 16 02:43:39 2022
+Total time:     2849 seconds (about 47 minutes)
+Full path:      /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc
+
+Summary: CCTM_v533.exe is Compute-bound in this configuration
+Compute:                                     63.2% |=====|
+MPI:                                         26.0% |==|
+I/O:                                         10.8% ||
+This application run was Compute-bound. A breakdown of this time and advice for investigating further is in the CPU section below. 
+As little time is spent in MPI calls, this code may also benefit from running at larger scales.
+
+CPU:
+A breakdown of the 63.2% CPU time:
+Scalar numeric ops:                          28.3% |==|
+Vector numeric ops:                           5.4% ||
+Memory accesses:                             66.3% |======|
+The per-core performance is memory-bound. Use a profiler to identify time-consuming loops and check their cache performance.
+Little time is spent in vectorized instructions. Check the compiler's vectorization advice to see why key loops could not be vectorized.
+
+MPI:
+A breakdown of the 26.0% MPI time:
+Time in collective calls:                    58.0% |=====|
+Time in point-to-point calls:                42.0% |===|
+Effective process collective rate:            1.71 kB/s
+Effective process point-to-point rate:        40.8 MB/s
+Most of the time is spent in collective calls with a very low transfer rate. This suggests load imbalance is causing synchronization overhead; use an MPI profiler to investigate.
+The point-to-point transfer rate is low. This can be caused by inefficient message sizes, such as many small messages, or by imbalanced workloads causing processes to wait.
+
+I/O:
+A breakdown of the 10.8% I/O time:
+Time in reads:                               99.9% |=========|
+Time in writes:                              <0.1% ||
+Effective process read rate:                  1.03 GB/s
+Effective process write rate:                 3.35 GB/s
+Most of the time is spent in read operations with a high effective transfer rate. It may be possible to achieve faster effective transfer rates using asynchronous file operations.
+
+Threads:
+A breakdown of how multiple threads were used:
+Computation:                                100.0% |=========|
+Synchronization:                              0.0% |
+Physical core utilization:                   88.8% |========|
+System load:                                 95.7% |=========|
+Physical core utilization is low. Try increasing the number of threads or processes to improve performance.
+
+Memory:
+Per-process memory usage may also affect scaling:
+Mean process memory usage:                    1.17 GiB
+Peak process memory usage:                    1.60 GiB
+Peak node memory usage:                      39.0% |===|
+The peak node memory usage is low. Running with fewer MPI processes and more data on each process may be more efficient.
+
+Energy:
+A breakdown of how energy was used:
+CPU:                                      not supported
+System:                                   not supported
+Mean node power:                          not supported
+Peak node power:                              0.00 W
+Energy metrics are not available on this system.
+CPU metrics are not supported (no intel_rapl module)
+

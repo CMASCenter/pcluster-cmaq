@@ -1,0 +1,193 @@
+================================================================================          
+|                                                                              |          
+|               The Community Multiscale Air Quality (CMAQ) Model              |          
+|                                   Version 5.3.3                              |          
+|                                                                              |          
+|                          Built and Maintained by the                         |          
+|                        Office of Research and Development                    |          
+|                   United States Environmental Protection Agency              |          
+|                                                                              |          
+|                            https://www.epa.gov/cmaq                          |          
+|                                                                              |          
+|       Source Code:   https://www.github.com/USEPA/cmaq/tree/main             |          
+|       Documentation: https://www.github.com/USEPA/cmaq/tree/main/DOCS        |          
+|                                                                              |          
+|         The CMAQ Model is tested and released with cooperation from          |          
+|         the Community Modeling and Analysis System (CMAS) Center via         |          
+|         contract support. CMAS is managed by the Institute for the           |          
+|         Environment, University of North Carolina at Chapel Hill.            |          
+|         CMAS URL: (https://www.cmascenter.org)                               |          
+|                                                                              |          
+================================================================================          
+
+                                                                                          
+     This program uses the EPA-AREAL/MCNC-EnvPgms/BAMS Models-3                           
+     I/O Applications Programming Interface, [I/O API] which is                           
+     built on top of the netCDF I/O library (Copyright 1993, 1996                         
+     University Corporation for Atmospheric Research/Unidata                              
+     Program) and the PVM parallel-programming library (from                              
+     Oak Ridge National Laboratory).                                                      
+     Copyright (C) 1992-2002 MCNC,                                                        
+     (C) 1992-2018 Carlie J. Coats, Jr.,                                                  
+     (C) 2003-2012 Baron Advanced Meteorological Systems, LLC, and                        
+     (C) 2014-2021 UNC Institute for the Environment.                                     
+     Released under the GNU LGPL  License, version 2.1.  See URL                          
+                                                                                          
+         https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html                          
+                                                                                          
+     for conditions of use.                                                               
+                                                                                          
+     ioapi-3.2: $Id: init3.F90 200 2021-05-10 14:06:20Z coats $                           
+     Version with PARMS3.EXT/PARAMETER::MXVARS3= 2048                                     
+     netCDF version 4.8.1 of Feb 23 2022 00:00:55 $                                       
+                                                                                          
+                                                                                          
+     EXECUTION_ID: CMAQ_CCTMv533_ubuntu_20230115_203923_455022345                         
+     Value for IOAPI_CHECK_HEADERS:  N returning FALSE
+      
+     "MET_CRO_3D" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/MCIP/METCRO3D.12US2.35L.151223"
+     File type GRDDED3 
+     Execution ID "mcip"
+     Grid name "METCRO_12US2_CRO"
+     Dimensions: 246 rows, 396 cols, 35 lays, 17 vbles
+     NetCDF ID:     65536  opened as READONLY            
+     Starting date and time  2015357:000000 (0:00:00   Dec. 23, 2015)
+     Timestep                          010000 (1:00:00 hh:mm:ss)
+     Maximum current record number        25
+
+     MET data determined based on WRF ARW version 3.8
+
+     Closing file MET_CRO_3D
+
+
+     ========================================
+     |>---   RETRIEVE HORIZONTAL GRID   ---<|
+     ========================================
+
+     File "GRIDDESC" opened for input on unit:  98
+     /shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/GRIDDESC
+
+
+
+     ======================================
+     |>---   RETRIEVE VERTICAL GRID   ---<|
+     ======================================
+      
+     "MET_CRO_3D" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/MCIP/METCRO3D.12US2.35L.151223"
+     File type GRDDED3 
+     Execution ID "mcip"
+     Grid name "METCRO_12US2_CRO"
+     Dimensions: 246 rows, 396 cols, 35 lays, 17 vbles
+     NetCDF ID:     65536  opened as READONLY            
+     Starting date and time  2015357:000000 (0:00:00   Dec. 23, 2015)
+     Timestep                          010000 (1:00:00 hh:mm:ss)
+     Maximum current record number        25
+
+     =========================================
+     |>---   RETRIEVE SPECIES NAMELIST   ---<|
+     =========================================
+
+
+     ===========================================
+     |>---   INITIALIZE PROCESS ANALYSIS   ---<|
+     ===========================================
+     PA_DATAGEN: Process Analysis is not activated
+
+
+     ==================================
+     |>---   CONFIGURE SCENARIO   ---<|
+     ==================================
+     INIT_MEDC_1     :/shared/data/output/output_CCTM_v533_gcc_2016_CONUS_hpc6a.48xlarge_192_2x96_16x12pe_shared_nopin/CCTM_MEDIA_CONC_v533_gcc_2016_CONUS_hpc6a.48xlarge_192_2x96_16x12pe_shared_nopin_20151222.nc
+     
+     >>--->> WARNING in subroutine OPEN3
+     File not available.
+     
+      
+     "GRID_CRO_2D" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/MCIP/GRIDCRO2D.12US2.35L.151223"
+     File type GRDDED3 
+     Execution ID "mcip"
+     Grid name "GRIDOUT_12US2_CR"
+     Dimensions: 246 rows, 396 cols, 1 lays, 47 vbles
+     NetCDF ID:    131072  opened as READONLY            
+     Time-independent data.
+      
+     "GRID_DOT_2D" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/MCIP/GRIDDOT2D.12US2.35L.151223"
+     File type GRDDED3 
+     Execution ID "mcip"
+     Grid name "GRIDOUT_12US2_DO"
+     Dimensions: 247 rows, 397 cols, 1 lays, 9 vbles
+     NetCDF ID:    196608  opened as READONLY            
+     Time-independent data.
+     LUFRAC_CRO      :LUFRAC_CRO
+     
+     >>--->> WARNING in subroutine OPEN3
+     File not available.
+     
+     
+     >>--->> WARNING in subroutine gridded_files_se on PE 180
+     Could not open LUFRAC_CRO       file
+     
+     Solution: Reading Land Use Fractions from GRID_CRO_2D file
+      
+     "MET_CRO_2D" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/MCIP/METCRO2D.12US2.35L.151223"
+     File type GRDDED3 
+     Execution ID "mcip"
+     Grid name "METCRO_12US2_CRO"
+     Dimensions: 246 rows, 396 cols, 1 lays, 34 vbles
+     NetCDF ID:    262144  opened as READONLY            
+     Starting date and time  2015357:000000 (0:00:00   Dec. 23, 2015)
+     Timestep                          010000 (1:00:00 hh:mm:ss)
+     Maximum current record number        25
+      
+     "MET_DOT_3D" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/MCIP/METDOT3D.12US2.35L.151223"
+     File type GRDDED3 
+     Execution ID "mcip"
+     Grid name "METDOT_12US2_DOT"
+     Dimensions: 247 rows, 397 cols, 35 lays, 6 vbles
+     NetCDF ID:    327680  opened as READONLY            
+     Starting date and time  2015357:000000 (0:00:00   Dec. 23, 2015)
+     Timestep                          010000 (1:00:00 hh:mm:ss)
+     Maximum current record number        25
+      
+     "GR_EMIS_001" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/emissions//emis_mole_all_20151223_12US2_nobeis_norwc_2016fh_16j.ncf"
+     File type GRDDED3 
+     Execution ID "????????????????"
+     Grid name "12US2"
+     Dimensions: 246 rows, 396 cols, 1 lays, 62 vbles
+     NetCDF ID:    393216  opened as READONLY            
+     Starting date and time  2015357:000000 (0:00:00   Dec. 23, 2015)
+     Timestep                          010000 (1:00:00 hh:mm:ss)
+     Maximum current record number        25
+GR_EM_SYM_DATE_0  |          F
+      
+     "GR_EMIS_002" opened as OLD:READ-ONLY   
+     File name "/shared/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/emissions//emis_mole_all_20151223_12US2_withbeis_withrwc_2016fh_16j.ncf"
+     File type GRDDED3 
+     Execution ID "????????????????"
+     Grid name "12US2"
+     Dimensions: 246 rows, 396 cols, 1 lays, 67 vbles
+     NetCDF ID:    458752  opened as READONLY            
+     Starting date and time  2015357:000000 (0:00:00   Dec. 23, 2015)
+     Timestep                          010000 (1:00:00 hh:mm:ss)
+     Maximum current record number        25
+GR_EM_SYM_DATE_0  |          F
+     INIT_CONC_1                             :/shared/data/output/output_CCTM_v533_gcc_2016_CONUS_hpc6a.48xlarge_192_2x96_16x12pe_shared_nopin/CCTM_CGRID_v533_gcc_2016_CONUS_hpc6a.48xlarge_192_2x96_16x12pe_shared_nopin_20151222.nc
+     
+     >>--->> WARNING in subroutine OPEN3
+     File not available.
+     
+
+
+     *** ERROR ABORT in subroutine gridded_files_se on PE 180
+     Open failure for INIT_CONC_1
+ PM3EXIT:  date&time specified as 0
+     Date&time specified as 0
+      
+      

@@ -47,6 +47,7 @@ user_guide_pcluster/demo/index.md
 user_guide_pcluster/System-Req/index.md
 user_guide_pcluster/cmaq-cluster/index.md
 user_guide_pcluster/install/index.md
+user_guide_pcluster/benchmark/index.md
 user_guide_pcluster/post/index.md
 user_guide_pcluster/qa/index.md
 user_guide_pcluster/timing/index.md
