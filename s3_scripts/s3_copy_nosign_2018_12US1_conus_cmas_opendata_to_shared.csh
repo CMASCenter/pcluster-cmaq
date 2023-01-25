@@ -12,10 +12,11 @@ setenv DISK shared
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180701*" --include "*20180702*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/met/WRFv4.3.3_LTNG_MCIP5.3.3_compressed /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/met/WRFv4.3.3_LTNG_MCIP5.3.3_compressed
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180701*" --include "*20180702*" --include "smk_merge_dates_201807.txt" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*stack_groups*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis
+aws --no-sign-request s3 cp --recursive  s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/emis_dates /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/emis_dates
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180709*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/ptnonipm /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/ptnonipm
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180709*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/othpt /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/othpt
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180709*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/pt_oilgas /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/pt_oilgas
-aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180710*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cmv_c3 /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cmv_c3
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180710*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cb6r3_ae6_20190604/cmv_c3 /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cb6r3_ae6_20190604/cmv_c3
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180710*" --recursive s3://cmas-cmaq-modeling-platform-2018/2018_12US1/epic /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/epic
 aws --no-sign-request s3 cp --recursive s3://cmas-cmaq-modeling-platform-2018/2018_12US1/surface /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/surface
 aws --no-sign-request s3 cp --recursive s3://cmas-cmaq-modeling-platform-2018/2018_12US1/misc /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/misc
