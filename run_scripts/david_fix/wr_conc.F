@@ -71,12 +71,8 @@ C Local variables:
 
       INTEGER      ALLOCSTAT
 
-      LOGICAL, SAVE :: FIRSTIME = .TRUE.
-
       INTEGER      C, R, K, L, V, VAR, SPC   ! loop induction variables
 
-      CHARACTER( 16 ), ALLOCATABLE, SAVE :: VNAME( : )
-      INTEGER, SAVE :: NVARS
 
 C-----------------------------------------------------------------------
 

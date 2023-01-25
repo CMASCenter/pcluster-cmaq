@@ -69,7 +69,6 @@ C Local variables:
       CHARACTER( 16 ) :: PNAME = 'WR_ACONC'
       CHARACTER( 96 ) :: XMSG = ' '
 
-      LOGICAL, SAVE :: FIRSTIME = .TRUE.
       LOGICAL OK
 
       INTEGER      L, K, VAR, SPC ! loop counters
