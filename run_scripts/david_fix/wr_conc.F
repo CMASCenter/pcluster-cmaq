@@ -45,6 +45,7 @@ C                     - Added code to allow non IO processor to open
 C                       CTM_CONC_1
 C   01 Feb 19 D.Wong: - Implemented centralized I/O approach
 C   Sept 19 F. Sidi: Replaced L_CONC_WVEL(depreciated) with W_VEL 
+C   Jan 25 D.Wong - Removed let non I/O PEs open CTM_CONC_1 for read only
 C-----------------------------------------------------------------------
 
       USE GRID_CONF             ! horizontal & vertical domain specifications
@@ -78,36 +79,6 @@ C Local variables:
       INTEGER, SAVE :: NVARS
 
 C-----------------------------------------------------------------------
-
-      IF ( FIRSTIME ) THEN
-
-         FIRSTIME = .FALSE.
-
-C open conc file for update
-         IF ( .NOT. IO_PE_INCLUSIVE ) THEN
-            IF ( .NOT. OPEN3( CTM_CONC_1, FSREAD3, PNAME ) ) THEN
-               XMSG = 'Could not open ' // CTM_CONC_1 // ' file for update'
-               CALL M3EXIT( PNAME, JDATE, JTIME, XMSG, XSTAT1 )
-            END IF
-
-            IF ( .NOT. DESC3( CTM_CONC_1 ) ) THEN
-               XMSG = 'Could not get file description from ' // CTM_CONC_1
-               CALL M3EXIT( PNAME, JDATE, JTIME, XMSG, XSTAT1 )
-            END IF
-         
-        !  Retrieve number and values of variable names
-            NVARS = NVARS3D
-            print*, 'NVARS'
-            print*,  NVARS
-            ALLOCATE ( VNAME( NVARS ), STAT=ALLOCSTAT )
-            VNAME = VNAME3D( 1:NVARS )
-            print*, 'VNAME3D'
-            print*, VNAME3D
-            print*, 'VNAME'
-            print*, VNAME
-         END IF
-
-      END IF   ! firstime
 
       VAR = 0
 

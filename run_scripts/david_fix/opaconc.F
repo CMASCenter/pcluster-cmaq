@@ -24,6 +24,7 @@
 !   D. Wong - July 15: initial version
 !   D. Wong 19 May 2016 - renamed ACONC_END_TIME to AVG_FILE_ENDTIME
 !   F. Sidi 09 Sep 2019 - Replaced L_ACONC_WVEL(depreciated) with W_VEL
+!   D. Wong 25 Jan 2023 - Get description from INIT_CONC_1
 !-----------------------------------------------------------------------
 
       USE GRID_CONF             ! horizontal & vertical domain specifications
@@ -94,7 +95,7 @@
 
          IF ( IO_PE_INCLUSIVE ) THEN
 
-! Get default file header attibutes from CONC file (assumes file already open)
+! Get default file header attibutes from INIT_CONC_1 file (assumes file already open)
 
             IF ( .NOT. DESC3( INIT_CONC_1 ) ) THEN
                XMSG = 'Could not get '
