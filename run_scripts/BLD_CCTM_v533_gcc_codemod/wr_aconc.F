@@ -37,6 +37,7 @@ C                        to open A_CONC_1
 C   19 May 16 D.Wong: renamed ACONC_END_TIME to AVG_FILE_ENDTIME
 C   27 Mar 17 D.Wong: removed redundant parallel_io ifdef construct
 C   09 Sep 19 F. Sidi: Replaced L_ACONC_WVEL(depreciated) with W_VEL
+C   Jan 25 D.Wong - Removed let non I/O PEs open CTM_ACONC_1 for read only
 C-----------------------------------------------------------------------
 
       USE GRID_CONF             ! horizontal & vertical domain specifications
@@ -79,20 +80,6 @@ C-----------------------------------------------------------------------
 C Change output date/time to starting date/time - e.g. timestamp 1995196:090000
 C represents data computed from time 1995196:090000 to 1995196:100000
 
-      IF ( FIRSTIME ) THEN
-         FIRSTIME = .FALSE.
-
-C Override default beginning time timestamp for ACONC?
-#ifdef parallel_io
-         IF ( .NOT. IO_PE_INCLUSIVE ) THEN
-            IF ( .NOT. OPEN3( A_CONC_1, FSREAD3, PNAME ) ) THEN
-               XMSG = 'Could not open ' // A_CONC_1 // ' file for update'
-               CALL M3EXIT( PNAME, JDATE, JTIME, XMSG, XSTAT1 )
-            END IF
-         END IF
-#endif
-
-      END IF
 
       IF ( END_TIME ) THEN   ! ending time timestamp
          MDATE = JDATE; MTIME = JTIME
