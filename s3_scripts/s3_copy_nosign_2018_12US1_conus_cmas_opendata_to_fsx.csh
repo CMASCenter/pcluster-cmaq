@@ -27,3 +27,6 @@ aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20171221*" s3:
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*201807*"  s3://cmas-cmaq-modeling-platform-2018/2018_12US1/icbc /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/icbc
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*GRIDDESC*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*run_cctm_2018*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180709*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180715*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180710*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/
