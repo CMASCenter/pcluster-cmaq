@@ -642,7 +642,6 @@ Num  Day        Wall Time
 ## Submit a minimum of 2 benchmark runs
 
 Ideally, two CMAQ runs should be submitted to the slurm queue, using two different NPCOLxNPROW configurations, to create output needed for the QA and Post Processing Sections in Chapter 6.
-If the NPCOL are different, then the answers in the ACONC file will not be identical, and you will see the differences in the QA step.
 
 ## upgrade pcluster version to try Persistent 2 Lustre Filesystem
 
