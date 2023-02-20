@@ -10,3 +10,7 @@
 
 <a href="https://jiaweizhuang.github.io/blog/aws-hpc-guide/">A Scientist Guide to Cloud-HPC: Example with AWS ParallelCluster, Slurm, Spack, and WRF</a>
 
+### Advancing Large Scale Weather and Climate Modeling Data in the Cloud
+
+<a href="https://apj-ps-marketing.s3-ap-southeast-1.amazonaws.com/Education/AWS_for_Research_Webinar_Series/On-demand_assets/Advancing-the-large-scale-weather-and-climate-modeling-data-in-the-cloud.pdf">AWS and Intel Research Webinar Series: Advancing the large scale weather and climate modeling data in the cloud</a>
+
