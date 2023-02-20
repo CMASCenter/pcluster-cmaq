@@ -14,3 +14,6 @@
 
 <a href="https://apj-ps-marketing.s3-ap-southeast-1.amazonaws.com/Education/AWS_for_Research_Webinar_Series/On-demand_assets/Advancing-the-large-scale-weather-and-climate-modeling-data-in-the-cloud.pdf">AWS and Intel Research Webinar Series: Advancing the large scale weather and climate modeling data in the cloud</a>
 
+### AWS Well-Architected Framework
+
+<a href="https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/welcome.html">AWS Well-Architected Framework</a>
