@@ -4,7 +4,7 @@
 
 ### AWS High Performance Computing (HPC) Lens for the AWS Well-Architected Framework
 
-<a href="https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/welcome.html>AWS High Performance Computing (HPC) Lens for the AWS Well-Architected Framework</a>
+<a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/high-performance-computing-lens/wellarchitected-high-performance-computing-lens.pdf#welcome">AWS High Performance Computing (HPC) Lens for the AWS Well-Architected Framework</a>
 
 ### HPC on AWS - WRF (uses cfnCluster - older version of Parallel Cluster
 
