@@ -16,9 +16,9 @@ else
    source /usr/share/modules/init/csh
 endif
 
-module load openmpi/4.1.1
+module load openmpi/4.1.4
 
-module load libfabric-aws/1.13.2amzn1.0
+module load libfabric-aws/1.16.1amzn1.0
 
 alias SCR 'cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts'
 

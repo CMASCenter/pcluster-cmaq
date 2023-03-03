@@ -292,15 +292,18 @@ Load the modules
 Output:
 
 ```
------------------------------------------------------------- /usr/share/modules/modulefiles -------------------------------------------------------------
-dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own
+------------------------------------------------------------ /usr/share/modules/modulefiles ------------------------------------------------------------
+dot  libfabric-aws/1.16.1amzn1.0  module-git  module-info  modules  null  openmpi/4.1.4  use.own  
+
+--------------------------------------------------------- /opt/intel/mpi/2021.6.0/modulefiles ----------------------------------------------------------
+intelmpi  
 ```
 
 Load the modules openmpi and libfabric
 
-`module load openmpi/4.1.1`
+`module load openmpi/4.1.4`
 
-`module load libfabric-aws/1.13.2amzn1.0`
+`module load libfabric-aws/1.16.1amzn1.0`
 
 
 ## Verify Input Data
