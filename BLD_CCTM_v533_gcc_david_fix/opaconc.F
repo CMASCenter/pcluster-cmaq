@@ -24,7 +24,8 @@
 !   D. Wong - July 15: initial version
 !   D. Wong 19 May 2016 - renamed ACONC_END_TIME to AVG_FILE_ENDTIME
 !   F. Sidi 09 Sep 2019 - Replaced L_ACONC_WVEL(depreciated) with W_VEL
-!   D. Wong 25 Jan 2023 - Get description from CTM_CONC_1
+!   D. Wong 25 Jan 2023 - Get description from INIT_CONC_1
+!   D. Wong 9 March 2023 - Fix to get description from CTM_CONC_1
 !-----------------------------------------------------------------------
 
       USE GRID_CONF             ! horizontal & vertical domain specifications
