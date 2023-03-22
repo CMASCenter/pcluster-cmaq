@@ -373,14 +373,28 @@ see <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-in
 
 `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"`
 
-`unzip awscliv2.zip`
+## Install unzip and unzip file
+
+`sudo apt install zip`
+
+`/usr/bin/unzip awscliv2.zip`
 
 `sudo ./aws/install`
+
+output
+
+```
+You can now run: /usr/local/bin/aws --version
+```
+
+Note, you will need to add this path to your .cshrc
+
+
 
 
 ### Install the input data using the s3 script
 
-`cd /shared/cyclecloud-cmaq/s3_scripts/`
+`cd /shared/pcluster-cmaq/s3_scripts/`
 
 `./s3_copy_nosign_conus_cmas_opendata_to_shared.csh`
 
