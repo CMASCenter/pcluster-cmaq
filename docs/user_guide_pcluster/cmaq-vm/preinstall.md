@@ -142,7 +142,7 @@ module load mpi/openmpi-4.1.2
 
 Install netcdf-C and netcdf-Fortran
 
-`./gcc_install.csh`
+`./gcc_netcdf_singlevm.csh |& tee ./gcc_netcdf_singlevm.log`
 
 If successful, you will see the following output, that at the bottom shows what versions of the netCDF library were installed.
 
@@ -182,12 +182,12 @@ make[3]: Leaving directory '/shared/build/netcdf-fortran-4.5.4'
 make[2]: Leaving directory '/shared/build/netcdf-fortran-4.5.4'
 make[1]: Leaving directory '/shared/build/netcdf-fortran-4.5.4'
 netCDF 4.8.1
-netCDF-Fortran 4.5.4
+netCDF-Fortran 4.5.3
 ```
 
 Install I/O API
 
-`./gcc_ioapi.csh`
+`./gcc_ioapi_singlevm.csh |& tee ./gcc_ioapi_singlevm.log`
 
 
 
@@ -198,35 +198,26 @@ Find what operating system is on the system:
 Output
 
 ```
-NAME="AlmaLinux"
-VERSION="8.5 (Arctic Sphynx)"
-ID="almalinux"
-ID_LIKE="rhel centos fedora"
-VERSION_ID="8.5"
-PLATFORM_ID="platform:el8"
-PRETTY_NAME="AlmaLinux 8.5 (Arctic Sphynx)"
-ANSI_COLOR="0;34"
-CPE_NAME="cpe:/o:almalinux:almalinux:8::baseos"
-HOME_URL="https://almalinux.org/"
-DOCUMENTATION_URL="https://wiki.almalinux.org/"
-BUG_REPORT_URL="https://bugs.almalinux.org/"
-
-ALMALINUX_MANTISBT_PROJECT="AlmaLinux-8"
-ALMALINUX_MANTISBT_PROJECT_VERSION="8.5"
+PRETTY_NAME="Ubuntu 22.04.2 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.2 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
 ```
 
-## Change shell to use tcsh
-
-`sudo usermod -s /bin/tcsh azureuser`
-
-
-Log out and then log back in to have the shell take effect.
 
 Copy a file to set paths 
 
-`cd /shared/cyclecloud-cmaq`
+`cd /shared/pcluster-cmaq`
 
-`cp dot.cshrc.vm ~/.cshrc`
+`cp dot.cshrc.singlevm ~/.cshrc`
 
 ## Create Environment Module for Libraries
 
@@ -239,7 +230,7 @@ There are two steps required to create your own custome module:
 Create a new custom module that will be loaded with:
 
 ```
-module load ioapi-3.2_20200828/gcc-9.2.1-netcdf
+module load ioapi-3.2/gcc-11.3.0-netcdf
 ```
 
 Step 1: Create the module file.
@@ -248,44 +239,42 @@ First, create a path to store the module file. The path must contain /Modules/mo
 /<path to>/Modules/modulefiles/<module-name>/<version> where <version> is typically numerical and is the actual module file.  
 
 ```
-mkdir /shared/build/Modules/modulefiles/ioapi-3.2_20200828
+mkdir /shared/build/Modules/modulefiles/ioapi-3.2
 ```
 
 Next, crate the module file and save it in the directory above.
 
 ```
-cd /shared/build/Modules/modulefiles/ioapi-3.2_20200828
-vim gcc-9.2.1-netcdf
+cd /shared/build/Modules/modulefiles/ioapi-3.2
+vim gcc-11.3.0-netcdf
 ```
 
-Contents of gcc-9.2.1-netcdf:
+Contents of gcc-11.3.0-netcdf:
 
 ```
 #%Module
   
 proc ModulesHelp { } {
-   puts stderr "This module adds ioapi-3.2_20200828/gcc-9.2.1 to your path"
+   puts stderr "This module adds ioapi-3.2/gcc-11.3.0 to your path"
 }
 
-module-whatis "This module adds ioapi-3.2_20200828/gcc-9.2.1 to your path\n"
+module-whatis "This module adds ioapi-3.2/gcc-11.3.0 to your path\n"
 
-set basedir "/shared/build/ioapi-3.2_branch_20200828/"
+set basedir "/shared/build/ioapi-3.2/"
 prepend-path PATH "${basedir}/Linux2_x86_64gfort"
 prepend-path LD_LIBRARY_PATH "${basedir}/ioapi/fixed_src"
-module load mpi/openmpi-4.1.1
-module load gcc-9.2.1
 ```
 
-The example module file above sets two evironment variables and loads two system modules.
+The example module file above sets two evironment variables.
 
 The modules update the PATH and LD_LIBRARY_PATH. 
 
 Step 2: Add the module path to MODULEPATH.
 
-Now that the odule file has been created, add the following line to your ~/.cshrc file so that it can be found:
+Now that the module file has been created, add the following line to your ~/.cshrc file so that it can be found:
 
 ```
-module use --append /shared/build/Modules/modulefiles/ioapi-3.2_20200828/gcc-9.2.1-netcdf
+module use --append /shared/build/Modules/modulefiles
 ```
 
 Step 3: View the modules available after creation of the new module
@@ -299,29 +288,69 @@ module avail
 Step 4: Load the new module
 
 ```
-module load ioapi-3.2_20200828/gcc-9.2.1-netcdf
+module load ioapi-3.2/gcc-11.3.0-netcdf
 ```
+
+### Find path for openmpi libraries
+
+```
+ompi_info --path libdir
+```
+
+output
+
+```
+ Libdir: /usr/lib/x86_64-linux-gnu/openmpi/lib
+```
+
+### Find path for include files for openmpi
+
+```
+ompi_info --path incdir
+```
+
+output
+
+```
+Incdir: /usr/lib/x86_64-linux-gnu/openmpi/include
+```
+
+### Edit the config_cmaq_singlevm.csh script to specify the paths for OpenMPI
+
+```
+       setenv MPI_INCL_DIR     /usr/lib/x86_64-linux-gnu/openmpi/include              #> MPI Include directory path
+        setenv MPI_LIB_DIR     /usr/lib/x86_64-linux-gnu/openmpi/lib             #> MPI Lib directory path
+```
+
 
 
 ## Install and Build CMAQ
 
-`./gcc_cmaq.csh`
+`./gcc_cmaq54+_singlevm.csh |& tee ./gcc_cmaq54+_singlevm.log`
+
+### Add compile option to makefile to get beyond a type mismatch error
+
+Add the following to the compile option: -fallow-argument-mismatch
+
+```
+ FSTD = -fallow-argument-mismatch -O3 -funroll-loops -finit-character=32 -Wtabs -Wsurprising -ftree-vectorize  -ftree-loop-if-convert -finline-limit=512
+```
 
 Verfify that the executable was successfully built.
 
-`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe`
+`ls /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc/*.exe`
 
 Output
 
 ```
-/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/CCTM_v533.exe
+/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc/CCTM_v54.exe
 ```
 
 ## Copy the run scripts from the repo to the run directory
 
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
-
-`cp /shared/cyclecloud-cmaq/run_scripts/HB120v3/*pe.csh .`
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
+`
+`cp /shared/pcluster-cmaq/run_scripts/c6a/*pe.csh .`
 
 List the scripts available
 
@@ -330,10 +359,7 @@ List the scripts available
 Output
 
 ```
-run_cctm_2016_12US2.90pe.csh
-run_cctm_2016_12US2.36pe.csh
-run_cctm_2016_12US2.16pe.csh
-run_cctm_2016_12US2.120pe.csh
+need to create
 ```
 
 ## Download the Input data from the S3 Bucket 
