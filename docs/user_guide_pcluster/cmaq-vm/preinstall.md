@@ -78,6 +78,22 @@ mkdir build
 mkdir data
 ```
 
+## Check operating system version
+
+```
+lsb_release -a
+```
+
+output
+
+```
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.2 LTS
+Release:	22.04
+Codename:	jammy
+```
+
 ## Set up build environment 
 
 Load the git module
@@ -322,7 +338,27 @@ Incdir: /usr/lib/x86_64-linux-gnu/openmpi/include
         setenv MPI_LIB_DIR     /usr/lib/x86_64-linux-gnu/openmpi/lib             #> MPI Lib directory path
 ```
 
+### Install Python
 
+```
+sudo apt-get install python3 python3-pip
+```
+
+Check Version
+
+```
+python3 --version
+Python 3.10.6
+ip-172-31-27-148:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> python3 -m pip --version
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+
+```
+
+### Install jupyter notebook.
+
+```
+pip install jupyterlab
+```
 
 ## Install and Build CMAQ
 
