@@ -14,6 +14,8 @@ nav:
             - 'Run CMAQ CONUS Benchmark on Pcluster': 'user_guide_pcluster/run-cmaq-benchmark-pcluster.md'
         - CMAQ Final Benchmark:
             - 'Run CMAQ CONUS Benchmark on HPC Cluster pre-loaded with softare and input data': `user_guide_pcluster/hpc6a-48xlarge_lustre.md` 
+        - CMAQ CMAQ Virtual MAchine:
+            - 'Run CMAQ v5.4 on Virtual Machine using 2018 12US1 Benchmark data: `user_guide_pcluster/cmaq-vm/preinstall.md'
         -  AWS Parallel Cluster Post-Processing and QA:
             - 'Compile and Run Post-processors': 'user_guide_pcluster/post-process-pcluster.md'
             - 'Compare timings': 'user_guide_pcluster/parse_timing_pcluster.md'
