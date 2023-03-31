@@ -16,7 +16,8 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 1. Login to AWS Console
 2. Select Get Started with EC2 
 3. Select Launch Instance
-3. Application and OS (Operating System) Images: Select Ubunut
+3. Application and OS (Operating System) Images: Select Ubunutu 18.04 LTS, amd64 bionic image build on 2023-01-31
+(the version of OS determines what packages are available from apt-get and that determines the version of software obtained, ie. cdo version > 2.0 for Ubuntu 22.04 LTS, or cdo version < 2.0 for Ubuntu 18.04.
 4. Instance Type: Select c6a.xlarge ($0.153/hr)
 5. Key paar - SSH public key, select existing key or create a new one.
 6. Network settings - select default settings
@@ -114,14 +115,19 @@ sudo apt-get install gcc
 sudo apt install gfortran
 sudo apt-get install openmpi-bin openmpi-common libopenmpi-dev libgtk2.0-dev
 sudo apt-get install tcsh
+```
 
 ### Change shell to use tcsh
 
+```
 sudo usermod -s /usr/bin/tcsh ubuntu
+```
 
 ### Logout and log back in, then check the shell
 
+```
 echo $SHELL
+```
 
 output
 
@@ -162,7 +168,9 @@ Install netcdf-C and netcdf-Fortran
 
 If successful, you will see the following output, that at the bottom shows what versions of the netCDF library were installed.
 
+
 ```
+
 +-------------------------------------------------------------+
 | Congratulations! You have successfully installed the netCDF |
 | Fortran libraries.                                          |
