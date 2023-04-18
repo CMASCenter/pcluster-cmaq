@@ -6,4 +6,4 @@
 
 setenv AWS_REGION "us-east-1"
 
-aws s3 --no-sign-request  cp --recursive s3://cmas-cmaq/2018-listos /shared/data/2018-listos
+aws s3 --no-sign-request  cp --recursive s3://cmas-cmaq/12US1_LISTOS/mcip /shared/data/12US1_LISTOS/met/mcip
