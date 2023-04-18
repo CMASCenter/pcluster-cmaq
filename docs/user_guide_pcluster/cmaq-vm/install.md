@@ -16,7 +16,8 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 1. Login to AWS Console
 2. Select Get Started with EC2 
 3. Select Launch Instance
-3. Application and OS (Operating System) Images: Select Ubunut
+3. Application and OS (Operating System) Images: Select Ubunutu 18.04 LTS, amd64 bionic image build on 2023-01-31
+(the version of OS determines what packages are available from apt-get and that determines the version of software obtained, ie. cdo version > 2.0 for Ubuntu 22.04 LTS, or cdo version < 2.0 for Ubuntu 18.04.
 4. Instance Type: Select c6a.xlarge ($0.153/hr)
 5. Key paar - SSH public key, select existing key or create a new one.
 6. Network settings - select default settings
@@ -78,6 +79,22 @@ mkdir build
 mkdir data
 ```
 
+## Check operating system version
+
+```
+lsb_release -a
+```
+
+output
+
+```
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.2 LTS
+Release:	22.04
+Codename:	jammy
+```
+
 ## Set up build environment 
 
 Load the git module
@@ -88,7 +105,6 @@ module load module-git
 
 If you do not see git available as a module, you may need to install it as follows:
 
-
 `sudo yum install git`
 
 ### Install OpenMPI
@@ -98,14 +114,19 @@ sudo apt-get install gcc
 sudo apt install gfortran
 sudo apt-get install openmpi-bin openmpi-common libopenmpi-dev libgtk2.0-dev
 sudo apt-get install tcsh
+```
 
 ### Change shell to use tcsh
 
+```
 sudo usermod -s /usr/bin/tcsh ubuntu
+```
 
 ### Logout and log back in, then check the shell
 
+```
 echo $SHELL
+```
 
 output
 
@@ -146,7 +167,9 @@ Install netcdf-C and netcdf-Fortran
 
 If successful, you will see the following output, that at the bottom shows what versions of the netCDF library were installed.
 
+
 ```
+
 +-------------------------------------------------------------+
 | Congratulations! You have successfully installed the netCDF |
 | Fortran libraries.                                          |
@@ -322,7 +345,27 @@ Incdir: /usr/lib/x86_64-linux-gnu/openmpi/include
         setenv MPI_LIB_DIR     /usr/lib/x86_64-linux-gnu/openmpi/lib             #> MPI Lib directory path
 ```
 
+### Install Python
 
+```
+sudo apt-get install python3 python3-pip
+```
+
+Check Version
+
+```
+python3 --version
+Python 3.10.6
+ip-172-31-27-148:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> python3 -m pip --version
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+
+```
+
+### Install jupyter notebook.
+
+```
+pip install jupyterlab
+```
 
 ## Install and Build CMAQ
 
@@ -349,7 +392,7 @@ Output
 ## Copy the run scripts from the repo to the run directory
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
-`
+
 `cp /shared/pcluster-cmaq/run_scripts/c6a/*pe.csh .`
 
 List the scripts available
@@ -396,68 +439,32 @@ Note, you will need to add this path to your .cshrc
 
 `cd /shared/pcluster-cmaq/s3_scripts/`
 
-`./s3_copy_nosign_conus_cmas_opendata_to_shared.csh`
+`./s3_copy_nosign_2018_12US1_conus_cmas_opendata_to_shared.csh`
 
 Note, this Virtual Machine does not have Slurm installed or configured.
 
 ## Run CMAQ interactively using the following command:
 
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
-`./run_cctm_2016_12US2.120pe.csh |& tee ./run_cctm_2016_12US2.120pe.log`
+`./run_cctm_2018_12US1.4pe.csh |& tee ./run_cctm_2018_12US1.4pe.log`
 
 When the run has completed, record the timing of the two day benchmark.
 
-`tail -n 30  run_cctm_2016_12US2.120pe.log`
+`tail -n 30  run_cctm_2018_12US1.4pe.log`
 
 Output:
 
 ```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2015-12-22
-End Day:   2015-12-23
-Number of Simulation Days: 2
-Domain Name:               12US2
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       120
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2015-12-22   2458.35
-02   2015-12-23   2205.08
-     Total Time = 4663.43
-      Avg. Time = 2331.71
+need to update
 ```
-
-If runs are submitted immediately after a successful completion of a run, then you may skey the scaling results.
-It would be ideal to wait 30 minutes before running a second job. 
 
 ### Run second job interactively using the following command:
 
-`./run_cctm_2016_12US2.90pe.csh | & tee ./run_cctm_2016_12US2.90pe.log`
 
 Output
 
 ```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2015-12-22
-End Day:   2015-12-23
-Number of Simulation Days: 2
-Domain Name:               12US2
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       90
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2015-12-22   2786.21
-02   2015-12-23   2417.74
-     Total Time = 5203.95
-      Avg. Time = 2601.97
+need to update
 ```
 

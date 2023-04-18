@@ -174,12 +174,6 @@ sudo usermod -s /bin/tcsh ubuntu
 
 Log out and then log back in to have the shell take effect.
 
-Copy a file to set paths
-
-```
-cd /shared/cyclecloud-cmaq
-cp dot.cshrc.vm ~/.cshrc
-```
 
 ## Verify Software
 
