@@ -10,3 +10,6 @@
 ### Youtube video
 <a href="https://www.youtube.com/watch?v=a-99esKLcls">Youtube video on AWS CLI 3.0</a>
 
+## Intro to AWS for HPC People - HPC Tech Shorts
+<a href="https://www.youtube.com/watch?v=KHx22oJSNso">Intro to AWS for HPC People - Tech Short Foundations Level 1</a>
+
