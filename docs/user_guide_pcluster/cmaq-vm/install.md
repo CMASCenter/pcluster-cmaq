@@ -1,4 +1,4 @@
-Intermediate Tutorial: Run CMAQ from c6a.xlarge
+# Intermediate Tutorial: Run CMAQ from c6a.xlarge
 
 Instructions are provided to build and install CMAQ on c6a.xlarge compute node installed from  Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64) Image that contains modules for git, openmpi and gcc.  The compute node does not have a SLURM scheduler on it, so jobs are run interactively from the command line. 
 
