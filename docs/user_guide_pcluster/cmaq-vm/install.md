@@ -36,7 +36,7 @@ Change the permissions on the public key using command
 
 Login to the Virtual Machine using ssh to the IP address using the public key.
 
-`ssh -Y -i ./xxxxxxx_key.pem username@xx.xx.xx.xx`
+`ssh -Y -i ./xxxxxxx_key.pem ubuntu@xx.xx.xx.xx`
 
 
 ### Make the /shared directory
@@ -61,12 +61,13 @@ Output
 ```
 df -h
 Filesystem       Size  Used Avail Use% Mounted on
-/dev/root         97G  2.1G   95G   3% /
-tmpfs            3.8G     0  3.8G   0% /dev/shm
-tmpfs            1.6G  824K  1.6G   1% /run
+/dev/root         97G  1.6G   96G   2% /
+tmpfs             16G     0   16G   0% /dev/shm
+tmpfs            6.2G  876K  6.2G   1% /run
 tmpfs            5.0M     0  5.0M   0% /run/lock
 /dev/nvme0n1p15  105M  6.1M   99M   6% /boot/efi
-tmpfs            777M  4.0K  777M   1% /run/user/1000
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1000
+
 ```
 
 ### Create subdirectories on /shared
