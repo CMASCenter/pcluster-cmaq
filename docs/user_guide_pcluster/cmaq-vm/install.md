@@ -477,6 +477,34 @@ You can now run: /usr/local/bin/aws --version
 
 Note, you will need to add this path to your .cshrc
 
+### Edit .cshrc
+
+vi ~/.cshrc
+
+add the following to the path  /usr/local/bin
+
+Output:
+
+```
+# start .cshrc
+
+umask 002
+
+if ( ! $?LD_LIBRARY_PATH ) then
+    setenv LD_LIBRARY_PATH /shared/build/netcdf/lib
+else
+    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib
+endif
+
+set path = ($path /shared/build/netcdf/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort /opt/slurm/bin/ /usr/local/bin/ )
+
+if ($?tcsh) then
+   source /usr/share/modules/init/tcsh
+else
+   source /usr/share/modules/init/csh
+endif
+```
+
 
 
 
