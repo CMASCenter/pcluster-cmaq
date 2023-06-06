@@ -440,17 +440,30 @@ Output
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
-`cp /shared/pcluster-cmaq/run_scripts/c6a/*pe.csh .`
+`cp /shared/pcluster-cmaq/run_scripts/c6a/*.csh .`
 
 List the scripts available
 
-`ls -rlt *pe.csh*`
+`ls -rlt *.csh*`
 
 Output
 
 ```
-need to create
+-rwxrwxr-x 1 ubuntu ubuntu  8374 Jun  6 19:06 bldit_mech.csh
+-rwxrwxr-x 1 ubuntu ubuntu 37040 Jun  6 19:06 bldit_cctm.csh
+-rwxrwxr-x 1 ubuntu ubuntu 39500 Jun  6 19:06 run_cctm_cracmm_2018_4LISTOS1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 38493 Jun  6 19:06 run_cctm_Bench_2018_12NE3.csh
+-rwxrwxr-x 1 ubuntu ubuntu 51329 Jun  6 19:06 run_cctm_Bench_2018_12NE3.WRFCMAQ.csh
+-rwxrwxr-x 1 ubuntu ubuntu 38158 Jun  6 19:06 run_cctm_Bench_2016_12SE1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 39265 Jun  6 19:06 run_cctm_2016_12US1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 37458 Jun  6 19:06 run_cctm_2015_HEMI.csh
+-rwxrwxr-x 1 ubuntu ubuntu 37583 Jun  6 19:06 run_cctm_2010_4CALIF1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 39067 Jun  6 19:11 run_cctm_2018_4US1_listos.csh
+-rwxrwxr-x 1 ubuntu ubuntu 38460 Jun  6 19:11 run_cctm_2018_12US1_listos.csh
+
 ```
+
+## You now have two scripts to run the Listos domain
 
 ## Download the Input data from the S3 Bucket 
 
