@@ -297,7 +297,7 @@ First, create a path to store the module file. The path must contain /Modules/mo
 /<path to>/Modules/modulefiles/<module-name>/<version> where <version> is typically numerical and is the actual module file.  
 
 ```
-mkdir /shared/build/Modules/modulefiles/ioapi-3.2
+mkdir -p /shared/build/Modules/modulefiles/ioapi-3.2
 ```
 
 Next, crate the module file and save it in the directory above.
@@ -411,7 +411,17 @@ pip install jupyterlab
 Add the following to the compile option: -fallow-argument-mismatch
 
 ```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc
+vi Makefile.gcc
+
+```
  FSTD = -fallow-argument-mismatch -O3 -funroll-loops -finit-character=32 -Wtabs -Wsurprising -ftree-vectorize  -ftree-loop-if-convert -finline-limit=512
+```
+
+### Run make again
+
+```
+make |& tee Make.log
 ```
 
 Verfify that the executable was successfully built.
