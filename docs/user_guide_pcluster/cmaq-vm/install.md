@@ -1,4 +1,4 @@
-# Intermediate Tutorial: Run CMAQ from c6a.xlarge
+# Install Software and run CMAQv5.4 on c6a.xlarge for the 12km Listos Training Domain
 
 Instructions are provided to build and install CMAQ on c6a.xlarge compute node installed from  Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64) Image that contains modules for git, openmpi and gcc.  The compute node does not have a SLURM scheduler on it, so jobs are run interactively from the command line. 
 
@@ -458,12 +458,11 @@ Output
 -rwxrwxr-x 1 ubuntu ubuntu 39265 Jun  6 19:06 run_cctm_2016_12US1.csh
 -rwxrwxr-x 1 ubuntu ubuntu 37458 Jun  6 19:06 run_cctm_2015_HEMI.csh
 -rwxrwxr-x 1 ubuntu ubuntu 37583 Jun  6 19:06 run_cctm_2010_4CALIF1.csh
--rwxrwxr-x 1 ubuntu ubuntu 39067 Jun  6 19:11 run_cctm_2018_4US1_listos.csh
--rwxrwxr-x 1 ubuntu ubuntu 38460 Jun  6 19:11 run_cctm_2018_12US1_listos.csh
+-rwxrwxr-x 1 ubuntu ubuntu  38460 Jun  6 19:36 run_cctm_2018_12US1_listos.csh
+-rwxrwxr-x 1 ubuntu ubuntu  39067 Jun  6 19:36 run_cctm_2018_4US1_listos.csh
+
 
 ```
-
-## You now have two scripts to run the Listos domain
 
 ## Download the Input data from the S3 Bucket 
 
@@ -527,7 +526,14 @@ endif
 
 `cd /shared/pcluster-cmaq/s3_scripts/`
 
-`./s3_copy_nosign_2018_12US1_conus_cmas_opendata_to_shared.csh`
+`./s3_copy_nosign_cmaqv5.4-listos_cmas_opendata_to_shared.csh`
+
+### Link the input data directory to the default location
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/data
+ln -s /shared/data/12US1_LISTOS .
+```
 
 Note, this Virtual Machine does not have Slurm installed or configured.
 
@@ -535,16 +541,34 @@ Note, this Virtual Machine does not have Slurm installed or configured.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
-`./run_cctm_2018_12US1.4pe.csh |& tee ./run_cctm_2018_12US1.4pe.log`
+`./run_cctm_2018_12US1_listos.csh |& tee ./run_cctm_2018_12US1_listos.log`
 
 When the run has completed, record the timing of the two day benchmark.
 
-`tail -n 30  run_cctm_2018_12US1.4pe.log`
+`tail -n 30  run_cctm_2018_12US1_listos.log`
 
 Output:
 
 ```
-need to update
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       4
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   166.3
+02   2018-08-06   166.2
+03   2018-08-07   169.5
+     Total Time = 502.00
+      Avg. Time = 167.33
+
 ```
 
 ### Run second job interactively using the following command:
