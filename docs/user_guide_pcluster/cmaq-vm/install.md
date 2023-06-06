@@ -157,6 +157,7 @@ module load mpi/openmpi-4.1.2
 
 ### Install Parallel Cluster CMAQ Repo
 
+`cd /shared`
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git`
 
 ### Install and build netcdf C, netcdf Fortran, I/O API, and CMAQ
