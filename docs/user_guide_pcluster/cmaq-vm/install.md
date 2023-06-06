@@ -106,13 +106,14 @@ module load module-git
 
 If you do not see git available as a module, you may need to install it as follows:
 
-`sudo yum install git`
+`sudo apt-get install git`
 
-### Install OpenMPI
+### Install Compilers and OpenMPI
 
 ```
+sudo apt-get update
 sudo apt-get install gcc
-sudo apt install gfortran
+sudo apt-get  install gfortran
 sudo apt-get install openmpi-bin openmpi-common libopenmpi-dev libgtk2.0-dev
 sudo apt-get install tcsh
 ```
