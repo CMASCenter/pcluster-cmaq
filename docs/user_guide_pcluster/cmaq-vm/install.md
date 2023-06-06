@@ -181,11 +181,6 @@ output
 mpirun (Open MPI) 4.1.2
 ```
 
-### Load the openmpi module (need to set this up)
-
-```
-module load mpi/openmpi-4.1.2
-```
 
 ### Install Parallel Cluster CMAQ Repo
 
@@ -571,12 +566,4 @@ Num  Day        Wall Time
 
 ```
 
-### Run second job interactively using the following command:
-
-
-Output
-
-```
-need to update
-```
 
