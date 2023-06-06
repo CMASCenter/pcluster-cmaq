@@ -413,7 +413,9 @@ Add the following to the compile option: -fallow-argument-mismatch
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc
 vi Makefile.gcc
+```
 
+Output:
 ```
  FSTD = -fallow-argument-mismatch -O3 -funroll-loops -finit-character=32 -Wtabs -Wsurprising -ftree-vectorize  -ftree-loop-if-convert -finline-limit=512
 ```
