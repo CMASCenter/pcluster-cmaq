@@ -94,7 +94,39 @@ Distributor ID:	Ubuntu
 Description:	Ubuntu 22.04.2 LTS
 Release:	22.04
 Codename:	jammy
+
 ```
+
+### Install Environment Modules
+
+```
+sudo apt-get install environment-modules
+```
+
+### Logout and then log back in to activate modules command
+
+### Verify module command works
+
+```
+ module list
+```
+
+Output:
+
+No Modulefiles Currently Loaded.
+
+
+```
+module avail
+```
+
+Output:
+
+```
+--------------------------------------------------------------------------------------- /usr/share/modules/modulefiles ---------------------------------------------------------------------------------------
+dot  module-git  module-info  modules  null  use.own  
+```
+
 
 ## Set up build environment 
 
@@ -164,7 +196,7 @@ module load mpi/openmpi-4.1.2
 
 `cd /shared/pcluster-cmaq`
 
-Install netcdf-C and netcdf-Fortran
+### Install netcdf-C and netcdf-Fortran
 
 `./gcc_netcdf_singlevm.csh |& tee ./gcc_netcdf_singlevm.log`
 
