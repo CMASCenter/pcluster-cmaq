@@ -454,7 +454,6 @@ Output
 -rwxrwxr-x 1 ubuntu ubuntu 37458 Jun  6 19:06 run_cctm_2015_HEMI.csh
 -rwxrwxr-x 1 ubuntu ubuntu 37583 Jun  6 19:06 run_cctm_2010_4CALIF1.csh
 -rwxrwxr-x 1 ubuntu ubuntu  38460 Jun  6 19:36 run_cctm_2018_12US1_listos.csh
--rwxrwxr-x 1 ubuntu ubuntu  39067 Jun  6 19:36 run_cctm_2018_4US1_listos.csh
 
 
 ```
