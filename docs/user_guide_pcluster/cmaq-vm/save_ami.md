@@ -1,11 +1,17 @@
-# Save the AMI and create a new VM using a larger c6a.8xlarge (with 32 processors)
+# Upgrade to run CMAQ on larger EC2 Instance 
+
+## Save the AMI and create a new VM using a larger c6a.8xlarge (with 32 processors)
 
 Requires access to the AWS Web Interface
 (I will look for insructions on how to do this from the aws command line, but I don't currently have a method for this.)
 
 ### Use the AWS Console to Stop the Image
 
+add screenshot
+
 ### Use the AWS Console to Create a new AMI
+
+add screenshot
 
 Check to see that the AMI has been created by examining the status. Wait for the status to change from Pending to Available.
 
@@ -73,7 +79,7 @@ Num  Day        Wall Time
 
 ```
 
-
+## Run CMAQv5.4 for the full 12US1 Domain
 
 Download the full 12US1 Domain that is netCDF4 compressed and convert it to classic netCDF-3 compression.
 Then run for the full domain on 32 processors.
@@ -88,17 +94,17 @@ Spot Pricing cost for Linux in US East Region
 c6a.48xlarge	$6.4733 per Hour
 
 
-### Run model again using the hdf5 compressed nc4 files
+### Run utility to uncompress hdf5 *.nc4 files and save as classic *.nc files
 
 
 May need to look at disabling hyperthreading at runtime.
 
-https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
+<a href="https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/">Disable Hyperthreading</a>
 
 
 ### Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
 
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">Recognize Expanded Volume</a>
 
 Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
 
