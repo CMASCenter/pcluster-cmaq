@@ -102,7 +102,12 @@ May need to look at disabling hyperthreading at runtime.
 <a href="https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/">Disable Hyperthreading</a>
 
 
-### Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
+### Increased disk space on /shared to 500 GB 
+
+Ran out of disk space when trying to run the full 12US1 domain, so it is necessary to increase the size.
+You can do this in the AWS Web Interface without stopping the instance. 
+
+Ehxpanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">Recognize Expanded Volume</a>
 
