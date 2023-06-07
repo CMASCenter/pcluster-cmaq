@@ -11,7 +11,9 @@ The full c6a.xlarge instance will incur charges as long as it is on, even if a j
 
 This is different than the Parallel Cluster, where if CMAQ is not running in the queue, then the Compute nodes are down, and not incurring costs.
 
-## Create a c6a.xlarge Virtual Machine
+## Build and run CMAQ on c6a.xlarge EC2 instance
+
+### Create a c6a.xlarge Virtual Machine
 
 1. Login to AWS Console
 2. Select Get Started with EC2 
@@ -28,7 +30,7 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 ![AWS EC2 Console](../../aws_ec2_images/AWS_EC2_Virtual_Machine_Create.png)
 
 
-## Login to the Virtual Machine 
+### Login to the Virtual Machine 
 
 Change the permissions on the public key using command
 
@@ -43,7 +45,7 @@ Login to the Virtual Machine using ssh to the IP address using the public key.
 
 sudo mkdir /shared
 
-## Change the group and ownership of the shared directory
+### Change the group and ownership of the shared directory
 
 ```
 sudo chown ubuntu /shared
@@ -80,7 +82,7 @@ mkdir build
 mkdir data
 ```
 
-## Check operating system version
+### Check operating system version
 
 ```
 lsb_release -a
@@ -128,7 +130,7 @@ dot  module-git  module-info  modules  null  use.own
 ```
 
 
-## Set up build environment 
+### Set up build environment 
 
 Load the git module
 
@@ -266,13 +268,13 @@ UBUNTU_CODENAME=jammy
 ```
 
 
-Copy a file to set paths 
+### Copy a file to set paths 
 
 `cd /shared/pcluster-cmaq`
 
 `cp dot.cshrc.singlevm ~/.cshrc`
 
-## Create Environment Module for Libraries
+### Create Environment Module for Libraries
 
 There are two steps required to create your own custome module:
 
@@ -397,11 +399,11 @@ pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
 pip install jupyterlab
 ```
 
-## Install and Build CMAQ
+### Install and Build CMAQ
 
 `./gcc_cmaq54+_singlevm.csh |& tee ./gcc_cmaq54+_singlevm.log`
 
-### Add compile option to makefile to get beyond a type mismatch error
+#### Add compile option to makefile to get beyond a type mismatch error
 
 Add the following to the compile option: -fallow-argument-mismatch
 
@@ -431,7 +433,7 @@ Output
 /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc/CCTM_v54.exe
 ```
 
-## Copy the run scripts from the repo to the run directory
+### Copy the run scripts from the repo to the run directory
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
