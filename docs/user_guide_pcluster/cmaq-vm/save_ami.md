@@ -132,3 +132,5 @@ Num  Day        Wall Time
      Total Time = 6784.10
       Avg. Time = 3392.05
 ```
+
+Note, this run time is slower than a single node of the Parallel Cluster using the HPC6a.48xlarge (total time = 5000 seconds). This is likely due to the HPC6a.48xlarge being configured for HPC by AWS as they have hyperthreading turned off by default.
