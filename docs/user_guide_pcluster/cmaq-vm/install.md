@@ -11,7 +11,7 @@ The full c6a.xlarge instance will incur charges as long as it is on, even if a j
 
 This is different than the Parallel Cluster, where if CMAQ is not running in the queue, then the Compute nodes are down, and not incurring costs.
 
-## Build and run CMAQ on c6a.xlarge EC2 instance
+## Build CMAQv5.4+ on c6a.xlarge EC2 instance
 
 ### Create a c6a.xlarge Virtual Machine
 
