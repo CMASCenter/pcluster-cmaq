@@ -79,14 +79,14 @@ Num  Day        Wall Time
 
 ```
 
-## Run CMAQv5.4 for the full 12US1 Domain
+## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge
 
 Download the full 12US1 Domain that is netCDF4 compressed and convert it to classic netCDF-3 compression.
-Then run for the full domain on 32 processors.
 
+Note: I first tried running this domain on the c6a.8xlarge on 32 processors.
 The model failed, with a signal 9 - likely not enough memory available to run the model.
 
-Saved the AMI and used a c6a.48xlarge with 192 vcpus, running as spot instance.
+I re-saved the AMI and launched a c6a.48xlarge with 192 vcpus, running as spot instance.
 
 Spot Pricing cost for Linux in US East Region
 
@@ -107,7 +107,7 @@ May need to look at disabling hyperthreading at runtime.
 Ran out of disk space when trying to run the full 12US1 domain, so it is necessary to increase the size.
 You can do this in the AWS Web Interface without stopping the instance. 
 
-Ehxpanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
+Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">Recognize Expanded Volume</a>
 
@@ -138,4 +138,4 @@ Num  Day        Wall Time
       Avg. Time = 3392.05
 ```
 
-Note, this run time is slower than a single node of the Parallel Cluster using the HPC6a.48xlarge (total time = 5000 seconds). This is likely due to the HPC6a.48xlarge being configured for HPC by AWS as they have hyperthreading turned off by default.
+Note, this run time is slower than a single node of the Parallel Cluster using the HPC6a.48xlarge (total time = 5000 seconds). This is likely due to the HPC6a.48xlarge being configured for HPC by AWS.   AWS turns off hyperthreading by default for HPC6a.48xlarge, and there may be other optimizations for HPC applications (disk/networking/cpu).
