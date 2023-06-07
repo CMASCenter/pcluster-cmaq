@@ -1,5 +1,8 @@
 # Save the AMI and create a new VM using a larger c6a.8xlarge (with 32 processors)
 
+Requires access to the AWS Web Interface
+(I will look for insructions on how to do this from the aws command line, but I don't currently have a method for this.)
+
 ### Use the AWS Console to Stop the Image
 
 ### Use the AWS Console to Create a new AMI

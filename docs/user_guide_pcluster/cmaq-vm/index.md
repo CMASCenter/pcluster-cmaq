@@ -4,6 +4,6 @@ Run CMAQ on a single Virtual Machine (VM) using c6a.xlarge (4 CPUs) and Ubuntu 2
 
 ```{toctree}
 install.md
-install-ioapi-hdf5.md
+install-netcdf-hdf5.md
 save_ami.md
 ```

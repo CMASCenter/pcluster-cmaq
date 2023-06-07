@@ -455,10 +455,10 @@ Output
 -rwxrwxr-x 1 ubuntu ubuntu 37583 Jun  6 19:06 run_cctm_2010_4CALIF1.csh
 -rwxrwxr-x 1 ubuntu ubuntu  38460 Jun  6 19:36 run_cctm_2018_12US1_listos.csh
 
-
 ```
 
 ## Download the Input data from the S3 Bucket 
+
 
 ### Install aws command line
 
@@ -469,7 +469,7 @@ see <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-in
 
 `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"`
 
-## Install unzip and unzip file
+### Install unzip and unzip file
 
 `sudo apt install zip`
 
