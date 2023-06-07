@@ -41,3 +41,14 @@ Num  Day        Wall Time
 
 Download the full 12US1 Domain that is netCDF4 compressed and convert it to classic netCDF-3 compression.
 Then run for the full domain on 32 processors.
+
+The model failed, with a signal 9 - likely not enough memory available to run the model.
+
+Saved the AMI and used a c6a.48xlarge with 192 vcpus, running as spot instance.
+
+Spot Pricing cost for Linux in US East Region
+
+
+c6a.48xlarge	$6.4733 per Hour
+
+
