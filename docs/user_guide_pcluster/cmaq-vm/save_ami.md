@@ -52,3 +52,12 @@ Spot Pricing cost for Linux in US East Region
 c6a.48xlarge	$6.4733 per Hour
 
 
+### Run model again using the hdf5 compressed nc4 files
+
+
+May need to look at disabling hyperthreading at runtime.
+
+https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
+
+
+
