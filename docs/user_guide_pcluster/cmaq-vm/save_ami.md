@@ -60,7 +60,7 @@ May need to look at disabling hyperthreading at runtime.
 https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
 
 
-### Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions
+### Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
 
