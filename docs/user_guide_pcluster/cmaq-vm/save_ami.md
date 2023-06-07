@@ -69,3 +69,24 @@ Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
 It takes about 13 minutes of initial I/O prior to the model starting.
 
 
+Successful run output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   3395.1
+02   2017-12-23   3389.0
+     Total Time = 6784.10
+      Avg. Time = 3392.05
+```
