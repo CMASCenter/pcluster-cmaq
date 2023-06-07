@@ -60,4 +60,12 @@ May need to look at disabling hyperthreading at runtime.
 https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/
 
 
+### Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
+
+Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
+
+It takes about 13 minutes of initial I/O prior to the model starting.
+
 
