@@ -39,13 +39,6 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 `cd /shared`
 
-### Use a configuration file from the github repo that was cloned to your local machine
-
-`git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
-
-
-`cd pcluster-cmaq`
-
 ### Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
@@ -132,9 +125,9 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 Check to confirm that the cmaq executable has been built
 
-`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v54_gcc/*.exe`
+`ls /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc/*.exe`
 
-## Install Homebrew
+## Install Homebrew to install github command line gh to allow you to create authentication to commit changes to git repo
 
 ```
 cd /shared/build
