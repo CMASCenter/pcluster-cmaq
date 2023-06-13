@@ -1,4 +1,4 @@
-Advanced Tutorial (optional)
+CMAQv5.4 on Parallel Cluster Tutorial
 
 ## Use ParallelCluster without Software and Data pre-installed
 
