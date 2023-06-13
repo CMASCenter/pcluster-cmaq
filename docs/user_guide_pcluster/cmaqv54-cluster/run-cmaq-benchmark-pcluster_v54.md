@@ -3,30 +3,19 @@
 ### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 To ensure you have the correct directory specified
 
-`cd /shared/pcluster-cmaq/run_scripts/cmaq533/`
+`cd /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
-`ls -lrt run*pcluster* `
+`ls -lrt  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x96.ncclassic.csh 
 
-Compare with
-
-`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run*pcluster*`
 
 If they are not identical, then copy the set from the repo
 
-`cp /shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster* /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+`cp /shared/pcluster-cmaq/run_scripts/cmaqv54+/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 
 ### Verify that the input data is imported to /fsx from the S3 Bucket
 
-`cd /fsx/12US2`
-
-Need to make this directory and then link it to the path created when the data is copied from the S3 Bucket.
-
-This is to make the paths consistent between the two methods of obtaining the input data.
-
-`mkdir -p /fsx/data/CONUS`
-`cd /fsx/data/CONUS`
-`ln -s /fsx/12US2 .`
+`cd /fsx/data/CMAQ_Modeling_Platform_2018/2018_12US1`
 
 
 ### Create the output directory
@@ -34,11 +23,11 @@ This is to make the paths consistent between the two methods of obtaining the in
 `mkdir -p /fsx/data/output`
 
 
-### Run the CONUS Domain on 180 pes
+### Run the 12US1 Domain on 192 pes
 
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`sbatch run_cctm_2016_12US2.180pe.5x36.pcluster.csh`
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x96.ncclassic.csh`
 
 Note, it will take about 3-5 minutes for the compute notes to start up. This is reflected in the Status (ST) of CF (configuring)
 
@@ -77,6 +66,8 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 
 ### check the timings while the job is still running using the following command
 
+`cd /fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_2x96_classic/LOGS`
+
 `grep 'Processing completed' CTM_LOG_001*`
 
 Output:
@@ -88,7 +79,7 @@ Output:
 
 ### When the job has completed, use tail to view the timing from the log file.
 
-`tail run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.pcluster.log`
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
 
 Output:
 
@@ -112,9 +103,9 @@ Num  Day        Wall Time
       Avg. Time = 2353.44
 ```
 
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 5 nodes
+### Submit a request for a 96 pe job ( 1 x 96 pe) or 1 nodes instead of 2 nodes
 
-`sbatch run_cctm_2016_12US2.288pe.8x36.pcluster.csh``
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.1x96.ncclassic.csh`
 
 ### Check on the status in the queue
 
