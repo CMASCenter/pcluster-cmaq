@@ -70,7 +70,7 @@ The CONUS 12US1 input data requires 44 GB of disk space
 output:
 
 ```
-40G     .
+34G     .
 ```
 
 CMAQ ParallelCluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
@@ -96,7 +96,7 @@ Section that of the YAML file that specifies the name of the S3 Bucket.
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://cmas-cmaq-modeling-platform-2018/2018_12US1    <<<  specify name of S3 bucket
+      ImportPath: s3://cmas-cmaq-modeling-platform-2018/2018_12US1/    <<<  specify name of S3 bucket
 ```
 This requires that the S3 bucket specified is publically available
 
