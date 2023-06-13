@@ -148,6 +148,14 @@ chmod -R go-w "$(brew --prefix)/share/zsh"
 
 `brew install gh`
 
+## Install netCDF libraries that use HDF5 and support nc4 compressed files
+
+Need to have this version of the library installed so that I can uncompress the data using the indexer.csh script.
+
+`cd /shared/pcluster-cmaq`
+`./gcc_install_hdf5.csh`
+
+
 
 
 
