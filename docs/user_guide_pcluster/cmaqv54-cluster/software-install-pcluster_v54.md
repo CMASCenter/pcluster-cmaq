@@ -132,6 +132,13 @@ Check to confirm that the cmaq executable has been built
 ```
 cd /shared/build
 git clone https://github.com/Homebrew/brew homebrew
+```
+
+Change shell to bash
+`bash`
+
+Run following commands to install
+```
 eval "$(homebrew/bin/brew shellenv)"
 brew update --force --quiet
 chmod -R go-w "$(brew --prefix)/share/zsh"
@@ -141,9 +148,11 @@ chmod -R go-w "$(brew --prefix)/share/zsh"
 
 `brew install gh`
 
+## Use gh authentication
+
 ## Install netCDF libraries that use HDF5 and support nc4 compressed files
 
-Need to have this version of the library installed so that I can uncompress the data using the indexer.csh script.
+Need to have this version of the library installed to uncompress the *.nc4 data using the indexer.csh script.
 
 `cd /shared/pcluster-cmaq`
 `./gcc_install_hdf5.csh`
