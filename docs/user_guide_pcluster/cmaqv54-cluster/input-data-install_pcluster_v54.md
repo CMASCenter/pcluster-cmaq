@@ -54,7 +54,7 @@ Install the parallel cluster scripts using the commands:
 ### Use the S3 script to copy the CONUS input data from the CMAS s3 bucket
 Data will be saved to the /fsx file system
 
-`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_2018_12US1_conus_cmas_opendata_to_fsx.csh`
+`/shared/pcluster-cmaq/s3_scripts/s3_copy_nosign_2018_12US1_conus_cmas_opendata_to_fsx_20171222_cb6r3.csh`
 
 check that the resulting directory structure matches the run script
 
@@ -63,14 +63,14 @@ The CONUS 12US1 input data requires 44 GB of disk space
 (if you use the yaml file to import the data to the lustre file system rather than copying the data you save this space)
 ```
 
-`cd /fsx/data/CMAQ_Modeling_Platform_2016/CONUS/12US2/`
+`cd /fsx/data/cmas-cmaq-modeling-platform-2018`
 
 `du -sh`
 
 output:
 
 ```
-69G     .
+40G     .
 ```
 
 CMAQ ParallelCluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
