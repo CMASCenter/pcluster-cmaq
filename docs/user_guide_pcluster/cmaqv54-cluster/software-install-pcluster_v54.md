@@ -58,11 +58,11 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 ### Load the openmpi module
 
-`module load openmpi/4.1.1`
+`module load openmpi/4.1.4`
 
 ### Load the Libfabric module
 
-`module load libfabric-aws/1.13.2amzn1.0`
+`module load libfabric-aws/1.16.1amzn1.0`
 
 ### Verify the gcc compiler version is greater than 8.0
 
@@ -71,7 +71,11 @@ Install the pcluster-cmaq git repo to the /shared directory
 Output:
 
 ```
-gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Foundation, Inc. This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 ```
 
 ### Change directories to install and build the libraries and CMAQ
@@ -124,8 +128,26 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ### Build CMAQ
 
-`./gcc_cmaq_pcluster.csh`
+`./gcc_cmaq54+_pcluster.csh`
 
 Check to confirm that the cmaq executable has been built
 
-`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe`
+`ls /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v54_gcc/*.exe`
+
+## Install Homebrew
+
+```
+cd /shared/build
+git clone https://github.com/Homebrew/brew homebrew
+eval "$(homebrew/bin/brew shellenv)"
+brew update --force --quiet
+chmod -R go-w "$(brew --prefix)/share/zsh"
+```
+
+## Install github gh
+
+`brew install gh`
+
+
+
+
