@@ -17,7 +17,7 @@
 #> directory.
 
 
- set CMAQ_HOME = /shared/build/openmpi_gcc/CMAQ_v533
+ set CMAQ_HOME = /shared/build/openmpi_gcc/CMAQ_v54+
 
 #> This section allows users to choose explicitly which tools
 #> to make available from the repo. For each selected tool,
@@ -83,7 +83,7 @@
 #> Copy config_cmaq.csh to Project directory and insert correct location
 #> of the repository these scripts are coming from.
 #===============================================================================
- cp config_cmaq.csh $CMAQ_HOME/config_cmaq.csh
+ cp /shared/pcluster-cmaq/config_cmaq_v54+.csh $CMAQ_HOME/config_cmaq.csh
  sed -i '/setenv CMAQ_REPO \$CMAQ_HOME/c\ setenv CMAQ_REPO '"$REPO_HOME" $CMAQ_HOME/config_cmaq.csh
  if ( $IS_EPA  ) then
   sed -i 's/\# source \/work\/MOD3DEV\/cmaq_common\/cmaq_env.csh/source \/work\/MOD3DEV\/cmaq_common\/cmaq_env.csh/' $CMAQ_HOME/config_cmaq.csh
