@@ -2,7 +2,7 @@ Region: us-east-1
 Image:
   Os: ubuntu2004
 HeadNode:
-  InstanceType: c6a.large
+  InstanceType: c6a.xlarge
   Networking:
     SubnetId: subnet-0eed3f3567767ce4d 
   DisableSimultaneousMultithreading: true
@@ -17,7 +17,7 @@ Scheduling:
     ScaledownIdletime: 5
   SlurmQueues:
     - Name: queue1
-      CapacityType: SPOT
+      CapacityType: ONDEMAND
       Networking:
         SubnetIds:
           - subnet-0eed3f3567767ce4d 
