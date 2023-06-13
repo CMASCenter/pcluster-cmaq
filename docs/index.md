@@ -49,6 +49,7 @@ user_guide_pcluster/cmaq-cluster/index.md
 user_guide_pcluster/install/index.md
 user_guide_pcluster/benchmark/index.md
 user_guide_pcluster/cmaq-vm/index.md
+user_guide_pcluster/cmaqv54-cluster/index.md
 user_guide_pcluster/post/index.md
 user_guide_pcluster/qa/index.md
 user_guide_pcluster/timing/index.md
