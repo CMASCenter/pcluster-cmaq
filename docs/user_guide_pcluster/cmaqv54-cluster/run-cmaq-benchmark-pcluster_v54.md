@@ -208,6 +208,9 @@ Num  Day        Wall Time
 
 ```
 
+Based on the Total Time, adding an additional node gave a speed-up of 1.7.
+6639.10/3888.50 = 1.7074
+
 
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
