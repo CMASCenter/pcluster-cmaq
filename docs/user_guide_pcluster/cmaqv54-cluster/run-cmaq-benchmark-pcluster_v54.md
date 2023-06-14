@@ -127,6 +127,15 @@ Output:
 
 `tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
 
+The 96 pe job should take 104 minutes to run (52 minutes per day)
+Note, this is a different domain (12US1 versus 12US2) than what was used for the HPC6a.48xlarge Benchmark runs, so the timings are not directly comparible.
+The 12US1 domain is larger than 12US2.
+
+'12US1'
+'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
+
+
+
 ### Check whether the scheduler thinks there are cpus or vcpus
 
 `sinfo -lN`
@@ -156,9 +165,9 @@ If DisableSimultaneousMultithreading: true, then the number of cpus is 96 and th
 
 ### Verify that the yaml file used DisableSimultaneousMultithreading: true
 
-### The jobs can be submitted at the same time, and they will be dispatched to different compute nodes.
+### When the jobs are both submitted to the queue they will be dispatched to different compute nodes.
 
- `sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.1x96.ncclassic.csh`
+`squeue`
 
 output
 
