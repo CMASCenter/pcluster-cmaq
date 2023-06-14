@@ -40,7 +40,7 @@ Output:
 
 ```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 2    queue1     CMAQ   ubuntu CF       3:00      5 queue1-dy-computeresource1-[1-5]
+                 3    queue1     CMAQ   ubuntu  CF                2 queue1-dy-compute-resource-1-[1-2]
 ```
 After 5 minutes the status will change once the compute nodes have been created and the job is running
 
@@ -53,7 +53,7 @@ Output:
                  3    queue1     CMAQ   ubuntu  R       0:58      2 queue1-dy-compute-resource-1-[1-2]
 ```
 
-The 192 pe job should take 60 minutes to run (30 minutes per day)
+The 192 pe job should take 62 minutes to run (31 minutes per day)
 
 ### check on the status of the cluster using CloudWatch
 
@@ -120,12 +120,12 @@ Output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 6    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
+                 4    queue1     CMAQ   ubuntu  R       7:20      1 queue1-dy-compute-resource-1-3
 ```
 
 ### Check the status of the run
 
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_20151222`
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
 
 ### Check whether the scheduler thinks there are cpus or vcpus
 
@@ -154,10 +154,6 @@ If the YAML contains the Compute Resources Setting of DisableSimultaneousMultith
 
 If DisableSimultaneousMultithreading: true, then the number of cpus is 96 and there are no virtual cpus.
 
-### edit run script to use
-
-SBATCH --exclusive
-
 ### Verify that the yaml file used DisableSimultaneousMultithreading: true
 
 ### The jobs can be submitted at the same time, and they will be dispatched to different compute nodes.
@@ -176,4 +172,3 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
 
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
-
