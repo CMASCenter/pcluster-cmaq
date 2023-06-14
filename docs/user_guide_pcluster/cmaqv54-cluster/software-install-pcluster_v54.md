@@ -155,6 +155,7 @@ chmod -R go-w "$(brew --prefix)/share/zsh"
 Need to have this version of the library installed to uncompress the *.nc4 data using the indexer.csh script.
 
 `cd /shared/pcluster-cmaq`
+
 `./gcc_install_hdf5.csh`
 
 
