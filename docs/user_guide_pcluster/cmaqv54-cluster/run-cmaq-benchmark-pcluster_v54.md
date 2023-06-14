@@ -49,12 +49,11 @@ After 5 minutes the status will change once the compute nodes have been created 
 Output:
 
 ```
-
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 2   compute     CMAQ   ubuntu  R      16:50      5 compute-dy-c5n18xlarge-[1-5]
+                 3    queue1     CMAQ   ubuntu  R       0:58      2 queue1-dy-compute-resource-1-[1-2]
 ```
 
-The 180 pe job should take 60 minutes to run (30 minutes per day)
+The 192 pe job should take 60 minutes to run (30 minutes per day)
 
 ### check on the status of the cluster using CloudWatch
 
@@ -67,18 +66,21 @@ The 180 pe job should take 60 minutes to run (30 minutes per day)
 
 ### check the timings while the job is still running using the following command
 
-`cd /fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_2x96_classic/LOGS`
+`cd /fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_2x96_classic/`
 
 `grep 'Processing completed' CTM_LOG_001*`
 
 Output:
 
 ```
-            Processing completed...    8.8 seconds
-            Processing completed...    7.4 seconds
+            Processing completed...       6.3736 seconds
+            Processing completed...       5.0755 seconds
+            Processing completed...       5.1098 seconds
 ```
 
 ### When the job has completed, use tail to view the timing from the log file.
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 `tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
 
