@@ -250,5 +250,25 @@ When the job has completed, use tail to view the timing from the log file.
 
 Output:
 
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       288
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   1475.9
+02   2017-12-23   1580.7
+     Total Time = 3056.60
+      Avg. Time = 1528.30
+```
+
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
