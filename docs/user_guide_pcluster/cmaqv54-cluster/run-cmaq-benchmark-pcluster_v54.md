@@ -10,7 +10,7 @@ To ensure you have the correct directory specified
 `diff run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x96.ncclassic.csh /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
 
-If they are not identical, then copy the set from the repo
+If they don't exist or are not identical, then copy the run scripts from the repo
 
 `cp /shared/pcluster-cmaq/run_scripts/cmaqv54+/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
