@@ -205,3 +205,20 @@ Num  Day        Wall Time
 
 You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
 
+## Clean up Virtual Machine
+
+### Find the InstanceID using the following command on your local machine.
+
+`aws ec2 describe-instances --region=us-east-1 | grep InstanceId` 
+
+Output
+
+i-xxxx
+
+### Terminate the instance
+
+`aws ec2 terminate-instances --instance-ids i-xxxx`
+
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Commands for terminating EC2 instance from CLI</a>
+
+
