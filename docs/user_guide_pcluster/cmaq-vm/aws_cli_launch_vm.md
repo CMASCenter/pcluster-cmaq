@@ -64,7 +64,7 @@ Output:
 
 
 Note, the following command works if an ec2 instance is running using this ami.
-`aws ec2 describe-instances --region=us-east-1 --request-spot-instance --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" --dryrun`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c"`
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
  
@@ -74,16 +74,69 @@ Note, the following command works if an ec2 instance is running using this ami.
 
 <a href="https://ec2spotworkshops.com/launching_ec2_spot_instances.html">Tutorial Launch Spot Instances</a>
 
-(note, it discourages the use of run-instances for launching spot instances)
+(note, it discourages the use of run-instances for launching spot instances, but they do provide an example method)
+
+<a href="https://ec2spotworkshops.com/launching_ec2_spot_instances/runinstances_api.html">Launching EC2 Spot Instances using Run Instances API</a>
+
+
+Additional resources for spot instance provisioning.
+
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance Requests</a>
+
+
+To launch a Spot Instance with RunInstances API you create below configuration file:
+
+```
+cat <<EoF > ./runinstances-config.json
+{
+    "MaxCount": 1,
+    "MinCount": 1,
+    "InstanceType": "c6a.48xlarge",
+    "LaunchTemplate": {
+        "LaunchTemplateId":"${LAUNCH_TEMPLATE_ID}",
+        "Version": "1"
+    },
+    "InstanceMarketOptions": {
+        "MarketType": "spot"
+    },
+    "TagSpecifications": [
+        {
+            "ResourceType": "instance",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "EC2SpotCMAQv54"
+                }
+            ]
+        }
+    ]
+}
+EoF
+```
 
 ### Use the publically available AMI to launch a new Single VM using a c6a.48xlarge ec2 instance.
 
+
 Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
 
-`aws ec2 run-instances --image-id ami--0aaa0cfeb5ed5763c --count 1 --instance-type c6a.48xlarge --key-name cmaqv5.4`
+
+`aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --region us-east-1 --cli-input-json file://runinstances-config.json`
+
+Example of security group rules required to connect to EC2 instance via ssh.
+
+![Inbound Rule](./security_group_inbound_rule.png)
+
+![Outbound Rule](./security_group_outbound_rule.png)
+
+
+### Use the following command to obtain the public IP address of the machine.
+
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
+(this command may need to be updated, if there are multiple instances running the same AMI)
 
 ### Login to the ec2 instance
 
+ssh -v -Y -i ~/downloads/cmas.pem your-pem@ip.address
 
 ## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge with 192 vcpus
 
