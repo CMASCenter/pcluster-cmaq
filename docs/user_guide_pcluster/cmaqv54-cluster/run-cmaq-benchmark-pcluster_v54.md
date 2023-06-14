@@ -134,84 +134,30 @@ Output:
 Output:
 
 ```
-Wed Jan 05 19:34:05 2022
-NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
-queue1-dy-computeresource1-1       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-2       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-3       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-4       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-5       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-6       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-7       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-8       1   queue1*       mixed 72     72:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-9       1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
-queue1-dy-computeresource1-10      1   queue1*       idle~ 72     72:1:1      1        0      1 dynamic, Scheduler health che
+Wed Jun 14 00:49:36 2023
+NODELIST                         NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
+queue1-dy-compute-resource-1-1       1   queue1*   allocated 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-2       1   queue1*   allocated 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-3       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-4       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-5       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-6       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-7       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-8       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-9       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
+queue1-dy-compute-resource-1-10      1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none      
 ```
 
-Note: on a c5n.18xlarge, the number of virtual cpus is 72.
+Note: on a c6a.24xlarge, the number of virtual cpus is 192.
 
-If the YAML contains the Compute Resources Setting of DisableSimultaneousMultithreading: false, then all 72 vcpus will be used
+If the YAML contains the Compute Resources Setting of DisableSimultaneousMultithreading: false, then all 192 vcpus will be used
 
-If DisableSimultaneousMultithreading: true, then the number of cpus is 36 and there are no virtual cpus.
+If DisableSimultaneousMultithreading: true, then the number of cpus is 96 and there are no virtual cpus.
 
 ### edit run script to use
 
 SBATCH --exclusive
 
-### Edit the yaml file to use DisableSimultaneousMultithreading: true
-
-### Confirm that there are only 36 cpus available to the slurm scheduler
-
-`sinfo -lN`
-
-Output:
-
-```
-Wed Jan 05 20:54:01 2022
-NODELIST                       NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
-queue1-dy-computeresource1-1       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-2       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-3       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-4       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-5       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-6       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-7       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-8       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-9       1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-queue1-dy-computeresource1-10      1   queue1*       idle~ 36     36:1:1      1        0      1 dynamic, none
-```
-
-### Re-run the CMAQ CONUS Case
-
-`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/`
-
-
-### Submit a request for a 288 pe job ( 8 x 36 pe) or 8 nodes instead of 10 nodes with full output
-
-`sbatch run_cctm_2016_12US2.288pe.full.pcluster.csh`
-
-`squeue -u ubuntu`
-
-Output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu CF       3:06      8 queue1-dy-computeresource1-[1-8]
-```
-
-Note, it takes about 5 minutes for the compute nodes to be initialized, once the job is running the ST or status will change from CF (configure) to R
-
-`squeue -u ubuntu`
-
-Output:
-
-```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 7    queue1     CMAQ   ubuntu  R      24:57      8 queue1-dy-computeresource1-[1-8]
-```
-
-### Check the status of the run
-
-`tail CTM_LOG_025.v533_gcc_2016_CONUS_16x18pe_full_20151222`
+### Verify that the yaml file used DisableSimultaneousMultithreading: true
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
