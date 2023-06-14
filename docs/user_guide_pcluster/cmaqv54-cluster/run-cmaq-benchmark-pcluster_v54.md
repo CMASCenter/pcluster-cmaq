@@ -211,6 +211,44 @@ Num  Day        Wall Time
 Based on the Total Time, adding an additional node gave a speed-up of 1.7.
 6639.10/3888.50 = 1.7074
 
+### Submit a job to run on 288 pes, 3x96 nodes
+
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x96.ncclassic.csh`
+
+### Verify that it is running on 3 nodes
+
+`sbatch`
+
+output:
+
+```
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 5    queue1     CMAQ   ubuntu  R       4:29      3 queue1-dy-compute-resource-1-[1-3]
+```
+
+### Check the log for how quickly the job is running
+
+`grep 'Processing completed'  run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.288.18x16pe.2day.20171222start.3x96.log`
+
+Output:
+
+```
+ Processing completed...       4.0245 seconds
+            Processing completed...       4.0263 seconds
+            Processing completed...       3.9885 seconds
+            Processing completed...       3.9723 seconds
+            Processing completed...       3.9934 seconds
+            Processing completed...       4.0075 seconds
+            Processing completed...       3.9871 seconds
+```
+
+When the job has completed, use tail to view the timing from the log file.
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
+
+`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.288.18x16pe.2day.20171222start.3x96.log`
+
+Output:
 
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
