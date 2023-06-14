@@ -172,6 +172,32 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 
 ```
 
+Successful output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   69.9
+02   2018-08-06   64.7
+03   2018-08-07   66.5
+     Total Time = 201.10
+      Avg. Time = 67.03
+
+
+
+```
+
 
 
 ## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge with 192 vcpus
@@ -266,7 +292,7 @@ Note that we are using 96 pes of the 192 virtual cpus, so the maximum cpu utiliz
 ![Screenshot of Cloudwatch for CMAQv5.4 on c6a.48xlarge using spot pricing](../cmaq-vm/cloudwatch_cpu_utilization.png)
 
 
-Successful run output:
+Successful run output, but it is taking too long:
 
 ```
 ==================================
@@ -282,10 +308,11 @@ Number of Processes:       96
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2017-12-22   3395.1
-02   2017-12-23   3389.0
-     Total Time = 6784.10
-      Avg. Time = 3392.05
+01   2017-12-22   6320.8
+02   2017-12-23   5409.6
+     Total Time = 11730.40
+      Avg. Time = 5865.20
+
 ```
 
 You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.

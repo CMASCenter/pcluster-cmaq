@@ -567,4 +567,31 @@ Num  Day        Wall Time
 
 ```
 
+## Run CMAQ interactively on 32 pes using the following command:
 
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
+
+`./run_cctm_2018_12US1_listos_32pe.csh |& tee run_cctm_2018_12US1_listos_32pe.log`
+
+Output
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   80.6
+02   2018-08-06   72.7
+03   2018-08-07   76.3
+     Total Time = 229.60
+      Avg. Time = 76.53
+```
