@@ -79,7 +79,7 @@ Example available in c5n-18xlarge.ebs_shared.fsx_import.yaml
 
 ```
 cd /shared/pcluster-cmaq/
-vi c5n-18xlarge.ebs_shared.fsx_import.yaml   
+vi hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml  
 ```
 
 Section that of the YAML file that specifies the name of the S3 Bucket.
