@@ -185,6 +185,7 @@ GRIDDESC
 ```
 
 Input Data for the 12US1 domain is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
+The 96 pe run on the c6a.48xlarge instance will take approximately 60 minutes for 1 day, or 120 minutes for the full 2 day benchmark.
 
 /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 `./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
