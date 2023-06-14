@@ -194,9 +194,11 @@ Num  Day        Wall Time
      Total Time = 201.10
       Avg. Time = 67.03
 
-
-
 ```
+
+Note, this timing is faster than the timing obtained using the AWS Web Interface to create the c6n.48xlarge instance.
+
+While using the full domain 12US1 causes significant performance degradation.
 
 
 
