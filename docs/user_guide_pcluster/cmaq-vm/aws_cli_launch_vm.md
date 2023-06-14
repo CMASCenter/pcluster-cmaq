@@ -319,6 +319,13 @@ Num  Day        Wall Time
 
 You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
 
+
+## Save volume as a snapshot
+
+saving the volume as a snapshot so that I can have a copy of the log files to show the poor performance of the spot instance.
+After the snapshot is created then I will delete the instance.
+The snapshot name is c6a.48xlarge.cmaqv54.spot, snap-0cc3df82ba5bf5da8
+
 ## Clean up Virtual Machine
 
 ### Find the InstanceID using the following command on your local machine.
@@ -331,9 +338,10 @@ i-xxxx
 
 ### Terminate the instance
 
-`aws ec2 terminate-instances --instance-ids i-xxxx`
+`aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Commands for terminating EC2 instance from CLI</a>
+
 
 ### Try creating another spot instance using these options
 
