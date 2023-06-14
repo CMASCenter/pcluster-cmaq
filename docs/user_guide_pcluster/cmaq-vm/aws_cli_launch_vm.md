@@ -64,6 +64,7 @@ Output:
 
 
 Note, the following command works if an ec2 instance is running using this ami.
+
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c"`
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
