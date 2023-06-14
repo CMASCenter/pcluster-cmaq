@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
 ## For Parallel Cluster 96pe
-## data on /lustre data directory
+## data on /fsx data directory
 ## https://dataverse.unc.edu/dataset.xhtml?persistentId=doi:10.15139/S3/LDTWKH
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=96
@@ -48,7 +48,7 @@ echo 'Start Model Run At ' `date`
  set PROC      = mpi               #> serial or mpi
  set MECH      = cb6r5_ae7_aq      #> Mechanism ID
  set EMIS      = WR413_MYR         #> Emission Inventory Details
- set APPL      = 2018_12US1_2x96_classic        #> Application Name (e.g. Gridname)
+ set APPL      = 2018_12US1_1x96_classic        #> Application Name (e.g. Gridname)
  set APPL_2017 = M3DRY_2017_12US1
  set compilerString = gcc
 

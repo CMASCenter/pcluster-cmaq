@@ -1,14 +1,14 @@
 #!/bin/csh -f
 
-## For CycleCloud 120pe
-## data on /lustre data directory
+## For Parallel Cluster 192pe
+## data on /fsx or lustre data directory
 ## https://dataverse.unc.edu/dataset.xhtml?persistentId=doi:10.15139/S3/LDTWKH
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=96
 #SBATCH --exclusive
 #SBATCH -J CMAQ
-#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v54+_classic/CCTM/scripts/run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
-#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v54+_classic/CCTM/scripts/run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
+#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
+#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
 
 
 # ===================== CCTMv5.4.X Run Script ========================= 
@@ -56,7 +56,7 @@ echo 'Start Model Run At ' `date`
 #> this information will be collected into this one string, $RUNID, for easy
 #> referencing in output binaries and log files as well as in other scripts.
  setenv RUNID  ${VRSN}_${MECH}_${EMIS}_${compilerString}_${APPL}
- setenv CMAQ_HOME       /shared/build/openmpi_gcc/CMAQ_v54+_classic
+ setenv CMAQ_HOME       /shared/build/openmpi_gcc/CMAQ_v54+
 
 #> Set the build directory (this is where the CMAQ executable
 #> is located by default).
@@ -68,10 +68,10 @@ echo 'Start Model Run At ' `date`
 
 #> Set Working, Input, and Output Directories
  setenv WORKDIR ${CMAQ_HOME}/CCTM/scripts         #> Working Directory. Where the runscript is.
- setenv DISK lustre
- setenv OUTDIR  /$DISK/data_lim/output/output_${RUNID} #> Output Directory
- setenv OUTDIR_2017 /$DISK/data_lim/data/output_2017_${RUNID}
- setenv INPDIR  /$DISK/data_lim/CMAQ_Modeling_Platform_2018/2018_12US1  #Input Directory
+ setenv DISK fsx 
+ setenv OUTDIR  /$DISK/data/output/output_${RUNID} #> Output Directory
+ setenv OUTDIR_2017 /$DISK/data/data/output_2017_${RUNID}
+ setenv INPDIR  /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1  #Input Directory
  setenv LOGDIR  ${OUTDIR}/LOGS                   #> Log Directory Location
  setenv NMLpath ${BLD}                            #> Location of Namelists. Common places are: 
                                                   #>   ${WORKDIR} | ${CCTM_SRC}/MECHS/${MECH} | ${BLD}
