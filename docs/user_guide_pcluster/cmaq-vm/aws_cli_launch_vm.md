@@ -155,9 +155,36 @@ ssh -v -Y -i ~/downloads/cmas.pem your-pem@ip.address
 `module load mpi/openmpi-4.1.2`
 
 
+## Run CMAQv5.4 for the 12km Listos Training Case
+
+Input data is available for a subdomain of the 12km 12US1 case.
+
+```
+GRIDDESC
+
+'2018_12Listos'
+'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
+```
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
+
+```
+
+
+
 ## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge with 192 vcpus
 
-Input Data is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
+
+```
+GRIDDESC
+' '  !  end coords.  grids:  name; xorig yorig xcell ycell ncols nrows nthik
+'12US1'
+'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
+```
+
+Input Data for the 12US1 domain is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
 
 /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 `./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
