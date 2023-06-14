@@ -98,7 +98,13 @@ This requires that the S3 bucket specified is publically available
 
 `cd /shared/pcluster-cmaq/s3_scripts`
 
+`cp indexer.csh /fsx/data/CMAQ_Modeling_Platform_2018`
+
+`cd /fsx/data/CMAQ_Modeling_Platform_2018
+
 `find . -name '*.nc4' -exec ./indexer.csh {} \;`
+
+`chmod 755 indexer.csh`
 
 
 
