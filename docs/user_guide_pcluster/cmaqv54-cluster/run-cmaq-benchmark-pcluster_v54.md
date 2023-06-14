@@ -90,20 +90,20 @@ Output:
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
-Start Day: 2015-12-22
-End Day:   2015-12-23
+Start Day: 2017-12-22
+End Day:   2017-12-23
 Number of Simulation Days: 2
-Domain Name:               12US2
-Number of Grid Cells:      3409560  (ROW x COL x LAY)
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       180
+Number of Processes:       192
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2015-12-22   2481.55
-02   2015-12-23   2225.34
-     Total Time = 4706.89
-      Avg. Time = 2353.44
+01   2017-12-22   1853.4
+02   2017-12-23   2035.1
+     Total Time = 3888.50
+      Avg. Time = 1944.25
 ```
 
 ### Submit a request for a 96 pe job ( 1 x 96 pe) or 1 nodes instead of 2 nodes
@@ -169,6 +169,35 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
                  4    queue1     CMAQ   ubuntu CF       0:01      1 queue1-dy-compute-resource-1-3
                  3    queue1     CMAQ   ubuntu  R      21:28      2 queue1-dy-compute-resource-1-[1-2]
 ```
+
+### When the job has completed, use tail to view the timing from the log file.
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
+
+`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
+
+Output:
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       192
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   1853.4
+02   2017-12-23   2035.1
+     Total Time = 3888.50
+      Avg. Time = 1944.25
+```
+
 
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
