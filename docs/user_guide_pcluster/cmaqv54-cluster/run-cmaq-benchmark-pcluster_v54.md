@@ -1,7 +1,6 @@
 ## Run CMAQ
 
 ### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
-To ensure you have the correct directory specified
 
 `cd /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
