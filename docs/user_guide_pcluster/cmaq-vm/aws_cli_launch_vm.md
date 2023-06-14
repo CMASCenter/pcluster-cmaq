@@ -122,12 +122,16 @@ Launch a new instance using the AMI with the software loaded and request a spot 
 
 `aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --region us-east-1 --cli-input-json file://runinstances-config.json`
 
-Example of security group rules required to connect to EC2 instance via ssh.
+Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
 ![Inbound Rule](./security_group_inbound_rule.png)
 
 ![Outbound Rule](./security_group_outbound_rule.png)
 
+(I am not sure if you can create a security group rule from the aws command line.)
+
+Additional resources
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-sg.html">CLI commands to create Security Group</a>
 
 ### Use the following command to obtain the public IP address of the machine.
 
