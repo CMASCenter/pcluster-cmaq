@@ -160,4 +160,20 @@ SBATCH --exclusive
 
 ### Verify that the yaml file used DisableSimultaneousMultithreading: true
 
+### The jobs can be submitted at the same time, and they will be dispatched to different compute nodes.
+
+ `sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.1x96.ncclassic.csh`
+
+output
+
+```
+Submitted batch job 4
+ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 4    queue1     CMAQ   ubuntu CF       0:01      1 queue1-dy-compute-resource-1-3
+                 3    queue1     CMAQ   ubuntu  R      21:28      2 queue1-dy-compute-resource-1-[1-2]
+```
+
+
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
+
