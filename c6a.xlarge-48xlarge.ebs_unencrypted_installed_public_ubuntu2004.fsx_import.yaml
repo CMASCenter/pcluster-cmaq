@@ -41,4 +41,4 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://cmas-cmaq-modeling-platform-2018/2018_12US1/
+      ImportPath: s3://cmas-cmaq-modeling-platform-2018
