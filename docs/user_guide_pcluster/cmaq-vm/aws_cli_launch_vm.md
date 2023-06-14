@@ -205,6 +205,7 @@ In the output, I noticed that the EbsOptimized flag was set to false. Perhaps I 
 ```
 
 Next time, try adding this option to the run-instances command --ebs-optimized
+should I also change the Hypervisor to Nitro?
 
 Also need to use this option to disable multithreading:
 
@@ -305,4 +306,14 @@ i-xxxx
 
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Commands for terminating EC2 instance from CLI</a>
 
+### Try creating another spot instance using these options
 
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1,AmdSevSnp=enabled --cli-input-json file://runinstances-config.json`
+
+when I tried it with the --dry-run option, the following error.
+
+Unknown parameter in CpuOptions: "AmdSevSnp", must be one of: CoreCount, ThreadsPerCore
+
+Retried with
+
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
