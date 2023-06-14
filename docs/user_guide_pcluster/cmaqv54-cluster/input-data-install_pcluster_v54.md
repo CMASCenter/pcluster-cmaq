@@ -70,7 +70,7 @@ output:
 CMAQ ParallelCluster is configured to have 1.2 Terrabytes of space on /fsx filesystem (minimum size allowed for lustre /fsx), to allow multiple output runs to be stored.
 
 
-### For ParallelCluster: Import the Input data from a public S3 Bucket
+### For ParallelCluster: Import the Input data from a public S3 Bucket (optional)
 A second method is available to import the data on the lustre file system using the yaml file to specify the s3 bucket location in the yaml file, rather than using the above aws s3 copy commands. 
 
 ```{seealso}
@@ -93,4 +93,12 @@ Section that of the YAML file that specifies the name of the S3 Bucket.
       ImportPath: s3://cmas-cmaq-modeling-platform-2018/2018_12US1/    <<<  specify name of S3 bucket
 ```
 This requires that the S3 bucket specified is publically available
+
+### Convert the *.nc4 compressed netCDF4 files to netCDF classic (nc3) files
+
+`cd /shared/pcluster-cmaq/s3_scripts`
+
+`find . -name '*.nc4' -exec ./indexer.csh {} \;`
+
+
 

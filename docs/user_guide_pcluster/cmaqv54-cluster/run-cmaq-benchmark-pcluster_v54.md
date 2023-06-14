@@ -5,7 +5,9 @@ To ensure you have the correct directory specified
 
 `cd /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
-`ls -lrt  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x96.ncclassic.csh 
+`ls -lrt  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x96.ncclassic.csh`
+
+`diff run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x96.ncclassic.csh /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
 
 If they are not identical, then copy the set from the repo
