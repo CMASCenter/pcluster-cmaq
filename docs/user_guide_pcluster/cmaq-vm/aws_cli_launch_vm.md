@@ -185,7 +185,10 @@ GRIDDESC
 ```
 
 Input Data for the 12US1 domain is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
-The 96 pe run on the c6a.48xlarge instance will take approximately 60 minutes for 1 day, or 120 minutes for the full 2 day benchmark.
+The 96 pe run on the c6a.48xlarge instance will take approximately 120 minutes for 1 day, or 240 minutes for the full 2 day benchmark.
+(Not sure why this is taking so much longer than an earlier run using the on demand instance.)
+Perhaps I am missing a setting in the aws cli configuration of the virtual machine?
+
 
 /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 `./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
@@ -198,7 +201,7 @@ c6a.48xlarge	$7 per Hour
 
 Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
 
-It takes about 13 minutes of initial I/O prior to the model starting.
+It took about 39 minutes of initial I/O prior to the model starting.
 
 ## Once the model starts running (see Processing cmpleted ...) in the log file, then use htop to view the CPU usage.
 
@@ -207,6 +210,13 @@ Login to the virtual machine and then run the following command.
 `./htop`
 
 ![Screenshot of HTOP for CMAQv5.4 on c6a.48xlarge](../cmaq-vm/htop_single_vm_cmaqv54_c6a.48xlarge.png)
+
+
+### Using Cloudwatch to see the CPU utilization.
+
+Note that we are using 96 pes of the 192 virtual cpus, so the maximum cpu utilization reported would be 50%.
+
+![Screenshot of Cloudwatch for CMAQv5.4 on c6a.48xlarge using spot pricing](../cmaq-vm/cloudwatch_cpu_utilization.png)
 
 
 Successful run output:
