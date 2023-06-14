@@ -125,9 +125,9 @@ Launch a new instance using the AMI with the software loaded and request a spot 
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
-![Inbound Rule](./security_group_inbound_rule.png)
+![Inbound Rule](../cmaq-vm/security_group_inbound_rule.png)
 
-![Outbound Rule](./security_group_outbound_rule.png)
+![Outbound Rule](../cmaq-vm/security_group_inbound_rule.png)
 
 (I am not sure if you can create a security group rule from the aws command line.)
 
