@@ -188,6 +188,7 @@ Input Data for the 12US1 domain is available for a 2 day benchmark 12US1 Domain 
 The 96 pe run on the c6a.48xlarge instance will take approximately 120 minutes for 1 day, or 240 minutes for the full 2 day benchmark.
 (Not sure why this is taking so much longer than an earlier run using the on demand instance.)
 Perhaps I am missing a setting in the aws cli configuration of the virtual machine?
+How do I troubleshoot this issue?
 
 
 /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
