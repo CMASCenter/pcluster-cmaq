@@ -197,14 +197,15 @@ Number of Simulation Days: 2
 Domain Name:               12US1
 Number of Grid Cells:      4803435  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       192
+Number of Processes:       96
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2017-12-22   1853.4
-02   2017-12-23   2035.1
-     Total Time = 3888.50
-      Avg. Time = 1944.25
+01   2017-12-22   3153.2
+02   2017-12-23   3485.9
+     Total Time = 6639.10
+      Avg. Time = 3319.55
+
 ```
 
 
