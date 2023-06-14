@@ -191,7 +191,52 @@ Perhaps I am missing a setting in the aws cli configuration of the virtual machi
 How do I troubleshoot this issue?
 
 
-/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+Tried the following command:
+
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c"`
+
+In the output, I noticed that the EbsOptimized flag was set to false. Perhaps I need to try using true in the runinstances-config.json file or at the run-instances command line when the spot instances was created.
+
+```
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "InstanceLifecycle": "spot",
+```
+
+Next time, try adding this option to the run-instances command --ebs-optimized
+
+Also need to use this option to disable multithreading:
+
+```
+--cpu-options (structure)
+
+    The CPU options for the instance. For more information, see Optimize CPU options in the Amazon EC2 User Guide .
+
+    CoreCount -> (integer)
+
+        The number of CPU cores for the instance.
+
+    ThreadsPerCore -> (integer)
+
+        The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1 . Otherwise, specify the default value of 2 .
+
+--cpu-options CoreCount=integer,ThreadsPerCore=integer,AmdSevSnp=string
+
+JSON Syntax:
+
+{
+  "CoreCount": integer,
+  "ThreadsPerCore": integer,
+  "AmdSevSnp": "enabled"|"disabled"
+}
+
+
+```
+
+
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+
 `./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
 
 
