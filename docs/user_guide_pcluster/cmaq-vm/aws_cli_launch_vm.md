@@ -143,35 +143,31 @@ Additional resources
 
 ssh -v -Y -i ~/downloads/cmas.pem your-pem@ip.address
 
+
+## Load the environment modules
+
+`module avail`
+
+`module load ioapi-3.2/gcc-11.3.0-netcdf`
+
+`module load netcdf-4.8.1/gcc-11.3`
+
+`module load mpi/openmpi-4.1.2`
+
+
 ## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge with 192 vcpus
 
 Input Data is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
 
+/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+`./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
 
-I re-saved the AMI and launched a c6a.48xlarge with 192 vcpus, running as spot instance.
 
 Spot Pricing cost for Linux in US East Region
 
 
-c6a.48xlarge	$6.4733 per Hour
+c6a.48xlarge	$7 per Hour
 
-
-### Run utility to uncompress hdf5 *.nc4 files and save as classic *.nc files
-
-
-May need to look at disabling hyperthreading at runtime.
-
-<a href="https://aws.amazon.com/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-linux/">Disable Hyperthreading</a>
-
-
-### Increased disk space on /shared to 500 GB 
-
-Ran out of disk space when trying to run the full 12US1 domain, so it is necessary to increase the size.
-You can do this in the AWS Web Interface without stopping the instance. 
-
-Expanded the root volume to 500 GB, and increased the throughput to 1000 MB/s and then expanded it using these instructions, and then resized it.
-
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">Recognize Expanded Volume</a>
 
 Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
 
@@ -200,5 +196,5 @@ Num  Day        Wall Time
       Avg. Time = 3392.05
 ```
 
-Note, this run time is slower than a single node of the Parallel Cluster using the HPC6a.48xlarge (total time = 5000 seconds). Note the 12US1 domain is larger than the 12US2 domain that was used for the HPC6a.48xlarge benchmarks. 
-It would be good to do another benchmark for 12US1 using HPC6a.48xlarge a compute node that is configured for HPC by AWS.   AWS turns off hyperthreading by default for HPC6a.48xlarge, and there may be other optimizations for HPC applications (disk/networking/cpu).
+You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
+
