@@ -165,13 +165,20 @@ Input Data is available for a 2 day benchmark 12US1 Domain for both netCDF4 comp
 
 Spot Pricing cost for Linux in US East Region
 
-
 c6a.48xlarge	$7 per Hour
 
 
 Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
 
 It takes about 13 minutes of initial I/O prior to the model starting.
+
+## Once the model starts running (see Processing cmpleted ...) in the log file, then use htop to view the CPU usage.
+
+Login to the virtual machine and then run the following command.
+
+`./htop`
+
+![Screenshot of HTOP for CMAQv5.4 on c6a.48xlarge](../cmaq-vm/htop_single_vm_cmaqv54_c6a.48xlarge.png)
 
 
 Successful run output:
