@@ -449,3 +449,9 @@ Num  Day        Wall Time
      Total Time = 6397.00
       Avg. Time = 3198.50
 ```
+
+Saved the EC2 instance as an AMI and made that ami public.
+
+New AMI instance name to use for CMAQv5.4 on c6a.48xlarge using 500 GB io1 Storage.
+
+ami-031a6e4499abffdb6
