@@ -414,3 +414,12 @@ Now, we need to examine the cost, and whether it would cost less for an io2 volu
 ![Screenshot of AWS Web Interface after Storage Upgrade to io1](../cmaq-vm/htop_c6a.48xlarge_hyperthreading_off_storage_io1_higher_throughput.png)
 
 ![HTOP after upgrade storage](../cmaq-vm/screenshot_aws_web_interface_storage_after_upgrade.png)
+
+Additional information about how to calculate storage pricing.
+
+<a href="https://aws.amazon.com/ebs/pricing/">EBS Pricing</a>
+
+
+Good comparison of EBS vs EFS
+
+<a href="https://bluexp.netapp.com/blog/ebs-efs-amazons3-best-cloud-storage-system">Comparison between EBS and EFS</a>
