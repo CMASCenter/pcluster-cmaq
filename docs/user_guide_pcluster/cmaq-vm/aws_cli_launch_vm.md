@@ -575,15 +575,50 @@ Num  Day        Wall Time
       Avg. Time = 35.66
 ```
 
-### Todo - add 12NE3 Benchmark case
+### Download input data for 12NE3 2 day Benchmark case
 
-Provide instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
+Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
+
+`cd /shared/pcluster-cmaq/
+
+Examine the command line options that are used to download the data. Note, that we can use the --nosign option, as the data is available from the CMAS Open Data Warehouse on AWS.
+
+`cat s3_copy_12NE3_Bench.csh`
+
+Output
+
+```
+#!/bin/csh -f
+#Script to download enough data to run START_DATE 201522 and END_DATE 201523 for 12km Northeast Domain
+#Requires installing aws command line interface
+#https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
+#Total storage required is 56 G
+
+setenv AWS_REGION "us-east-1"
+
+aws s3 cp --no-sign-request --recursive s3://cmas-cmaq/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input /shared/data/
+```
 
 ### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket.
 
+./s3_copy_12NE3_Bench.csh
 
 
-Run the 12NE3 benchmark case and compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
+### Link the data directory on /shared/data
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/data
+ln -s /shared/data/2018_12NE3 .
+```
+
+### Run the 12US3 Benchmark case 
+
+```
+./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.32pe.log
+```
+
+
+Compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
 
 ```
 Domain 	                Domain size 	Species Tracked 	Input files size 	Output files size 	Run time (# cores)
