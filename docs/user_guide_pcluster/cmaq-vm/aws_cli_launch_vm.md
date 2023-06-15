@@ -343,23 +343,19 @@ i-xxxx
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Commands for terminating EC2 instance from CLI</a>
 
 
-### Try creating another spot instance using these options
+## Create c6a.48xlarge with hyperthreading disabled 
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1,AmdSevSnp=enabled --cli-input-json file://runinstances-config.json`
-
-when I tried it with the --dry-run option, the following error.
-
-Unknown parameter in CpuOptions: "AmdSevSnp", must be one of: CoreCount, ThreadsPerCore
-
-Retried with
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
 (note, take out --dry-run option after you try and verify it works)
 
-Login to the machine.
+Obtain the public IP address for the virtual machine
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
+
+Login to the machine
+`ssh -v -Y -i ~/your-pem.pem ubuntu@your-ip-address
 
 ### Retry the Listos run script.
 
@@ -401,9 +397,10 @@ Num  Day        Wall Time
       Avg. Time = 80.90
 ```
 
-I tried rerunning the 12US1 case, but the I/O was very slow.
+Retried the 12US1 benchmark case but the i/o was still too slow.
 
-Using the AWS Web Interface to upgrade to an io1 system
+
+Used the AWS Web Interface to upgrade to an io1 system
 
 <a href="https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/">Choosing EBS Storage Type</a>
 
@@ -455,3 +452,8 @@ Saved the EC2 instance as an AMI and made that ami public.
 New AMI instance name to use for CMAQv5.4 on c6a.48xlarge using 500 GB io1 Storage.
 
 ami-031a6e4499abffdb6
+
+Edit runinstances-config.json to use the new ami.
+
+
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
