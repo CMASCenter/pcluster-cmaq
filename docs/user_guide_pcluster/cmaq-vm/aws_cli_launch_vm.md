@@ -115,7 +115,7 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-### Use the publically available AMI to launch a new Single VM using a c6a.48xlarge ec2 instance.
+## Use the publically available AMI to launch a c6a.48xlarge ec2 instance.
 
 
 Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
@@ -449,12 +449,15 @@ Num  Day        Wall Time
 
 Saved the EC2 instance as an AMI and made that ami public.
 
+## Use new ami instance with faster storage (io1) 
+
 New AMI instance name to use for CMAQv5.4 on c6a.48xlarge using 500 GB io1 Storage.
 
 ami-031a6e4499abffdb6
 
 Edit runinstances-config.json to use the new ami.
 
+### Create new instance
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
@@ -462,29 +465,29 @@ Edit runinstances-config.json to use the new ami.
 
 `botocore.exceptions.ClientError: An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.`
 
-Check that the ec2 instance is running using the following command.
+### Check that the ec2 instance is running using the following command.
 
 `aws ec2 describe-instances --region=us-east-1`
 
-Use the following command to obtain the IP address
+### Use the following command to obtain the IP address
 
 `aws ec2 describe-instances --region=us-east-1  | grep PublicIpAddress`
 
-Login
+### Login
 
 `ssh -v -Y -i ~/your-pem.pem ubuntu@your-publicIpAddress`
 
-Load environment modules
+### Load environment modules
 
 `module avail`
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
-Change to the scripts directory
+### Change to the scripts directory
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-Use lscpu to confirm that there are 96 processors on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
+### Use lscpu to confirm that there are 96 processors on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
 
 `lscpu`
 
@@ -540,12 +543,12 @@ Vulnerabilities:
   Tsx async abort:       Not affected
 ```
 
-Login to the ec2 instance again, so that you have two windows logged into the machine.
+### Login to the ec2 instance again, so that you have two windows logged into the machine.
 
 `ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address`
 
 
-### Run 12US1 Listos Training 3 Day benchmark Case on 32 pe
+### Run 12US1 Listos Training 3 Day benchmark Case on 32 pe (this will take less than 2 minutes)
 
 `./run_cctm_2018_12US1_listos_32pe.csh | & tee ./run_cctm_2018_12US1_listos_32pe.2nd.log`
 
@@ -572,6 +575,17 @@ Num  Day        Wall Time
       Avg. Time = 35.66
 ```
 
+### Todo - add 12NE1 Benchmark case
+
+Provide instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
+
+Run the 12NE1 benchmark case and compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
+
+```
+Domain 	                Domain size 	Species Tracked 	Input files size 	Output files size 	Run time (# cores)
+2018 North East US 	100 X 105 X 35 	225 	                26GB 	                2GB 	                15 min/day (32)
+```
+
 ### Run 12US1 2 day benchmark case on 96 processors
 
 `./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log`
@@ -581,5 +595,7 @@ Num  Day        Wall Time
 `htop`
 
 ### Successful run timing
+
+Compare timing to output available <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md#571-cctm-logfiles">CMAQ User Guide: Running CMAQ</a>
 
 
