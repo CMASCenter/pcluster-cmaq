@@ -420,6 +420,32 @@ Additional information about how to calculate storage pricing.
 <a href="https://aws.amazon.com/ebs/pricing/">EBS Pricing</a>
 
 
-Good comparison of EBS vs EFS
+Good comparison of EBS vs EFS, and discussion of using Cloud Volumes ONTAP for data tiering between S3 Buckets and EBS volumes.
 
 <a href="https://bluexp.netapp.com/blog/ebs-efs-amazons3-best-cloud-storage-system">Comparison between EBS and EFS</a>
+
+The aws cli can also be used to modify the volume as per these instructions.
+
+<a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-volume.html>aws cli modify volume</a>
+
+Successful Output
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+`Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   3045.2
+02   2017-12-23   3351.8
+     Total Time = 6397.00
+      Avg. Time = 3198.50
+```
