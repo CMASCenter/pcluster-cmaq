@@ -406,3 +406,11 @@ I tried rerunning the 12US1 case, but the I/O was very slow.
 Using the AWS Web Interface to upgrade to an io1 system
 
 <a href="https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/">Choosing EBS Storage Type</a>
+
+After upgrading to the io1 volume, the performance was much improved.
+
+Now, we need to examine the cost, and whether it would cost less for an io2 volume.
+
+![Screenshot of AWS Web Interface after Storage Upgrade to io1](../cmaq-vm/htop_c6a.48xlarge_hyperthreading_off_storage_io1_higher_throughput.png)
+
+![HTOP after upgrade storage](../cmaq-vm/screenshot_aws_web_interface_storage_after_upgrade.png)
