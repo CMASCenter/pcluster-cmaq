@@ -575,7 +575,7 @@ Num  Day        Wall Time
       Avg. Time = 35.66
 ```
 
-### Download input data for 12NE3 2 day Benchmark case
+### Download input data for 12NE3 1 day Benchmark case
 
 Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
 
@@ -611,7 +611,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/data
 ln -s /shared/data/2018_12NE3 .
 ```
 
-### Edit the 12US3 Benchmark run script to use the gcc compiler
+### Edit the 12US3 Benchmark run script to use the gcc compiler and to output all species to CONC output file.
 
 `vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
 
@@ -622,12 +622,63 @@ to
 
    setenv compiler gcc
 
+Comment out the CONC_SPCS setting that limits them to only 12 species 
+
+   # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
+
 
 ### Run the 12US3 Benchmark case 
 
 ```
 ./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.32pe.log
 ```
+
+### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-07-01
+End Day:   2018-07-01
+Number of Simulation Days: 1
+Domain Name:               2018_12NE3
+Number of Grid Cells:      367500  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-07-01   445.19
+     Total Time = 445.19
+      Avg. Time = 445.19
+
+
+```
+
+### Successful output for all species output in the 3-D CONC File (222 variables)
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-07-01
+End Day:   2018-07-01
+Number of Simulation Days: 1
+Domain Name:               2018_12NE3
+Number of Grid Cells:      367500  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-07-01   444.34
+     Total Time = 444.34
+      Avg. Time = 444.34
+
+```
+
+Todo: look into process pinning. (will it make a difference on a single VM for number of cores less than 96?)
 
 
 Compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
