@@ -132,6 +132,7 @@ Example of security group inbound and outbound rules required to connect to EC2 
 (I am not sure if you can create a security group rule from the aws command line.)
 
 Additional resources
+
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-sg.html">CLI commands to create Security Group</a>
 
 ### Use the following command to obtain the public IP address of the machine.
@@ -423,7 +424,7 @@ Good comparison of EBS vs EFS, and discussion of using Cloud Volumes ONTAP for d
 
 The aws cli can also be used to modify the volume as per these instructions.
 
-<a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-volume.html>aws cli modify volume</a>
+<a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-volume.html">aws cli modify volume</a>
 
 Successful Output
 
