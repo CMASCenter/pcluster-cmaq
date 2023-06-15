@@ -401,4 +401,8 @@ Num  Day        Wall Time
       Avg. Time = 80.90
 ```
 
+I tried rerunning the 12US1 case, but the I/O was very slow.
 
+Using the AWS Web Interface to upgrade to an io1 system
+
+<a href="https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/">Choosing EBS Storage Type</a>
