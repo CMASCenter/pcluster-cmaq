@@ -575,11 +575,15 @@ Num  Day        Wall Time
       Avg. Time = 35.66
 ```
 
-### Todo - add 12NE1 Benchmark case
+### Todo - add 12NE3 Benchmark case
 
 Provide instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
 
-Run the 12NE1 benchmark case and compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
+### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket.
+
+
+
+Run the 12NE3 benchmark case and compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
 
 ```
 Domain 	                Domain size 	Species Tracked 	Input files size 	Output files size 	Run time (# cores)
