@@ -611,6 +611,18 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/data
 ln -s /shared/data/2018_12NE3 .
 ```
 
+### Edit the 12US3 Benchmark run script to use the gcc compiler
+
+`vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
+
+change
+   setenv compiler intel
+
+to
+
+   setenv compiler gcc
+
+
 ### Run the 12US3 Benchmark case 
 
 ```
@@ -634,6 +646,27 @@ Domain 	                Domain size 	Species Tracked 	Input files size 	Output f
 `htop`
 
 ### Successful run timing
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   3070.4
+02   2017-12-23   3386.7
+     Total Time = 6457.10
+      Avg. Time = 3228.55
+
+```
 
 Compare timing to output available <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md#571-cctm-logfiles">CMAQ User Guide: Running CMAQ</a>
 
