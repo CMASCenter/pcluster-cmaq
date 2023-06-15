@@ -354,3 +354,51 @@ Unknown parameter in CpuOptions: "AmdSevSnp", must be one of: CoreCount, Threads
 Retried with
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
+
+(note, take out --dry-run option after you try and verify it works)
+
+Login to the machine.
+
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
+
+### Retry the Listos run script.
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
+
+```
+
+### Use HTOP to view performance.
+
+`htop`
+
+output
+
+
+![Screenshot of HTOP](../cmaq-vm/htop_c6a.48xlarge_hyperthreading_off.png)
+
+### Successful output
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   87.6
+02   2018-08-06   77.9
+03   2018-08-07   77.2
+     Total Time = 242.70
+      Avg. Time = 80.90
+```
+
+
