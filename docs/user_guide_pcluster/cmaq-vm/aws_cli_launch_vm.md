@@ -141,7 +141,7 @@ Additional resources
 
 ### Login to the ec2 instance
 
-ssh -v -Y -i ~/downloads/cmas.pem your-pem@ip.address
+ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address
 
 
 ## Load the environment modules
