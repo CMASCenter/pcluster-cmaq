@@ -721,4 +721,27 @@ Num  Day        Wall Time
 
 Compare timing to output available <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md#571-cctm-logfiles">CMAQ User Guide: Running CMAQ</a>
 
+### Find the InstanceID using the following command on your local machine.
+
+`aws ec2 describe-instances --region=us-east-1 | grep InstanceId`
+
+Output
+
+i-xxxx
+
+### Stop the instance
+
+`aws ec2 stop-instances --region=us-east-1 --instance-ids i-xxxx`
+
+
+Get the following error message.
+
+aws ec2 stop-instances --region=us-east-1 --instance-ids i-041a702cc9f7f7b5d
+
+An error occurred (UnsupportedOperation) when calling the StopInstances operation: You can't stop the Spot Instance 'i-041a702cc9f7f7b5d' because it is associated with a one-time Spot Instance request. You can only stop Spot Instances associated with persistent Spot Instance requests.
+
+
+Note sure how to do a persistent spot instance request .
+### Stop Instance
+
 
