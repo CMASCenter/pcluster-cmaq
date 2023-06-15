@@ -457,3 +457,129 @@ Edit runinstances-config.json to use the new ami.
 
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
+
+(take out --dryrun option after you see the following message:
+
+`botocore.exceptions.ClientError: An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.`
+
+Check that the ec2 instance is running using the following command.
+
+`aws ec2 describe-instances --region=us-east-1`
+
+Use the following command to obtain the IP address
+
+`aws ec2 describe-instances --region=us-east-1  | grep PublicIpAddress`
+
+Login
+
+`ssh -v -Y -i ~/your-pem.pem ubuntu@your-publicIpAddress`
+
+Load environment modules
+
+`module avail`
+
+`module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
+
+Change to the scripts directory
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
+
+Use lscpu to confirm that there are 96 processors on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
+
+`lscpu`
+
+Output:
+
+```
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+  Address sizes:         48 bits physical, 48 bits virtual
+  Byte Order:            Little Endian
+CPU(s):                  96
+  On-line CPU(s) list:   0-95
+Vendor ID:               AuthenticAMD
+  Model name:            AMD EPYC 7R13 Processor
+    CPU family:          25
+    Model:               1
+    Thread(s) per core:  1
+    Core(s) per socket:  48
+    Socket(s):           2
+    Stepping:            1
+    BogoMIPS:            5299.98
+    Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxs
+                         r_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq m
+                         onitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_l
+                         egacy abm sse4a misalignsse 3dnowprefetch topoext perfctr_core invpcid_single ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 a
+                         vx2 smep bmi2 invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr rdpru wbnoinvd arat
+                          npt nrip_save vaes vpclmulqdq rdpid
+Virtualization features: 
+  Hypervisor vendor:     KVM
+  Virtualization type:   full
+Caches (sum of all):     
+  L1d:                   3 MiB (96 instances)
+  L1i:                   3 MiB (96 instances)
+  L2:                    48 MiB (96 instances)
+  L3:                    384 MiB (12 instances)
+NUMA:                    
+  NUMA node(s):          4
+  NUMA node0 CPU(s):     0-23
+  NUMA node1 CPU(s):     24-47
+  NUMA node2 CPU(s):     48-71
+  NUMA node3 CPU(s):     72-95
+Vulnerabilities:         
+  Itlb multihit:         Not affected
+  L1tf:                  Not affected
+  Mds:                   Not affected
+  Meltdown:              Not affected
+  Mmio stale data:       Not affected
+  Retbleed:              Not affected
+  Spec store bypass:     Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:            Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:            Mitigation; Retpolines, IBPB conditional, IBRS_FW, RSB filling, PBRSB-eIBRS Not affected
+  Srbds:                 Not affected
+  Tsx async abort:       Not affected
+```
+
+Login to the ec2 instance again, so that you have two windows logged into the machine.
+
+`ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address`
+
+
+### Run 12US1 Listos Training 3 Day benchmark Case on 32 pe
+
+`./run_cctm_2018_12US1_listos_32pe.csh | & tee ./run_cctm_2018_12US1_listos_32pe.2nd.log`
+
+Successful output
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   35.7
+02   2018-08-06   35.2
+03   2018-08-07   36.1
+     Total Time = 107.00
+      Avg. Time = 35.66
+```
+
+### Run 12US1 2 day benchmark case on 96 processors
+
+`./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log`
+
+### Verify that it is using 99% of each of the 96 cores using htop
+
+`htop`
+
+### Successful run timing
+
+
