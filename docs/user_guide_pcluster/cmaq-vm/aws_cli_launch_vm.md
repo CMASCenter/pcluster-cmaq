@@ -477,7 +477,10 @@ Add the following line:
 
 ### Create new instance
 
-`aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
+Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
+If this is enabled by default, then you can remove the --security-group-ids your-security-group-with-ssh-access-to-Instance option. 
+
+`aws ec2 run-instances --debug --key-name your-pem --security-group-ids your-security-group-with-ssh-access-to-Instance --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
 (take out --dryrun option after you see the following message:
 
