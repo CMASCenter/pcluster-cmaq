@@ -126,6 +126,9 @@ Launch a new instance using the AMI with the software loaded and request a spot 
 
 (Note this command is commented out, as it is only an example, and the json file doesn't contain the ImageId, so it won't run)
 
+Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
+If this is enabled by default, then you can remove the --security-group-ids launch-wizard-with-tcp-access 
+
 `### aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --region us-east-1 --cli-input-json file://runinstances-config.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
@@ -474,7 +477,7 @@ Add the following line:
 
 ### Create new instance
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
+`aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
 (take out --dryrun option after you see the following message:
 
