@@ -613,7 +613,7 @@ Num  Day        Wall Time
 
 Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
 
-`cd /shared/pcluster-cmaq/
+`cd /shared/pcluster-cmaq/`
 
 Examine the command line options that are used to download the data. Note, that we can use the --nosign option, as the data is available from the CMAS Open Data Warehouse on AWS.
 
