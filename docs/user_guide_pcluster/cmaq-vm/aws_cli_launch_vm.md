@@ -772,3 +772,4 @@ Note sure how to do a persistent spot instance request .
 ### Stop Instance
 
 
+### Try creating the gp3 version of the ami using the Nitro Hypervisor, and see if that improves the performance without the cost of the io1 volume.
