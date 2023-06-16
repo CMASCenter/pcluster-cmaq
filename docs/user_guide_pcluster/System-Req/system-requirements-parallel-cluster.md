@@ -28,8 +28,13 @@ Tier 2: additional libraries required for installing CMAQ
 
 Tier 3: Software distributed thru the CMAS Center
 
-* CMAQv533
-* CMAQv533 Post Processors
+* CMAQv533 
+or 
+* CMAQv5.4+
+
+* CMAQv533 Post Processors 
+or 
+CMAQv5.4+ Post Processors
 
 Tier 4: R packages and Scripts
 
@@ -62,8 +67,17 @@ GRIDDESC
 '12CONUS'     -2412000.0 -1620000.0 12000.0 12000.0 396 246 1
 ```
 
-![CMAQ Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
+![CMAQ 12US2 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
 
+### CONUS 12US1 Domain Description
+
+```
+GRIDDESC
+'12US1'
+'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
+```
+(need to create)
+![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
 
 ##  ParallelCluster Configuration for CONUS 12US2 Domain
 
@@ -77,6 +91,12 @@ Head node:
 
 * c5n.large
 
+or
+
+* c6a.xlarge
+
+(note that head node should match the processor family of the compute nodes)
+
 Compute Node:
 
 * c5n.9xlarge (16 cpus/node with Multithreading disabled)
@@ -86,6 +106,11 @@ or
 
 * c5n.18xlarge  (36 cpus/node with Multithreading disabled)
 with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter (EFA)
+
+or
+
+* c6a.48xlarge (96 cpus/node with Multithreading disabled)
+with 384 GiB memory, 50 Gigabit Network Bandwidth, 40 EBS Bandwidth (Gbps), Elastic Fabric Adapter (EFA) and Nitro Hypervisor
 
 ```{note}
 CMAQ is developed using OpenMPI and can take advantage of increasing the number of CPUs and memory. 
@@ -120,6 +145,13 @@ To measure the network performance, you can use iPerf to measure network bandwid
 Elastic Fabric Adapter(EFA)
 "EFA provides lower and more consistent latency and higher throughput than the TCP transport traditionally used in cloud-based HPC systems. It enhances the performance of inter-instance communication that is critical for scaling HPC and machine learning applications. It is optimized to work on the existing AWS network infrastructure and it can scale depending on application requirements." "An EFA is an Elastic Network Adapter (ENA) with added capabilities. It provides all of the functionality of an ENA, with an additional OS-bypass functionality. OS-bypass is an access model that allows HPC and machine learning applications to communicate directly with the network interface hardware to provide low-latency, reliable transport functionality."
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter(EFA)</a>
+```
+
+```{note}
+Nitro Hypervisor 
+"AWS Nitro System is composed of three main components: Nitro cards, the Nitro security chip, and the Nitro hypervisor. Nitro cards provide controllers for the VPC data plane (network access), Amazon Elastic Block Store (Amazon EBS) access, instance storage (local NVMe), as well as overall coordination for the host. By offloading these capabilities to the Nitro cards, this removes the need to use host processor resources to implement these functions, as well as offering security benefits. "
+<a href="https://aws.amazon.com/blogs/hpc/bare-metal-performance-with-the-aws-nitro-system/">Bare metal performance with the Nitro Hypervisor</a>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">EC2 Nitro Instances Available</a>
 ```
 
 Importing data from S3 Bucket to Lustre
