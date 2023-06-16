@@ -80,7 +80,7 @@ GRIDDESC
 (need to create)
 ![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
 
-##  ParallelCluster Configuration for CONUS 12US2 Domain
+##  ParallelCluster Configuration for CONUS 12US2 or 12US1 Domain
 
 ```{note}
 It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
