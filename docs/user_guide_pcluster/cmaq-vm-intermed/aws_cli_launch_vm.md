@@ -8,6 +8,8 @@ The input data was also transferred from the AWS Open Data Program and installed
 
 This chapter describes the process that was used to test and configure the c6a.48xlarge ec2 instance to run CMAQv5.4 for the 12US1 domain.
 
+Todo: Need to create command line options to copy a public ami to a different region.
+
 The commands that are commented out should not be used, as the optimal configuration was later found and documented towards the end of this chapter.
 
 ### Verify that you can see the public AMI on the us-east-1 region.
