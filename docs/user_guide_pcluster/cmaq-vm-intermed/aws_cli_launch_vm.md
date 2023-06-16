@@ -635,7 +635,7 @@ aws s3 cp --no-sign-request --recursive s3://cmas-cmaq/CMAQv5.4_2018_12NE3_Bench
 
 ### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket.
 
-./s3_copy_12NE3_Bench.csh
+`./s3_copy_12NE3_Bench.csh`
 
 
 ### Link the data directory on /shared/data
@@ -650,11 +650,12 @@ ln -s /shared/data/2018_12NE3 .
 `vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
 
 change
-   setenv compiler intel
+
+`   setenv compiler intel`
 
 to
 
-   setenv compiler gcc
+`   setenv compiler gcc`
 
 Comment out the CONC_SPCS setting that limits them to only 12 species 
 
@@ -726,7 +727,9 @@ Domain 	                Domain size 	Species Tracked 	Input files size 	Output f
 
 ### Run 12US1 2 day benchmark case on 96 processors
 
-`./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log`
+```
+./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
+```
 
 ### Verify that it is using 99% of each of the 96 cores using htop
 
@@ -778,13 +781,15 @@ An error occurred (UnsupportedOperation) when calling the StopInstances operatio
 
 
 Note sure how to do a persistent spot instance request .
-### Stop Instance
+### Terminate Instance
+
+`aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
 
 ### Try creating the gp3 version of the ami using the Nitro Hypervisor, and see if that improves the performance without the cost of the io1 volume.
 
 no - the nitro is being used.
 
- "Hypervisor": "xen", - this applies to hypervisor according to the documentation.
+ "Hypervisor": "xen", - this applies to the nitro hypervisor according to the documentation.
 
 Try creating the gp3 ami from the web interface, and see if you can reproduce the performance issues or not. If it performs well, then use the --describe-instances command to see what is different between the ami created from web interface and that created from the command line.
