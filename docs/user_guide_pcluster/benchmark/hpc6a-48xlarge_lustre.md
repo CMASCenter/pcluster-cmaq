@@ -1,6 +1,6 @@
 CMAQv5.3.3 CONUS 2 Benchmark Tutorial using 12US2 Domain
 
-## Use ParallelCluster pre-installed with CMAQv5.3.3 software and 12US2 Benchmark data.
+## Use ParallelCluster pre-installed with CMAQv5.3.3 software and 12US2 Benchmark
 
 Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a ParallelCluster.
 
