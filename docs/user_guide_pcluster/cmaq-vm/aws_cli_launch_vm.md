@@ -773,3 +773,9 @@ Note sure how to do a persistent spot instance request .
 
 
 ### Try creating the gp3 version of the ami using the Nitro Hypervisor, and see if that improves the performance without the cost of the io1 volume.
+
+no - the nitro is being used.
+
+ "Hypervisor": "xen", - this applies to hypervisor according to the documentation.
+
+Try creating the gp3 ami from the web interface, and see if you can reproduce the performance issues or not. If it performs well, then use the --describe-instances command to see what is different between the ami created from web interface and that created from the command line.
