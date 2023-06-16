@@ -106,6 +106,7 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 | c6gn.16xlarge | 64	| 128 GiB   |                   |  100 Gbps         |   $2.7648/hour        | $0.6385/hour     |	
 | c6a.48xlarge  | 192   | 384 GiB   |   40 Gbps         |  50 Gpbs          |   $7.344/hour         | $6.0793/hour     |
 | hpc6a.48xlarge| 92*   | 384 GiB   |                   | 100 Gbps          |   $2.88/hour          |  unavailable     |
+
 *Hpc6a instances have simultaneous multi-threading disabled to optimize for HPC codes. This means that unlike other EC2 instances, Hpc6a vCPUs are physical cores, not threads.
 *Hpc6a instances available in US East (Ohio) and GovCloud (US-West)
 *HPC6a is available ondemand only (no spot pricing)
