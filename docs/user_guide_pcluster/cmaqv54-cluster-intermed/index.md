@@ -1,4 +1,4 @@
-# CMAQv5.4 Parallel Cluster
+# CMAQv5.4 Parallel Cluster Intermediate
 
 * Learn how to create the ParallelCluster using c6a.large head node and c6a.48xlarge as the compute nodes.
 * Learn how to install CMAQ software and underlying libraries, copy input data, and run CMAQ.
