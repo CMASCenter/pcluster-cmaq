@@ -6,6 +6,10 @@ Software was pre-installed and saved to a public ami.
 
 The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
 
+This chapter describes the process that was used to test and configure the c6a.48xlarge ec2 instance to run CMAQv5.4 for the 12US1 domain.
+
+The commands that are commented out should not be used, as the optimal configuration was later found and documented towards the end of this chapter.
+
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
@@ -85,7 +89,7 @@ Additional resources for spot instance provisioning.
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance Requests</a>
 
 
-To launch a Spot Instance with RunInstances API you create below configuration file:
+To launch a Spot Instance with RunInstances API you create the configuration file as described below:
 
 ```
 cat <<EoF > ./runinstances-config.json
@@ -120,8 +124,9 @@ EoF
 
 Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
 
+(Note this command is commented out, as it is only an example, and the json file doesn't contain the ImageId, so it won't run)
 
-`aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --region us-east-1 --cli-input-json file://runinstances-config.json`
+`### aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --region us-east-1 --cli-input-json file://runinstances-config.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
@@ -137,23 +142,19 @@ Additional resources
 
 ### Use the following command to obtain the public IP address of the machine.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
-(this command may need to be updated, if there are multiple instances running the same AMI)
+This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
+
+`### aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
-ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address
+`### ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
 
 ## Load the environment modules
 
-`module avail`
-
-`module load ioapi-3.2/gcc-11.3.0-netcdf`
-
-`module load netcdf-4.8.1/gcc-11.3`
-
-`module load mpi/openmpi-4.1.2`
+`### module avail`
+`### module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
 
 ## Run CMAQv5.4 for the 12km Listos Training Case
@@ -168,8 +169,8 @@ GRIDDESC
 ```
 
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
+### cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+### ./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
 
 ```
 
@@ -199,7 +200,7 @@ Num  Day        Wall Time
 
 Note, this timing is faster than the timing obtained using the AWS Web Interface to create the c6n.48xlarge instance.
 
-While using the full domain 12US1 causes significant performance degradation.
+Running with the full domain 12US1 causes significant performance degradation, that you can see in the timing below.
 
 
 
@@ -265,9 +266,12 @@ JSON Syntax:
 ```
 
 
+```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 
-`./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
+./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
+
+```
 
 
 Spot Pricing cost for Linux in US East Region
@@ -295,7 +299,7 @@ Note that we are using 96 pes of the 192 virtual cpus, so the maximum cpu utiliz
 ![Screenshot of Cloudwatch for CMAQv5.4 on c6a.48xlarge using spot pricing](../cmaq-vm/cloudwatch_cpu_utilization.png)
 
 
-Successful run output, but it is taking too long:
+Successful run output, but it is taking too long (twice as long as on the Parallel Cluster).
 
 ```
 ==================================
@@ -331,7 +335,7 @@ The snapshot name is c6a.48xlarge.cmaqv54.spot, snap-0cc3df82ba5bf5da8
 
 ### Find the InstanceID using the following command on your local machine.
 
-`aws ec2 describe-instances --region=us-east-1 | grep InstanceId` 
+`## aws ec2 describe-instances --region=us-east-1 | grep InstanceId` 
 
 Output
 
@@ -339,7 +343,7 @@ i-xxxx
 
 ### Terminate the instance
 
-`aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
+`## aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Commands for terminating EC2 instance from CLI</a>
 
@@ -347,22 +351,22 @@ i-xxxx
 ## Create c6a.48xlarge with hyperthreading disabled 
 
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
+`## aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
 (note, take out --dry-run option after you try and verify it works)
 
 Obtain the public IP address for the virtual machine
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
+`## aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
 
 Login to the machine
-`ssh -v -Y -i ~/your-pem.pem ubuntu@your-ip-address
+`## ssh -v -Y -i ~/your-pem.pem ubuntu@your-ip-address
 
 ### Retry the Listos run script.
 
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
+## cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+## ./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
 
 ```
 
@@ -401,7 +405,7 @@ Num  Day        Wall Time
 Retried the 12US1 benchmark case but the i/o was still too slow.
 
 
-Used the AWS Web Interface to upgrade to an io1 system
+### Used the AWS Web Interface to upgrade to an io1 system
 
 <a href="https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/">Choosing EBS Storage Type</a>
 
@@ -452,11 +456,21 @@ Saved the EC2 instance as an AMI and made that ami public.
 
 ## Use new ami instance with faster storage (io1) 
 
+Note: these command should work, using a runinstance-config.jason file that is in the /shared/pcluster-cmaq directory. (it has already been edited to specify the ami listed below.)
+
+The your-key.pem and the runinstance-config.jason file should be copied to the same directory before using the aws cli instructions below.
+
 New AMI instance name to use for CMAQv5.4 on c6a.48xlarge using 500 GB io1 Storage.
 
 ami-031a6e4499abffdb6
 
 Edit runinstances-config.json to use the new ami.
+
+Add the following line: 
+
+```
+    "ImageId": "ami-031a6e4499abffdb6",
+```
 
 ### Create new instance
 
