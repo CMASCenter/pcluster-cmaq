@@ -480,6 +480,10 @@ Add the following line:
 Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
 If this is enabled by default, then you can remove the --security-group-ids your-security-group-with-ssh-access-to-Instance option. 
 
+Note, you will need to create or have a keypair that will be used to login to the ec2 instance that you create.
+
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html">Replacing Key Pair</a>
+
 `aws ec2 run-instances --debug --key-name your-pem --security-group-ids your-security-group-with-ssh-access-to-Instance --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
 (take out --dryrun option after you see the following message:
