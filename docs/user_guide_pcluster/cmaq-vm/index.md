@@ -6,5 +6,4 @@ Run CMAQv5.4+ on a single Virtual Machine (VM) using c6a.xlarge (4 CPUs) and Ubu
 install.md
 install-netcdf-hdf5.md
 save_ami.md
-aws_cli_launch_vm.md
 ```
