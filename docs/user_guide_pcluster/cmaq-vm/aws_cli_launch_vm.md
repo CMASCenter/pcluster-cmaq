@@ -1,4 +1,4 @@
-# Use AWS CLI to launch EC2 instance using Public AMI
+# Review how to Use AWS CLI to launch EC2 instance using Public AMI
 
 ## Public AMI contains the software and data to run 12US1 using CMAQv5.4+
 
@@ -454,7 +454,7 @@ Num  Day        Wall Time
 
 Saved the EC2 instance as an AMI and made that ami public.
 
-## Use new ami instance with faster storage (io1) 
+# Use new ami instance with faster storage (io1) to create c6a.48xlarge ec2 instance 
 
 Note: these command should work, using a runinstance-config.jason file that is in the /shared/pcluster-cmaq directory. (it has already been edited to specify the ami listed below.)
 
@@ -639,7 +639,9 @@ to
 
 Comment out the CONC_SPCS setting that limits them to only 12 species 
 
+```
    # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
+```
 
 
 ### Run the 12US3 Benchmark case 
