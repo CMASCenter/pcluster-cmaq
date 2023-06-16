@@ -80,7 +80,13 @@ GRIDDESC
 (need to create)
 ![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
 
-##  ParallelCluster Configuration for CONUS 12US2 or 12US1 Domain
+
+## Single VM Configuration for 12NE3 Benchmark Domain
+
+* c6a.48xlarge
+
+
+##  ParallelCluster Configuration for 12US2 or 12US1 Benchmark Domain
 
 ```{note}
 It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
@@ -127,8 +133,8 @@ ParallelCluster provides a ready-made auto scaling solution.
 
 ```{note}
 Additional best practice of allowing the ParallelCluster to create a placement group.
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html>Network Performance</a>
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>Placement Groups</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/best-practices-v3.html">Network Performance</a>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a>
 ```
 
 This is specified in the yaml file in the slurm queue's network settings.
@@ -159,6 +165,7 @@ Elastic Fabric Adapter(EFA)
 Nitro Hypervisor 
 "AWS Nitro System is composed of three main components: Nitro cards, the Nitro security chip, and the Nitro hypervisor. Nitro cards provide controllers for the VPC data plane (network access), Amazon Elastic Block Store (Amazon EBS) access, instance storage (local NVMe), as well as overall coordination for the host. By offloading these capabilities to the Nitro cards, this removes the need to use host processor resources to implement these functions, as well as offering security benefits. "
 <a href="https://aws.amazon.com/blogs/hpc/bare-metal-performance-with-the-aws-nitro-system/">Bare metal performance with the Nitro Hypervisor</a>
+
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">EC2 Nitro Instances Available</a>
 ```
 
