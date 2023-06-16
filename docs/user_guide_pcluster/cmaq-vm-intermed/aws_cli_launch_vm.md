@@ -486,11 +486,18 @@ Note, you will need to create or have a keypair that will be used to login to th
 
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html">Replacing Key Pair</a>
 
+Create c6a.48xlarge instance: 
+
 `aws ec2 run-instances --debug --key-name your-pem --security-group-ids your-security-group-with-ssh-access-to-Instance --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
 
 (take out --dryrun option after you see the following message:
 
 `botocore.exceptions.ClientError: An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.`
+
+Re-try creating the c5a.48xlarge instance without the dry-run option::
+
+`aws ec2 run-instances --debug --key-name your-pem --security-group-ids your-security-group-with-ssh-access-to-Instance --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
+
 
 ### Check that the ec2 instance is running using the following command.
 
