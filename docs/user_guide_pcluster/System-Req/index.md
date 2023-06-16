@@ -1,6 +1,6 @@
 (myst-sphinx)=
 
-# System Requirements for CMAQv5.3.3 12US2 Benchmark
+# System Requirements
 
 Description of the compute node and head nodes used for the Parallel Cluster
 
