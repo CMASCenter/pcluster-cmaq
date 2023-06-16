@@ -1,1 +1,1 @@
-## Documentation for CMAQ on AWS ParallelCluster
+## CMAQ on AWS Tutorials (Single VM and ParallelCluster)
