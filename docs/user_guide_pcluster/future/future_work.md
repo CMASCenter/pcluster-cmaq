@@ -9,6 +9,7 @@
 * Create script for installing all software and R packages as a custom bootstrap as the ParallelCluster is created. 
 * Create method to automatically checkpoint and save a job prior to it being bumped from the schedule if running on spot instances.
 * Set up an additional slurm queue that uses a smaller compute node to do the post-processing and learn how to submit the post processing jobs to this queue, rather than running them on the head node.
+* Install software using SPACK
 
 <b>Documentation</b>
 
