@@ -2,8 +2,8 @@
 #Script to download enough data to run START_DATE 2018-08-05 and END_DATE 2018-08-07 for 12km Listos Domain
 #Requires installing aws command line interface
 #https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
-#Total storage required is 1.7 G
+#Total storage required is 2.2 G
 
 setenv AWS_REGION "us-east-1"
 
-aws s3 --no-sign-request  cp --recursive s3://cmas-cmaq/12US1_LISTOS/mcip /shared/data/12US1_LISTOS/met/mcip
+aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmaqv5.4-listos /shared/data/
