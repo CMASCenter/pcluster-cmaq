@@ -12,7 +12,7 @@ This documentation is under continuous development
 
 ## Overview
 
-This document provides tutorials and information on how users can create High Performance Computers (Single VM or ParallelCluster) on Amazon Web Service (AWS) using the AWS Command Line Interface. The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend reviewing the Additional Resources listed in [chapter 16](user_guide_pcluster/help/index.md) of this document.
+This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS) using the AWS Command Line Interface. The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend reviewing the Additional Resources listed in [chapter 16](user_guide_pcluster/help/index.md) of this document.
 
  
 
