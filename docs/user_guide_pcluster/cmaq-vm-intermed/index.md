@@ -10,6 +10,9 @@ Creating an EC2 instance from the Command Line is easy to do. In this tutorial w
 | 12NE3                | (100x100x35) | c6a.xlarge   | 4 | 2 | 8 GiB | Up to 12500 Megabit  | EBS Only | 0.153  |
 | 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit | EBS only | 7.344  |
 
+Data in table above is from the following:
+<a href="https://calculator.aws/#/addService/ec2-enhancement?nc2=h_ql_pr_calc">Sizing and Price Calculator from AWS</a>
+
 
 Review how to run CMAQv5.4+ on a single Virtual Machine (VM) using c6a.xlarge (4 CPUs) and Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64), then use an ami with software pre-loaded to run on a c6a.48xlarge instance with gp3 or io1 filesystem.
 
