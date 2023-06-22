@@ -126,12 +126,25 @@ EoF
 
 Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
 
-(Note this command is commented out, as it is only an example, and the json file doesn't contain the ImageId, so it won't run)
+Note, we will be using a json file that has been preconfigured to specify the ImageId
+
+`cd /shared/pcluster-cmaq`
+
 
 Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
 If this is enabled by default, then you can remove the --security-group-ids launch-wizard-with-tcp-access 
 
-`### aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --region us-east-1 --cli-input-json file://runinstances-config.json`
+Example command: note launch-wizard-with-tcp-access needs to be replaced by your security group ID, and your-pem key needs to be replaced by the name of your-pem.pem key.
+
+`aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --dryrun --region us-east-1 --cli-input-json file://runinstances-config.json`
+
+Command that works for UNC's security group and pem key:
+
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dryrun --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.json`
+
+Once you have verified that the command above works with the --dryrun option, rerun it without as follows.
+
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
@@ -149,17 +162,19 @@ Additional resources
 
 This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
-`### aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
-`### ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
+Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
+
+`ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
 
 ## Load the environment modules
 
-`### module avail`
-`### module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
+`module avail`
+`module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
 
 ## Run CMAQv5.4 for the 12km Listos Training Case
@@ -174,8 +189,8 @@ GRIDDESC
 ```
 
 ```
-### cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-### ./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
 
 ```
 
@@ -203,11 +218,6 @@ Num  Day        Wall Time
 
 ```
 
-Note, this timing is faster than the timing obtained using the AWS Web Interface to create the c6n.48xlarge instance.
-
-Running with the full domain 12US1 causes significant performance degradation, that you can see in the timing below.
-
-
 
 ## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge with 192 vcpus
 
@@ -221,28 +231,8 @@ GRIDDESC
 
 Input Data for the 12US1 domain is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
 The 96 pe run on the c6a.48xlarge instance will take approximately 120 minutes for 1 day, or 240 minutes for the full 2 day benchmark.
-(Not sure why this is taking so much longer than an earlier run using the on demand instance.)
-Perhaps I am missing a setting in the aws cli configuration of the virtual machine?
-How do I troubleshoot this issue?
 
-
-Tried the following command:
-
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c"`
-
-In the output, I noticed that the EbsOptimized flag was set to false. Perhaps I need to try using true in the runinstances-config.json file or at the run-instances command line when the spot instances was created.
-
-```
-                    "EbsOptimized": false,
-                    "EnaSupport": true,
-                    "Hypervisor": "xen",
-                    "InstanceLifecycle": "spot",
-```
-
-Next time, try adding this option to the run-instances command --ebs-optimized
-should I also change the Hypervisor to Nitro?
-
-Also need to use this option to disable multithreading:
+Options that were used to disable multi-trheading:
 
 ```
 --cpu-options (structure)
@@ -270,23 +260,25 @@ JSON Syntax:
 
 ```
 
+### Use command line to submit the job. This single virtual machine does not have a job scheduler such as slurm installed.
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 
-./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
+./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.2nd.log
 
 ```
 
 
 Spot Pricing cost for Linux in US East Region
 
-c6a.48xlarge	$7 per Hour
+c6a.48xlarge	$5.88 per Hour
 
 
 Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
 
-It took about 39 minutes of initial I/O prior to the model starting.
+It took about 39 minutes of initial I/O prior to the model starting using this gp3 ami. Fahim was not able to reproduce this performance issue.
+I am not sure how to diagnose the issue.  When I upgraded the AMI to use an io2 disk, this poor I/O issue was resolved.
 
 ## Once the model starts running (see Processing cmpleted ...) in the log file, then use htop to view the CPU usage.
 
@@ -326,6 +318,10 @@ Num  Day        Wall Time
       Avg. Time = 5865.20
 
 ```
+
+Perhaps the instance is being i/o throttled?
+
+<a href="https://repost.aws/knowledge-center/ebs-volume-io-queue-latency-issues">ebs-volume-io-queue-latency-issues</a>
 
 You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
 
@@ -435,7 +431,7 @@ The aws cli can also be used to modify the volume as per these instructions.
 
 <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-volume.html">aws cli modify volume</a>
 
-Successful Output
+Output
 
 ```
 ==================================
@@ -586,7 +582,7 @@ Vulnerabilities:
 
 `./run_cctm_2018_12US1_listos_32pe.csh | & tee ./run_cctm_2018_12US1_listos_32pe.2nd.log`
 
-Successful output
+### Successful output
 
 ```
 ==================================

@@ -325,7 +325,14 @@ Figure 9 shows how the total run time and On Demand Cost varies as additional CP
 
 Figure 9. Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge
 
-![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
+![Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
+
+# Benchmark Scaling Plots for CMAQv5.4 12US1 Benchmark
+
+Figure 10. Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge
+
+![Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge](../../qa_plots/scaling_plots/6a48xlarge_Time_CPUs.png)
+
 
 # Cost Information 
 
