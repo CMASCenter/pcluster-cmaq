@@ -197,6 +197,7 @@ Note, the following command must be modified to specify your key, and ip address
 ## Load the environment modules
 
 `module avail`
+
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
 
@@ -217,6 +218,7 @@ GRIDDESC
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 ./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
+```
 
 ### Use HTOP to view performance.
 
