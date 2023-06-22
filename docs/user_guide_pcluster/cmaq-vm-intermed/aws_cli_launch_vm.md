@@ -1,4 +1,4 @@
-# Review how to Use AWS CLI to launch EC2 instance using Public AMI
+# Learn how to Use AWS CLI to launch EC2 instance using Public AMI
 
 ## Public AMI contains the software and data to run 12US1 using CMAQv5.4+
 
@@ -68,6 +68,10 @@ Output:
 }
 ```
 
+Note that the above AMI has a very low throughput limit of 1000, which will cause I/O issues documented below.
+
+The solution is to use a different AMI with a throughput limit of 16000, the max value for a gp3 VolumeType.
+
 
 Note, the following command works if an ec2 instance is running using this ami.
 
@@ -121,7 +125,7 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-## Use the publically available AMI to launch a c6a.48xlarge ec2 instance.
+## Use a publically available AMI to launch a c6a.48xlarge ec2 instance using a gp3 volume with 16000 throughput
 
 
 Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
