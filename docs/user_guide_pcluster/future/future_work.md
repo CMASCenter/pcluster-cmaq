@@ -10,6 +10,7 @@
 * Create method to automatically checkpoint and save a job prior to it being bumped from the schedule if running on spot instances.
 * Set up an additional slurm queue that uses a smaller compute node to do the post-processing and learn how to submit the post processing jobs to this queue, rather than running them on the head node.
 * Install software using SPACK
+* Install netCDF-4 compressed version of I/O API Library and set up environment module to compile and run CMAQ for 2018_12US1 data that is nc4 compressed
 
 <b>Documentation</b>
 
