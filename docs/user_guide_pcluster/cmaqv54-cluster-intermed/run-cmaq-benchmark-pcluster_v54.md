@@ -97,6 +97,35 @@ ubuntu@ip-10-0-1-70:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts$ squeue
                  3    queue1     CMAQ   ubuntu PD       0:00      2 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
 
+### If you need to update cluster to use ONDEMAND instead of SPOT instances
+
+Stop Compute Nodes
+```
+pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status STOP_REQUESTED
+```
+
+Upgrade compute nodes to ONDEMAND
+```
+ pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_ondemand.yaml`
+```
+
+Restart the compute nodes
+
+`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
+
+Verify compute nodes have started:
+
+```
+pcluster describe-cluster --region=us-east-1 --cluster-name cmaq 
+```
+Relogin to the cluster
+
+```
+pcluster ssh -v -Y -i ~/cmas.pem --region=us-east-1 --cluster-name cmaq
+```
+
+Resubmit the job to the queue
+
 The 192 pe job should take 62 minutes to run (31 minutes per day)
 
 ### check on the status of the cluster using CloudWatch
