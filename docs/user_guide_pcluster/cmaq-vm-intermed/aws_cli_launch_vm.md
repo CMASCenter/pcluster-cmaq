@@ -433,7 +433,7 @@ Domain 	                Domain size 	Species Tracked 	Input files size 	Output f
 2018 North East US 	100 X 105 X 35 	225 	                26GB 	                2GB 	                15 min/day (32)
 ```
 
-### Run 12US1 2 day benchmark cse on 96 processors
+### Run 12US1 2 day benchmark case on 96 processors
 
 ```
 ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.csh | & tee run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.16000IOPS.log
@@ -521,11 +521,6 @@ Note sure how to do a persistent spot instance request .
 
 `aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
+### Verify that the instance is being shut down.
 
-### Try creating the gp3 version of the ami using the Nitro Hypervisor, and see if that improves the performance without the cost of the io1 volume.
-
-no - the nitro is being used.
-
- "Hypervisor": "xen", - this applies to the nitro hypervisor according to the documentation.
-
-Try creating the gp3 ami from the web interface, and see if you can reproduce the performance issues or not. If it performs well, then use the --describe-instances command to see what is different between the ami created from web interface and that created from the command line.
+`aws ec2 describe-instances --region=us-east-1`
