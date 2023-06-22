@@ -44,6 +44,8 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 `chmod 755 indexer.csh`
 
+(note, the alternative to converting the input files is to build and run CMAQ using the netCDF-4 compressed libraries, but this hasn't been fully implemented on this sytem. The ioapi library needs to be built with the netCDF-4 version and the environment modules need to be created))
+
 ### The entire annual dataset is available, and we don't want to convert all nc4 files to nc3 files, when we only need 2 days of data to be converted. Use the following commands:
 
 `find . -name '*20171222*.nc4' -exec ./indexer.csh {} \;`
