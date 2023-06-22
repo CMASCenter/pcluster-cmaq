@@ -36,6 +36,9 @@ SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
     StorageType: Ebs
+    EbsSettings:
+      Encrypted: false
+      SnapshotId: snap-009fed2e4b6b98edc 
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
