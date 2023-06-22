@@ -429,6 +429,34 @@ Domain 	                Domain size 	Species Tracked 	Input files size 	Output f
 2018 North East US 	100 X 105 X 35 	225 	                26GB 	                2GB 	                15 min/day (32)
 ```
 
+### Run 12US1 2 day benchmark cse on 96 processors
+
+```
+./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.csh | & tee run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.16000IOPS.log
+```
+
+### Successful timing
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   2979.7
+02   2017-12-23   3333.7
+     Total Time = 6313.40
+      Avg. Time = 3156.70
+```
+
 ### Run 12US1 2 day benchmark case on 96 processors
 
 ```
