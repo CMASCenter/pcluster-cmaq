@@ -46,9 +46,9 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 ### The entire annual dataset is available, and we don't want to convert all nc4 files to nc3 files, when we only need 2 days of data to be converted. Use the following commands:
 
-`find . -name '*20171222.nc4' -exec ./indexer.csh {} \;`
+`find . -name '*20171222*.nc4' -exec ./indexer.csh {} \;`
 
-`find . -name '*20171223.nc4' -exec ./indexer.csh {} \;`
+`find . -name '*20171223*.nc4' -exec ./indexer.csh {} \;`
 
 
 ### Create the output directory`
