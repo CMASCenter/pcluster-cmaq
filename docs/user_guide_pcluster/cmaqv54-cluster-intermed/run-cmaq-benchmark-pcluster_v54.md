@@ -45,19 +45,21 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 `chmod 755 indexer.csh`
 
 We can't convert the entire annual dataset, it would take too long.
+
+(note, the alternative to converting the input files is to build and run CMAQ using the netCDF-4 compressed libraries, but this hasn't been fully implemented on this sytem. The ioapi library needs to be built with the netCDF-4 version and the environment modules need to be created))
+
+### The entire annual dataset is available, and we don't want to convert all nc4 files to nc3 files, when we only need 2 days of data to be converted. Use the following commands, except this doesn't work because not all of the files that are needed match this command:
+
+`find . -name '*20171222*.nc4' -exec ./indexer.csh {} \;`
+
+`find . -name '*20171223*.nc4' -exec ./indexer.csh {} \;`
+
 Another option is to use the s3 copy script to just get 2 days of data for the benchmark, and then use the indexer on those files.
 
 `cd /shared/pcluster-cmaq/s3_scripts`
 
 ` ./s3_copy_nosign_2018_12US1_conus_cmas_opendata_to_fsx_20171222_cb6r3.csh`
 
-(note, the alternative to converting the input files is to build and run CMAQ using the netCDF-4 compressed libraries, but this hasn't been fully implemented on this sytem. The ioapi library needs to be built with the netCDF-4 version and the environment modules need to be created))
-
-### The entire annual dataset is available, and we don't want to convert all nc4 files to nc3 files, when we only need 2 days of data to be converted. Use the following commands:
-
-`find . -name '*20171222*.nc4' -exec ./indexer.csh {} \;`
-
-`find . -name '*20171223*.nc4' -exec ./indexer.csh {} \;`
 
 
 ### Create the output directory`
