@@ -222,6 +222,7 @@ Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
 | 96            | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
 | 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
+| 288            | 3x96 | 16x18          | 1475.9      |  1580.7          | 3056.60   | .849        |  yes     |   N/A  |  no    | yes        |    /fsx        |  5.5809/hr * 3 node * .849 = | 3 node * 3 node * .849 = | 14.21 |
 
 
 Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
