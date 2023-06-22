@@ -122,6 +122,7 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
+```
 {
     "DryRun": false,
     "MaxCount": 1,
@@ -143,6 +144,7 @@ EoF
         }
     ]
 }
+```
 
 
 ## Use a publically available AMI to launch a c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
