@@ -123,9 +123,9 @@ If this is the case, the job will not start runnning in the queue, see AWS Troub
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">ParallelCluster Troubleshooting</a>
 ```
 
-## Benchmark Timings
+## Benchmark Timings for CMAQv5.3.3 12US2 Benchmark
 
-Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xlarge (18 cpus per node)
+Benchmarks were performed using both c5n.18xlarge (36 cores per node) and c5n.9xlarge (18 cores per node), c6a.48xlarge (96 cores per node), hpc6a.48xlarge (96 cores per node)
 
 ### Benchmark Timing Results for c5n.18xlarge
 
@@ -211,6 +211,17 @@ Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 | 288            | 3x96 | 16x18          | 1287.99      |  1177.42          | 2465.41   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
 | 288            | 3x96 | 16x18          | 1266.97      |  1201.90          | 2468.87   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
 
+
+## Benchmark Timings for CMAQv5.4 12US1 Benchmark 
+
+### Benchmark Timing Results for hpc6a.48xlarge
+
+Table 4. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
+
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
+| 96            | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
+| 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 2.88/hr * 2 node * .842 = | 4.84 |
 
 
 # Benchmark Scaling Plots
