@@ -25,6 +25,7 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 ### Link the 2018_12US1 directoy
 
 `cd /fsx/data/CMAQ_Modeling_Platform_2018/`
+
 `ln -s /fsx/2018_12US1 .`
 
 
