@@ -28,6 +28,21 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 `ln -s /fsx/2018_12US1 .`
 
+### Change ownership of the /fsx/2018_12US1 directory
+
+`sudo chown ubuntu /fsx/2018_12US1`
+
+### Convert the *.nc4 compressed netCDF4 files to netCDF classic (nc3) files
+
+`cd /shared/pcluster-cmaq/s3_scripts`
+
+`cp indexer.csh /fsx/2018_12US1`
+
+`cd /fsx/2018_12US1`
+
+`chmod 755 indexer.csh`
+
+`find . -name '*.nc4' -exec ./indexer.csh {} \;`
 
 ### Create the output directory`
 
