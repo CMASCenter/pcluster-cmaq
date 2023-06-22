@@ -67,6 +67,7 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 Note, it will take about 3-5 minutes for the compute notes to start up. This is reflected in the Status (ST) of CF (configuring)
 
+
 ### Check the status in the queue
 
 `squeue -u ubuntu`
@@ -86,6 +87,14 @@ Output:
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  3    queue1     CMAQ   ubuntu  R       0:58      2 queue1-dy-compute-resource-1-[1-2]
+```
+
+### If you get the following message, then you likely need to upgrade the Parallel Cluster to using OnDemand Compute Nodes instead of SPOT instances.
+
+```
+ubuntu@ip-10-0-1-70:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 3    queue1     CMAQ   ubuntu PD       0:00      2 (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
 
 The 192 pe job should take 62 minutes to run (31 minutes per day)
