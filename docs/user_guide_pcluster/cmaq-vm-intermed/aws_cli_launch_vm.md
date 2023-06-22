@@ -71,7 +71,7 @@ Note that the above AMI has a the maximum throughput limit of 1000, but this AMI
 The solution is to use update the volume to a use the maximum value for IOPS of 16000, and then save the EC2 instance as a new AMI that will have the highest throughput for the gp3 VolumeType.
 The following is a screenshot of the option to do this within the AWS Web Interface. I will work on documenting a method to do this from the command line, but this will be saved for the advanced tutorial.
 
-![EC2 Modify Volume](../cmaq-vm-intermed/EC2_Modify_Volume_to_hightest_limit.png)
+![EC2 Modify Volume](../cmaq-vm-intermed/EC2_Modify_Volume_to_highest_limit.png)
 
 
 
