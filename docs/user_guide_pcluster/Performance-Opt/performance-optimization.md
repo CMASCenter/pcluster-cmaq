@@ -127,7 +127,7 @@ If this is the case, the job will not start runnning in the queue, see AWS Troub
 
 Benchmarks were performed using both c5n.18xlarge (36 cores per node) and c5n.9xlarge (18 cores per node), c6a.48xlarge (96 cores per node), hpc6a.48xlarge (96 cores per node)
 
-### Benchmark Timing Results for c5n.18xlarge
+### Benchmark Timing for c5n.18xlarge
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -156,7 +156,7 @@ Note for the C5n.18xlarge, I/O was done using /fsx, the InputData refers to whet
 | 360           | 10x36          | 18x20         |   Unable to provision  |                 |            |                     |                    |     |        |       |        |
 
 
-### Benchmark Timing Results for c5n.9xlarge
+### Benchmark Timing for c5n.9xlarge
 
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
@@ -179,7 +179,7 @@ Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with 
 | 180            |  10x18          | 10x18       | unable to provision    |      |          |                    |          |                 |     | |  |  | | |
 
 
-### Benchmark Timing Results for hpc6a.48xlarge
+### Benchmark Timing for hpc6a.48xlarge
 
 Table 4. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
 
@@ -198,7 +198,7 @@ Table 4. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 |  576          | 6x96 | 24x24    | 1041.13     |    952.11        |  1993.24  | .277         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .553 = | ? | 2.88/hr * 6 node * .553 = | 9.57 |
 |  576          | 6x96 | 24x24        | 1066.59     |   955.88         | 2022.47   | .281         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .561 = | ? | 2.88/hr * 6 node * .561 = | 9.71 |
 
-### Benchmark Timing Results for c6a.48xlarge
+### Benchmark Timing for c6a.48xlarge
 
 Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes
 
@@ -214,15 +214,15 @@ Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 
 ## Benchmark Timings for CMAQv5.4 12US1 Benchmark 
 
-### Benchmark Timing Results for c6a.48xlarge
+### Benchmark Timing for c6a.48xlarge
 
 Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 96            | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
-| 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
-| 288            | 3x96 | 16x18          | 1475.9      |  1580.7          | 3056.60   | .849        |  yes     |   N/A  |  no    | yes        |    /fsx        |  5.5809/hr * 3 node * .849 = | 3 node * 3 node * .849 = | 14.21 |
+| 96      | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
+| 192     | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
+| 288     | 3x96 | 16x18          | 1475.9      |  1580.7          | 3056.60   | .849        |  yes     |   N/A  |  no    | yes        |    /fsx        |  5.5809/hr * 3 node * .849 = | 14.21  | 7.34/hr * 3 node * .849 = | 14.21 |
 
 
 Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
