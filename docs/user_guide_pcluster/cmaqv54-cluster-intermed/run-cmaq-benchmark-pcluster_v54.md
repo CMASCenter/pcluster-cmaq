@@ -190,7 +190,7 @@ queue1-dy-compute-resource-1-9       1   queue1*       idle~ 96     96:1:1 37355
 queue1-dy-compute-resource-1-10      1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none      
 ```
 
-Note: on a c6a.24xlarge, the number of virtual cpus is 192.
+Note: on a c6a.48xlarge, the number of virtual cpus is 192.
 
 If the YAML contains the Compute Resources Setting of DisableSimultaneousMultithreading: false, then all 192 vcpus will be used
 
