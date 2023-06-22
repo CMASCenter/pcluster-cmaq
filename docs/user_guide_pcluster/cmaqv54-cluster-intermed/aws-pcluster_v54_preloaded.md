@@ -125,7 +125,7 @@ Replace the your-key.pem with your Key Pair.
 `pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
 
 ```{note}
-Notice that the c5n-18xlarge yaml configuration file contains a setting for PlacementGroup.
+Notice that the c6a.48xlarge yaml configuration file contains a setting for PlacementGroup.
 ```
 
 ```
