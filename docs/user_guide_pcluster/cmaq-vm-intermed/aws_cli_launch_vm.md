@@ -10,8 +10,6 @@ This chapter describes the process that was used to test and configure the c6a.4
 
 Todo: Need to create command line options to copy a public ami to a different region.
 
-The commands that are commented out should not be used, as the optimal configuration was later found and documented towards the end of this chapter.
-
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
@@ -68,14 +66,15 @@ Output:
 }
 ```
 
-Note that the above AMI has a very low throughput limit of 1000, which will cause I/O issues documented below.
+Note that the above AMI has a the maximum throughput limit of 1000, but this AMI had an IOPS limit of 4000 which caused I/O issues documented below.
 
-The solution is to use a different AMI with a throughput limit of 16000, the max value for a gp3 VolumeType.
+The solution is to use update the volume to a use the maximum value for IOPS of 16000, and then save the EC2 instance as a new AMI that will have the highest throughput for the gp3 VolumeType.
+The following is a screenshot of the option to do this within the AWS Web Interface. I will work on documenting a method to do this from the command line, but this will be saved for the advanced tutorial.
+
+![EC2 Modify Volume](../cmaq-vm-intermed/EC2_Modify_Volume_to_hightest_limit.png)
 
 
-Note, the following command works if an ec2 instance is running using this ami.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c"`
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
  
@@ -100,13 +99,11 @@ To launch a Spot Instance with RunInstances API you create the configuration fil
 ```
 cat <<EoF > ./runinstances-config.json
 {
+    "DryRun": false,
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.48xlarge",
-    "LaunchTemplate": {
-        "LaunchTemplateId":"${LAUNCH_TEMPLATE_ID}",
-        "Version": "1"
-    },
+    "ImageId": "ami-0aaa0cfeb5ed5763c",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -124,6 +121,29 @@ cat <<EoF > ./runinstances-config.json
 }
 EoF
 ```
+
+{
+    "DryRun": false,
+    "MaxCount": 1,
+    "MinCount": 1,
+    "InstanceType": "c6a.48xlarge",
+    "ImageId": "ami-0aaa0cfeb5ed5763c",
+    "InstanceMarketOptions": {
+        "MarketType": "spot"
+    },
+    "TagSpecifications": [
+        {
+            "ResourceType": "instance",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "EC2SpotCMAQv54"
+                }
+            ]
+        }
+    ]
+}
+
 
 ## Use a publically available AMI to launch a c6a.48xlarge ec2 instance using a gp3 volume with 16000 throughput
 
@@ -144,11 +164,11 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 Command that works for UNC's security group and pem key:
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dryrun --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dryrun --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000throughput.json`
 
 Once you have verified that the command above works with the --dryrun option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000throughput.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
