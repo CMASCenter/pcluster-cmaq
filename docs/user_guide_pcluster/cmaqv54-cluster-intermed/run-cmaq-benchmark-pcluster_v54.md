@@ -16,12 +16,22 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 ### Verify that the input data is imported to /fsx from the S3 Bucket
 
-`cd /fsx/data/CMAQ_Modeling_Platform_2018/2018_12US1`
+`cd /fsx/`
+
+### Create a directory that specifies the full path that the run scripts are expecting.
+
+`mkdir -p /fsx/data/CMAQ_Modeling_Platform_2018/`
+
+### Link the 2018_12US1 directoy
+
+`cd /fsx/data/CMAQ_Modeling_Platform_2018/`
+`ln -s /fsx/2018_12US1 .`
 
 
-### Create the output directory
+### Create the output directory`
 
 `mkdir -p /fsx/data/output`
+
 
 
 ### Run the 12US1 Domain on 192 pes
