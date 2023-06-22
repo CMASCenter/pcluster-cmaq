@@ -30,7 +30,9 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 ### Change ownership of the /fsx/2018_12US1 directory
 
-`sudo chown ubuntu /fsx/2018_12US1`
+`sudo chown -R ubuntu /fsx/2018_12US1`
+
+`sudo chgrp -R ubuntu 2018_12US1`
 
 ### Convert the *.nc4 compressed netCDF4 files to netCDF classic (nc3) files
 
@@ -42,7 +44,13 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 `chmod 755 indexer.csh`
 
-`find . -name '*.nc4' -exec ./indexer.csh {} \;`
+### The entire annual dataset is available, so the indexer.csh will convert all nc4 files to nc3 files, when we only need 2 days of data to be converted.
+
+`find . -name '*20171222.nc4' -exec ./indexer.csh {} \;`
+
+`find . -name '*20171223.nc4' -exec ./indexer.csh {} \;`
+
+### Problem with this method is that the entire annual dataset is available, so the indexer.csh will convert all nc4 files to nc3 files, when we only need 2 days of data to be converted.
 
 ### Create the output directory`
 
