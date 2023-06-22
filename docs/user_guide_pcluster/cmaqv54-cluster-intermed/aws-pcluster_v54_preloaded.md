@@ -47,12 +47,15 @@ Region: us-east-1
 Image:
   Os: ubuntu2004
 HeadNode:
-  InstanceType: c6a.xlarge
+  InstanceType: c6a.large
   Networking:
     SubnetId: subnet-xx-xx-xx           << replace
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: your_key                     << replace
+  LocalStorage:
+    RootVolume:
+      Encrypted: true
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
@@ -77,7 +80,7 @@ SharedStorage:
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      Encrypted: false
+      Encrypted: true
       SnapshotId: snap-009fed2e4b6b98edc
   - MountDir: /fsx
     Name: name2
@@ -92,11 +95,12 @@ SharedStorage:
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using SPOT pricing
 ![c6a-48xlarge yaml configuration](../../yml_plots/c6a-48xlarge-yaml.png)
 
+(to do!)
 
 
-## Create the c6a-48xlarge pcluster
+## Create the c6a.48xlarge pcluster
 
-`pcluster create-cluster --cluster-configuration c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.yaml --cluster-name cmaq --region us-east-1`
+`pcluster create-cluster --cluster-configuration c6a.xlarge-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
 #### Check on status of cluster
 
