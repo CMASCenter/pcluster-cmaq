@@ -323,6 +323,10 @@ Perhaps the instance is being i/o throttled?
 
 <a href="https://repost.aws/knowledge-center/ebs-volume-io-queue-latency-issues">ebs-volume-io-queue-latency-issues</a>
 
+Trying this CloudWatch Report
+
+<a href="https://repost.aws/knowledge-center/ebs-volume-throughput-limits">EBS Volume Throughput Limits</a>
+
 You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
 
 
