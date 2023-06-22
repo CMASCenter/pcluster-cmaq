@@ -327,6 +327,17 @@ Trying this CloudWatch Report
 
 <a href="https://repost.aws/knowledge-center/ebs-volume-throughput-limits">EBS Volume Throughput Limits</a>
 
+This report is saying that the maximum throughput for this gp3 volume is 1,000 MiB/s, and the baseline throughtput Limit is 125 MiB/s.
+Need to run this same report for the io2 volume, and see what the values are.
+
+<a href="https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards/dashboard/vol-050662148aef41b8f-EBS-Statistics">EBS Volume Throughput</a>
+
+```
+Volume ID: vol-050662148aef41b8f
+Instance ID: i-0c2615494c0a89ea9
+```
+
+
 You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
 
 
