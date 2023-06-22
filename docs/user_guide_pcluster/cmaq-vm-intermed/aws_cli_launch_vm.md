@@ -145,8 +145,7 @@ EoF
 }
 
 
-## Use a publically available AMI to launch a c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS 
-
+## Use a publically available AMI to launch a c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
 
 Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
 
@@ -201,7 +200,7 @@ Note, the following command must be modified to specify your key, and ip address
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
 
-## Run CMAQv5.4 for the 12km Listos Training Case
+## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe (this will take less than 2 minutes)
 
 Input data is available for a subdomain of the 12km 12US1 case.
 
@@ -212,203 +211,12 @@ GRIDDESC
 'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
 ```
 
+### Use command line to submit the job. This single virtual machine does not have a job scheduler such as slurm installed.
+
+
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 ./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
-
-```
-
-Successful output:
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       32
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   69.9
-02   2018-08-06   64.7
-03   2018-08-07   66.5
-     Total Time = 201.10
-      Avg. Time = 67.03
-
-```
-
-
-## Run CMAQv5.4 for the full 12US1 Domain on c6a.48xlarge with 192 vcpus
-
-
-```
-GRIDDESC
-' '  !  end coords.  grids:  name; xorig yorig xcell ycell ncols nrows nthik
-'12US1'
-'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
-```
-
-Input Data for the 12US1 domain is available for a 2 day benchmark 12US1 Domain for both netCDF4 compressed (*.nc4) and classic netCDF-3 compression (*.nc).
-The 96 pe run on the c6a.48xlarge instance will take approximately 120 minutes for 1 day, or 240 minutes for the full 2 day benchmark.
-
-Options that were used to disable multi-trheading:
-
-```
---cpu-options (structure)
-
-    The CPU options for the instance. For more information, see Optimize CPU options in the Amazon EC2 User Guide .
-
-    CoreCount -> (integer)
-
-        The number of CPU cores for the instance.
-
-    ThreadsPerCore -> (integer)
-
-        The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1 . Otherwise, specify the default value of 2 .
-
---cpu-options CoreCount=integer,ThreadsPerCore=integer,AmdSevSnp=string
-
-JSON Syntax:
-
-{
-  "CoreCount": integer,
-  "ThreadsPerCore": integer,
-  "AmdSevSnp": "enabled"|"disabled"
-}
-
-
-```
-
-### Use command line to submit the job. This single virtual machine does not have a job scheduler such as slurm installed.
-
-```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-
-./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.2nd.log
-
-```
-
-
-Spot Pricing cost for Linux in US East Region
-
-c6a.48xlarge	$5.88 per Hour
-
-
-Rerunning the 12US1 case on 8x12 processors - for total of 96 processors.
-
-It took about 39 minutes of initial I/O prior to the model starting using this gp3 ami. Fahim was not able to reproduce this performance issue.
-I am not sure how to diagnose the issue.  When I upgraded the AMI to use an io2 disk, this poor I/O issue was resolved.
-
-## Once the model starts running (see Processing cmpleted ...) in the log file, then use htop to view the CPU usage.
-
-Login to the virtual machine and then run the following command.
-
-`./htop`
-
-![Screenshot of HTOP for CMAQv5.4 on c6a.48xlarge](../cmaq-vm/htop_single_vm_cmaqv54_c6a.48xlarge.png)
-
-
-### Using Cloudwatch to see the CPU utilization.
-
-Note that we are using 96 pes of the 192 virtual cpus, so the maximum cpu utilization reported would be 50%.
-
-![Screenshot of Cloudwatch for CMAQv5.4 on c6a.48xlarge using spot pricing](../cmaq-vm/cloudwatch_cpu_utilization.png)
-
-
-Successful run output, but it is taking too long (twice as long as on the Parallel Cluster).
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2017-12-22
-End Day:   2017-12-23
-Number of Simulation Days: 2
-Domain Name:               12US1
-Number of Grid Cells:      4803435  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       96
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2017-12-22   6320.8
-02   2017-12-23   5409.6
-     Total Time = 11730.40
-      Avg. Time = 5865.20
-
-```
-
-Perhaps the instance is being i/o throttled?
-
-<a href="https://repost.aws/knowledge-center/ebs-volume-io-queue-latency-issues">ebs-volume-io-queue-latency-issues</a>
-
-Trying this CloudWatch Report
-
-<a href="https://repost.aws/knowledge-center/ebs-volume-throughput-limits">EBS Volume Throughput Limits</a>
-
-This report is saying that the maximum throughput for this gp3 volume is 1,000 MiB/s, and the baseline throughtput Limit is 125 MiB/s.
-Need to run this same report for the io2 volume, and see what the values are.
-
-<a href="https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards/dashboard/vol-050662148aef41b8f-EBS-Statistics">EBS Volume Throughput</a>
-
-```
-Volume ID: vol-050662148aef41b8f
-Instance ID: i-0c2615494c0a89ea9
-```
-
-
-You can use the AWS Web Interface to get an estimate of the savings of using a SPOT versus OnDEMAND Instance.
-
-
-## Save volume as a snapshot
-
-saving the volume as a snapshot so that I can have a copy of the log files to show the poor performance of the spot instance.
-After the snapshot is created then I will delete the instance.
-The snapshot name is c6a.48xlarge.cmaqv54.spot, snap-0cc3df82ba5bf5da8
-
-## Clean up Virtual Machine
-
-### Find the InstanceID using the following command on your local machine.
-
-`## aws ec2 describe-instances --region=us-east-1 | grep InstanceId` 
-
-Output
-
-i-xxxx
-
-### Terminate the instance
-
-`## aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
-
-<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Commands for terminating EC2 instance from CLI</a>
-
-
-## Create c6a.48xlarge with hyperthreading disabled 
-
-
-`## aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
-
-(note, take out --dry-run option after you try and verify it works)
-
-Obtain the public IP address for the virtual machine
-
-`## aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
-
-Login to the machine
-`## ssh -v -Y -i ~/your-pem.pem ubuntu@your-ip-address
-
-### Retry the Listos run script.
-
-```
-## cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-## ./run_cctm_2018_12US1_listos_32pe.csh |& tee ./run_cctm_2018_12US1_listos_32pe.log
-
-```
 
 ### Use HTOP to view performance.
 
@@ -442,115 +250,7 @@ Num  Day        Wall Time
       Avg. Time = 80.90
 ```
 
-Retried the 12US1 benchmark case but the i/o was still too slow.
 
-
-### Used the AWS Web Interface to upgrade to an io1 system
-
-<a href="https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/">Choosing EBS Storage Type</a>
-
-After upgrading to the io1 volume, the performance was much improved.
-
-Now, we need to examine the cost, and whether it would cost less for an io2 volume.
-
-![Screenshot of AWS Web Interface after Storage Upgrade to io1](../cmaq-vm/htop_c6a.48xlarge_hyperthreading_off_storage_io1_higher_throughput.png)
-
-![HTOP after upgrade storage](../cmaq-vm/screenshot_aws_web_interface_storage_after_upgrade.png)
-
-Additional information about how to calculate storage pricing.
-
-<a href="https://aws.amazon.com/ebs/pricing/">EBS Pricing</a>
-
-
-Good comparison of EBS vs EFS, and discussion of using Cloud Volumes ONTAP for data tiering between S3 Buckets and EBS volumes.
-
-<a href="https://bluexp.netapp.com/blog/ebs-efs-amazons3-best-cloud-storage-system">Comparison between EBS and EFS</a>
-
-The aws cli can also be used to modify the volume as per these instructions.
-
-<a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-volume.html">aws cli modify volume</a>
-
-Output
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2017-12-22
-End Day:   2017-12-23
-Number of Simulation Days: 2
-Domain Name:               12US1
-Number of Grid Cells:      4803435  (ROW x COL x LAY)
-`Number of Layers:          35
-Number of Processes:       96
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2017-12-22   3045.2
-02   2017-12-23   3351.8
-     Total Time = 6397.00
-      Avg. Time = 3198.50
-```
-
-Saved the EC2 instance as an AMI and made that ami public.
-
-# Use new ami instance with faster storage (io1) to create c6a.48xlarge ec2 instance 
-
-Note: these command should work, using a runinstance-config.jason file that is in the /shared/pcluster-cmaq directory. (it has already been edited to specify the ami listed below.)
-
-The your-key.pem and the runinstance-config.jason file should be copied to the same directory before using the aws cli instructions below.
-
-New AMI instance name to use for CMAQv5.4 on c6a.48xlarge using 500 GB io1 Storage.
-
-ami-031a6e4499abffdb6
-
-Edit runinstances-config.json to use the new ami.
-
-Add the following line: 
-
-```
-    "ImageId": "ami-031a6e4499abffdb6",
-```
-
-### Create new instance
-
-Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
-If this is enabled by default, then you can remove the --security-group-ids your-security-group-with-ssh-access-to-Instance option. 
-
-Note, you will need to create or have a keypair that will be used to login to the ec2 instance that you create.
-
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html">Replacing Key Pair</a>
-
-Create c6a.48xlarge instance: 
-
-`aws ec2 run-instances --debug --key-name your-pem --security-group-ids your-security-group-with-ssh-access-to-Instance --region us-east-1 --ebs-optimized --dry-run --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
-
-(take out --dryrun option after you see the following message:
-
-`botocore.exceptions.ClientError: An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.`
-
-Re-try creating the c5a.48xlarge instance without the dry-run option::
-
-`aws ec2 run-instances --debug --key-name your-pem --security-group-ids your-security-group-with-ssh-access-to-Instance --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.json`
-
-
-### Check that the ec2 instance is running using the following command.
-
-`aws ec2 describe-instances --region=us-east-1`
-
-### Use the following command to obtain the IP address
-
-`aws ec2 describe-instances --region=us-east-1  | grep PublicIpAddress`
-
-### Login
-
-`ssh -v -Y -i ~/your-pem.pem ubuntu@your-publicIpAddress`
-
-### Load environment modules
-
-`module avail`
-
-`module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
 ### Change to the scripts directory
 
@@ -615,34 +315,6 @@ Vulnerabilities:
 ### Login to the ec2 instance again, so that you have two windows logged into the machine.
 
 `ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address`
-
-
-### Run 12US1 Listos Training 3 Day benchmark Case on 32 pe (this will take less than 2 minutes)
-
-`./run_cctm_2018_12US1_listos_32pe.csh | & tee ./run_cctm_2018_12US1_listos_32pe.2nd.log`
-
-### Successful output
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       32
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   35.7
-02   2018-08-06   35.2
-03   2018-08-07   36.1
-     Total Time = 107.00
-      Avg. Time = 35.66
-```
 
 ### Download input data for 12NE3 1 day Benchmark case
 
@@ -749,9 +421,6 @@ Num  Day        Wall Time
       Avg. Time = 444.34
 
 ```
-
-Todo: look into process pinning. (will it make a difference on a single VM for number of cores less than 96?)
-
 
 Compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
 
