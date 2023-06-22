@@ -105,7 +105,11 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.la
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-#### Start the compute nodes
+### If the cluster fails to start, use the following command to check for an error
+
+`pcluster get-cluster-stack-events --cluster-name cmaq --region us-east-1 --query 'events[?resourceStatus==`CREATE_FAILED`]'`
+
+#### Start the compute nodes (note they may already be started)
 
 `pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
