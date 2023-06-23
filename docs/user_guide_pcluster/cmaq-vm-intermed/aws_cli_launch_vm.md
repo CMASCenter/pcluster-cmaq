@@ -124,7 +124,11 @@ EoF
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
 
-`cd /shared/pcluster-cmaq/json`
+## Obtain the code using git
+
+`git clone -b main https://github.com/CMASCenter/pcluster-cmaq`
+
+`cd pcluster-cmaq/json`
 
 
 Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
