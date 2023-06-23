@@ -144,7 +144,7 @@ Command that works for UNC's security group and pem key:
 
 Once you have verified that the command above works with the --dryrun option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000IOPS.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000IOPS.ondemand.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
