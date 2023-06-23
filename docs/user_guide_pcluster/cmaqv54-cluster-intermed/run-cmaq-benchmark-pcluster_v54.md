@@ -104,7 +104,7 @@ pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status ST
 
 Upgrade compute nodes to ONDEMAND
 ```
- pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_ondemand.yaml`
+ pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_ondemand.yaml
 ```
 
 Restart the compute nodes
