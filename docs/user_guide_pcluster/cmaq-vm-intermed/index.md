@@ -15,7 +15,7 @@ Data in table above is from the following:
 <a href="https://calculator.aws/#/addService/ec2-enhancement?nc2=h_ql_pr_calc">Sizing and Price Calculator from AWS</a>
 
 
-Review how to run CMAQv5.4+ on a single Virtual Machine (VM) using c6a.xlarge (4 CPUs) and Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64), then use an ami with software pre-loaded to run on a c6a.48xlarge instance with gp3 or io1 filesystem.
+Run CMAQv5.4+ on a single Virtual Machine (VM) using an ami with software pre-loaded to run on a c6a.48xlarge instance with gp3 filesystem.
 
 ```{toctree}
 aws_cli_launch_vm.md
