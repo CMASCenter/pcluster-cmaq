@@ -13,7 +13,8 @@ Todo: Need to create command line options to copy a public ami to a different re
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-0aaa0cfeb5ed5763c`
+`aws ec2 describe-images --region us-east-1 --image-id ami-050dcfb58d06074bb`
+
 
 Output:
 
@@ -22,9 +23,9 @@ Output:
     "Images": [
         {
             "Architecture": "x86_64",
-            "CreationDate": "2023-06-07T02:52:26.000Z",
-            "ImageId": "ami-0aaa0cfeb5ed5763c",
-            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge",
+            "CreationDate": "2023-06-22T16:57:48.000Z",
+            "ImageId": "ami-050dcfb58d06074bb",
+            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge_16000IOPS_gp3",
             "ImageType": "machine",
             "Public": true,
             "OwnerId": "440858712842",
@@ -36,8 +37,8 @@ Output:
                     "DeviceName": "/dev/sda1",
                     "Ebs": {
                         "DeleteOnTermination": true,
-                        "Iops": 4000,
-                        "SnapshotId": "snap-0c2f11a82e76aac9b",
+                        "Iops": 16000,
+                        "SnapshotId": "snap-0a640fde9ea2c9a68",
                         "VolumeSize": 500,
                         "VolumeType": "gp3",
                         "Throughput": 1000,
@@ -55,25 +56,21 @@ Output:
             ],
             "EnaSupport": true,
             "Hypervisor": "xen",
-            "Name": "cmaqv5.4_c6a.48xlarge",
+            "Name": "cmaqv5.4_c6a.48xlarge_16000IOPS_gp3",
             "RootDeviceName": "/dev/sda1",
             "RootDeviceType": "ebs",
             "SriovNetSupport": "simple",
             "VirtualizationType": "hvm",
-            "DeprecationTime": "2025-06-07T02:52:26.000Z"
+            "DeprecationTime": "2025-06-22T16:57:48.000Z"
         }
     ]
 }
+
 ```
 
-Note that the above AMI has a the maximum throughput limit of 1000, but this AMI had an IOPS limit of 4000 which caused I/O issues documented below.
+Use q to exit out of the command line
 
-The solution is to use update the volume to a use the maximum value for IOPS of 16000, and then save the EC2 instance as a new AMI that will have the highest IOPS and throughput for the gp3 VolumeType.
-The following is a screenshot of the option to do this within the AWS Web Interface. I will work on documenting a method to do this from the command line, but this will be saved for the advanced tutorial.
-
-![EC2 Modify Volume](../cmaq-vm-intermed/EC2_Modify_Volume_to_highest_limit.png)
-
-
+Note, the AMI uses the maximum value available on gp3 for Iops of 16000, and maximum value of throughput of 1000.
 
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
@@ -103,7 +100,7 @@ cat <<EoF > ./runinstances-config.json
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.48xlarge",
-    "ImageId": "ami-0aaa0cfeb5ed5763c",
+    "ImageId": "ami-050dcfb58d06074bb",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -122,34 +119,8 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-```
-{
-    "DryRun": false,
-    "MaxCount": 1,
-    "MinCount": 1,
-    "InstanceType": "c6a.48xlarge",
-    "ImageId": "ami-0aaa0cfeb5ed5763c",
-    "InstanceMarketOptions": {
-        "MarketType": "spot"
-    },
-    "TagSpecifications": [
-        {
-            "ResourceType": "instance",
-            "Tags": [
-                {
-                    "Key": "Name",
-                    "Value": "EC2SpotCMAQv54"
-                }
-            ]
-        }
-    ]
-}
-```
+## Use the publically available AMI to launch a spot c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
 
-
-## Use a publically available AMI to launch a c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
-
-Launch a new instance using the AMI with the software loaded and request a spot instance for the c6a.8xlarge EC2 instance
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
 
@@ -187,7 +158,7 @@ Additional resources
 
 This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-0aaa0cfeb5ed5763c" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-050dcfb58d06074bb" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
