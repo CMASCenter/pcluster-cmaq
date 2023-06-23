@@ -35,6 +35,16 @@ CMAQ is sensitive to latencies, so it is best to preload contents of individual 
 
 `ln -s /fsx/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/2018_12US1/ .`
 
+### Link the 12LISTOS_Training data
+
+`cd /fsx/data/`
+
+`ln -s /fsx/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input/2018_12NE3 .`
+
+### Link the 2018_12NE3 Benchmark data
+
+`ln -s /fsx/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input/2018_12NE3 .`
+
 
 ### netCDF-3 classic input files are used
 
