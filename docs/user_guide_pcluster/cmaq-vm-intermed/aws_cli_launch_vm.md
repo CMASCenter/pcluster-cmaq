@@ -119,7 +119,7 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-## Use the publically available AMI to launch a spot c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
+## Use the publically available AMI to launch an ondemand c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
 
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
@@ -140,7 +140,7 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 Command that works for UNC's security group and pem key:
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dryrun --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000IOPS.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dryrun --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000IOPS.ondemand.json`
 
 Once you have verified that the command above works with the --dryrun option, rerun it without as follows.
 
