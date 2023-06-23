@@ -113,10 +113,6 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 `pcluster get-cluster-stack-events --cluster-name cmaq --region us-east-1 --query 'events[?resourceStatus==`CREATE_FAILED`]'`
 
-#### Start the compute nodes (note they may already be started)
-
-`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
-
 #### Login to cluster
 ```{note}
 Replace the your-key.pem with your Key Pair.
