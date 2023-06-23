@@ -75,7 +75,7 @@ Note, the AMI uses the maximum value available on gp3 for Iops of 16000, and max
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
  
-<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">aws cli exampmles</a>
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">aws cli examples</a>
 
 <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html">aws cli run instances command</a>
 
