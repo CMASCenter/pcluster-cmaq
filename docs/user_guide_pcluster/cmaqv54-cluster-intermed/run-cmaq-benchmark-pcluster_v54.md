@@ -39,7 +39,7 @@ CMAQ is sensitive to latencies, so it is best to preload contents of individual 
 
 `cd /fsx/data/`
 
-`ln -s /fsx/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input/2018_12NE3 .`
+`ln -s /fsx/CMAQv5.4_2018_12LISTOS_Benchmark_3Day_Input/12LISTOS_Training ./12US1_LISTOS`
 
 ### Link the 2018_12NE3 Benchmark data
 
