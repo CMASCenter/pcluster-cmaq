@@ -1,0 +1,371 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
+        <title>Install prerequisite libraries on linux OS - pcluster-cmaq documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">pcluster-cmaq  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">pcluster-cmaq  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="install-prerequisite-libraries-on-linux-os">
+<h1>Install prerequisite libraries on linux OS<a class="headerlink" href="#install-prerequisite-libraries-on-linux-os" title="Permalink to this headline">#</a></h1>
+<section id="install-cmaq-sofware-on-parallel-cluster">
+<h2>Install CMAQ sofware on parallel cluster<a class="headerlink" href="#install-cmaq-sofware-on-parallel-cluster" title="Permalink to this headline">#</a></h2>
+<section id="login-to-updated-cluster">
+<h3>Login to updated cluster<a class="headerlink" href="#login-to-updated-cluster" title="Permalink to this headline">#</a></h3>
+<p>(note, replace the your-key.pem with your Key Pair)</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">ssh</span> <span class="pre">-v</span> <span class="pre">-Y</span> <span class="pre">-i</span> <span class="pre">~/your-key.pem</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+</section>
+<section id="change-shell-to-use-tcsh">
+<h3>Change shell to use .tcsh<a class="headerlink" href="#change-shell-to-use-tcsh" title="Permalink to this headline">#</a></h3>
+<p>note, this command depends on what OS you have installed on the parallel cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-s</span> <span class="pre">/bin/tcsh</span> <span class="pre">ubuntu</span></code></p>
+<p>or</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-s</span> <span class="pre">/bin/tcsh</span> <span class="pre">centos</span></code></p>
+<p>Log out and log back in to have the tcsh shell be active</p>
+<p><code class="docutils literal notranslate"><span class="pre">exit</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">ssh</span> <span class="pre">-v</span> <span class="pre">-Y</span> <span class="pre">-i</span> <span class="pre">~/your-key.pem</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+</section>
+<section id="check-to-see-the-tcsh-shell-is-default">
+<h3>Check to see the tcsh shell is default<a class="headerlink" href="#check-to-see-the-tcsh-shell-is-default" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code></p>
+<p>The following instructions assume that you will be installing the software to a /shared/build directory</p>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">/shared/build</span></code></p>
+<p>Install the pcluster-cmaq git repo to the /shared directory</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/shared</span></code></p>
+</section>
+<section id="use-a-configuration-file-from-the-github-repo-that-was-cloned-to-your-local-machine">
+<h3>Use a configuration file from the github repo that was cloned to your local machine<a class="headerlink" href="#use-a-configuration-file-from-the-github-repo-that-was-cloned-to-your-local-machine" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">-b</span> <span class="pre">main</span> <span class="pre">https://github.com/lizadams/pcluster-cmaq.git</span> <span class="pre">pcluster-cmaq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pcluster-cmaq</span></code></p>
+</section>
+<section id="check-to-make-sure-elastic-network-adapter-ena-is-enabled">
+<h3>Check to make sure elastic network adapter (ENA) is enabled<a class="headerlink" href="#check-to-make-sure-elastic-network-adapter-ena-is-enabled" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">modinfo</span> <span class="pre">ena</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">lspci</span></code></p>
+</section>
+<section id="check-what-modules-are-available-on-the-cluster">
+<h3>Check what modules are available on the cluster<a class="headerlink" href="#check-what-modules-are-available-on-the-cluster" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p>
+</section>
+<section id="load-the-openmpi-module">
+<h3>Load the openmpi module<a class="headerlink" href="#load-the-openmpi-module" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">openmpi/4.1.1</span></code></p>
+</section>
+<section id="load-the-libfabric-module">
+<h3>Load the Libfabric module<a class="headerlink" href="#load-the-libfabric-module" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">libfabric-aws/1.13.2amzn1.0</span></code></p>
+</section>
+<section id="verify-the-gcc-compiler-version-is-greater-than-8-0">
+<h3>Verify the gcc compiler version is greater than 8.0<a class="headerlink" href="#verify-the-gcc-compiler-version-is-greater-than-8-0" title="Permalink to this headline">#</a></h3>
+<p>(note, gcc version on centos7 has been gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44a, and this seems to work ok.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">--version</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span> <span class="p">(</span><span class="n">Ubuntu</span> <span class="mf">9.3.0</span><span class="o">-</span><span class="mi">17</span><span class="n">ubuntu1</span><span class="o">~</span><span class="mf">20.04</span><span class="p">)</span> <span class="mf">9.3.0</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2019</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span> <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="change-directories-to-install-and-build-the-libraries-and-cmaq">
+<h3>Change directories to install and build the libraries and CMAQ<a class="headerlink" href="#change-directories-to-install-and-build-the-libraries-and-cmaq" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/shared/pcluster-cmaq</span></code></p>
+<p>Note: the sofware build process for CMAQ integration and continuous deployment needs improvement.
+Currently the Unidata Ucar netcdf-c download page is broken, and the location where the source code can be obtained may need to be updated from their  website to the netcdf git repository.
+For this reason, this tutorial provides a snapshot image that was compiled on a c5n.xlarge head node, and runs on the c5n.18xlarge compute node.
+A different snapshot image would need to be created to compile and run CMAQ on a c6gn.16xlarge Arm-based AWS Graviton2 processor.</p>
+<p>An alternative is to keep a copy of the source code for netcdf-C and netcdf-Fortran and all of the other underlying code on an S3 bucket and to use custom bootstrap actions to build the sofware as the Parallel Cluster is provisioned.</p>
+<p>The following link provides instructions on how to create a custom bootstrap action to pre-load software from an S3 bucket to the parallel cluster at the time that the cluster is created.</p>
+<p>&lt; ahref=”https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-v3.html”&gt;Custom Bootstrap Actions</p>
+</section>
+<section id="build-netcdf-c-and-netcdf-f-libraries-these-scripts-work-for-the-gcc-8-compiler">
+<h3>Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler<a class="headerlink" href="#build-netcdf-c-and-netcdf-f-libraries-these-scripts-work-for-the-gcc-8-compiler" title="Permalink to this headline">#</a></h3>
+<p>Note, if this script fails, it is typically because NCAR has released a new version of netCDF C or Fortran, so the old version is no longer available, or if they have changed the name or location of the download file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">./gcc_netcdf_cluster.csh</span></code></p>
+</section>
+<section id="a-cshrc-script-with-ld-library-path-was-copied-to-your-home-directory-enter-the-shell-again-and-check-environment-variables-that-were-set-using">
+<h3>A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using<a class="headerlink" href="#a-cshrc-script-with-ld-library-path-was-copied-to-your-home-directory-enter-the-shell-again-and-check-environment-variables-that-were-set-using" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">~/.cshrc</span></code></p>
+</section>
+<section id="if-the-cshrc-was-not-created-use-the-following-command-to-create-it">
+<h3>If the .cshrc was not created use the following command to create it<a class="headerlink" href="#if-the-cshrc-was-not-created-use-the-following-command-to-create-it" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">dot.cshrc.pcluster</span> <span class="pre">~/.cshrc</span></code></p>
+</section>
+<section id="execute-the-shell-to-activate-it">
+<h3>Execute the shell to activate it<a class="headerlink" href="#execute-the-shell-to-activate-it" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">csh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">env</span></code></p>
+</section>
+<section id="verify-that-you-see-the-following-setting">
+<h3>Verify that you see the following setting<a class="headerlink" href="#verify-that-you-see-the-following-setting" title="Permalink to this headline">#</a></h3>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LD_LIBRARY_PATH</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">amazon</span><span class="o">/</span><span class="n">openmpi</span><span class="o">/</span><span class="n">lib64</span><span class="p">:</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">netcdf</span><span class="o">/</span><span class="n">lib</span><span class="p">:</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">netcdf</span><span class="o">/</span><span class="n">lib</span>
+</pre></div>
+</div>
+</section>
+<section id="build-i-o-api-library">
+<h3>Build I/O API library<a class="headerlink" href="#build-i-o-api-library" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">./gcc_ioapi_cluster.csh</span></code></p>
+</section>
+<section id="build-cmaq">
+<h3>Build CMAQ<a class="headerlink" href="#build-cmaq" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">./gcc_cmaq_pcluster.csh</span></code></p>
+<p>Check to confirm that the cmaq executable has been built</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe</span></code></p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Liz Adams
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Install prerequisite libraries on linux OS</a><ul>
+<li><a class="reference internal" href="#install-cmaq-sofware-on-parallel-cluster">Install CMAQ sofware on parallel cluster</a><ul>
+<li><a class="reference internal" href="#login-to-updated-cluster">Login to updated cluster</a></li>
+<li><a class="reference internal" href="#change-shell-to-use-tcsh">Change shell to use .tcsh</a></li>
+<li><a class="reference internal" href="#check-to-see-the-tcsh-shell-is-default">Check to see the tcsh shell is default</a></li>
+<li><a class="reference internal" href="#use-a-configuration-file-from-the-github-repo-that-was-cloned-to-your-local-machine">Use a configuration file from the github repo that was cloned to your local machine</a></li>
+<li><a class="reference internal" href="#check-to-make-sure-elastic-network-adapter-ena-is-enabled">Check to make sure elastic network adapter (ENA) is enabled</a></li>
+<li><a class="reference internal" href="#check-what-modules-are-available-on-the-cluster">Check what modules are available on the cluster</a></li>
+<li><a class="reference internal" href="#load-the-openmpi-module">Load the openmpi module</a></li>
+<li><a class="reference internal" href="#load-the-libfabric-module">Load the Libfabric module</a></li>
+<li><a class="reference internal" href="#verify-the-gcc-compiler-version-is-greater-than-8-0">Verify the gcc compiler version is greater than 8.0</a></li>
+<li><a class="reference internal" href="#change-directories-to-install-and-build-the-libraries-and-cmaq">Change directories to install and build the libraries and CMAQ</a></li>
+<li><a class="reference internal" href="#build-netcdf-c-and-netcdf-f-libraries-these-scripts-work-for-the-gcc-8-compiler">Build netcdf C and netcdf F libraries - these scripts work for the gcc 8+ compiler</a></li>
+<li><a class="reference internal" href="#a-cshrc-script-with-ld-library-path-was-copied-to-your-home-directory-enter-the-shell-again-and-check-environment-variables-that-were-set-using">A .cshrc script with LD_LIBRARY_PATH was copied to your home directory, enter the shell again and check environment variables that were set using</a></li>
+<li><a class="reference internal" href="#if-the-cshrc-was-not-created-use-the-following-command-to-create-it">If the .cshrc was not created use the following command to create it</a></li>
+<li><a class="reference internal" href="#execute-the-shell-to-activate-it">Execute the shell to activate it</a></li>
+<li><a class="reference internal" href="#verify-that-you-see-the-following-setting">Verify that you see the following setting</a></li>
+<li><a class="reference internal" href="#build-i-o-api-library">Build I/O API library</a></li>
+<li><a class="reference internal" href="#build-cmaq">Build CMAQ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>

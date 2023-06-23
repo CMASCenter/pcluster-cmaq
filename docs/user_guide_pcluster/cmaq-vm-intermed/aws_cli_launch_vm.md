@@ -124,7 +124,7 @@ EoF
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
 
-`cd /shared/pcluster-cmaq`
+`cd /shared/pcluster-cmaq/json`
 
 
 Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.

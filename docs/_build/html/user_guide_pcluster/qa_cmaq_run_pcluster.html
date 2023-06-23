@@ -1,0 +1,657 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
+        <title>Quality Assurance Checks for Successful CMAQ Run on Parallel Cluster - pcluster-cmaq documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">pcluster-cmaq  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">pcluster-cmaq  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="quality-assurance-checks-for-successful-cmaq-run-on-parallel-cluster">
+<h1>Quality Assurance Checks for Successful CMAQ Run on Parallel Cluster<a class="headerlink" href="#quality-assurance-checks-for-successful-cmaq-run-on-parallel-cluster" title="Permalink to this headline">#</a></h1>
+<section id="run-m3diff-to-compare-the-output-data-for-two-runs-that-have-different-values-for-npcol">
+<h2>run m3diff to compare the output data for two runs that have different values for NPCOL<a class="headerlink" href="#run-m3diff-to-compare-the-output-data-for-two-runs-that-have-different-values-for-npcol" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">fsx</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">output</span>
+<span class="n">ls</span> <span class="o">*/*</span><span class="n">ACONC</span><span class="o">*</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setenv</span> <span class="n">AFILE</span> <span class="n">output_CCTM_v533_gcc_2016_CONUS_10x18pe_full</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_10x18pe_full_20151222</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">setenv</span> <span class="n">BFILE</span> <span class="n">output_CCTM_v533_gcc_2016_CONUS_16x18pe_full</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_full_20151222</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m3diff</span>
+</pre></div>
+</div>
+<p>hit return several times to accept the default options</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="n">A</span><span class="p">:</span><span class="n">B</span> <span class="n">REPORT</span>
+</pre></div>
+</div>
+<p>Should see all zeros.
+Recompiled CMAQ using -march=native compiler option for gcc compiler, but am still seeing differences in answers.
+The answers are the same, or the differences are all zeros if the domain decomposition  is the same NPCOL, here, NPCOL differs (10 vs 16)</p>
+<p>This behavior is different from what I observed with removing the -march=native compiler option for gcc on the AMD Cyclecloud HBV3 processor.
+On cycle cloud, when I recompiled with -march=native removed, then the answers matched if NPCOL was different.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NPCOL</span>  <span class="o">=</span>  <span class="mi">10</span><span class="p">;</span> <span class="o">@</span> <span class="n">NPROW</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">NPCOL</span>  <span class="o">=</span>  <span class="mi">16</span><span class="p">;</span> <span class="o">@</span> <span class="n">NPROW</span> <span class="o">=</span> <span class="mi">18</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">A:B</span> <span class="pre">REPORT</span></code></p>
+<p>output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">4.54485E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">316</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">3.09199E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">318</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.42188E-11</span>  <span class="mf">2.71295E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">4.73112E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">274</span><span class="p">,</span><span class="mi">169</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.36556E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.53046E-11</span>  <span class="mf">3.63506E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">7.37607E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">226</span><span class="p">,</span><span class="mi">151</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.98955E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">274</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.68974E-11</span>  <span class="mf">5.29013E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">3.15718E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">227</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.07219E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">273</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.52149E-11</span>  <span class="mf">3.60005E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.65893E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">299</span><span class="p">,</span><span class="mi">154</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.90573E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">201</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.78237E-12</span>  <span class="mf">4.15726E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">3.11527E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">7.43195E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">202</span><span class="p">,</span><span class="mi">118</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">9.04127E-12</span>  <span class="mf">6.38413E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">4.59142E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">306</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">7.46921E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">203</span><span class="p">,</span><span class="mi">119</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.57731E-11</span>  <span class="mf">8.06486E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">5.25266E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">316</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">5.90459E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">291</span><span class="p">,</span><span class="mi">151</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.67232E-11</span>  <span class="mf">9.36312E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">5.31785E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">294</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">6.33299E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">339</span><span class="p">,</span><span class="mi">201</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.01644E-11</span>  <span class="mf">1.12862E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">1.01421E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">297</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">5.08502E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">317</span><span class="p">,</span><span class="mi">190</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">9.97206E-11</span>  <span class="mf">1.35965E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">1.28523E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">297</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.96347E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">295</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.57728E-10</span>  <span class="mf">1.88143E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">1.69873E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span><span class="mi">169</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">6.47269E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">343</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.99673E-10</span>  <span class="mf">1.96824E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.10665E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">8.53091E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">290</span><span class="p">,</span><span class="mi">133</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.75009E-10</span>  <span class="mf">2.38824E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.77534E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span><span class="mi">166</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.38395E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">339</span><span class="p">,</span><span class="mi">201</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">4.32676E-10</span>  <span class="mf">3.19499E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">4.05498E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span><span class="mi">166</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.29478E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">292</span><span class="p">,</span><span class="mi">134</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">5.94668E-10</span>  <span class="mf">4.56470E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">1.64844E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">380</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.24970E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">312</span><span class="p">,</span><span class="mi">119</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.99392E-10</span>  <span class="mf">6.27748E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.40747E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">207</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.38372E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">313</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.23841E-11</span>  <span class="mf">4.06153E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.54810E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">353</span><span class="p">,</span><span class="mi">207</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.68476E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">179</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">4.69896E-10</span>  <span class="mf">4.00601E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.92342E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">259</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.84122E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.00556E-10</span>  <span class="mf">3.75263E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">4.37256E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">259</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.51433E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.44610E-10</span>  <span class="mf">4.03537E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">5.51227E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">313</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.60793E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">312</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">6.49188E-10</span>  <span class="mf">4.60905E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">5.58607E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">259</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">6.47921E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">278</span><span class="p">,</span><span class="mi">186</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.40245E-11</span>  <span class="mf">4.89799E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">3.61912E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">259</span><span class="p">,</span><span class="mi">183</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">4.28502E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">278</span><span class="p">,</span><span class="mi">187</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.10923E-10</span>  <span class="mf">4.86613E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.02795E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">278</span><span class="p">,</span><span class="mi">185</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">3.63495E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">278</span><span class="p">,</span><span class="mi">187</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">5.26566E-10</span>  <span class="mf">5.32271E-08</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">1.25729E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">183</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">8.38190E-08</span><span class="o">@</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">114</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.04043E-12</span>  <span class="mf">7.34096E-10</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">9.66247E-08</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">151</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">4.09782E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">6.33767E-12</span>  <span class="mf">1.73157E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.10712E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">151</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.71946E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">114</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">5.41618E-12</span>  <span class="mf">1.65727E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">5.45755E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.04494E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">115</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">1.47753E-11</span>  <span class="mf">4.57864E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">4.30271E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">114</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">7.39470E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">116</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">3.24581E-11</span>  <span class="mf">5.33182E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">7.71135E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">181</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">7.92556E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">201</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.74377E-11</span>  <span class="mf">6.31589E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">6.33299E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">6.53090E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">202</span><span class="p">,</span><span class="mi">118</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.86715E-11</span>  <span class="mf">4.42746E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">6.25849E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.21189E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">184</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">5.32567E-12</span>  <span class="mf">2.66906E-09</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">3.64147E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">306</span><span class="p">,</span><span class="mi">158</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">3.12924E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">175</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">3.15538E-12</span>  <span class="mf">2.74893E-09</span>
+</pre></div>
+</div>
+<p>Compare CMAQv533 run with -march=native compiler flag removed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">more</span> <span class="pre">REPORT.6x12pe_vs_9x12pe</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">FILE</span> <span class="n">A</span><span class="p">:</span>  <span class="n">AFILE</span> <span class="p">(</span><span class="n">output_CCTM_v533_gcc_2016_CONUS_6x12pe</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_6x12pe_20151222</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
+
+     <span class="n">FILE</span> <span class="n">B</span><span class="p">:</span>  <span class="n">BFILE</span> <span class="p">(</span><span class="n">output_CCTM_v533_gcc_2016_CONUS_9x12pe</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_9x12pe_20151222</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
+
+
+     <span class="o">-----------------------------------------------------------</span>
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">000000</span> <span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span>
+ <span class="n">A</span>    <span class="mf">5.19842E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.56425E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.27752E-03</span>  <span class="mf">3.47514E-03</span>
+ <span class="n">B</span>    <span class="mf">5.19842E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.56425E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.27752E-03</span>  <span class="mf">3.47514E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.27243E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">264</span><span class="p">,</span><span class="mi">163</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">5.42961E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">264</span><span class="p">,</span><span class="mi">165</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">9.77191E-12</span>  <span class="mf">2.54661E-09</span>
+
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">010000</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span>
+ <span class="n">A</span>    <span class="mf">6.55882E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.29276E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.56435E-03</span>  <span class="mf">4.35617E-03</span>
+ <span class="n">B</span>    <span class="mf">6.55882E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.29276E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.56435E-03</span>  <span class="mf">4.35617E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">2.76603E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">197</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.45869E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">264</span><span class="p">,</span><span class="mi">163</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">6.01613E-12</span>  <span class="mf">1.72038E-09</span>
+
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">020000</span> <span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span>
+ <span class="n">A</span>    <span class="mf">6.86494E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.03682E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">262</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.62483E-03</span>  <span class="mf">4.58060E-03</span>
+ <span class="n">B</span>    <span class="mf">6.86494E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.03682E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">262</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.62483E-03</span>  <span class="mf">4.58060E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">3.27826E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">197</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">3.79980E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">264</span><span class="p">,</span><span class="mi">157</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">7.99431E-12</span>  <span class="mf">2.56835E-09</span>
+
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">030000</span> <span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span>
+ <span class="n">A</span>    <span class="mf">6.58664E-02</span><span class="o">@</span><span class="p">(</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">8.24041E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">265</span><span class="p">,</span><span class="mi">241</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.57739E-03</span>  <span class="mf">4.54646E-03</span>
+ <span class="n">B</span>    <span class="mf">6.58664E-02</span><span class="o">@</span><span class="p">(</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">8.24041E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">265</span><span class="p">,</span><span class="mi">241</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.57739E-03</span>  <span class="mf">4.54646E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">5.47618E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">264</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">3.96743E-07</span><span class="o">@</span><span class="p">(</span><span class="mi">264</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">9.99427E-12</span>  <span class="mf">3.22602E-09</span>
+</pre></div>
+</div>
+<p>Reconfirmed that with -march=native flag removed, still get matching answers if NPCOL is the same.
+more REPORT_6x12pe_6x18pe</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">FILE</span> <span class="n">A</span><span class="p">:</span>  <span class="n">AFILE</span> <span class="p">(</span><span class="n">output_CCTM_v533_gcc_2016_CONUS_6x12pe</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_6x12pe_20151222</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
+     <span class="n">FILE</span> <span class="n">B</span><span class="p">:</span>  <span class="n">BFILE</span> <span class="p">(</span><span class="n">output_CCTM_v533_gcc_2016_CONUS_6x18pe</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_6x18pe_20151222</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
+     <span class="o">-----------------------------------------------------------</span>
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">000000</span> <span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span> 
+ <span class="n">A</span>    <span class="mf">5.19842E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.56425E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.27752E-03</span>  <span class="mf">3.47514E-03</span>
+ <span class="n">B</span>    <span class="mf">5.19842E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.56425E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">258</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.27752E-03</span>  <span class="mf">3.47514E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">010000</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span> 
+ <span class="n">A</span>    <span class="mf">6.55882E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.29276E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.56435E-03</span>  <span class="mf">4.35617E-03</span>
+ <span class="n">B</span>    <span class="mf">6.55882E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.29276E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.56435E-03</span>  <span class="mf">4.35617E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">020000</span> <span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span> 
+ <span class="n">A</span>    <span class="mf">6.86494E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.03682E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">262</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.62483E-03</span>  <span class="mf">4.58060E-03</span>
+ <span class="n">B</span>    <span class="mf">6.86494E-02</span><span class="o">@</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">1.03682E-05</span><span class="o">@</span><span class="p">(</span><span class="mi">262</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.62483E-03</span>  <span class="mf">4.58060E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+
+
+ <span class="n">Date</span> <span class="ow">and</span> <span class="n">time</span>  <span class="mi">2015356</span><span class="p">:</span><span class="mi">030000</span> <span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="n">Dec</span><span class="o">.</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">AFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="n">B</span><span class="p">:</span><span class="n">BFILE</span><span class="o">/</span><span class="n">NO2</span>  <span class="n">vs</span>  <span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>
+      <span class="n">MAX</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Min</span>        <span class="o">@</span><span class="p">(</span>  <span class="n">C</span><span class="p">,</span>  <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>  <span class="n">Mean</span>         <span class="n">Sigma</span> 
+ <span class="n">A</span>    <span class="mf">6.58664E-02</span><span class="o">@</span><span class="p">(</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">8.24041E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">265</span><span class="p">,</span><span class="mi">241</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.57739E-03</span>  <span class="mf">4.54646E-03</span>
+ <span class="n">B</span>    <span class="mf">6.58664E-02</span><span class="o">@</span><span class="p">(</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">8.24041E-06</span><span class="o">@</span><span class="p">(</span><span class="mi">265</span><span class="p">,</span><span class="mi">241</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="mf">2.57739E-03</span>  <span class="mf">4.54646E-03</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+</pre></div>
+</div>
+</section>
+<section id="use-m3diff-to-compare-two-runs-that-have-the-same-npcol">
+<h2>Use m3diff to compare two runs that have the same NPCOL<a class="headerlink" href="#use-m3diff-to-compare-two-runs-that-have-the-same-npcol" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setenv</span> <span class="n">AFILE</span> <span class="o">/</span><span class="n">fsx</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">output_CCTM_v533_gcc_2016_CONUS_16x16pe</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">setenv</span> <span class="n">BFILE</span> <span class="o">/</span><span class="n">fsx</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">output_CCTM_v533_gcc_2016_CONUS_16x18pe</span><span class="o">/</span><span class="n">CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">m3diff</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="n">A</span><span class="p">:</span><span class="n">B</span> <span class="n">REPORT</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NPCOL</span>  <span class="o">=</span>  <span class="mi">16</span><span class="p">;</span> <span class="o">@</span> <span class="n">NPROW</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">NPCOL</span>  <span class="o">=</span>  <span class="mi">16</span><span class="p">;</span> <span class="o">@</span> <span class="n">NPROW</span> <span class="o">=</span> <span class="mi">18</span>
+</pre></div>
+</div>
+<p>NPCOL was the same for both runs</p>
+<p>Resulted in zero differences in the output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+ <span class="n">A</span><span class="p">:</span><span class="n">B</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span><span class="o">@</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="mf">0.00000E+00</span>  <span class="mf">0.00000E+00</span>
+</pre></div>
+</div>
+</section>
+<section id="run-the-following-r-script">
+<h2>Run the following R script<a class="headerlink" href="#run-the-following-r-script" title="Permalink to this headline">#</a></h2>
+<p>First check to see if R is already installed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">--version</span></code></p>
+<p>If not, Install R on Ubuntu 2004 using following instructions.</p>
+<p>&lt;a “href=https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/”&gt;Install R on Ubuntu 2004</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span></code></p>
+<p>load the R module (may need to install R - need to check if additional R libraries need to be installed)</p>
+<p><a href="https://grasswiki.osgeo.org/wiki/Compile_and_Install_Ubuntu">ubuntu install</a></p>
+<p>Install geospatial dependencies</p>
+<p>be sure to have an updated system</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">upgrade</span> <span class="pre">-y</span></code></p>
+<p>install PROJ</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libproj-dev</span> <span class="pre">proj-data</span> <span class="pre">proj-bin</span> <span class="pre">unzip</span> <span class="pre">-y</span></code></p>
+<p>optionally, install (selected) datum grid files</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">proj-data</span></code></p>
+<p>install GEOS</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libgeos-dev</span> <span class="pre">-y</span></code></p>
+<p>install GDAL</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libgdal-dev</span> <span class="pre">python3-gdal</span> <span class="pre">gdal-bin</span> <span class="pre">-y</span></code></p>
+<p>install PDAL (optional)</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libpdal-dev</span> <span class="pre">pdal</span> <span class="pre">libpdal-plugin-python</span> <span class="pre">-y</span></code></p>
+<p>recommended to give Python3 precedence over Python2 (which is end-of-life since 2019)</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">update-alternatives</span> <span class="pre">--install</span> <span class="pre">/usr/bin/python</span> <span class="pre">python</span> <span class="pre">/usr/bin/python3</span> <span class="pre">1</span></code></p>
+<p>Install further compilation dependencies (Ubuntu 20.04)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> \
+  <span class="n">build</span><span class="o">-</span><span class="n">essential</span> \
+  <span class="n">flex</span> <span class="n">make</span> <span class="n">bison</span> <span class="n">gcc</span> <span class="n">libgcc1</span> <span class="n">g</span><span class="o">++</span> <span class="n">ccache</span> \
+  <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">python3</span><span class="o">-</span><span class="n">opengl</span> <span class="n">python3</span><span class="o">-</span><span class="n">wxgtk4</span><span class="mf">.0</span> \
+  <span class="n">python3</span><span class="o">-</span><span class="n">dateutil</span> <span class="n">libgsl</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">-</span><span class="n">numpy</span> \
+  <span class="n">wx3</span><span class="mf">.0</span><span class="o">-</span><span class="n">headers</span> <span class="n">wx</span><span class="o">-</span><span class="n">common</span> <span class="n">libwxgtk3</span><span class="mf">.0</span><span class="o">-</span><span class="n">gtk3</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libwxbase3</span><span class="mf">.0</span><span class="o">-</span><span class="n">dev</span>   \
+  <span class="n">libncurses5</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libbz2</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">gettext</span> \
+  <span class="n">libtiff5</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpnglite</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libcairo2</span> <span class="n">libcairo2</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">sqlite3</span> <span class="n">libsqlite3</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libpq</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libreadline6</span><span class="o">-</span><span class="n">dev</span> <span class="n">libfreetype6</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libfftw3</span><span class="o">-</span><span class="mi">3</span> <span class="n">libfftw3</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libboost</span><span class="o">-</span><span class="n">thread</span><span class="o">-</span><span class="n">dev</span> <span class="n">libboost</span><span class="o">-</span><span class="n">program</span><span class="o">-</span><span class="n">options</span><span class="o">-</span><span class="n">dev</span>  <span class="n">libpdal</span><span class="o">-</span><span class="n">dev</span>\
+  <span class="n">subversion</span> <span class="n">libzstd</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">checkinstall</span> \
+  <span class="n">libglu1</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxmu</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">ghostscript</span> <span class="n">wget</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>For NVIZ on Ubuntu 20.04:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> \
+  <span class="n">ffmpeg</span> <span class="n">libavutil</span><span class="o">-</span><span class="n">dev</span> <span class="n">ffmpeg2theora</span> \
+  <span class="n">libffmpegthumbnailer</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libavcodec</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libxmu</span><span class="o">-</span><span class="n">dev</span> \
+  <span class="n">libavformat</span><span class="o">-</span><span class="n">dev</span> <span class="n">libswscale</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>ncdf4 package REQUIRES the netcdf library be version 4 or above, AND installed with HDF-5 support (i.e., the netcdf library must be compiled with the –enable-netcdf-4 flag). If you don’t want to install the full version of netcdf-4 with HDF-5 support, then please install the old, deprecated ncdf package instead.</p>
+<p>ERROR: configuration failed for package ‘ncdf4’ * removing ‘/usr/lib64/R/library/ncdf4’</p>
+<p>building netcdf with HDF5 support requires curl.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">curl</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libcurl4</span><span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/shared/pcluster-cmaq</span></code></p>
+<p>Install libraries with hdf5 support</p>
+<p>Load modules</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">openmpi/4.1.1</span> </code>
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">libfabric-aws/1.13.2amzn1.0</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">./gcc_install_hdf5.pcluster.csh</span></code></p>
+<p>Install ncdf4 package from source:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/shared/pcluster-cmaq/qa_scripts/R_packages</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">R</span> <span class="pre">CMD</span> <span class="pre">INSTALL</span> <span class="pre">ncdf4_1.13.tar.gz</span> <span class="pre">--configure-args="--with-nc-config=/shared/build-hdf5/install/bin/nc-config"</span></code></p>
+<p>Install packages used in the R scripts</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">i</span> <span class="n">R</span> 
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">"rgdal"</span><span class="p">)</span> 
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">"M3"</span><span class="p">)</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">"fields"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To view the script, install imagemagick</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">imagemagick</span></code></p>
+<p>Install X11</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">x11-apps</span></code></p>
+<p>Enable X11 forwarding</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/ssh/sshd_config</span></code></p>
+<p>add line
+X11Forwarding yes</p>
+<p>Verify that it was added</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">cat</span> <span class="pre">/etc/ssh/sshd_config</span> <span class="pre">|grep</span> <span class="pre">-i</span> <span class="pre">X11Forwarding</span></code></p>
+<p>Restart ssh</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">ssh</span> <span class="pre">restart</span></code></p>
+<p>Exit the cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">exit</span></code></p>
+<p>Re-login to the cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">ssh</span> <span class="pre">-v</span> <span class="pre">-Y</span> <span class="pre">-i</span> <span class="pre">~/centos.pem</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+<p>Test display</p>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">xclock</span></code></p>
+<p>Need to add the above commands to the post-installation script.</p>
+<p>Can connect to the head node using NICE DCV software. Need to add a section to the yaml file.</p>
+<p><a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/dcv.html">NICE DCV Settings in YAML</a></p>
+<p>Note, it looks like the examples are using the older config or CLI 2 format, and need to convert this to a yaml format to try it out.</p>
+<p><a href="https://github.com/aws/aws-parallelcluster/issues/1508">X11 forwarding no loner enabled on master node</a></p>
+<p>The bug says that you can use a custom post installation script to re-enable X11 Forwarding.</p>
+<p><a href="https://docs.aws.amazon.com/en_us/parallelcluster/latest/ug/pre_post_install.html">Custom Bootstrap Actions</a></p>
+<p>Then edit the R scripts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">pcluster</span><span class="o">-</span><span class="n">cmaq</span><span class="o">/</span><span class="n">qa_scripts</span>
+<span class="n">vi</span> <span class="n">compare_EQUATES_benchmark_output_CMAS_pcluster</span><span class="o">.</span><span class="n">r</span>
+</pre></div>
+</div>
+<p>Examine the script to create the box plots and spatial plots and edit to use the output that you have generated in your runs.</p>
+<p>First check what output is available on your Parallel Cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-rlt</span> <span class="pre">/fsx/data/output/*/*ACONC*</span></code></p>
+<p>Then edit the script to use the output filenames available.</p>
+<p>vi compare_EQUATES_benchmark_output_CMAS_pcluster.r</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Directory, file name, and label for first model simulation (sim1)</span>
+<span class="n">sim1</span><span class="o">.</span><span class="n">label</span> <span class="o">&lt;-</span> <span class="s2">"EPA (v5.3.3 w/ GCC)"</span>
+<span class="n">sim1</span><span class="o">.</span><span class="n">dir</span> <span class="o">&lt;-</span> <span class="s2">"/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x16pe/"</span>
+<span class="n">sim1</span><span class="o">.</span><span class="n">file</span> <span class="o">&lt;-</span> <span class="n">paste0</span><span class="p">(</span><span class="n">sim1</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span><span class="s2">"CCTM_ACONC_v533_gcc_2016_CONUS_16x16pe_20151222.nc"</span><span class="p">)</span>
+
+<span class="c1">#Directory, file name, and label for second model simulation (sim2)</span>
+<span class="n">sim2</span><span class="o">.</span><span class="n">label</span> <span class="o">&lt;-</span> <span class="s2">"CMAS (v5.3.3 w/ GCC)"</span>
+<span class="n">sim2</span><span class="o">.</span><span class="n">dir</span> <span class="o">&lt;-</span> <span class="s2">"/fsx/data/output/output_CCTM_v533_gcc_2016_CONUS_16x18pe"</span>
+<span class="n">sim2</span><span class="o">.</span><span class="n">file</span> <span class="o">&lt;-</span> <span class="n">paste0</span><span class="p">(</span><span class="n">sim2</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span><span class="s2">"CCTM_ACONC_v533_gcc_2016_CONUS_16x18pe_20151222.nc"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>First check to see what log files are available:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lrt</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log</span></code></p>
+<p>Edit the R script to modify the name of the log file to match what is avaible on your system.</p>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">parse_timing_pcluster.r</span></code></p>
+<p>Edit the following section of the script to specify the log file names available on your Parallel Cluster</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sens</span><span class="o">.</span><span class="n">dir</span>  <span class="o">&lt;-</span> <span class="s1">'/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'</span>
+<span class="n">base</span><span class="o">.</span><span class="n">dir</span>  <span class="o">&lt;-</span> <span class="s1">'/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'</span>
+<span class="n">files</span>     <span class="o">&lt;-</span> <span class="nb">dir</span><span class="p">(</span><span class="n">sens</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span><span class="s1">'run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log'</span> <span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">files</span> <span class="o">&lt;-</span> <span class="nb">dir</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span><span class="n">pattern</span><span class="o">=</span><span class="s1">'run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log'</span><span class="p">)</span>
+<span class="c1">#Compilers &lt;- c('intel','gcc','pgi')</span>
+<span class="n">Compilers</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s1">'gcc'</span><span class="p">)</span>
+<span class="c1"># name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.</span>
+<span class="c1"># The project directory name is used for the sensitivity case. </span>
+<span class="n">base</span><span class="o">.</span><span class="n">name</span> <span class="o">&lt;-</span> <span class="s1">'12x9pe'</span>
+<span class="n">sens</span><span class="o">.</span><span class="n">name</span> <span class="o">&lt;-</span> <span class="s1">'6x18pe'</span>
+</pre></div>
+</div>
+<p>Run the R scripts</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">pcluster</span><span class="o">-</span><span class="n">cmaq</span><span class="o">/</span><span class="n">qa_scripts</span>
+<span class="n">Rscript</span> <span class="n">compare_EQUATES_benchmark_output_CMAS_pcluster</span><span class="o">.</span><span class="n">r</span>
+<span class="n">Rscript</span> <span class="n">parse_timing_pcluster</span><span class="o">.</span><span class="n">r</span>
+</pre></div>
+</div>
+<p>To view the PDF plots use the command</p>
+<p>cd /shared/pcluster-cmaq/qa_scripts/qa_plots
+gio open OH_MAPS_EPAv5.3.3wGCC_vs_CMASv5.3.3wGCC.pdf</p>
+<p>To convert the PDF to a jpeg image use the script convert.csh.</p>
+<p>cd /shared/pcluster-cmaq/qa_scripts/qa_plots</p>
+<p><code class="docutils literal notranslate"><span class="pre">./convert.csh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">more</span> <span class="pre">convert.csh</span></code></p>
+<p>output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/csh
+
+foreach name (`ls *.pdf`) 
+  set name2=`basename $name .pdf`
+  echo $name
+  echo $name2
+  pdftoppm -jpeg -r 600 $name $name2
+end
+</pre></div>
+</div>
+<p>Example output plots are available for the CONUS Benchmark in the following directory</p>
+<p>When NPCOL is fixed, we are seeing no difference in the answers.</p>
+<p>Example comparsion using: 8x8 compared to 8x16</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">qa_plots</span><span class="o">/</span>
+
+<span class="n">cd</span> <span class="n">box_plots</span>
+
+<span class="n">cd</span> <span class="mi">8</span><span class="n">x8_vs_8x16</span>
+
+</pre></div>
+</div>
+<p>Box Plot for ANO3J when NPCOL is identical</p>
+<p><img alt="ANO3J_BOXPLOT_CMAQv5.3.3wGCC8x8pe_vs_CMAQv5.3.3wGCC8x8pe.jpeg" src="../_images/ANO3J_BOXPLOT_CMAQv5.3.3wGCC8x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>Box plot shows no difference between ACONC output for a CMAQv5.3.3 run using different PE configurations as long as NPCOL is fixed (this is true for all species that were plotted (AOTHRJ, CO, NH3, NO2, O3, OH, SO2)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="mi">16</span><span class="n">x8_vs_8x16</span>
+
+</pre></div>
+</div>
+<p>Box plot shows a difference betweeen ACONC output for a CMAQv5.3.3 run using different PE configurations when NPCOL is different</p>
+<p>ANO3J</p>
+<p><img alt="ANO3J_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/ANO3J_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>AOTHRJ</p>
+<p><img alt="AOTHRJ_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/AOTHRJ_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>CO</p>
+<p><img alt="CO_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/CO_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>NH3</p>
+<p><img alt="NH3_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/NH3_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>NO2</p>
+<p><img alt="NO2_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/NO2_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>O3</p>
+<p><img alt="O3_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/O3_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>OH</p>
+<p><img alt="OH_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/OH_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<p>SO2</p>
+<p><img alt="SO2_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg" src="../_images/SO2_BOXPLOT_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpeg"/></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">spatial_plots</span>
+
+<span class="n">cd</span> <span class="mi">16</span><span class="n">x8_vs_8x16</span>
+</pre></div>
+</div>
+<p>Spatial Plot for when NPCOL is different</p>
+<p>ANO3J</p>
+<p><img alt="ANO3J_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/ANO3J_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>AOTHRJ</p>
+<p><img alt="AOTHRJ_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/AOTHRJ_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>CO</p>
+<p><img alt="CO_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/CO_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>NH3</p>
+<p><img alt="NH3_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/NH3_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>NO2</p>
+<p><img alt="NO2_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/NO2_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>O3</p>
+<p><img alt="O3_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/O3_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>OH</p>
+<p><img alt="OH_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="qa_plots/spatial_plots/16x8_vs_8x16/OH_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+<p>SO2
+<img alt="SO2_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg " src="../_images/SO2_MAPS_CMAQv5.3.3wGCC16x8pe_vs_CMAQv5.3.3wGCC8x16pe.jpg"/></p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Liz Adams
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Quality Assurance Checks for Successful CMAQ Run on Parallel Cluster</a><ul>
+<li><a class="reference internal" href="#run-m3diff-to-compare-the-output-data-for-two-runs-that-have-different-values-for-npcol">run m3diff to compare the output data for two runs that have different values for NPCOL</a></li>
+<li><a class="reference internal" href="#use-m3diff-to-compare-two-runs-that-have-the-same-npcol">Use m3diff to compare two runs that have the same NPCOL</a></li>
+<li><a class="reference internal" href="#run-the-following-r-script">Run the following R script</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>
