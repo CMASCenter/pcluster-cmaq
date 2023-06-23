@@ -87,7 +87,7 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://cmas-cmaq-modeling-platform-2018
+      ImportPath: s3://cmas-cmaq/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/
 ```
 
 #### The Yaml file for the c6a.48xlarge contains the settings as shown in the following diagram.
