@@ -420,6 +420,27 @@ Domain 	                Domain size 	Species Tracked 	Input files size 	Output f
 2018 North East US 	100 X 105 X 35 	225 	                26GB 	                2GB 	                15 min/day (32)
 ```
 
+### Change the NPCOLxNPROW to use all 96 processors
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-07-01
+End Day:   2018-07-01
+Number of Simulation Days: 1
+Domain Name:               2018_12NE3
+Number of Grid Cells:      367500  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-07-01   227.56
+     Total Time = 227.56
+      Avg. Time = 227.56
+```
+
 ### Run 12US1 2 day benchmark case on 96 processors
 
 ```
