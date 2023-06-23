@@ -173,6 +173,12 @@ Note, the following command must be modified to specify your key, and ip address
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
+## Update the pcluster-cmaq repo using git
+
+`cd /shared/pcluster-cmaq`
+
+`git pull`
+
 
 ## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe (this will take less than 2 minutes)
 
@@ -295,7 +301,7 @@ Vulnerabilities:
 
 Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
 
-`cd /shared/pcluster-cmaq/`
+`cd /shared/pcluster-cmaq/s3_scripts`
 
 Examine the command line options that are used to download the data. Note, that we can use the --nosign option, as the data is available from the CMAS Open Data Warehouse on AWS.
 
