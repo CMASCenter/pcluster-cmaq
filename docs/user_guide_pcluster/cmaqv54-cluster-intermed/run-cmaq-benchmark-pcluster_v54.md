@@ -120,10 +120,8 @@ The 192 pe job should take 62 minutes to run (31 minutes per day)
 
 (optional)
 
-```
 <a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1">Cloudwatch Dashboard</a>
 <a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/">Monitoring Dashboard for ParallelCluster</a>
-```
 
 ### check the timings while the job is still running using the following command
 
