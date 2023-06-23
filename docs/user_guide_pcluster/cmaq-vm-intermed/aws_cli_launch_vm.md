@@ -325,6 +325,10 @@ setenv AWS_REGION "us-east-1"
 aws s3 cp --no-sign-request --recursive s3://cmas-cmaq/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input /shared/data/
 ```
 
+### change the permissions on the script
+
+`chmod 755 s3_copy_12NE3_Bench.csh`
+
 ### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket.
 
 `./s3_copy_12NE3_Bench.csh`
