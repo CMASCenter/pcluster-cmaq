@@ -343,7 +343,7 @@ ln -s /shared/data/2018_12NE3 .
 
 ### Edit the 12US3 Benchmark run script to use the gcc compiler and to output all species to CONC output file.
 
-`cd /shared/build/openmpi_gcc/CMAQv5.4+/CCTM/scripts/`
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 `vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
 
