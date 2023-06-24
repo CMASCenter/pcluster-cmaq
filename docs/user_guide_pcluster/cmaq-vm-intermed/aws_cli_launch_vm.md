@@ -479,6 +479,35 @@ Num  Day        Wall Time
 
 `htop`
 
+### Check the timings while the job is still running using the following command
+
+```
+cd /shared/data/output/output_v54_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_8x12_classic
+
+
+grep 'Processing completed' CTM_LOG_001*
+```
+
+Output:
+
+```
+            Processing completed...       9.0214 seconds
+            Processing completed...       8.9559 seconds
+            Processing completed...       8.9168 seconds
+            Processing completed...       8.9294 seconds
+            Processing completed...       8.9067 seconds
+            Processing completed...      12.6627 seconds
+            Processing completed...       9.4496 seconds
+            Processing completed...       8.8013 seconds
+            Processing completed...       8.8550 seconds
+            Processing completed...       8.8905 seconds
+            Processing completed...       8.8481 seconds
+            Processing completed...       8.8778 seconds
+            Processing completed...       8.8695 seconds
+            Processing completed...       8.9117 seconds
+            Processing completed...       8.9099 seconds
+```
+
 ### Successful run timing
 
 ```
