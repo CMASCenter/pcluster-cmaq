@@ -13,7 +13,7 @@ Todo: Need to create command line options to copy a public ami to a different re
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-050dcfb58d06074bb`
+`aws ec2 describe-images --region us-east-1 --image-id ami-065049c5c78e6c6a5`
 
 
 Output:
@@ -23,9 +23,9 @@ Output:
     "Images": [
         {
             "Architecture": "x86_64",
-            "CreationDate": "2023-06-22T16:57:48.000Z",
-            "ImageId": "ami-050dcfb58d06074bb",
-            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge_16000IOPS_gp3",
+            "CreationDate": "2023-06-24T00:17:02.000Z",
+            "ImageId": "ami-065049c5c78e6c6a5",
+            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge.io2.iops.100000",
             "ImageType": "machine",
             "Public": true,
             "OwnerId": "440858712842",
@@ -37,11 +37,10 @@ Output:
                     "DeviceName": "/dev/sda1",
                     "Ebs": {
                         "DeleteOnTermination": true,
-                        "Iops": 16000,
-                        "SnapshotId": "snap-0a640fde9ea2c9a68",
+                        "Iops": 100000,
+                        "SnapshotId": "snap-08b8608dca836ef2e",
                         "VolumeSize": 500,
-                        "VolumeType": "gp3",
-                        "Throughput": 1000,
+                        "VolumeType": "io2",
                         "Encrypted": false
                     }
                 },
@@ -56,12 +55,12 @@ Output:
             ],
             "EnaSupport": true,
             "Hypervisor": "xen",
-            "Name": "cmaqv5.4_c6a.48xlarge_16000IOPS_gp3",
+            "Name": "cmaqv5.4_c6a.48xlarge.io2.iops.100000",
             "RootDeviceName": "/dev/sda1",
             "RootDeviceType": "ebs",
             "SriovNetSupport": "simple",
             "VirtualizationType": "hvm",
-            "DeprecationTime": "2025-06-22T16:57:48.000Z"
+            "DeprecationTime": "2025-06-24T00:17:02.000Z"
         }
     ]
 }
@@ -70,7 +69,7 @@ Output:
 
 Use q to exit out of the command line
 
-Note, the AMI uses the maximum value available on gp3 for Iops of 16000, and maximum value of throughput of 1000.
+Note, the AMI uses the maximum value available on io2 for Iops of 100000.
 
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
@@ -100,7 +99,7 @@ cat <<EoF > ./runinstances-config.json
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.48xlarge",
-    "ImageId": "ami-050dcfb58d06074bb",
+    "ImageId": "ami-065049c5c78e6c6a5",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -144,7 +143,7 @@ Command that works for UNC's security group and pem key:
 
 Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.hyperthread-off.16000IOPS.ondemand.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
@@ -152,7 +151,6 @@ Example of security group inbound and outbound rules required to connect to EC2 
 
 ![Outbound Rule](../cmaq-vm/security_group_inbound_rule.png)
 
-(I am not sure if you can create a security group rule from the aws command line.)
 
 Additional resources
 
@@ -162,13 +160,18 @@ Additional resources
 
 This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-050dcfb58d06074bb" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-065049c5c78e6c6a5" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
 Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
 
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
+
+
+### Login to the ec2 instance again, so that you have two windows logged into the machine.
+
+`ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address` 
 
 
 ## Load the environment modules
@@ -297,9 +300,6 @@ Vulnerabilities:
   Tsx async abort:       Not affected
 ```
 
-### Login to the ec2 instance again, so that you have two windows logged into the machine.
-
-`ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address`
 
 ### Download input data for 12NE3 1 day Benchmark case
 
@@ -508,7 +508,31 @@ Output:
             Processing completed...       8.9099 seconds
 ```
 
-### Successful run timing
+
+### Successful timing using io2 filesystem
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   3003.4
+02   2017-12-23   3321.5
+     Total Time = 6324.90
+      Avg. Time = 3162.45
+
+```
+
+### Successful run timing using gp3 filesystem (somtimes the timing is 2x worse, haven't found a cause for this variabilities in performance)
 
 ```
 ==================================
@@ -530,6 +554,8 @@ Num  Day        Wall Time
       Avg. Time = 3228.55
 
 ```
+
+
 
 Compare timing to output available <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md#571-cctm-logfiles">CMAQ User Guide: Running CMAQ</a>
 
