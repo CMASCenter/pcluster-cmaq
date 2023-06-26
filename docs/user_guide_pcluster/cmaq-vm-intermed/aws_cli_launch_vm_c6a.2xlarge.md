@@ -347,7 +347,7 @@ output
 Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
 It also takes longer to run using 4 cores on c6a.2xlarge instance than on 32 cores on c6a.48xlarge instance.
 
-### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
+### Successful output for 12 species output in the 3-D CONC file took 56 minutes to run 1 day
 
 ```
 ==================================
