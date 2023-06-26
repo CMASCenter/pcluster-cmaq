@@ -7,7 +7,7 @@ Creating an EC2 instance from the Command Line is easy to do. In this tutorial w
 
 | Benchmark Name | Grid Domain | EC2 Instance| vCPU   |  Cores | Memory | Network Performance | Storage | On Demand Hourly Cost | Spot Hourly Cost |
 | -------------- | ----------- | ----------  | ------ | ---    |----    | ---------------       | ----  | -------------------   | -------------    |
-| Training 12km Listos | (25x25x35)   | c6a.xlarge    | 4 | 2 | 8 GiB | Up to 12500 Megabit | EBS Only | .0765 | 0.0742 |
+| Training 12km Listos | (25x25x35)   | c6a.2xlarge    | 8 | 4 | 16 GiB | Up to 12500 Megabit | EBS Only | 0.306 | 0.2879 |
 | 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | EBS Only | 1.224  | 1.0008 |
 | 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit | EBS only | 7.344  | 5.5809 |
 
