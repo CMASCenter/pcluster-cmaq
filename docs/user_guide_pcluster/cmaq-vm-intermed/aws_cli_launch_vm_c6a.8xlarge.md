@@ -358,9 +358,9 @@ output
 
 
 Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
-It also takes longer to run using 4 cores on c6a.2xlarge instance than on 32 cores on c6a.48xlarge instance.
+It also takes longer to run using 16 cores on c6a.8xlarge instance than on 32 cores on c6a.48xlarge instance.
 
-### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
+### Successful output for xx species output in the 3-D CONC file took xx to run 1 day
 
 ```
 ==================================
@@ -372,16 +372,18 @@ Number of Simulation Days: 1
 Domain Name:               2018_12NE3
 Number of Grid Cells:      367500  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       4
+Number of Processes:       16
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2018-07-01   3410.99
-     Total Time = 3410.99
-      Avg. Time = 3410.99
+01   2018-07-01   986.60
+     Total Time = 986.60
+      Avg. Time = 986.60
+
+
 ```
 
-Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 7.67 or close to perfect scalability of adding 8x as many cores.
+Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 2.2 scalability of adding 2x as many cores.
 
 ### Find the InstanceID using the following command on your local machine.
 
