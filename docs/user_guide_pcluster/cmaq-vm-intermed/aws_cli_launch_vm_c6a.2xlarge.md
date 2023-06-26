@@ -1,4 +1,4 @@
-# Learn how to Use AWS CLI to launch EC2 instance using Public AMI
+# Learn how to Use AWS CLI to launch c6a.2xlarge EC2 instance using Public AMI
 
 ## Public AMI contains the software and data to run 12US1, 12NE3, and 12LISTOS-training using CMAQv5.4+
 
