@@ -341,9 +341,11 @@ Change the NPCOL, NPROW to run on 4 cores
 
 output
 
-
 ![Screenshot of HTOP](../cmaq-vm-intermed/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
 
+
+Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
+It also takes longer to run using 4 cores on c6a.2xlarge instance than on 32 cores on c6a.48xlarge instance.
 
 ### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
 
@@ -357,184 +359,16 @@ Number of Simulation Days: 1
 Domain Name:               2018_12NE3
 Number of Grid Cells:      367500  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       32
+Number of Processes:       4
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2018-07-01   445.19
-     Total Time = 445.19
-      Avg. Time = 445.19
-
-
+01   2018-07-01   3410.99
+     Total Time = 3410.99
+      Avg. Time = 3410.99
 ```
 
-### Successful output for all species output in the 3-D CONC File (222 variables)
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-07-01
-End Day:   2018-07-01
-Number of Simulation Days: 1
-Domain Name:               2018_12NE3
-Number of Grid Cells:      367500  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       32
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-07-01   444.34
-     Total Time = 444.34
-      Avg. Time = 444.34
-
-```
-
-Compare to timings available in <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch03_preparing_compute_environment.md">Table 3-1 Example of job scenarios at EPA for a single day simulation.</a>
-
-```
-Domain 	                Domain size 	Species Tracked 	Input files size 	Output files size 	Run time (# cores)
-2018 North East US 	100 X 105 X 35 	225 	                26GB 	                2GB 	                15 min/day (32)
-```
-
-### Change the NPCOLxNPROW to use all 96 processors
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-07-01
-End Day:   2018-07-01
-Number of Simulation Days: 1
-Domain Name:               2018_12NE3
-Number of Grid Cells:      367500  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       96
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-07-01   227.56
-     Total Time = 227.56
-      Avg. Time = 227.56
-```
-
-### Run 12US1 2 day benchmark case on 96 processors
-
-```
-./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.csh | & tee run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.16000IOPS.log
-```
-
-### Successful timing
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2017-12-22
-End Day:   2017-12-23
-Number of Simulation Days: 2
-Domain Name:               12US1
-Number of Grid Cells:      4803435  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       96
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2017-12-22   2979.7
-02   2017-12-23   3333.7
-     Total Time = 6313.40
-      Avg. Time = 3156.70
-```
-
-### Run 12US1 2 day benchmark case on 96 processors
-
-```
-./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.csh |& tee ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.12x8.ncclassic.log
-```
-
-### Verify that it is using 99% of each of the 96 cores using htop
-
-`htop`
-
-### Check the timings while the job is still running using the following command
-
-```
-cd /shared/data/output/output_v54_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_8x12_classic
-
-
-grep 'Processing completed' CTM_LOG_001*
-```
-
-Output:
-
-```
-            Processing completed...       9.0214 seconds
-            Processing completed...       8.9559 seconds
-            Processing completed...       8.9168 seconds
-            Processing completed...       8.9294 seconds
-            Processing completed...       8.9067 seconds
-            Processing completed...      12.6627 seconds
-            Processing completed...       9.4496 seconds
-            Processing completed...       8.8013 seconds
-            Processing completed...       8.8550 seconds
-            Processing completed...       8.8905 seconds
-            Processing completed...       8.8481 seconds
-            Processing completed...       8.8778 seconds
-            Processing completed...       8.8695 seconds
-            Processing completed...       8.9117 seconds
-            Processing completed...       8.9099 seconds
-```
-
-
-### Successful timing using io2 filesystem
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2017-12-22
-End Day:   2017-12-23
-Number of Simulation Days: 2
-Domain Name:               12US1
-Number of Grid Cells:      4803435  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       96
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2017-12-22   3003.4
-02   2017-12-23   3321.5
-     Total Time = 6324.90
-      Avg. Time = 3162.45
-
-```
-
-### Successful run timing using gp3 filesystem (somtimes the timing is 2x worse, haven't found a cause for this variabilities in performance)
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2017-12-22
-End Day:   2017-12-23
-Number of Simulation Days: 2
-Domain Name:               12US1
-Number of Grid Cells:      4803435  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       96
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2017-12-22   3070.4
-02   2017-12-23   3386.7
-     Total Time = 6457.10
-      Avg. Time = 3228.55
-
-```
-
-
-
-Compare timing to output available <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md#571-cctm-logfiles">CMAQ User Guide: Running CMAQ</a>
+Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 7.67 or close to perfect scalability of adding 8x as many cores.
 
 ### Find the InstanceID using the following command on your local machine.
 
