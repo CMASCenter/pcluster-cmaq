@@ -187,7 +187,7 @@ Note, the following command must be modified to specify your key, and ip address
 `git pull`
 
 
-## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe
+## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
 Input data is available for a subdomain of the 12km 12US1 case.
 
