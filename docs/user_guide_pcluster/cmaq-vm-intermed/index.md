@@ -1,6 +1,6 @@
 # CMAQv5.4 on Single Virtual Machine Intermediate (software pre-installed)
 
-Creating an EC2 instance from the Command Line is easy to do. In this tutorial we will give examples on how to create and run using ec2 instances that are vary in size depending on the size of the CMAQ benchmarks.
+Creating an EC2 instance from the Command Line is easy to do. In this tutorial we will give examples on how to create and run using ec2 instances that vary in size depending on the size of the CMAQ benchmarks.
 
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2.html">Using Amazon EC2 with the AWS CLI</a>
 <a href="https://aws.amazon.com/ec2/spot/pricing/">SPOT Pricing</a>
