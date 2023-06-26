@@ -302,46 +302,6 @@ Vulnerabilities:
 ```
 
 
-### Download input data for 12NE3 1 day Benchmark case
-
-Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
-
-`cd /shared/pcluster-cmaq/s3_scripts`
-
-Examine the command line options that are used to download the data. Note, that we can use the --nosign option, as the data is available from the CMAS Open Data Warehouse on AWS.
-
-`cat s3_copy_12NE3_Bench.csh`
-
-Output
-
-```
-#!/bin/csh -f
-#Script to download enough data to run START_DATE 201522 and END_DATE 201523 for 12km Northeast Domain
-#Requires installing aws command line interface
-#https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
-#Total storage required is 56 G
-
-setenv AWS_REGION "us-east-1"
-
-aws s3 cp --no-sign-request --recursive s3://cmas-cmaq/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input /shared/data/
-```
-
-### change the permissions on the script
-
-`chmod 755 s3_copy_12NE3_Bench.csh`
-
-### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket.
-
-`./s3_copy_12NE3_Bench.csh`
-
-
-### Link the data directory on /shared/data
-
-```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/data
-ln -s /shared/data/2018_12NE3 .
-```
-
 ### Edit the 12US3 Benchmark run script to use the gcc compiler and to output all species to CONC output file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
@@ -362,11 +322,17 @@ Comment out the CONC_SPCS setting that limits them to only 12 species
    # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
 ```
 
+Change the NPCOL, NPROW to run on 4 cores
+
+```
+   @ NPCOL  =  2; @ NPROW =  2
+```
+
 
 ### Run the 12US3 Benchmark case 
 
 ```
-./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.32pe.log
+./run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.2xlarge.4pe.log
 ```
 
 ### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
