@@ -1,4 +1,4 @@
-# Learn how to Use AWS CLI to launch c6a.2xlarge EC2 instance using Public AMI
+# Learn how to Use AWS CLI to launch c6a.8xlarge EC2 instance using Public AMI
 
 ## Public AMI contains the software and data to run 12US1, 12NE3, and 12LISTOS-training using CMAQv5.4+
 
@@ -6,14 +6,14 @@ Software was pre-installed and saved to a public ami.
 
 The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
 
-This chapter describes the process that was used to test and configure the c6a.2xlarge ec2 instance to run CMAQv5.4 for the 12LISTOS-training domain.
+This chapter describes the process that was used to test and configure the c6a.8xlarge ec2 instance to run CMAQv5.4 for the 12NE3 domain.
 
 Todo: Need to create command line options to copy a public ami to a different region.
 
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-065049c5c78e6c6a5`
+`aws ec2 describe-images --region us-east-1 --image-id ami-088f82f334dde0c9f`
 
 
 Output:
@@ -23,9 +23,9 @@ Output:
     "Images": [
         {
             "Architecture": "x86_64",
-            "CreationDate": "2023-06-24T00:17:02.000Z",
-            "ImageId": "ami-065049c5c78e6c6a5",
-            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge.io2.iops.100000",
+            "CreationDate": "2023-06-26T18:17:08.000Z",
+            "ImageId": "ami-088f82f334dde0c9f",
+            "ImageLocation": "440858712842/EC2CMAQv54io2_12LISTOS-training_12NE3_12US1",
             "ImageType": "machine",
             "Public": true,
             "OwnerId": "440858712842",
@@ -38,7 +38,7 @@ Output:
                     "Ebs": {
                         "DeleteOnTermination": true,
                         "Iops": 100000,
-                        "SnapshotId": "snap-08b8608dca836ef2e",
+                        "SnapshotId": "snap-042b05034228ec830",
                         "VolumeSize": 500,
                         "VolumeType": "io2",
                         "Encrypted": false
@@ -55,15 +55,16 @@ Output:
             ],
             "EnaSupport": true,
             "Hypervisor": "xen",
-            "Name": "cmaqv5.4_c6a.48xlarge.io2.iops.100000",
+            "Name": "EC2CMAQv54io2_12LISTOS-training_12NE3_12US1",
             "RootDeviceName": "/dev/sda1",
             "RootDeviceType": "ebs",
             "SriovNetSupport": "simple",
             "VirtualizationType": "hvm",
-            "DeprecationTime": "2025-06-24T00:17:02.000Z"
+            "DeprecationTime": "2025-06-26T18:17:08.000Z"
         }
     ]
 }
+
 
 ```
 
@@ -98,8 +99,8 @@ cat <<EoF > ./runinstances-config.json
     "DryRun": false,
     "MaxCount": 1,
     "MinCount": 1,
-    "InstanceType": "c6a.2xlarge",
-    "ImageId": "ami-065049c5c78e6c6a5",
+    "InstanceType": "c6a.8xlarge",
+    "ImageId": "ami-088f82f334dde0c9f",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -118,7 +119,7 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-## Use the publically available AMI to launch an ondemand c6a.2xlarge ec2 instance using a io2 volume with 100000 IOPS with hyperthreading disabled 
+## Use the publically available AMI to launch an ondemand c6a.8xlarge ec2 instance using a io2 volume with 100000 IOPS with hyperthreading disabled 
 
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
@@ -139,11 +140,13 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 Command that works for UNC's security group and pem key:
 
-yaws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.c6a.2xlarge.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=32,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.c6a.8xlarge.json`
 
 Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.c6a.2xlarge.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=32,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.c6a.8xlarge.json`
+
+Use q to quit to return to the command prompt.
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
@@ -160,9 +163,9 @@ Additional resources
 
 This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-065049c5c78e6c6a5" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-088f82f334dde0c9f" | grep PublicIpAddress`
 
-### Login to the ec2 instance
+### Login to the ec2 instance (may need to wait 5 minutes for the ec2 instance to initialize and be ready for login)
 
 Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
 
@@ -203,7 +206,7 @@ GRIDDESC
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-./run_cctm_2018_12US1_listos.csh | & tee ./run_cctm_2018_12US1_listos.c6a.2xlarge.log
+./run_cctm_2018_12US1_listos_32pe.csh | & tee ./run_cctm_2018_12US1_listos_32pe.c6a.8xlarge.log
 ```
 
 ### Use HTOP to view performance.
@@ -247,7 +250,7 @@ The c6a.2xlarge also has smaller cache sizes than the c6a.48xlarge, which you ca
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-### Use lscpu to confirm that there are 4 cores on the c6a.2xlarge ec2 instance that was created with hyperthreading turned off.
+### Use lscpu to confirm that there are 4 cores on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
 
 `lscpu`
 
@@ -347,7 +350,7 @@ output
 Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
 It also takes longer to run using 4 cores on c6a.2xlarge instance than on 32 cores on c6a.48xlarge instance.
 
-### Successful output for 12 species output in the 3-D CONC file took 56 minutes to run 1 day
+### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
 
 ```
 ==================================
