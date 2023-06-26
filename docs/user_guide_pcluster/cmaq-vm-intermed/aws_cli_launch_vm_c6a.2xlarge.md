@@ -335,6 +335,16 @@ Change the NPCOL, NPROW to run on 4 cores
 ./run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.2xlarge.4pe.log
 ```
 
+### Use HTOP to view performance.
+
+`htop`
+
+output
+
+
+![Screenshot of HTOP](../cmaq-vm-intermed/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
+
+
 ### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
 
 ```
