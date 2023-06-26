@@ -260,7 +260,7 @@ The c6a.8xlarge also has smaller cache sizes than the c6a.48xlarge, which you ca
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-### Use lscpu to confirm that there are 4 cores on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
+### Use lscpu to confirm that there are 16 cores on the c6a.8xlarge ec2 instance that was created with hyperthreading turned off.
 
 `lscpu`
 
