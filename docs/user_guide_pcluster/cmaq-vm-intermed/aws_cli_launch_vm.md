@@ -13,7 +13,7 @@ Todo: Need to create command line options to copy a public ami to a different re
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-065049c5c78e6c6a5`
+`aws ec2 describe-images --region us-east-1 --image-id ami-088f82f334dde0c9f`
 
 
 Output:
@@ -23,9 +23,9 @@ Output:
     "Images": [
         {
             "Architecture": "x86_64",
-            "CreationDate": "2023-06-24T00:17:02.000Z",
-            "ImageId": "ami-065049c5c78e6c6a5",
-            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge.io2.iops.100000",
+            "CreationDate": "2023-06-26T18:17:08.000Z",
+            "ImageId": "ami-088f82f334dde0c9f",
+            "ImageLocation": "440858712842/EC2CMAQv54io2_12LISTOS-training_12NE3_12US1",
             "ImageType": "machine",
             "Public": true,
             "OwnerId": "440858712842",
@@ -38,7 +38,7 @@ Output:
                     "Ebs": {
                         "DeleteOnTermination": true,
                         "Iops": 100000,
-                        "SnapshotId": "snap-08b8608dca836ef2e",
+                        "SnapshotId": "snap-042b05034228ec830",
                         "VolumeSize": 500,
                         "VolumeType": "io2",
                         "Encrypted": false
@@ -55,12 +55,12 @@ Output:
             ],
             "EnaSupport": true,
             "Hypervisor": "xen",
-            "Name": "cmaqv5.4_c6a.48xlarge.io2.iops.100000",
+            "Name": "EC2CMAQv54io2_12LISTOS-training_12NE3_12US1",
             "RootDeviceName": "/dev/sda1",
             "RootDeviceType": "ebs",
             "SriovNetSupport": "simple",
             "VirtualizationType": "hvm",
-            "DeprecationTime": "2025-06-24T00:17:02.000Z"
+            "DeprecationTime": "2025-06-26T18:17:08.000Z"
         }
     ]
 }
@@ -99,7 +99,7 @@ cat <<EoF > ./runinstances-config.json
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.48xlarge",
-    "ImageId": "ami-065049c5c78e6c6a5",
+    "ImageId": "ami-088f82f334dde0c9f",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -139,7 +139,7 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 Command that works for UNC's security group and pem key:
 
-yaws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.json`
 
 Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
 
@@ -160,7 +160,7 @@ Additional resources
 
 This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-065049c5c78e6c6a5" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-088f82f334dde0c9f" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
@@ -171,7 +171,7 @@ Note, the following command must be modified to specify your key, and ip address
 
 ### Login to the ec2 instance again, so that you have two windows logged into the machine.
 
-`ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address` 
+`ssh -Y -i ~/downloads/your-pem.pem ubuntu@your-ip-address` 
 
 
 ## Load the environment modules
@@ -305,6 +305,8 @@ Vulnerabilities:
 
 Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
 
+(note, you can skip this step as the input data has already been installed.)
+
 `cd /shared/pcluster-cmaq/s3_scripts`
 
 Examine the command line options that are used to download the data. Note, that we can use the --nosign option, as the data is available from the CMAS Open Data Warehouse on AWS.
@@ -345,6 +347,8 @@ ln -s /shared/data/2018_12NE3 .
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
+`cp run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh run_cctm_Bench_2018_12NE3.c6a.48xlarge.csh`
+
 `vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
 
 change
@@ -361,8 +365,43 @@ Comment out the CONC_SPCS setting that limits them to only 12 species
    # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
 ```
 
+Change NPCOL x NPROW to use 12 x 8
 
-### Run the 12US3 Benchmark case 
+```
+   @ NPCOL  =  12; @ NPROW =  8
+```
+
+
+### Run the 12US3 Benchmark case  on 96 processors
+
+```
+./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.96pe.log
+```
+
+### Successful output for all species output in the 3-D CONC File (222 variables)
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-07-01
+End Day:   2018-07-01
+Number of Simulation Days: 1
+Domain Name:               2018_12NE3
+Number of Grid Cells:      367500  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-07-01   236.27
+     Total Time = 236.27
+      Avg. Time = 236.27
+```
+
+
+
+### Run the 12US3 Benchmark case  on 32 processors
 
 ```
 ./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.32pe.log
