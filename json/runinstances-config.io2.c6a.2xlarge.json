@@ -3,14 +3,14 @@
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.2xlarge",
-    "ImageId": "ami-050dcfb58d06074bb",
+    "ImageId": "ami-065049c5c78e6c6a5",
     "TagSpecifications": [
         {
             "ResourceType": "instance",
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "EC2CMAQv54"
+                    "Value": "EC2CMAQv54io2"
                 }
             ]
         }
