@@ -15,7 +15,7 @@ Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a P
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
-`cd pcluster-cmaq`
+`cd pcluster-cmaq/yaml`
 
 ```{note} To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for ParallelCluster</a>
@@ -183,7 +183,7 @@ The software is pre-loaded on the /shared volume of the ParallelCluster.  The so
 
 Create a .cshrc file by copying it from the git repo that is on /shared/pcluster-cmaq
 
-`cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc`
+`cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc`
 
 Source shell
 
