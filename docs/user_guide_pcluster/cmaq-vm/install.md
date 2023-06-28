@@ -171,6 +171,44 @@ output
 /usr/bin/tcsh
 ```
 
+### Check available versions of compiler
+
+```
+dpkg --list | grep compiler
+```
+
+### Choose gcc-9 and gfortran-9 as default compilers
+
+```
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9
+sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-9 9
+```
+
+### Check version of gcc
+
+```
+gcc --version
+```
+
+output
+
+```
+gcc --version
+gcc (Ubuntu 9.5.0-1ubuntu1~22.04) 9.5.0
+```
+
+### Check version of gfortran
+
+```
+gfortran --version
+```
+
+Output
+
+```
+GNU Fortran (Ubuntu 9.5.0-1ubuntu1~22.04) 9.5.0
+```
+
 
 ### Check version of OpenMPI
 
@@ -193,7 +231,7 @@ mpirun (Open MPI) 4.1.2
 
 ### Install and build netcdf C, netcdf Fortran, I/O API, and CMAQ
 
-`cd /shared/pcluster-cmaq`
+`cd /shared/pcluster-cmaq/install`
 
 ### Install netcdf-C and netcdf-Fortran
 
