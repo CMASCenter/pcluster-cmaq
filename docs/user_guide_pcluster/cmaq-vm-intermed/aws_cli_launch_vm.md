@@ -165,6 +165,7 @@ This command is commented out, as the instance hasn't been created yet. keeping 
 ### Login to the ec2 instance
 
 Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
+Note, you will get a connection refused if you try to login prior to the ec2 instance being ready to run (takes ~5 minutes for initialization).
 
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
