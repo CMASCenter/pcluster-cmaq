@@ -24,7 +24,7 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
-`cd pcluster-cmaq`
+`cd pcluster-cmaq/yaml`
 
 ####  Edit the c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.yaml
 

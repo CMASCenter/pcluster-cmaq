@@ -78,7 +78,7 @@ Example available in c5n-18xlarge.ebs_shared.fsx_import.yaml
 ```
 
 ```
-cd /shared/pcluster-cmaq/
+cd /shared/pcluster-cmaq/yaml
 vi hpc6a.48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml  
 ```
 
