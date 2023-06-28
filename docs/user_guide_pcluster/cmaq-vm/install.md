@@ -781,3 +781,5 @@ Num  Day        Wall Time
      Total Time = 229.60
       Avg. Time = 76.53
 ```
+
+Need to add command line options to upgrade the VM and to disable hyperthreading.
