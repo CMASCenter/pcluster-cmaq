@@ -171,7 +171,7 @@ Note, the following command must be modified to specify your key, and ip address
 
 ### Login to the ec2 instance again, so that you have two windows logged into the machine.
 
-`ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address` 
+`ssh -Y -i ~/downloads/your-pem.pem ubuntu@your-ip-address` 
 
 
 ## Load the environment modules
