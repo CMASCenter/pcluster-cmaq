@@ -1,4 +1,4 @@
-# Learn how to Use AWS CLI to launch EC2 instance using Public AMI
+# Documentation of Troubleshooting effort for CMAQv5.4+ on 12US1 
 
 ## Public AMI contains the software and data to run 12US1 using CMAQv5.4+
 
