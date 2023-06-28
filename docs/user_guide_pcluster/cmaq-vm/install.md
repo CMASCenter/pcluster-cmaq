@@ -516,7 +516,8 @@ cd /shared/pcluster-cmaq/install
 ./gcc_cmaq54+_singlevm.csh |& tee ./gcc_cmaq54+_singlevm.log
 ```
 
-#### Add compile option to makefile to get beyond a type mismatch error
+#### Add compile option to makefile to get beyond a type mismatch error (note, this is only needed if you were using the gcc-11 compiler. 
+SKIP this step.
 
 Add the following to the compile option: -fallow-argument-mismatch
 
@@ -646,7 +647,28 @@ ln -s /shared/data/12US1_LISTOS .
 
 Note, this Virtual Machine does not have Slurm installed or configured.
 
+
 ## Run CMAQ interactively using the following command:
+
+### First check to see how many cpus you have available on the machine.
+
+```
+lscpu
+```
+
+Output
+
+```
+CPU(s):                  4
+  On-line CPU(s) list:   0-3
+```
+
+Verify that the run script is set to run on 4 cpus
+
+```
+   @ NPCOL  =  2; @ NPROW =  2
+```
+
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
@@ -680,11 +702,29 @@ Num  Day        Wall Time
 
 ```
 
-## Run CMAQ interactively on 32 pes using the following command:
+## If you upgrade this VM from a c6.large to a c6.8xlarge, then you could run CMAQ interactively on 16 pes using the following command:
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
+
+Edit the script to change NPCOL NPROW to 4 x 4
+
+`cp run_cctm_2018_12US1_listos.csh run_cctm_2018_12US1_listos_16pe.csh`
+
+`vi run_cctm_2018_12US1_listos_16pe.csh`
+
+change
+
+
+
+`./run_cctm_2018_12US1_listos_16pe.csh |& tee run_cctm_2018_12US1_listos_16pe.log`
+
+
+Or if you were to upgrade to a c6.16xlarge, then you could run on 32 cores using the following command:
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
 `./run_cctm_2018_12US1_listos_32pe.csh |& tee run_cctm_2018_12US1_listos_32pe.log`
+
 
 Output
 
