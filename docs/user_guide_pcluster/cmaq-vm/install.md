@@ -330,7 +330,7 @@ Create a new custom module that will be loaded with:
 module load ioapi-3.2/gcc-9.5-netcdf
 ```
 
-Step 1: Create the module file.
+Step 1: Create the module file for ioapi-3.2.
 
 First, create a path to store the module file. The path must contain /Modules/modulefiles/ and should have the general form
 /<path to>/Modules/modulefiles/<module-name>/<version> where <version> is typically numerical and is the actual module file.  
@@ -366,7 +366,68 @@ The example module file above sets two evironment variables.
 
 The modules update the PATH and LD_LIBRARY_PATH. 
 
-Step 2: Add the module path to MODULEPATH.
+Step 2. Create the module file for netcdf-4.8.1
+
+```
+mkdir -p /shared/build/Modules/modulefiles/netcdf-4.8.1
+```
+
+Next, create the module file and save it in the directory above.
+
+```
+cd /shared/build/Modules/modulefiles/netcdf-4.8.1
+vim gcc-9.5
+```
+
+Contents of gcc-9.5
+
+```
+#%Module
+  
+proc ModulesHelp { } {
+   puts stderr "This module adds netcdf-4.8.1/gcc-9.5 to your path"
+}
+
+module-whatis "This module adds netcdf-4.8.1/gcc-9.5 to your path\n"
+
+set basedir "/shared/build/netcdf"
+prepend-path PATH "${basedir}/bin"
+prepend-path LD_LIBRARY_PATH "${basedir}/lib"
+module load mpi/openmpi-4.1.2
+```
+
+Step 3. Create the module file for mpi
+
+```
+mkdir -p /shared/build/Modules/modulefiles/mpi
+```
+
+Next, create the module file and save it in the directory above.
+
+```
+cd /shared/build/Modules/modulefiles/mpi
+vim openmpi-4.1.2
+```
+
+
+Contents of openmpi-4.1.2
+
+```
+#%Module
+  
+proc ModulesHelp { } {
+   puts stderr "This module adds mpi/openmpi-4.1.2 to your path"
+}
+
+module-whatis "This module adds mpi/openmpi-4.1.2 to your path\n"
+
+set basedir "/usr/lib/x86_64-linux-gnu/openmpi/"
+prepend-path PATH "/usr/bin/"
+prepend-path LD_LIBRARY_PATH "${basedir}/lib"
+```
+
+
+Step 4: Add the module path to MODULEPATH.
 
 Now that the module file has been created, add the following line to your ~/.cshrc file so that it can be found:
 
@@ -374,7 +435,7 @@ Now that the module file has been created, add the following line to your ~/.csh
 module use --append /shared/build/Modules/modulefiles
 ```
 
-Step 3: View the modules available after creation of the new module
+Step 5: View the modules available after creation of the new module
 
 The module avail command shows the paths to the module files on a given cluster.
 
@@ -382,10 +443,16 @@ The module avail command shows the paths to the module files on a given cluster.
 module avail
 ```
 
-Step 4: Load the new module
+Output
 
 ```
-module load ioapi-3.2/gcc-9.5-netcdf
+ioapi-3.2/gcc-9.5-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-9.5 
+```
+
+Step 4: Load the new modules
+
+```
+ioapi-3.2/gcc-9.5-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-9.5 
 ```
 
 ### Find path for openmpi libraries
@@ -444,7 +511,10 @@ pip install jupyterlab
 
 ### Install and Build CMAQ
 
-`./gcc_cmaq54+_singlevm.csh |& tee ./gcc_cmaq54+_singlevm.log`
+```
+cd /shared/pcluster-cmaq/install
+./gcc_cmaq54+_singlevm.csh |& tee ./gcc_cmaq54+_singlevm.log
+```
 
 #### Add compile option to makefile to get beyond a type mismatch error
 
