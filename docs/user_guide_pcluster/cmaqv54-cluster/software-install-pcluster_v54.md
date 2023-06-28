@@ -73,7 +73,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ### Change directories to install and build the libraries and CMAQ
 
-`cd /shared/pcluster-cmaq`
+`cd /shared/pcluster-cmaq/install`
 
 Note: the sofware build process for CMAQ integration and continuous deployment needs improvement.
 Currently the Unidata Ucar netcdf-c download page is broken, and the location where the source code can be obtained may need to be updated from their  website to the netcdf git repository.
