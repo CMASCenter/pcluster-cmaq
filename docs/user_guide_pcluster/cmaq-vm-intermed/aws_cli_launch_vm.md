@@ -647,7 +647,11 @@ Num  Day        Wall Time
 
 ```
 
-### Successful run timing using gp3 filesystem (somtimes the timing is 2x worse, haven't found a cause for this variabilities in performance)
+### Successful run timing using gp3 filesystem 
+
+(sometimes the timing is 2x worse, the cause for this variabilities in performance is most likely due to the volume not being initialized)
+
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html">EBS Initialization to avoid latency issues</a>
 
 ```
 ==================================
