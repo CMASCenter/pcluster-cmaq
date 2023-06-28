@@ -310,9 +310,11 @@ UBUNTU_CODENAME=jammy
 
 ### Copy a file to set paths 
 
-`cd /shared/pcluster-cmaq`
+`cd /shared/pcluster-cmaq/install`
 
 `cp dot.cshrc.singlevm ~/.cshrc`
+
+### Exit cluster and log back in to activate the update shell, or use csh
 
 ### Create Environment Module for Libraries
 
@@ -325,7 +327,7 @@ There are two steps required to create your own custome module:
 Create a new custom module that will be loaded with:
 
 ```
-module load ioapi-3.2/gcc-11.3.0-netcdf
+module load ioapi-3.2/gcc-9.5-netcdf
 ```
 
 Step 1: Create the module file.
@@ -337,23 +339,23 @@ First, create a path to store the module file. The path must contain /Modules/mo
 mkdir -p /shared/build/Modules/modulefiles/ioapi-3.2
 ```
 
-Next, crate the module file and save it in the directory above.
+Next, create the module file and save it in the directory above.
 
 ```
 cd /shared/build/Modules/modulefiles/ioapi-3.2
-vim gcc-11.3.0-netcdf
+vim gcc-9.5-netcdf
 ```
 
-Contents of gcc-11.3.0-netcdf:
+Contents of gcc-9.5-netcdf:
 
 ```
 #%Module
   
 proc ModulesHelp { } {
-   puts stderr "This module adds ioapi-3.2/gcc-11.3.0 to your path"
+   puts stderr "This module adds ioapi-3.2/gcc-9.5 to your path"
 }
 
-module-whatis "This module adds ioapi-3.2/gcc-11.3.0 to your path\n"
+module-whatis "This module adds ioapi-3.2/gcc-9.5 to your path\n"
 
 set basedir "/shared/build/ioapi-3.2/"
 prepend-path PATH "${basedir}/Linux2_x86_64gfort"
@@ -383,7 +385,7 @@ module avail
 Step 4: Load the new module
 
 ```
-module load ioapi-3.2/gcc-11.3.0-netcdf
+module load ioapi-3.2/gcc-9.5-netcdf
 ```
 
 ### Find path for openmpi libraries
@@ -411,6 +413,7 @@ Incdir: /usr/lib/x86_64-linux-gnu/openmpi/include
 ```
 
 ### Edit the config_cmaq_singlevm.csh script to specify the paths for OpenMPI
+Note, search for case gcc so that you edit the section of the file that is using the gcc compiler.
 
 ```
        setenv MPI_INCL_DIR     /usr/lib/x86_64-linux-gnu/openmpi/include              #> MPI Include directory path
