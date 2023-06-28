@@ -90,7 +90,7 @@ SharedStorage:
       ImportPath: s3://cmas-cmaq/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/
 ```
 
-#### The Yaml file for the c6a.48xlarge contains the settings as shown in the following diagram.
+#### The Yaml file for the c6a.large-48xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using SPOT pricing
 ![c6a-48xlarge yaml configuration](../../yml_plots/c6a-48xlarge-yaml.png)
@@ -100,7 +100,7 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.la
 
 ## Create the c6a.48xlarge pcluster
 
-`pcluster create-cluster --cluster-configuration c6a.xlarge-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
+`pcluster create-cluster --cluster-configuration c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
 #### Check on status of cluster
 
