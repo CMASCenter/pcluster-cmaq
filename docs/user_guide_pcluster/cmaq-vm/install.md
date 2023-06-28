@@ -18,7 +18,7 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 1. Login to AWS Console
 2. Select Get Started with EC2 
 3. Select Launch Instance
-4. Application and OS (Operating System) Images: Select Ubunutu 18.04 LTS, amd64 bionic image build on 2023-01-31
+4. Application and OS (Operating System) Images: Select Ubunutu 22.04 LTS(HVM), SSD Volume Type
 (the version of OS determines what packages are available from apt-get and that determines the version of software obtained, ie. cdo version > 2.0 for Ubuntu 22.04 LTS, or cdo version < 2.0 for Ubuntu 18.04.
 5. Instance Type: Select c6a.xlarge ($0.153/hr)
 6. Key pair - SSH public key, select existing key or create a new one.
@@ -102,6 +102,7 @@ Codename:	jammy
 ### Install Environment Modules
 
 ```
+sudo apt-get upgrade
 sudo apt-get install environment-modules
 ```
 
