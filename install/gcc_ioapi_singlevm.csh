@@ -14,7 +14,7 @@ set echo
 #  Unpack and build IOAPI
 #  ----------------------
    setenv DIR /shared/build
-   setenv PDIR /shared/pcluster-cmaq
+   setenv PDIR /shared/pcluster-cmaq/install
    cd $DIR
    git clone https://github.com/cjcoats/ioapi-3.2
    #git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
