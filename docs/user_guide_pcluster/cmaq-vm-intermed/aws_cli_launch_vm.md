@@ -515,7 +515,7 @@ nvme0n1      259:0    0   500G  0 disk
 
 `sudo apt-get install -y fio`
 
-### Use the following command to initialize the volume
+### Use the following command to initialize the io2 volume
 
 `sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
 
@@ -681,6 +681,75 @@ Compare timing to output available <a href="https://github.com/USEPA/CMAQ/blob/m
 Output
 
 i-xxxx
+
+### Used AWS to modify the volume to a gp3 with 16000 IOPS, and 1000 Throughput
+
+### Use the following command to initialize the io2 volume
+
+`sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
+
+Output
+
+```
+
+volume-initialize: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=libaio, iodepth=32
+fio-3.28
+Starting 1 process
+Jobs: 1 (f=1): [R(1)][100.0%][r=1002MiB/s][r=1002 IOPS][eta 00m:00s]
+volume-initialize: (groupid=0, jobs=1): err= 0: pid=4946: Wed Jun 28 16:47:30 2023
+  read: IOPS=1008, BW=1008MiB/s (1057MB/s)(500GiB/507925msec)
+    slat (usec): min=17, max=397, avg=35.06, stdev=15.16
+    clat (usec): min=1537, max=112932, avg=31708.75, stdev=1517.53
+     lat (usec): min=1562, max=112952, avg=31743.97, stdev=1517.64
+    clat percentiles (usec):
+     |  1.00th=[30540],  5.00th=[31065], 10.00th=[31327], 20.00th=[31589],
+     | 30.00th=[31589], 40.00th=[31851], 50.00th=[31851], 60.00th=[31851],
+     | 70.00th=[31851], 80.00th=[31851], 90.00th=[32113], 95.00th=[32375],
+     | 99.00th=[32900], 99.50th=[33162], 99.90th=[36439], 99.95th=[43254],
+     | 99.99th=[63701]
+   bw (  KiB/s): min=1026048, max=3074048, per=100.00%, avg=1032610.25, stdev=64152.99, samples=1015
+   iops        : min= 1002, max= 3002, avg=1008.41, stdev=62.65, samples=1015
+  lat (msec)   : 2=0.05%, 4=0.09%, 10=0.06%, 20=0.03%, 50=99.73%
+  lat (msec)   : 100=0.03%, 250=0.01%
+  cpu          : usr=0.26%, sys=4.43%, ctx=509022, majf=0, minf=8211
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=512000,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+   READ: bw=1008MiB/s (1057MB/s), 1008MiB/s-1008MiB/s (1057MB/s-1057MB/s), io=500GiB (537GB), run=507925-507925msec
+
+Disk stats (read/write):
+  nvme0n1: ios=2047894/32, merge=0/8, ticks=64070669/501, in_queue=64071170, util=100.00%
+```
+
+### Run 12US1 benchmark again using gp3 volume
+
+```
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   2963.5
+02   2017-12-23   3314.0
+     Total Time = 6277.50
+      Avg. Time = 3138.75
+```
+
+
+
 
 ### Stop the instance
 
