@@ -678,7 +678,35 @@ When the run has completed, record the timing of the two day benchmark.
 
 `tail -n 30  run_cctm_2018_12US1_listos.log`
 
-Output:
+
+Output using a c6a.xlarge with hyperthreading on:
+c6a.xlarge 4vcpu, with hypthreading disabled, has 2 cores.
+
+```
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       4
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   256.4
+02   2018-08-06   257.9
+03   2018-08-07   262.8
+     Total Time = 777.10
+      Avg. Time = 259.03
+```
+
+
+The run time depends on whether the EC2 instances are using hyperthreading or not.
+For the following run, hyperthreading was disabled on a c6a.2xlarge. (8vcpu) but with hyperthreading disabled has 4 cores.
 
 ```
 ==================================
