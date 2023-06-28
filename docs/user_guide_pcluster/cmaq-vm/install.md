@@ -702,7 +702,7 @@ Num  Day        Wall Time
 
 ```
 
-## If you upgrade this VM from a c6.large to a c6.8xlarge, then you could run CMAQ interactively on 16 pes using the following command:
+### If you upgrade this VM from a c6.xlarge to a c6.8xlarge, then you could run CMAQ interactively on 16 pes using the following command:
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
@@ -712,14 +712,19 @@ Edit the script to change NPCOL NPROW to 4 x 4
 
 `vi run_cctm_2018_12US1_listos_16pe.csh`
 
-change
+change to use 16 processors
+
+```
+   @ NPCOL  =  4; @ NPROW =  4
+```
+
 
 
 
 `./run_cctm_2018_12US1_listos_16pe.csh |& tee run_cctm_2018_12US1_listos_16pe.log`
 
 
-Or if you were to upgrade to a c6.16xlarge, then you could run on 32 cores using the following command:
+Or if you were to upgrade to a c6.16xlarge, then you could run on 32 cores after copying the run script and editing the NPCOL and NPROW, and  using the following command:
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
