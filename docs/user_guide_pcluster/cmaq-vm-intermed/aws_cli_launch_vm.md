@@ -481,9 +481,84 @@ Num  Day        Wall Time
       Avg. Time = 227.56
 ```
 
+Note: have observed I/O latency issues.
+According to AWS the volume needs to be initialized to avoid this:
+
+Empty EBS volumes receive their maximum performance the moment that they are created and do not require initialization (formerly known as pre-warming).
+
+For volumes that were created from snapshots, the storage blocks must be pulled down from Amazon S3 and written to the volume before you can access them. This preliminary action takes time and can cause a significant increase in the latency of I/O operations the first time each block is accessed. Volume performance is achieved after all blocks have been downloaded and written to the volume.
+
+```
+lsblk
+```
+
+output
+
+```
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0          7:0    0  24.4M  1 loop /snap/amazon-ssm-agent/6312
+loop1          7:1    0  24.8M  1 loop /snap/amazon-ssm-agent/6563
+loop2          7:2    0  55.6M  1 loop /snap/core18/2751
+loop3          7:3    0  55.7M  1 loop /snap/core18/2785
+loop4          7:4    0  63.5M  1 loop /snap/core20/1891
+loop5          7:5    0  63.4M  1 loop /snap/core20/1950
+loop6          7:6    0 111.9M  1 loop /snap/lxd/24322
+loop7          7:7    0  53.3M  1 loop /snap/snapd/19361
+loop8          7:8    0  53.3M  1 loop /snap/snapd/19457
+nvme0n1      259:0    0   500G  0 disk 
+├─nvme0n1p1  259:1    0 499.9G  0 part /
+├─nvme0n1p14 259:2    0     4M  0 part 
+└─nvme0n1p15 259:3    0   106M  0 part /boot/efi
+```
+
+### Install fio
+
+`sudo apt-get install -y fio`
+
+### Use the following command to initialize the volume
+
+`sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
+
+Output
+
+```
+volume-initialize: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=libaio, iodepth=32
+fio-3.28
+Starting 1 process
+Jobs: 1 (f=1): [R(1)][100.0%][r=4163MiB/s][r=4163 IOPS][eta 00m:00s]
+volume-initialize: (groupid=0, jobs=1): err= 0: pid=2667: Wed Jun 28 14:14:50 2023
+  read: IOPS=4194, BW=4194MiB/s (4398MB/s)(500GiB/122077msec)
+    slat (usec): min=11, max=334, avg=17.47, stdev= 8.22
+    clat (usec): min=1323, max=15837, avg=7611.47, stdev=423.70
+     lat (usec): min=1348, max=15852, avg=7629.04, stdev=423.47
+    clat percentiles (usec):
+     |  1.00th=[ 6521],  5.00th=[ 6915], 10.00th=[ 7504], 20.00th=[ 7570],
+     | 30.00th=[ 7635], 40.00th=[ 7635], 50.00th=[ 7701], 60.00th=[ 7701],
+     | 70.00th=[ 7701], 80.00th=[ 7701], 90.00th=[ 7767], 95.00th=[ 7832],
+     | 99.00th=[ 8455], 99.50th=[ 8586], 99.90th=[ 9110], 99.95th=[ 9372],
+     | 99.99th=[ 9896]
+   bw (  MiB/s): min= 4156, max= 7176, per=100.00%, avg=4196.35, stdev=221.97, samples=244
+   iops        : min= 4156, max= 7176, avg=4196.36, stdev=221.97, samples=244
+  lat (msec)   : 2=0.26%, 4=0.05%, 10=99.68%, 20=0.01%
+  cpu          : usr=0.52%, sys=8.80%, ctx=495095, majf=0, minf=8208
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=512000,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+   READ: bw=4194MiB/s (4398MB/s), 4194MiB/s-4194MiB/s (4398MB/s-4398MB/s), io=500GiB (537GB), run=122077-122077msec
+
+Disk stats (read/write):
+  nvme0n1: ios=2045043/85, merge=0/35, ticks=15274723/407, in_queue=15275131, util=99.97%
+```
+
+
 ### Run 12US1 2 day benchmark case on 96 processors
 
 ```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
 ./run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.csh | & tee run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.8x12.ncclassic.16000IOPS.log
 ```
 
