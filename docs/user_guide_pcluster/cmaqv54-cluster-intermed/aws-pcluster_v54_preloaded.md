@@ -9,7 +9,7 @@ Step by step instructions to configuring and running a ParallelCluster for the C
 ```{admonition} Notice
 :class: warning
 
-The CMAQ libraries were installed using the gcc compiler on c6a.xlarge and using c6gn.16xlarge compute nodes AMD Graviton.
+The CMAQ libraries were installed using the gcc compiler on c6a.large.
 
 ```
 
@@ -27,20 +27,20 @@ The CMAQ libraries were installed using the gcc compiler on c6a.xlarge and using
 
 `cd pcluster-cmaq`
 
-####  Edit the c6a.xlarge-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml 
+####  Edit the c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml 
 
-`vi c6a.xlarge-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+`vi c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
 ```{note}
-1. the c6a.48xlarge*.yaml is configured to use SPOT instance pricing for the compute nodes.
-2. the c6a.48xlarge*.yaml is configured to the the c6a-48xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
-3. the c6a.48xlarge*.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (192 virtual cpus reduced to 96 cpus)
-4. the c6a.48xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
-5. the c6a.48xlarge*.yaml is configured to enables the elastic fabric adapter
+1. the c6a.large-48xlarge*.yaml is configured to use SPOT instance pricing for the compute nodes.
+2. the c6a.large-48xlarge*.yaml is configured to the the c6a-48xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
+3. the c6a.large-48xlarge*.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (192 virtual cpus reduced to 96 cpus)
+4. the c6a.large-48xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
+5. the c6a.large-48xlarge*.yaml is configured to enables the elastic fabric adapter
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 96 cpus x 10 = 960, the max settings for NPCOL, NPROW is NPCOL = 24, NPROW = 40 or NPCOL=40, NPROW=24 in the CMAQ run script. Note: CMAQ does not scale well beyond 2-3 compute nodes.
 ```
 
-#### Replace the key pair and subnet ID in the c6a.48xlarge*.yaml file with the values created when you configured the demo cluster
+#### Replace the key pair and subnet ID in the c6a.large-48xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
 Region: us-east-1
