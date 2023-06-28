@@ -56,17 +56,16 @@
 #  ---------------------------------
    cd $DIR
    #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
-   # wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
-   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.0.tar.gz
+   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
    #tar xvf netcdf-fortran-4.5.2.tar.gz
-    tar xzvf v4.6.0.tar.gz
+    tar xzvf v4.5.3.tar.gz
    #rm -f netcdf-fortran-4.5.2.tar.gz
-   cd netcdf-fortran-4.6.0
+   cd netcdf-fortran-4.5.3
    setenv NCDIR $DIR/netcdf
    setenv CPPFLAGS -I${NCDIR}/include
    setenv LDFLAGS -L${NCDIR}/lib
    setenv LIBS "-lnetcdf"
-   ./configure --disable-shared --disable-zstandard-plugin --disable-netcdf-4 -prefix=$DIR/netcdf
+   ./configure --disable-shared --prefix=$DIR/netcdf
 
 #got error: checking size of off_t... configure: error:
 #edited .cshrc to add path to /usr/local/lib where netcdf-c was installed`
@@ -86,4 +85,4 @@ cd $DIR/netcdf/bin
 #    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib
 #endif
 
-cp /shared/pcluster-cmaq/dot.cshrc ~/.cshrc
+cp /shared/pcluster-cmaq/dot.cshrc.singlevm ~/.cshrc
