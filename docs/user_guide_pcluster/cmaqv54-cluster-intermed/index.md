@@ -12,5 +12,6 @@ Note, you may wish to build the underlying libraries and CMAQ and code if you wi
 
 ```{toctree}
 aws-pcluster_v54_preloaded.md
-aws-pcluster_v54_preloaded_hpc7g.16xlarge.md
 run-cmaq-benchmark-pcluster_v54.md
+aws-pcluster_v54_preloaded_hpc7g.16xlarge.md
+run-cmaq-benchmark-pcluster_v54.hpc7g.16xlarge.md
