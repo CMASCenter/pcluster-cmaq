@@ -100,7 +100,7 @@ Note, if this script fails, it is typically because NCAR has released a new vers
 
 ### If the .cshrc was not created use the following command to create it
 
-`cp dot.cshrc.pcluster ~/.cshrc`
+`cp dot.cshrc.pcluster.v36 ~/.cshrc`
 
 
 ### Execute the shell to activate it
