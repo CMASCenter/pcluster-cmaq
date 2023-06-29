@@ -39,6 +39,9 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 `cd /shared`
 
+`git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
+
+
 ### Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
