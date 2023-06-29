@@ -1,4 +1,5 @@
 ## Install CMAQ sofware and libraries on ParallelCluster version 3.6
+note, when you update the version of ParallelCluster, you often get different versions of the openmpi, libfabric, and gcc compilers and environment modules.
 
 ### Login to updated cluster
 ```{note}
@@ -119,7 +120,7 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ### Build I/O API library
 
-`./gcc_ioapi_cluster.csh`
+`./gcc_ioapi_cluster.v36.csh`
 
 ### Build CMAQ
 
