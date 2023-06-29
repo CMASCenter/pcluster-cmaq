@@ -1,4 +1,4 @@
-## Install CMAQ sofware and libraries on ParallelCluster
+## Install CMAQ sofware and libraries on ParallelCluster version 3.6
 
 ### Login to updated cluster
 ```{note}
