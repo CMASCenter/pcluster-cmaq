@@ -26,7 +26,7 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 
 `cd pcluster-cmaq/yaml`
 
-####  Edit the c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.yaml
+####  Edit the c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
 
 `vi c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -34,8 +34,8 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 1. the c6a-48xlarge*.yaml is configured to use SPOT instance pricing for the compute nodes.
 2. the c6a-48xlarge*.yaml is configured to the the c6a-48xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
 3. the c6a-48xlarge*.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (192 virtual cpus reduced to 96 cpus)
-4. the c6a-48xlarge.yaml is configured to enable the setting of a placement group to allow low inter-node latency
-5. the c6a-48xlarge.yaml is configured to enables the elastic fabric adapter
+4. the c6a-48xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
+5. the c6a-48xlarge*.yaml is configured to enables the elastic fabric adapter
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 96 cpus x 10 = 960, the max settings for NPCOL, NPROW is NPCOL = 24, NPROW = 40 or NPCOL=40, NPROW=24 in the CMAQ run script. Note: CMAQ does not scale well beyond 2-3 compute nodes.
 ```
 
@@ -91,7 +91,7 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.la
 
 ## Create the c6a-48xlarge pcluster
 
-`pcluster create-cluster --cluster-configuration c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.yaml --cluster-name cmaq --region us-east-1`
+`pcluster create-cluster --cluster-configuration c6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
 #### Check on status of cluster
 
