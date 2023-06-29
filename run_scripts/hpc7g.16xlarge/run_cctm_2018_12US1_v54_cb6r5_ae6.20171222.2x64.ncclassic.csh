@@ -24,6 +24,15 @@
 # ===================================================================
 
 echo 'Start Model Run At ' `date`
+echo 'information about processor including whether using hyperthreading'
+lscpu
+echo 'information about cluster'
+sinfo
+echo 'information about filesystem'
+df -h
+echo 'list the mounted volumes'
+showmount -e localhost
+
 
 #> Toggle Diagnostic Mode which will print verbose information to 
 #> standard output
