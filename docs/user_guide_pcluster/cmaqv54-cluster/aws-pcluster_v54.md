@@ -13,6 +13,32 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 ```
 
 
+### Activate the virtual environment to use the ParallelCluster command line
+
+```
+source ~/apc-ve/bin/activate
+source ~/.nvm/nvm.sh
+```
+
+### Upgrade to get the latest version of ParallelCluster
+
+
+`python3 -m pip install --upgrade "aws-parallelcluster"`
+
+### Verify that the ParallelCluster AWS CLI is installed by checking the version
+
+
+`pcluster version`
+
+Output:
+
+```
+		{
+  "version": "3.6.0"
+}
+```
+
+
 ### Create CMAQ Cluster using SPOT pricing
 
 #### Use an existing yaml file from the git repo to create a ParallelCluster
