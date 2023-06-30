@@ -126,9 +126,6 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.la
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-#### Start the compute nodes
-
-`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
 
 #### Login to cluster
 ```{note}
