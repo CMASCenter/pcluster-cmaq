@@ -149,6 +149,7 @@ When you run 64 cores on two compute nodes, the amount of memory used per node i
 `tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.2x32.log`
 
 The 64 pe job should take xx minutes to run (xx minutes per day)
+
 Note, this is a different domain (12US1 versus 12US2) than what was used for the HPC6a.48xlarge Benchmark runs, so the timings are not directly comparible.
 The 12US1 domain is larger than 12US2.
 
@@ -178,7 +179,7 @@ queue1-dy-compute-resource-1-9       1   queue1*       idle~ 64     64:1:1 12451
 queue1-dy-compute-resource-1-10      1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none     
 ```
 
-### When multiple jobs are both submitted to the queue they will be dispatched to different compute nodes.
+### When multiple jobs are submitted to the queue they will be dispatched to different compute nodes.
 
 `squeue`
 
