@@ -31,6 +31,10 @@ Log out and log back in to have the tcsh shell be active
 
 `echo $SHELL`
 
+### Reload the environment modules
+
+`module load openmpi/4.1.5  libfabric-aws/1.17.1 `
+
 
 The following instructions assume that you will be installing the software to a /shared/build directory
 
