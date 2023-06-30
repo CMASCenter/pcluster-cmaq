@@ -1,6 +1,6 @@
 CMAQv5.4 on Parallel Cluster Advanced Tutorial (optional)
 
-## Use ParallelCluster without Software and Data pre-installed
+## Use ParallelCluster without Software and Data pre-installed on c6a.48xlarge ParallelCluster
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 

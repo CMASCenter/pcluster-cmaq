@@ -11,10 +11,10 @@ Note, you may wish to build the underlying libraries and CMAQ and code if you wi
 ```
 
 ```{toctree}
-aws-pcluster_v54_preloaded.md
 aws-pcluster_v54.md
 aws-pcluster_3.6.md
 software-install-pcluster_v54.md
-software-install-pcluster_v54_3.6.md
-input-data-install_pcluster_v54.md
 run-cmaq-benchmark-pcluster_v54.md
+software-install-pcluster_v54_3.6.md
+run-cmaq-benchmark-pcluster_v54_hpc7g.16xlarge.md
+input-data-install_pcluster_v54.md
