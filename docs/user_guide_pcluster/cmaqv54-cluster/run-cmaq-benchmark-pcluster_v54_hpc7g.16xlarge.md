@@ -120,6 +120,24 @@ Output:
 Output:
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       32
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   6933.3
+02   2017-12-23   6830.2
+     Total Time = 13763.50
+      Avg. Time = 6881.75
+
 
 ```
 
@@ -223,8 +241,8 @@ Num  Day        Wall Time
 
 ```
 
-Based on the Total Time, adding an additional node gave a speed-up of xxx
-xxxx/6464.40 = xxx
+Based on the Total Time, adding an additional node gave a speed-up of 2.129
+13763.50/6464.40 = 2.129
 
 ### Submit a job to run on 96 cores, 3x32 nodes
 
@@ -289,6 +307,9 @@ Num  Day        Wall Time
 
 ```
 
+Based on the Total Time, adding 2 additional nodes gave a speed-up of 3.05
+13763.50/4506.1 = 3.05
+
 ### Submit a job to run on 128 cores, 4x32 nodes
 
 `sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.4x32.ncclassic.csh`
@@ -347,6 +368,10 @@ Num  Day        Wall Time
      Total Time = 3572.30
       Avg. Time = 1786.15
 ```
+
+Based on the Total Time, adding 3 additional nodes gave a speed-up of 3.85 out of expected 4x speedup.
+13763.50/3572.30 = 3.85
+
 
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
