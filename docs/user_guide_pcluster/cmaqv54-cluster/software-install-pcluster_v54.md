@@ -116,7 +116,7 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 ### Build I/O API library
 
-`./gcc_ioapi_cluster.csh`
+`./gcc_ioapi_cluster.v36.csh`
 
 ### Build CMAQ
 
