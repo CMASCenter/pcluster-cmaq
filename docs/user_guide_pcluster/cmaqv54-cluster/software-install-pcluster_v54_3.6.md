@@ -124,7 +124,7 @@ Check to confirm that the cmaq executable has been built
 
 Need to have this version of the library installed to uncompress the *.nc4 data using the indexer.csh script.
 
-`cd /shared/pcluster-cmaq`
+`cd /shared/pcluster-cmaq/install`
 
 `./gcc_install_hdf5.csh`
 
