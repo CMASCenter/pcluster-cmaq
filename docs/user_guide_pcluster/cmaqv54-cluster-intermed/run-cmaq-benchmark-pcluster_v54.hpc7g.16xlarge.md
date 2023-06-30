@@ -167,9 +167,6 @@ Output:
 
 `tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
 
-The 96 pe job should take 104 minutes to run (52 minutes per day)
-Note, this is a different domain (12US1 versus 12US2) than what was used for the HPC6a.48xlarge Benchmark runs, so the timings are not directly comparible.
-The 12US1 domain is larger than 12US2.
 
 '12US1'
 'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
@@ -213,6 +210,64 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
                  4    queue1     CMAQ   ubuntu CF       0:01      1 queue1-dy-compute-resource-1-3
                  3    queue1     CMAQ   ubuntu  R      21:28      2 queue1-dy-compute-resource-1-[1-2]
 ```
+
+### When the job has completed, use tail to view the timing from the log file.
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
+
+`tail -n 30 
+
+
+1 pe job is dying
+
+`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.1x64.log`
+
+Output
+
+```
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 12 with PID 6866 on node queue1-dy-compute-resource-1-1 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+11.857u 17.117s 1:24.37 34.3%	0+0k 382640+17960io 4860pf+0w
+
+**************************************************************
+** Runscript Detected an Error: CGRID file was not written. **
+**   This indicates that CMAQ was interrupted or an issue   **
+**   exists with writing output. The runscript will now     **
+**   abort rather than proceeding to subsequent days.       **
+**************************************************************
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 1
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       64
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   12
+     Total Time = 12.00
+      Avg. Time = 12.00
+```
+
+`tail -n 30  CTM_LOG_012.v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_1x64_classic_20171222`
+```
+     File "OMI" opened for input on unit:  92
+     /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc/OMI_1979_to_2019.dat
+
+OMI Ozone column data has Lat by Lon Resolution:      17X     17
+     Total column ozone will be interpolated to day 0:00:00   Dec. 22, 2017
+     from data available on the OMI input file
+```
+     
+
 
 ### When the job has completed, use tail to view the timing from the log file.
 
