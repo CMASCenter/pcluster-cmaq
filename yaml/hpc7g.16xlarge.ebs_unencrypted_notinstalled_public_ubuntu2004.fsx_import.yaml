@@ -27,7 +27,7 @@ Scheduling:
         - Name: compute-resource-1
           InstanceType: hpc7g.16xlarge
           MinCount: 0
-          MaxCount: 12
+          MaxCount: 10
           DisableSimultaneousMultithreading: true
           Efa:
             Enabled: true
@@ -38,7 +38,6 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       Encrypted: false
-      SnapshotId: snap-08009c54d593e219d
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
