@@ -1,5 +1,10 @@
 ## Run CMAQ on hpc6g.16xlarge
 
+```
+Instance Size 	Physical Cores 	Memory (GiB) 	Instance Storage 	EFA Network Bandwidth (Gbps) 	Network Bandwidth (Gbps)*
+hpc7g.16xlarge  64              128             EBS-only                200                                 25
+```
+
 ### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
 `cd /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
@@ -218,7 +223,9 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
 `tail -n 30 
 
 
-1 pe job is dying
+1 pe job is dying, running out of memory, which means that the 12US1 case takes more than 128 GB of memory.
+
+![top showing memory depleted just before job dies](../cmaqv54-cluster-intermed/top_just_before_1x64_hpc7g.16xlarge_dies.png )
 
 `tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.1x64.log`
 
@@ -266,6 +273,108 @@ OMI Ozone column data has Lat by Lon Resolution:      17X     17
      Total column ozone will be interpolated to day 0:00:00   Dec. 22, 2017
      from data available on the OMI input file
 ```
+
+The output from CTM_LOG_000.v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_1x64_classic_20171222 gets a bit further
+
+```
+         Chemistry Integration Time Interval (min):      5.0000
+          EBI maximum time step (min):                    2.5000
+
+
+          Species convergence tolerances:
+          NO2                   5.00E-04
+          NO                    5.00E-04
+          O                     1.00E+00
+          O3                    5.00E-04
+          NO3                   5.00E-04
+          O1D                   1.00E+00
+          OH                    5.00E-04
+          HO2                   5.00E-04
+          H2O2                  5.00E-04
+          N2O5                  5.00E-04
+          HNO3                  5.00E-04
+          HONO                  5.00E-04
+          PNA                   5.00E-04
+          SO2                   5.00E-04
+          SULF                  1.00E+00
+          SULRXN                1.00E+00
+          C2O3                  5.00E-04
+          MEO2                  5.00E-04
+          RO2                   5.00E-04
+          PAN                   5.00E-04
+          PACD                  5.00E-04
+          AACD                  5.00E-04
+          CXO3                  5.00E-04
+          ALD2                  5.00E-04
+          XO2H                  5.00E-04
+          PANX                  5.00E-04
+          FORM                  5.00E-04
+          MEPX                  5.00E-04
+          MEOH                  5.00E-04
+          ROOH                  5.00E-04
+          XO2                   5.00E-04
+          XO2N                  5.00E-04
+          NTR1                  5.00E-04
+          NTR2                  5.00E-04
+          FACD                  5.00E-04
+          CO                    5.00E-04
+          HCO3                  1.00E+00
+          ALDX                  5.00E-04
+          GLYD                  5.00E-04
+          GLY                   5.00E-04
+          MGLY                  5.00E-04
+          ETHA                  5.00E-04
+          ETOH                  5.00E-04
+          KET                   5.00E-04
+          PAR                   5.00E-04
+          ACET                  5.00E-04
+          PRPA                  5.00E-04
+          XPRP                  5.00E-04
+          XPAR                  5.00E-04
+          ROR                   5.00E-04
+          ETHY                  5.00E-04
+          ETH                   5.00E-04
+          OLE                   5.00E-04
+          IOLE                  5.00E-04
+          ISOP                  5.00E-04
+          ISO2                  5.00E-04
+          ISOPRXN               1.00E+00
+          ISPD                  5.00E-04
+          INTR                  5.00E-04
+          ISPX                  5.00E-04
+          HPLD                  5.00E-04
+          OPO3                  5.00E-04
+          EPOX                  5.00E-04
+          EPX2                  5.00E-04
+          TERP                  5.00E-04
+          TRPRXN                1.00E+00
+          TERPNRO2              5.00E-04
+          APIN                  5.00E-04
+          BENZENE               5.00E-04
+          CRES                  5.00E-04
+          BZO2                  5.00E-04
+          OPEN                  5.00E-04
+          BENZRO2               5.00E-04
+          TOL                   5.00E-04
+          TO2                   5.00E-04
+          TOLRO2                5.00E-04
+          XOPN                  5.00E-04
+          XYLMN                 5.00E-04
+          XLO2                  5.00E-04
+          XYLRO2                5.00E-04
+          NAPH                  5.00E-04
+          PAHRO2                1.00E+00
+          CRO                   5.00E-04
+          CAT1                  5.00E-04
+          CRON                  5.00E-04
+          OPAN                  5.00E-04
+          ECH4                  5.00E-04
+          CL2                   5.00E-04
+          CL                    5.00E-04
+          HOCL                  5.00E-04
+          CLO                   5.00E-04
+
+```
      
 
 
@@ -298,9 +407,6 @@ Num  Day        Wall Time
 
 
 ```
-
-Based on the Total Time, adding an additional node gave a speed-up of 1.7.
-6639.10/3888.50 = 1.7074
 
 ### Submit a job to run on 192 pes, 3x64 nodes
 
