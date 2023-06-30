@@ -146,6 +146,18 @@ Check to confirm that the cmaq executable has been built
 
 `ls /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc/*.exe`
 
+## Install netCDF libraries that use HDF5 and support nc4 compressed files
+
+Need to have this version of the library installed to uncompress the *.nc4 data using the indexer.csh script.
+
+`cd /shared/pcluster-cmaq`
+
+`./gcc_install_hdf5.csh`
+
+
+
+The following instructions are not typically needed.
+
 ## Install Homebrew to install github command line gh to allow you to create authentication to commit changes to git repo
 
 ```
@@ -168,16 +180,5 @@ chmod -R go-w "$(brew --prefix)/share/zsh"
 `brew install gh`
 
 ## Use gh authentication
-
-## Install netCDF libraries that use HDF5 and support nc4 compressed files
-
-Need to have this version of the library installed to uncompress the *.nc4 data using the indexer.csh script.
-
-`cd /shared/pcluster-cmaq`
-
-`./gcc_install_hdf5.csh`
-
-
-
 
 
