@@ -212,19 +212,19 @@ Number of Simulation Days: 2
 Domain Name:               12US1
 Number of Grid Cells:      4803435  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       96
+Number of Processes:       64
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2017-12-22   3153.2
-02   2017-12-23   3485.9
-     Total Time = 6639.10
-      Avg. Time = 3319.55
+01   2017-12-22   3080.9
+02   2017-12-23   3383.5
+     Total Time = 6464.40
+      Avg. Time = 3232.20
 
 ```
 
-Based on the Total Time, adding an additional node gave a speed-up of 1.7.
-6639.10/3888.50 = 1.7074
+Based on the Total Time, adding an additional node gave a speed-up of xxx
+xxxx/6464.40 = xxx
 
 ### Submit a job to run on 96 cores, 3x32 nodes
 
@@ -264,12 +264,28 @@ When the job has completed, use tail to view the timing from the log file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.3x32.log`
+`tail -n 20  run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.3x32.log`
 
 Output:
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
 
+Num  Day        Wall Time
+01   2017-12-22   2144.2
+02   2017-12-23   2361.9
+     Total Time = 4506.10
+      Avg. Time = 2253.05
 
 ```
 
