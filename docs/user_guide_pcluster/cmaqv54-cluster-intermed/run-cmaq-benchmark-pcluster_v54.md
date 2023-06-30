@@ -1,4 +1,4 @@
-## Run CMAQ
+## Run CMAQ on c6a.48xlage
 
 ### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
