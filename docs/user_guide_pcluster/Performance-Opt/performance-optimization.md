@@ -226,6 +226,8 @@ Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 
 
 Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
+does changing the head node make a difference?
+note: table needs to be updated..
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
@@ -233,6 +235,17 @@ Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 | 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 2.88/hr * 2 node * 1.08 = | 2.16  |
 
 (need to update the above hpc6a.48xlarge timing information - timings are only a placeholder)
+
+Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes
+
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
+| 64        | 1x64 | 8x8    |  crash      |  crash          | crash   | n/a         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 1.6832/hr * 1 node * n/a = | n/a |
+| 128       | 2x64 | 8x16   |  2074.2     | 2298.9          | 4373.10  | 1.215        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 1.6832/hr * 2 node * 1.214 = | 4.089  |
+| 192       | 3x64 | 12x16  | 1617.1      | 1755.3          | 3372.40  | .937         |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 3 node * .937  = | 4.730  |
+| 256       | 4x64 | 16x16  | 1347.3      | 1501.4          | 2848.70  | .7913        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 4 node * .7913  = | 5.327  |
+| 320       | 5x64 | 16x20  | 1177.0      | 1266.6          | 2443.60  | .6788        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 5 node * .6788  = | 5.713  |
+
 
 
 # Benchmark Scaling Plots for CMAQv5.3.3 12US2 Benchmark
