@@ -18,6 +18,15 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 
 `ls /fsx`
 
+### Preloading the files
+
+Amazon FSx copies data from your Amazon S3 data repository when a file is first accessed. CMAQ is sensitive to latencies, so it is best to preload contents of individual files or directories using the following command:
+
+```
+cd /fsx
+nohup find /fsx/ -type f -print0 | xargs -0 -n 1 sudo lfs hsm_restore &
+```
+
 ### Create a /fsx/data and /fsx/data/output directory
 
 `mkdir -p /fsx/data/output`
