@@ -27,7 +27,15 @@ Scheduling:
         - Name: compute-resource-1
           InstanceType: hpc7g.16xlarge
           MinCount: 0
-          MaxCount: 12
+          MaxCount: 5
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+        - Name: compute-resource-2
+          InstanceType: hpc7g.8xlarge
+          MinCount: 0
+          MaxCount: 7
           DisableSimultaneousMultithreading: true
           Efa:
             Enabled: true
