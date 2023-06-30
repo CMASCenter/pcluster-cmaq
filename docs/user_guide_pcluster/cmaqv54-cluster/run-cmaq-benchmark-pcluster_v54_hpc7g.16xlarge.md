@@ -185,11 +185,12 @@ queue1-dy-compute-resource-1-10      1   queue1*       idle~ 64     64:1:1 12451
 output
 
 ```
-Submitted batch job 4
-ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
+ubuntu@queue1-dy-compute-resource-1-2:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 4    queue1     CMAQ   ubuntu CF       0:01      1 queue1-dy-compute-resource-1-3
-                 3    queue1     CMAQ   ubuntu  R      21:28      2 queue1-dy-compute-resource-1-[1-2]
+                 2    queue1     CMAQ   ubuntu  R      59:25      1 queue1-dy-compute-resource-1-1
+                 3    queue1     CMAQ   ubuntu  R      12:20      2 queue1-dy-compute-resource-1-[2-3]
+                 4    queue1     CMAQ   ubuntu  R       8:50      3 queue1-dy-compute-resource-1-[4-6]
+                 5    queue1     CMAQ   ubuntu  R       8:50      4 queue1-dy-compute-resource-1-[7-10]
 ```
 
 ### When the job has completed, use tail to view the timing from the log file.
