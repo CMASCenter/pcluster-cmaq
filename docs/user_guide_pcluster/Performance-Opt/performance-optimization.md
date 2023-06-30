@@ -232,7 +232,7 @@ note: table needs to be updated..
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
 | 96            | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 2.88/hr * 1 node * 1.844 = | 5.31 |
-| 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 2.88/hr * 2 node * 1.08 = | 2.16  |
+| 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 2.88/hr * 2 node * 1.08 = | 6.22  |
 
 (need to update the above hpc6a.48xlarge timing information - timings are only a placeholder)
 
