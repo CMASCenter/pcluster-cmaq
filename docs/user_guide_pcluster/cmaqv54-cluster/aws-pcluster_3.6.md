@@ -157,6 +157,15 @@ A placement group guarantees that your instances are on the same networking back
 
 `module avail`
 
+Output:
+
+```
+module avail
+------------------------------------------------------------------------------------------------ /usr/share/modules/modulefiles -------------------------------------------------------------------------------------------------
+armpl/21.0.0  dot  libfabric-aws/1.17.1  module-git  module-info  modules  null  openmpi/4.1.5  use.own  
+```
+
+
 ### Load the openmpi module
 
 `module load openmpi/4.1.5`
