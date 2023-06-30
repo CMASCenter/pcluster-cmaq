@@ -126,6 +126,23 @@ Output:
 
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       128
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   2074.2
+02   2017-12-23   2298.9
+     Total Time = 4373.10
+      Avg. Time = 2186.55
 
 ```
 
@@ -201,7 +218,7 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
+`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.256.16x16pe.2day.20171222start.4x64.log`
 
 Output:
 
@@ -215,14 +232,15 @@ Number of Simulation Days: 2
 Domain Name:               12US1
 Number of Grid Cells:      4803435  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       96
+Number of Processes:       256
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2017-12-22   3153.2
-02   2017-12-23   3485.9
-     Total Time = 6639.10
-      Avg. Time = 3319.55
+01   2017-12-22   1347.3
+02   2017-12-23   1501.4
+     Total Time = 2848.70
+      Avg. Time = 1424.35
+
 
 ```
 
@@ -246,25 +264,18 @@ output:
 
 ### Check the log for how quickly the job is running
 
-`grep 'Processing completed'  run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.288.18x16pe.2day.20171222start.3x96.log`
+`grep 'Processing completed'  
 
 Output:
 
 ```
- Processing completed...       4.0245 seconds
-            Processing completed...       4.0263 seconds
-            Processing completed...       3.9885 seconds
-            Processing completed...       3.9723 seconds
-            Processing completed...       3.9934 seconds
-            Processing completed...       4.0075 seconds
-            Processing completed...       3.9871 seconds
 ```
 
 When the job has completed, use tail to view the timing from the log file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.288.18x16pe.2day.20171222start.3x96.log`
+`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.12x16pe.2day.20171222start.3x64.log`
 
 Output:
 
@@ -278,14 +289,15 @@ Number of Simulation Days: 2
 Domain Name:               12US1
 Number of Grid Cells:      4803435  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       288
+Number of Processes:       192
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2017-12-22   1475.9
-02   2017-12-23   1580.7
-     Total Time = 3056.60
-      Avg. Time = 1528.30
+01   2017-12-22   1617.1
+02   2017-12-23   1755.3
+     Total Time = 3372.40
+      Avg. Time = 1686.20
+
 ```
 
 
