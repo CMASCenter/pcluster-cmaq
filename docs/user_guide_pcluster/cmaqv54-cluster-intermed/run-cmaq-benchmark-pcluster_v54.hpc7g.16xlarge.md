@@ -461,5 +461,30 @@ Num  Day        Wall Time
 
 ```
 
+### Submit a job to run on 320 pes running on 5 ndes
+
+Output
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       320
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   1177.0
+02   2017-12-23   1266.6
+     Total Time = 2443.60
+      Avg. Time = 1221.80
+
+```
+
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
