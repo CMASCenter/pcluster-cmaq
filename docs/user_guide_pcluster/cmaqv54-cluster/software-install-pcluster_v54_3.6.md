@@ -128,7 +128,136 @@ Need to have this version of the library installed to uncompress the *.nc4 data 
 
 `./gcc_install_hdf5.csh`
 
+### Create Custom Environment Module for Libraries
 
+There are two steps required to create your own custome module:
+
+1. write a module file
+
+2. add a line to your ~/.cshrc to update the MODULEPATH
+
+Create a new custom module that will be loaded with:
+
+```
+module load ioapi-3.2/gcc-9.5-netcdf
+```
+
+Step 1: Create the module file for ioapi-3.2.
+
+First, create a path to store the module file. The path must contain /Modules/modulefiles/ and should have the general form
+/<path to>/Modules/modulefiles/<module-name>/<version> where <version> is typically numerical and is the actual module file.
+
+```
+mkdir -p /shared/build/Modules/modulefiles/ioapi-3.2
+```
+
+Next, create the module file and save it in the directory above.
+
+```
+cd /shared/build/Modules/modulefiles/ioapi-3.2
+vim gcc-9.5-netcdf
+```
+
+Contents of gcc-9.5-netcdf:
+
+```
+#%Module
+
+proc ModulesHelp { } {
+   puts stderr "This module adds ioapi-3.2/gcc-9.5 to your path"
+}
+
+module-whatis "This module adds ioapi-3.2/gcc-9.5 to your path\n"
+
+set basedir "/shared/build/ioapi-3.2/"
+prepend-path PATH "${basedir}/Linux2_x86_64gfort"
+prepend-path LD_LIBRARY_PATH "${basedir}/ioapi/fixed_src"
+```
+
+The example module file above sets two evironment variables.
+
+The modules update the PATH and LD_LIBRARY_PATH.
+
+Step 2. Create the module file for netcdf-4.8.1
+
+```
+mkdir -p /shared/build/Modules/modulefiles/netcdf-4.8.1
+```
+
+Next, create the module file and save it in the directory above.
+
+```
+cd /shared/build/Modules/modulefiles/netcdf-4.8.1
+
+vim gcc-9.5
+```
+
+Contents of gcc-9.5
+
+```
+#%Module
+
+proc ModulesHelp { } {
+   puts stderr "This module adds netcdf-4.8.1/gcc-9.5 to your path"
+}
+
+module-whatis "This module adds netcdf-4.8.1/gcc-9.5 to your path\n"
+
+set basedir "/shared/build/netcdf"
+prepend-path PATH "${basedir}/bin"
+prepend-path LD_LIBRARY_PATH "${basedir}/lib"
+module load openmpi
+```
+
+Step 3: Add the module path to MODULEPATH.
+
+Now that the module file has been created, add the following line to your ~/.cshrc file so that it can be found:
+
+```
+module use --append /shared/build/Modules/modulefiles
+```
+
+Step 4. Source your shell
+
+```
+csh
+```
+
+Step 5: View the modules available after creation of the new module
+
+The module avail command shows the paths to the module files on a given cluster.
+
+```
+module avail
+```
+
+Output
+
+```
+---------------------------------------------- /usr/share/modules/modulefiles ------------------------------------------------------------------
+armpl/21.0.0  dot  libfabric-aws/1.17.1  module-git  module-info  modules  null  openmpi/4.1.5  use.own  
+
+---------------------------------------------- /shared/build/Modules/modulefiles ----------------------------------------------------------------
+ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5  
+
+```
+
+Step 6: Load the modules
+
+```
+ module load ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5 
+```
+
+Step 7: List the loaded modules
+
+`module list`
+
+Output:
+
+```
+Currently Loaded Modulefiles:
+ 1) openmpi/4.1.5   2) libfabric-aws/1.17.1   3) ioapi-3.2/gcc-9.5-netcdf   4) netcdf-4.8.1/gcc-9.5  
+```
 
 
 The following step is not typically needed.

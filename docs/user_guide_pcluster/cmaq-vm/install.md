@@ -316,7 +316,7 @@ UBUNTU_CODENAME=jammy
 
 ### Exit cluster and log back in to activate the update shell, or use csh
 
-### Create Environment Module for Libraries
+### Create Custom Environment Module for Libraries
 
 There are two steps required to create your own custome module:
 
