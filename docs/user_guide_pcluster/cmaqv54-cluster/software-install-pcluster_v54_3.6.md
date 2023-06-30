@@ -52,17 +52,6 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 `lspci`
 
-### Check what modules are available on the cluster
-
-`module avail`
-
-### Load the openmpi module
-
-`module load openmpi/4.1.5`
-
-### Load the Libfabric module
-
-`module load libfabric-aws/1.17.1`
 
 ### Verify the gcc compiler version is greater than 8.0
 
