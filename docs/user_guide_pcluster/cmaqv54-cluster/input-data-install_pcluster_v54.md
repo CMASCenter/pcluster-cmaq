@@ -1,4 +1,7 @@
 ## Install Input Data on ParallelCluster
+(note, this has already been installed if the yaml file used the s3:cmas-cmaq filesystem on lustre.
+
+(keeping in case users need to install the data from scratch.)
 
 ### Verify AWS CLI is available obtain data from AWS S3 Bucket
 
