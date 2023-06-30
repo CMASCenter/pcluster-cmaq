@@ -62,7 +62,7 @@ Output:
 
 ```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 3    queue1     CMAQ   ubuntu  CF                2 queue1-dy-compute-resource-1-[1-2]
+                 2    queue1     CMAQ   ubuntu  CF                1 queue1-dy-compute-resource-1-[1]
 ```
 After 5 minutes the status will change once the compute nodes have been created and the job is running
 
@@ -72,10 +72,18 @@ Output:
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 3    queue1     CMAQ   ubuntu  R       0:58      2 queue1-dy-compute-resource-1-[1-2]
+                 2    queue1     CMAQ   ubuntu  R      19:30      1 queue1-dy-compute-resource-1-1
+
 ```
 
-The 192 pe job should take 62 minutes to run (31 minutes per day)
+The 64 pe job was crashing due to exceeding the memory available. Using 32 cores, there is more memory per core available.
+On 32 cores, the htop output shows the job using 121 out of 124 GB of memory.
+
+![hpc7g.16xlarge htop](../cmaqv54-cluster/htop_32pe_hc7g.16xlarge.png)
+
+
+
+The 32 pe job should take xx minutes to run (xx minutes per day)
 
 ### check on the status of the cluster using CloudWatch
 
