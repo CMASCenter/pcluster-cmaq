@@ -19,4 +19,6 @@
 
 <a href="https://community.arm.com/arm-community-blogs/b/high-performance-computing-blog/posts/assessing-aws-graviton2-for-running-wrf">AWS Graviton WRF Performance Comparison</a>
 
+<a href="https://aws.amazon.com/blogs/hpc/application-deep-dive-into-the-graviton3e-based-amazon-ec2-hpc7g-instance/">Deep Dive hpc7g</a>
+
 <a href="https://www.amd.com/system/files/documents/wrf-and-amd-epyc-the-right-combination-for-weather-modeling.pdf">AWS EPYC and WRF Performance Comparison</a>
