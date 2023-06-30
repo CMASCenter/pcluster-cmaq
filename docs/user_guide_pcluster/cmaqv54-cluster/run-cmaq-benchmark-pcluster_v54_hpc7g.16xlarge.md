@@ -1,4 +1,4 @@
-## Run CMAQ using hpc7g.16xlarge comput nodes
+## Run CMAQ using hpc7g.16xlarge compute nodes
 
 ### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
@@ -140,7 +140,7 @@ Output:
                  4    queue1     CMAQ   ubuntu  R       7:20      1 queue1-dy-compute-resource-1-3
 ```
 
-When you run 64 cores on two compute nodes, the amount of memory used per node is decreased as observed in the htop output belows.
+When you run 64 cores on two compute nodes, the amount of memory used per node is decreased as observed in the htop output below.
 
 ![Memory usage using 2 nodes x 32 cores hpc7g.16xlarge htop](../cmaqv54-cluster/htop_64pe_2x32_hc7g.16xlarge.png)
 
