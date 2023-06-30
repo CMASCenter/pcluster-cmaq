@@ -96,49 +96,36 @@ The 32 pe job should take xx minutes to run (xx minutes per day)
 
 ### check the timings while the job is still running using the following command
 
-`cd /fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_2x96_classic/`
+`cd  output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_1x32_classic`
 
 `grep 'Processing completed' CTM_LOG_001*`
 
 Output:
 
 ```
-            Processing completed...       6.3736 seconds
-            Processing completed...       5.0755 seconds
-            Processing completed...       5.1098 seconds
+            Processing completed...      17.3195 seconds
+            Processing completed...      17.3576 seconds
+            Processing completed...      17.2984 seconds
+            Processing completed...      17.2890 seconds
+            Processing completed...      23.1307 seconds
+            Processing completed...      19.8616 seconds
 ```
 
 ### When the job has completed, use tail to view the timing from the log file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.192.16x12pe.2day.20171222start.2x96.log
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.32.4x8pe.2day.20171222start.1x32.log`
 
 Output:
 
 ```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2017-12-22
-End Day:   2017-12-23
-Number of Simulation Days: 2
-Domain Name:               12US1
-Number of Grid Cells:      4803435  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       192
-   All times are in seconds.
 
-Num  Day        Wall Time
-01   2017-12-22   1853.4
-02   2017-12-23   2035.1
-     Total Time = 3888.50
-      Avg. Time = 1944.25
 ```
 
-### Submit a request for a 96 pe job ( 1 x 96 pe) or 1 nodes instead of 2 nodes
+### Submit a request for a 64 pe job ( 2 x 32 pe) using 2 nodes
 
-`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.1x96.ncclassic.csh`
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x32.ncclassic.csh`
 
 ### Check on the status in the queue
 
@@ -153,11 +140,15 @@ Output:
                  4    queue1     CMAQ   ubuntu  R       7:20      1 queue1-dy-compute-resource-1-3
 ```
 
+When you run 64 cores on two compute nodes, the amount of memory used per node is decreased as observed in the htop output belows.
+
+![Memory usage using 2 nodes x 32 cores hpc7g.16xlarge htop](../cmaqv54-cluster/htop_64pe_2x32_hc7g.16xlarge.png)
+
 ### Check the status of the run
 
-`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.2x32.log`
 
-The 96 pe job should take 104 minutes to run (52 minutes per day)
+The 64 pe job should take xx minutes to run (xx minutes per day)
 Note, this is a different domain (12US1 versus 12US2) than what was used for the HPC6a.48xlarge Benchmark runs, so the timings are not directly comparible.
 The 12US1 domain is larger than 12US2.
 
@@ -173,29 +164,21 @@ The 12US1 domain is larger than 12US2.
 Output:
 
 ```
-Wed Jun 14 00:49:36 2023
+Fri Jun 30 16:39:48 2023
 NODELIST                         NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
-queue1-dy-compute-resource-1-1       1   queue1*   allocated 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-2       1   queue1*   allocated 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-3       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-4       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-5       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-6       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-7       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-8       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-9       1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none                
-queue1-dy-compute-resource-1-10      1   queue1*       idle~ 96     96:1:1 373555        0      1 dynamic, none      
+queue1-dy-compute-resource-1-1       1   queue1*   allocated 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-2       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-3       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-4       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-5       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-6       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-7       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-8       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-9       1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none                
+queue1-dy-compute-resource-1-10      1   queue1*       idle~ 64     64:1:1 124518        0      1 dynamic, none     
 ```
 
-Note: on a c6a.24xlarge, the number of virtual cpus is 192.
-
-If the YAML contains the Compute Resources Setting of DisableSimultaneousMultithreading: false, then all 192 vcpus will be used
-
-If DisableSimultaneousMultithreading: true, then the number of cpus is 96 and there are no virtual cpus.
-
-### Verify that the yaml file used DisableSimultaneousMultithreading: true
-
-### When the jobs are both submitted to the queue they will be dispatched to different compute nodes.
+### When multiple jobs are both submitted to the queue they will be dispatched to different compute nodes.
 
 `squeue`
 
@@ -213,7 +196,7 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.2x32.log`
 
 Output:
 
