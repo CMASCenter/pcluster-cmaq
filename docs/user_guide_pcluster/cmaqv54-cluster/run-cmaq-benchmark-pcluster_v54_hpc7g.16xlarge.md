@@ -226,9 +226,9 @@ Num  Day        Wall Time
 Based on the Total Time, adding an additional node gave a speed-up of 1.7.
 6639.10/3888.50 = 1.7074
 
-### Submit a job to run on 288 pes, 3x96 nodes
+### Submit a job to run on 96 cores, 3x32 nodes
 
-`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x96.ncclassic.csh`
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x32.ncclassic.csh`
 
 ### Verify that it is running on 3 nodes
 
@@ -243,25 +243,72 @@ output:
 
 ### Check the log for how quickly the job is running
 
-`grep 'Processing completed'  run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.288.18x16pe.2day.20171222start.3x96.log`
+`grep 'Processing completed' run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.3x32.log`
 
 Output:
 
 ```
- Processing completed...       4.0245 seconds
-            Processing completed...       4.0263 seconds
-            Processing completed...       3.9885 seconds
-            Processing completed...       3.9723 seconds
-            Processing completed...       3.9934 seconds
-            Processing completed...       4.0075 seconds
-            Processing completed...       3.9871 seconds
+            Processing completed...       6.6962 seconds
+            Processing completed...       6.7025 seconds
+            Processing completed...       6.7126 seconds
+            Processing completed...       6.6939 seconds
+            Processing completed...       6.6550 seconds
+            Processing completed...       6.6515 seconds
+            Processing completed...       9.7306 seconds
+            Processing completed...       9.0629 seconds
+            Processing completed...       7.0797 seconds
+            Processing completed...       7.0134 seconds
 ```
 
 When the job has completed, use tail to view the timing from the log file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.288.18x16pe.2day.20171222start.3x96.log`
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.3x32.log`
+
+Output:
+
+```
+
+
+```
+
+### Submit a job to run on 128 cores, 4x32 nodes
+
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.4x32.ncclassic.csh`
+
+### Verify that it is running on 4 nodes
+
+`squeue`
+
+output:
+
+
+```
+                 5    queue1     CMAQ   ubuntu  R      37:14      4 queue1-dy-compute-resource-1-[7-10]
+```
+
+### Check the log for how quickly the job is running
+
+`grep 'Processing completed' run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.128.16x8pe.2day.20171222start.4x32.log 
+
+Output:
+
+```
+            Processing completed...       5.1118 seconds
+            Processing completed...       5.0991 seconds
+            Processing completed...       7.2644 seconds
+            Processing completed...       8.1420 seconds
+            Processing completed...       5.0802 seconds
+            Processing completed...       5.0438 seconds
+            Processing completed...       5.0477 seconds
+```
+
+When the job has completed, use tail to view the timing from the log file.
+
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
+
+`tail -n 20 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.128.16x8pe.2day.20171222start.4x32.log` 
 
 Output:
 
@@ -275,14 +322,14 @@ Number of Simulation Days: 2
 Domain Name:               12US1
 Number of Grid Cells:      4803435  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       288
+Number of Processes:       128
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2017-12-22   1475.9
-02   2017-12-23   1580.7
-     Total Time = 3056.60
-      Avg. Time = 1528.30
+01   2017-12-22   1696.6
+02   2017-12-23   1875.7
+     Total Time = 3572.30
+      Avg. Time = 1786.15
 ```
 
 
