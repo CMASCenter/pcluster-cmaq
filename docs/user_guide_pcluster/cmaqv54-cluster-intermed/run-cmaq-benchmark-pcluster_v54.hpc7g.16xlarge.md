@@ -227,6 +227,9 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
 
 ![top showing memory depleted just before job dies](../cmaqv54-cluster-intermed/top_just_before_1x64_hpc7g.16xlarge_dies.png )
 
+
+<a href="https://aws.amazon.com/blogs/hpc/application-deep-dive-into-the-graviton3e-based-amazon-ec2-hpc7g-instance/">8 GB Memory per core for hpc7g.16xlarge</a>
+
 `tail -n 30 run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.1x64.log`
 
 Output
