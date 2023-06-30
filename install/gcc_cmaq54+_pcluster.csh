@@ -21,7 +21,7 @@ module load openmpi
 cd $BUILD/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
 cp $PCLUSTER/config_cmaq_v54+.csh ../../config_cmaq.csh
 cp $PCLUSTER/bldit_cctm_cmaqv5.4+.csh ./
-./bldit_cctmv5.4+.csh gcc |& tee ./bldit_cctmv5.4+.log
+./bldit_cctm_cmaqv5.4+.csh gcc |& tee ./bldit_cctmv5.4+.log
 cp $PCLUSTER/run_scripts/hpc7g.16xlarge/run*.csh $BUILD/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
 cd $BUILD/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
 
