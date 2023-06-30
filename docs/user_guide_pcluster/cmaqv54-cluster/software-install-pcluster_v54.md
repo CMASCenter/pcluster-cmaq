@@ -78,11 +78,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 `cd /shared/pcluster-cmaq/install`
 
-Note: the sofware build process for CMAQ integration and continuous deployment needs improvement.
-Currently the Unidata Ucar netcdf-c download page is broken, and the location where the source code can be obtained may need to be updated from their  website to the netcdf git repository.
-For this reason, this tutorial provides a snapshot image that was compiled on a c5n.xlarge head node, and runs on the c5n.18xlarge compute node.
-A different snapshot image would need to be created to compile and run CMAQ on a c6gn.16xlarge Arm-based AWS Graviton2 processor.
-
+The install process currently uses .csh scripts to install the libraries and CMAQ.
 An alternative is to keep a copy of the source code for netcdf-C and netcdf-Fortran and all of the other underlying code on an S3 bucket and to use custom bootstrap actions to build the sofware as the ParallelCluster is provisioned.  
 
 The following link provides instructions on how to create a custom bootstrap action to pre-load software from an S3 bucket to the ParallelCluster at the time that the cluster is created.
