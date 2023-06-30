@@ -118,6 +118,26 @@ LD_LIBRARY_PATH=/opt/amazon/openmpi/lib64:/shared/build/netcdf/lib:/shared/build
 
 `./gcc_ioapi_cluster.v36.csh`
 
+### Confirm library was created
+
+`ls -rlt /shared/build/ioapi-3.2/Linux2_x86_64gfort/*.a`
+
+Output:
+
+```
+-rw-rw-r-- 1 ubuntu ubuntu 23776724 Jun 30 14:46 /shared/build/ioapi-3.2/Linux2_x86_64gfort/libioapi.a
+```
+
+### Confirm m3tools were built
+
+`ls -rlt  /shared/build/ioapi-3.2/Linux2_x86_64gfort/m3xtract`
+
+Output:
+
+```
+-rwxrwxr-x 1 ubuntu ubuntu 16812336 Jun 30 14:46 /shared/build/ioapi-3.2/Linux2_x86_64gfort/m3xtract
+```
+
 ### Build CMAQ
 
 `./gcc_cmaq54+_pcluster.csh`
