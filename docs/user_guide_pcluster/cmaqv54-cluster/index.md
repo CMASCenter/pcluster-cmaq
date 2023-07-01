@@ -17,4 +17,5 @@ software-install-pcluster_v54.md
 run-cmaq-benchmark-pcluster_v54.md
 software-install-pcluster_v54_3.6.md
 run-cmaq-benchmark-pcluster_v54_hpc7g.16xlarge.md
+run-cmaq-benchmark-pcluster_v54_hpc7g.8xlarge.md
 input-data-install_pcluster_v54.md
