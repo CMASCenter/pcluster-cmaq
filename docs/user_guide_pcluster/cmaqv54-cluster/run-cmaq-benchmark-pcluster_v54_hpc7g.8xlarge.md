@@ -111,12 +111,29 @@ output
 Output:
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       64
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2017-12-22   3122.1
+02   2017-12-23   3419.1
+     Total Time = 6541.20
+      Avg. Time = 3270.60
 
 
 ```
 
-Based on the Total Time, adding an additional node gave a speed-up of 2.129
-xx/xx = xx
+Based on the Total Time, adding an additional node gave a speed-up of 2.008 with expected speedup of 2x
+13134.60/6541.20 = 2.008
 
 ### Submit a job to run on 96 cores, 3x32 nodes on hpc7g.8xlarge
 
