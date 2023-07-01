@@ -6,5 +6,5 @@
 #cp run*.log /fsx/data/output
 #cp run*.csh /fsx/data/output
 
-aws s3 mb s3://c7g-head-hpc7g.16xlarge-cmaqv5.4+.12US1-output
-aws s3 cp --recursive /fsx/data/output/ s3://c7g-head-hpc7g.16xlarge-cmaqv5.4+.12US1-output/fsx/data/output/
+aws s3 mb s3://c7g-head-hpc7g.16xlarge-cmaqv5.4+.12us1-output
+aws s3 cp --recursive /fsx/data/output/ s3://c7g-head-hpc7g.16xlarge-cmaqv5.4+.12us1-output/fsx/data/output/
