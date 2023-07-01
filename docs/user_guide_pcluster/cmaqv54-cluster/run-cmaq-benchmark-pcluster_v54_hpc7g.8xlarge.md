@@ -112,6 +112,7 @@ Output:
 
 ```
 
+
 ```
 
 Based on the Total Time, adding an additional node gave a speed-up of 2.129
@@ -155,12 +156,27 @@ When the job has completed, use tail to view the timing from the log file.
 Output:
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2017-12-22
+End Day:   2017-12-23
+Number of Simulation Days: 2
+Domain Name:               12US1
+Number of Grid Cells:      4803435  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       96
+   All times are in seconds.
 
-
+Num  Day        Wall Time
+01   2017-12-22   2141.9
+02   2017-12-23   2384.6
+     Total Time = 4526.50
+      Avg. Time = 2263.25
 ```
 
-Based on the Total Time, adding 2 additional nodes gave a speed-up of 3.05
-xxx/xxx = 3.05
+Based on the Total Time, adding 2 additional nodes gave a speed-up of 2.902, close to 3x if ideal scaling
+13134.60/4526.50 =  2.902
 
 
 
