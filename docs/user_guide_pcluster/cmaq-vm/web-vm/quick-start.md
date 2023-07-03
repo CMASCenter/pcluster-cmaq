@@ -9,7 +9,7 @@ Click on "Create an AWS account" on the upper right corner.
 (after you have an account it will say "Sign into the Console")
 
 ```{note}
-If you are a student, check out the $100 educational credit (can be renewed every year!) at <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
+AWS Educate is open to any individual, regardless of where they are in their education, technical experience, or career journey.  Learn, practice, and evaluate cloud skills in real time without creating an Amazon or AWS account. <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
 ```
 
 
