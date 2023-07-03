@@ -85,7 +85,7 @@ GRIDDESC
 ![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
 
 
-## Single VM Configuration for 12NE3 Benchmark Domain
+## Single VM Configuration for 12US1 Benchmark Domain
 
 * c6a.48xlarge
 
