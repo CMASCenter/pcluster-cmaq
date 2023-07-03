@@ -1,4 +1,4 @@
-## Configurations for running CMAQ on AWS ParallelCluster
+## Configurations for running CMAQ on Single VM or ParallelCluster
 
 ```{note}
 AWS Educate is open to any individual, regardless of where they are in their education, technical experience, or career journey.  Learn, practice, and evaluate cloud skills in real time without creating an Amazon or AWS account. <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
