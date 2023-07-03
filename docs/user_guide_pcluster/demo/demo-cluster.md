@@ -18,9 +18,9 @@ It appears you can create the demo cluster, and even the intermediate or advance
 
 Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job that uses spot pricing on the ParallelCluster.
 
-### AWS CLI 3.0 
+### Parallel Cluster AWS CLI 3.0 
 
-Use AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
+Use Parallel Cluster AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
