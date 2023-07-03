@@ -15,11 +15,11 @@ Data in table above is from the following:
 <a href="https://calculator.aws/#/addService/ec2-enhancement?nc2=h_ql_pr_calc">Sizing and Price Calculator from AWS</a>
 
 
-Run CMAQv5.4+ on a single Virtual Machine (VM) using an ami with software pre-loaded to run on either a c6a.2xlarge, c6a.8xlarge or c6a.48xlarge instance with io2 filesystem.
+Run CMAQv5.4+ on a single Virtual Machine (VM) using an ami with software pre-loaded to run on either a c6a.2xlarge, c6a.8xlarge or c6a.48xlarge instance with gp3 filesystem.
 
 ```{toctree}
 aws_cli_launch_vm_c6a.2xlarge.md
 aws_cli_launch_vm_c6a.8xlarge.md
-aws_cli_launch_vm.md
+aws_cli_launch_vm_c6a.48xlarge.md
 aws_cli_launch_vm_troubleshoot.md
 ```
