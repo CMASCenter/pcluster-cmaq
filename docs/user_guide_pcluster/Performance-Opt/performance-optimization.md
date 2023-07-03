@@ -104,7 +104,13 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 | c5n.9xlarge	| 36	| 96 GiB    |	7 Gbps	        | 50 Gbps           |   $1.944/hour         | $0.5971/hour     |
 | c5n.18xlarge	| 72	| 192 GiB   |	14 Gbps	        | 100 Gbps          |   $3.888/hour         | $1.1732/hour     |
 | c6gn.16xlarge | 64	| 128 GiB   |                   |  100 Gbps         |   $2.7648/hour        | $0.6385/hour     |	
+| c6a.48xlarge  | 192   | 384 GiB   |   40 Gbps         |  50 Gpbs          |   $7.344/hour         | $6.0793/hour     |
+| hpc6a.48xlarge| 96    | 384 GiB   |                   | 100 Gbps          |   $2.88/hour          |  unavailable     |
+| hpc7g.16xlarge| 64    | 128 GiB   |                   |                   |   $1.6832/hour        |  unavailable     |
 
+*Hpc6a instances have simultaneous multi-threading disabled to optimize for HPC codes. This means that unlike other EC2 instances, Hpc6a vCPUs are physical cores, not threads.
+*Hpc6a instances available in US East (Ohio) and GovCloud (US-West)
+*HPC6a is available ondemand only (no spot pricing)
 
 Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand pricing.
 
@@ -118,11 +124,11 @@ If this is the case, the job will not start runnning in the queue, see AWS Troub
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">ParallelCluster Troubleshooting</a>
 ```
 
-## Benchmark Timings
+## Benchmark Timings for CMAQv5.3.3 12US2 Benchmark
 
-Benchmarks were performed using both c5n.18xlarge (36 cpus per node) and c5n.9xlarge (18 cpus per node)
+Benchmarks were performed using both c5n.18xlarge (36 cores per node) and c5n.9xlarge (18 cores per node), c6a.48xlarge (96 cores per node), hpc6a.48xlarge (96 cores per node)
 
-### Benchmark Timing Results for c5n.18xlarge
+### Benchmark Timing for c5n.18xlarge
 
 Table 2. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.18xlarge Compute Nodes
 
@@ -151,7 +157,7 @@ Note for the C5n.18xlarge, I/O was done using /fsx, the InputData refers to whet
 | 360           | 10x36          | 18x20         |   Unable to provision  |                 |            |                     |                    |     |        |       |        |
 
 
-### Benchmark Timing Results for c5n.9xlarge
+### Benchmark Timing for c5n.9xlarge
 
 Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with c5n.large head node and C5n.9xlarge Compute Nodes
 
@@ -174,7 +180,7 @@ Table 3. Timing Results for CMAQv5.3.3 2 Day CONUS2 Run on ParallelCluster with 
 | 180            |  10x18          | 10x18       | unable to provision    |      |          |                    |          |                 |     | |  |  | | |
 
 
-### Benchmark Timing Results for hpc6a.48xlarge
+### Benchmark Timing for hpc6a.48xlarge
 
 Table 4. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
 
@@ -193,7 +199,7 @@ Table 4. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 |  576          | 6x96 | 24x24    | 1041.13     |    952.11        |  1993.24  | .277         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .553 = | ? | 2.88/hr * 6 node * .553 = | 9.57 |
 |  576          | 6x96 | 24x24        | 1066.59     |   955.88         | 2022.47   | .281         |  yes          |   N/A  |  no    |   yes       | /fsx linked?       | ?/hr * 1 node * .561 = | ? | 2.88/hr * 6 node * .561 = | 9.71 |
 
-### Benchmark Timing Results for c6a.48xlarge
+### Benchmark Timing for c6a.48xlarge
 
 Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes
 
@@ -207,8 +213,45 @@ Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 | 288            | 3x96 | 16x18          | 1266.97      |  1201.90          | 2468.87   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
 
 
+## Benchmark Timings for CMAQv5.4 12US1 Benchmark 
 
-# Benchmark Scaling Plots
+### Benchmark Timing for c6a.48xlarge
+
+Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes
+
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
+| 96      | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
+| 192     | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
+| 288     | 3x96 | 16x18          | 1475.9      |  1580.7          | 3056.60   | .849        |  yes     |   N/A  |  no    | yes        |    /fsx        |  5.5809/hr * 3 node * .849 = | 14.21  | 7.34/hr * 3 node * .849 = | 18.6 |
+
+
+Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
+does changing the head node make a difference?
+note: table needs to be updated..
+
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
+| 96            | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 2.88/hr * 1 node * 1.844 = | 5.31 |
+| 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 2.88/hr * 2 node * 1.08 = | 6.22  |
+
+(need to update the above hpc6a.48xlarge timing information - timings are only a placeholder)
+
+### Benchmark Timing for hpc7g.16xlarge
+
+Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes
+
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
+| 64        | 1x64 | 8x8    |  crash      |  crash          | crash   | n/a         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 1.6832/hr * 1 node * n/a = | n/a |
+| 128       | 2x64 | 8x16   |  2074.2     | 2298.9          | 4373.10  | 1.215        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 1.6832/hr * 2 node * 1.214 = | 4.089  |
+| 192       | 3x64 | 12x16  | 1617.1      | 1755.3          | 3372.40  | .937         |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 3 node * .937  = | 4.730  |
+| 256       | 4x64 | 16x16  | 1347.3      | 1501.4          | 2848.70  | .7913        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 4 node * .7913  = | 5.327  |
+| 320       | 5x64 | 16x20  | 1177.0      | 1266.6          | 2443.60  | .6788        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 5 node * .6788  = | 5.713  |
+
+
+
+# Benchmark Scaling Plots for CMAQv5.3.3 12US2 Benchmark
 
 ## Benchmark Scaling Plot for c5n.18xlarge
 
@@ -298,7 +341,14 @@ Figure 9 shows how the total run time and On Demand Cost varies as additional CP
 
 Figure 9. Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge
 
-![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
+![Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
+
+# Benchmark Scaling Plots for CMAQv5.4 12US1 Benchmark
+
+Figure 10. Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge
+
+![Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge](../../qa_plots/scaling_plots/6a48xlarge_Time_CPUs.png)
+
 
 # Cost Information 
 
@@ -337,18 +387,18 @@ Using 288 cpus on the ParallelCluster, it would take ~ 6.37 days to run a full y
 
 Using 126 cpus  on the ParallelCluster, it would take ~8.92 days to run a full year, using 7 c5n.9xlarge (18cpu/node) compute nodes.
 
-Table 4. Extrapolated Cost of c5n.18xlarge used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Table 8. Extrapolated Cost of compute nodes used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
-| 2 day CONUS    |  c5n.18xlarge | 108         |           3       |    SPOT   |    1.1732/hour  |    4550.72/3600 = 1.264   |   1.264/2 * 365 = 231 hours/node * 3 nodes = 692 hr * $1.1732/hr = | $811.9 | 9.61   | 
-| 2 day CONUS    |  c5n.18xlarge | 108         |           3       |  ONDEMAND   |    3.888/hour  |    4550.72/3600 = 1.264   |   1.264/2 * 365 = 231 hours/node * 3 nodes = 692 hr * $3.888/hr = | $2690.4 | 9.61   |
-| 2 day CONUS    |  c5n.18xlarge | 180          |          5       |    SPOT    |    1.1732/hour |     2980.19/3600 = .8278  |    .8278/2 * 365 = 151 hours/node * 5 nodes = 755 hr * $1.1732/hr = | $886 |   6.29  |
-| 2 day CONUS    |  c5n.18xlarge | 180          |          5       |  ONDEMAND  |    3.888/hour   |     2980.19/3600 = .8278  |    .8278/2 * 365 = 151 hours/node * 5 nodes = 755 hr * $3.888/hr = | $2935.44 | 6.29 |
-| 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   .5971/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $.5971/hr = | $856| 8.52 |
-| 2 day CONUS    |  c5n.9xlarge  | 126          |          7       |  ONDEMAND    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $1.944/hr = | $2788.8 | 8.52 |
-| 2 day CONUS    | hpc6a.48xlarge | 96         |          1       |  ONDEMAND    |   $2.88/hour    |   5033.93/3600 = 1.40      |  1.40/2 * 365 = 255 hours/node * 1 nodes = 255 hr * $2.88/hr = | $734 | 10.6 |
-| 2 day CONUS    | hpc6a.48xlarge | 192         |         2       |  ONDEMAND    |   $2.88/hour    |   3023.81/3600 = .839      |  .839/2 * 365 = 153.29 hours/node * 2 nodes = 306 hr * $2.88/hr = | $883 | 6.4 |
+| 2 day 12US2 |  c5n.18xlarge | 108         |           3       |    SPOT   |    1.1732/hour  |    4550.72/3600 = 1.264   |   1.264/2 * 365 = 231 hours/node * 3 nodes = 692 hr * $1.1732/hr = | $811.9 | 9.61   | 
+| 2 day 12US2    |  c5n.18xlarge | 108         |           3       |  ONDEMAND   |    3.888/hour  |    4550.72/3600 = 1.264   |   1.264/2 * 365 = 231 hours/node * 3 nodes = 692 hr * $3.888/hr = | $2690.4 | 9.61   |
+| 2 day 12US2    |  c5n.18xlarge | 180          |          5       |    SPOT    |    1.1732/hour |     2980.19/3600 = .8278  |    .8278/2 * 365 = 151 hours/node * 5 nodes = 755 hr * $1.1732/hr = | $886 |   6.29  |
+| 2 day 12US2    |  c5n.18xlarge | 180          |          5       |  ONDEMAND  |    3.888/hour   |     2980.19/3600 = .8278  |    .8278/2 * 365 = 151 hours/node * 5 nodes = 755 hr * $3.888/hr = | $2935.44 | 6.29 |
+| 2 day 12US2    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   .5971/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $.5971/hr = | $856| 8.52 |
+| 2 day 12US2    |  c5n.9xlarge  | 126          |          7       |  ONDEMAND    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $1.944/hr = | $2788.8 | 8.52 |
+| 2 day 12US2    | hpc6a.48xlarge | 96         |          1       |  ONDEMAND    |   $2.88/hour    |   5033.93/3600 = 1.40      |  1.40/2 * 365 = 255 hours/node * 1 nodes = 255 hr * $2.88/hr = | $734 | 10.6 |
+| 2 day 12US2    | hpc6a.48xlarge | 192         |         2       |  ONDEMAND    |   $2.88/hour    |   3023.81/3600 = .839      |  .839/2 * 365 = 153.29 hours/node * 2 nodes = 306 hr * $2.88/hr = | $883 | 6.4 |
 
 ```{note}
 These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as the CONUS 12US2 Domain Benchmark scales well up to this number of nodes. The cost of running an annual simulation on 3 c5n.18xlarge nodes using OnDemand Pricing is $2690.4, the cost of running an annual simulation on 5 c5n.18xlarge nodes using OnDemand pricing is $2935.44, if only 3 nodes are available, then you would pay less, but wait longer for the run to be completed, 9.61 days using 3 nodes versus 6.29 days using 5 nodes.
@@ -361,7 +411,7 @@ These cost estimates depend on the availability of number of nodes for the insta
 ```
 
 
-Table 5. Lustre SSD File System Pricing for us-east-1 region
+Table 9. Lustre SSD File System Pricing for us-east-1 region
 
 | Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |
 | --------     | ----------------  |   ------------------------------------    | -----------------  |

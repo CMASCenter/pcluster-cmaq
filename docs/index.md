@@ -12,13 +12,25 @@ This documentation is under continuous development
 
 ## Overview
 
-This document provides tutorials and information on using the ParallelCluster on Amazon Web Service (AWS). The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend reviewing the Additional Resources listed in [chapter 12](user_guide_pcluster/help/index.md) of this document.
+This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS) using the AWS Command Line Interface. The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend reviewing the Additional Resources listed in [chapter 16](user_guide_pcluster/help/index.md) of this document.
 
  
 
 ## Format of this documentation
 
-This document provides three hands-on tutorials that are designed to be read in order.  The Introductory Tutorial will walk you through creating a demo ParallelCluster.  You will learn how to set up your AWS Identity and Access Management Roles, configure and create a demo cluster, and exit and delete the cluster.  The Intermediate Tutorial steps you through running a CMAQ test case on ParallelCluster using pre-loaded software and input data.  The Advanced Tutorial explains how to scale the ParallelCluster for larger compute jobs and install CMAQ and required libraries from scratch on the cloud.  The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.
+This document provides several hands-on tutorials that are designed to be read in order.  
+
+<br>
+The Introductory Tutorial will walk you through creating a demo ParallelCluster.  You will learn how to set up your AWS Identity and Access Management Roles, configure and create a demo cluster, and exit and delete the cluster.  </br>
+
+### Single VM Tutorials
+The Single VM Intermediate Tutorial will show you how to create a single virtual machine using an AMI that has the software and data pre-loaded and give instructions for creating the virtual machine using ec2 instances that have different number of cores, and are matched to the benchmark domain. The Single VM Advanced tutorial will show you how to install the CMAQv5.4 software and libraries, and how to create custom environment modules. 
+
+### Parallel Cluster Tutorials
+The CMAQv5.4 Parallel Cluster Intermediate Chapter will show you how to run a CMAQv5.4 benchmarks on ParallelCluster using pre-loaded software and input data.  The CMAQv5.4 Parallel Cluster Advanced Chapter will show you how to install CMAQv5.4 and the libraries.  The CMAQv5.3.3 Parallel Cluster Intermediate chapter will show you how to run CMAQv5.3.3 using the 12US2 benchmark.  The CMAQv5.3.3 Advanced Tutorial explains how to scale the ParallelCluster for larger compute jobs and install CMAQv5.3.3 and required libraries from scratch on the cloud.  The Chapter "Benchmark on HPC6a-48xlarge with EBS and Lustre" uses CMAQv5.33 on advanced HPC6a compute nodes that are only available in the us-east-2 region. 
+
+<br>
+The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.</br>
 
  
 
@@ -35,16 +47,18 @@ Additional information on AWS ParallelCluster:
 
 <a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
 
-<a href="https://repost.aws/tags/TAjBvP4otfT3eX8PswbXo9AQ">AWS HPC discussion forum</a>
-
 
 ```{toctree}
    :numbered: 3
 :caption: 'Contents:'
 :maxdepth: 2
 
-user_guide_pcluster/demo/index.md
 user_guide_pcluster/System-Req/index.md
+user_guide_pcluster/cmaq-vm-intermed/index.md
+user_guide_pcluster/cmaq-vm/index.md
+user_guide_pcluster/demo/index.md
+user_guide_pcluster/cmaqv54-cluster-intermed/index.md
+user_guide_pcluster/cmaqv54-cluster/index.md
 user_guide_pcluster/cmaq-cluster/index.md
 user_guide_pcluster/install/index.md
 user_guide_pcluster/benchmark/index.md

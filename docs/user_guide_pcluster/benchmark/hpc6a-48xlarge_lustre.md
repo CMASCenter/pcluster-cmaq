@@ -1,6 +1,6 @@
-Intermediate Tutorial
+CMAQv5.3.3 CONUS 2 Benchmark Tutorial using 12US2 Domain
 
-## Use ParallelCluster pre-installed with software and data.
+## Use ParallelCluster pre-installed with CMAQv5.3.3 software and 12US2 Benchmark
 
 Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a ParallelCluster.
 
@@ -15,7 +15,7 @@ Step by step instructions for running the CMAQ 12US2 Benchmark for 2 days on a P
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
-`cd pcluster-cmaq`
+`cd pcluster-cmaq/yaml`
 
 ```{note} To find the default settings for Lustre see:
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for ParallelCluster</a>
@@ -279,7 +279,7 @@ The software is pre-loaded on the /shared volume of the ParallelCluster.  The so
 
 Create a .cshrc file by copying it from the git repo that is on /shared/pcluster-cmaq
 
-`cp /shared/pcluster-cmaq/dot.cshrc.pcluster ~/.cshrc`
+`cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc`
 
 Source shell
 
@@ -292,15 +292,18 @@ Load the modules
 Output:
 
 ```
------------------------------------------------------------- /usr/share/modules/modulefiles -------------------------------------------------------------
-dot  libfabric-aws/1.13.2amzn1.0  module-git  module-info  modules  null  openmpi/4.1.1  use.own
+------------------------------------------------------------ /usr/share/modules/modulefiles ------------------------------------------------------------
+dot  libfabric-aws/1.16.1amzn1.0  module-git  module-info  modules  null  openmpi/4.1.4  use.own  
+
+--------------------------------------------------------- /opt/intel/mpi/2021.6.0/modulefiles ----------------------------------------------------------
+intelmpi  
 ```
 
 Load the modules openmpi and libfabric
 
-`module load openmpi/4.1.1`
+`module load openmpi/4.1.4`
 
-`module load libfabric-aws/1.13.2amzn1.0`
+`module load libfabric-aws/1.16.1amzn1.0`
 
 
 ## Verify Input Data
@@ -642,7 +645,6 @@ Num  Day        Wall Time
 ## Submit a minimum of 2 benchmark runs
 
 Ideally, two CMAQ runs should be submitted to the slurm queue, using two different NPCOLxNPROW configurations, to create output needed for the QA and Post Processing Sections in Chapter 6.
-If the NPCOL are different, then the answers in the ACONC file will not be identical, and you will see the differences in the QA step.
 
 ## upgrade pcluster version to try Persistent 2 Lustre Filesystem
 

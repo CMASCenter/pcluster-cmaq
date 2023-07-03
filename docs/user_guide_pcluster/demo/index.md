@@ -4,4 +4,4 @@ Create a Demo cluster to configure your aws credentials and set up your identity
 
 ```{toctree}
 demo-cluster.md
-
+```

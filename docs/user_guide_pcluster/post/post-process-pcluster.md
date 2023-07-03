@@ -50,7 +50,7 @@ cp /shared/pcluster-cmaq/run_scripts/bldit_bldoverlay.csh .
 ```
 
 
-# Scripts to post-process CMAQ output
+## Scripts to post-process CMAQ output
 
 
 Instructions on how to Post-process CMAQ using the utilities under the POST directory

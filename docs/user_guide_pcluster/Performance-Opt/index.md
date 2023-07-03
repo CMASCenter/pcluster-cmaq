@@ -1,6 +1,6 @@
 (myst-sphinx)=
 
-# Performance Optimization 
+# Performance and Cost Optimization 
 
 Timing information and scaling plots to assist users in optimizing the performance of their parallel cluster.
 

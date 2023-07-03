@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
+        <title>VPC Management - pcluster-cmaq documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">pcluster-cmaq  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">pcluster-cmaq  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="vpc-management">
+<h1>VPC Management<a class="headerlink" href="#vpc-management" title="Permalink to this headline">#</a></h1>
+<p>There is a limit on the number of VPCs that are allowed per account - limit is 5.</p>
+<p>What is the difference between a private and a public vpc? (what setting is used in the yaml file, and why is one preferred over the other?)</p>
+<p>Note, there is a default VPC, that is used to create EC2 instances, that should not be deleted.</p>
+<p>Q1. is there a separate default VPC for each region?</p>
+<p>Q2. Each time you run a configure cluster command, does the Parallel Cluster create a new VPC?</p>
+<p>Q3. why doesn’t the VPC and subnet IDs get deleted when the Parallel Clusters are deleted.</p>
+</section>
+<section id="if-pcluster-configure-created-a-new-vpc-you-can-delete-that-vpc-by-deleting-the-aws-cloudformation-stack-it-created-the-name-will-start-with-parallelclusternetworking-and-contain-the-creation-time-in-a-yyyymmddhhmmss-format-you-can-list-the-stacks-using-the-list-stacks-command">
+<h1>If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. The name will start with “parallelclusternetworking-” and contain the creation time in a “YYYYMMDDHHMMSS” format. You can list the stacks using the list-stacks command.<a class="headerlink" href="#if-pcluster-configure-created-a-new-vpc-you-can-delete-that-vpc-by-deleting-the-aws-cloudformation-stack-it-created-the-name-will-start-with-parallelclusternetworking-and-contain-the-creation-time-in-a-yyyymmddhhmmss-format-you-can-list-the-stacks-using-the-list-stacks-command" title="Permalink to this headline">#</a></h1>
+<p>The following instructions are available here: <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Instructions for Cleaning Up VPCs</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ aws --region us-east-2 cloudformation list-stacks \
+   --stack-status-filter "CREATE_COMPLETE" \
+   --query "StackSummaries[].StackName" | \
+   grep -e "parallelclusternetworking-""parallelclusternetworking-pubpriv-20191029205804"
+</pre></div>
+</div>
+<p>The stack can be deleted using the delete-stack command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ aws --region us-west-2 cloudformation delete-stack \
+   --stack-name parallelclusternetworking-pubpriv-20191029205804
+
+If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. 
+The name will start with "parallelclusternetworking-" and contain the creation time in a "YYYYMMDDHHMMSS" format. You can list the stacks using the list-stacks command.
+
+https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster.configure.html
+
+Note: I can see why you wouldn't want to delete the VPC, if you want to reuse the yaml file that contains the SubnetID that is tied to that VPC.
+
+I was able to use the Amazon Website to find the SubnetID, and then identify the VPC that it is part of.
+
+I currently have the following VPCs
+
+| Name | VPC ID | State | IPv4 CIDR |  IPv6 CIDR (Network border group) | IPv6 pool |DHCP options set | Main route table | Main network ACL | Tenancy | Default VPC | Owner ID |
+| ---- | -----  | ----  | --------  |  -------------------------------  | --------  | -------------   | ---------------- | ---------------  | ------- | ----------- | -------- |
+| ParallelClusterVPC-20211210200003 | vpc-0445c3fa089b004d8  |	Available  |	10.0.0.0/16 |	–  |	–   |	dopt-eaeaf888 |	rtb-048c503f3e6b9acc3 | 	acl-0fecfa7ff42e04ead |	Default	| No| 	440858712842 |
+|ParallelClusterVPC-20211021183813  |	vpc-00e3f4e34aaf80f06 | 	Available | 	10.0.0.0/16 | 	– |	– |	dopt-eaeaf888 | rtb-0a5b7ac9873486bcb |	acl-0852d06b1170db68c |	Default	| No |	440858712842 | 
+| - | vpc-3cfc5759 | 	Available | 	172.31.0.0/16 | 	– |	– | 	dopt-eaeaf888 | 	rtb-99cd64fc |	acl-bb9b39de | 	Default	| Yes	| 440858712842 |
+| ParallelClusterVPC-20210419174552 |	vpc-0ab948b66554c71ea |	Available |	10.0.0.0/16 |	– |	– |	dopt-eaeaf888 |	rtb-03fd47f05eac5379f |	acl-079fe1be7ff972858 |	Default	 | No |	440858712842 |
+| ParallelClusterVPC-20211021174405 |	vpc-0f34a572da1515e49 |	Available |	10.0.0.0/16 | 	– |	– |	dopt-eaeaf888 |	rtb-0b6310d9ea70a699e |	acl-01fa1529b65545e91 |	Default	| No |	440858712842 |
+
+
+This is the subnet id that I am currently using in the yaml files: subnet-018cfea3edf3c4765
+
+I currently have 11 subnet IDs - how many are no longer being used?
+
+| Name | Subnet ID | State |  VPC | IPv4 CIDR | IPv6 CIDR | Available IPv4 addresses | Availability Zone | Availability Zone ID | Network border group | Route table | Network ACL | Default subnet|  Auto-assign public IPv4 address | Auto-assign customer-owned IPv4 address | Customer-owned IPv4 pool | Auto-assign IPv6 address | Owner ID |
+| --   | -------   | ----  | ---- | --------- | ---------- | ---------------------- | ----------------- | -------------------- | -------------------  | ----------- | ----------  | ------------- | ------------------------------   | --------------------------------------  | -----------------------  | -----------------------  | -------- |
+| parallelcluster:public-subnet |	subnet-018cfea3edf3c4765 |	Available |	vpc-0445c3fa089b004d8-ParallelClusterVPC-20211210200003 |	10.0.0.0/20 |	– |	4091 | us-east-1a |	use1-az6 |	us-east-1 |	rtb-034bcab9e4b8c4023-parallelcluster:route-table-public |	acl-0fecfa7ff42e04ead |	No |	Yes |	No |	- |	No |	440858712842 |
+
+
+Question: Is there any identifying information in these tables that should not be made public? Owner ID? 
+</pre></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Liz Adams
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">VPC Management</a></li>
+<li><a class="reference internal" href="#if-pcluster-configure-created-a-new-vpc-you-can-delete-that-vpc-by-deleting-the-aws-cloudformation-stack-it-created-the-name-will-start-with-parallelclusternetworking-and-contain-the-creation-time-in-a-yyyymmddhhmmss-format-you-can-list-the-stacks-using-the-list-stacks-command">If pcluster configure created a new VPC, you can delete that VPC by deleting the AWS CloudFormation stack it created. The name will start with “parallelclusternetworking-” and contain the creation time in a “YYYYMMDDHHMMSS” format. You can list the stacks using the list-stacks command.</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>

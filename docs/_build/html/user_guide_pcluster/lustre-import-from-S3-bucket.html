@@ -1,0 +1,738 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
+        <title>4.0 Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software - pcluster-cmaq documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">pcluster-cmaq  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">pcluster-cmaq  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="run-cmaq-using-parallel-cluster-yaml-that-is-pre-loaded-with-input-data-and-software">
+<h1>4.0 Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software<a class="headerlink" href="#run-cmaq-using-parallel-cluster-yaml-that-is-pre-loaded-with-input-data-and-software" title="Permalink to this headline">#</a></h1>
+<section id="import-data-from-s3-bucket-to-lustre">
+<h2>4.1 Import data from S3 Bucket to Lustre<a class="headerlink" href="#import-data-from-s3-bucket-to-lustre" title="Permalink to this headline">#</a></h2>
+<p>Justification for using the capability of importing data from an S3 bucket to the lustre file system over using elastic block storage file system and copying the data from the S3 bucket for the input and output data storage volume on the cluster.</p>
+<ol class="arabic simple">
+<li><p>Saves storage cost</p></li>
+<li><p>Removes need to copy data from S3 bucket to Lustre file system. FSx for Lustre integrates natively with Amazon S3, making it easy for you to process HPC data sets stored in Amazon S3</p></li>
+<li><p>Simplifies running HPC workloads on AWS</p></li>
+<li><p>Amazon FSx for Lustre uses parallel data transfer techniques to transfer data to and from S3 at up to hundreds of GB/s.</p></li>
+</ol>
+<p><a href="https://www.amazonaws.cn/en/fsx/lustre/faqs/">Lustre FAQs</a></p>
+<p><a href="https://docs.amazonaws.cn/en_us/fsx/latest/LustreGuide/performance.html">Lustre Performance Documentation</a></p>
+<p>To find the default settings for Lustre see:
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#SharedStorage-v3-FsxLustreSettings">Lustre Settings for Parallel Cluster</a></p>
+</section>
+<section id="examine-diagram-of-the-yaml-file-to-build-pre-installed-software-and-input-data">
+<h2>4.2 Examine Diagram of the YAML file to build pre-installed software and input data.<a class="headerlink" href="#examine-diagram-of-the-yaml-file-to-build-pre-installed-software-and-input-data" title="Permalink to this headline">#</a></h2>
+<p>Includes Snapshot ID of volume pre-installed with CMAQ software stack and name of S3 Bucket to import data to the Lustre Filesystem</p>
+<p>Figure 1. Diagram of YAML file used to configure a Parallel Cluster with a c5n.large head node and c5n.18xlarge compute nodes with Software and Data Pre-installed</p>
+<p><img alt="c5n-18xlarge Software+Data Pre-installed yaml configuration" src="../_images/c5n-18xlarge.ebs_shared-yaml.fsx_import.png"/></p>
+</section>
+<section id="edit-yaml-file-that-specifies-ebs-shared-directory-with-cmaqv5-3-3-and-libraries-installed-and-the-input-data-imported-from-an-s3-bucket-to-the-fsx-lustre-file-system">
+<h2>4.3 Edit Yaml file that specifies ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system<a class="headerlink" href="#edit-yaml-file-that-specifies-ebs-shared-directory-with-cmaqv5-3-3-and-libraries-installed-and-the-input-data-imported-from-an-s3-bucket-to-the-fsx-lustre-file-system" title="Permalink to this headline">#</a></h2>
+<p>Note - you need to edit the c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml file to specify your subnet-id and your keypair prior to creating the cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Region</span><span class="p">:</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">Image</span><span class="p">:</span>
+  <span class="n">Os</span><span class="p">:</span> <span class="n">ubuntu2004</span>
+<span class="n">HeadNode</span><span class="p">:</span>
+  <span class="n">InstanceType</span><span class="p">:</span> <span class="n">c5n</span><span class="o">.</span><span class="n">large</span>
+  <span class="n">Networking</span><span class="p">:</span>
+    <span class="n">SubnetId</span><span class="p">:</span> <span class="n">subnet</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span>                           <span class="o">&lt;&lt;&lt;</span> <span class="n">replace</span> <span class="n">subnetID</span>
+  <span class="n">DisableSimultaneousMultithreading</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">Ssh</span><span class="p">:</span>
+    <span class="n">KeyName</span><span class="p">:</span> <span class="n">your</span><span class="o">-</span><span class="n">key</span>                                   <span class="o">&lt;&lt;&lt;</span> <span class="n">replace</span> <span class="n">keyname</span>
+<span class="n">Scheduling</span><span class="p">:</span>
+  <span class="n">Scheduler</span><span class="p">:</span> <span class="n">slurm</span>
+  <span class="n">SlurmSettings</span><span class="p">:</span>
+    <span class="n">ScaledownIdletime</span><span class="p">:</span> <span class="mi">5</span>
+  <span class="n">SlurmQueues</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">Name</span><span class="p">:</span> <span class="n">queue1</span>
+      <span class="n">CapacityType</span><span class="p">:</span> <span class="n">SPOT</span>
+      <span class="n">Networking</span><span class="p">:</span>
+        <span class="n">SubnetIds</span><span class="p">:</span>
+          <span class="o">-</span> <span class="n">subnet</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xxx</span>                            <span class="o">&lt;&lt;&lt;</span> <span class="n">replace</span> <span class="n">subnetID</span>
+        <span class="n">PlacementGroup</span><span class="p">:</span>
+          <span class="n">Enabled</span><span class="p">:</span> <span class="n">true</span>
+      <span class="n">ComputeResources</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">Name</span><span class="p">:</span> <span class="n">compute</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="mi">1</span>
+          <span class="n">InstanceType</span><span class="p">:</span> <span class="n">c5n</span><span class="mf">.18</span><span class="n">xlarge</span>
+          <span class="n">MinCount</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="n">MaxCount</span><span class="p">:</span> <span class="mi">10</span>
+          <span class="n">DisableSimultaneousMultithreading</span><span class="p">:</span> <span class="n">true</span>
+          <span class="n">Efa</span><span class="p">:</span>
+            <span class="n">Enabled</span><span class="p">:</span> <span class="n">true</span>
+            <span class="n">GdrSupport</span><span class="p">:</span> <span class="n">false</span>
+<span class="n">SharedStorage</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">MountDir</span><span class="p">:</span> <span class="o">/</span><span class="n">shared</span>
+    <span class="n">Name</span><span class="p">:</span> <span class="n">ebs</span><span class="o">-</span><span class="n">shared</span>
+    <span class="n">StorageType</span><span class="p">:</span> <span class="n">Ebs</span>
+    <span class="n">EbsSettings</span><span class="p">:</span>
+      <span class="n">SnapshotId</span><span class="p">:</span> <span class="n">snap</span><span class="o">-</span><span class="mf">065979e115804972</span><span class="n">e</span>
+  <span class="o">-</span> <span class="n">MountDir</span><span class="p">:</span> <span class="o">/</span><span class="n">fsx</span>
+    <span class="n">Name</span><span class="p">:</span> <span class="n">name2</span>
+    <span class="n">StorageType</span><span class="p">:</span> <span class="n">FsxLustre</span>
+    <span class="n">FsxLustreSettings</span><span class="p">:</span>
+      <span class="n">StorageCapacity</span><span class="p">:</span> <span class="mi">1200</span>
+      <span class="n">ImportPath</span><span class="p">:</span> <span class="n">s3</span><span class="p">:</span><span class="o">//</span><span class="n">conus</span><span class="o">-</span><span class="n">benchmark</span><span class="o">-</span><span class="mi">2</span><span class="n">day</span>
+</pre></div>
+</div>
+</section>
+<section id="create-the-cmaq-mvp-parallel-cluster-with-software-data-pre-installed">
+<h2>4.4 Create the CMAQ MVP Parallel Cluster with software/data pre-installed<a class="headerlink" href="#create-the-cmaq-mvp-parallel-cluster-with-software-data-pre-installed" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">create-cluster</span> <span class="pre">--cluster-configuration</span> <span class="pre">c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span> <span class="pre">--region</span> <span class="pre">us-east-1</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"cluster"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"clusterName"</span><span class="p">:</span> <span class="s2">"cmaq"</span><span class="p">,</span>
+    <span class="s2">"cloudformationStackStatus"</span><span class="p">:</span> <span class="s2">"CREATE_IN_PROGRESS"</span><span class="p">,</span>
+    <span class="s2">"cloudformationStackArn"</span><span class="p">:</span> <span class="s2">"arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/6cfb1a50-6e99-11ec-8af1-0ea2256597e5"</span><span class="p">,</span>
+    <span class="s2">"region"</span><span class="p">:</span> <span class="s2">"us-east-1"</span><span class="p">,</span>
+    <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"3.0.2"</span><span class="p">,</span>
+    <span class="s2">"clusterStatus"</span><span class="p">:</span> <span class="s2">"CREATE_IN_PROGRESS"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<p>Check status again</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">describe-cluster</span> <span class="pre">--region=us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"creationTime"</span><span class="p">:</span> <span class="s2">"2022-01-06T02:36:18.119Z"</span><span class="p">,</span>
+  <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"3.0.2"</span><span class="p">,</span>
+  <span class="s2">"clusterConfiguration"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"</span>
+  <span class="p">},</span>
+  <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"3.0.2"</span><span class="p">,</span>
+      <span class="s2">"key"</span><span class="p">:</span> <span class="s2">"parallelcluster:version"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"cloudFormationStackStatus"</span><span class="p">:</span> <span class="s2">"CREATE_IN_PROGRESS"</span><span class="p">,</span>
+  <span class="s2">"clusterName"</span><span class="p">:</span> <span class="s2">"cmaq"</span><span class="p">,</span>
+  <span class="s2">"computeFleetStatus"</span><span class="p">:</span> <span class="s2">"UNKNOWN"</span><span class="p">,</span>
+  <span class="s2">"cloudformationStackArn"</span><span class="p">:</span> 
+  <span class="s2">"lastUpdatedTime"</span><span class="p">:</span> <span class="s2">"2022-01-06T02:36:18.119Z"</span><span class="p">,</span>
+  <span class="s2">"region"</span><span class="p">:</span> <span class="s2">"us-east-1"</span><span class="p">,</span>
+  <span class="s2">"clusterStatus"</span><span class="p">:</span> <span class="s2">"CREATE_IN_PROGRESS"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After 5-10 minutes, check the status again and recheck until you see the following status: “clusterStatus”: “CREATE_COMPLETE”</p>
+<p>Start the compute nodes</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">update-compute-fleet</span> <span class="pre">--region</span> <span class="pre">us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span> <span class="pre">--status</span> <span class="pre">START_REQUESTED</span></code></p>
+</section>
+<section id="log-into-the-new-cluster">
+<h2>4.5 Log into the new cluster<a class="headerlink" href="#log-into-the-new-cluster" title="Permalink to this headline">#</a></h2>
+<p>(note replace your-key.pem with your Key)</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">ssh</span> <span class="pre">-v</span> <span class="pre">-Y</span> <span class="pre">-i</span> <span class="pre">~/your-key.pem</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+<p>Verify the Parallel Cluster contains the software pre-loaded on the /shared volume from the EBS drive snapshot</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/shared/build</span></code></p>
+<p>Create a .cshrc file by copying it from the git repo that is on /shared/pcluster-cmaq</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/shared/pcluster-cmaq/dot.cshrc.pcluster</span> <span class="pre">~/.cshrc</span></code></p>
+<p>Source shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">csh</span></code></p>
+<p>Load the modules</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">------------------------------------------------------------</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">modulefiles</span> <span class="o">-------------------------------------------------------------</span>
+<span class="n">dot</span>  <span class="n">libfabric</span><span class="o">-</span><span class="n">aws</span><span class="o">/</span><span class="mf">1.13.2</span><span class="n">amzn1</span><span class="mf">.0</span>  <span class="n">module</span><span class="o">-</span><span class="n">git</span>  <span class="n">module</span><span class="o">-</span><span class="n">info</span>  <span class="n">modules</span>  <span class="n">null</span>  <span class="n">openmpi</span><span class="o">/</span><span class="mf">4.1.1</span>  <span class="n">use</span><span class="o">.</span><span class="n">own</span>
+</pre></div>
+</div>
+<p>Load the modules openmpi and libfabric</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">openmpi/4.1.1</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">libfabric-aws/1.13.2amzn1.0</span></code></p>
+</section>
+<section id="verify-that-the-input-data-was-imported-from-the-s3-bucket">
+<h2>4.6 Verify that the input data was imported from the S3 bucket<a class="headerlink" href="#verify-that-the-input-data-was-imported-from-the-s3-bucket" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/fsx/12US2</span></code></p>
+<p>Notice that the data doesn’t take up much space, it must be linked, rather than copied.</p>
+<p><code class="docutils literal notranslate"><span class="pre">du</span> <span class="pre">-h</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">27</span><span class="n">K</span>     <span class="o">./</span><span class="n">land</span>
+<span class="mi">33</span><span class="n">K</span>     <span class="o">./</span><span class="n">MCIP</span>
+<span class="mi">28</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">ptegu</span>
+<span class="mi">55</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">ptagfire</span>
+<span class="mi">27</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">ptnonipm</span>
+<span class="mi">55</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">ptfire_othna</span>
+<span class="mi">27</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">pt_oilgas</span>
+<span class="mi">26</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">inln_point</span><span class="o">/</span><span class="n">stack_groups</span>
+<span class="mi">51</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">inln_point</span>
+<span class="mi">28</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">cmv_c1c2_12</span>
+<span class="mi">28</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">cmv_c3_12</span>
+<span class="mi">28</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">othpt</span>
+<span class="mi">55</span><span class="n">K</span>     <span class="o">./</span><span class="n">emissions</span><span class="o">/</span><span class="n">ptfire</span>
+<span class="mi">407</span><span class="n">K</span>    <span class="o">./</span><span class="n">emissions</span>
+<span class="mi">27</span><span class="n">K</span>     <span class="o">./</span><span class="n">icbc</span>
+<span class="mi">518</span><span class="n">K</span>    <span class="o">.</span>
+</pre></div>
+</div>
+<p>The run scripts are expecting the data to be located under
+/fsx/data/CONUS/12US2</p>
+<p>Need to make this directory and then link it to the path created when the data was imported by the parallel cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/fsx/data/CONUS</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/fsx/data/CONUS</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/fsx/12US2</span> <span class="pre">.</span></code></p>
+<p>Also need to create the output directory</p>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/fsx/data/output</span></code></p>
+</section>
+<section id="examine-the-run-scripts">
+<h2>4.7 Examine the run scripts<a class="headerlink" href="#examine-the-run-scripts" title="Permalink to this headline">#</a></h2>
+<p>The run scripts are available in two locations, one in the CMAQ scripts directory.</p>
+<p>Another copy is available in the pcluster-cmaq repo.</p>
+<p>Verify that the run scripts are updated and pre-configured for the parallel cluster by comparing with what is available in the github repo</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts</span></code></p>
+<p>Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">/shared/pcluster-cmaq/run_scripts/cmaq533/run_cctm_2016_12US2.180pe.5x36.pcluster.csh</span> <span class="pre">.</span></code></p>
+<p>If a run script is missing or outdated, copy the run scripts from the repo.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/shared/pcluster-cmaq/run_scripts/cmaq533/run*pcluster.csh</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/</span></code></p>
+<p>Note, the time that it takes the 2 day CONUS benchmark to run will vary based on the number of CPUs used.
+See Table 1.6 Benchmark Timing Results in Chapter 1 for reference.</p>
+<p>Examine how the run script is configured</p>
+<p><code class="docutils literal notranslate"><span class="pre">head</span>  <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/csh -f</span>
+<span class="c1">## For c5n.18xlarge (72 vcpu - 36 cpu)         &lt;&lt;&lt; this run script is configured to run on c5n.18xlarge with hyperthreading turned off (36 cpus)</span>
+<span class="c1">## works with cluster-ubuntu.yaml</span>
+<span class="c1">## data on /fsx directory</span>
+<span class="c1">#SBATCH --nodes=8</span>
+<span class="c1">#SBATCH --ntasks-per-node=32                   &lt;&lt;&lt;  note, there are 36 cpus per node, but we only need 32 of them to run a 256 cpu job (8x32)</span>
+<span class="c1">#SBATCH -J CMAQ</span>
+<span class="c1">#SBATCH --exclusive</span>
+<span class="c1">#SBATCH -o /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log        &lt;&lt; NPCOLxNPROW = 16 x 16</span>
+<span class="c1">#SBATCH -e /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.16x16pe.2day.pcluster.log</span>
+</pre></div>
+</div>
+<p>Note that in this run script, slurm or SBATCH requests 8 nodes, each node with 32 pes, or 8x32 = 256 pes</p>
+<p>Verify that the NPCOL and NPROW settings in the script are configured to match.
+In this case, to run CMAQ using on 256 cpus, use NPCOL=16 and NPROW=16.</p>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">NPCOL</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_2016_12US2.256pe.8x32.pcluster.csh</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   setenv NPCOL_NPROW "1 1"; set NPROCS   = 1 # single processor setting
+   @ NPCOL  =  16; @ NPROW = 16
+   @ NPROCS = $NPCOL * $NPROW
+   setenv NPCOL_NPROW "$NPCOL $NPROW"; 
+</pre></div>
+</div>
+</section>
+<section id="submit-the-job-to-the-slurm-queue">
+<h2>4.8 Submit the job to the slurm queue<a class="headerlink" href="#submit-the-job-to-the-slurm-queue" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.256pe.8x32.pcluster.csh</span></code></p>
+</section>
+<section id="check-status-of-run">
+<h2>4.9 Check status of run<a class="headerlink" href="#check-status-of-run" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">squeue</span> </code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JOBID</span> <span class="n">PARTITION</span>     <span class="n">NAME</span>     <span class="n">USER</span> <span class="n">ST</span>       <span class="n">TIME</span>  <span class="n">NODES</span> <span class="n">NODELIST</span><span class="p">(</span><span class="n">REASON</span><span class="p">)</span>
+                 <span class="mi">1</span>    <span class="n">queue1</span>     <span class="n">CMAQ</span>   <span class="n">ubuntu</span> <span class="n">PD</span>       <span class="mi">0</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">8</span> <span class="p">(</span><span class="n">BeginTime</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note if you see the following message, you may want to submit a job that requires fewer PEs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">165</span><span class="p">:</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">openmpi_gcc</span><span class="o">/</span><span class="n">CMAQ_v533</span><span class="o">/</span><span class="n">CCTM</span><span class="o">/</span><span class="n">scripts</span><span class="o">%</span> <span class="n">squeue</span>
+             <span class="n">JOBID</span> <span class="n">PARTITION</span>     <span class="n">NAME</span>     <span class="n">USER</span> <span class="n">ST</span>       <span class="n">TIME</span>  <span class="n">NODES</span> <span class="n">NODELIST</span><span class="p">(</span><span class="n">REASON</span><span class="p">)</span>
+                 <span class="mi">1</span>    <span class="n">queue1</span>     <span class="n">CMAQ</span>   <span class="n">ubuntu</span> <span class="n">PD</span>       <span class="mi">0</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">8</span> <span class="p">(</span><span class="n">Nodes</span> <span class="n">required</span> <span class="k">for</span> <span class="n">job</span> <span class="n">are</span> <span class="n">DOWN</span><span class="p">,</span> <span class="n">DRAINED</span> <span class="ow">or</span> <span class="n">reserved</span> <span class="k">for</span> <span class="n">jobs</span> <span class="ow">in</span> <span class="n">higher</span> <span class="n">priority</span> <span class="n">partitions</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you repeatedly see that the job is not successfully provisioned, cancel the job.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scancel</span> </code></p>
+<p>Try submitting a smaller job to the queue.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.180pe.5x36.pcluster.csh</span></code></p>
+<p>Or, you may need to update the compute nodes to use ONDEMAND instead of SPOT pricing.</p>
+<p>To do this, exit the cluster, stop the compute nodes, then edit the yaml file to modify SPOT to ONDEMAND. See Chapter 3 for the detailed instructions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">update-cluster</span> <span class="pre">--region</span> <span class="pre">us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span> <span class="pre">--cluster-configuration</span>  <span class="pre">c5n-18xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"cluster"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"clusterName"</span><span class="p">:</span> <span class="s2">"cmaq"</span><span class="p">,</span>
+    <span class="s2">"cloudformationStackStatus"</span><span class="p">:</span> <span class="s2">"UPDATE_IN_PROGRESS"</span><span class="p">,</span>
+    <span class="s2">"cloudformationStackArn"</span><span class="p">:</span> <span class="s2">"xx-xxx-xx"</span><span class="p">,</span>
+    <span class="s2">"region"</span><span class="p">:</span> <span class="s2">"us-east-1"</span><span class="p">,</span>
+    <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"3.1.1"</span><span class="p">,</span>
+    <span class="s2">"clusterStatus"</span><span class="p">:</span> <span class="s2">"UPDATE_IN_PROGRESS"</span>
+  <span class="p">},</span>
+  <span class="s2">"changeSet"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"parameter"</span><span class="p">:</span> <span class="s2">"Scheduling.SlurmQueues[queue1].CapacityType"</span><span class="p">,</span>
+      <span class="s2">"requestedValue"</span><span class="p">:</span> <span class="s2">"ONDEMAND"</span><span class="p">,</span>
+      <span class="s2">"currentValue"</span><span class="p">:</span> <span class="s2">"SPOT"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">describe-cluster</span> <span class="pre">--region=us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"clusterStatus"</span><span class="p">:</span> <span class="s2">"UPDATE_IN_PROGRESS"</span>
+</pre></div>
+</div>
+<p>once you see</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="s2">"clusterStatus"</span><span class="p">:</span> <span class="s2">"UPDATE_COMPLETE"</span>
+</pre></div>
+</div>
+<p>Restart the compute nodes</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">update-compute-fleet</span> <span class="pre">--region</span> <span class="pre">us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span> <span class="pre">--status</span> <span class="pre">START_REQUESTED</span></code></p>
+<p>Verify that compute nodes have started</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">describe-cluster</span> <span class="pre">--region=us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="s2">"computeFleetStatus"</span><span class="p">:</span> <span class="s2">"RUNNING"</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Re-login to the cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">ssh</span> <span class="pre">-v</span> <span class="pre">-Y</span> <span class="pre">-i</span> <span class="pre">~/your-key.pem</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span></code></p>
+<p>Submit a new job</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.180pe.5x36.pcluster.csh</span></code></p>
+<p>Note, If you still have difficulty running a job in the slurm queue, there may be other issues that need to be resolved.</p>
+<p>Verify that your IAM Policy has been created for your account.</p>
+<p>Someone with administrative permissions should eable the spot instances IAM Policy: AWSEC2SpotServiceRolePolicy</p>
+<p>An alternative way to enable this policy is to login to the EC2 Website and launch a spot instance.
+The service policy will be automatically created, that can then be used by Parallel Cluster.</p>
+<p>Check to view any errors in the log on the parallel cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">/var/log/parallelcluster/slurm_resume.log</span></code></p>
+<p>An error occurred (MaxSpotInstanceCountExceeded) when calling the RunInstances operation: Max spot instance count exceeded</p>
+<p>If you encounter this error, you will need to submit a request to increase this spot instance limit using the AWS Website.</p>
+<p>Try to submit a 72 pe job 2 nodes x 36 cpus</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.72pe.2x36.pcluster.csh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">'Processing</span> <span class="pre">completed.'</span> <span class="pre">CTM_LOG_036.v533_gcc_2016_CONUS_6x12pe_20151223</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">9.0</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>   <span class="mf">12.0</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>   <span class="mf">11.2</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">9.0</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">9.1</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">20</span> <span class="pre">run_cctmv5.3.3_Bench_2016_12US2.72.6x12pe.2day.pcluster.log</span> </code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">72</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">3562.50</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">3151.21</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">6713.71</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">3356.85</span>
+</pre></div>
+</div>
+<p>Note - the following jobs were submitted using different configuration options on the Parallel Cluster. The record of these jobs is included for you to review, but it is not required to re-submit all of these benchmarks as part of this tutorial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.108pe.3x36.pcluster.csh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">'Processing</span> <span class="pre">Completed'</span> <span class="pre">CTM_LOG_000.v533_gcc_2016_CONUS_9x12pe_20151222</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">6.0</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">6.0</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">8.3</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">8.2</span> <span class="n">seconds</span>
+            <span class="n">Processing</span> <span class="n">completed</span><span class="o">...</span>    <span class="mf">6.0</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p>`tail -n 18 run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">108</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">2454.11</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">2142.11</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">4596.22</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">2298.11</span>
+</pre></div>
+</div>
+<p>108 pe run with NPCOL=6, NPROW=18 to compare with the following run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>run_cctm_2016_12US2.72pe.2x36.pcluster.csh:   @ NPCOL  =  6; @ NPROW = 12`
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh</span></code></p>
+<p>Compare the answers using m3diff and verify that get matching answers if NPCOL for both runs is identical NPCOL=6.</p>
+<p>Note that answers do not match if NPCOL was different, despite the removal of the -march=native compiler flag.</p>
+<ol class="arabic simple">
+<li><p>Do a make clean and rebuild</p></li>
+<li><p>Rerun two cases with different values for NPCOL</p></li>
+<li><p>Re-check the answers</p></li>
+</ol>
+<p>Also run a case to verify that if NPCOL is identical than answers match.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_cctm_2016_12US2.108pe.3x36.6x18.pcluster.csh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">20</span> <span class="pre">/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">108</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">2415.37</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">2122.62</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">4537.99</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">2268.99</span>
+</pre></div>
+</div>
+<p>Once that is done, save a snapshot of the volume prior to deleting the cluster, to update the run scripts.</p>
+<p>Results from the Parallel Cluster Started with the pre-installed software with the input data copied to /fsx from S3 Bucket</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">256</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">1305.99</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">1165.30</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">2471.29</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">1235.64</span>
+</pre></div>
+</div>
+<p>Results from Parallel Cluster Started with the software with data imported from S3 Bucket to Lustre</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">256</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">1564.90</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">1381.80</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">2946.70</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">1473.35</span>
+</pre></div>
+</div>
+<p>Timing for a 288 pe run</p>
+<p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">18</span> <span class="pre">run_cctmv5.3.3_Bench_2016_12US2.16x18pe.2day.log</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">288</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">1197.19</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">1090.45</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">2287.64</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">1143.82</span>
+</pre></div>
+</div>
+<p>Note this performance seems better than earlier runs..
+Script used the #SBATCH –exclusive option.
+All run scripts have been modified to use this option.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">18</span> <span class="pre">run_cctmv5.3.3_Bench_2016_12US2.10x18pe.2day.log</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==================================</span>
+  <span class="o">*****</span> <span class="n">CMAQ</span> <span class="n">TIMING</span> <span class="n">REPORT</span> <span class="o">*****</span>
+<span class="o">==================================</span>
+<span class="n">Start</span> <span class="n">Day</span><span class="p">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">End</span> <span class="n">Day</span><span class="p">:</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Simulation</span> <span class="n">Days</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Domain</span> <span class="n">Name</span><span class="p">:</span>               <span class="mi">12</span><span class="n">US2</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Grid</span> <span class="n">Cells</span><span class="p">:</span>      <span class="mi">3409560</span>  <span class="p">(</span><span class="n">ROW</span> <span class="n">x</span> <span class="n">COL</span> <span class="n">x</span> <span class="n">LAY</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Layers</span><span class="p">:</span>          <span class="mi">35</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">Processes</span><span class="p">:</span>       <span class="mi">180</span>
+   <span class="n">All</span> <span class="n">times</span> <span class="n">are</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span>
+
+<span class="n">Num</span>  <span class="n">Day</span>        <span class="n">Wall</span> <span class="n">Time</span>
+<span class="mi">01</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="mf">1585.67</span>
+<span class="mi">02</span>   <span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>   <span class="mf">1394.52</span>
+     <span class="n">Total</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">2980.19</span>
+      <span class="n">Avg</span><span class="o">.</span> <span class="n">Time</span> <span class="o">=</span> <span class="mf">1490.09</span>
+</pre></div>
+</div>
+<p>Submit a minimum of 2 benchmark runs (using two different NPCOLxNPROW) configurations, to create output needed for the QA and Post Processing Sections in Chapter 5.</p>
+</section>
+<section id="cmaq-benchmark-option-2-install-software-on-cluster-and-proceed-to-chapter-8-post-processing-and-qa">
+<h2>4.10 CMAQ Benchmark Option 2 (install software on cluster) and proceed to Chapter 8, Post Processing and QA.<a class="headerlink" href="#cmaq-benchmark-option-2-install-software-on-cluster-and-proceed-to-chapter-8-post-processing-and-qa" title="Permalink to this headline">#</a></h2>
+<p>(go to left menu and click on 8 Compile and Run Post Processors)</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Liz Adams
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">4.0 Run CMAQ using Parallel Cluster YAML that is pre-loaded with input data and software</a><ul>
+<li><a class="reference internal" href="#import-data-from-s3-bucket-to-lustre">4.1 Import data from S3 Bucket to Lustre</a></li>
+<li><a class="reference internal" href="#examine-diagram-of-the-yaml-file-to-build-pre-installed-software-and-input-data">4.2 Examine Diagram of the YAML file to build pre-installed software and input data.</a></li>
+<li><a class="reference internal" href="#edit-yaml-file-that-specifies-ebs-shared-directory-with-cmaqv5-3-3-and-libraries-installed-and-the-input-data-imported-from-an-s3-bucket-to-the-fsx-lustre-file-system">4.3 Edit Yaml file that specifies ebs /shared directory with CMAQv5.3.3 and libraries installed, and the input data imported from an S3 bucket to the /fsx lustre file system</a></li>
+<li><a class="reference internal" href="#create-the-cmaq-mvp-parallel-cluster-with-software-data-pre-installed">4.4 Create the CMAQ MVP Parallel Cluster with software/data pre-installed</a></li>
+<li><a class="reference internal" href="#log-into-the-new-cluster">4.5 Log into the new cluster</a></li>
+<li><a class="reference internal" href="#verify-that-the-input-data-was-imported-from-the-s3-bucket">4.6 Verify that the input data was imported from the S3 bucket</a></li>
+<li><a class="reference internal" href="#examine-the-run-scripts">4.7 Examine the run scripts</a></li>
+<li><a class="reference internal" href="#submit-the-job-to-the-slurm-queue">4.8 Submit the job to the slurm queue</a></li>
+<li><a class="reference internal" href="#check-status-of-run">4.9 Check status of run</a></li>
+<li><a class="reference internal" href="#cmaq-benchmark-option-2-install-software-on-cluster-and-proceed-to-chapter-8-post-processing-and-qa">4.10 CMAQ Benchmark Option 2 (install software on cluster) and proceed to Chapter 8, Post Processing and QA.</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>

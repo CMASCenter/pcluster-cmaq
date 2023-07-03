@@ -1,0 +1,266 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
+        <title>&lt;no title&gt; - pcluster-cmaq documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">pcluster-cmaq  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">pcluster-cmaq  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p>Q. Can you update a cluster with a Snapshot ID, ie. update a cluster to use the /shared/build pre-installed software.</p>
+<p>A. No. An existing cluster can not be updated with a Snapshot ID, solution is to delete the cluster and re-create it. see error:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcluster</span> <span class="pre">update-cluster</span> <span class="pre">--region</span> <span class="pre">us-east-1</span> <span class="pre">--cluster-name</span> <span class="pre">cmaq</span> <span class="pre">--cluster-configuration</span> <span class="pre">c5n-18xlarge.ebs_unencrypted.fsx_import.yaml</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="p">{</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Update failure"</span><span class="p">,</span>
+  <span class="s2">"updateValidationErrors"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"parameter"</span><span class="p">:</span> <span class="s2">"SharedStorage[ebs-shared].EbsSettings.SnapshotId"</span><span class="p">,</span>
+      <span class="s2">"requestedValue"</span><span class="p">:</span> <span class="s2">"snap-065979e115804972e"</span><span class="p">,</span>
+      <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Update actions are not currently supported for the 'SnapshotId' parameter. Remove the parameter 'SnapshotId'. If you need this change, please consider creating a new cluster instead of updating the existing one."</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"changeSet"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"parameter"</span><span class="p">:</span> <span class="s2">"SharedStorage[ebs-shared].EbsSettings.SnapshotId"</span><span class="p">,</span>
+      <span class="s2">"requestedValue"</span><span class="p">:</span> <span class="s2">"snap-065979e115804972e"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Q. How do you figure out why a job isn’t successfully running in the slurm queue</p>
+<p>A. Check the logs available in the following link</p>
+<p><a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">Pcluster Troubleshooting</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">/var/log/parallelcluster/slurm_resume.log</span></code></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">21</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span><span class="mi">600</span> <span class="o">-</span> <span class="p">[</span><span class="n">slurm_plugin</span><span class="o">.</span><span class="n">instance_manager</span><span class="p">:</span><span class="n">_launch_ec2_instances</span><span class="p">]</span> <span class="o">-</span> <span class="n">ERROR</span> <span class="o">-</span> <span class="n">Failed</span> <span class="n">RunInstances</span> <span class="n">request</span><span class="p">:</span> <span class="mi">0</span><span class="n">c6422af</span><span class="o">-</span><span class="n">c300</span><span class="o">-</span><span class="mi">4</span><span class="n">fe6</span><span class="o">-</span><span class="n">b942</span><span class="o">-</span><span class="mi">2</span><span class="n">b7923f7b362</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">21</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span><span class="mi">600</span> <span class="o">-</span> <span class="p">[</span><span class="n">slurm_plugin</span><span class="o">.</span><span class="n">instance_manager</span><span class="p">:</span><span class="n">add_instances_for_nodes</span><span class="p">]</span> <span class="o">-</span> <span class="n">ERROR</span> <span class="o">-</span> <span class="n">Encountered</span> <span class="n">exception</span> <span class="n">when</span> <span class="n">launching</span> <span class="n">instances</span> <span class="k">for</span> <span class="n">nodes</span> <span class="p">(</span><span class="n">x3</span><span class="p">)</span> <span class="p">[</span><span class="s1">'queue1-dy-compute-resource-1-4'</span><span class="p">,</span> <span class="s1">'queue1-dy-compute-resource-1-5'</span><span class="p">,</span> <span class="s1">'queue1-dy-compute-resource-1-6'</span><span class="p">]:</span> <span class="n">An</span> <span class="n">error</span> <span class="n">occurred</span> <span class="p">(</span><span class="n">InsufficientInstanceCapacity</span><span class="p">)</span> <span class="n">when</span> <span class="n">calling</span> <span class="n">the</span> <span class="n">RunInstances</span> <span class="n">operation</span> <span class="p">(</span><span class="n">reached</span> <span class="nb">max</span> <span class="n">retries</span><span class="p">:</span> <span class="mi">1</span><span class="p">):</span> <span class="n">We</span> <span class="n">currently</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">sufficient</span> <span class="n">c5n</span><span class="mf">.18</span><span class="n">xlarge</span> <span class="n">capacity</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Availability</span> <span class="n">Zone</span> <span class="n">you</span> <span class="n">requested</span> <span class="p">(</span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span><span class="n">a</span><span class="p">)</span><span class="o">.</span> <span class="n">Our</span> <span class="n">system</span> <span class="n">will</span> <span class="n">be</span> <span class="n">working</span> <span class="n">on</span> <span class="n">provisioning</span> <span class="n">additional</span> <span class="n">capacity</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">currently</span> <span class="n">get</span> <span class="n">c5n</span><span class="mf">.18</span><span class="n">xlarge</span> <span class="n">capacity</span> <span class="n">by</span> <span class="ow">not</span> <span class="n">specifying</span> <span class="n">an</span> <span class="n">Availability</span> <span class="n">Zone</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">request</span> <span class="ow">or</span> <span class="n">choosing</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span><span class="n">b</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span><span class="n">c</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span><span class="n">d</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span><span class="n">f</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Q. How do I determine what node(s) the job is running on?</p>
+<p>A. echo $SLURM_JOB_NODELIST</p>
+<p><a href="https://hpcc.umd.edu/hpcc/help/slurmenv.html">Slurm Environment Variables</a></p>
+<p>Q. If I find an issue, or need help with this CMAQ Parallel Cluster Tutorial what do I do?</p>
+<p>A. Please file an issue using github.</p>
+<p>https://github.com/lizadams/pcluster-cmaq/issues</p>
+<p>Please indicate the issue you are having, and include a link from the read the doc section that you are referring to.</p>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Liz Adams
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>

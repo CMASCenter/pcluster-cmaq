@@ -1,6 +1,6 @@
 (myst-sphinx)=
 
-# System Requirements 
+# System Requirements
 
 Description of the compute node and head nodes used for the Parallel Cluster
 
