@@ -28,13 +28,9 @@ Tier 2: additional libraries required for installing CMAQ
 
 Tier 3: Software distributed thru the CMAS Center
 
-* CMAQv533 
-or 
 * CMAQv5.4+
 
-* CMAQv533 Post Processors 
-or 
-CMAQv5.4+ Post Processors
+* CMAQv5.4+ Post Processors
 
 Tier 4: R packages and Scripts
 
@@ -42,7 +38,7 @@ Tier 4: R packages and Scripts
 
 Software on Local Computer
 
-* AWS CLI v3.0 installed in a virtual environment
+* AWS ParallelCluster CLI v3.0 installed in a virtual environment
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
 * run-instances is another AWS Command Line method to create a single virtual machine to run CMAQ described in chapter 6.
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
@@ -57,18 +53,6 @@ Software on Local Computer
 The scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 ```
-
-
-
-### CONUS 12US2 Domain Description
-
-```
-GRIDDESC
-'12US2'
-'12CONUS'     -2412000.0 -1620000.0 12000.0 12000.0 396 246 1
-```
-
-![CMAQ 12US2 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
 
 ### CONUS 12US1 Domain Description
 
@@ -86,7 +70,7 @@ GRIDDESC
 * c6a.48xlarge
 
 
-##  ParallelCluster Configuration for 12US2 or 12US1 Benchmark Domain
+##  ParallelCluster Configuration for 12US1 Benchmark Domain
 
 ```{note}
 It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
@@ -96,25 +80,12 @@ Recommended configuration of the ParallelCluster HPC head node and compute nodes
 
 Head node:
 
-* c5n.large
-
-or
-
 * c6a.xlarge
 
 (note that head node should match the processor family of the compute nodes)
 
 Compute Node:
 
-* c5n.9xlarge (16 cpus/node with Multithreading disabled)
-with 96 GiB memory, 50 Gbps Network Bandwidth, 9,500 EBS Bandwidth (Mbps) and Elastic Fabric Adapter (EFA)
-
-or
-
-* c5n.18xlarge  (36 cpus/node with Multithreading disabled)
-with 192 GiB memory, 100 Gbps Network Bandwidth, 19,000 EBS Bandwidth (Mbps) and Elastic Fabric Adapter (EFA)
-
-or
 
 * c6a.48xlarge (96 cpus/node with Multithreading disabled)
 with 384 GiB memory, 50 Gigabit Network Bandwidth, 40 EBS Bandwidth (Gbps), Elastic Fabric Adapter (EFA) and Nitro Hypervisor
