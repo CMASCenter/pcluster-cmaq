@@ -21,6 +21,7 @@ This document provides tutorials and information on how users can create High Pe
 This document provides several hands-on tutorials that are designed to be read in order.  
 
 <br>
+
 ### Single VM Tutorials
 The Single VM Tutorial will show you how to create a single virtual machine using an AMI that has the software and data pre-loaded and give instructions for creating the virtual machine using ec2 instances that have different number of cores, and are matched to the benchmark domain. 
 
