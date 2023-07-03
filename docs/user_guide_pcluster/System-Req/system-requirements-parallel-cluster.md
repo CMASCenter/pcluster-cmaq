@@ -29,7 +29,7 @@ See the AWS Tutorial on setting up an alarm for AWS Free Tier.
 <a href="https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets">AWS Free Tier Budgets</a>
 ```
 
-## Software Requirements for CMAQ on AWS ParallelCluster
+## Software Requirements for CMAQ on AWS Single VM or ParallelCluster
 
 Tier 1: Native OS and associated system libraries, compilers
 
