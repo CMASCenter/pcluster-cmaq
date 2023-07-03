@@ -1,4 +1,4 @@
-## CMAQ on AWS Tutorials (Single VM and ParallelCluster)
+## CMAQ on AWS Tutorials
 
 Scripts and code to run CMAQ on Single Virtural Machine or Parallel Cluster (multiple VMs).
 
