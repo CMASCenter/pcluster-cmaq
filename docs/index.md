@@ -47,8 +47,6 @@ Additional information on AWS ParallelCluster:
 
 <a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
 
-<a href="https://repost.aws/tags/TAjBvP4otfT3eX8PswbXo9AQ">AWS HPC discussion forum</a>
-
 
 ```{toctree}
    :numbered: 3
