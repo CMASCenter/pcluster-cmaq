@@ -25,7 +25,7 @@ This document provides tutorials and information on how users can create High Pe
        | -----------> Configure VM using AWS CLI using CMAQ AMI
 | ---> | Building a Parallel Cluster (many VMs) using "CMAQ Snapshot"
 | ---> | Developers Guide (How to install CMAQ software and libraries) 
-     requirement for Single VM with "Default Stock AMI" or ParallelCluster without "CMAQ Snapshot"
+requirement for Single VM with "Default Stock AMI" or ParallelCluster without "CMAQ Snapshot"
 | ---> | Post-processing and saving to S3 Bucket
 | ---> | Performance Cost and Optimization
 | ---> | Additional Resources
