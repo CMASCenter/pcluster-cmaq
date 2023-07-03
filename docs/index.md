@@ -30,8 +30,8 @@ This document provides several hands-on tutorials that are designed to be read i
 | ---> | Building a Parallel Cluster (many VMs) using "CMAQ Snapshot"
 | ---> | Developers Guide (How to install CMAQ software and libraries from scratch 
          -- (requirement to use a Single VM or ParallelCluster uinsg "Default Stock AMI".)
-| ---> | Performance Cost and Optimization
 | ---> | Post-processing and saving to S3 Bucket
+| ---> | Performance Cost and Optimization
 | ---> | Additional Resources
 | ---> | Future Work
 | ---> | How to contribute to this work
