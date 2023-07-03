@@ -1,6 +1,6 @@
 ## CMAQ on AWS Tutorials
 
-Scripts and code to run CMAQ on Single Virtural Machine or Parallel Cluster (multiple VMs).
+Scripts and code to run CMAQ on Single Virtual Machine or Parallel Cluster (multiple VMs).
 
 ### To obtain this code use the following command.
 
