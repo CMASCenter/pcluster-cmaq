@@ -31,7 +31,7 @@ See the AWS Tutorial on setting up an alarm for AWS Free Tier.
 
 ## Software Requirements for CMAQ on AWS Single VM or ParallelCluster
 
-Tier 1: Native OS and associated system libraries, compilers
+<b>Tier 1</b>: Native OS and associated system libraries, compilers
 
 * Operating System: Ubuntu2004 
 * Tcsh shell
@@ -40,13 +40,13 @@ Tier 1: Native OS and associated system libraries, compilers
 * MPI (Message Passing Interface) -  OpenMPI ≥ 4.0
 * Slurm Scheduler
 
-Tier 2: additional libraries required for installing CMAQ 
+<b>Tier 2</b>: additional libraries required for installing CMAQ 
 
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
 * R Software and packages
 
-Tier 3: Software distributed thru the CMAS Center
+<b>Tier 3</b>: Software distributed thru the CMAS Center
 
 * CMAQv5.4+
 
