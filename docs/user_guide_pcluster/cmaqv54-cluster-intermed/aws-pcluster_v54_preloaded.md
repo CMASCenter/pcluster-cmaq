@@ -1,7 +1,3 @@
-CMAQv5.4 on Parallel Cluster Intermediate Tutorial
-
-(still working on these instructions)
-
 ## Use ParallelCluster with Software and Data pre-installed for c6a.48xlarge
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark 
