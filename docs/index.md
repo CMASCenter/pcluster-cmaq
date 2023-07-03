@@ -19,8 +19,7 @@ This document provides tutorials and information on how users can create High Pe
 ## Format of this documentation
 
 ```
-| Landing Page
-|
+| ---> | System Requirements for Benchmarks
 | ---> | Single VM
        | -----------> Configure VM using AWS Console using CMAQ AMI
        | -----------> Configure VM using AWS CLI using CMAQ AMI
