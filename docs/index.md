@@ -18,8 +18,6 @@ This document provides tutorials and information on how users can create High Pe
 
 ## Format of this documentation
 
-This document provides several hands-on tutorials that are designed to be read in order.  
-
 ```
 | Landing Page
 |
