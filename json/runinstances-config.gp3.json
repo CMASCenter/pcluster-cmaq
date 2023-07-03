@@ -1,0 +1,21 @@
+{
+    "DryRun": false,
+    "MaxCount": 1,
+    "MinCount": 1,
+    "InstanceType": "c6a.48xlarge",
+    "ImageId": "ami-01605a204650ede2f",
+    "InstanceMarketOptions": {
+        "MarketType": "spot"
+    },
+    "TagSpecifications": [
+        {
+            "ResourceType": "instance",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "EC2CMAQv54gp3"
+                }
+            ]
+        }
+    ]
+}
