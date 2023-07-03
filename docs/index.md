@@ -59,8 +59,7 @@ Additional information on AWS ParallelCluster:
 
 user_guide_pcluster/System-Req/index.md
 user_guide_pcluster/cmaq-vm/index.md
-user_guide_pcluster/demo/index.md
-user_guide_pcluster/cmaqv54-cluster/index.md
+user_guide_pcluster/pcluster/index.md
 user_guide_pcluster/developers_guide/index.md
 user_guide_pcluster/post/index.md
 user_guide_pcluster/qa/index.md
