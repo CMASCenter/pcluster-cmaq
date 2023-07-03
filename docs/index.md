@@ -26,11 +26,11 @@ This document provides several hands-on tutorials that are designed to be read i
 The Single VM Tutorial will show you how to create a single virtual machine using an AMI that has the software and data pre-loaded and give instructions for creating the virtual machine using ec2 instances that have different number of cores, and are matched to the benchmark domain. 
 
 ### Parallel Cluster Tutorials
-The CMAQv5.4 Parallel Cluster Intermediate Chapter will show you how to run a CMAQv5.4 benchmarks on ParallelCluster using pre-loaded software and input data.  
+The CMAQv Parallel Cluster Intermediate Chapter will show you how to run a CMAQv benchmarks on ParallelCluster using pre-loaded software and input data.  
 
 ### Developer Guide
-Install CMAQv5.4 software and libraries on Single VM and create custom environment modules.
-Install CMAQv5.4 software and libraries on Parallel Cluster.
+Install CMAQ software and libraries on Single VM and create custom environment modules.
+Install CMAQ software and libraries on Parallel Cluster.
 
 <br>
 The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.</br>
