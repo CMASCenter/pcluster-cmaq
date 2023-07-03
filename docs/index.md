@@ -53,10 +53,10 @@ Additional information on AWS ParallelCluster:
 :caption: 'Contents:'
 :maxdepth: 2
 
-user_guide_pcluster/demo/index.md
 user_guide_pcluster/System-Req/index.md
 user_guide_pcluster/cmaq-vm-intermed/index.md
 user_guide_pcluster/cmaq-vm/index.md
+user_guide_pcluster/demo/index.md
 user_guide_pcluster/cmaqv54-cluster-intermed/index.md
 user_guide_pcluster/cmaqv54-cluster/index.md
 user_guide_pcluster/cmaq-cluster/index.md
