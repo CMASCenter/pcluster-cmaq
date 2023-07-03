@@ -26,7 +26,6 @@ This document provides several hands-on tutorials that are designed to be read i
 | ---> | Single VM
        | -----------> Configure VM using AWS Console using CMAQ AMI
        | -----------> Configure VM using AWS CLI using CMAQ AMI
-|
 | ---> | Building a Parallel Cluster (many VMs) using "CMAQ Snapshot"
 | ---> | Developers Guide (How to install CMAQ software and libraries from scratch 
      (requirement for Single VM with "Default Stock AMI" or ParallelCluster without "CMAQ Snapshot".)
