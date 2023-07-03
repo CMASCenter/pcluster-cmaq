@@ -21,5 +21,4 @@ Run CMAQv5.4+ on a single Virtual Machine (VM) using an ami with software pre-lo
 aws_cli_launch_vm_c6a.2xlarge.md
 aws_cli_launch_vm_c6a.8xlarge.md
 aws_cli_launch_vm_c6a.48xlarge.md
-aws_cli_launch_vm_troubleshoot.md
 ```
