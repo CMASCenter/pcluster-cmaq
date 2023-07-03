@@ -20,35 +20,41 @@ This document provides tutorials and information on how users can create High Pe
 
 This document provides several hands-on tutorials that are designed to be read in order.  
 
+```
+| Landing Page
+|
+| ---> | Single VM
+       | -----------> Configure VM using AWS Console using CMAQ AMI
+       | -----------> Configure VM using AWS CLI using CMAQ AMI
+|
+| ---> | Building a Parallel Cluster (many VMs) using "CMAQ Snapshot"
+| ---> | Developers Guide (How to install all the CMAQ software and libraries from scratch -- requirement if you want to use a Single VM or ParallelCluster uinsg "Default Stock AMI".)
+| ---> | Performance Cost and Optimization
+| ---> | Additional Resources
+| ---> | Future Work
+| ---> | How to contribute to this work
+
 <br>
 
 ### Single VM Tutorials
 The Single VM Tutorial will show you how to create a single virtual machine using an AMI that has the software and data pre-loaded and give instructions for creating the virtual machine using ec2 instances that have different number of cores, and are matched to the benchmark domain. 
 
 ### Parallel Cluster Tutorials
-The CMAQv Parallel Cluster Intermediate Chapter will show you how to run a CMAQv benchmarks on ParallelCluster using pre-loaded software and input data.  
+The CMAQv Parallel Cluster Intermediate Chapter will show you how to create a Parallel Cluster and run CMAQ benchmarks using pre-loaded software and input data. 
 
 ### Developer Guide
 Install CMAQ software and libraries on Single VM and create custom environment modules.
 Install CMAQ software and libraries on Parallel Cluster.
 
-<br>
-The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.</br>
+### Performance Cost and Optimization
 
- 
+### Post-processing and clean-up 
 
-## Why might I need to use ParallelCluster? 
+Instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.
 
-The AWS ParallelCluster may be configured to be the equivalent of a High Performance Computing (HPC) environment, including using job schedulers such as Slurm, running on multiple nodes using code compiled with Message Passing Interface (MPI), and reading and writing output to a high performance, low latency shared disk.  The advantage of using the AWS ParallelCluster command line interface is that the compute nodes can be easily scaled up or down to match the compute requirements of a given simulation. In addition, the user can reduce costs by using Spot instances rather than On-Demand for the compute nodes. ParallelCluster also supports submitting multiple jobs to the job submission queue.
+### Additional Resources 
 
-Our goal is make this user guide to running CMAQ on a ParallelCluster as helpful and user-friendly as possible. Any feedback is both welcome and appreciated.
- 
-
-Additional information on AWS ParallelCluster:
-
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">AWS ParallelCluster documentation</a>
-
-<a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
+### How to contribute to this work
 
 
 ```{toctree}
