@@ -113,6 +113,7 @@ Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
 *Hpc6a instances available in US East (Ohio) and GovCloud (US-West)
 *HPC6a is available ondemand only (no spot pricing)
 *hpc7g instances have simultaneous multi-threading disabled to optimize for HPC codes. The instances with fewer cores, 16, 32 pes are custom to only those instances, you are not sharing a slice of an instance (this also removes the need for pinning).
+<a href="https://aws.amazon.com/blogs/hpc/application-deep-dive-into-the-graviton3e-based-amazon-ec2-hpc7g-instance/">hpc7g offers 16, 32 or 64 physical cpu instance size at launch</a>
 
 Using c5n.18xlarge as the compute node, it costs (3.888/hr)/(1.1732/hr) = 3.314 times as much to run on demand versus spot pricing. Savings is 70% for SPOT versus ondemand pricing.
 
