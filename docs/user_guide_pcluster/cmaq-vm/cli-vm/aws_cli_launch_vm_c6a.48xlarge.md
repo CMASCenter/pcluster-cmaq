@@ -469,7 +469,10 @@ Num  Day        Wall Time
       Avg. Time = 227.56
 ```
 
-Note: have observed I/O latency issues.
+
+### Pre-warm /shared volume 
+
+Note: I/O latency issues have been observed running the 12US1 Benchmark.
 According to AWS the volume needs to be initialized to avoid this:
 
 Empty EBS volumes receive their maximum performance the moment that they are created and do not require initialization (formerly known as pre-warming).
