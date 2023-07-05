@@ -44,9 +44,6 @@ user_guide_pcluster/cmaq-vm/index.md
 user_guide_pcluster/pcluster/index.md
 user_guide_pcluster/developers_guide/index.md
 user_guide_pcluster/post/index.md
-user_guide_pcluster/qa/index.md
-user_guide_pcluster/timing/index.md
-user_guide_pcluster/output/index.md
 user_guide_pcluster/logout/index.md
 user_guide_pcluster/Performance-Opt/index.md
 user_guide_pcluster/help/index.md
