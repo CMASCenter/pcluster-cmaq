@@ -21,8 +21,8 @@ This document provides tutorials and information on how users can create High Pe
 ```
 | ---> | System Requirements for Benchmarks
 | ---> | Single VM
-       | -----------> Configure VM using AWS Console using CMAQ AMI
-       | -----------> Configure VM using AWS CLI using CMAQ AMI
+       | -----------> Configure VM using AWS Console using "CMAQ AMI"
+       | -----------> Configure VM using AWS CLI using "CMAQ AMI"
 | ---> | Create a Parallel Cluster (many VMs) using "CMAQ Snapshot"
 | ---> | Performance Cost and Optimization
 | ---> | Developers Guide (How to install CMAQ software and libraries) 
