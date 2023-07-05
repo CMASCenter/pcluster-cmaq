@@ -307,21 +307,8 @@ Vulnerabilities:
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-`vi run_cctm_Bench_2018_12NE3.csh`
+`cp  run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh run_cctm_Bench_2018_12NE3.c6a.8xlarge.csh`
 
-change
-
-`   setenv compiler intel`
-
-to
-
-`   setenv compiler gcc`
-
-Comment out the CONC_SPCS setting that limits them to only 12 species 
-
-```
-   # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
-```
 
 Change the NPCOL, NPROW to run on 16 cores
 
