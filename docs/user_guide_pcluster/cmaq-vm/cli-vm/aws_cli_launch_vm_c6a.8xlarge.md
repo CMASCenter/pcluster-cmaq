@@ -252,8 +252,7 @@ Num  Day        Wall Time
 
 ```
 
-Note, this took longer than the run done using c6a.48xlarge, where 32 cores were used.
-The c6a.8xlarge also has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
+The c6a.8xlarge also has cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
 
 
 ### Change to the scripts directory
