@@ -148,16 +148,6 @@ Once you have verified that the command above works with the --dry-run option, r
 
 Use q to quit to return to the command prompt.
 
-Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
-
-![Inbound Rule](../cmaq-vm/security_group_inbound_rule.png)
-
-![Outbound Rule](../cmaq-vm/security_group_inbound_rule.png)
-
-
-Additional resources
-
-<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-sg.html">CLI commands to create Security Group</a>
 
 ### Use the following command to obtain the public IP address of the machine.
 
