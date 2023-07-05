@@ -233,7 +233,29 @@ output
 
 ![Screenshot of HTOP](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
-### Successful output
+### Successful output using the gp3 volume
+
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       4
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   216.7
+02   2018-08-06   211.6
+03   2018-08-07   213.6
+     Total Time = 641.90
+      Avg. Time = 213.96
+
+
+### Successful output using the io2 volume
 
 ```
 ==================================
@@ -257,6 +279,7 @@ Num  Day        Wall Time
 
 ```
 
+The small benchmark performed better using the io2 volume with additiona throughput and IOPS.
 The c6a.2xlarge has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
 
 
@@ -319,7 +342,10 @@ Vulnerabilities:
 ```
 
 
-### Run the 12US3 Benchmark case 
+### Run 12US3 Benchmark case (optional - takes 1 hour)
+
+(recommend terminating this instance and creating a c6a.8xlarge VM to run this benchmark.)
+
 
 ```
 ./run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.2xlarge.4pe.log
