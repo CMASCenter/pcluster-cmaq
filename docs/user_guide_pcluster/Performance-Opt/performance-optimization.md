@@ -110,9 +110,9 @@ Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 | 288     | 3x96 | 16x18 | 1475.9      |  1580.7          | 3056.60   | .849        |  /fsx           |  5.5809/hr * 3 node * .849 = | 14.21  | 7.34/hr * 3 node * .849 = | 18.6 |
 
 
-### Benchmark Timing for hpc7g.16xlarge with 32 processors per node
+### Benchmark Timing for hpc7g.8xlarge with 32 processors per node
 
-Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes with 32 processors per node.
+Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.8xlarge Compute Nodes with 32 processors per node.
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day |  InputData   |    Equation using On Demand Pricing | OnDemandCost |
 | ---- | ------    | ----   | ------------     | -------------      | --------- | ------------  | ------------ | -------------------------------- |    -- |
@@ -136,101 +136,38 @@ Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7
 
 
 
-# Benchmark Scaling Plots for CMAQv5.3.3 12US2 Benchmark
+# Benchmark Scaling Plots for CMAQv5.4 12US1 Benchmark
 
-## Benchmark Scaling Plot for c5n.18xlarge
+## Benchmark Scaling Plot for c6a.48xlarge
 
-Figure 1. Scaling per Node on C5n.18xlarge Compute Nodes (36 cpu/node)
+Figure 1. Scaling per Node on c6a.48xlarge Compute Nodes (96 cores/node)
 
-![Scaling per Node for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_Node.png)
+![Scaling per Node for c6a.48xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c6a.48xlarge_Scaling_Node.png)
 
-Note, there are several timings that were obtained using 8 nodes.  The 288 cpu timings were fully utilizing the 36 pe nodes using 8x36 = 288 cpus, and different NPCOLxNPROW options were used 16x18 and 18x16.
-The 256 cpu timings were obtained using a NPCOLxNPROW configuration of 16x16. This benchmark configuration doesn't fully utilize all of the cpus/node, so the efficiency per node is lower, and the cost is higher.
-It is best to select the NPCOLxNPROW settings that fully utilize all of the CPUs available as specified in the SBATCH commands.
 
 ```
-#SBATCH --nodes=8
-#SBATCH --ntasks-per-node=36
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=96
 ```
 
  
-Figure 2. Scaling per CPU on c5n.18xlarge compute node
+Figure 2. Scaling per CPU on hpc7g.8xlarge compute node (32 cores/node)
 
-![Scaling per CPU for C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n18xlarge_Scaling_CPUs.png)
-
-Note, poor performance was obtained for the runs using 180 processors when SBATCH --exclusive option was not used.  After this finding, the CMAQ run scripts were modified to always use this option.
-The benchmark runs that were done on c5n.9xlarge used the SBATCH --exclusive option.
+![Scaling per CPU for hpc7g.8xlarge Compute Nodes (32cores/node](../../qa_plots/scaling_plots/hpc7g.8xlarge_Scaling_CPUs.png)
 
 
-## Investigation of why there is a difference between the total run times for the benchmark when NPCOLxNPROW used 12x9 as compared to 9x12 and 6x18.
 
-A comparison of the log files (sdiff  run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log run_cctmv5.3.3_Bench_2016_12US2.108.9x12pe.2day.pcluster.log) revealed that the CPU speed for the Parallel Cluster run of the 12x9 benchmark case was slower than the CPU speed used for the 9x12 benchmark case. See the following section for details. <a href="https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/Performance-Opt/sdiff_compare.html">Comparison of log filesfor 12x9 versus 9x12 Benchmark runs</a>
+Figure 3.  Scaling per Node on hpc7g.16xlarge Compute Nodes (64 cores/node)
 
-
-The scaling efficiency using 5 nodes of 36 cpus/node =  180 cpus was 84%.  
-
-The scaling efficiency dropped to 68% when using 8 nodes of 36 cpus/node = 288 cpus.
+![Scaling per Node for hpc7g.16xlarge Compute Nodes (32cores/node](../../qa_plots/scaling_plots/hpc7g.16xlarge_Scaling_Node.png)
 
 
-Figure 3.  Scaling per Node on C5n.9xlarge Compute Nodes (18 cpu/node)
+## Total Time and Cost versus CPU Plot for hpc7g.8xlarge 
 
-![Scaling per Node for C5n.9xlarge Compute Nodes (18cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_Node.png)
-
-Scaling is very good for the c5n.9xlarge compute nodes up to 7 nodes, the largest number of nodes that could be provisioned at the time this benchmark was performed.
-
-Figure 4. Scaling per CPU on C5n.9xlarge Compute Node (18 cpu/node)
-
-![Scaling per CPU for C5n.9xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c5n9xlarge_Scaling_CPUs.png)
-
-Scaling is also good when compared to the number of cpus used. Note that all benchmark runs performed using the c5n.9xlarge compute nodes fully utilized the number of cpus available on a node.
-
-The scaling efficiency using 7 nodes of 18 cpus/node = 126 cpus was 86%.
-
-## Benchmark Scaling Plot for c5n.18xlarge and c5n.9xlarge
-
-Figure 5 shows the scaling per-node, as the configurations that were run were multiples of the number of cpus per node.  CMAQ was not run on a single cpu, as this would have been costly and inefficient.
-
-Figure 5. Scaling on C5n.9xlarge (18 cpu/node) and C5n.18xlarge Compute Nodes (36 cpu/node)
-
-![Scaling Plot for C5n.9xlarge (18cpu/node) and C5n.18xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/Scaling_C5n9xlarge_C5n18xlarge.png)
+Figure 4. Plot of Total Time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings used for the c5n.9xlarge used settings that were optimized for running CMAQ on the cluster.
 
 
-## Total Time and Cost versus CPU Plot for c5n.18xlarge
-
-Figure 6 shows the timings for many configuration options listed in the table above for the c5n.18xlarge cluster.  Running with no hyperthreading, using SBATCH --exclusive, and placement enabled, resulted in the fastest timings.  
-
-Additional benchmark runs may be needed to determine the impact on performance when linking the input data using the lustre file system or copying the data to lustre and/or using the /shared ebs volume for I/O.
-
-Figure 6. Plot of Total Time and On Demand Cost versus CPUs for c5n.18xlarge
-
-![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge](../../qa_plots/scaling_plots/c5n18xlarge_Time_CPUs.png)
-
-
-## Total Time and Cost versus CPU Plot for c5n.9xlarge
-
-Figure 7 shows how the total run time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings used for the c5n.9xlarge used settings that were optimized for running CMAQ on the cluster.
-
-Figure 7. Plot of Total Time and On Demand Cost versus CPUs for c5n.9xlarge
-
-![Plot of Total Time and On Demand Cost versus CPUs for c5n9xlarge](../../qa_plots/scaling_plots/c5n9xlarge_Time_CPUs.png)
-
-## Total Time and Cost versus CPU Plot for both c5n.18xlarge and c5n.9xlarge
-
-Figure 8. Plot of Total Time and On Demand Cost versus CPUs for both c5n.18xlarge and c5n.9xlarge
-
-![Plot of Total Time and On Demand Cost versus CPUs for c5n18xlarge and c5n9xlarge](../../qa_plots/scaling_plots/c5n18xlarge_c5n9xlarge_Time_CPUs.png)
-
-## Total Time and Cost versus CPU Plot for hpc6a.48xlarge
-
-Figure 9 shows how the total run time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings used for the hpc6a.48xlarge used settings that were optimized for running CMAQ on the cluster.
-
-Figure 9. Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge
-
-![Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
-
-# Benchmark Scaling Plots for CMAQv5.4 12US1 Benchmark
-
-Figure 10. Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge
+Figure 5. Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge
 
 ![Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge](../../qa_plots/scaling_plots/6a48xlarge_Time_CPUs.png)
 
