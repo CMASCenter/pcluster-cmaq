@@ -118,7 +118,9 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-## Use the publically available AMI to launch an ondemand c6a.48xlarge ec2 instance using a gp3 volume with 16000 IOPS with hyperthreading disabled 
+## Use the publically available AMI to launch an ondemand c6a.48xlarge ec2 instance 
+
+with hyperthreading disabled 
 
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
