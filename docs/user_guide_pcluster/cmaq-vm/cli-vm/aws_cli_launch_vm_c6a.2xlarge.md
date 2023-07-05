@@ -13,7 +13,7 @@ Todo: Need to create command line options to copy a public ami to a different re
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-065049c5c78e6c6a5`
+`aws ec2 describe-images --region us-east-1 --image-id ami-051ba52c157e4070c`
 
 
 Output:
@@ -23,9 +23,9 @@ Output:
     "Images": [
         {
             "Architecture": "x86_64",
-            "CreationDate": "2023-06-24T00:17:02.000Z",
-            "ImageId": "ami-065049c5c78e6c6a5",
-            "ImageLocation": "440858712842/cmaqv5.4_c6a.48xlarge.io2.iops.100000",
+            "CreationDate": "2023-07-05T14:10:42.000Z",
+            "ImageId": "ami-051ba52c157e4070c",
+            "ImageLocation": "440858712842/cmaqv5.4_c6a_gp3_IOPS_16000_throughput_1000",
             "ImageType": "machine",
             "Public": true,
             "OwnerId": "440858712842",
@@ -37,10 +37,11 @@ Output:
                     "DeviceName": "/dev/sda1",
                     "Ebs": {
                         "DeleteOnTermination": true,
-                        "Iops": 100000,
-                        "SnapshotId": "snap-08b8608dca836ef2e",
+                        "Iops": 16000,
+                        "SnapshotId": "snap-08789828f7ab945ed",
                         "VolumeSize": 500,
-                        "VolumeType": "io2",
+                        "VolumeType": "gp3",
+                        "Throughput": 1000,
                         "Encrypted": false
                     }
                 },
@@ -53,23 +54,25 @@ Output:
                     "VirtualName": "ephemeral1"
                 }
             ],
+            "Description": "[Copied ami-01605a204650ede2f from us-east-1] cmaqv5.4_c6a_48xlarge_gp3_IOPS_16000_throughput_1000",
             "EnaSupport": true,
             "Hypervisor": "xen",
-            "Name": "cmaqv5.4_c6a.48xlarge.io2.iops.100000",
+            "Name": "cmaqv5.4_c6a_gp3_IOPS_16000_throughput_1000",
             "RootDeviceName": "/dev/sda1",
             "RootDeviceType": "ebs",
             "SriovNetSupport": "simple",
             "VirtualizationType": "hvm",
-            "DeprecationTime": "2025-06-24T00:17:02.000Z"
+            "DeprecationTime": "2025-07-05T14:10:42.000Z"
         }
     ]
 }
+
 
 ```
 
 Use q to exit out of the command line
 
-Note, the AMI uses the maximum value available on io2 for Iops of 100000.
+Note, the AMI uses the default values of iops and throughput for the gp3 volume. 
 
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
@@ -93,13 +96,13 @@ Additional resources for spot instance provisioning.
 To launch a Spot Instance with RunInstances API you create the configuration file as described below:
 
 ```
-cat <<EoF > ./runinstances-config.json
+cat <<EoF > ./runinstances-config.gp3.json
 {
     "DryRun": false,
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.2xlarge",
-    "ImageId": "ami-065049c5c78e6c6a5",
+    "ImageId": "ami-051ba52c157e4070c",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -118,7 +121,9 @@ cat <<EoF > ./runinstances-config.json
 EoF
 ```
 
-## Use the publically available AMI to launch an ondemand c6a.2xlarge ec2 instance using a io2 volume with 100000 IOPS with hyperthreading disabled 
+## Use the publically available AMI to launch an ondemand c6a.2xlarge ec2 instance 
+
+using a gp3 volume with hyperthreading disabled 
 
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
@@ -139,11 +144,11 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 Command that works for UNC's security group and pem key:
 
-yaws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.c6a.2xlarge.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.2xlarge.json`
 
 Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.c6a.2xlarge.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.2xlarge.json`
 
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
@@ -160,7 +165,7 @@ Additional resources
 
 This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-065049c5c78e6c6a5" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
