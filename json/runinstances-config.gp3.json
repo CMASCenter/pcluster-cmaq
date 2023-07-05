@@ -3,7 +3,7 @@
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.48xlarge",
-    "ImageId": "ami-01605a204650ede2f",
+    "ImageId": "ami-051ba52c157e4070c",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
