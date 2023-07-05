@@ -204,7 +204,6 @@ Input Data for the 12NE3 benchmark
 
 `ls -lrt /shared/data/2018_12NE3/*`
 
-## Wait five minutes to be sure that the VM has fully initialized
 
 ## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
@@ -232,7 +231,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 output
 
 
-![Screenshot of HTOP](../cmaq-vm-intermed/htop_c6a.2xlarge_hyperthreading_off.png)
+![Screenshot of HTOP](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
 ### Successful output
 
@@ -332,7 +331,7 @@ Vulnerabilities:
 
 output
 
-![Screenshot of HTOP](../cmaq-vm-intermed/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
+![Screenshot of HTOP](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
 
 
 Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
