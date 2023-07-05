@@ -242,25 +242,25 @@ note: table needs to be updated..
 
 Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes with 32 processors per node.
 
-| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day |  InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
-| ---- | ------    | ----   | ------------     | -------------      | --------- | ------------  | ------------ | ----------------               |  ------  | -------------------------------- |    -- |
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day |  InputData   |    Equation using On Demand Pricing | OnDemandCost |
+| ---- | ------    | ----   | ------------     | -------------      | --------- | ------------  | ------------ | -------------------------------- |    -- |
 | 32     | 1x32 | 4x8    |  6933.3      |  6830.2         | 13763.50   | 3.82      |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 1.6832/hr * 1 node * 3.82 = | 6.435 |
-| 64     | 2x32 | 8x8   |  3080.9     |  3383.5     | 6464.40  | 1.795        | /fsx            | n/a  | n/a | 1.6832/hr * 2 node * 1.795 = | 6.044  |
-| 96     | 3x32 | 12x8   |  2144.2     |  2361.9     | 4506.10  | 1.252       | /fsx            | n/a  | n/a | 1.6832/hr * 3 node * 1.252 = | 6.32  |
-| 128    | 4x32 | 16x8   |  1696.6     |  1875.7     | 3572.30  | .992        | /fsx            | n/a  | n/a | 1.6832/hr * 4 node * .992 = | 6..678  |
+| 64     | 2x32 | 8x8   |  3080.9     |  3383.5     | 6464.40  | 1.795        | /fsx            | 1.6832/hr * 2 node * 1.795 = | 6.044  |
+| 96     | 3x32 | 12x8   |  2144.2     |  2361.9     | 4506.10  | 1.252       | /fsx            | 1.6832/hr * 3 node * 1.252 = | 6.32  |
+| 128    | 4x32 | 16x8   |  1696.6     |  1875.7     | 3572.30  | .992        | /fsx            | 1.6832/hr * 4 node * .992 = | 6..678  |
 
 
 ### Benchmark Timing for hpc7g.16xlarge with 64 processors per node
 
 Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes with 64 processors per node.
 
-| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 64        | 1x64 | 8x8    |  crash      |  crash          | crash   | n/a         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 1.6832/hr * 1 node * n/a = | n/a |
-| 128       | 2x64 | 8x16   |  2074.2     | 2298.9          | 4373.10  | 1.215        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 1.6832/hr * 2 node * 1.214 = | 4.089  |
-| 192       | 3x64 | 12x16  | 1617.1      | 1755.3          | 3372.40  | .937         |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 3 node * .937  = | 4.730  |
-| 256       | 4x64 | 16x16  | 1347.3      | 1501.4          | 2848.70  | .7913        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 4 node * .7913  = | 5.327  |
-| 320       | 5x64 | 16x20  | 1177.0      | 1266.6          | 2443.60  | .6788        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 5 node * .6788  = | 5.713  |
+| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day |  InputData   |    Equation using On Demand Pricing | OnDemandCost |
+| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- |    -------------------------------  | ------------ |
+| 64        | 1x64 | 8x8    |  crash      |  crash          | crash   | n/a         |    /fsx         | 1.6832/hr * 1 node * n/a = | n/a |
+| 128       | 2x64 | 8x16   |  2074.2     | 2298.9          | 4373.10  | 1.215      | /fsx            | 1.6832/hr * 2 node * 1.214 = | 4.089  |
+| 192       | 3x64 | 12x16  | 1617.1      | 1755.3          | 3372.40  | .937       | /fsx/           | 1.6832/hr * 3 node * .937  = | 4.730  |
+| 256       | 4x64 | 16x16  | 1347.3      | 1501.4          | 2848.70  | .7913      | /fsx/           | 1.6832/hr * 4 node * .7913  = | 5.327  |
+| 320       | 5x64 | 16x20  | 1177.0      | 1266.6          | 2443.60  | .6788      | /fsx/           | 1.6832/hr * 5 node * .6788  = | 5.713  |
 
 
 
