@@ -166,7 +166,9 @@ Additional resources
 ### Use the following command to obtain the public IP address of the machine.
 
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep -A 3 PublicIpAddress`
+
+Also verify that it has switched from an initializing state to a running state.
 
 ### Login to the ec2 instance
 
@@ -256,8 +258,7 @@ Num  Day        Wall Time
 
 ```
 
-Note, this took longer than the run done using c6a.48xlarge, where 32 cores were used.
-The c6a.2xlarge also has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
+The c6a.2xlarge has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
 
 
 ### Change to the scripts directory
