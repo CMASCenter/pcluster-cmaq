@@ -241,7 +241,7 @@ Num  Day        Wall Time
 
 ```
 
-The c6a.8xlarge also has cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
+The c6a.8xlarge also has 16 cpus and larger cache sizes than the c6a.2xlarge (4 cores), which you can see when you compare output of the lscpu command.
 
 
 ### Change to the scripts directory
