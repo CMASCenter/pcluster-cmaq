@@ -202,26 +202,6 @@ Input Data for the 12NE3 benchmark
 
 `ls -lrt /shared/data/2018_12NE3/*`
 
-## Initialize the shared volume to pre-load data from the snapshot
-
-### Install fio
-
-`sudo apt-get install -y fio`
-
-### Use the following command to initialize the io2 volume
-
-`sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
-
-This is taking too long on the gp3 volume. I am not sure why.  Perhaps don't need this command for the c6a.2xlarge for the smaller benchmark cases, only need it for the c6a.48xlarge 12US1 case???
-
-Output:
-
-```
-volume-initialize: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=libaio, iodepth=32
-fio-3.28
-Starting 1 process
-Jobs: 1 (f=1): [R(1)][10.4%][r=174MiB/s][r=174 IOPS][eta 54m:36s
-```
 
 ## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
