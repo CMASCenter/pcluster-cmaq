@@ -224,6 +224,7 @@ output
 
 ### Successful output using the gp3 volume
 
+```
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
@@ -242,6 +243,7 @@ Num  Day        Wall Time
 03   2018-08-07   213.6
      Total Time = 641.90
       Avg. Time = 213.96
+```
 
 
 ### Successful output using the io2 volume
