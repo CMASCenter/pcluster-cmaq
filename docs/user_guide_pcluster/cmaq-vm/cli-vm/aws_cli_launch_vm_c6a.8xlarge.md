@@ -151,7 +151,6 @@ Use q to quit to return to the command prompt.
 
 ### Use the following command to obtain the public IP address of the machine.
 
-This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-088f82f334dde0c9f" | grep PublicIpAddress`
 

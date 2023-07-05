@@ -145,20 +145,8 @@ Once you have verified that the command above works with the --dry-run option, r
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.json`
 
-Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
-
-![Inbound Rule](../cmaq-vm/security_group_inbound_rule.png)
-
-![Outbound Rule](../cmaq-vm/security_group_inbound_rule.png)
-
-
-Additional resources
-
-<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-sg.html">CLI commands to create Security Group</a>
 
 ### Use the following command to obtain the public IP address of the machine.
-
-This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-088f82f334dde0c9f" | grep PublicIpAddress`
 
@@ -775,3 +763,7 @@ Note sure how to do a persistent spot instance request .
 ### Verify that the instance is being shut down.
 
 `aws ec2 describe-instances --region=us-east-1`
+
+Additional resources
+
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-sg.html">CLI commands to create Security Group</a>
