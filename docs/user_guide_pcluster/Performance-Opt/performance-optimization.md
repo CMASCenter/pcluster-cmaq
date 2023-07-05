@@ -223,7 +223,7 @@ Table 5. Timing Results for CMAQv5.3.3 2 Day 12US2 Run on Parallel Cluster with 
 Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes with Disable Simultaneous Multithreading turned on (using physical cores, not vcpus) 
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
-| ---- | ------    | ---   |  -----     | ------------      | --------- | -----  | --------------- | ------------------------          | --    |  ------  |  -- |
+| ---- | ------    | ---   |  ----        -     | ------------      | --------- | ------------------------  | ------------------------------ | ----     | ------------------------------  |  ------  |
 | 96   | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844     |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
 | 192     | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08      | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
 | 288     | 3x96 | 16x18 | 1475.9      |  1580.7          | 3056.60   | .849        |  /fsx           |  5.5809/hr * 3 node * .849 = | 14.21  | 7.34/hr * 3 node * .849 = | 18.6 |
