@@ -150,6 +150,8 @@ Once you have verified that the command above works with the --dry-run option, r
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.2xlarge.json`
 
+Use the q command to return to the cursor 
+
 Example of security group inbound and outbound rules required to connect to EC2 instance via ssh.
 
 ![Inbound Rule](../cmaq-vm/security_group_inbound_rule.png)
@@ -163,7 +165,6 @@ Additional resources
 
 ### Use the following command to obtain the public IP address of the machine.
 
-This command is commented out, as the instance hasn't been created yet. keeping the instructions for documentation purposes.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
@@ -190,6 +191,26 @@ Note, the following command must be modified to specify your key, and ip address
 `cd /shared/pcluster-cmaq`
 
 `git pull`
+
+### Verify that the input data is available
+
+Input Data for the smallest benchmark
+
+`ls -lrt /shared/data/12US1_LISTOS/*`
+
+Input Data for the 12NE3 benchmark
+
+`ls -lrt /shared/data/2018_12NE3/*`
+
+## Initialize the shared volume to pre-load data from the snapshot
+
+### Install fio
+
+`sudo apt-get install -y fio`
+
+### Use the following command to initialize the io2 volume
+
+`sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
 
 
 ## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
@@ -304,33 +325,6 @@ Vulnerabilities:
   Srbds:                 Not affected
   Tsx async abort:       Not affected
 
-```
-
-
-### Edit the 12US3 Benchmark run script to use the gcc compiler and to output all species to CONC output file.
-
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
-
-`vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
-
-change
-
-`   setenv compiler intel`
-
-to
-
-`   setenv compiler gcc`
-
-Comment out the CONC_SPCS setting that limits them to only 12 species 
-
-```
-   # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
-```
-
-Change the NPCOL, NPROW to run on 4 cores
-
-```
-   @ NPCOL  =  2; @ NPROW =  2
 ```
 
 
