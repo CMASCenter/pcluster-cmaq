@@ -202,6 +202,7 @@ Input Data for the 12NE3 benchmark
 
 `ls -lrt /shared/data/2018_12NE3/*`
 
+## Wait five minutes to be sure that the VM has fully initialized
 
 ## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
