@@ -21,7 +21,7 @@ The CMAQ libraries were installed using the gcc compiler on c6a.large.
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
-`cd pcluster-cmaq`
+`cd pcluster-cmaq/yaml`
 
 ####  Edit the c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml 
 
