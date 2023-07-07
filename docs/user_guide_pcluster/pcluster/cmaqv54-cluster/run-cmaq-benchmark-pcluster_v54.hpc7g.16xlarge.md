@@ -7,16 +7,15 @@ hpc7g.16xlarge  64              128             EBS-only                200     
 
 ### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
-`cd /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
+`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
 `ls -lrt  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x64.ncclassic.csh`
 
-`diff run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x64.ncclassic.csh /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
 
 If they don't exist or are not identical, then copy the run scripts from the repo
 
-`cp /shared/pcluster-cmaq/run_scripts/cmaqv54+/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
+`cp /shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 
 ### Verify that the input data is imported to /fsx from the S3 Bucket
