@@ -295,91 +295,10 @@ The output from CTM_LOG_000.v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_1x64_clas
           HO2                   5.00E-04
           H2O2                  5.00E-04
           N2O5                  5.00E-04
-          HNO3                  5.00E-04
-          HONO                  5.00E-04
-          PNA                   5.00E-04
-          SO2                   5.00E-04
-          SULF                  1.00E+00
-          SULRXN                1.00E+00
-          C2O3                  5.00E-04
-          MEO2                  5.00E-04
-          RO2                   5.00E-04
-          PAN                   5.00E-04
-          PACD                  5.00E-04
-          AACD                  5.00E-04
-          CXO3                  5.00E-04
-          ALD2                  5.00E-04
-          XO2H                  5.00E-04
-          PANX                  5.00E-04
-          FORM                  5.00E-04
-          MEPX                  5.00E-04
-          MEOH                  5.00E-04
-          ROOH                  5.00E-04
-          XO2                   5.00E-04
-          XO2N                  5.00E-04
-          NTR1                  5.00E-04
-          NTR2                  5.00E-04
-          FACD                  5.00E-04
-          CO                    5.00E-04
-          HCO3                  1.00E+00
-          ALDX                  5.00E-04
-          GLYD                  5.00E-04
-          GLY                   5.00E-04
-          MGLY                  5.00E-04
-          ETHA                  5.00E-04
-          ETOH                  5.00E-04
-          KET                   5.00E-04
-          PAR                   5.00E-04
-          ACET                  5.00E-04
-          PRPA                  5.00E-04
-          XPRP                  5.00E-04
-          XPAR                  5.00E-04
-          ROR                   5.00E-04
-          ETHY                  5.00E-04
-          ETH                   5.00E-04
-          OLE                   5.00E-04
-          IOLE                  5.00E-04
-          ISOP                  5.00E-04
-          ISO2                  5.00E-04
-          ISOPRXN               1.00E+00
-          ISPD                  5.00E-04
-          INTR                  5.00E-04
-          ISPX                  5.00E-04
-          HPLD                  5.00E-04
-          OPO3                  5.00E-04
-          EPOX                  5.00E-04
-          EPX2                  5.00E-04
-          TERP                  5.00E-04
-          TRPRXN                1.00E+00
-          TERPNRO2              5.00E-04
-          APIN                  5.00E-04
-          BENZENE               5.00E-04
-          CRES                  5.00E-04
-          BZO2                  5.00E-04
-          OPEN                  5.00E-04
-          BENZRO2               5.00E-04
-          TOL                   5.00E-04
-          TO2                   5.00E-04
-          TOLRO2                5.00E-04
-          XOPN                  5.00E-04
-          XYLMN                 5.00E-04
-          XLO2                  5.00E-04
-          XYLRO2                5.00E-04
-          NAPH                  5.00E-04
-          PAHRO2                1.00E+00
-          CRO                   5.00E-04
-          CAT1                  5.00E-04
-          CRON                  5.00E-04
-          OPAN                  5.00E-04
-          ECH4                  5.00E-04
-          CL2                   5.00E-04
-          CL                    5.00E-04
-          HOCL                  5.00E-04
-          CLO                   5.00E-04
-
 ```
      
 
+### Switched to running on more than one node, and CMAQv5.4 ran successfully.
 
 ### When the job has completed, use tail to view the timing from the log file.
 
