@@ -1,4 +1,4 @@
-## Run CMAQ on hpc6g.16xlarge
+## Run CMAQ on hpc7g.16xlarge
 
 ```
 Instance Size 	Physical Cores 	Memory (GiB) 	Instance Storage 	EFA Network Bandwidth (Gbps) 	Network Bandwidth (Gbps)*
@@ -12,8 +12,11 @@ hpc7g.16xlarge  64              128             EBS-only                200     
 `ls -lrt  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.2x64.ncclassic.csh`
 
 
-
 If they don't exist or are not identical, then copy the run scripts from the repo
+
+`cd /shared/pcluster-cmaq`
+
+`git pull`
 
 `cp /shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
