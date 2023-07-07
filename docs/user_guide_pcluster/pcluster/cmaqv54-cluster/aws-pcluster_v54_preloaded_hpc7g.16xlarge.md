@@ -43,7 +43,7 @@ Region: us-east-1
 Image:
   Os: ubuntu2004
 HeadNode:
-  InstanceType: c6g.large
+  InstanceType: c7g.large
   Networking:
     SubnetId: subnet-xx-xx-xx           << replace
   DisableSimultaneousMultithreading: true
