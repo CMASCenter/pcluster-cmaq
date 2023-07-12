@@ -105,7 +105,7 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6g.la
 
 ## Create the hpc7g pcluster
 
-Note, this yaml file is configured to have 5 nodes of the hpc7g.16xlarge (64 pe per node) and 5 nodes of the hpc7g.8xlarge (32 pe per node).
+Note, this yaml file is configured to have 12 nodes of the hpc7g.16xlarge (64 pe per node) and 7 nodes of the hpc7g.8xlarge (32 pe per node).
 
 `pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
