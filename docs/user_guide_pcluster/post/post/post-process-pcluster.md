@@ -63,7 +63,7 @@ setenv DIR /shared/build/openmpi_gcc/CMAQ_v54+/
 
 cd $DIR/POST/combine/scripts
 
-cp run_combine.csh run_combine_conus.csh
+cp run_combine.csh run_combine_12US1.csh
 sed -i 's/Bench_2016_12SE1/2018_12US1_2x64_classic/g' run_combine_12US1.csh
 sed -i 's/intel/gcc/g' run_combine_12US1.csh
 sed -i 's/2016-07-01/2017-12-22/g' run_combine_12US1.csh
