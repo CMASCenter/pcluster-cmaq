@@ -172,6 +172,37 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ```
 
+### Copy file to .cshrc
+
+```
+cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
+```
+
+### Edit .cshrc to add custom module path
+
+```
+module use --append /shared/build/Modules/modulefiles
+```
+
+### Change shell to csh
+
+```
+csh
+```
+
+### Use module list and then module load to load the libraries
+
+
+```
+module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf 
+```
+
+### Verify that ncdump is found once that these modules are added
+
+```
+which ncdump
+```
+
 ```{seealso}
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the AWS Enhanced Networking Adapter Documentation</a>
 ```
