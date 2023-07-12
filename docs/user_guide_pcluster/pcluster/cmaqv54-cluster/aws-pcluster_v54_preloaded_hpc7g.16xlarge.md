@@ -10,7 +10,7 @@ The CMAQ libraries were installed using the gcc compiler on c6g.large.
 ```
 
 
-### Create CMAQ Cluster using SPOT pricing
+### Create CMAQ Cluster
 
 #### Use an existing yaml file from the git repo to create a ParallelCluster
 
@@ -23,13 +23,14 @@ The CMAQ libraries were installed using the gcc compiler on c6g.large.
 
 `cd pcluster-cmaq/yaml`
 
-####  Edit the hpc7g.16xlarge.ebs_encrypted_installed_public_ubuntu2004.fsx_import.yaml
+####  Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
 
-`vi hpc7g.16xlarge.ebs_encrypted_installed_public_ubuntu2004.fsx_import.yaml`
+`vi hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
 ```{note}
 1. the hpc7g.16xlarge*.yaml is configured to use ONDEMAND instance pricing for the compute nodes.
-2. the hpc7g.16xlarge*.yaml is configured to the the hpc7g.16xlarge as the compute node, with up to 12 compute nodes, specified by MaxCount: 12.
+2. the hpc7g.16xlarge*.yaml is configured to the the hpc7g.16xlarge as the compute node for the compute-resource-1 queue, with up to 12 compute nodes, specified by MaxCount: 12.
+3. the hpc7g.16xlarge*.yaml is configured to the the hpc7g.8xlarge as the compute node for the compute-resource-1 queue, with up to 7 compute nodes.
 3. the hpc7g.16xlarge*.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (128 virtual cpus reduced to 64 cpus)
 4. the hpc7g.16xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
 5. the hpc7g.16xlarge*.yaml is configured to enables the elastic fabric adapter
@@ -71,13 +72,21 @@ Scheduling:
           Efa:
             Enabled: true
             GdrSupport: false
+        - Name: compute-resource-2
+          InstanceType: hpc7g.8xlarge
+          MinCount: 0
+          MaxCount: 7
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
       Encrypted: true
-      SnapshotId: snap-00a397b4a64491d81
+      SnapshotId: snap-0049a7c309f238500
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
@@ -98,7 +107,7 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6g.la
 
 Note, this yaml file is configured to have 5 nodes of the hpc7g.16xlarge (64 pe per node) and 5 nodes of the hpc7g.8xlarge (32 pe per node).
 
-`pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_encrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
+`pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
 #### Check on status of cluster
 
