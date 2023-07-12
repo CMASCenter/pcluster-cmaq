@@ -153,9 +153,12 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a request for a 96 pe job ( 1 x 96 pe) or 1 nodes instead of 2 nodes
+### Submit a request for a 64 pe job ( 1 x 64 pe) or 1 nodes instead of 2 nodes
 
-`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.1x96.ncclassic.csh`
+(note, this job will crash as there isn't enough memory to run on hpc7g using all 64 processors.)
+It is possible to run CMAQ using 2x32 pe of the hpc7g.
+
+`sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.1x64.ncclassic.csh`
 
 ### Check on the status in the queue
 
@@ -172,7 +175,7 @@ Output:
 
 ### Check the status of the run
 
-`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.96.12x8pe.2day.20171222start.1x96.log`
+`tail run_cctm5.4+_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.1x64.log`
 
 
 '12US1'
