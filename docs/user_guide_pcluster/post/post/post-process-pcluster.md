@@ -2,11 +2,8 @@
 
 ## Build the POST processing routines
 
-Copy the buildit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
-
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v533/POST/combine/scripts
-cp /shared/pcluster-cmaq/run_scripts/bldit_combine.csh .
+cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/combine/scripts
 ```
 
 Run the bldit script for combine.
@@ -15,37 +12,26 @@ Run the bldit script for combine.
 ./bldit_combine.csh gcc |& tee ./bldit_combine.gcc.log
 ```
 
-Copy the bldit script from the repo, as it was corrected to use CMAQv533 rather than CMAQv532
-
-```
-cd /shared/build/openmpi_gcc/CMAQ_v533/POST/calc_tmetric/scripts
-cp /shared/pcluster-cmaq/run_scripts/bldit_calc_tmetric.csh .
-```
 
 Run the bldit script for calc_tmetric
 
 ```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/calc_tmetric/scripts/
 ./bldit_calc_tmetric.csh gcc |& tee ./bldit_calc_tmetric.gcc.log
 ```
 
-Copy the bldit script from the repo
+Run the bldit script for hr2day
 
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v533/POST/hr2day/scripts
-cp /shared/pcluster-cmaq/run_scripts/bldit_hr2day.csh
-```
-
-Run the bldit script
-
-```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/hr2day/scripts
 ./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
 ```
 
-Copy the bldit script from the repo and run
+Run the bldit script for bldoverlay
 
+(note the blditscript is missing)
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v533/POST/bldoverlay/scripts
-cp /shared/pcluster-cmaq/run_scripts/bldit_bldoverlay.csh .
+cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/bldoverlay/scripts
 ./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
 ```
 
@@ -70,61 +56,46 @@ Show compute nodes
 `scontrol show nodes`
 
 
-## Edit, Build and Run the POST processing routines
+## Edit and Run the POST processing routines
 
 ```
-setenv DIR /shared/build/openmpi_gcc/CMAQ_v533/
+setenv DIR /shared/build/openmpi_gcc/CMAQ_v54+/
 
 cd $DIR/POST/combine/scripts
-sed -i 's/v532/v533/g' bldit_combine.csh
-./bldit_combine.csh gcc |& tee ./bldit_combine.gcc.log
 
 cp run_combine.csh run_combine_conus.csh
-sed -i 's/v532/v533/g' run_combine_conus.csh
-sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_combine_conus.csh
-sed -i 's/intel/gcc/g' run_combine_conus.csh
-sed -i 's/2016-07-01/2015-12-22/g' run_combine_conus.csh
-sed -i 's/2016-07-14/2015-12-23/g' run_combine_conus.csh
+sed -i 's/Bench_2016_12SE1/2018_12US1_2x64_classic/g' run_combine_12US1.csh
+sed -i 's/intel/gcc/g' run_combine_12US1.csh
+sed -i 's/2016-07-01/2017-12-22/g' run_combine_12US1.csh
+sed -i 's/2016-07-14/2017-12-23/g' run_combine_12US1.csh
 setenv CMAQ_DATA /fsx/data
-./run_combine_conus.csh
+./run_combine_12US1.csh
 
-cd $DIR/POST/calc_tmetric/scripts
-sed -i 's/v532/v533/g' bldit_calc_tmetric.csh
-./bldit_calc_tmetric.csh gcc |& tee ./bldit_calc_tmetric.gcc.log
-
-cp run_calc_tmetric.csh run_calc_tmetric_conus.csh
-sed -i 's/v532/v533/g' run_calc_tmetric_conus.csh
-sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_calc_tmetric_conus.csh
-sed -i 's/intel/gcc/g' run_calc_tmetric_conus.csh
-sed -i 's/201607/201512/g' run_calc_tmetric_conus.csh
+cp run_calc_tmetric.csh run_calc_tmetric_12US1.csh
+sed -i 's/Bench_2016_12SE1/2018_12US1_2x64_classic/g' run_calc_tmetric_12US1.csh
+sed -i 's/intel/gcc/g' run_calc_tmetric_12US1.csh
+sed -i 's/201607/201712/g' run_calc_tmetric_12US1.csh
 setenv CMAQ_DATA /fsx/data
-./run_calc_tmetric_conus.csh
+./run_calc_tmetric_12US1.csh
 
 cd $DIR/POST/hr2day/scripts
-sed -i 's/v532/v533/g' bldit_hr2day.csh
-./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
 
-cp run_hr2day.csh run_hr2day_conus.csh
-sed -i 's/v532/v533/g' run_hr2day_conus.csh
-sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_hr2day_conus.csh
-sed -i 's/intel/gcc/g' run_hr2day_conus.csh
-sed -i 's/2016182/2015356/g' run_hr2day_conus.csh
-sed -i 's/2016195/2015357/g' run_hr2day_conus.csh
+cp run_hr2day.csh run_hr2day_12US1.csh
+sed -i 's/Bench_2016_12SE1/2018_12US1_2x64_classic/g' run_hr2day_12US1.csh
+sed -i 's/intel/gcc/g' run_hr2day_12US1.csh
+sed -i 's/2016182/2015356/g' run_hr2day_12US1.csh
+sed -i 's/2016195/2015357/g' run_hr2day_12US1.csh
 setenv CMAQ_DATA /fsx/data
-./run_hr2day_conus.csh
+./run_hr2day_12US1.csh
 
-cd $DIR/POST/bldoverlay/scripts
-sed -i 's/v532/v533/g' bldit_bldoverlay.csh
+#cd $DIR/POST/bldoverlay/scripts
 
-./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
-
-cp run_bldoverlay.csh run_bldoverlay_conus.csh
-sed -i 's/v532/v533/g' run_bldoverlay_conus.csh
-sed -i 's/Bench_2016_12SE1/2016_CONUS_16x18pe/g' run_bldoverlay_conus.csh
-sed -i 's/intel/gcc/g' run_bldoverlay_conus.csh
-sed -i 's/2016-07-01/2015-12-22/g' run_bldoverlay_conus.csh
-sed -i 's/2016-07-02/2015-12-23/g' run_bldoverlay_conus.csh
-setenv CMAQ_DATA /fsx/data
-./run_bldoverlay_conus.csh
+#cp run_bldoverlay.csh run_bldoverlay_12US1.csh
+#sed -i 's/Bench_2016_12SE1/2018_12US1_2x64_classic/g' run_bldoverlay_12US1.csh
+#sed -i 's/intel/gcc/g' run_bldoverlay_12US1.csh
+#sed -i 's/2016-07-01/2015-12-22/g' run_bldoverlay_12US1.csh
+#sed -i 's/2016-07-02/2015-12-23/g' run_bldoverlay_12US1.csh
+#setenv CMAQ_DATA /fsx/data
+#./run_bldoverlay_12US1.csh
 
 ```
