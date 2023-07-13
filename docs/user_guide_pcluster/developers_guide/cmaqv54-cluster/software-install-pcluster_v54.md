@@ -158,26 +158,14 @@ Need to have this version of the library installed to uncompress the *.nc4 data 
 
 The following instructions are not typically needed.
 
-## Install Homebrew to install github command line gh to allow you to create authentication to commit changes to git repo
+Install gh for github authentication on cluster
+
+See instructions here:
+
+<a href="https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt">Install GH on ubuntu</a>
 
 ```
-cd /shared/build
-git clone https://github.com/Homebrew/brew homebrew
-```
 
-Change shell to bash
-`bash`
-
-Run following commands to install
-```
-eval "$(homebrew/bin/brew shellenv)"
-brew update --force --quiet
-chmod -R go-w "$(brew --prefix)/share/zsh"
-```
-
-## Install github gh
-
-`brew install gh`
 
 ## Use gh authentication
 
