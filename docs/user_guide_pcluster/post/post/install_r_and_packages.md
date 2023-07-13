@@ -122,9 +122,15 @@ install.packages("ggplot2")
 install.packages("patchwork")
 ```
 
+Install M3 
+
 `cd /shared/pcluster-cmaq/qa_scripts/R_packages`
 
 `sudo R CMD INSTALL M3_0.3.tar.gz'
+
+Install pdftoppm to convert pdf files to images
+
+`sudo apt install poppler-utils`
 
 To view the script, install imagemagick
 
