@@ -169,4 +169,6 @@ See instructions here:
 
 ## Use gh authentication
 
+## Remove gh and clean up after done using github (before saving image) so that the credentials are not shared
 
+`sudo apt remove gh`
