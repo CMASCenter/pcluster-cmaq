@@ -77,4 +77,4 @@ Rscript parse_timing.pes.lustre.cmaqv5.4.r
 
 Timing Plot Comparing GCC run on 32, 64, 96, 128, 192, 256
 
-![HPC7g 32 and 64 pe per core](../../timing_plots/HPC7gpes_32_64.png)
+![HPC7g 32 and 64 pe per core](../../qa_plots/timing_plots/HPC7gpes_32_64.png)
