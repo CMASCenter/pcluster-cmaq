@@ -2,43 +2,6 @@
 
 ## Build the POST processing routines
 
-```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/combine/scripts
-```
-
-Run the bldit script for combine.
-
-```
-./bldit_combine.csh gcc |& tee ./bldit_combine.gcc.log
-```
-
-
-Run the bldit script for calc_tmetric
-
-```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/calc_tmetric/scripts/
-./bldit_calc_tmetric.csh gcc |& tee ./bldit_calc_tmetric.gcc.log
-```
-
-Run the bldit script for hr2day
-
-```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/hr2day/scripts
-./bldit_hr2day.csh gcc |& tee ./bldit_hr2day.gcc.log
-```
-
-Run the bldit script for bldoverlay
-
-(note the blditscript is missing)
-```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/POST/bldoverlay/scripts
-./bldit_bldoverlay.csh gcc |& tee ./bldit_bldoverlay.gcc.log
-```
-
-
-## Scripts to post-process CMAQ output
-
-
 Instructions on how to Post-process CMAQ using the utilities under the POST directory
 
 ```{note}
@@ -56,18 +19,23 @@ Show compute nodes
 `scontrol show nodes`
 
 
-## Edit and Run the POST processing routines
+## Edit, Build, and Run the POST processing routines
 
 ```
 setenv DIR /shared/build/openmpi_gcc/CMAQ_v54+/
 
 cd $DIR/POST/combine/scripts
 
+sed -i 's/v54/v54+/g' bldit_combine.csh
+./bldit_combine.csh gcc |& tee bldit_combine.log
 cp run_combine.csh run_combine_12US1.csh
+sed -i 's/v54/v54+/g' run_combine_12US1.csh
 sed -i 's/Bench_2016_12SE1/2018_12US1_2x64_classic/g' run_combine_12US1.csh
 sed -i 's/intel/gcc/g' run_combine_12US1.csh
+sed -i 's/cb6r3_ae7_aq/cb6r5_ae7_aq/g' run_combine_12US1.csh
 sed -i 's/2016-07-01/2017-12-22/g' run_combine_12US1.csh
 sed -i 's/2016-07-14/2017-12-23/g' run_combine_12US1.csh
+sed -i 's/${VRSN}_${compilerString}_${APPL}/${VRSN}_${MECH}_${compilerString}_${APPL}/g' run_combine_12US1.csh
 setenv CMAQ_DATA /fsx/data
 ./run_combine_12US1.csh
 

@@ -48,16 +48,18 @@ First check to see what log files are available:
 
 Modify the name of the log file to match what is avaible on your system.
 
+```
 cd /shared/pcluster-cmaq/qa_scripts
-`vi parse_timing_pcluster.r`
+vi parse_timing.pes.lustre.cmaqv5.4.r
+```
 
 Edit the following section of the script to specify the log file names available on your ParallelCluster
 
 ```
-sens.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-base.dir  <- '/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/'
-files     <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.108.12x9pe.2day.pcluster.log' )
-b.files <- dir(base.dir,pattern='run_cctmv5.3.3_Bench_2016_12US2.108.6x18pe.2day.pcluster.log')
+sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/logs/'
+base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/logs/'
+files     <- dir(sens.dir, pattern ='run_cctm5.4p_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.32.4x8pe.2day.20171222start.1x32.log' )
+b.files <- dir(base.dir,pattern='run_cctm5.4p_Bench_2018_12US1_cb6r5_ae6_20200131_MYR.64.8x8pe.2day.20171222start.2x32.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
@@ -67,20 +69,12 @@ sens.name <- '6x18pe'
 ```
 
 
-### Run parse_timing.r script to examine timings of each science process in CMAQ
+### Run parse_timing.pes.lustre.cmaqv5.4.r script to examine timings of each science process in CMAQ
 
 ```
-Rscript parse_timing.r
+Rscript parse_timing.pes.lustre.cmaqv5.4.r
 ```
 
-Timing Plot Comparing GCC run on 16 x 8 pe versus 8 x 16 pe
+Timing Plot Comparing GCC run on 32, 64, 96, 128, 192, 256
 
-![gcc_16x8_vs_8x16](../../qa_plots/timing_plots/gcc_16x8_vs_8x16.png)
-
-Timing Plot Comparing GCC run on 8 x 8 pe versus 8 x 16 pe
-
-![gcc_8x8_vs_8x16](../../qa_plots/timing_plots/gcc_8x8_vs_8x16.png)
-
-Timing Plot Comparing GCC run on 9 x 8 pe versus 8 x 9 pe
-
-![gcc_9x8_vs_8x9](../../qa_plots/timing_plots/gcc_9x8pe_8x9pe.png)
+![HPC7g 32 and 64 pe per core](../../timing_plots/HPC7gpes_32_64.png)
