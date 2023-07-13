@@ -6,4 +6,3 @@ foreach name (`ls *.pdf`)
   echo $name2
   pdftoppm -jpeg -r 600 $name $name2
 end
-~        
