@@ -184,19 +184,19 @@ In Figure 10 The Cost Explorer Display shows the cost of different EC2 Instance 
 
 Figure 10. Cost by Instance Type - AWS Console 
 
-![AWS Cost Management Console - Cost by Instance Type](../../qa_plots/cost_plots/AWS_Bench_Cost.png)
+![AWS Cost Management Console - Cost by Instance Type](../../qa_plots/cost_plots/AWS_12US1_Bench_instance_type.png)
 
 In Figure 11 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
 
 Figure 11. Cost by Usage Type - AWS Console 
 
-![AWS Cost Management Console - Cost by Usage Type](../../qa_plots/cost_plots/AWS_Bench_Usage_Type_Cost.png)
+![AWS Cost Management Console - Cost by Usage Type](../../qa_plots/cost_plots/AWS_12US1_Bench_usage.png)
 
 In Figure 12. The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
 
 Figure 12. Cost by Service Type - AWS Console
 
-![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_Bench_Service_Type_Cost.png)
+![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_12US1_Bench_service_type.png)
 
 
 ### Compute Node Cost Estimate
