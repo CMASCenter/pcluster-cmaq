@@ -117,9 +117,14 @@ sudo -i R
 install.packages("rgdal")
 install.packages("M3")
 install.packages("fields")
+install.packages("mapdata")
 install.packages("ggplot2")
 install.packages("patchwork")
 ```
+
+`cd /shared/pcluster-cmaq/qa_scripts/R_packages`
+
+`sudo R CMD INSTALL M3_0.3.tar.gz'
 
 To view the script, install imagemagick
 
