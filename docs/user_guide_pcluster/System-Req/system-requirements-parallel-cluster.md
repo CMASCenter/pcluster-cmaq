@@ -154,7 +154,7 @@ Compute Node:
 
 * hpc7g.16xlarge (64 cores/node) with 128 GiB memory (2 GiB of memory per core), Arm-based custom Graviton3E processors, which provide Double Data Rate 5 (DDR5) memory that offers 50% more bandwidth compared to DDR4, Elastic Fabric Adapter (EFA) and Nitro Hypervisor <b>only available in us-east-1 region</b> 
 
-<a href=https://aws.amazon.com/ec2/instance-types/hpc7g/">HPC7g EC2 Instance</a>
+<a href="https://aws.amazon.com/ec2/instance-types/hpc7g/">HPC7g EC2 Instance</a>
 
 
 
