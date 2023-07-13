@@ -153,13 +153,13 @@ Figure 1. Scaling per Node on c6a.48xlarge Compute Nodes (96 cores/node)
  
 Figure 2. Scaling per CPU on hpc7g.8xlarge compute node (32 cores/node)
 
-![Scaling per CPU for hpc7g.8xlarge Compute Nodes (32cores/node](../../qa_plots/scaling_plots/hpc7g.8xlarge_Scaling_CPUs.png)
+![Scaling per CPU for hpc7g.8xlarge Compute Nodes (32cores/node](../../qa_plots/timing_plots/HPC7gpes_32_64.png)
 
 
 
 Figure 3.  Scaling per Node on hpc7g.16xlarge Compute Nodes (64 cores/node)
 
-![Scaling per Node for hpc7g.16xlarge Compute Nodes (32cores/node](../../qa_plots/scaling_plots/hpc7g.16xlarge_Scaling_Node.png)
+![Scaling per Node for hpc7g.16xlarge Compute Nodes (32cores/node](../../qa_plots/timing_plots/HPC7g.18xlargepes_64_128.png)
 
 
 ## Total Time and Cost versus CPU Plot for hpc7g.8xlarge 
