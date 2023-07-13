@@ -262,25 +262,15 @@ Currently Loaded Modulefiles:
 
 The following step is not typically needed.
 
-## Install Homebrew to install github command line gh to allow you to create authentication to commit changes to git repo
+## Install gh following these instructions
 
 ```
-cd /shared/build
-git clone https://github.com/Homebrew/brew homebrew
+type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
 ```
-
-Change shell to bash
-`bash`
-
-Run following commands to install
-```
-eval "$(homebrew/bin/brew shellenv)"
-brew update --force --quiet
-chmod -R go-w "$(brew --prefix)/share/zsh"
-```
-
-## Install github gh
-
-`brew install gh`
 
 ## Use gh authentication
