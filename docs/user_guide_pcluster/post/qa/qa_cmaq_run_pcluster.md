@@ -56,7 +56,7 @@ output
 
 ```
 
-CMAQv5.4+ does not have -march=native compile option..
+CMAQv5.4+ does not have -march=native compile option as a default in the Makefile
 
 Even with NPCOL the same, the answers are not matching.
 
@@ -192,6 +192,10 @@ Use display to view the plots
 
 
 They are also displayed in the following plots:
+
+(note the following plots are for CMAQv5.3.3 version and 12US2 benchmark.)
+
+Will update soon to use plots for CMAQv5.4+
 
 Box Plot for ANO3J when NPCOL is identical 
 
