@@ -388,7 +388,7 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a job to run on 320 pes running on 5 ndes
+### Submit a job to run on 320 pes running on 5 nodes
 
 Output
 
