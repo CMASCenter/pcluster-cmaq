@@ -201,31 +201,19 @@ Figure 12. Cost by Service Type - AWS Console
 
 ### Compute Node Cost Estimate
 
-Head node c5n.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0324/hr = $ .1944 using spot pricing, 6 hours * $.108/hr = $.648 using on demand pricing.
+Head node c7g.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0725/hr = $ .435 using ondemand pricing.
 
-Using 288 cpus on the ParallelCluster, it would take ~4.83 days to run a full year, using 8 c5n.18xlarge (36cpu/node) compute nodes.
 
-Using 288 cpus on the ParallelCluster, it would take ~ 6.37 days to run a full year using 2 hpc6a.48xlarge (96cpu/node) compute nodes.
-
-Using 126 cpus  on the ParallelCluster, it would take ~8.92 days to run a full year, using 7 c5n.9xlarge (18cpu/node) compute nodes.
-
-Table 8. Extrapolated Cost of compute nodes used for CMAQv5.3.3 Annual Simulation based on 2 day CONUS benchmark
+Table 8. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation based on 2 day 12US1 benchmark
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
-| 2 day 12US2 |  c5n.18xlarge | 108         |           3       |    SPOT   |    1.1732/hour  |    4550.72/3600 = 1.264   |   1.264/2 * 365 = 231 hours/node * 3 nodes = 692 hr * $1.1732/hr = | $811.9 | 9.61   | 
-| 2 day 12US2    |  c5n.18xlarge | 108         |           3       |  ONDEMAND   |    3.888/hour  |    4550.72/3600 = 1.264   |   1.264/2 * 365 = 231 hours/node * 3 nodes = 692 hr * $3.888/hr = | $2690.4 | 9.61   |
-| 2 day 12US2    |  c5n.18xlarge | 180          |          5       |    SPOT    |    1.1732/hour |     2980.19/3600 = .8278  |    .8278/2 * 365 = 151 hours/node * 5 nodes = 755 hr * $1.1732/hr = | $886 |   6.29  |
-| 2 day 12US2    |  c5n.18xlarge | 180          |          5       |  ONDEMAND  |    3.888/hour   |     2980.19/3600 = .8278  |    .8278/2 * 365 = 151 hours/node * 5 nodes = 755 hr * $3.888/hr = | $2935.44 | 6.29 |
-| 2 day 12US2    |  c5n.9xlarge  | 126          |          7       |    SPOT    |   .5971/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $.5971/hr = | $856| 8.52 |
-| 2 day 12US2    |  c5n.9xlarge  | 126          |          7       |  ONDEMAND    |   1.944/hour    |    4042.71/3600 = 1.12      |    1.12/2 * 365 = 204.94 hours/node * 7 nodes = 1434.6 hr * $1.944/hr = | $2788.8 | 8.52 |
-| 2 day 12US2    | hpc6a.48xlarge | 96         |          1       |  ONDEMAND    |   $2.88/hour    |   5033.93/3600 = 1.40      |  1.40/2 * 365 = 255 hours/node * 1 nodes = 255 hr * $2.88/hr = | $734 | 10.6 |
-| 2 day 12US2    | hpc6a.48xlarge | 192         |         2       |  ONDEMAND    |   $2.88/hour    |   3023.81/3600 = .839      |  .839/2 * 365 = 153.29 hours/node * 2 nodes = 306 hr * $2.88/hr = | $883 | 6.4 |
 | 2 day 12US1    | hpc7g.16xlarge | 64          |         2       |  ONDEMAND    |   $1.6832/hour  |   4574.00/3600 = 1.27      |  1.27/2 * 365 = 231.87 hours/node * 2 nodes = 463.75 hr * $1.6832/hr = | $780 | 9.6 |
 | 2 day 12US1    | hpc7g.16xlarge | 64          |         3       |  ONDEMAND    |   $1.6832/hour  |   3509.80/3600 = .9749      |  .9749/2 * 365 = 177.9 hours/node * 3 nodes = 533.75 hr * $1.6832/hr = | $898 | 7.4 |
 
 ```{note}
-These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as the CONUS 12US2 Domain Benchmark scales well up to this number of nodes. The cost of running an annual simulation on 3 c5n.18xlarge nodes using OnDemand Pricing is $2690.4, the cost of running an annual simulation on 5 c5n.18xlarge nodes using OnDemand pricing is $2935.44, if only 3 nodes are available, then you would pay less, but wait longer for the run to be completed, 9.61 days using 3 nodes versus 6.29 days using 5 nodes.
+These cost estimates depend on the availability of number of nodes for the instance type. If fewer nodes are available, then it will take longer to complete the annual run, but the costs should be accurate, as the 12US1 Domain Benchmark scales well up to this number of nodes. 
+The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDemand Pricing is $780, the cost of running an annual simulation on 3 hpc7g.16xlarge nodes using OnDemand pricing is $898. If you run on only 2 nodes, then you would pay less, but wait longer for the run to be completed, 9.6 days using 2 nodes versus 7.4 days using 3 nodes.
 ```
 
 ### Storage Cost Estimate
