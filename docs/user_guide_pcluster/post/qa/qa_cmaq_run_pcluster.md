@@ -120,6 +120,8 @@ cd /shared/pcluster-cmaq/qa_scripts
 cp compare_EQUATES_benchmark_output_CMAS_pcluster.r compare_EQUATES_benchmark_output_CMAS_pcluster_hpc7g.18xlarge.r
 vi compare_EQUATES_benchmark_output_CMAS_pcluster_hpc7g.18xlarge.r
 ```
+
+```
 #Directory, file name, and label for first model simulation (sim1)
 sim1.label <- "CMAQv54+ 16x16 cores"
 sim1.dir <- "/fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_4x64_classic/"
