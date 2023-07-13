@@ -193,18 +193,14 @@ Use display to view the plots
 
 They are also displayed in the following plots:
 
-(note the following plots are for CMAQv5.3.3 version and 12US2 benchmark.)
 
-Will update soon to use plots for CMAQv5.4+
-
-Box Plot for ANO3J when NPCOL is identical 
+Box Plot for ANO3J when NPCOL is identical for CMAQv5.3.3 (I didn't see an identical plot for CMAQv5.4) 
 
 ![O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg](../../../qa_plots/box_plots/6x6_vs_6x9/O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg)
 
 
 Box plot shows no difference between ACONC output for a CMAQv5.3.3 run using different PE configurations as long as NPCOL is fixed (this is true for all species that were plotted (AOTHRJ, CO, NH3, NO2, O3, OH, SO2)
 
-Example of plots created when NPCOL is different between simulation 1 and simulation 2.
 
 Box plot shows a difference betweeen ACONC output for a CMAQv5.4+ run using different PE configurations when NPCOL is different
 
