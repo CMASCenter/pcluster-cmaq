@@ -413,5 +413,10 @@ Num  Day        Wall Time
 
 ```
 
+Run on the nodes with 32 cores per node.
+Running 4x32 cores using the hpc7g.8xlarge instances
+
+`sbatch  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.4x32.ncclassic.csh -w queue1-dy-compute-resource-2[1-4]`
+
 
 Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
