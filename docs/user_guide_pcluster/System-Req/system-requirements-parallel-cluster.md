@@ -122,13 +122,12 @@ Head node:
 
 Compute Node:
 
+* hpc6a.48xlarge (96 cpus/node) with 384 GiB memory, using two 48-core 3rd generation AMD EPYC 7003 series processors built on 7nm process nodes for increased efficiency with a total of 96 cores (4 GiB of memory per core), Elastic Fabric Adapter (EFA) and Nitro Hypervisor (lower cost than c6a.48xlarge)  <b>only available in us-east-2 region</b>
+
+or (more costly option, but available in all regions)
 
 * c6a.48xlarge (96 cpus/node with Multithreading disabled)
 with 384 GiB memory, 50 Gigabit Network Bandwidth, 40 EBS Bandwidth (Gbps), Elastic Fabric Adapter (EFA) and Nitro Hypervisor
-
-or
-
-* hpc6a.48xlarge (96 cpus/node) with 384 GiB memory, using two 48-core 3rd generation AMD EPYC 7003 series processors built on 7nm process nodes for increased efficiency with a total of 96 cores (4 GiB of memory per core), Elastic Fabric Adapter (EFA) and Nitro Hypervisor (lower cost than c6a.48xlarge)  <b>only available in us-east-2 region</b>
 
 <a href="https://aws.amazon.com/ec2/instance-types/hpc6/">HPC6a EC2 Instance</a>
 
