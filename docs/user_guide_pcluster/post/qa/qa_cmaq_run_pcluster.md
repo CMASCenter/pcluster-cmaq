@@ -149,7 +149,9 @@ gio open O3_MAPS_CMAQ*.pdf
 
 To convert the PDF to a jpeg image use the script convert.csh.
 
+```
 cd /shared/pcluster-cmaq/qa_scripts/qa_plots
+```
 
 First examine what the convert.csh script is doing
 
