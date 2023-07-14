@@ -230,7 +230,7 @@ ip-10-0-1-243:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts> squeue
 
 1 pe job is dying, running out of memory, which means that the 12US1 case takes more than 128 GB of memory.
 
-![top showing memory depleted just before job dies](../cmaqv54-cluster-intermed/top_just_before_1x64_hpc7g.16xlarge_dies.png )
+![top showing memory depleted just before job dies](../cmaqv54-cluster/top_just_before_1x64_hpc7g.16xlarge_dies.png )
 
 
 <a href="https://aws.amazon.com/blogs/hpc/application-deep-dive-into-the-graviton3e-based-amazon-ec2-hpc7g-instance/">8 GB Memory per core for hpc7g.16xlarge</a>
