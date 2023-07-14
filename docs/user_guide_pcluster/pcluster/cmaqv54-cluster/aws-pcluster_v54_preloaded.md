@@ -135,6 +135,19 @@ A placement group guarantees that your instances are on the same networking back
 
 `lspci`
 
+### Change default shell to .tcsh
+
+`sudo usermod -s /bin/tcsh ubuntu`
+
+logout and log back in
+
+### Copy file to .cshrc
+
+```
+cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
+```
+
+
 ### Check what modules are available on the cluster
 
 `module avail`

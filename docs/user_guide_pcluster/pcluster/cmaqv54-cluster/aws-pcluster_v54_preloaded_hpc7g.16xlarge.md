@@ -172,6 +172,12 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ```
 
+### Change default shell to .tcsh
+
+`sudo usermod -s /bin/tcsh ubuntu`
+
+logout and log back in to switch to the default shell
+
 ### Copy file to .cshrc
 
 ```
