@@ -142,6 +142,8 @@ Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7
 
 Figure 1. Scaling per Node on c6a.48xlarge Compute Nodes (96 cores/node)
 
+(to do - don't have the log files)
+
 ![Scaling per Node for c6a.48xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c6a.48xlarge_Scaling_Node.png)
 
 
