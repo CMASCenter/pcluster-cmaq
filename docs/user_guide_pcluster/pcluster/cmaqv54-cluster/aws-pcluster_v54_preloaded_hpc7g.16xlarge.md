@@ -176,25 +176,22 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 `sudo usermod -s /bin/tcsh ubuntu`
 
-logout and log back in to switch to the default shell
-
 ### Copy file to .cshrc
 
 ```
 cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
 ```
 
-### Edit .cshrc to add custom module path
+### Note that the .cshrc to add custom module path
 
 ```
 module use --append /shared/build/Modules/modulefiles
 ```
 
+
 ### Change shell to csh
 
-```
-csh
-```
+logout and log back in to switch to the default shell
 
 ### Use module list and then module load to load the libraries
 
