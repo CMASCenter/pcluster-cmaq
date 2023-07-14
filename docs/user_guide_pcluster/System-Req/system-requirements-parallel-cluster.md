@@ -110,7 +110,9 @@ or
 It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
 ```
 
-Recommended configuration of the ParallelCluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
+There are two recommended configuration of the ParallelCluster HPC head node and compute nodes to run the CMAQ CONUS benchmark for two days:
+
+First configuration:
 
 Head node:
 
@@ -120,13 +122,12 @@ Head node:
 
 Compute Node:
 
+* hpc6a.48xlarge (96 cpus/node) with 384 GiB memory, using two 48-core 3rd generation AMD EPYC 7003 series processors built on 7nm process nodes for increased efficiency with a total of 96 cores (4 GiB of memory per core), Elastic Fabric Adapter (EFA) and Nitro Hypervisor (lower cost than c6a.48xlarge)  <b>only available in us-east-2 region</b>
+
+or (more costly option, but available in all regions)
 
 * c6a.48xlarge (96 cpus/node with Multithreading disabled)
 with 384 GiB memory, 50 Gigabit Network Bandwidth, 40 EBS Bandwidth (Gbps), Elastic Fabric Adapter (EFA) and Nitro Hypervisor
-
-or
-
-* hpc6a.48xlarge (96 cpus/node) with 384 GiB memory, using two 48-core 3rd generation AMD EPYC 7003 series processors built on 7nm process nodes for increased efficiency with a total of 96 cores (4 GiB of memory per core), Elastic Fabric Adapter (EFA) and Nitro Hypervisor (lower cost than c6a.48xlarge)  <b>only available in us-east-2 region</b>
 
 <a href="https://aws.amazon.com/ec2/instance-types/hpc6/">HPC6a EC2 Instance</a>
 
@@ -138,4 +139,22 @@ ParallelCluster provides a ready-made auto scaling solution.
 Figure 1. AWS Recommended ParallelCluster Configuration (Number of compute nodes depends on setting for NPCOLxNPROW and #SBATCH --nodes=XX #SBATCH --ntasks-per-node=YY )
 
 ![AWS ParallelCluster Configuration](../../diagrams/aws_parallel_cluster.png)
+
+Second configuration:
+
+Head node:
+
+* c7g.large
+
+(note that head node should match the processor family of the compute nodes)
+
+Compute Node:
+
+
+* hpc7g.16xlarge (64 cores/node) with 128 GiB memory (2 GiB of memory per core), Arm-based custom Graviton3E processors, which provide Double Data Rate 5 (DDR5) memory that offers 50% more bandwidth compared to DDR4, Elastic Fabric Adapter (EFA) and Nitro Hypervisor <b>only available in us-east-1 region</b> 
+
+<a href="https://aws.amazon.com/ec2/instance-types/hpc7g/">HPC7g EC2 Instance</a>
+
+
+
 

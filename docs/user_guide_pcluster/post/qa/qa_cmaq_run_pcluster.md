@@ -193,78 +193,72 @@ Use display to view the plots
 
 They are also displayed in the following plots:
 
-(note the following plots are for CMAQv5.3.3 version and 12US2 benchmark.)
 
-Will update soon to use plots for CMAQv5.4+
-
-Box Plot for ANO3J when NPCOL is identical 
+Box Plot for ANO3J when NPCOL is identical for CMAQv5.3.3 (I didn't see an identical plot for CMAQv5.4) 
 
 ![O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg](../../../qa_plots/box_plots/6x6_vs_6x9/O3_BOXPLOT_CMAQv533-GCC-6x6pe_vs_CMAQv533-GCC-6x9pe.jpeg)
 
 
 Box plot shows no difference between ACONC output for a CMAQv5.3.3 run using different PE configurations as long as NPCOL is fixed (this is true for all species that were plotted (AOTHRJ, CO, NH3, NO2, O3, OH, SO2)
 
-Example of plots created when NPCOL is different between simulation 1 and simulation 2.
 
-Box plot shows a difference betweeen ACONC output for a CMAQv5.3.3 run using different PE configurations when NPCOL is different
+Box plot shows a difference betweeen ACONC output for a CMAQv5.4+ run using different PE configurations when NPCOL is different
 
 ANO3J
 
-![ANO3J_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/ANO3J_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![ANO3J_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/ANO3J_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 AOTHRJ
 
-![AOTHRJ_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/AOTHRJ_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![AOTHRJ_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/AOTHRJ_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 CO
 
-![CO_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/CO_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![CO_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/CO_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 NH3
 
-![NH3_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/NH3_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![NH3_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/NH3_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 NO2
 
-![NO2_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/NO2_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![NO2_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/NO2_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 O3
 
-![O3_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/O3_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![O3_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/O3_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 OH
 
-![OH_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/OH_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
+![OH_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/OH_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 SO2
 
-![SO2_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg](../../../qa_plots/box_plots/12x9_vs_8x9/SO2_BOXPLOT_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe.jpeg)
-
-
-Example of Spatial Plots for when NPCOL is different
+![SO2_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg](../../../qa_plots/box_plots/16x16_vs_12x16/SO2_BOXPLOT_CMAQv54+16x16cores_vs_CMAQv54+12x16cores.jpeg)
 
 Note, the differences are small, but they grow with time. There is one plot for each of the 24 hours.  The plot that contains the most differences will be in the bottom right of the panel for each species. You will need to zoom in to see the differences, as most of the grid cells do not have any difference, and they are displayed as grey. For the NO2 plot, you can see the most differences over the state of Pennsylvania at hour 12/22/2015 at hour 23:00, with the the magnitude of the maximum difference of +/- 4. E-6. 
 
 ```
-cd ../spatial_plots/12x9_vs_8x9
-display ANO3J_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg
+cd ../spatial_plots/16x16_vs_12x16
+display O3_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg
 ```
 
 ANO3J
 
-![ANO3J_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg](../../../qa_plots/spatial_plots/12x9_vs_8x9/ANO3J_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg)
+![ANO3J_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg](../../../qa_plots/spatial_plots/16x16_vs_12x16/ANO3J_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg)
 
 AOTHRJ
 
-![AOTHRJ_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg](../../../qa_plots/spatial_plots/12x9_vs_8x9/AOTHRJ_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg)
+![AOTHRJ_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg](../../../qa_plots/spatial_plots/16x16_vs_12x16/AOTHRJ_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg)
+
 
 CO
 
-![CO_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg](../../../qa_plots/spatial_plots/12x9_vs_8x9/CO_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg)
+![CO_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg](../../../qa_plots/spatial_plots/16x16_vs_12x16/CO_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg)
 
 NH3
 
-![NH3_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg](../../../qa_plots/spatial_plots/12x9_vs_8x9/NH3_MAPS_CMAQv533-GCC-12x9pe_vs_CMAQv533-GCC-8x9pe-1.jpg)
+![NH3_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg](../../../qa_plots/spatial_plots/16x16_vs_12x16/NH3_MAPS_CMAQv54+16x16cores_vs_CMAQv54+12x16cores-1.jpg)
 
 
 NO2

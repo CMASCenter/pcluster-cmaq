@@ -64,6 +64,10 @@ The *.nc4 compressed netCDF4 files on /fsx input directory were converted to net
 `mkdir -p /fsx/data/output`
 
 
+Note, that the 12US1 Domain will not run on 64 cores using the hpc7g.16xlarge, as it doesn't have enough memory per node.
+It is possible to run on 64 cores using the hpc7g.8xlarge using 2 x 32 cores per node (as there is more memory per core).
+
+
 ### Run the 12US1 Domain on 128 cores
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
@@ -388,7 +392,7 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a job to run on 320 pes running on 5 ndes
+### Submit a job to run on 320 pes running on 5 nodes
 
 Output
 
