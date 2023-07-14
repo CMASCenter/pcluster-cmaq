@@ -7,4 +7,4 @@
 #cp run*.csh /fsx/data/output
 
 aws s3 mb s3://c7g-head-hpc7g.16xlarge-cmaqv5.4plus.12us1-output
-aws s3 cp --recursive /fsx/data/output/ s3://c7g-head-hpc7g.16xlarge-cmaqv5.4plus.12us1-output/fsx/data/output/
+aws s3 cp --recursive /fsx/data/output/ s3://c7g-head-hpc7g.16xlarge-cmaqv5.4plus.12us1-output/jul-14-2023/fsx/data/output/
