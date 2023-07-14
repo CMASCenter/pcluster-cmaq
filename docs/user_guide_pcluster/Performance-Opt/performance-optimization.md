@@ -170,12 +170,12 @@ Figure 3.  Scaling per Node on hpc7g.16xlarge Compute Nodes (64 cores/node)
 
 Figure 4. Plot of Total Time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings used for the c5n.9xlarge used settings that were optimized for running CMAQ on the cluster.
 
-![Total Time and Cost for hpc7g.16xlarge Compute Nodes (64cores/node](../../qa_plots/timing_plots/hpc7g.16xlarge_Time_CPUs.png)
+![Total Time and Cost for hpc7g.16xlarge Compute Nodes (64cores/node](../../qa_plots/timing_plots/hpc7g.16xlarge_Time_Cores.png)
 
 
 Figure 5. Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge
 
-![Total Time and Cost for c6a.48xlarge Compute Nodes (96cores/node](../../qa_plots/timing_plots/c6a.48xlarge_Time_CPUs.png)
+![Total Time and Cost for c6a.48xlarge Compute Nodes (96cores/node](../../qa_plots/timing_plots/c6a.48xlarge_Time_Cores.png)
 
 # Cost Information 
 
