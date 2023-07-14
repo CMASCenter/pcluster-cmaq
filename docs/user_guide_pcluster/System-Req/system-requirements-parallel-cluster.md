@@ -155,6 +155,8 @@ Compute Node:
 
 <a href="https://aws.amazon.com/ec2/instance-types/hpc7g/">HPC7g EC2 Instance</a>
 
+![AWS ParallelCluster Configuration](../../diagrams/aws_parallel_cluster_hpc7g.png)
+
 
 
 
