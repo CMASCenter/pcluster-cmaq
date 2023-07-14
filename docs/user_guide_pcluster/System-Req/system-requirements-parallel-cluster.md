@@ -81,7 +81,7 @@ GRIDDESC
 '12US1'
 'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
 ```
-(need to create)
+
 ![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
 
 
