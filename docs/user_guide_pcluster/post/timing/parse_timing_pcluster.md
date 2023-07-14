@@ -43,7 +43,15 @@ The following configurations may impact the run time of the model.
 
 First check to see what log files are available:
 
-`ls -lrt /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log`
+`ls -lrt /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/*.log`
+
+Copy the log files to the repo, to save them, as once you log out and delete the cluster you won't have them.
+Note, they would need to be saved to your local fork of the repo.
+
+
+`cp /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/*.log /shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/logs/`
+
+`ls -lrt /shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/logs/`
 
 
 Modify the name of the log file to match what is avaible on your system.
