@@ -47,6 +47,12 @@ recommended to give Python3 precedence over Python2 (which is end-of-life since 
 
 `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
 
+Install software for diagram
+
+`sudo apt-get install graphviz`
+
+`pip install diagrams`
+
 Install further compilation dependencies (Ubuntu 20.04)
 
 ```
