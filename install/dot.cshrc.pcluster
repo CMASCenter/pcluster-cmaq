@@ -20,5 +20,7 @@ module load openmpi
 
 module load libfabric-aws
 
+module use --append /shared/build/Modules/modulefiles
+
 alias SCR 'cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts'
 
