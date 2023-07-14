@@ -98,7 +98,7 @@ An example of the yaml file contents is described in the following Diagram:
 
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a t2.micro head node and t2.micro compute nodes
 
-![t2.micro yaml configuration](../../yml_plots/hello-world-yaml.png)
+![t2.micro yaml configuration](../../../yml_plots/hello-world-yaml.png)
 
 ```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/cluster-configuration-file-v3.html">Cluster Configuration File</a>

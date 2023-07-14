@@ -98,7 +98,7 @@ SharedStorage:
 #### The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6g.large head node and hpc7g.16xlarge compute nodes using ONDEMAND pricing
-![hpc7g.16xlarge yaml configuration](../../yml_plots/hpc7g.16xlarge.png)
+![hpc7g.16xlarge yaml configuration](../../../yml_plots/hpc7g.16xlarge.png)
 
 (to do!)
 
