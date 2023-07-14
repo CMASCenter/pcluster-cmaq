@@ -1,0 +1,10 @@
+#%Module
+
+proc ModulesHelp { } {
+   puts stderr "This module adds verdi/VERDI_2.1.2 to your path"
+}
+
+module-whatis "This module adds verdi/VERDI_2.1.2 to your path\n"
+
+set basedir "/shared/build/VERDI_2.1.2/"
+prepend-path PATH "${basedir}"
