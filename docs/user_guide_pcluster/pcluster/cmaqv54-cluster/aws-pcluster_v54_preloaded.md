@@ -139,13 +139,14 @@ A placement group guarantees that your instances are on the same networking back
 
 `sudo usermod -s /bin/tcsh ubuntu`
 
-logout and log back in
 
 ### Copy file to .cshrc
 
 ```
 cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
 ```
+
+logout and log back in to activate default tcsh shell
 
 
 ### Check what modules are available on the cluster
