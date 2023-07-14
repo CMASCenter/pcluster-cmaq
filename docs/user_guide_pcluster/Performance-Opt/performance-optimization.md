@@ -168,7 +168,7 @@ Figure 3.  Scaling per Node on hpc7g.16xlarge Compute Nodes (64 cores/node)
 
 ## Total Time and Cost versus CPU Plot for hpc7g.8xlarge 
 
-Figure 4. Plot of Total Time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings used for the c5n.9xlarge used settings that were optimized for running CMAQ on the cluster.
+Figure 4. Plot of Total Time and On Demand Cost varies as additional CPUs are used. Note that the run script and yaml settings settings that were optimized for running CMAQ on the cluster.
 
 ![Total Time and Cost for hpc7g.16xlarge Compute Nodes (64cores/node](../../qa_plots/timing_plots/hpc7g.16xlarge_Time_Cores.png)
 
@@ -185,13 +185,13 @@ Cost information is available within the AWS Web Console for your account as you
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
-In Figure 6 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
+In Figure 6 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c6a.48xlarge (purple) is highest cost - as these the most expensive compute nodes that were used. The hpc7g.16xlarge compute nodes incurred less cost (green).
 
 Figure 6. Cost by Instance Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Instance Type](../../qa_plots/cost_plots/AWS_12US1_Bench_instance_type.png)
 
-In Figure 7 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
+In Figure 7 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: c6a.48xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
 
 Figure 7. Cost by Usage Type - AWS Console 
 
