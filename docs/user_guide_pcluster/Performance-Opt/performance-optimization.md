@@ -159,7 +159,7 @@ Figure 2. Scaling per CPU on hpc7g.8xlarge compute node (32 cores/node)
 ![Scaling per CPU for hpc7g.8xlarge Compute Nodes (32cores/node](../../qa_plots/timing_plots/HPC7gpes_32_64.png)
 
 
-### Benchmark Scaling Plot for hpc7g.16xlarget
+### Benchmark Scaling Plot for hpc7g.16xlarge
 
 Figure 3.  Scaling per Node on hpc7g.16xlarge Compute Nodes (64 cores/node)
 
