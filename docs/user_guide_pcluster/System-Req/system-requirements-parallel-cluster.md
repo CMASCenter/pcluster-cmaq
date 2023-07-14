@@ -140,7 +140,7 @@ Figure 1. AWS Recommended ParallelCluster Configuration (Number of compute nodes
 
 ![AWS ParallelCluster Configuration](../../diagrams/aws_parallel_cluster.png)
 
-Second configuration:
+Second configuration (Least expensive - see chapter on Cost and Performance Optimization):
 
 Head node:
 
