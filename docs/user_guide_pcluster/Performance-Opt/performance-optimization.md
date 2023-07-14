@@ -101,7 +101,7 @@ If this is the case, the job will not start runnning in the queue, see AWS Troub
 
 ### Benchmark Timing for c6a.48xlarge
 
-Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes with Disable Simultaneous Multithreading turned on (using physical cores, not vcpus) 
+Table 2. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes with Disable Simultaneous Multithreading turned on (using physical cores, not vcpus) 
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day InputData   |    InputData | Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ---- | ------    | ---   |  -------------     | ------------      | --------- | ------------------------  | ----------   | ------------------------------ | ----     | ------------------------------  |  ------  |
@@ -112,7 +112,7 @@ Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 
 ### Benchmark Timing for hpc7g.8xlarge with 32 processors per node
 
-Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.8xlarge Compute Nodes with 32 processors per node.
+Table 3. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.8xlarge Compute Nodes with 32 processors per node.
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day |  InputData   |    Equation using On Demand Pricing | OnDemandCost |
 | ---- | ------    | ----   | ------------     | -------------      | --------- | ------------  | ------------ | -------------------------------- |    -- |
@@ -124,7 +124,7 @@ Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7
 
 ### Benchmark Timing for hpc7g.16xlarge with 64 processors per node
 
-Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes with 64 processors per node.
+Table 4. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes with 64 processors per node.
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day |  InputData   |    Equation using On Demand Pricing | OnDemandCost |
 | ---- | ---       | ----   | -------------     | ------------    | --------- |  -----------    | ------------ | -------------------------------- | --- |
@@ -185,21 +185,21 @@ Cost information is available within the AWS Web Console for your account as you
 
 Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
-In Figure 10 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
+In Figure 6 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c5n.18xlarge is highest cost - as these are used as the compute nodes
 
-Figure 10. Cost by Instance Type - AWS Console 
+Figure 6. Cost by Instance Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Instance Type](../../qa_plots/cost_plots/AWS_12US1_Bench_instance_type.png)
 
-In Figure 11 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
+In Figure 7 The Cost Explorer displays a graph of the cost categorized by usage by spot or OnDemand, NatGateway, or Timed Storage. Note: spot-c5n.18xlarge is highest generating cost resource, but other resources such as storage on the EBS volume and the network NatGatway or SubnetIDs also incur costs
 
-Figure 11. Cost by Usage Type - AWS Console 
+Figure 7. Cost by Usage Type - AWS Console 
 
 ![AWS Cost Management Console - Cost by Usage Type](../../qa_plots/cost_plots/AWS_12US1_Bench_usage.png)
 
-In Figure 12. The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
+In Figure 8. The Cost Explorer Display shows the cost by Services including EC2 Instances, S3 Buckets, and FSx Lustre File Systems
 
-Figure 12. Cost by Service Type - AWS Console
+Figure 8. Cost by Service Type - AWS Console
 
 ![AWS Cost Management Console - Cost by Service Type](../../qa_plots/cost_plots/AWS_12US1_Bench_service_type.png)
 
@@ -209,7 +209,7 @@ Figure 12. Cost by Service Type - AWS Console
 Head node c7g.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0725/hr = $ .435 using ondemand pricing.
 
 
-Table 8. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation based on 2 day 12US1 benchmark
+Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation based on 2 day 12US1 benchmark
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
@@ -228,7 +228,7 @@ The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDeman
 ```
 
 
-Table 9. Lustre SSD File System Pricing for us-east-1 region
+Table 6. Lustre SSD File System Pricing for us-east-1 region
 
 | Storage Type | Storage options   | 	Pricing with data compression enabled*	| Pricing (monthly)  |
 | --------     | ----------------  |   ------------------------------------    | -----------------  |
@@ -245,7 +245,7 @@ Note, there is a difference in the storage sizing units that were obtained from 
 ```
 
 Quote from the above website;
-"One tebibyte is equal to 2^40 or 1,099,511,627,776 bytes. 
+"One tebibyte is equal to 2^40 or 1,099,511,627,776 bytes."
 One terabyte is equal to 1012 or 1,000,000,000,000 bytes. 
 A tebibyte equals nearly 1.1 TB. 
 That's about a 10% difference between the size of a tebibyte and a terabyte, which is significant when talking about storage capacity."
