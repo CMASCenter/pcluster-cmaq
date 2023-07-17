@@ -19,9 +19,11 @@ With additional instructions to use ssh to login and run CMAQ for the 12LISTOS-t
 
 ### Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
 
-Click on the Community AMI and click on the orange "Select" button
+![Search for AMI](../web-vm/aws_web_console_search_ami.png)
 
-![Search for AMI](../web-vm/aws_web_interface_choose_ami.png)
+Click on the Community AMI tab and then and click on the orange "Select" button
+
+![Choose Public AMI with CMAQ pre-installed](../web-vm/aws_web_interface_choose_ami.png)
 
 
 
