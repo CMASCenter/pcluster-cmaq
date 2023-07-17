@@ -18,5 +18,5 @@ Data in table above is from the following:
 Run CMAQv5.4+ on a single Virtual Machine (VM) using an ami with software pre-loaded to run on either a c6a.2xlarge, c6a.8xlarge or c6a.48xlarge instance with gp3 filesystem.
 
 ```{toctree}
-aws_web_interface_launch_instance.png quick-start.md
+quick-start.md
 ```
