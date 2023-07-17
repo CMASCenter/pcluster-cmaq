@@ -7,7 +7,7 @@
 :relative-images:
 ```
 ```{warning}
-This documentation is under continuous development
+This documentation is under continuous development. This documentation is under continuous development latest version is available here: <a href="https://pcluster-cmaq.readthedocs.io/en/latest/index.html#">CMAQ on AWS Tutorials Latest Version</a>
 ```
 
 ## Overview
