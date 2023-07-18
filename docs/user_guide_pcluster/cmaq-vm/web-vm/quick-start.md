@@ -46,7 +46,7 @@ Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
 
 ### Configure Storage
 
-Use the pull down menu to select 500 GiB of gp3 as the root volume (Not encrypted)
+The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted)
 
 ![Configure Storage](../web-vm/aws_web_console_storage_volume_information.png)
 
