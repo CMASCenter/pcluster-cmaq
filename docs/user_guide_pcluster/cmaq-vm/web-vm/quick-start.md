@@ -66,3 +66,9 @@ The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted
 
 [Instance IP address](../web-vm/Instance_Public_IP_Address.png)
 
+
+### Use the ssh command to login to the c6a.2xlarge instance
+
+ssh -v -Y -i ~/downloads/[your-pem-name].pem ubuntu@xx.xxx.xxx.xxx
+
+
