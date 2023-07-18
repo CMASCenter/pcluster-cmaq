@@ -31,9 +31,9 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 
 Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
 
-### Search for c6a.xlarge Instance Type and select 
+### Search for c6a.2xlarge Instance Type and select 
 
-![Select c6a.xlarge instance type](../web-vm/aws_web_console_select_c6a.xlarge_ec2_instance.png)
+![Select c6a.2xlarge instance type](../web-vm/aws_web_console_select_c6a.2xlarge_ec2_instance.png)
 
 ### Select key pair name or create a new key pair
 
@@ -52,4 +52,4 @@ Use the pull down menu to select 500 GiB of gp3 as the root volume (Not encrypte
 
 ### In the Summary Menu, select Launch Instance
 
-![Launch instance](../web-vm/aws_web_console_summary_launch_instance.png)
+![Launch instance](../web-vm/aws_web_console_summary_launch_instance_c6a.2xlarge.png)
