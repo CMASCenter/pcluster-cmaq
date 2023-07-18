@@ -61,7 +61,13 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 output
 
 
-![Screenshot of HTOP](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off.png)
+This ec2 instance was created without turning hyperthreading off, so it will have 8 vcpus.
+
+![Screenshot of HTOP with hyperthreading on](../cmaq-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
+
+When the ec2 instance is configured to have hyperthreading turned off, it has 4 cores
+
+![Screenshot of HTOP with hyperthreading off](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
 ### Successful output using the gp3 volume
 
