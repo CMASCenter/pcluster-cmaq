@@ -53,3 +53,7 @@ The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted
 ### In the Summary Menu, select Launch Instance
 
 ![Launch instance](../web-vm/aws_web_console_summary_launch_instance_c6a.2xlarge.png)
+
+### Click on the link to the instance once it is successfully launched
+
+![Successfully launched link](../web-vm/aws_web_console_successful_launch_c6a.2xlarge.png)
