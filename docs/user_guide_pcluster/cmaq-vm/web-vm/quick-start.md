@@ -48,8 +48,8 @@ Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
 
 Use the pull down menu to select 500 GiB of gp3 as the root volume (Not encrypted)
 
-![Configure Storage](../web-vm/aws_web_console_storage_volume_information)
+![Configure Storage](../web-vm/aws_web_console_storage_volume_information.png)
 
 ### In the Summary Menu, select Launch Instance
 
-~[Launch instance](../web-vm/aws_web_console_summary_launch_instance.png)
+![Launch instance](../web-vm/aws_web_console_summary_launch_instance.png)
