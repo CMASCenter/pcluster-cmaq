@@ -17,6 +17,7 @@ With additional instructions to use ssh to login and run CMAQ for the 12LISTOS-t
 
 ![Click on Launch Instance](../web-vm/aws_web_interface_launch_instance.png)
 
+
 ### Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
 
 ![Search for AMI](../web-vm/aws_web_console_search_ami.png)
@@ -26,4 +27,9 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 ![Choose Public AMI with CMAQ pre-installed](../web-vm/aws_web_interface_choose_ami.png)
 
 
+### Note this AMI was built for the following architecture, and can be used by the c6a - hpc6a family of instances
+
+Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
+
+###
 
