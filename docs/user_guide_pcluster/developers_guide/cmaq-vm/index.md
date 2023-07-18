@@ -4,6 +4,7 @@ Run CMAQv5.4+ on a single Virtual Machine (VM) using c6a.xlarge (4 CPUs) and Ubu
 
 ```{toctree}
 install.md
+install_64-bit-arm.md
 install-netcdf-hdf5.md
 save_ami.md
 ```
