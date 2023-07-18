@@ -3,6 +3,6 @@
 Creating an EC2 instance either from the AWS Web Interface or Command Line is easy to do. In this tutorial we will give examples on how to create and run using ec2 instances that vary in size depending on the size of the CMAQ benchmarks.
 
 ```{toctree}
-cli-vm/index.md
 web-vm/index.md
+cli-vm/index.md
 ```
