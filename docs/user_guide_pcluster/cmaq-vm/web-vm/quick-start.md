@@ -50,6 +50,18 @@ The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted
 
 ![Configure Storage](../web-vm/aws_web_console_storage_volume_information.png)
 
+### Select the Pull-down options for Advanced details
+
+Scroll down until you see option to Specify CPU cores
+
+Click the checkbox for "Specify CPU cores"
+
+Then select 4 Cores, and 1 thread per core
+
+![Select Advanced Details](../web-vm/aws_advanced_details.png)
+
+![Advanced Details turn off hyperthreading](../web-vm/aws_advanced_details_specify_1_thread_per_core.png)
+
 ### In the Summary Menu, select Launch Instance
 
 ![Launch instance](../web-vm/aws_web_console_summary_launch_instance_c6a.2xlarge.png)

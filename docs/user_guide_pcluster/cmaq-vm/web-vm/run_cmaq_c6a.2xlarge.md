@@ -69,7 +69,30 @@ When the ec2 instance is configured to have hyperthreading turned off, it has 4 
 
 ![Screenshot of HTOP with hyperthreading off](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
-### Successful output using the gp3 volume
+### Successful output using the gp3 volume with hyperthreading on (8vcpus)
+
+```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       4
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   227.7
+02   2018-08-06   213.0
+03   2018-08-07   216.2
+     Total Time = 656.90
+      Avg. Time = 218.96
+```
+
+### Successful output using the gp3 volume with hyperthreading off (4vcpus)
 
 ```
 ==================================
