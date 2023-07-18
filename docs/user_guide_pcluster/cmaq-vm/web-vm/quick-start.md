@@ -60,11 +60,11 @@ The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted
 
 ### Wait until the Status check has been completed and the Instance State is running
 
-[Instance State running](../web-vm/Instance_State_wait_till_running.png)
+![Instance State running](../web-vm/Instance_State_wait_till_running.png)
 
 ### Click on the instance link and copy the Public IP address to your clipboard
 
-[Instance IP address](../web-vm/Instance_Public_IP_Address.png)
+![Instance IP address](../web-vm/Instance_Public_IP_Address.png)
 
 
 ### Use the ssh command to login to the c6a.2xlarge instance
