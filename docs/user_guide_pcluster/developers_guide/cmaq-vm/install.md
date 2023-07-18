@@ -18,13 +18,14 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 1. Login to AWS Console
 2. Select Get Started with EC2 
 3. Select Launch Instance
-4. Application and OS (Operating System) Images: Select Ubunutu 22.04 LTS(HVM), SSD Volume Type
+4. Select Architechure (64-bit(x86)
+5. Application and OS (Operating System) Images: Select Ubunutu 22.04 LTS(HVM), SSD Volume Type
 (the version of OS determines what packages are available from apt-get and that determines the version of software obtained, ie. cdo version > 2.0 for Ubuntu 22.04 LTS, or cdo version < 2.0 for Ubuntu 18.04.
-5. Instance Type: Select c6a.xlarge ($0.153/hr)
-6. Key pair - SSH public key, select existing key or create a new one.
-7. Network settings - select default settings
-8. Configure storage - select 100 GiB gp3 Root volume 
-9. Select Launch instance
+6. Instance Type: Select c6a.xlarge ($0.153/hr)
+7. Key pair - SSH public key, select existing key or create a new one.
+8. Network settings - select default settings
+9. Configure storage - select 100 GiB gp3 Root volume 
+10. Select Launch instance
 
 
 ![AWS EC2 Console](../../aws_ec2_images/AWS_EC2_Virtual_Machine_Create.png)
