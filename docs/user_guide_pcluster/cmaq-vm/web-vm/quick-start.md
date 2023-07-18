@@ -31,5 +31,23 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 
 Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
 
-###
+### Search for c6a.xlarge Instance Type and select 
+
+![Select c6a.xlarge instance type](../web-vm/aws_web_console_select_c6a.xlarge_ec2_instance.png)
+
+### Select key pair name or create a new key pair
+
+![Select key pair name or create new key pair](../web-vm/aws_web_console_select_key_pair.png)
+
+
+### Use the default Network Settings
+
+![Use default network settings](../web-vm/aws_web_console_network_settings_information.png)
+
+### Configure Storage
+
+Use the pull down menu to select 500 GiB of gp3 as the root volume (Not encrypted)
+
+![Configure Storage](../web-vm/aws_web_console_storage_volume_information)
+
 
