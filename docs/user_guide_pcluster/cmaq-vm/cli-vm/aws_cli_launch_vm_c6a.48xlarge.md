@@ -13,7 +13,7 @@ Todo: Need to create command line options to copy a public ami to a different re
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-088f82f334dde0c9f`
+`aws ec2 describe-images --region us-east-1 --image-id ami-051ba52c157e4070c`
 
 
 Output:
@@ -23,9 +23,9 @@ Output:
     "Images": [
         {
             "Architecture": "x86_64",
-            "CreationDate": "2023-06-26T18:17:08.000Z",
-            "ImageId": "ami-088f82f334dde0c9f",
-            "ImageLocation": "440858712842/EC2CMAQv54io2_12LISTOS-training_12NE3_12US1",
+            "CreationDate": "2023-07-05T14:10:42.000Z",
+            "ImageId": "ami-051ba52c157e4070c",
+            "ImageLocation": "440858712842/cmaqv5.4_c6a_gp3_IOPS_16000_throughput_1000",
             "ImageType": "machine",
             "Public": true,
             "OwnerId": "440858712842",
@@ -37,10 +37,11 @@ Output:
                     "DeviceName": "/dev/sda1",
                     "Ebs": {
                         "DeleteOnTermination": true,
-                        "Iops": 100000,
-                        "SnapshotId": "snap-042b05034228ec830",
+                        "Iops": 16000,
+                        "SnapshotId": "snap-08789828f7ab945ed",
                         "VolumeSize": 500,
-                        "VolumeType": "io2",
+                        "VolumeType": "gp3",
+                        "Throughput": 1000,
                         "Encrypted": false
                     }
                 },
@@ -53,14 +54,15 @@ Output:
                     "VirtualName": "ephemeral1"
                 }
             ],
+            "Description": "[Copied ami-01605a204650ede2f from us-east-1] cmaqv5.4_c6a_48xlarge_gp3_IOPS_16000_throughput_1000",
             "EnaSupport": true,
             "Hypervisor": "xen",
-            "Name": "EC2CMAQv54io2_12LISTOS-training_12NE3_12US1",
+            "Name": "cmaqv5.4_c6a_gp3_IOPS_16000_throughput_1000",
             "RootDeviceName": "/dev/sda1",
             "RootDeviceType": "ebs",
             "SriovNetSupport": "simple",
             "VirtualizationType": "hvm",
-            "DeprecationTime": "2025-06-26T18:17:08.000Z"
+            "DeprecationTime": "2025-07-05T14:10:42.000Z"
         }
     ]
 }
@@ -68,8 +70,6 @@ Output:
 ```
 
 Use q to exit out of the command line
-
-Note, the AMI uses the maximum value available on io2 for Iops of 100000.
 
 
 ### AWS Resources for the aws cli method to launch ec2 instances.
@@ -99,7 +99,7 @@ cat <<EoF > ./runinstances-config.json
     "MaxCount": 1,
     "MinCount": 1,
     "InstanceType": "c6a.48xlarge",
-    "ImageId": "ami-088f82f334dde0c9f",
+    "ImageId": "ami-051ba52c157e4070c",
     "InstanceMarketOptions": {
         "MarketType": "spot"
     },
@@ -150,7 +150,7 @@ Once you have verified that the command above works with the --dry-run option, r
 
 ### Use the following command to obtain the public IP address of the machine.
 
-`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-088f82f334dde0c9f" | grep PublicIpAddress`
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
 ### Login to the ec2 instance
 
