@@ -18,7 +18,7 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 1. Login to AWS Console
 2. Select Get Started with EC2 
 3. Select Launch Instance
-4. Select Arhitecture - 64-bit (Arm)
+4. Select Architecture - 64-bit (Arm)
 5. Select Application and OS (Operating System) Images: Select Ubunutu 22.04 LTS(HVM), SSD Volume Type
 (the version of OS and the architecture selected (64-bit (Arm)) determines what packages are available from apt-get and that determines the version of software obtained.
 6. Instance Type: Select c7g.xlarge ($0.145/hr)
