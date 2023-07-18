@@ -1,4 +1,4 @@
-## Run CMAQv5.4 on 
+## Run CMAQv5.4 on c6a.2xlarge
 
 ### Login to the ec2 instance
 
