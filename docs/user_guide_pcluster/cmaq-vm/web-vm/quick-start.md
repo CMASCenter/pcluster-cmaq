@@ -50,4 +50,6 @@ Use the pull down menu to select 500 GiB of gp3 as the root volume (Not encrypte
 
 ![Configure Storage](../web-vm/aws_web_console_storage_volume_information)
 
+### In the Summary Menu, select Launch Instance
 
+~[Launch instance](../web-vm/aws_web_console_summary_launch_instance.png)
