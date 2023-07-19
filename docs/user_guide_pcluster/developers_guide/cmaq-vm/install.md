@@ -1,17 +1,17 @@
-# Install Software and run CMAQv5.4 on c6a.xlarge for the 12km Listos Training Domain
+# Install Software and run CMAQv5.3.3 on c6a.2xlarge for the 2016_12US3 Benchmark 
 
-Instructions are provided to build and install CMAQ on c6a.xlarge compute node installed from  Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64) Image that contains modules for git, openmpi and gcc.  The compute node does not have a SLURM scheduler on it, so jobs are run interactively from the command line. 
+Instructions are provided to build and install CMAQ on c6a.2xlarge compute node installed from  Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64) Image that contains modules for git, openmpi and gcc.  The compute node does not have a SLURM scheduler on it, so jobs are run interactively from the command line. 
 
-Instructions to install data and CMAQ libraries and model are provided along with sample run scripts to run CMAQ on 4 processors on a single c6a.xlarge instance.
+Instructions to install data and CMAQ libraries and model are provided along with sample run scripts to run CMAQ on 4 processors on a single c6a.2xlarge instance.
 
-This will provide users with experience using the AWS Console to create a Virtual Machine, select Operating System, select the size of the VM as c6a.xlarge vcpus, 8 GiB memory, using an SSH private key to login and install and run CMAQ.
+This will provide users with experience using the AWS Console to create a Virtual Machine, select Operating System, select the size of the VM as c6a.2xlarge vcpus, 8 GiB memory, using an SSH private key to login and install and run CMAQ.
 
 Using this method, the user needs to be careful to start and stop the Virtual Machine and only have it run while doing the intial installation, and while running CMAQ.
-The full c6a.xlarge instance will incur charges as long as it is on, even if a job isn't running on it.
+The full c6a.2xlarge instance will incur charges as long as it is on, even if a job isn't running on it.
 
 This is different than the Parallel Cluster, where if CMAQ is not running in the queue, then the Compute nodes are down, and not incurring costs.
 
-## Build CMAQv5.4+ on c6a.xlarge EC2 instance
+## Build CMAQv5.3.3 on c6a.2xlarge EC2 instance
 
 ### Create a c6a.xlarge Virtual Machine
 
@@ -20,7 +20,7 @@ This is different than the Parallel Cluster, where if CMAQ is not running in the
 3. Select Launch Instance
 4. Application and OS (Operating System) Images: Select Ubunutu 22.04 LTS(HVM), SSD Volume Type
 (the version of OS determines what packages are available from apt-get and that determines the version of software obtained, ie. cdo version > 2.0 for Ubuntu 22.04 LTS, or cdo version < 2.0 for Ubuntu 18.04.
-5. Instance Type: Select c6a.xlarge ($0.153/hr)
+5. Instance Type: Select c6a.2xlarge ($0.xxx/hr)
 6. Key pair - SSH public key, select existing key or create a new one.
 7. Network settings - select default settings
 8. Configure storage - select 100 GiB gp3 Root volume 
@@ -74,7 +74,7 @@ tmpfs            3.1G  4.0K  3.1G   1% /run/user/1000
 
 ### Create subdirectories on /shared
 
-Create a /shared/build, /shared/data and /shared/cyclecloud-cmaq directory 
+Create a /shared/build and  /shared/data  directory 
 
 ```
 cd /shared
@@ -513,7 +513,7 @@ pip install jupyterlab
 
 ```
 cd /shared/pcluster-cmaq/install
-./gcc_cmaq54+_singlevm.csh |& tee ./gcc_cmaq54+_singlevm.log
+./gcc_cmaq533_singlevm.csh |& tee ./.gcc_cmaq533_singlevm.log
 ```
 
 #### Add compile option to makefile to get beyond a type mismatch error (note, this is only needed if you were using the gcc-11 compiler. 
@@ -539,19 +539,17 @@ make |& tee Make.log
 
 Verfify that the executable was successfully built.
 
-`ls /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc/*.exe`
+`ls  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/*.exe`
 
 Output
 
 ```
-/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54_gcc/CCTM_v54.exe
+/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/BLD_CCTM_v533_gcc/CCTM_v533.exe
 ```
 
-### Copy the run scripts from the repo to the run directory
+### Check to see what scripts are available
 
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
-
-`cp /shared/pcluster-cmaq/run_scripts/c6a/*.csh .`
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
 
 List the scripts available
 
@@ -560,16 +558,15 @@ List the scripts available
 Output
 
 ```
--rwxrwxr-x 1 ubuntu ubuntu  8374 Jun  6 19:06 bldit_mech.csh
--rwxrwxr-x 1 ubuntu ubuntu 37040 Jun  6 19:06 bldit_cctm.csh
--rwxrwxr-x 1 ubuntu ubuntu 39500 Jun  6 19:06 run_cctm_cracmm_2018_4LISTOS1.csh
--rwxrwxr-x 1 ubuntu ubuntu 38493 Jun  6 19:06 run_cctm_Bench_2018_12NE3.csh
--rwxrwxr-x 1 ubuntu ubuntu 51329 Jun  6 19:06 run_cctm_Bench_2018_12NE3.WRFCMAQ.csh
--rwxrwxr-x 1 ubuntu ubuntu 38158 Jun  6 19:06 run_cctm_Bench_2016_12SE1.csh
--rwxrwxr-x 1 ubuntu ubuntu 39265 Jun  6 19:06 run_cctm_2016_12US1.csh
--rwxrwxr-x 1 ubuntu ubuntu 37458 Jun  6 19:06 run_cctm_2015_HEMI.csh
--rwxrwxr-x 1 ubuntu ubuntu 37583 Jun  6 19:06 run_cctm_2010_4CALIF1.csh
--rwxrwxr-x 1 ubuntu ubuntu  38460 Jun  6 19:36 run_cctm_2018_12US1_listos.csh
+-rwxrwxr-x 1 ubuntu ubuntu 34318 Jul 19 17:47 run_cctm_Bench_2011_12SE1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 32649 Jul 19 17:47 bldit_cctm.csh
+-rwxrwxr-x 1 ubuntu ubuntu 36130 Jul 19 17:47 run_cctm_2016_12US1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 36850 Jul 19 17:47 run_cctm_2015_HEMI.csh
+-rwxrwxr-x 1 ubuntu ubuntu 34948 Jul 19 17:47 run_cctm_2014_12US1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 34262 Jul 19 17:47 run_cctm_2011_12US1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 35242 Jul 19 17:47 run_cctm_2010_4CALIF1.csh
+-rwxrwxr-x 1 ubuntu ubuntu 49472 Jul 19 17:47 run_cctm_Bench_2016_12SE1.WRFCMAQ.csh
+-rwxrwxr-x 1 ubuntu ubuntu 35799 Jul 19 18:43 run_cctm_Bench_2016_12SE1.csh
 
 ```
 
@@ -634,15 +631,8 @@ endif
 
 ### Install the input data using the s3 script
 
-`cd /shared/pcluster-cmaq/s3_scripts/`
-
-`./s3_copy_nosign_cmaqv5.4-listos_cmas_opendata_to_shared.csh`
-
-### Link the input data directory to the default location
-
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/data
-ln -s /shared/data/12US1_LISTOS .
+need scriptable method to obtain 12SE1 benchmark
 ```
 
 Note, this Virtual Machine does not have Slurm installed or configured.
@@ -670,116 +660,36 @@ Verify that the run script is set to run on 4 cpus
 ```
 
 
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
+`cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts`
 
-`./run_cctm_2018_12US1_listos.csh |& tee ./run_cctm_2018_12US1_listos.log`
+`./run_cctm_Bench_2016_12SE1.csh |& tee ./run_cctm_Bench_2016_12SE1.log
 
 When the run has completed, record the timing of the two day benchmark.
 
-`tail -n 30  run_cctm_2018_12US1_listos.log`
+`tail -n 30  run_cctm_Bench_2016_12SE1.log`
 
 
-Output using a c6a.xlarge with hyperthreading on:
-c6a.xlarge 4vcpu, with hypthreading disabled, has 2 cores.
+
+Output on 4 cores
 
 ```
-
 ==================================
   ***** CMAQ TIMING REPORT *****
 ==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
+Start Day: 2016-07-01
+End Day:   2016-07-01
+Number of Simulation Days: 1
+Domain Name:               2016_12SE1
+Number of Grid Cells:      280000  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       4
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2018-08-05   256.4
-02   2018-08-06   257.9
-03   2018-08-07   262.8
-     Total Time = 777.10
-      Avg. Time = 259.03
-```
-
-
-The run time depends on whether the EC2 instances are using hyperthreading or not.
-For the following run, hyperthreading was disabled on a c6a.2xlarge. (8vcpu) but with hyperthreading disabled has 4 cores.
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       4
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   166.3
-02   2018-08-06   166.2
-03   2018-08-07   169.5
-     Total Time = 502.00
-      Avg. Time = 167.33
+01   2016-07-01   2083.32
+     Total Time = 2083.32
+      Avg. Time = 2083.32
 
 ```
 
-### If you upgrade this VM from a c6.xlarge to a c6.8xlarge, then you could run CMAQ interactively on 16 pes using the following command:
 
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
-
-Edit the script to change NPCOL NPROW to 4 x 4
-
-`cp run_cctm_2018_12US1_listos.csh run_cctm_2018_12US1_listos_16pe.csh`
-
-`vi run_cctm_2018_12US1_listos_16pe.csh`
-
-change to use 16 processors
-
-```
-   @ NPCOL  =  4; @ NPROW =  4
-```
-
-
-
-
-`./run_cctm_2018_12US1_listos_16pe.csh |& tee run_cctm_2018_12US1_listos_16pe.log`
-
-
-Or if you were to upgrade to a c6.16xlarge, then you could run on 32 cores after copying the run script and editing the NPCOL and NPROW, and  using the following command:
-
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
-
-`./run_cctm_2018_12US1_listos_32pe.csh |& tee run_cctm_2018_12US1_listos_32pe.log`
-
-
-Output
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       32
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   80.6
-02   2018-08-06   72.7
-03   2018-08-07   76.3
-     Total Time = 229.60
-      Avg. Time = 76.53
-```
-
-Need to add command line options to upgrade the VM and to disable hyperthreading.
