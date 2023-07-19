@@ -8,7 +8,7 @@ cd /shared/pcluster-cmaq/s3_scripts
 ```
 
 ```
-cat s3_upload.c6a.2xlarge.csh
+cat s3_upload_cmaqv533.c6a.2xlarge.csh 
 ```
 
 Output
@@ -24,13 +24,13 @@ Output
 mkdir /shared/data/output/logs
 mkdir /shared/data/output/scripts
 
-cp /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/*.log /shared/data/output/logs
-cp  /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/*.csh /shared/data/output/scripts
+cp /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log /shared/data/output_CCTM_v533_gcc_Bench_2016_12SE1/logs/
+cp  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_Bench_2016_12SE1.csh /shared/data/output_CCTM_v533_gcc_Bench_2016_12SE1/scripts/
 
-setenv BUCKET c6a.2xlarge.cmaqv5.4
-
+setenv BUCKET c6a.2xlarge.cmaqv533
 aws s3 mb s3://$BUCKET
-aws s3 cp --recursive /shared/data/output s3://BUCKET
+aws s3 cp --recursive /shared/data/output_CCTM_v533_gcc_Bench_2016_12SE1 s3://$BUCKET
+
 ```
 
 Set your aws credentials by running the command
@@ -45,7 +45,7 @@ Edit the script to create a unique bucket name
 Run the script
 
 ```
-./s3_upload.c6a.2xlarge.csh
+./s3_upload_cmaqv533.c6a.2xlarge.csh
 ```
 
 
