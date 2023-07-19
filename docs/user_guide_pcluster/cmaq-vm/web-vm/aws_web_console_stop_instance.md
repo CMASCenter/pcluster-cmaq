@@ -3,7 +3,7 @@
 
 ### Go to the EC2 Dashboard 
 
-<a href="https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Home:"<EC2 Resources on AWS Web Console</a>
+<a href="https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Home:">EC2 Resources on AWS Web Console</a>
 
 
 ### Click on Instances Running
