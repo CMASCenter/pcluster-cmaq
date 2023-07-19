@@ -2,6 +2,6 @@
 
 ```{toctree}
 ./cmaq-vm/index.md
-./cmaqv54-cluster/index.md
+./install/index.md
 ```
 
