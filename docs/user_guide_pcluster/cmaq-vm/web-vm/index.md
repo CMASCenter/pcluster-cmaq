@@ -20,5 +20,6 @@ Run CMAQv5.4+ on a single Virtual Machine (VM) using an ami with software pre-lo
 ```{toctree}
 quick-start.md
 run_cmaq_c6a.2xlarge.md
+aws_web_console_save_ami.md
 aws_web_console_stop_instance.md
 ```
