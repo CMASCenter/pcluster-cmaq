@@ -1,13 +1,13 @@
 # Learn how to Use the AWS Management Console to launch EC2 instance using Public AMI
 
-## Public AMI contains the software and data to run 12US1 using CMAQv5.4+
+## Public AMI contains the software and data to run 2016_12SE3 using CMAQv5.3.3
 
 Software was pre-installed and saved to a public ami.
 
 The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
 
 This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
-With additional instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
+With additional instructions to use ssh to login and run CMAQ for the 2016_12SE3 domain.
 
 ### Login to the AWs Consol and select EC2
 

@@ -1,4 +1,4 @@
-## Run CMAQv5.4 on c6a.2xlarge
+## Run CMAQv5.3.3 on c6a.2xlarge
 
 ### Login to the ec2 instance
 
@@ -26,31 +26,33 @@ Note, the following command must be modified to specify your key, and ip address
 
 ### Verify that the input data is available
 
-Input Data for the smallest benchmark
+Input Data for the 2016_12SE1 Benchmark
 
-`ls -lrt /shared/data/12US1_LISTOS/*`
-
-Input Data for the 12NE3 benchmark
-
-`ls -lrt /shared/data/2018_12NE3/*`
+`ls -lrt /shared/data/CMAQv5.3.2_Benchmark_2Day_Input/2016_12SE1/*`
 
 
-## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
+
+## Run CMAQv5.3.3 for 2016_12SE1 2 Day benchmark Case on 4 pe
 
 Input data is available for a subdomain of the 12km 12US1 case.
 
 ```
-GRIDDESC
+' '
+'LamCon_40N_97W'
+  2        33.000        45.000       -97.000       -97.000        40.000
+' '
+'SE52BENCH'
+'LamCon_40N_97W'    792000.000  -1080000.000     12000.000     12000.000 100  80   1
+'2016_12SE1'
+'LamCon_40N_97W'    792000.000  -1080000.000     12000.000     12000.000 100  80   1
 
-'2018_12Listos'
-'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
 ```
 
 ### Use command line to submit the job. This single virtual machine does not have a job scheduler such as slurm installed.
 
 
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts
 ./run_cctm_2018_12US1_listos.csh | & tee ./run_cctm_2018_12US1_listos.c6a.2xlarge.log
 ```
 
