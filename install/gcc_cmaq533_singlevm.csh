@@ -17,7 +17,7 @@ setenv PCLUSTER /shared/pcluster-cmaq/install
 cp $PCLUSTER/bldit_project_v533_singlevm.csh /shared/build/CMAQ_REPO_v533
 ./bldit_project_v533_singlevm.csh
 cd $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
-cp $PCLUSTER/gcc_cmaq533_singlevm.csh ../../config_cmaq.csh
+cp $PCLUSTER/config_cmaq_v533.csh ../../config_cmaq.csh
 ./bldit_cctm.csh gcc |& tee ./bldit_cctm.log
 cd $BUILD/openmpi_gcc/CMAQ_v533/CCTM/scripts/
 
