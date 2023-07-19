@@ -1,12 +1,12 @@
 # Learn how to Use AWS CLI to launch c6a.2xlarge EC2 instance using Public AMI
 
-## Public AMI contains the software and data to run 12US1, 12NE3, and 12LISTOS-training using CMAQv5.4+
+## Public AMI contains the software and data to run 2016_12SE1 benchmark using CMAQv5.33
 
 Software was pre-installed and saved to a public ami. 
 
 The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
 
-This chapter describes the process that was used to test and configure the c6a.2xlarge ec2 instance to run CMAQv5.4 for the 12LISTOS-training domain.
+This chapter describes the process that was used to test and configure the c6a.2xlarge ec2 instance to run CMAQv5.3.3 for the 2016_12SE1 domain.
 
 Todo: Need to create command line options to copy a public ami to a different region.
 
