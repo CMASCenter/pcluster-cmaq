@@ -213,44 +213,6 @@ Table 5. Timing Results for CMAQv5.3.3 2 Day CONUS 2 Run on Parallel Cluster wit
 | 288            | 3x96 | 16x18          | 1266.97      |  1201.90          | 2468.87   | .342         |  yes          |   N/A  |  no    | yes        |    /fsx linked ?        |  ?/hr * 1 node * .684 = | ? | 7.344/hr * 3 node * .684 = | 15.09 |
 
 
-## Benchmark Timings for CMAQv5.4 12US1 Benchmark 
-
-### Benchmark Timing for c6a.48xlarge
-
-Table 6. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes
-
-| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 96      | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  $5.5809/hr * 1 node * 1.844 = | 10.29 | 7.34/hr * 1 node * 1.844 = | 13.53 |
-| 192     | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
-| 288     | 3x96 | 16x18          | 1475.9      |  1580.7          | 3056.60   | .849        |  yes     |   N/A  |  no    | yes        |    /fsx        |  5.5809/hr * 3 node * .849 = | 14.21  | 7.34/hr * 3 node * .849 = | 18.6 |
-
-
-Table 7. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and hpc6a.48xlarge Compute Nodes
-does changing the head node make a difference?
-note: table needs to be updated..
-
-| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 96            | 1x96 | 12x8    | 3153.2      |  3485.9          | 6639.10   | 1.844         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 2.88/hr * 1 node * 1.844 = | 5.31 |
-| 192           | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 2.88/hr * 2 node * 1.08 = | 6.22  |
-
-(need to update the above hpc6a.48xlarge timing information - timings are only a placeholder)
-
-### Benchmark Timing for hpc7g.16xlarge
-
-Table 8. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7g.large head node and hpc7g.16xlarge Compute Nodes
-
-| CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day | SBATCHexclusive |  Disable Simultaneous Multithreading (yaml)| with -march=native | With Pinning | InputData   |    Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
-| ------------- | -----------    | -----------   | ----------------     | ---------------      | ------------- | -----  | ------------------ | --------------          | ---------                  |  ------  | --- |   -------- | --------- | -- | -- |
-| 64        | 1x64 | 8x8    |  crash      |  crash          | crash   | n/a         |  yes          |   N/A  |  no    | yes        |    /fsx         |  n/a   | n/a | 1.6832/hr * 1 node * n/a = | n/a |
-| 128       | 2x64 | 8x16   |  2074.2     | 2298.9          | 4373.10  | 1.215        |  yes          |   N/A  |  no    |   no         | /fsx            | n/a  | n/a | 1.6832/hr * 2 node * 1.214 = | 4.089  |
-| 192       | 3x64 | 12x16  | 1617.1      | 1755.3          | 3372.40  | .937         |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 3 node * .937  = | 4.730  |
-| 256       | 4x64 | 16x16  | 1347.3      | 1501.4          | 2848.70  | .7913        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 4 node * .7913  = | 5.327  |
-| 320       | 5x64 | 16x20  | 1177.0      | 1266.6          | 2443.60  | .6788        |  yes          |  N/A   |  no    |   no         | /fsx/           | n/a  | n/a | 1.6832/hr * 5 node * .6788  = | 5.713  |
-
-
-
 # Benchmark Scaling Plots for CMAQv5.3.3 12US2 Benchmark
 
 ## Benchmark Scaling Plot for c5n.18xlarge
@@ -342,12 +304,6 @@ Figure 9 shows how the total run time and On Demand Cost varies as additional CP
 Figure 9. Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge
 
 ![Plot of Total Time and On Demand Cost versus CPUs for hpc6a.48xlarge](../../qa_plots/scaling_plots/hpc6a48xlarge_Time_CPUs.png)
-
-# Benchmark Scaling Plots for CMAQv5.4 12US1 Benchmark
-
-Figure 10. Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge
-
-![Plot of Total Time and On Demand Cost versus CPUs for c6a.48xlarge](../../qa_plots/scaling_plots/6a48xlarge_Time_CPUs.png)
 
 
 # Cost Information 
