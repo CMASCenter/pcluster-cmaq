@@ -61,11 +61,11 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 output
 
 
-This ec2 instance was created without turning hyperthreading off, so it will have 8 vcpus.
+If the ec2 instance was created without specifying 1 thread per core in the Advanced Settings, then it will have 8 vcpus.
 
 ![Screenshot of HTOP with hyperthreading on](../web-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
 
-When the ec2 instance is configured to have hyperthreading turned off, it has 4 cores
+If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores
 
 ![Screenshot of HTOP with hyperthreading off](../cli-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
