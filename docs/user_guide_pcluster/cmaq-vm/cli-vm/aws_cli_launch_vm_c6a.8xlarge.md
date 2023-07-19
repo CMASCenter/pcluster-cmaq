@@ -1,12 +1,12 @@
 # Learn how to Use AWS CLI to launch c6a.8xlarge EC2 instance using Public AMI
 
-## Public AMI contains the software and data to run 12US1, 12NE3, and 12LISTOS-training using CMAQv5.4+
+## Public AMI contains the software and data to run 2016_12SE1 using CMAQv5.3.3
 
 Software was pre-installed and saved to a public ami. 
 
 The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
 
-This chapter describes the process that was used to test and configure the c6a.8xlarge ec2 instance to run CMAQv5.4 for the 12NE3 domain.
+This chapter describes the process that was used to test and configure the c6a.8xlarge ec2 instance to run CMAQv5.3.3 for the 12SE1 domain.
 
 Todo: Need to create command line options to copy a public ami to a different region.
 
@@ -190,22 +190,28 @@ Note, the following command must be modified to specify your key, and ip address
 `git pull`
 
 
-## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe
+## Run CMAQv5.3.3 for 2016_12SE1 1 Day benchmark Case
 
-Input data is available for a subdomain of the 12km 12US1 case.
 
 ```
 GRIDDESC
 
-'2018_12Listos'
-'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
+' '
+'LamCon_40N_97W'
+  2        33.000        45.000       -97.000       -97.000        40.000
+' '
+'SE53BENCH'
+'LamCon_40N_97W'    792000.000  -1080000.000     12000.000     12000.000 100  80   1
+'2016_12SE1'
+'LamCon_40N_97W'    792000.000  -1080000.000     12000.000     12000.000 100  80   1
+
 ```
 
 ### Edit the run script to run on 16 cores 
 
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-cp run_cctm_2018_12US1_listos_32pe.csh run_cctm_2018_12US1_listos_16pe.csh
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+cp run_cctm_Bench_2016_12SE1.csh run_cctm_Bench_2016_12SE1.16pe.csh
 ```
 
 change NPCOLxNPROW to 4x4
@@ -215,8 +221,8 @@ change NPCOLxNPROW to 4x4
 
 
 ```
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
-./run_cctm_2018_12US1_listos_16pe.csh | & tee ./run_cctm_2018_12US1_listos_16pe.c6a.8xlarge.log
+cd /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/
+./run_cctm_Bench_2016_12SE1.16pe.csh |& tee ./run_cctm_Bench_2016_12SE1.16pe.log
 ```
 
 ### Use HTOP to view performance.
@@ -231,159 +237,9 @@ output
 ### Successful output
 
 ```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       16
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   67.1
-02   2018-08-06   58.9
-03   2018-08-07   60.9
-     Total Time = 186.90
-      Avg. Time = 62.30
 
 ```
 
-Note, this took longer than the run done using c6a.48xlarge, where 32 cores were used.
-The c6a.8xlarge also has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
-
-
-### Change to the scripts directory
-
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
-
-### Use lscpu to confirm that there are 16 cores on the c6a.8xlarge ec2 instance that was created with hyperthreading turned off.
-
-`lscpu`
-
-Output:
-
-```
-Architecture:            x86_64
-  CPU op-mode(s):        32-bit, 64-bit
-  Address sizes:         48 bits physical, 48 bits virtual
-  Byte Order:            Little Endian
-CPU(s):                  16
-  On-line CPU(s) list:   0-15
-Vendor ID:               AuthenticAMD
-  Model name:            AMD EPYC 7R13 Processor
-    CPU family:          25
-    Model:               1
-    Thread(s) per core:  1
-    Core(s) per socket:  16
-    Socket(s):           1
-    Stepping:            1
-    BogoMIPS:            5299.99
-    Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt p
-                         dpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 
-                         pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3
-                         dnowprefetch topoext invpcid_single ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt 
-                         clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr rdpru wbnoinvd arat npt nrip_save vaes vpclmulqdq rdpid
-Virtualization features: 
-  Hypervisor vendor:     KVM
-  Virtualization type:   full
-Caches (sum of all):     
-  L1d:                   512 KiB (16 instances)
-  L1i:                   512 KiB (16 instances)
-  L2:                    8 MiB (16 instances)
-  L3:                    64 MiB (2 instances)
-NUMA:                    
-  NUMA node(s):          2
-  NUMA node0 CPU(s):     0-7
-  NUMA node1 CPU(s):     8-15
-Vulnerabilities:         
-  Itlb multihit:         Not affected
-  L1tf:                  Not affected
-  Mds:                   Not affected
-  Meltdown:              Not affected
-  Mmio stale data:       Not affected
-  Retbleed:              Not affected
-  Spec store bypass:     Mitigation; Speculative Store Bypass disabled via prctl
-  Spectre v1:            Mitigation; usercopy/swapgs barriers and __user pointer sanitization
-  Spectre v2:            Mitigation; Retpolines, IBPB conditional, IBRS_FW, RSB filling, PBRSB-eIBRS Not affected
-  Srbds:                 Not affected
-  Tsx async abort:       Not affected
-
-```
-
-
-### Edit the 12US3 Benchmark run script to use the gcc compiler and to output all species to CONC output file.
-
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
-
-`vi run_cctm_Bench_2018_12NE3.csh`
-
-change
-
-`   setenv compiler intel`
-
-to
-
-`   setenv compiler gcc`
-
-Comment out the CONC_SPCS setting that limits them to only 12 species 
-
-```
-   # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
-```
-
-Change the NPCOL, NPROW to run on 16 cores
-
-```
-   @ NPCOL  =  4; @ NPROW =  4
-```
-
-
-### Run the 12US3 Benchmark case 
-
-```
-./run_cctm_Bench_2018_12NE3.c6a.8xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.8xlarge.16pe.log
-```
-
-### Use HTOP to view performance.
-
-`htop`
-
-output
-
-![Screenshot of HTOP](../cmaq-vm-intermed/htop_c6a.8xlarge_hyperthreading_off_12NE3.png)
-
-
-Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
-It also takes longer to run using 16 cores on c6a.8xlarge instance than on 32 cores on c6a.48xlarge instance.
-
-### Successful output for 222 variables output in the 3-D CONC file took 16.4 minutes to run 1 day
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-07-01
-End Day:   2018-07-01
-Number of Simulation Days: 1
-Domain Name:               2018_12NE3
-Number of Grid Cells:      367500  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       16
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-07-01   986.60
-     Total Time = 986.60
-      Avg. Time = 986.60
-
-
-```
-
-Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 2.2 scalability of adding 2x as many cores.
 
 ### Find the InstanceID using the following command on your local machine.
 
