@@ -69,6 +69,22 @@ If the ec2 instance was created without specifying 1 thread per core in the Adva
 ### Successful output using the gp3 volume with hyperthreading on (8vcpus)
 
 ```
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2016-07-01
+End Day:   2016-07-01
+Number of Simulation Days: 1
+Domain Name:               2016_12SE1
+Number of Grid Cells:      280000  (ROW x COL x LAY)
+Number of Layers:          35
+Number of Processes:       4
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2016-07-01   2083.32
+     Total Time = 2083.32
+      Avg. Time = 2083.32
 
 ```
 
