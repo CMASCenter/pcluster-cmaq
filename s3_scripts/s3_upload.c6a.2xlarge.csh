@@ -11,5 +11,6 @@ mkdir /shared/data/output/scripts
 cp /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/*.log /shared/data/output/logs/
 cp  /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/*.csh /shared/data/output/scripts/
 
-aws s3 mb s3://c6a.2xlarge.cmaqv5.4
-aws s3 cp --recursive /shared/data/output s3://c6a.2xlarge.cmaqv5.4
+setenv BUCKET c6a.2xlarge.cmaqv5.4
+aws s3 mb s3://$BUCKET
+aws s3 cp --recursive /shared/data/output s3://$BUCKET
