@@ -78,4 +78,8 @@ Name the instance to help identify the ec2 instance type, CMAQ version installed
 ![Confirm Save Image on EC2 Dashboard](../web-vm/ec2_create_image.png)
 
 
+### Click Save Image
 
+Wait until the image status available before terminating the ec2 instance
+
+### Click on AMI under the left menu, and then search for the image name and confirm that the status has a green checkmark and available
