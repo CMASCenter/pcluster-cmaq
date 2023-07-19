@@ -1,4 +1,4 @@
-## Configurations for running CMAQ on AWS ParallelCluster
+## Configurations for running CMAQv5.3.3 on AWS ParallelCluster
 
 ### Recommend that users set up a spending alarm using AWS 
 
@@ -29,12 +29,8 @@ Tier 2: additional libraries required for installing CMAQ
 Tier 3: Software distributed thru the CMAS Center
 
 * CMAQv533 
-or 
-* CMAQv5.4+
 
 * CMAQv533 Post Processors 
-or 
-CMAQv5.4+ Post Processors
 
 Tier 4: R packages and Scripts
 
@@ -70,23 +66,13 @@ GRIDDESC
 
 ![CMAQ 12US2 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US2_Benchmark_Tileplot.png)
 
-### CONUS 12US1 Domain Description
 
-```
-GRIDDESC
-'12US1'
-'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
-```
-(need to create)
-![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
+## Single VM Configuration for CMAQv5.3.2_Benchmark_2Day_Input.tar.gz  Benchmark 
+
+* c6a.2xlarge
 
 
-## Single VM Configuration for 12NE3 Benchmark Domain
-
-* c6a.48xlarge
-
-
-##  ParallelCluster Configuration for 12US2 or 12US1 Benchmark Domain
+##  ParallelCluster Configuration for 12US2 Benchmark Domain
 
 ```{note}
 It is recommended to use a head node that is in the same family a the compute node so that the compiler options and executable is optimized for that processor type.
