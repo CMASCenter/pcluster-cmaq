@@ -5,8 +5,8 @@
 # NOTE: need permission to create a bucket and write to an s3 bucket. 
 # 
 
-mkdir /shared/data/output/logs
-mkdir /shared/data/output/scripts
+mkdir /shared/data/output/output_CCTM_v533_gcc_Bench_2016_12SE1/logs
+mkdir /shared/data/output/output_CCTM_v533_gcc_Bench_2016_12SE1/scripts
 
 cp /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/*.log /shared/data/output/output_CCTM_v533_gcc_Bench_2016_12SE1/logs/
 cp  /shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts/run_cctm_Bench_2016_12SE1.csh /shared/data/output/output_CCTM_v533_gcc_Bench_2016_12SE1/scripts/
