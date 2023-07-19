@@ -63,11 +63,11 @@ output
 
 This ec2 instance was created without turning hyperthreading off, so it will have 8 vcpus.
 
-![Screenshot of HTOP with hyperthreading on](../cmaq-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
+![Screenshot of HTOP with hyperthreading on](../web-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
 
 When the ec2 instance is configured to have hyperthreading turned off, it has 4 cores
 
-![Screenshot of HTOP with hyperthreading off](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off.png)
+![Screenshot of HTOP with hyperthreading off](../cli-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
 ### Successful output using the gp3 volume with hyperthreading on (8vcpus)
 
@@ -218,7 +218,7 @@ Vulnerabilities:
 
 output
 
-![Screenshot of HTOP](../cmaq-vm/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
+![Screenshot of HTOP](../cli-vm/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
 
 
 Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
