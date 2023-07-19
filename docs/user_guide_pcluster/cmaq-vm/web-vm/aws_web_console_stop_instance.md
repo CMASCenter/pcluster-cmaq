@@ -10,15 +10,15 @@
 
 Select the checkbox next to the c6a.2xlarge instance name
 
-![Select Instance on EC2 Dashboard](../cmaq-vm/ec2-dashboard-select-instance.png)
+![Select Instance on EC2 Dashboard](../web-vm/ec2-dashboard-select-instance.png)
 
 ### Select Instance State Pulldown menu and select terminate instance.
 
-![Terminate Instance on EC2 Dashboard](../cmaq-vm/ec2-dashboard-terminate-instance.png)
+![Terminate Instance on EC2 Dashboard](../web-vm/ec2-dashboard-terminate-instance.png)
 
 ### When the pop-up menu asks if you are sure you want to terminate the instance, click on the orange Terminate button.
 
-![Confirm Terminate Instance on EC2 Dashboard](../cmaq-vm/ec2-dashboard-confirm-terminate-instance.png)
+![Confirm Terminate Instance on EC2 Dashboard](../web-vm/ec2-dashboard-confirm-terminate-instance.png)
 
 
 
