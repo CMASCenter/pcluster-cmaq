@@ -34,7 +34,6 @@ Input Data for the 2016_12SE1 Benchmark
 
 ## Run CMAQv5.3.3 for 2016_12SE1 1 Day benchmark Case on 4 pe
 
-Input data is available for a subdomain of the 12km 12US1 case.
 
 ```
 ' '
