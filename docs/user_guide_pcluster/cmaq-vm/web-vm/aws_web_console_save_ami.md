@@ -71,9 +71,11 @@ Note, this will log you out of the ec2 instance, and should be done after all ru
 
 ![Create Image on EC2 Dashboard](../web-vm/ec2_web_console_save_image.png)
 
-### When the pop-up menu asks if you are sure you want to save the image, click on the .
+### Fill out the name of the image 
 
-![Confirm Save Image on EC2 Dashboard](../web-vm/ec2-dashboard-confirm-save-image.png)
+Name the instance to help identify the ec2 instance type, CMAQ version installed, and perhaps the input/output data available
+
+![Confirm Save Image on EC2 Dashboard](../web-vm/ec2_create_image.png)
 
 
 
