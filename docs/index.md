@@ -54,20 +54,13 @@ Additional information on AWS ParallelCluster:
 :maxdepth: 2
 
 user_guide_pcluster/System-Req/index.md
-user_guide_pcluster/cmaq-vm-intermed/index.md
 user_guide_pcluster/cmaq-vm/index.md
-user_guide_pcluster/demo/index.md
-user_guide_pcluster/cmaqv54-cluster-intermed/index.md
-user_guide_pcluster/cmaqv54-cluster/index.md
-user_guide_pcluster/cmaq-cluster/index.md
-user_guide_pcluster/install/index.md
-user_guide_pcluster/benchmark/index.md
+user_guide_pcluster/pcluster/index.md
+user_guide_pcluster/Performance-Opt/index.md
+user_guide_pcluster/developers_guide/index.md
 user_guide_pcluster/post/index.md
 user_guide_pcluster/qa/index.md
-user_guide_pcluster/timing/index.md
-user_guide_pcluster/output/index.md
 user_guide_pcluster/logout/index.md
-user_guide_pcluster/Performance-Opt/index.md
 user_guide_pcluster/help/index.md
 user_guide_pcluster/future/index.md
 user_guide_pcluster/contribute/index.md
