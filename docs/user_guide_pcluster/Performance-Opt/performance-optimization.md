@@ -213,6 +213,8 @@ Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
+! 2 day 12US1    | c6a.48xlarge   | 96          |         1       |  ONDEMAND    |   $7.344/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 7.344/hr =   | $2,471 | 14 |
+! 2 day 12US1    | hpc6a.48xlarge   | 96          |         1       |  ONDEMAND    | $2.88/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 2.88/hr =   | $969.4 | 14 |
 | 2 day 12US1    | hpc7g.16xlarge | 64          |         2       |  ONDEMAND    |   $1.6832/hour  |   4574.00/3600 = 1.27      |  1.27/2 * 365 = 231.87 hours/node * 2 nodes = 463.75 hr * $1.6832/hr = | $780 | 9.6 |
 | 2 day 12US1    | hpc7g.16xlarge | 64          |         3       |  ONDEMAND    |   $1.6832/hour  |   3509.80/3600 = .9749      |  .9749/2 * 365 = 177.9 hours/node * 3 nodes = 533.75 hr * $1.6832/hr = | $898 | 7.4 |
 
