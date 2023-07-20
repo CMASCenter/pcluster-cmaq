@@ -13,7 +13,7 @@ Todo: Need to create command line options to copy a public ami to a different re
 ### Verify that you can see the public AMI on the us-east-1 region.
 
 
-`aws ec2 describe-images --region us-east-1 --image-id ami-088f82f334dde0c9f`
+`aws ec2 describe-images --region us-east-1 --image-id ami-051ba52c157e4070c`
 
 
 Output:
