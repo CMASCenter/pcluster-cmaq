@@ -64,7 +64,7 @@ Then select 4 Cores, and 1 thread per core
 
 ### In the Summary Menu, select Launch Instance
 
-![Launch instance](../web-vm/aws_web_console_summary_launch_instance_c6a.2xlarge.png)
+![Launch instance](../web-vm/aws_web_console_summary_launch_instance_c6a.2xlarge_cmaqv5.3.3.png)
 
 ### Click on the link to the instance once it is successfully launched
 
