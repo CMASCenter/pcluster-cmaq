@@ -18,13 +18,13 @@ With additional instructions to use ssh to login and run CMAQ for the 2016_12SE3
 ![Click on Launch Instance](../web-vm/aws_web_interface_launch_instance.png)
 
 
-### Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
+### Enter the ami name:	ami-019eb54acc4924d3f in the Search box and return or enter.
 
-![Search for AMI](../web-vm/aws_web_console_search_ami.png)
+![Search for AMI](../web-vm/aws_web_console_search_ami_cmaqv533.png)
 
 Click on the Community AMI tab and then and click on the orange "Select" button
 
-![Choose Public AMI with CMAQ pre-installed](../web-vm/aws_web_interface_choose_ami.png)
+![Choose Public AMI with CMAQ pre-installed](../web-vm/aws_web_interface_choose_ami_cmaqv533.png)
 
 
 ### Note this AMI was built for the following architecture, and can be used by the c6a - hpc6a family of instances
