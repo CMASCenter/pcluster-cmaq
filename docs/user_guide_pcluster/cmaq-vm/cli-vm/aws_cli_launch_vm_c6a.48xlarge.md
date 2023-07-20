@@ -141,11 +141,11 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 Command that works for UNC's security group and pem key:
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
 Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.io2.json`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
 
 ### Use the following command to obtain the public IP address of the machine.
@@ -508,7 +508,7 @@ nvme0n1      259:0    0   500G  0 disk
 
 `sudo apt-get install -y fio`
 
-### Use the following command to initialize the io2 volume
+### Use the following command to initialize the gp3 volume
 
 `sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
 
@@ -681,7 +681,7 @@ i-xxxx
 
 ### Used AWS to modify the volume to a gp3 with 16000 IOPS, and 1000 Throughput
 
-### Use the following command to initialize the io2 volume
+### Use the following command to initialize the gp3 volume
 
 `sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
 
