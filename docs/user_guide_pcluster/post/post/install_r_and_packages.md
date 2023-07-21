@@ -166,6 +166,18 @@ Exit the cluster
 
 `exit`
 
+
+Be sure that you have Xquartz running if your local machine is a mac.
+Also that the DISPLAY environment variable is set.
+
+For example in my .zshrc, I use the following setting
+
+`export DISPLAY=:0`
+
+If you modify your .zshrc, then resource it
+
+`source ~/.zshrc`
+
 Re-login to the cluster
 
 `pcluster ssh -v -Y -i ~/your-key.pem --cluster-name cmaq`
