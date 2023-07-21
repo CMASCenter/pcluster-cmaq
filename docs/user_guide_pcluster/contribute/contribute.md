@@ -17,5 +17,3 @@ If you are not able to create a pull request, please include the following in yo
 * section number
 * description of the issue encountered
 * recommended fix, if available
-
-
