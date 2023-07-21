@@ -8,7 +8,7 @@ Scripts and code to run CMAQ on Single Virtual Machine or Parallel Cluster (mult
 git clone -b main https://github.com/CMASCenter/pcluster-cmaq
 ```
 
-To update the code to the latest version, if it has been awhile since you cloned the repo use:
+To update the code to the latest version use:
 
 ```
 cd pcluster-cmaq
