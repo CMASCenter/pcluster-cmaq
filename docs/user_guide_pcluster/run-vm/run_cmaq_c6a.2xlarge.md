@@ -205,8 +205,8 @@ Vulnerabilities:
 
 ### Run 12US3 Benchmark case (optional - takes 1 hour)
 
-(recommend terminating this instance and creating a c6a.16xlarge VM - 32 CPUs to run this benchmark.)
-Note, after terminating this instance, use the AWS Management Console and the instructions in section 2.1 to search for and select the c6a.16xlarge EC2 Instance.
+(If you don't want to wait 1 hour for this benchmark to complete, then terminate this instance and creating a c6a.8xlarge VM - 16 cores, or c6a.48xlarge VM - 96 cores to run this benchmark.)
+Note, after terminating this instance, use the AWS Management Console and the instructions in section 2.1 to search for and select the c6a.8xlarge or c6a.48xlarge EC2 Instance.
 
 
 ```
