@@ -5,5 +5,4 @@ Creating an EC2 instance either from the AWS Web Interface or Command Line is ea
 ```{toctree}
 web-vm/index.md
 cli-vm/index.md
-run-vm/index.md
 ```
