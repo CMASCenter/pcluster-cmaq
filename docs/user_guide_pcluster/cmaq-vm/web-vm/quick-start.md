@@ -9,7 +9,7 @@ The input data was also transferred from the AWS Open Data Program and installed
 This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
 With additional instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
 
-### Login to the AWs Consol and select EC2
+### Login to the AWS Consol and select EC2
 
 ![Login to AWS and then select EC2](../web-vm/aws_web_console_home_select_ec2.png)
 
@@ -32,6 +32,9 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-07-05
 
 ### Search for c6a.2xlarge Instance Type and select 
+Note, the screenshots show the c6a.2xlarge instance type being selected.
+You can repeat this process for creating a single VM for the c6a.8xlarge and c6a.48xlarge by just searching for and selecting those ec2-instances instead.
+
 
 ![Select c6a.2xlarge instance type](../web-vm/aws_web_console_select_c6a.2xlarge_ec2_instance.png)
 
@@ -61,6 +64,10 @@ Then select 4 Cores, and 1 thread per core
 ![Select Advanced Details](../web-vm/aws_advanced_details.png)
 
 ![Advanced Details turn off hyperthreading](../web-vm/aws_advanced_details_specify_1_thread_per_core.png)
+
+If you are building a VM using a different instance type, just select 1 thread per core and leave the number of cores to the value that is pre-set. 
+c6a.2xlarge (4 Cores), c6a.8xlarge (16 cores), c6a.48x large (96 cores).
+
 
 ### In the Summary Menu, select Launch Instance
 
