@@ -12,13 +12,13 @@ Note, the following command must be modified to specify your key, and ip address
 `ssh -Y -i ~/downloads/your-pem.pem ubuntu@your-ip-address` 
 
 
-## Load the environment modules
+### Load the environment modules
 
 `module avail`
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
-## Update the pcluster-cmaq repo using git
+### Update the pcluster-cmaq repo using git
 
 `cd /shared/pcluster-cmaq`
 
@@ -35,7 +35,7 @@ Input Data for the 12NE3 benchmark
 `ls -lrt /shared/data/2018_12NE3/*`
 
 
-## Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
+### Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
 Input data is available for a subdomain of the 12km 12US1 case.
 
