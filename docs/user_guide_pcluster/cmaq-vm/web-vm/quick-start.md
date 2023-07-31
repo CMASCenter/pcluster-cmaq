@@ -29,7 +29,7 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 
 ### Note this AMI was built for the following architecture, and can be used by the c6a - hpc6a family of instances
 
-Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
+Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-07-05
 
 ### Search for c6a.2xlarge Instance Type and select 
 
