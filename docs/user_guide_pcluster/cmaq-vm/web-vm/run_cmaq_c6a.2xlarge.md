@@ -246,32 +246,3 @@ Num  Day        Wall Time
 ```
 
 Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 7.67 or close to perfect scalability of adding 8x as many cores.
-
-### Find the InstanceID using the following command on your local machine.
-
-`aws ec2 describe-instances --region=us-east-1 | grep InstanceId`
-
-Output
-
-i-xxxx
-
-### Stop the instance (skip this as it doesn't work for spot instances"
-
-`aws ec2 stop-instances --region=us-east-1 --instance-ids i-xxxx`
-
-
-Get the following error message.
-
-aws ec2 stop-instances --region=us-east-1 --instance-ids i-041a702cc9f7f7b5d
-
-An error occurred (UnsupportedOperation) when calling the StopInstances operation: You can't stop the Spot Instance 'i-041a702cc9f7f7b5d' because it is associated with a one-time Spot Instance request. You can only stop Spot Instances associated with persistent Spot Instance requests.
-
-
-Note sure how to do a persistent spot instance request .
-### Terminate Instance
-
-`aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
-
-### Verify that the instance is being shut down.
-
-`aws ec2 describe-instances --region=us-east-1`
