@@ -1,4 +1,4 @@
-# Use AWS Management Console to Run CMAQv5.4 on Single VM ( using VM that was created using either the Web Console or the CLI)
+# Run CMAQv5.4 on Single VM ( using VM that was created using either the Web Console or the CLI)
 
 CMAQv5.4 Benchmarks
 
