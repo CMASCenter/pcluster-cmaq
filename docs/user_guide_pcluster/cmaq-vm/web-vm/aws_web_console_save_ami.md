@@ -1,4 +1,4 @@
-## Save output data and run script logs 
+## Save output data and run script logs  (optional)
 
 Copy the log files and the output data to an s3 bucket.
 
