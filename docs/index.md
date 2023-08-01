@@ -13,7 +13,7 @@ Previous version is available here: <a href="https://pcluster-cmaq.readthedocs.i
 
 ## Overview
 
-This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS) using the AWS Web Interface or AWS Command Line Interface. "The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend signing up for a free AWS Educate account, as it is open to any individual, regardless of where they are in their education, technical experience, or career journey." <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
+This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS) using the AWS Web Interface or AWS Command Line Interface. The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend signing up for a free AWS Educate account, as it is open to any individual, regardless of where they are in their education, technical experience, or career journey. <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
 There are also low-cost tutorials available to learn Parallel Cluster from AWS. <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/6735ed89-c2de-4180-904c-40ac9fba7419/en-US/intro">Parallel Cluster Tutorial</a> and <a href="https://workshops.aws/categories/HPC">AWS Workshops on HPC Computing</a>
 
  
