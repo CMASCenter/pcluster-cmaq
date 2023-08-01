@@ -60,6 +60,8 @@ output
 
 ### Successful output
 
+`tail -n 20 run_cctm_2018_12US1_listos_32pe.log`
+
 ```
 ==================================
   ***** CMAQ TIMING REPORT *****
@@ -74,14 +76,17 @@ Number of Processes:       32
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2018-08-05   87.6
-02   2018-08-06   77.9
-03   2018-08-07   77.2
-     Total Time = 242.70
-      Avg. Time = 80.90
+01   2018-08-05   34.3
+02   2018-08-06   34.5
+03   2018-08-07   35.2
+     Total Time = 104.00
+      Avg. Time = 34.66
+
 ```
 
-
+If your performance wasn't as good, then rerun the script.
+The input data may need to be preloaded from the snapshot to get the best performance.
+See instructions below for the 12US1 benchmark.
 
 ### Change to the scripts directory
 
