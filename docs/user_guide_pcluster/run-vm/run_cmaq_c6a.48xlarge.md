@@ -226,6 +226,16 @@ Change NPCOL x NPROW to use 12 x 8
 ./run_cctm_Bench_2018_12NE3.c6a.48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.48xlarge.96pe.log
 ```
 
+### Use HTOP to view performance.
+
+`htop`
+
+output
+
+
+![Screenshot of HTOP](../run-vm/htop_c6a.48xlarge_hyperthreading_off_12NE3.png)
+
+
 ### Successful output for all species output in the 3-D CONC File (222 variables)
 
 ```
