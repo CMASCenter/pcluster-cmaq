@@ -223,7 +223,7 @@ Change NPCOL x NPROW to use 12 x 8
 ### Run the 12US3 Benchmark case  on 96 processors
 
 ```
-./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.96pe.log
+./run_cctm_Bench_2018_12NE3.c6a.48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.48xlarge.96pe.log
 ```
 
 ### Successful output for all species output in the 3-D CONC File (222 variables)
