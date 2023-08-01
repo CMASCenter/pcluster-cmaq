@@ -60,7 +60,7 @@ Software on Local Computer
 
 * AWS ParallelCluster CLI v3.0 installed in a virtual environment
 * pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
-* run-instances is another AWS Command Line method to create a single virtual machine to run CMAQ described in chapter 6.
+* run-instances is another AWS Command Line method to create a single virtual machine to run CMAQ described in chapter 2.
 * Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
 * Git
 * Mac - XQuartz for X11 Display
