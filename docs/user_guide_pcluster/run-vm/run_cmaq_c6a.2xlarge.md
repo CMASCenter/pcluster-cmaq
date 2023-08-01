@@ -140,7 +140,7 @@ Num  Day        Wall Time
 
 ```
 
-The small benchmark performed better using the io2 volume with additiona throughput and IOPS.
+The small benchmark performed better using the io2 volume with additional throughput and IOPS.
 The c6a.2xlarge has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
 
 
