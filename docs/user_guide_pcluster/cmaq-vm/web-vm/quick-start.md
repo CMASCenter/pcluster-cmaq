@@ -1,6 +1,6 @@
 # Learn how to Use the AWS Management Console to launch EC2 instance using Public AMI
 
-## Public AMI contains the software and data to run 12US1 using CMAQv5.4+
+## Public AMI contains the software and data to run CMAQv5.4+
 
 Software was pre-installed and saved to a public ami.
 
