@@ -2,13 +2,12 @@
 
 ## The c6a.8xlarge EC2 instance contains 4 cores and is sized to run the 12LISTOS-training Benchmark.
 
-## Public AMI contains the software and data to run 12US1, 12NE3, and 12LISTOS-training using CMAQv5.4+
+### Public AMI contains the software and data to run CMAQv5.4+
 
-Software was pre-installed and saved to a public ami. 
+The benchmark input data was transferred from the AWS Open Data Program and installed on the EBS volume.
 
-The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
-
-This chapter describes the process that was used to test and configure the c6a.2xlarge ec2 instance to run CMAQv5.4 for the 12LISTOS-training domain.
+This chapter describes the process that was used to configure and create the c6a.2xlarge ec2 instance.
+See chapter 3 for instructions to run CMAQv5.4 for the 12LISTOS-training domain using the c6a.2xlarge ec2 instance.
 
 Todo: Need to create command line options to copy a public ami to a different region.
 
