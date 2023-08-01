@@ -83,8 +83,6 @@ Note, the AMI uses the default values of iops and throughput for the gp3 volume.
 
 <a href="https://ec2spotworkshops.com/launching_ec2_spot_instances.html">Tutorial Launch Spot Instances</a>
 
-(note, it discourages the use of run-instances for launching spot instances, but they do provide an example method)
-
 <a href="https://ec2spotworkshops.com/launching_ec2_spot_instances/runinstances_api.html">Launching EC2 Spot Instances using Run Instances API</a>
 
 
