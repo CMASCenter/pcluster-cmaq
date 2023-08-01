@@ -71,6 +71,10 @@ If the ec2 instance is configured to use 1 thread per core in the advanced setti
 
 ### Successful output using the gp3 volume with hyperthreading on (8vcpus)
 
+After the benchmark is complete, use the following command to view the timing results.
+
+`tail -n 20 run_cctm_2018_12US1_listos.c6a.2xlarge.log`
+
 ```
 ==================================
   ***** CMAQ TIMING REPORT *****

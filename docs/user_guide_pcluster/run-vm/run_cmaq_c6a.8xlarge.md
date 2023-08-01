@@ -87,6 +87,10 @@ output
 
 ### Successful output
 
+After the benchmark is complete, use the following command to view the timing results.
+
+`tail -n 20 run_cctm_2018_12US1_listos_16pe.c6a.8xlarge.log`
+
 ```
 ==================================
   ***** CMAQ TIMING REPORT *****
