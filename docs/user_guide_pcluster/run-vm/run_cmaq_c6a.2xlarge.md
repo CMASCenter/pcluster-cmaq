@@ -253,3 +253,22 @@ Num  Day        Wall Time
 ```
 
 Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 7.67 or close to perfect scalability of adding 8x as many cores.
+
+### Terminate the c6a.2xlarge either thru the Web Console or using the CLI
+
+### Find the InstanceID using the following command on your local machine.
+
+`aws ec2 describe-instances --region=us-east-1 | grep InstanceId`
+
+Output
+
+i-xxxx
+
+### Terminate Instance
+
+`aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
+
+### Verify that the instance is being shut down.
+
+`aws ec2 describe-instances --region=us-east-1`
+
