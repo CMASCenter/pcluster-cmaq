@@ -9,5 +9,4 @@ Create a single Virtual Machine (VM) using an ami with software pre-loaded using
 aws_cli_launch_vm_c6a.2xlarge.md
 aws_cli_launch_vm_c6a.8xlarge.md
 aws_cli_launch_vm_c6a.48xlarge.md
-stop_terminate_ec2_instance.md
 ```
