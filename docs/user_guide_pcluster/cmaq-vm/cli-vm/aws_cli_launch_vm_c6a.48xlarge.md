@@ -1,5 +1,7 @@
 # Learn how to Use AWS CLI to launch c6a.48xlarge EC2 instance using Public AMI
 
+## The c6a.48xlarge EC2 instance contains 96 cores and is sized to run the 12US1 Benchmark.
+
 ## Public AMI contains the software and data to run 12US1 using CMAQv5.4+
 
 Software was pre-installed and saved to a public ami. 
