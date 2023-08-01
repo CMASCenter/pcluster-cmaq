@@ -550,6 +550,12 @@ i-xxxx
 
 ### Use the following command to initialize the gp3 volume
 
+This may take 30 minutes.
+
+```
+obs: 1 (f=1): [R(1)][11.9%][r=298MiB/s][r=298 IOPS][eta 29m:34s]
+```
+
 `sudo fio --filename=/dev/nvme0n1 --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize`
 
 Output
