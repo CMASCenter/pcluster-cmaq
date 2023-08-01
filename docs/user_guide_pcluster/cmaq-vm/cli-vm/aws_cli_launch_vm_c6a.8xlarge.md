@@ -141,6 +141,9 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 `aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --dry-run --region us-east-1 --cli-input-json file://runinstances-config.json`
 
+Use the aws --cpu-options to specify the number of cores to match the selected ec2 instance type (c6a.8xlarge has 16 cores) and limit the ThreadsPerCore to 1 to disable hyperthreading.
+
+
 Command that works for UNC's security group and pem key:
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=16,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.8xlarge.json`
