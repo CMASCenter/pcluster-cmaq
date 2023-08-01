@@ -1,18 +1,23 @@
 ## Run CMAQv5.4 on c6a.8xlarge
 
-### Use the following command to obtain the public IP address of the machine.
+### Obtain IP address 
 
+Obtain IP address from AWS Web Console or use the following AWS CLI command to obtain the public IP address of the machine.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
-### Login to the ec2 instance (may need to wait 5 minutes for the ec2 instance to initialize and be ready for login)
+### Login to the ec2 instance 
+
+(may need to wait 5 minutes for the ec2 instance to initialize and be ready for login)
 
 Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
 
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
 
-### Login to the ec2 instance again, so that you have two windows logged into the machine.
+### Login to the ec2 instance again
+
+so that you have two windows logged into the machine.
 
 `ssh -Y -i ~/your-pem.pem ubuntu@your-ip-address` 
 
@@ -28,6 +33,16 @@ Note, the following command must be modified to specify your key, and ip address
 `cd /shared/pcluster-cmaq`
 
 `git pull`
+
+### Verify that the input data is available
+
+Input Data for the smallest benchmark
+
+`ls -lrt /shared/data/12US1_LISTOS/*`
+
+Input Data for the 12NE3 benchmark
+
+`ls -lrt /shared/data/2018_12NE3/*`
 
 
 ### Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe
@@ -51,7 +66,9 @@ cp run_cctm_2018_12US1_listos_32pe.csh run_cctm_2018_12US1_listos_16pe.csh
 change NPCOLxNPROW to 4x4
 
 
-### Use command line to submit the job. This single virtual machine does not have a job scheduler such as slurm installed.
+### Use command line to submit the job. 
+
+This single virtual machine does not have a job scheduler such as slurm installed.
 
 
 ```
