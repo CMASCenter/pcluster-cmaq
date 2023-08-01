@@ -1,6 +1,6 @@
-## Create c6a.2xlarge EC2 instance using Public AMI
+# Create c6a.2xlarge EC2 instance using Public AMI
 
-### The c6a.8xlarge EC2 instance contains 4 cores and is sized to run the 12LISTOS-training Benchmark.
+## The c6a.8xlarge EC2 instance contains 4 cores and is sized to run the 12LISTOS-training Benchmark.
 
 ### Public AMI contains the software and data to run CMAQv5.4+
 
