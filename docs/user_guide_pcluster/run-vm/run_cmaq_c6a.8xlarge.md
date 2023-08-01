@@ -112,6 +112,9 @@ Num  Day        Wall Time
       Avg. Time = 62.30
 
 ```
+Note, the run time took longer, try re-running the run script.
+The second time that you run, the performance may be better, as the input data was already loaded from the snapshot.
+In the next section, you will learn how to preload the data.
 
 The c6a.8xlarge also has 16 cpus and larger cache sizes than the c6a.2xlarge (4 cores), which you can see when you compare output of the lscpu command.
 
