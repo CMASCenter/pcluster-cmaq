@@ -63,11 +63,11 @@ output
 
 If the ec2 instance was created without specifying 1 thread per core in the Advanced Settings, then it will have 8 vcpus.
 
-![Screenshot of HTOP with hyperthreading on](../web-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
+![Screenshot of HTOP with hyperthreading on](../run-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
 
 If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores
 
-![Screenshot of HTOP with hyperthreading off](../cli-vm/htop_c6a.2xlarge_hyperthreading_off.png)
+![Screenshot of HTOP with hyperthreading off](../run-vm/htop_c6a.2xlarge_hyperthreading_off.png)
 
 ### Successful output using the gp3 volume with hyperthreading on (8vcpus)
 
@@ -219,7 +219,7 @@ Note, after terminating this instance, use the AWS Management Console and the in
 
 output
 
-![Screenshot of HTOP](../cli-vm/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
+![Screenshot of HTOP](../run-vm/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
 
 
 Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.

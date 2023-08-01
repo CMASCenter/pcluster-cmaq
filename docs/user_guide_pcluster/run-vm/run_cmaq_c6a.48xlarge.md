@@ -56,7 +56,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 output
 
 
-![Screenshot of HTOP](../cmaq-vm/htop_c6a.48xlarge_hyperthreading_off.png)
+![Screenshot of HTOP](../run-vm/htop_c6a.48xlarge_hyperthreading_off.png)
 
 ### Successful output
 
