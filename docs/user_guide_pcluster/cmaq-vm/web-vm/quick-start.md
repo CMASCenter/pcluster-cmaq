@@ -7,7 +7,7 @@ Software was pre-installed and saved to a public ami.
 The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
 
 This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
-With additional instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
+See chapter 3 for instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
 
 ### Login to the AWS Consol and select EC2
 
