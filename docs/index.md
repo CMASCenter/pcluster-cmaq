@@ -13,29 +13,8 @@ Previous version is available here: <a href="https://pcluster-cmaq.readthedocs.i
 
 ## Overview
 
-This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS) using the AWS Web Interface or AWS Command Line Interface. The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend signing up for a free AWS Educate account, as it is open to any individual, regardless of where they are in their education, technical experience, or career journey. <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
-There are also low-cost tutorials available to learn Parallel Cluster from AWS. <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/6735ed89-c2de-4180-904c-40ac9fba7419/en-US/intro">Parallel Cluster Tutorial</a> and <a href="https://workshops.aws/categories/HPC">AWS Workshops on HPC Computing</a>
+This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS). The tutorials will walk you through running a CMAQ benchmark case on a single virtual machine (VM) and on the AWS ParallelCluster wich uses many VMs. The benchmark case is provided with pre-installed software allowing you to jump right into running CMAQ and post-processing model ouput for analysis and visualization.  The Developers Guide Chapter (Chapter 6) describes how to do the software installation process yourself in order to set up simulations tailored to your own applications.  The tutorials are aimed at users with cloud computing experience that are already familiar with AWS.  For those with no cloud computing experience we recommend signing up for a free <a href="https://aws.amazon.com/education/awseducate/">AWS Educate account</a>, as it is open to any individual, regardless of where they are in their education, technical experience, or career journey. There are also low-cost tutorials available to learn Parallel Cluster from AWS: <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/6735ed89-c2de-4180-904c-40ac9fba7419/en-US/intro">Parallel Cluster Tutorial</a> and <a href="https://workshops.aws/categories/HPC">AWS Workshops on HPC Computing</a>.
 
- 
-
-## Format of this documentation
-
-```
-| ---> | System Requirements for Benchmarks
-| ---> | Create Single VM
-       | -----------> Configure VM using AWS Console using "CMAQ AMI"
-       | -----------> Configure VM using AWS CLI using "CMAQ AMI"
-| ---> | Run CMAQv5.4 on Single VM
-| ---> | Create a Parallel Cluster (many VMs) using "CMAQ Snapshot"
-| ---> | Performance Cost and Optimization
-| ---> | Developers Guide (How to install CMAQ software and libraries) 
-requirement for Single VM with "Default Stock AMI" or ParallelCluster without "CMAQ Snapshot"
-| ---> | Post-processing and saving to S3 Bucket
-| ---> | Additional Resources
-| ---> | Future Work
-| ---> | How to contribute to this work
-
-```
 
 ```{toctree}
    :numbered: 3
