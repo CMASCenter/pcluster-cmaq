@@ -184,7 +184,7 @@ aws s3 cp --no-sign-request --recursive s3://cmas-cmaq/CMAQv5.4_2018_12NE3_Bench
 `./s3_copy_12NE3_Bench.csh`
 
 
-#### Link the data directory on /shared/data
+#### Link the data directory on /shared/data (skip)
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/data
