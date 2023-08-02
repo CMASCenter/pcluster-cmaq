@@ -1,8 +1,12 @@
 ## Run CMAQv5.4 on c6a.2xlarge
 
-### Login to the ec2 instance
+### Obtain IP address 
 
-Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
+Obtain IP address from AWS Web Console or use the following AWS CLI command to obtain the public IP address of the machine.
+
+`aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
+
+### Login to the ec2 instance
 
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
