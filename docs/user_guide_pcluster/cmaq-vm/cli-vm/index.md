@@ -1,4 +1,6 @@
-# Use CLI to Create Single VM (CMAQv5.4 software pre-installed)
+# Use CLI to Create Single VM 
+
+CMAQv5.4 software pre-installed
 
 Creating an EC2 instance from the Command Line is easy to do. In this tutorial we will give examples on how to create an ec2-instance that uses a public AMI that contains the sofware and benchmark data pre-loaded.
 
