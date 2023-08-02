@@ -46,11 +46,11 @@ You can repeat this process for creating a single VM for the c6a.8xlarge and c6a
 
 ![Use default network settings](../web-vm/aws_web_console_network_settings_information.png)
 
-## Configure Storage
+## Review Storage Options
 
 The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted)
 
-![Configure Storage](../web-vm/aws_web_console_storage_volume_information.png)
+![Review Storage](../web-vm/aws_web_console_storage_volume_information.png)
 
 ## Select the Pull-down options for Advanced details
 
