@@ -1,6 +1,4 @@
-# Learn how to Use the AWS Management Console to launch EC2 instance using Public AMI
-
-## Public AMI contains the software and data to run CMAQv5.4+
+# Public AMI contains the software and data to run CMAQv5.4+
 
 Software was pre-installed and saved to a public ami.
 
@@ -9,16 +7,16 @@ The input data was also transferred from the AWS Open Data Program and installed
 This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
 See chapter 3 for instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
 
-### Login to the AWS Consol and select EC2
+## Login to the AWS Consol and select EC2
 
 ![Login to AWS and then select EC2](../web-vm/aws_web_console_home_select_ec2.png)
 
-### Click on the orange "Launch Instance" button
+## Click on the orange "Launch Instance" button
 
 ![Click on Launch Instance](../web-vm/aws_web_interface_launch_instance.png)
 
 
-### Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
+## Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
 
 ![Search for AMI](../web-vm/aws_web_console_search_ami.png)
 
@@ -27,7 +25,7 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 ![Choose Public AMI with CMAQ pre-installed](../web-vm/aws_web_interface_choose_ami.png)
 
 
-### Note this AMI was built for the following architecture, and can be used by the c6a - hpc6a family of instances
+## Note this AMI was built for the following architecture, and can be used by the c6a - hpc6a family of instances
 
 Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-07-05
 
@@ -38,33 +36,33 @@ You can repeat this process for creating a single VM for the c6a.8xlarge and c6a
 
 ![Select c6a.2xlarge instance type](../web-vm/aws_web_console_select_c6a.2xlarge_ec2_instance.png)
 
-### Select key pair name or create a new key pair
+## Select key pair name or create a new key pair
 
 ![Select key pair name or create new key pair](../web-vm/aws_web_console_select_key_pair.png)
 
 
-### Use the default Network Settings
+## Use the default Network Settings
 
 ![Use default network settings](../web-vm/aws_web_console_network_settings_information.png)
 
-### Configure Storage
+## Configure Storage
 
 The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted)
 
 ![Configure Storage](../web-vm/aws_web_console_storage_volume_information.png)
 
-### Select the Pull-down options for Advanced details
+## Select the Pull-down options for Advanced details
 
 
 ![Select Advanced Details](../web-vm/aws_advanced_details.png)
 
-Select checkbox for Request Spot Instances
+### Select checkbox for Request Spot Instances
 
 ![Select Spot Instance Pricing](../web-vm/ec2_web_request_spot_instance.png)
 
 Scroll down until you see option to Specify CPU cores
 
-Click the checkbox for "Specify CPU cores"
+### Click the checkbox for "Specify CPU cores"
 
 Then select 4 Cores, and 1 thread per core
 
@@ -76,7 +74,7 @@ If you are building a VM using a different instance type, just select 1 thread p
 c6a.2xlarge (4 Cores), c6a.8xlarge (16 cores), c6a.48x large (96 cores).
 
 
-### In the Summary Menu, select Launch Instance
+## In the Summary Menu, select Launch Instance
 
 ![Launch instance](../web-vm/aws_web_console_summary_launch_instance_c6a.2xlarge.png)
 
@@ -93,7 +91,7 @@ c6a.2xlarge (4 Cores), c6a.8xlarge (16 cores), c6a.48x large (96 cores).
 ![Instance IP address](../web-vm/Instance_Public_IP_Address.png)
 
 
-### Use the ssh command to login to the c6a.2xlarge instance
+## Use the ssh command to login to the c6a.2xlarge instance
 
 ```
 ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@xx.xxx.xxx.xxx
