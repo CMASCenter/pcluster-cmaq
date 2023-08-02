@@ -1,4 +1,4 @@
-# Public AMI contains the software and data to run CMAQv5.4+
+# Create c6a.2xlarge EC2 instance using Public AMI
 
 This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
 See chapter 3 for instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
