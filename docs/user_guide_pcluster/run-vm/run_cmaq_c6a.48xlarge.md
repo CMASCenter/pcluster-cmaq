@@ -1,6 +1,8 @@
 ## Run CMAQv5.4 on c6a.48xlarge
 
-### Use the following command to obtain the public IP address of the machine.
+### Obtain IP address
+
+Use either the AWS Web Console, or use the following command line option:
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
@@ -30,7 +32,8 @@ Note, you will get a connection refused if you try to login prior to the ec2 ins
 `git pull`
 
 
-### Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe (this will take less than 2 minutes)
+### Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 32 pe 
+(this will take less than 2 minutes)
 
 Input data is available for a subdomain of the 12km 12US1 case.
 
@@ -84,7 +87,7 @@ Num  Day        Wall Time
 
 ```
 
-If your performance wasn't as good, then rerun the script.
+If your total time was slower then rerun the script.
 The input data may need to be preloaded from the snapshot to get the best performance.
 See instructions below for the 12US1 benchmark.
 
