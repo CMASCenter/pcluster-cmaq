@@ -95,7 +95,9 @@ See instructions below for the 12US1 benchmark.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
-### Use lscpu to confirm that there are 96 processors on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
+### Use lscpu 
+
+Confirm that there are 96 processors on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
 
 `lscpu`
 
