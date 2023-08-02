@@ -204,7 +204,7 @@ Verify that it uses the gcc compiler and to output all species to CONC output fi
 
 `cp run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh run_cctm_Bench_2018_12NE3.c6a.48xlarge.csh`
 
-`vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
+`vi run_cctm_Bench_2018_12NE3.c6a.48xlarge.csh`
 
 Verify that the gcc compiler is specified:
 
@@ -264,8 +264,28 @@ Num  Day        Wall Time
 
 ### Run the 12US3 Benchmark case  on 32 processors
 
+Copy run script
+
 ```
-./run_cctm_Bench_2018_12NE3.c6a48xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.32pe.log
+cp run_cctm_Bench_2018_12NE3.c6a.48xlarge.csh run_cctm_Bench_2018_12NE3.c6a.48xlarge.32pe.csh
+```
+
+Edit run script to use 32 processors
+
+```
+vi run_cctm_Bench_2018_12NE3.c6a.48xlarge.32pe.csh
+```
+
+Change NPCOL x NPROW to use 4 x 8
+
+```
+   @ NPCOL  =  4; @ NPROW =  8
+```
+
+Run script interactively from the command line.
+
+```
+./run_cctm_Bench_2018_12NE3.c6a.48xlarge.32pe.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a48xlarge.32pe.log
 ```
 
 ### Successful output for 12 species output in the 3-D CONC file took 7.4 minutes to run 1 day
