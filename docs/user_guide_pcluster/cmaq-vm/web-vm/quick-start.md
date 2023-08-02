@@ -1,4 +1,4 @@
-# Create c6a.2xlarge EC2 instance using Public AMI
+# Create c6a.(anysize) EC2 instance using Public AMI
 
 This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
 See chapter 3 for instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
@@ -31,8 +31,10 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-07-05
 
 ### Search for c6a.2xlarge Instance Type and select 
+
 Note, the screenshots show the c6a.2xlarge instance type being selected.
-You can repeat this process for creating a single VM for the c6a.8xlarge and c6a.48xlarge by just searching for and selecting those ec2-instances instead.
+
+### Or search for c6a.8xlarge and c6a.48xlarge select those ec2-instances instead.
 
 
 ![Select c6a.2xlarge instance type](../web-vm/aws_web_console_select_c6a.2xlarge_ec2_instance.png)
