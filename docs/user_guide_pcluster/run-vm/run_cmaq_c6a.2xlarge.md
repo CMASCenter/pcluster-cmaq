@@ -11,7 +11,7 @@ Obtain IP address from AWS Web Console or use the following AWS CLI command to o
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
 
-### Login to the ec2 instance again, so that you have two windows logged into the machine.
+#### Login to the ec2 instance again, so that you have two windows logged into the machine.
 
 `ssh -Y -i ~/downloads/your-pem.pem ubuntu@your-ip-address` 
 
@@ -22,13 +22,13 @@ Obtain IP address from AWS Web Console or use the following AWS CLI command to o
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
-### Update the pcluster-cmaq repo using git
+### Update the pcluster-cmaq repo using git (optional)
 
 `cd /shared/pcluster-cmaq`
 
 `git pull`
 
-### Verify that the input data is available
+### Verify that the input data
 
 Input Data for the smallest benchmark
 
@@ -50,7 +50,9 @@ GRIDDESC
 'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
 ```
 
-### Use command line to submit the job. This single virtual machine does not have a job scheduler such as slurm installed.
+### Use command line to submit the job. 
+
+This single virtual machine does not have a job scheduler such as slurm installed.
 
 
 ```
