@@ -1,4 +1,4 @@
-# Create c6a.(anysize) EC2 instance
+# Create c6a.(anysize) EC2 instance using Public AMI
 
 ## Size of instance determines number of cores
 
