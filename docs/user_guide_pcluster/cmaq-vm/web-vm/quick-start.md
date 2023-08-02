@@ -15,7 +15,9 @@ Software was pre-installed and saved to a public ami. The input data was also tr
 
 ![Click on Launch Instance](../web-vm/aws_web_interface_launch_instance.png)
 
-## Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
+## Search for AMI
+
+Enter the ami name: ami-051ba52c157e4070c in the Search box and return or enter.
 
 ![Search for AMI](../web-vm/aws_web_console_search_ami.png)
 
