@@ -55,13 +55,20 @@ The AMI is preconfigured to use 500 GiB of gp3 as the root volume (Not encrypted
 
 ### Select the Pull-down options for Advanced details
 
+
+![Select Advanced Details](../web-vm/aws_advanced_details.png)
+
+Select checkbox for Request Spot Instances
+
+![Select Spot Instance Pricing](../web-vm/ec2_web_request_spot_instance.png)
+
 Scroll down until you see option to Specify CPU cores
 
 Click the checkbox for "Specify CPU cores"
 
 Then select 4 Cores, and 1 thread per core
 
-![Select Advanced Details](../web-vm/aws_advanced_details.png)
+
 
 ![Advanced Details turn off hyperthreading](../web-vm/aws_advanced_details_specify_1_thread_per_core.png)
 
