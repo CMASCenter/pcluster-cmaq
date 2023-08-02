@@ -13,9 +13,9 @@ c6a.48xlarge EC2 instance contains 96 cores, sized to run the 12US1 Benchmark
 
 The input data for the 12US1, 12NE3, and 12LISTOS-training benchmarks was transferred from the AWS Open Data Program and installed on the EBS volume.
 
-This chapter describes the process that was used to configure and create the c6a.2xlarge ec2 instance.
+This chapter describes how to configure and create the c6a.(anysize) ec2 instance.
 
-See chapter 3 for instructions to run CMAQv5.4 for the benchmark cases.
+See chapter 3 for instructions to run CMAQv5.4 for the benchmark cases on a single VM.
 
 
 ### Verify that you can see the public AMI on the us-east-1 region.
