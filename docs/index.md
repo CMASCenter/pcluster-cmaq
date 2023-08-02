@@ -22,9 +22,10 @@ There are also low-cost tutorials available to learn Parallel Cluster from AWS. 
 
 ```
 | ---> | System Requirements for Benchmarks
-| ---> | Single VM
+| ---> | Create Single VM
        | -----------> Configure VM using AWS Console using "CMAQ AMI"
        | -----------> Configure VM using AWS CLI using "CMAQ AMI"
+| ---> | Run CMAQv5.4 on Single VM
 | ---> | Create a Parallel Cluster (many VMs) using "CMAQ Snapshot"
 | ---> | Performance Cost and Optimization
 | ---> | Developers Guide (How to install CMAQ software and libraries) 
