@@ -42,8 +42,7 @@ requirement for Single VM with "Default Stock AMI" or ParallelCluster without "C
 :maxdepth: 2
 
 user_guide_pcluster/System-Req/index.md
-user_guide_pcluster/cmaq-vm/web-vm/index.md
-user_guide_pcluster/cmaq-vm/cli-vm/index.md
+user_guide_pcluster/cmaq-vm/index.md
 user_guide_pcluster/run-vm/index.md
 user_guide_pcluster/pcluster/index.md
 user_guide_pcluster/Performance-Opt/index.md
