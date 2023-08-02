@@ -196,7 +196,9 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/data
 ln -s /shared/data/2018_12NE3 .
 ```
 
-### Edit the 12US3 Benchmark run script to use the gcc compiler and to output all species to CONC output file.
+### Edit the 12US3 Benchmark run script 
+
+Verify that it uses the gcc compiler and to output all species to CONC output file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
@@ -204,15 +206,11 @@ ln -s /shared/data/2018_12NE3 .
 
 `vi run_cctm_Bench_2018_12NE3.c6a48xlarge.csh`
 
-change
-
-`   setenv compiler intel`
-
-to
+Verify that the gcc compiler is specified:
 
 `   setenv compiler gcc`
 
-Comment out the CONC_SPCS setting that limits them to only 12 species 
+Verify that the CONC_SPCS setting that limits them to only 12 species is commented out:
 
 ```
    # setenv CONC_SPCS "O3 NO ANO3I ANO3J NO2 FORM ISOP NH3 ANH4I ANH4J ASO4I ASO4J" 
