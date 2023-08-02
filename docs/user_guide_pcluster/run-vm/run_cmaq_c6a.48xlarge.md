@@ -97,7 +97,7 @@ See instructions below for the 12US1 benchmark.
 
 ### Use lscpu to verify number of cores
 
-Verify that there are 96 cores on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
+Verify that there are 96 cores (48cores per socket x 2 sockets) on the c6a.48xlarge ec2 instance that was created with hyperthreading turned off.
 
 `lscpu`
 
