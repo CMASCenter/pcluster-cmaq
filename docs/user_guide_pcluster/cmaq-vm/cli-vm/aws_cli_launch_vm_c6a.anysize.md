@@ -109,7 +109,7 @@ cat <<EoF > ./runinstances-config.gp3.json
 EoF
 ```
 
-## Use the publically available AMI to launch an ondemand c6a.2xlarge ec2 instance 
+## Use the publically available AMI to launch an ondemand c6a.(anysize) ec2 instance 
 
 using a gp3 volume with hyperthreading disabled 
 
@@ -130,7 +130,12 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 `aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --dry-run --region us-east-1 --cli-input-json file://runinstances-config.json`
 
-Also use the aws --cpu-options to specify the number of cores to match the selected ec2 instance type (c6a.2xlarge has 4 cores) and limit the ThreadsPerCore to 1 to disable hyperthreading.
+## Specify the number of cores
+
+Use the aws --cpu-options CoreCount=XX, ThreadsPerCore=1 to specify the number of cores to match the selected ec2 instance type 
+c6a.2xlarge has 4 cores, limit the ThreadsPerCore to 1 to disable hyperthreading.
+c6a.8xlarge has 16 cores,limit the ThreadsPerCore to 1 to disable hyperthreading.
+c6a.48xlarge has 96 cores, limit the ThreadsPerCore to 1 to disable hyperthreading.
 
 ## Create c6a.2xlarge ec2 instance
 
