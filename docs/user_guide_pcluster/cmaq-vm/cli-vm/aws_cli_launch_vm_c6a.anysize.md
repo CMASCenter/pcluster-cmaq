@@ -134,10 +134,15 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 ## Specify the number of cores
 
-Use the aws --cpu-options CoreCount=XX, ThreadsPerCore=1 to specify the number of cores to match the selected ec2 instance type 
-c6a.2xlarge has 4 cores, limit the ThreadsPerCore to 1 to disable hyperthreading.
-c6a.8xlarge has 16 cores,limit the ThreadsPerCore to 1 to disable hyperthreading.
-c6a.48xlarge has 96 cores, limit the ThreadsPerCore to 1 to disable hyperthreading.
+Use the command line option to specify the number of cores to match the selected ec2 instance type, and to disable hyperthreading:
+
+`--cpu-options CoreCount=XX, ThreadsPerCore=1`
+
+```
+c6a.2xlarge, CoreCount=4
+c6a.8xlarge, CoreCount=16
+c6a.48xlarge, CoreCount=96 
+```
 
 ## Create c6a.2xlarge ec2 instance
 
