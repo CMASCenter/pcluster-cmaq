@@ -1,4 +1,4 @@
-# Create Single VM (CMAQv5.4 software pre-installed)
+# Create Single VM
 
 ```{toctree}
 web-vm/index.md
