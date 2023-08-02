@@ -149,7 +149,7 @@ Vulnerabilities:
 ```
 
 
-### Download input data for 12NE3 1 day Benchmark case
+### Download input data for 12NE3 1 day Benchmark case (skip)
 
 Instructions to copy data from the s3 bucket to the ec2 instance and run this benchmark.
 
@@ -175,16 +175,16 @@ setenv AWS_REGION "us-east-1"
 aws s3 cp --no-sign-request --recursive s3://cmas-cmaq/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input /shared/data/
 ```
 
-### change the permissions on the script
+#### change the permissions on the script (skip)
 
 `chmod 755 s3_copy_12NE3_Bench.csh`
 
-### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket.
+#### Use the aws s3 copy command to copy data from the CMAS Data Warehouse Open Data S3 bucket. (skip)
 
 `./s3_copy_12NE3_Bench.csh`
 
 
-### Link the data directory on /shared/data
+#### Link the data directory on /shared/data
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/data
