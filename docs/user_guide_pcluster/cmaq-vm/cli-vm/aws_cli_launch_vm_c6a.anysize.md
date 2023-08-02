@@ -2,9 +2,11 @@
 
 ## Size of instance determines number of cores
 
-c6a.2xlarge EC2 instance contains 4 cores and is sized to run the 12LISTOS-training Benchmark.<br>
-c6a.8xlarge EC2 instance contains 16 cores and is sized to run the 12NE3 Benchmark.<br>
-c6a.48xlarge EC2 instance contains 96 cores and is sized to run the 12US1 Benchmark.<br>
+```
+c6a.2xlarge EC2 instance contains 4 cores, sized to run the 12LISTOS-training Benchmark
+c6a.8xlarge EC2 instance contains 16 cores, sized to run the 12NE3 Benchmark
+c6a.48xlarge EC2 instance contains 96 cores, sized to run the 12US1 Benchmark
+```
 
 
 ### Public AMI contains the software and data to run CMAQv5.4+
