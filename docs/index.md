@@ -18,7 +18,7 @@ This document provides tutorials and information on how users can create High Pe
 
 Please share any issues or suggestions for running CMAQ on the Cloud to the CMAS User Forum, under the Cloud Computing Category. <a href="https://forum.cmascenter.org/t/about-the-cloud-computing-category/4285">Cloud Computing Category on CMAS User Forum</a> This forum is available for users and developers to discuss issues related to using the CMAQ system on the cloud. Please read and follow these steps prior to submitting new questions to the User Forum.
 
-To submit edits to this documentation see instructions <a href="https://cyclecloud-cmaq.readthedocs.io/en/latest/user_guide_cyclecloud/contribute/contribute.html">Contribute</a>
+To submit edits to this documentation see instructions available in <a href="https://cyclecloud-cmaq.readthedocs.io/en/latest/user_guide_cyclecloud/contribute/contribute.html">Contribute to this Tutorial</a>
 
 
 ```{toctree}
