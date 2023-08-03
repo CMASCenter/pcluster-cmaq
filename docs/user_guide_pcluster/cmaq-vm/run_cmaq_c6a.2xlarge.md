@@ -90,7 +90,7 @@ Num  Day        Wall Time
 
 Use lscpu to view number of cores
 
-Cconfirm that there are 4 cores on the c6a.2xlarge ec2 instance that was created with hyperthreading turned off (1 thread per core).
+Confirm that there are 4 cores on the c6a.2xlarge ec2 instance that was created with hyperthreading turned off (1 thread per core).
 
 `lscpu`
 
