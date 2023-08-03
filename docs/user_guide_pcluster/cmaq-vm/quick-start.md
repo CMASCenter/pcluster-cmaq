@@ -2,6 +2,8 @@
 
 Here we will use an Amazon Elastic Compute Cloud (EC2) C6a instance to run a small CMAQ benchmark case.  The software needed to run the benchmark is pre-installed on a public AMI.  The input data is also publicly available through the AWS Open Data Program. 
 
+If you are not able to access the AWS Web Console, skip this section and use the AWS Command Line Interface (CLI).
+
 <a href="https://aws.amazon.com/">Login to AWS Web Console</a> and select EC2
 
 ![Login to AWS and then select EC2](aws_web_console_home_select_ec2.png)

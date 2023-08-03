@@ -1,5 +1,7 @@
 # Create c6a.2xlarge EC2 instance using the AWS Command Line 
 
+If you are not able to use the AWS Web Interface to create the VM, then you can use the AWS Command Line (CLI).
+
 Install the aws command line interface on your local computer using the following instructions:<br>
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install">Install AWS CLI</a>
 
