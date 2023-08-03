@@ -1,7 +1,5 @@
 ## Run CMAQv5.4 on c6a.2xlarge
 
-Obtain IP address 
-
 Obtain IP address from AWS Web Console or use the following AWS CLI command to obtain the public IP address of the machine.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
@@ -22,22 +20,12 @@ Load the environment modules
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
-Update the pcluster-cmaq repo using git (optional)
-
-`cd /shared/pcluster-cmaq`
-
-`git pull`
-
-Verify that the input data
-
-Input Data for the benchmark
+Verify that the input data for the benchmark is available.
 
 `ls -lrt /shared/data/12US1_LISTOS/*`
 
 
 Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
-
-Input data is available for a subdomain of the 12km 12US1 case.
 
 ```
 GRIDDESC
@@ -70,8 +58,6 @@ If the ec2 instance was created without specifying 1 thread per core in the Adva
 If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores
 
 ![Screenshot of HTOP with hyperthreading off](htop_c6a.2xlarge_hyperthreading_off.png)
-
-Successful output using the gp3 volume with hyperthreading on (8vcpus)
 
 After the benchmark is complete, use the following command to view the timing results.
 
