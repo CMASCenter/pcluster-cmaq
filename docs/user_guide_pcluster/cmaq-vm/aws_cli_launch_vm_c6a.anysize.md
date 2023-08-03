@@ -10,7 +10,7 @@ Note that the size of instance determines number of cores
 The c6a.2xlarge EC2 instance contains 4 cores with hyperthreading turned off and is sized to run the 12LISTOS-training Benchmark.
 
 
-Public AMI contains the software and data to run CMAQv5.4+
+The Public AMI contains all the software required to spin up your virtual server including OS, libraries (MPI, netCDF, I/O API, CMAQ) and data to run CMAQv5.4+.
 
 Verify that you can see the public AMI on the us-east-1 region.
 
