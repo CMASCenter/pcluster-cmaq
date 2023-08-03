@@ -1,10 +1,8 @@
-# Introductory Tutorial
+# Build a Demo ParallelCluster 
 
 Step by Step Instructions to Build a Demo ParallelCluster.  
 
-The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
-
-## Establish Identity and Permissions 
+Establish Identity and Permissions 
 
 AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS ParallelCluster
