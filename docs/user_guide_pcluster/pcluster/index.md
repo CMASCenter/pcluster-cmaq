@@ -7,14 +7,10 @@ The AWS ParallelCluster may be configured to be the equivalent of a High Perform
 Our goal is make this user guide to running CMAQ on a ParallelCluster as helpful and user-friendly as possible. Any feedback is both welcome and appreciated.
 
 
-Additional information on AWS ParallelCluster:
-
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">AWS ParallelCluster documentation</a>
-
-<a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
-
-
 ```{toctree}
-./demo/index.md
-./cmaqv54-cluster/index.md
+demo-cluster.md
+aws-pcluster_v54_preloaded.md
+run-cmaq-benchmark-pcluster_v54.md
+aws-pcluster_v54_preloaded_hpc7g.16xlarge.md
+run-cmaq-benchmark-pcluster_v54.hpc7g.16xlarge.md
 ```
