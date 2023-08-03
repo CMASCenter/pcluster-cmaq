@@ -11,12 +11,12 @@ Obtain IP address from AWS Web Console or use the following AWS CLI command to o
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
 
-#### Login to the ec2 instance again, so that you have two windows logged into the machine.
+Login to the ec2 instance again, so that you have two windows logged into the machine.
 
 `ssh -Y -i ~/downloads/your-pem.pem ubuntu@your-ip-address` 
 
 
-### Load the environment modules
+Load the environment modules
 
 `module avail`
 
@@ -28,15 +28,11 @@ Obtain IP address from AWS Web Console or use the following AWS CLI command to o
 
 `git pull`
 
-### Verify that the input data
+Verify that the input data
 
-Input Data for the smallest benchmark
+Input Data for the benchmark
 
 `ls -lrt /shared/data/12US1_LISTOS/*`
-
-Input Data for the 12NE3 benchmark
-
-`ls -lrt /shared/data/2018_12NE3/*`
 
 
 ### Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
@@ -50,7 +46,7 @@ GRIDDESC
 'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
 ```
 
-### Use command line to submit the job. 
+Use command line to submit the job. 
 
 This single virtual machine does not have a job scheduler such as slurm installed.
 
@@ -60,7 +56,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 ./run_cctm_2018_12US1_listos.csh | & tee ./run_cctm_2018_12US1_listos.c6a.2xlarge.log
 ```
 
-### Use HTOP to view performance.
+Use HTOP to view performance.
 
 `htop`
 
@@ -69,13 +65,13 @@ output
 
 If the ec2 instance was created without specifying 1 thread per core in the Advanced Settings, then it will have 8 vcpus.
 
-![Screenshot of HTOP with hyperthreading on](../run-vm/htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
+![Screenshot of HTOP with hyperthreading on](htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
 
 If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores
 
-![Screenshot of HTOP with hyperthreading off](../run-vm/htop_c6a.2xlarge_hyperthreading_off.png)
+![Screenshot of HTOP with hyperthreading off](htop_c6a.2xlarge_hyperthreading_off.png)
 
-### Successful output using the gp3 volume with hyperthreading on (8vcpus)
+Successful output using the gp3 volume with hyperthreading on (8vcpus)
 
 After the benchmark is complete, use the following command to view the timing results.
 
@@ -101,62 +97,6 @@ Num  Day        Wall Time
      Total Time = 656.90
       Avg. Time = 218.96
 ```
-
-### Successful output using the gp3 volume with hyperthreading off (4vcpus)
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       4
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   216.7
-02   2018-08-06   211.6
-03   2018-08-07   213.6
-     Total Time = 641.90
-      Avg. Time = 213.96
-```
-
-
-### Successful output using the io2 volume
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
-Number of Simulation Days: 3
-Domain Name:               2018_12Listos
-Number of Grid Cells:      21875  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       4
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-08-05   166.7
-02   2018-08-06   167.0
-03   2018-08-07   171.3
-     Total Time = 505.00
-      Avg. Time = 168.33
-
-```
-
-The small benchmark performed better using the io2 volume with additional throughput and IOPS.
-The c6a.2xlarge has smaller cache sizes than the c6a.48xlarge, which you can see when you compare output of the lscpu command.
-
-
-### Change to the scripts directory
-
-`cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 ### Use lscpu to view number of cores
 
@@ -214,55 +154,11 @@ Vulnerabilities:
 
 ```
 
+Once you have successfully run the benchmark, terminate the instance.
 
-### Run 12US3 Benchmark case (optional - takes 1 hour)
+Terminate the c6a.2xlarge either thru the Web Console or using the CLI
 
-(If you don't want to wait 1 hour for this benchmark to complete, then terminate this instance and create a c6a.8xlarge VM - 16 cores, or c6a.48xlarge VM - 96 cores to run this benchmark.see section 3.2 or 3.3)
-Note, after terminating this instance, use the AWS Management Console and the instructions in section 2.1 to search for and select the c6a.8xlarge or c6a.48xlarge EC2 Instance.
-
-
-```
-./run_cctm_Bench_2018_12NE3.c6a.2xlarge.csh |& tee ./run_cctm_Bench_2018_12NE3.c6a.2xlarge.4pe.log
-```
-
-### Use HTOP to view performance.
-
-`htop`
-
-output
-
-![Screenshot of HTOP](../run-vm/htop_c6a.2xlarge_hyperthreading_off_12NE3.png)
-
-
-Note, this 12NE3 Domain uses more memory, and takes longer than the 12LISTOS-Training Domain.
-It also takes longer to run using 4 cores on c6a.2xlarge instance than on 32 cores on c6a.48xlarge instance.
-
-### Successful output for 12 species output in the 3-D CONC file took 56 minutes to run 1 day
-
-```
-==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-07-01
-End Day:   2018-07-01
-Number of Simulation Days: 1
-Domain Name:               2018_12NE3
-Number of Grid Cells:      367500  (ROW x COL x LAY)
-Number of Layers:          35
-Number of Processes:       4
-   All times are in seconds.
-
-Num  Day        Wall Time
-01   2018-07-01   3410.99
-     Total Time = 3410.99
-      Avg. Time = 3410.99
-```
-
-Compared to the timing for running on 32 processors, which took 444.34 seconds, this is a factor of 7.67 or close to perfect scalability of adding 8x as many cores.
-
-### Terminate the c6a.2xlarge either thru the Web Console or using the CLI
-
-### Find the InstanceID using the following command on your local machine.
+Find the InstanceID using the following command on your local machine.
 
 `aws ec2 describe-instances --region=us-east-1 | grep InstanceId`
 
@@ -274,7 +170,7 @@ i-xxxx
 
 `aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
-### Verify that the instance is being shut down.
+Verify that the instance is being shut down.
 
 `aws ec2 describe-instances --region=us-east-1`
 
