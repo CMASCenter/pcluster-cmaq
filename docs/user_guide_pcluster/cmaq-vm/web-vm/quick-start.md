@@ -95,6 +95,8 @@ c6a.2xlarge (4 Cores), c6a.8xlarge (16 cores), c6a.48x large (96 cores).
 
 ## Use the ssh command to login to the c6a.2xlarge instance
 
+On your local computer, use the following command.
+
 ```
 ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@xx.xxx.xxx.xxx
 ```
