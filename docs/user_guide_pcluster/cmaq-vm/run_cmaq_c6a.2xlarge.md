@@ -1,12 +1,12 @@
 ## Run CMAQv5.4 on c6a.2xlarge
 
-### Obtain IP address 
+Obtain IP address 
 
 Obtain IP address from AWS Web Console or use the following AWS CLI command to obtain the public IP address of the machine.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
-### Login to the ec2 instance
+Login to the ec2 instance
 
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
@@ -22,7 +22,7 @@ Load the environment modules
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
-### Update the pcluster-cmaq repo using git (optional)
+Update the pcluster-cmaq repo using git (optional)
 
 `cd /shared/pcluster-cmaq`
 
@@ -35,7 +35,7 @@ Input Data for the benchmark
 `ls -lrt /shared/data/12US1_LISTOS/*`
 
 
-### Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
+Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
 Input data is available for a subdomain of the 12km 12US1 case.
 
@@ -98,7 +98,7 @@ Num  Day        Wall Time
       Avg. Time = 218.96
 ```
 
-### Use lscpu to view number of cores
+Use lscpu to view number of cores
 
 Cconfirm that there are 4 cores on the c6a.2xlarge ec2 instance that was created with hyperthreading turned off (1 thread per core).
 
@@ -166,7 +166,7 @@ Output
 
 i-xxxx
 
-### Terminate Instance
+Terminate Instance
 
 `aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
