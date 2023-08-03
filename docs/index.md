@@ -19,9 +19,7 @@ This document provides tutorials and information on how users can create High Pe
 :caption: 'Contents:'
 :maxdepth: 2
 
-user_guide_pcluster/System-Req/index.md
 user_guide_pcluster/cmaq-vm/index.md
-user_guide_pcluster/run-vm/index.md
 user_guide_pcluster/pcluster/index.md
 user_guide_pcluster/Performance-Opt/index.md
 user_guide_pcluster/developers_guide/index.md
