@@ -1,13 +1,8 @@
-# Create c6a.(anysize) EC2 instance using Public AMI
+# Create a VM using on Amazon Elastic Compute Cloud using a public AMI
 
-This chapter describes the process used in the AWS Web interface to configure and create a c6a.2xlarge ec2 instance using a public ami. 
-See chapter 3 for instructions to use ssh to login and run CMAQ for the 12LISTOS-training domain.
+Here we will use an Amazon Elastic Compute Cloud (EC2) C6a instance to run a small CMAQ benchmark case.  The software needed to run the benchmark is pre-installed on a public AMI.  The input data is also publicly available through the AWS Open Data Program. 
 
-Software was pre-installed and saved to a public ami. The input data was also transferred from the AWS Open Data Program and installed on the EBS volume.
-
-## Login to the AWS Consol and select EC2
-
-<a href="https://aws.amazon.com/">Login to AWS Web Console</a>
+## <a href="https://aws.amazon.com/">Login to AWS Web Console</a> and select EC2
 
 ![Login to AWS and then select EC2](../web-vm/aws_web_console_home_select_ec2.png)
 
