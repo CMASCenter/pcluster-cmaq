@@ -5,19 +5,17 @@ If you are not able to use the AWS Web Interface to create the VM, then you can 
 Install the aws command line interface on your local computer using the following instructions:<br>
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install">Install AWS CLI</a>
 
-## Size of instance determines number of cores
+Note that the size of instance determines number of cores
 
-```
-c6a.2xlarge EC2 instance contains 4 cores, sized to run the 12LISTOS-training Benchmark
-```
+The c6a.2xlarge EC2 instance contains 4 cores with hyperthreading turned off and is sized to run the 12LISTOS-training Benchmark.
 
 
-### Public AMI contains the software and data to run CMAQv5.4+
+Public AMI contains the software and data to run CMAQv5.4+
 
 The input data for the 12US1, 12NE3, and 12LISTOS-training benchmarks was transferred from the AWS Open Data Program and installed on the EBS volume.
 
 
-### Verify that you can see the public AMI on the us-east-1 region.
+Verify that you can see the public AMI on the us-east-1 region.
 
 
 `aws ec2 describe-images --region us-east-1 --image-id ami-051ba52c157e4070c`
@@ -171,23 +169,9 @@ Once you have verified that the command above works with the --dry-run option, r
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
-### Use the following command to obtain the public IP address of the machine.
+Use the following command to obtain the public IP address of the machine.
 
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep -A 3 PublicIpAddress`
 
 Also verify that it has switched from an initializing state to a running state.
-
-
-
-### Login to the ec2 instance
-
-Note, the following command must be modified to specify your key, and ip address (obtained from the previous command):
-Note, you will get a connection refused if you try to login prior to the ec2 instance being ready to run (takes ~5 minutes for initialization).
-
-`ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
-
-
-### Login to the ec2 instance again, so that you have two windows logged into the machine.
-
-`ssh -Y -i ~/downloads/your-pem.pem ubuntu@your-ip-address`
