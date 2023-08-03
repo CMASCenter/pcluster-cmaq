@@ -53,7 +53,8 @@ Use HTOP to view performance.
 output
 
 
-If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores
+If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores.
+
 For MPI or parallel applications such as CMAQ it is best to turn off hyperthreading.
 
 ![Screenshot of HTOP with hyperthreading off](htop_c6a.2xlarge_hyperthreading_off.png)
