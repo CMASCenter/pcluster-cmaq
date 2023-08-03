@@ -27,6 +27,8 @@ Verify that the input data for the benchmark is available.
 
 Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
+Note, this is a small 12km benchmark case, with 25 rows and 25 columns.
+
 ```
 GRIDDESC
 
