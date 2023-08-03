@@ -1,31 +1,17 @@
-## Configurations for running CMAQ on Single VM or ParallelCluster
+## Configurations for running CMAQ on a Single VM or ParallelCluster
 
 ```{note}
-AWS Educate is open to any individual, regardless of where they are in their education, technical experience, or career journey.  Learn, practice, and evaluate cloud skills in real time without creating an Amazon or AWS account. <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>
+The tutorials presented here, require an AWS account, which requires a credit card. If you are diligent in terminating the resources created in this tutorial after you run the benchmark, the cost should be less than $15. Performance and Cost Optimization tables are provided in Chapter 5.
 ```
 
-```{note}
-The tutorials presented here, require an AWS account, which requires a credit card.
-If you are diligent in terminating the resources created in this tutorial after you run the benchmark, the cost should be less than $15.
-see Performance and Cost Optimization tables.
-```
+## Sign up for an Amazon Web Services (AWS) Account
 
-## Sign up for an Amazon Web Service (AWS) Account
+From the Amazon Web Services website, <a href="http://aws.amazon.com">http://aws.amazon.com</a>, click on "Create an AWS account" on the upper right corner. After you have an account it will say "Sign into the Console".
 
-Go to <a href="http://aws.amazon.com">Amazon Web Service</a>
-
-Click on "Create an AWS account" on the upper right corner.
-
-(after you have an account it will say "Sign into the Console")
-
-
-
-### Recommend that users set up a spending alarm using AWS 
-
-Configure alarm to receive an email alert if you exceed $100 per month (or what ever monthly spending limit you need).
+We highly recommend that users set up a **spending alarm to help manage costs**. You can configure alarm to receive an email alert if you exceed a specific dollar amount, e.g., $100 per month.
 
 ```{seealso}
-See the AWS Tutorial on setting up an alarm for AWS Free Tier.
+See the AWS Tutorial on setting up an alarm for AWS Free Tier:
 <a href="https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets">AWS Free Tier Budgets</a>
 ```
 
@@ -44,45 +30,26 @@ See the AWS Tutorial on setting up an alarm for AWS Free Tier.
 
 * NetCDF (with C, C++, and Fortran support)
 * I/O API
-* R Software and packages
 
-<b>Tier 3</b>: Software distributed thru the CMAS Center
+<b>Tier 3</b>: Software developed by EPA and distributed through the CMAS Center
 
 * CMAQv5.4+
-
 * CMAQv5.4+ Post Processors
-
-Tier 4: R packages and Scripts
-
-* R QA Scripts
+* R code for QAing model ouput
 
 Software on Local Computer
 
 * AWS ParallelCluster CLI v3.0 installed in a virtual environment
-* pcluster is the primary AWS ParallelCluster CLI command. You use pcluster to launch and manage HPC clusters in the AWS Cloud and to create and manage custom AMI images
-* run-instances is another AWS Command Line method to create a single virtual machine to run CMAQ described in chapter 2.
-* Edit YAML Configuration Files using vi, nedit or other editor (yaml does not accept tabs as spacing)
+* Text editors for editing scripts and configuration files (e.g., vi, nedit)
 * Git
 * Mac - XQuartz for X11 Display
 * Windows - MobaXterm  - to connect to ParallelCluster IP address
 
-### AWS CLI v3.0 AWS Region Availability
-
-
 ```{note}
-The scripts in this tutorial use the us-east-1 region, but the scripts can be modified to use any of the supported regions listed in the url below.
+When working on the AWS Cloud you will need to select a Region for your workloads. (See AWS blog on <a href="https://aws.amazon.com/blogs/architecture/what-to-consider-when-selecting-a-region-for-your-workloads/">What to consider when selecting a region</a>).  The scripts used in this tutorial use the us-east-1 region, but they can be modified to use any of the supported regions listed here: 
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 ```
 
-### CONUS 12US1 Domain Description
-
-```
-GRIDDESC
-'12US1'
-'LAM_40N97W'  -2556000.   -1728000.   12000.  12000.  459  299    1
-```
-
-![CMAQ 12US1 Domain](../../qa_plots/tileplots/CMAQ_ACONC_12US1_Benchmark_Tileplot.png)
 
 
 ## Single VM Configuration for 12US1 Benchmark Domain
