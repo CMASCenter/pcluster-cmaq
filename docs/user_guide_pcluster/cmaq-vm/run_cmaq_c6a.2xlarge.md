@@ -61,6 +61,8 @@ If the ec2 instance is configured to use 1 thread per core in the advanced setti
 
 ![Screenshot of HTOP with hyperthreading off](htop_c6a.2xlarge_hyperthreading_off.png)
 
+For MPI or parallel applications such as CMAQ it is best to turn off hyperthreading.
+
 After the benchmark is complete, use the following command to view the timing results.
 
 `tail -n 20 run_cctm_2018_12US1_listos.c6a.2xlarge.log`
