@@ -76,6 +76,12 @@ Use q to exit out of the command line
 
 Note, the AMI uses the default values of iops and throughput for the gp3 volume. 
 
+To use the AWS CLI, the user needs to have a key.pair that was created on an ec2.instance
+
+```{seealso}
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
+```
+
 
 To launch a Spot Instance with RunInstances API you create the configuration file as described below:
 
