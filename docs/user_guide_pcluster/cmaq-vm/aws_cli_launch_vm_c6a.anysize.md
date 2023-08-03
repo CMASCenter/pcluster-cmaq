@@ -12,9 +12,6 @@ The c6a.2xlarge EC2 instance contains 4 cores with hyperthreading turned off and
 
 Public AMI contains the software and data to run CMAQv5.4+
 
-The input data for the 12US1, 12NE3, and 12LISTOS-training benchmarks was transferred from the AWS Open Data Program and installed on the EBS volume.
-
-
 Verify that you can see the public AMI on the us-east-1 region.
 
 
