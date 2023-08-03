@@ -1,4 +1,4 @@
-# Use AWS Management Console to Create Single VM 
+# Create Single VM 
 
 ```{toctree}
 quick-start.md
