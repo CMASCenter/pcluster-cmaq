@@ -85,12 +85,10 @@ Click on the instance link and copy the Public IP address to your clipboard
 ![Instance IP address](Instance_Public_IP_Address.png)
 
 
-Use the ssh command to login to the c6a.2xlarge instance
+You will use this Public IP address to login into the VM that you just created (c6a.2xlarge ec2 instance).
 
-On your local computer, use the following command.
+On your local computer, you will use the following command.
 
 ```
 ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@xx.xxx.xxx.xxx
 ```
-
-
