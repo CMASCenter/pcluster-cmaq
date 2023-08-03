@@ -1,12 +1,12 @@
-Introductory Tutorial
+# Introductory Tutorial
 
-## Step by Step Instructions to Build a Demo ParallelCluster.  
+Step by Step Instructions to Build a Demo ParallelCluster.  
 
 The goal is for users to get started and make sure they can spin up a node, launch the pcluster and terminate it. 
 
 ## Establish Identity and Permissions 
 
-### AWS Identity and Access Management Roles
+AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS ParallelCluster
 
 ```{seealso}
@@ -18,7 +18,7 @@ It appears you can create the demo cluster, and even the intermediate or advance
 
 Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job that uses spot pricing on the ParallelCluster.
 
-### Parallel Cluster AWS CLI 3.0 
+## Install Parallel Cluster AWS CLI 3.0 
 
 Use Parallel Cluster AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
 
@@ -28,7 +28,7 @@ Requires the user to have a key.pair that was created on an ec2.instance
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 ```
 
-#### Install AWS ParallelCluster Command Line Interface on your local machine
+Install AWS ParallelCluster Command Line Interface on your local machine
 
 Create a virtual environment on a linux machine to install aws-parallel cluster
 
@@ -44,7 +44,7 @@ python3 -m pip install --upgrade aws-parallelcluster
 pcluster version
 ```
 
-##### Install node.js
+Install node.js
 
 ```python
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
@@ -54,7 +54,7 @@ nvm install node
 node --version
 ```
 
-##### Verify that AWS ParallelCluster is installed on local machine 
+Verify that AWS ParallelCluster is installed on local machine 
 
 Run pcluster version.
 
@@ -82,7 +82,7 @@ Verify that the parallel cluster is working using:
 `pcluster version`
 
 
-### Configure AWS Command line credentials on your local machine
+Configure AWS Command line credentials on your local machine
 
 ```{seealso}
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Link to Instructions for Setting up AWS Credential Instructions</a>
@@ -92,7 +92,7 @@ Verify that the parallel cluster is working using:
 
 ## Configure a Demo Cluster
 
-### To create a parallel cluster, a yaml file needs to be created that is unique to your account.
+To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
 An example of the yaml file contents is described in the following Diagram:
 
@@ -105,7 +105,7 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a t2.mic
 ```
 
 
-#### Create a yaml configuration file for the cluster following these instructions
+Create a yaml configuration file for the cluster following these instructions
 
 ```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to ParallelCluster Configure Instructions</a>
@@ -140,7 +140,7 @@ The choice of operating system (specified during the yaml creation, or in an exi
 3. Alinux or Amazon Linux/Red Hat Linux (haven't tried)
 
 
-#### Examine the yaml file 
+Examine the yaml file 
 
  `cat new-hello-world.yaml`
 
@@ -178,15 +178,15 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
  `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
 
-### Check on the status of the cluster
+Check on the status of the cluster
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
-#### List available clusters
+List available clusters
 
  `pcluster list-clusters --region=us-east-1`
 
-#### Check on status of cluster again
+Check on status of cluster again
 
  `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
 
@@ -221,33 +221,33 @@ login prompt should look something like (this will depend on what OS was chosen 
 
 [ip-xx-x-xx-xxx pcluster-cmaq]
 
-#### Check what modules are available on the ParallelCluster
+Check what modules are available on the ParallelCluster
 
  `module avail`
 
-#### Check what version of the compiler is available
+Check what version of the compiler is available
 
  `gcc --version`
 
 Need a minimum of gcc 8+ for CMAQ
 
-#### Check what version of openmpi is available
+Check what version of openmpi is available
 
  `mpirun --version`
 
 Need a minimum openmpi version 4.0.1 for CMAQ
 
-#### Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
+Verify that Slurm is available (if slurm is not available, then you may need to try a different OS)
 
 `which sbatch`
 
-#### Do not install sofware on this demo cluster
+Do not install sofware on this demo cluster
 
 the t2.micro head node is too small
 
 Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the Intermediate Tutorial
 
-#### Exit the cluster
+## Exit the cluster
 
  `exit`
 
