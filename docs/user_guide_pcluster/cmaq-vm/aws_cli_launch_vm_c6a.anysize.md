@@ -1,21 +1,15 @@
-# Create c6a.(anysize) EC2 instance using Public AMI
+# Create c6a.2xlarge EC2 instance using the AWS Command Line 
 
 ## Size of instance determines number of cores
 
 ```
 c6a.2xlarge EC2 instance contains 4 cores, sized to run the 12LISTOS-training Benchmark
-c6a.8xlarge EC2 instance contains 16 cores, sized to run the 12NE3 Benchmark
-c6a.48xlarge EC2 instance contains 96 cores, sized to run the 12US1 Benchmark
 ```
 
 
 ### Public AMI contains the software and data to run CMAQv5.4+
 
 The input data for the 12US1, 12NE3, and 12LISTOS-training benchmarks was transferred from the AWS Open Data Program and installed on the EBS volume.
-
-This chapter describes how to configure and create the c6a.(anysize) ec2 instance.
-
-See chapter 3 for instructions to run CMAQv5.4 for the benchmark cases on a single VM.
 
 
 ### Verify that you can see the public AMI on the us-east-1 region.
