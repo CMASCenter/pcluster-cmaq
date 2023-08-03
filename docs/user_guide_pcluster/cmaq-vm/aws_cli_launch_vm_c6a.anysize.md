@@ -111,7 +111,7 @@ cat <<EoF > ./runinstances-config.gp3.json
 EoF
 ```
 
-Use the publically available AMI to launch an ondemand c6a.(anysize) ec2 instance using a gp3 volume with hyperthreading disabled.
+Use the publically available AMI to launch a spot c6a.2xlarge ec2 instance using a gp3 volume with hyperthreading disabled.
 
 Specify the number of cores and set the number of threads per core to 1 to disable hyperthreading.
 
