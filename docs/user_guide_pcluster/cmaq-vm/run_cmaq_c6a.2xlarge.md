@@ -53,15 +53,11 @@ Use HTOP to view performance.
 output
 
 
-If the ec2 instance was created without specifying 1 thread per core in the Advanced Settings, then it will have 8 vcpus.
-
-![Screenshot of HTOP with hyperthreading on](htop_c6a.2xlarge_8vcpus_hyperthreading_on_by_default.png)
-
 If the ec2 instance is configured to use 1 thread per core in the advanced setting, then it will have 4 cores
+For MPI or parallel applications such as CMAQ it is best to turn off hyperthreading.
 
 ![Screenshot of HTOP with hyperthreading off](htop_c6a.2xlarge_hyperthreading_off.png)
 
-For MPI or parallel applications such as CMAQ it is best to turn off hyperthreading.
 
 After the benchmark is complete, use the following command to view the timing results.
 
