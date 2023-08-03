@@ -17,7 +17,7 @@ This document provides tutorials and information on how users can create High Pe
 ```{toctree}
    :numbered: 3
 :caption: 'Contents:'
-:maxdepth: 2
+:maxdepth: 1
 
 user_guide_pcluster/cmaq-vm/index.md
 user_guide_pcluster/pcluster/index.md
