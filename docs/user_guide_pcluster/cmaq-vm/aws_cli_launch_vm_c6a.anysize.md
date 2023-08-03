@@ -1,4 +1,4 @@
-# Create c6a.2xlarge EC2 instance using the AWS Command Line 
+# Create a VM using the AWS Command Line 
 
 If you are not able to use the AWS Web Interface to create the VM, then you can use the AWS Command Line (CLI).
 
