@@ -1,5 +1,8 @@
 # Create c6a.2xlarge EC2 instance using the AWS Command Line 
 
+Install the aws command line interface on your local computer
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install">Install AWS CLI</a>
+
 ## Size of instance determines number of cores
 
 ```
