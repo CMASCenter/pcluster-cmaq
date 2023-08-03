@@ -105,14 +105,14 @@ cat <<EoF > ./runinstances-config.gp3.json
 EoF
 ```
 
-## Use the publically available AMI to launch an ondemand c6a.(anysize) ec2 instance 
+Use the publically available AMI to launch an ondemand c6a.(anysize) ec2 instance 
 
 using a gp3 volume with hyperthreading disabled 
 
 
 Note, we will be using a json file that has been preconfigured to specify the ImageId
 
-## Obtain the code using git
+Obtain the code using git
 
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq`
 
@@ -126,7 +126,7 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 `aws ec2 run-instances --debug --key-name your-pem --security-group-ids launch-wizard-with-tcp-access --dry-run --region us-east-1 --cli-input-json file://runinstances-config.json`
 
-## Specify the number of cores
+Specify the number of cores
 
 Use the command line option to specify the number of cores to match the selected ec2 instance type, and to disable hyperthreading:
 
@@ -138,7 +138,7 @@ c6a.8xlarge, CoreCount=16
 c6a.48xlarge, CoreCount=96 
 ```
 
-## Create c6a.2xlarge ec2 instance
+Create c6a.2xlarge ec2 instance
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.2xlarge.json`
 
@@ -148,26 +148,18 @@ Once you have verified that the command above works with the --dry-run option, r
 
 Use the q command to return to the cursor 
 
-## Or Create a c6a.8xlarge ec2 instance
+Alternatively, if you wanted to create a c6a.8xlarge ec2 instance, you would use this command: (skip)
+
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=16,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.8xlarge.json`
 
-Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
 
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=16,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.c6a.8xlarge.json`
-
-Use q to quit to return to the command prompt.
-
-## Or Create a c6a.48xlarge ec2 instance
+Alternatively, if you wanted to create a c6a.48xlarge ec2 instance, you would use this command: (skip)
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
-Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
-
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=96,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
 Use the following command to obtain the public IP address of the machine.
-
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep -A 3 PublicIpAddress`
 
