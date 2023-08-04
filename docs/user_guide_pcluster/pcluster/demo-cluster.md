@@ -196,9 +196,9 @@ While the cluster has been created, only the t2.micro head node is running.  Bef
 The compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
 ```
 
-## Login and Examine Cluster
 
-### SSH into the cluster 
+## Login to the ParallelCluster 
+
 ```{note}
 replace the your-key.pem key pair with your key pair
 you will need to change the permissions on your key pair so to be read only by owner.
