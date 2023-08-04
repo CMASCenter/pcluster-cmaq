@@ -17,6 +17,18 @@ Change default shell to .tcsh
 
 `sudo usermod -s /bin/tcsh ubuntu`
 
+Note, the snapshot /shared was copied to /shared.
+
+Need to link the contents of /shared/shared to /shared
+
+```
+cd /shared
+ln -s /shared/shared/pcluster-cmaq .
+ln -s /shared/shared/data .
+ln -s /shared/build .
+ln -s /shared/build-hdf5 .
+```
+
 
 Copy file to .cshrc
 
