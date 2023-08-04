@@ -141,10 +141,10 @@ Vulnerabilities:
 ```
 
 ```{note}
-If the run time seemed to take awhile at the beginning of each day of the benchmark run, then you may need to resubmit the job.
+If the run time seems to take awhile at the beginning of each day, then you may need to resubmit the job.
 There is an initial latency issue when storage blocks are initially pulled down from Amazon S3 and written to the volume.
 
-For the 12US1 or other large benchmarks with larger input file sizes, this latency is longer, and users will need to use a larger ec2 instanceto run the 12US1 benchmark, and also follow instructions available on how to initialize the volume prior to running.
+For the 12US1 or other large benchmarks with larger input file sizes, this latency or delay is longer. Note: users will need to use a larger ec2 instanceto run the 12US1 benchmark, and also follow instructions available on how to initialize the volume prior to running.
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html">Initialize EBS Volume</a> 
 ```
 
