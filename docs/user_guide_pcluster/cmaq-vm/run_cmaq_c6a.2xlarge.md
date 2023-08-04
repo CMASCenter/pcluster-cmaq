@@ -24,6 +24,12 @@ Verify that the input data for the benchmark is available.
 
 `ls -lrt /shared/data/12US1_LISTOS/*`
 
+Run the touch command to pull the files from the snapshot so that the storage blocks are pulled down from Amazon S3 and written to the volume before you can access them.
+Another alternative is to use the fio command to initialize the full volume, but that is not recommended for this small benchmark.
+
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html">Initialize EBS Volume</a>
+
+`touch -r /shared/data/12US1_LISTOS/`
 
 Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 

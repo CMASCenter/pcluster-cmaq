@@ -2,7 +2,7 @@
     "DryRun": false,
     "MaxCount": 1,
     "MinCount": 1,
-    "InstanceType": "c6a.4xlarge",
+    "InstanceType": "c6a.48xlarge",
     "ImageId": "ami-051ba52c157e4070c",
     "InstanceMarketOptions": {
         "MarketType": "spot"
