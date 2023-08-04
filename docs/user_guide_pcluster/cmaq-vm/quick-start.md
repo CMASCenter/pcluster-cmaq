@@ -22,8 +22,11 @@ Click on the Community AMI tab and then and click on the orange "Select" button
 
 ![Choose Public AMI with CMAQ pre-installed](aws_web_interface_choose_ami.png)
 
-
-Note this AMI was built for the following architecture, and can be used by the c6a - hpc6a family of instances
+```{note}
+This Amazon Machine Image (AMI) was built using a C6a EC2 Instance, with default Ubuntu OS (Ubuntu OS, 22.04 LTS, amd64 jammy), with gcc compilers, OpenMPI, netCDF, I/O API, and CMAQv5.4.
+<a href="https://aws.amazon.com/ec2/instance-types/c6a/">Amazon EC2 C6a Instances</a>
+To create a VM using a different family of EC2 instances, you would need to choose the default Ubuntu OS and follow the Developer Guide to install the compilers and software for CMAQv5.4.
+```
 
 Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-07-05
 
