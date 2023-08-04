@@ -1,6 +1,8 @@
 CMAQv5.4 on Parallel Cluster Advanced Tutorial (optional)
 
-## Use ParallelCluster without Software and Data pre-installed with hpc7g.16xlarge compute node
+## Configure Parallel Cluster
+
+Use ParallelCluster with default Ubuntu OS using hpc7g.large head node and hpc7g.16xlarge compute node.
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark with instructions to install the libraries and software.
 
@@ -13,19 +15,19 @@ Unless you need to build the CMAQ libraries and code and run on a different fami
 ```
 
 
-### Activate the virtual environment to use the ParallelCluster command line
+Activate the virtual environment to use the ParallelCluster command line
 
 ```
 source ~/apc-ve/bin/activate
 source ~/.nvm/nvm.sh
 ```
 
-### Upgrade to get the latest version of ParallelCluster
+Upgrade to get the latest version of ParallelCluster
 
 
 `python3 -m pip install --upgrade "aws-parallelcluster"`
 
-### Verify that the ParallelCluster AWS CLI is installed by checking the version
+Verify that the ParallelCluster AWS CLI is installed by checking the version
 
 
 `pcluster version`
@@ -39,20 +41,18 @@ Output:
 ```
 
 
-### Create CMAQ Cluster using SPOT pricing
-
-#### Use an existing yaml file from the git repo to create a ParallelCluster
+Use an existing yaml file from the git repo to create a ParallelCluster
 
 `cd /your/local/machine/install/path/`
 
-#### Use a configuration file from the github repo that was cloned to your local machine
+Use a configuration file from the github repo that was cloned to your local machine
 
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
 `cd pcluster-cmaq/yaml`
 
-####  Edit the  hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
+Edit the  hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
 
 `vi hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -65,7 +65,7 @@ Output:
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 64 cpus x 10 = 640, the max settings for NPCOL, NPROW is NPCOL = 32, NPROW = 20 or NPCOL=20, NPROW=32 in the CMAQ run script. Note: CMAQ does not scale well beyond 2-3 compute nodes.
 ```
 
-#### Replace the key pair and subnet ID in the c6a-48xlarge*.yaml file with the values created when you configured the demo cluster
+Replace the key pair and subnet ID in the c6a-48xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
 Region: us-east-1
@@ -108,7 +108,7 @@ SharedStorage:
       StorageCapacity: 1200
 ```
 
-#### The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
+The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using SPOT pricing
 ![c6a-4xlarge yaml configuration](../../yml_plots/c6a-48xlarge-yaml.png)
