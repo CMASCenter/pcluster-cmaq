@@ -1,11 +1,11 @@
-# CMAQv5.4 Parallel Cluster Advanced (optional)
+# CMAQv5.4 Parallel Cluster  (optional)
 
-* Learn how to create the ParallelCluster using c6a.large head node and c6a.48xlarge as the compute nodes.
+* Learn how to create the ParallelCluster using c7g.large head node and c7g.16xlarge as the compute node.
 * Learn how to install CMAQ software and underlying libraries, copy input data, and run CMAQ.
 ```{admonition} Notice
 :class: warning
 
-Skip this tutorial if you successfully completed the CMAQv5.4 Intermediate Tutorial and wish to proceed to the post-processing and QA instructions.
+Skip this tutorial if you do not want to learn how to install the CMAQv5.4 software and proceed to the post-processing and QA instructions.
 Note, you may wish to build the underlying libraries and CMAQ and code if you wish to create a ParallelCluster using a different family of compute nodes, such as the c6gn.16xlarge compute nodes AMD Graviton.
 
 ```
