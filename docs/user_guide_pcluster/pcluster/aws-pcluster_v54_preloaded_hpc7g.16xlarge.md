@@ -1,4 +1,4 @@
-## Use ParallelCluster with Software and Data pre-installed on hpc7g.16xlarge
+# Use ParallelCluster with Software and Data pre-installed on hpc7g.16xlarge
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark 
 
@@ -10,20 +10,20 @@ The CMAQ libraries were installed using the gcc compiler on c6g.large.
 ```
 
 
-### Create CMAQ Cluster
+## Configure the ParallelCluster
 
-#### Use an existing yaml file from the git repo to create a ParallelCluster
+Use an existing yaml file from the git repo to create a ParallelCluster
 
 `cd /your/local/machine/install/path/`
 
-#### Use a configuration file from the github repo that was cloned to your local machine
+Use a configuration file from the github repo that was cloned to your local machine
 
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
 `cd pcluster-cmaq/yaml`
 
-####  Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
+Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
 
 `vi hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -37,7 +37,7 @@ The CMAQ libraries were installed using the gcc compiler on c6g.large.
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 64 cpus x 12 = 768, the max settings for NPCOL, NPROW is NPCOL = 24, NPROW = 32 or NPCOL=32, NPROW=24 in the CMAQ run script. Note: CMAQ will need to be benchmarked using the 12US1 to determine the optimal number of compute nodes to use.
 ```
 
-#### Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the demo cluster
+Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
 Region: us-east-1
@@ -95,7 +95,7 @@ SharedStorage:
       ImportPath: s3://cmas-cmaq/
 ```
 
-#### The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
+The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6g.large head node and hpc7g.16xlarge compute nodes using ONDEMAND pricing
 ![hpc7g.16xlarge yaml configuration](../../../yml_plots/hpc7g.16xlarge.png)
@@ -109,7 +109,7 @@ Note, this yaml file is configured to have 12 nodes of the hpc7g.16xlarge (64 pe
 
 `pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
-#### Check on status of cluster
+Check on status of cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
@@ -126,19 +126,6 @@ Replace the your-key.pem with your Key Pair.
 ```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
-
-```{note}
-Notice that the hpc7g.16xlarge* yaml configuration file contains a setting for PlacementGroup.
-```
-
-```
-PlacementGroup:
-          Enabled: true
-```
- 
-A placement group is used to get the lowest inter-node latency. 
-
-A placement group guarantees that your instances are on the same networking backbone. 
 
 ### Check to make sure elastic network adapter (ENA) is enabled
 

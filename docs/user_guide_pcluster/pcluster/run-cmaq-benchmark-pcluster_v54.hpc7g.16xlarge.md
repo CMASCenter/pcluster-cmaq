@@ -1,11 +1,64 @@
-## Run CMAQ on hpc7g.16xlarge
+# Run CMAQ on hpc7g.16xlarge
 
+## Login to cluster
+```{note}
+Replace the your-key.pem with your Key Pair.
+```
+
+`pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
+
+Check to make sure elastic network adapter (ENA) is enabled
+
+`modinfo ena`
+
+`lspci`
+
+Verify the gcc compiler version is greater than 8.0
+
+`gcc --version`
+
+output:
+```
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+Change default shell to .tcsh
+
+`sudo usermod -s /bin/tcsh ubuntu`
+
+### Copy file to .cshrc
+
+```
+cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
+```
+
+Note that the .cshrc to add custom module path
+
+```
+module use --append /shared/build/Modules/modulefiles
+```
+
+Change shell to csh
+
+logout and log back in to switch to the default shell
+
+Use module list and then module load to load the libraries
+
+```
+module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf
+```
+
+
+Description of the hpc7g.16xlarge instance:
 ```
 Instance Size 	Physical Cores 	Memory (GiB) 	Instance Storage 	EFA Network Bandwidth (Gbps) 	Network Bandwidth (Gbps)*
 hpc7g.16xlarge  64              128             EBS-only                200                                 25
 ```
 
-### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
+Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts`
 
@@ -21,45 +74,45 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 `cp /shared/pcluster-cmaq/run_scripts/hpc7g.16xlarge/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 
-### Verify that the input data is imported to /fsx from the S3 Bucket
+Verify that the input data is imported to /fsx from the S3 Bucket
 
 `cd /fsx/`
 
-### Preloading the files
+## Preloading the files
 
 Amazon FSx copies data from your Amazon S3 data repository when a file is first accessed.
 CMAQ is sensitive to latencies, so it is best to preload contents of individual files or directories using the following command:
 
 `nohup find /fsx/ -type f -print0 | xargs -0 -n 1 sudo lfs hsm_restore &`
 
-### Create a directory that specifies the full path that the run scripts are expecting.
+Create a directory that specifies the full path that the run scripts are expecting.
 
 `mkdir -p /fsx/data/CMAQ_Modeling_Platform_2018/`
 
-### Link the 2018_12US1 directoy
+Link the 2018_12US1 directoy
 
 `cd /fsx/data/CMAQ_Modeling_Platform_2018/`
 
 `ln -s /fsx/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/2018_12US1/ .`
 
-### Link the 12LISTOS_Training data
+Link the 12LISTOS_Training data
 
 `cd /fsx/data/`
 
 `ln -s /fsx/CMAQv5.4_2018_12LISTOS_Benchmark_3Day_Input/12LISTOS_Training ./12US1_LISTOS`
 
-### Link the 2018_12NE3 Benchmark data
+Link the 2018_12NE3 Benchmark data
 
 `ln -s /fsx/CMAQv5.4_2018_12NE3_Benchmark_2Day_Input/2018_12NE3 .`
 
 
-### netCDF-3 classic input files are used
+netCDF-3 classic input files are used
 
 The *.nc4 compressed netCDF4 files on /fsx input directory were converted to netCDF classic (nc3) files
 
 
 
-### Create the output directory`
+Create the output directory`
 
 `mkdir -p /fsx/data/output`
 
@@ -68,7 +121,7 @@ Note, that the 12US1 Domain will not run on 64 cores using the hpc7g.16xlarge, a
 It is possible to run on 64 cores using the hpc7g.8xlarge using 2 x 32 cores per node (as there is more memory per core).
 
 
-### Run the 12US1 Domain on 128 cores
+## Run the 12US1 Domain on 128 cores
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
@@ -77,7 +130,7 @@ It is possible to run on 64 cores using the hpc7g.8xlarge using 2 x 32 cores per
 Note, it will take about 3-5 minutes for the compute notes to start up. This is reflected in the Status (ST) of CF (configuring)
 
 
-### Check the status in the queue
+Check the status in the queue
 
 `squeue -u ubuntu`
 
@@ -99,15 +152,13 @@ Output:
 ```
 
 
-### check on the status of the cluster using CloudWatch
-
-(optional)
+Check on the status of the cluster using CloudWatch (optional)
 
 <a href="https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=cmaq-us-east-1">Cloudwatch Dashboard</a>
 
 <a href="https://aws.amazon.com/blogs/compute/monitoring-dashboard-for-aws-parallelcluster/">Monitoring Dashboard for ParallelCluster</a>
 
-### check the timings while the job is still running using the following command
+Check the timings while the job is still running using the following command
 
 `cd /fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_2x64_classic/`
 
@@ -127,7 +178,7 @@ Output:
             Processing completed...       5.5482 seconds
 ```
 
-### When the job has completed, use tail to view the timing from the log file.
+When the job has completed, use tail to view the timing from the log file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
@@ -181,7 +232,7 @@ queue1-dy-compute-resource-1-12      1   queue1*       idle~ 64     64:1:1 12451
 ```
 
 
-### When the jobs are both submitted to the queue they will be dispatched to different compute nodes.
+When the jobs are both submitted to the queue they will be dispatched to different compute nodes.
 
 `squeue`
 
@@ -252,9 +303,9 @@ OMI Ozone column data has Lat by Lon Resolution:      17X     17
 ```
 
 
-### Switched to running on more than one node, and CMAQv5.4 ran successfully.
+Switched to running on more than one node c7g.8xlarge, and CMAQv5.4 ran successfully as it had access to more memory.
 
-### When the job has completed, use tail to view the timing from the log file.
+When the job has completed, use tail to view the timing from the log file.
 
 `cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
@@ -284,11 +335,11 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a job to run on 192 pes, 3x64 nodes
+## Submit a job to run on 192 pes, 3x64 nodes
 
 `sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.csh`
 
-### Verify that it is running on 3 nodes
+Verify that it is running on 3 nodes
 
 `sbatch`
 
@@ -299,7 +350,7 @@ output:
                  5    queue1     CMAQ   ubuntu  R       4:29      3 queue1-dy-compute-resource-1-[1-3]
 ```
 
-### Check the log for how quickly the job is running
+Check the log for how quickly the job is running
 
 `grep 'Processing completed'  
 
@@ -337,7 +388,7 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a job to run on 320 pes running on 5 nodes
+## Submit a job to run on 320 pes running on 5 nodes
 
 Output
 
@@ -362,7 +413,7 @@ Num  Day        Wall Time
 
 ```
 
-### Submit a job to run on 128 cores  with 32 cores per node.
+## Submit a job to run on 128 cores  with 32 cores per node.
 Running on  4x32 cores using the hpc7g.8xlarge instances
 
 `sbatch  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.4x32.ncclassic.csh -w queue1-dy-compute-resource-2[1-4]`
