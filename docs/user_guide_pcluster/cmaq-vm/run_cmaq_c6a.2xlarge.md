@@ -1,10 +1,10 @@
-## Run CMAQv5.4 on c6a.2xlarge
+# Run CMAQv5.4 on c6a.2xlarge
 
 Obtain IP address from AWS Web Console or use the following AWS CLI command to obtain the public IP address of the machine.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep PublicIpAddress`
 
-Login to the ec2 instance
+## Login to the ec2 instance
 
 `ssh -v -Y -i ~/downloads/your-pem.pem ubuntu@ip.address`
 
@@ -35,10 +35,11 @@ GRIDDESC
 'LamCon_40N_97W'   1812000.000    240000.000     12000.000     12000.000   25   25    1
 ```
 
-Use command line to submit the job. 
+## Run CMAQv5.4
 
-This single virtual machine does not have a job scheduler such as slurm installed.
-
+```{note}
+Use command line to submit the job.  There is no job scheduler (such as slurm) installed.
+```
 
 ```
 cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
@@ -77,11 +78,11 @@ Number of Processes:       4
    All times are in seconds.
 
 Num  Day        Wall Time
-01   2018-08-05   227.7
-02   2018-08-06   213.0
-03   2018-08-07   216.2
-     Total Time = 656.90
-      Avg. Time = 218.96
+01   2018-08-05   165.5
+02   2018-08-06   165.8
+03   2018-08-07   169.5
+     Total Time = 500.80
+      Avg. Time = 166.93
 ```
 
 Use lscpu to view number of cores
@@ -160,7 +161,7 @@ Output
 
 i-xxxx
 
-Terminate Instance
+## Terminate Instance
 
 `aws ec2 terminate-instances --region=us-east-1 --instance-ids i-xxxx`
 
