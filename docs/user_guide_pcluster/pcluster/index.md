@@ -9,8 +9,6 @@ Our goal is make this user guide to running CMAQ on a ParallelCluster as helpful
 
 ```{toctree}
 demo-cluster.md
-aws-pcluster_v54_preloaded.md
-run-cmaq-benchmark-pcluster_v54.md
 aws-pcluster_v54_preloaded_hpc7g.16xlarge.md
 run-cmaq-benchmark-pcluster_v54.hpc7g.16xlarge.md
 ```
