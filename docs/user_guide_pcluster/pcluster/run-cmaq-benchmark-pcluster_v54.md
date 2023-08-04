@@ -1,6 +1,67 @@
-## Run CMAQ on c6a.48xlarge
+# Run CMAQ on c6a.48xlarge
 
-### Verify that you have an updated set of run scripts from the pcluster-cmaq repo
+## Login to cluster
+```{note}
+Replace the your-key.pem with your Key Pair.
+```
+
+`pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
+
+Check to make sure elastic network adapter (ENA) is enabled
+
+`modinfo ena`
+
+`lspci`
+
+Change default shell to .tcsh
+
+`sudo usermod -s /bin/tcsh ubuntu`
+
+
+Copy file to .cshrc
+
+```
+cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
+```
+
+logout and log back in to activate default tcsh shell
+
+
+Check what modules are available on the cluster
+
+`module avail`
+
+Load the openmpi module
+
+`module load openmpi/4.1.4`
+
+Load the Libfabric module
+
+`module load libfabric-aws/1.16.1amzn1.0`
+
+Verify the gcc compiler version is greater than 8.0
+
+`gcc --version`
+
+output:
+
+```
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+```
+
+```{seealso}
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the AWS Enhanced Networking Adapter Documentation</a>
+```
+
+```{seealso}
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">ParallelCluster User Manual</a>
+```
+
+Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
 `cd /shared/pcluster-cmaq/run_scripts/cmaqv54+/`
 
@@ -14,9 +75,12 @@ If they don't exist or are not identical, then copy the run scripts from the rep
 `cp /shared/pcluster-cmaq/run_scripts/cmaqv54+/run_cctm* /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/`
 
 
-### Verify that the input data is imported to /fsx from the S3 Bucket
+## Verify that the input data is imported to /fsx from the S3 Bucket
 
-`cd /fsx/`
+```
+cd /fsx/
+ls */*
+```
 
 ### Preloading the files
 

@@ -120,66 +120,6 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 
 `pcluster get-cluster-stack-events --cluster-name cmaq --region us-east-1 --query 'events[?resourceStatus==`CREATE_FAILED`]'`
 
-#### Login to cluster
-```{note}
-Replace the your-key.pem with your Key Pair.
-```
-
-`pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
-
-### Check to make sure elastic network adapter (ENA) is enabled
-
-`modinfo ena`
-
-`lspci`
-
-### Check what modules are available on the cluster
-
-`module avail`
-
-### Load the openmpi module
-
-`module load openmpi
-
-### Load the Libfabric module
-
-`module load libfabric-aws
-
-### Verify the gcc compiler version is greater than 8.0
-
-`gcc --version`
-
-output:
-
-```
-gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
-Copyright (C) 2019 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-```
-
-### Change default shell to .tcsh
-
-`sudo usermod -s /bin/tcsh ubuntu`
-
-### Copy file to .cshrc
-
-```
-cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
-```
-
-### Note that the .cshrc to add custom module path
-
-```
-module use --append /shared/build/Modules/modulefiles
-```
-
-
-### Change shell to csh
-
-logout and log back in to switch to the default shell
-
 ### Use module list and then module load to load the libraries
 
 
