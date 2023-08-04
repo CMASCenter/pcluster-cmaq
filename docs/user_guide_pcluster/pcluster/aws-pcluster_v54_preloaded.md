@@ -1,4 +1,4 @@
-## Use ParallelCluster with Software and Data pre-installed for c6a.48xlarge
+# Use ParallelCluster with Software and Data pre-installed for c6a.48xlarge
 
 Step by step instructions to configuring and running a ParallelCluster for the CMAQ 12US1 benchmark 
 
@@ -10,20 +10,20 @@ The CMAQ libraries were installed using the gcc compiler on c6a.large.
 ```
 
 
-### Create CMAQ Cluster using SPOT pricing
+## Create CMAQ Cluster using SPOT pricing
 
-#### Use an existing yaml file from the git repo to create a ParallelCluster
+Use an existing yaml file from the git repo to create a ParallelCluster
 
 `cd /your/local/machine/install/path/`
 
-#### Use a configuration file from the github repo that was cloned to your local machine
+Use a configuration file from the github repo that was cloned to your local machine
 
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
 
-`cd pcluster-cmaq/yaml`
+Edit the c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml 
 
-####  Edit the c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml 
+`cd pcluster-cmaq/yaml`
 
 `vi c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
 
@@ -36,7 +36,7 @@ The CMAQ libraries were installed using the gcc compiler on c6a.large.
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 96 cpus x 10 = 960, the max settings for NPCOL, NPROW is NPCOL = 24, NPROW = 40 or NPCOL=40, NPROW=24 in the CMAQ run script. Note: CMAQ does not scale well beyond 2-3 compute nodes.
 ```
 
-#### Replace the key pair and subnet ID in the c6a.large-48xlarge*.yaml file with the values created when you configured the demo cluster
+Replace the key pair and subnet ID in the c6a.large-48xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
 Region: us-east-1
@@ -86,10 +86,10 @@ SharedStorage:
       ImportPath: s3://cmas-cmaq/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/
 ```
 
-#### The Yaml file for the c6a.large-48xlarge contains the settings as shown in the following diagram.
+The Yaml file for the c6a.large-48xlarge contains the settings as shown in the following diagram.
 
 Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using SPOT pricing
-![c6a-48xlarge yaml configuration](../../../yml_plots/c6a-48xlarge-yaml.png)
+![c6a-48xlarge yaml configuration](../../yml_plots/c6a-48xlarge-yaml.png)
 
 (to do!)
 
@@ -98,49 +98,36 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.la
 
 `pcluster create-cluster --cluster-configuration c6a.large-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
-#### Check on status of cluster
+Check on status of cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
 
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-### If the cluster fails to start, use the following command to check for an error
+If the cluster fails to start, use the following command to check for an error
 
 `pcluster get-cluster-stack-events --cluster-name cmaq --region us-east-1 --query 'events[?resourceStatus==`CREATE_FAILED`]'`
 
-#### Login to cluster
+## Login to cluster
 ```{note}
 Replace the your-key.pem with your Key Pair.
 ```
 
 `pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
 
-```{note}
-Notice that the c6a.48xlarge yaml configuration file contains a setting for PlacementGroup.
-```
-
-```
-PlacementGroup:
-          Enabled: true
-```
- 
-A placement group is used to get the lowest inter-node latency. 
-
-A placement group guarantees that your instances are on the same networking backbone. 
-
-### Check to make sure elastic network adapter (ENA) is enabled
+Check to make sure elastic network adapter (ENA) is enabled
 
 `modinfo ena`
 
 `lspci`
 
-### Change default shell to .tcsh
+Change default shell to .tcsh
 
 `sudo usermod -s /bin/tcsh ubuntu`
 
 
-### Copy file to .cshrc
+Copy file to .cshrc
 
 ```
 cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
@@ -149,19 +136,19 @@ cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
 logout and log back in to activate default tcsh shell
 
 
-### Check what modules are available on the cluster
+Check what modules are available on the cluster
 
 `module avail`
 
-### Load the openmpi module
+Load the openmpi module
 
 `module load openmpi/4.1.4`
 
-### Load the Libfabric module
+Load the Libfabric module
 
 `module load libfabric-aws/1.16.1amzn1.0`
 
-### Verify the gcc compiler version is greater than 8.0
+Verify the gcc compiler version is greater than 8.0
 
 `gcc --version`
 
