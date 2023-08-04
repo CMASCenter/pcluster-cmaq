@@ -110,11 +110,6 @@ Vendor ID:               AuthenticAMD
     Socket(s):           1
     Stepping:            1
     BogoMIPS:            5299.98
-    Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdt
-                         scp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x
-                         2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch topoext invpcid_s
-                         ingle ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clze
-                         ro xsaveerptr rdpru wbnoinvd arat npt nrip_save vaes vpclmulqdq rdpid
 Virtualization features: 
   Hypervisor vendor:     KVM
   Virtualization type:   full
