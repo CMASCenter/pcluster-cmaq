@@ -1,6 +1,6 @@
-# CMAQv5.4 Parallel Cluster  (optional)
+# Install CMAQv5.4 on ParallelCluster  (optional)
 
-* Learn how to create the ParallelCluster using c7g.large head node and c7g.16xlarge as the compute node.
+* Create the ParallelCluster with the base Ubutu OS using c7g.large head node and c7g.16xlarge as the compute node.
 * Learn how to install CMAQ software and underlying libraries, copy input data, and run CMAQ.
 ```{admonition} Notice
 :class: warning
