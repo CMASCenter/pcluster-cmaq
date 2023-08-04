@@ -24,13 +24,6 @@ Verify that the input data for the benchmark is available.
 
 `ls -lrt /shared/data/12US1_LISTOS/*`
 
-Run the touch command to pull the files from the snapshot so that the storage blocks are pulled down from Amazon S3 and written to the volume before you can access them.
-Another alternative is to use the fio command to initialize the full volume, but that is not recommended for this small benchmark.
-
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html">Initialize EBS Volume</a>
-
-`touch -r /shared/data/12US1_LISTOS/`
-
 Run CMAQv5.4 for 12US1 Listos Training 3 Day benchmark Case on 4 pe
 
 Note, this is a small 12km benchmark case, with 25 rows and 25 columns.
@@ -145,6 +138,14 @@ Vulnerabilities:
   Srbds:                 Not affected
   Tsx async abort:       Not affected
 
+```
+
+```{note}
+If the run time seemed to take awhile at the beginning of each day of the benchmark run, then you may need to resubmit the job.
+There is an initial latency issue when storage blocks are initially pulled down from Amazon S3 and written to the volume.
+
+For the 12US1 or other large benchmakrs with larger input file sizes, this latency is longer, and users will need to use a larger ec2 instance, and also follow instructions available on how to initialize the volume prior to running.
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html">Initialize EBS Volume</a> 
 ```
 
 Once you have successfully run the benchmark, terminate the instance.
