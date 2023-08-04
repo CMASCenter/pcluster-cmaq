@@ -29,7 +29,7 @@ Change default shell to .tcsh
 
 `sudo usermod -s /bin/tcsh ubuntu`
 
-### Copy file to .cshrc
+Copy file to .cshrc
 
 ```
 cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
@@ -208,7 +208,7 @@ Num  Day        Wall Time
 
 ```
 
-### Check whether the scheduler thinks there are cpus or vcpus
+Check whether the scheduler thinks there are cpus or vcpus
 
 `sinfo -lN`
 
