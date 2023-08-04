@@ -119,24 +119,3 @@ After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPL
 If the cluster fails to start, use the following command to check for an error
 
 `pcluster get-cluster-stack-events --cluster-name cmaq --region us-east-1 --query 'events[?resourceStatus==`CREATE_FAILED`]'`
-
-Use module list and then module load to load the libraries
-
-
-```
-module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf 
-```
-
-Verify that ncdump is found once that these modules are added
-
-```
-which ncdump
-```
-
-```{seealso}
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#test-enhanced-networking-ena">Link to the AWS Enhanced Networking Adapter Documentation</a>
-```
-
-```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">ParallelCluster User Manual</a>
-```
