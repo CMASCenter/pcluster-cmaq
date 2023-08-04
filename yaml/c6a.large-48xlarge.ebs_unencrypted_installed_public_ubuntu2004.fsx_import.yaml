@@ -17,7 +17,7 @@ Scheduling:
     ScaledownIdletime: 5
   SlurmQueues:
     - Name: queue1
-      CapacityType: ONDEMAND 
+      CapacityType: SPOT 
       Networking:
         SubnetIds:
           - subnet-0eed3f3567767ce4d 
