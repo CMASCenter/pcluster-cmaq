@@ -116,18 +116,18 @@ Check on status of cluster
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-### If the cluster fails to start, use the following command to check for an error
+If the cluster fails to start, use the following command to check for an error
 
 `pcluster get-cluster-stack-events --cluster-name cmaq --region us-east-1 --query 'events[?resourceStatus==`CREATE_FAILED`]'`
 
-### Use module list and then module load to load the libraries
+Use module list and then module load to load the libraries
 
 
 ```
 module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf 
 ```
 
-### Verify that ncdump is found once that these modules are added
+Verify that ncdump is found once that these modules are added
 
 ```
 which ncdump
