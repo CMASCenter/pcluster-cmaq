@@ -125,7 +125,7 @@ c6a.8xlarge, CoreCount=16
 c6a.48xlarge, CoreCount=96 
 ```
 
-## Create c6a.2xlarge ec2 instance
+Create c6a.2xlarge ec2 instance
 
 Note, you will need to obtain a security group id from your IT administrator that allows ssh login access.
 If this is enabled by default, then you can remove the --security-group-ids launch-wizard-with-tcp-access
