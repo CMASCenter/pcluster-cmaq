@@ -126,19 +126,6 @@ Caches (sum of all):
 NUMA:                    
   NUMA node(s):          1
   NUMA node0 CPU(s):     0-3
-Vulnerabilities:         
-  Itlb multihit:         Not affected
-  L1tf:                  Not affected
-  Mds:                   Not affected
-  Meltdown:              Not affected
-  Mmio stale data:       Not affected
-  Retbleed:              Not affected
-  Spec store bypass:     Mitigation; Speculative Store Bypass disabled via prctl
-  Spectre v1:            Mitigation; usercopy/swapgs barriers and __user pointer sanitization
-  Spectre v2:            Mitigation; Retpolines, IBPB conditional, IBRS_FW, RSB filling, PBRSB-eIBRS Not affected
-  Srbds:                 Not affected
-  Tsx async abort:       Not affected
-
 ```
 
 ```{note}
