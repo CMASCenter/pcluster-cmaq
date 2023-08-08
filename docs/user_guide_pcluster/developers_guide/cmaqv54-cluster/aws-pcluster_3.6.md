@@ -58,14 +58,14 @@ Edit the  hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.
 
 ```{note}
 1. the hpc7g-16xlarge*.yaml is configured to use ONDEMAND instance pricing for the compute nodes.
-2. the hpc7g-16xlarge*.yaml is configured to the the c6a-48xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
+2. the hpc7g-16xlarge*.yaml is configured to the the hpc7g.16xlarge as the compute node, with up to 10 compute nodes, specified by MaxCount: 10.
 3. the hpc7g-16xlarge*.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (192 virtual cpus reduced to 96 cpus)
 4. the hpc7g-16xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
 5. the hpc7g-16xlarge*.yaml is configured to enables the elastic fabric adapter
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 64 cpus x 10 = 640, the max settings for NPCOL, NPROW is NPCOL = 32, NPROW = 20 or NPCOL=20, NPROW=32 in the CMAQ run script. Note: CMAQ does not scale well beyond 2-3 compute nodes.
 ```
 
-Replace the key pair and subnet ID in the c6a-48xlarge*.yaml file with the values created when you configured the demo cluster
+Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
 Region: us-east-1
@@ -82,7 +82,7 @@ Scheduling:
   Scheduler: slurm
   SlurmQueues:
     - Name: queue1
-      CapacityType: SPOT
+      CapacityType: ONDEMAND
       Networking:
         SubnetIds:
           - subnet-xx-xx-x         x    << replace
@@ -110,12 +110,12 @@ SharedStorage:
 
 The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
 
-Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using SPOT pricing
-![c6a-4xlarge yaml configuration](../../yml_plots/c6a-48xlarge-yaml.png)
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a hpc7g.large head node and hpc7g.16xlarge compute nodes using ONDEMAND
+![hpc7g.16xlarge yaml configuration](../../yml_plots/hpc7g.16xlarge-yaml.png)
 
 
 
-## Create the c6a-48xlarge pcluster
+## Create the hpc7g.16xlarge pcluster
 
 `pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
