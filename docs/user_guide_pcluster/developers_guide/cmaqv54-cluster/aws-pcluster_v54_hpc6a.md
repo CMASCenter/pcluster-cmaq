@@ -89,6 +89,8 @@ getting an error:
 ERROR during handling of the VPC in the create phase.
 The maximum number of VPCs has been reached.
 
+The default setting for maximum number of VPCs is 5.  Need to delete a VPC and rerun above command.
+
 
 
 #### Replace the key pair and subnet ID in the c6a-48xlarge*.yaml file with the values created when you configured the demo cluster
