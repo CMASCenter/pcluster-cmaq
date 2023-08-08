@@ -32,7 +32,7 @@ Check what modules are available on the cluster
 
 Load the openmpi module
 
-`module load openmpi/4.1.5`
+`module load openmpi`
 
 Load the Libfabric module
 
@@ -59,6 +59,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">ParallelCluster User Manual</a>
 ```
+
 
 Verify that you have an updated set of run scripts from the pcluster-cmaq repo
 
