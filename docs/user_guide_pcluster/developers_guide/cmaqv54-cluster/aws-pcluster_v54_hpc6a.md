@@ -101,11 +101,14 @@ SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
     StorageType: Ebs
+    EbsSettings:
+      Encrypted: false
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
+      ImportPath: s3://cmas-cmaq
 ```
 
 #### The Yaml file for the hpc6a-48xlarge contains the settings as shown in the following diagram.
