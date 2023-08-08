@@ -117,7 +117,7 @@ Table 2. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 
 | CPUs | NodesxCPU | COLROW | Day1 Timing (sec) | Day2 Timing (sec) | TotalTime | CPU Hours/day InputData   |    InputData | Equation using Spot Pricing | SpotCost | Equation using On Demand Pricing | OnDemandCost |
 | ---- | ------    | ---   |  -------------     | ------------      | --------- | ------------------------  | ----------   | ------------------------------ | ----     | ------------------------------  |  ------  |
-| 96   | 1x96 | 12x8    |   1850.0         | 2058.0           | 3908.00    |                      |    /fsx         |  n/a | n/a | 2.88/hr * 1 node * 1.844 = | 13.53 |
+| 96   | 1x96 | 12x8    |   3157.3         |  3493.4           | 6650.70    |1.84     |    /fsx     |  n/a | n/a | 2.88/hr * 1 node * 1.845 = | 5.32 |
 | 192     | 2x96 | 16x12   |  1850.0    | 2058.0           |  3908.00  | 1.085      | /fsx            | n/a | n/a | 2.88/hr * 2 node * 1.085 = | 6.25  |
 | 288     | 3x96 | 16x18 | 1491.5      |  1599.8          | 3091.30   | .859        |  /fsx           | n/a | n/a  | 2.88/hr * 3 node * .859 = | 7.41 |
 
