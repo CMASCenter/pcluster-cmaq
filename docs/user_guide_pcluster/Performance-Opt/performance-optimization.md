@@ -109,8 +109,6 @@ Table 2. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 | 192     | 2x96 | 16x12   |  1853.4     | 2035.1           |  3888.50  | 1.08      | /fsx            | $5.5809/hr * 2 node * 1.08 = | 12.05 | 7.34/hr * 2 node * 1.08 = | 15.85  |
 | 288     | 3x96 | 16x18 | 1475.9      |  1580.7          | 3056.60   | .849        |  /fsx           |  5.5809/hr * 3 node * .849 = | 14.21  | 7.34/hr * 3 node * .849 = | 18.6 |
 
-## Benchmark Timings for CMAQv5.4 12US1 Benchmark
-
 ### Benchmark Timing for hpc6a.48xlarge
 
 Table 2. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6a.xlarge head node and c6a.48xlarge Compute Nodes with Disable Simultaneous Multithreading turned on (using physical cores, not vcpus)
@@ -120,7 +118,6 @@ Table 2. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c6
 | 96   | 1x96 | 12x8    |   3157.3         |  3493.4           | 6650.70    |1.84     |    /fsx     |  n/a | n/a | 2.88/hr * 1 node * 1.845 = | 5.32 |
 | 192     | 2x96 | 16x12   |  1850.0    | 2058.0           |  3908.00  | 1.085      | /fsx            | n/a | n/a | 2.88/hr * 2 node * 1.085 = | 6.25  |
 | 288     | 3x96 | 16x18 | 1491.5      |  1599.8          | 3091.30   | .859        |  /fsx           | n/a | n/a  | 2.88/hr * 3 node * .859 = | 7.41 |
-
 
 
 ### Benchmark Timing for hpc7g.8xlarge with 32 processors per node
