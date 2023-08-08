@@ -4,7 +4,7 @@ Image:
 HeadNode:
   InstanceType: c6a.large
   Networking:
-    SubnetId: subnet-076db2633ed456f0d
+    SubnetId: subnet-05160f4ce167e4f6f
   DisableSimultaneousMultithreading: true
   Ssh:
     KeyName: cmas-east-2
@@ -20,7 +20,7 @@ Scheduling:
       CapacityType: ONDEMAND 
       Networking:
         SubnetIds:
-          - subnet-076db2633ed456f0d
+          - subnet-05160f4ce167e4f6f
         PlacementGroup:
           Enabled: true
       ComputeResources:
@@ -38,6 +38,7 @@ SharedStorage:
     StorageType: Ebs
     EbsSettings:
       Encrypted: false
+      SnapshotId: snap-0722a38987a41d7c2
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
