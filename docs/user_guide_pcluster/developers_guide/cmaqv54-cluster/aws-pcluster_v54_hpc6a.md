@@ -72,7 +72,7 @@ Region: us-east-2
 Image:
   Os: ubuntu2004
 HeadNode:
-  InstanceType: hpc6a.large
+  InstanceType: c6a.large
   Networking:
     SubnetId: subnet-xx-xx-xx           << replace
   DisableSimultaneousMultithreading: true
@@ -165,11 +165,11 @@ A placement group guarantees that your instances are on the same networking back
 
 ### Load the openmpi module
 
-`module load openmpi/4.1.4`
+`module load openmpi`
 
 ### Load the Libfabric module
 
-`module load libfabric-aws/1.16.1amzn1.0`
+`module load libfabric-aws`
 
 ### Verify the gcc compiler version is greater than 8.0
 
