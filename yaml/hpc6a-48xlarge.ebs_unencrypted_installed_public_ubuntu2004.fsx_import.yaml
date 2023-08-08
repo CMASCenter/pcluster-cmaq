@@ -1,0 +1,46 @@
+Region: us-east-2
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c6a.large
+  Networking:
+    SubnetId: subnet-076db2633ed456f0d
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: cmas-east-2
+  LocalStorage:
+    RootVolume:
+      Encrypted: false
+Scheduling:
+  Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: ONDEMAND 
+      Networking:
+        SubnetIds:
+          - subnet-076db2633ed456f0d
+        PlacementGroup:
+          Enabled: true
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: hpc6a.48xlarge
+          MinCount: 0
+          MaxCount: 10
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      Encrypted: false
+  - MountDir: /fsx
+    Name: name2
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
+      ImportPath: s3://cmas-cmaq
