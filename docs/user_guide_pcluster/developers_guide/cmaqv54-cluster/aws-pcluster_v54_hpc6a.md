@@ -68,7 +68,7 @@ Output:
 #### Replace the key pair and subnet ID in the c6a-48xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
-Region: us-east-1
+Region: us-east-2
 Image:
   Os: ubuntu2004
 HeadNode:
@@ -120,25 +120,25 @@ Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.la
 
 ## Create the hpc6a-48xlarge pcluster
 
-`pcluster create-cluster --cluster-configuration hpc6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
+`pcluster create-cluster --cluster-configuration hpc6a-48xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-2`
 
 #### Check on status of cluster
 
-`pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
+`pcluster describe-cluster --region=us-east-2 --cluster-name cmaq`
 
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
 #### Start the compute nodes
 
-`pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED`
+`pcluster update-compute-fleet --region us-east-2 --cluster-name cmaq --status START_REQUESTED`
 
 #### Login to cluster
 ```{note}
 Replace the your-key.pem with your Key Pair.
 ```
 
-`pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-1 --cluster-name cmaq`
+`pcluster ssh -v -Y -i ~/your-key.pem --region=us-east-2 --cluster-name cmaq`
 
 ```{note}
 Notice that the hpc6a-48xlarge yaml configuration file contains a setting for PlacementGroup.
