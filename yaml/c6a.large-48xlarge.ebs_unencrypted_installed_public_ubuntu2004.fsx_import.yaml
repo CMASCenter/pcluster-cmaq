@@ -39,7 +39,7 @@ SharedStorage:
     EbsSettings:
       Size: 500
       Encrypted: false
-      SnapshotId: snap-08789828f7ab945ed
+      SnapshotId: snap-05a36eeec1f5267bd 
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
