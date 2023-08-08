@@ -102,6 +102,8 @@ Note, if this script fails, it is typically because NCAR has released a new vers
 
 ### Verify that you see the following setting
 
+`env | grep LD_LIBRARY_PATH`
+
 Output:
 
 ```
