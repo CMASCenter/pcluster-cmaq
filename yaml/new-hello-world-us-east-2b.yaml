@@ -1,0 +1,22 @@
+Region: us-east-2
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: t2.micro
+  Networking:
+    SubnetId: subnet-05160f4ce167e4f6f
+  Ssh:
+    KeyName: cmas-east-2
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: t2micro
+      Instances:
+      - InstanceType: t2.micro
+      MinCount: 0
+      MaxCount: 10
+    Networking:
+      SubnetIds:
+      - subnet-05160f4ce167e4f6f

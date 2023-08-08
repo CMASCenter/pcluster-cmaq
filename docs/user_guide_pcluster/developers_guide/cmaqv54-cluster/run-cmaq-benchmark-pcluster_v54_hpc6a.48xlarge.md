@@ -33,6 +33,10 @@ nohup find /fsx/ -type f -print0 | xargs -0 -n 1 sudo lfs hsm_restore &
 
 `mkdir -p /fsx/data/CMAQ_Modeling_Platform_2018`
 
+### Change directories
+
+`cd /fsx/data/CMAQ_Modeling_Platform_2018`
+
 ### link directory
 
 `ln -s /fsx/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/2018_12US1 .
