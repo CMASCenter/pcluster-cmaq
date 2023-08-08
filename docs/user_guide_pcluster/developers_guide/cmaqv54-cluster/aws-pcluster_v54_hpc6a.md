@@ -39,7 +39,7 @@ Output:
 ```
 
 
-### Create CMAQ Cluster using SPOT pricing
+### Create CMAQ Cluster using ONDEMAND pricing
 
 #### Use an existing yaml file from the git repo to create a ParallelCluster
 
@@ -82,7 +82,7 @@ Scheduling:
   Scheduler: slurm
   SlurmQueues:
     - Name: queue1
-      CapacityType: SPOT
+      CapacityType: ONDEMAND
       Networking:
         SubnetIds:
           - subnet-xx-xx-x         x    << replace
@@ -110,7 +110,7 @@ SharedStorage:
 
 #### The Yaml file for the hpc6a-48xlarge contains the settings as shown in the following diagram.
 
-Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using SPOT pricing
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a c6a.large head node and c6a.48xlarge compute nodes using ONDEMAND pricing
 ![hpc6a-4xlarge yaml configuration](../../yml_plots/hpc6a-48xlarge-yaml.png)
 
 
