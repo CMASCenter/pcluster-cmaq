@@ -65,6 +65,32 @@ Output:
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 96 cpus x 10 = 960, the max settings for NPCOL, NPROW is NPCOL = 24, NPROW = 40 or NPCOL=40, NPROW=24 in the CMAQ run script. Note: CMAQ does not scale well beyond 2-3 compute nodes.
 ```
 
+Note, you need to create a demo cluster in the us-east-2b region to use the hpc6a.48xlarge compute nodes.
+
+`pcluster configure --config new-hello-world-us-east-2b.yaml`
+
+```
+AWS Region ID [us-east-2]: 16
+select key pair that is available - you may need to create a new key pair for that region or have your administrator create one for you
+Scheduler [slurm]: 1
+Operating System [alinux2]: 4
+Head node instance type [t2.micro]: 
+Number of queues [1]: 
+Name of queue 1 [queue1]: 
+Number of compute resources for queue1 [1]: 
+Compute instance type for compute resource 1 in queue1 [t2.micro]: 
+Maximum instance count [10]: 
+Automate VPC creation? (y/n) [n]: y
+Availability Zone [us-east-2a]: 2
+Network Configuration [Head node in a public subnet and compute fleet in a private subnet]: 2
+```
+
+getting an error:
+ERROR during handling of the VPC in the create phase.
+The maximum number of VPCs has been reached.
+
+
+
 #### Replace the key pair and subnet ID in the c6a-48xlarge*.yaml file with the values created when you configured the demo cluster
 
 ```
