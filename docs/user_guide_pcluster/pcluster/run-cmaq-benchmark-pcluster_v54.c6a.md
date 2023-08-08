@@ -32,11 +32,11 @@ Check what modules are available on the cluster
 
 Load the openmpi module
 
-`module load openmpi/4.1.4`
+`module load openmpi/4.1.5`
 
 Load the Libfabric module
 
-`module load libfabric-aws/1.16.1amzn1.0`
+`module load libfabric-aws`
 
 Verify the gcc compiler version is greater than 8.0
 
