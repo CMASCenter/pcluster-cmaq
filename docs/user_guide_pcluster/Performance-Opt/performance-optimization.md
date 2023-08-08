@@ -148,13 +148,11 @@ Table 4. Timing Results for CMAQv5.4 2 Day 12US1 Run on Parallel Cluster with c7
 
 # Benchmark Scaling Plots for CMAQv5.4 12US1 Benchmark
 
-### Benchmark Scaling Plot for c6a.48xlarge
+### Benchmark Scaling Plot for hpc6a.48xlarge
 
-Figure 1. Scaling per Node on c6a.48xlarge Compute Nodes (96 cores/node)
+Figure 1. Scaling per Node on hpc6a.48xlarge Compute Nodes (96 cores/node)
 
-(to do - don't have the log files)
-
-![Scaling per Node for c6a.48xlarge Compute Nodes (36cpu/node](../../qa_plots/scaling_plots/c6a.48xlarge_Scaling_Node.png)
+![Scaling per Node for hpc6a.48xlarge Compute Nodes (96cpu/node](../../qa_plots/scaling_plots/hpc6a.48xlarge_Scaling_Node.png)
 
 
 ```
