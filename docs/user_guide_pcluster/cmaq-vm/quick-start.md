@@ -4,6 +4,11 @@ Here we will use an Amazon Elastic Compute Cloud (EC2) C6a instance to run a sma
 
 If you are not able to access the AWS Web Console, skip this section and use the AWS Command Line Interface (CLI).
 
+```{note}
+When working on the AWS Cloud you will need to select a Region for your workloads. (See AWS blog on <a href="https://aws.amazon.com/blogs/architecture/what-to-consider-when-selecting-a-region-for-your-workloads/">What to consider when selecting a region</a>).  The scripts used in this tutorial use the us-east-1 region, but they can be modified to use any of the supported regions listed here:
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
+```
+
 <a href="https://aws.amazon.com/">Login to AWS Web Console</a> and select EC2
 
 ![Login to AWS and then select EC2](aws_web_console_home_select_ec2.png)
