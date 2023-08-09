@@ -6,15 +6,16 @@ Selection of the compute nodes depends on the domain size and resolution for the
 Larger hardware and memory configurations may also be required for instrumented versions of CMAQ incuding CMAQ-ISAM and CMAQ-DDM3D.
 The ParallelCluster allows you to run the compute nodes only as long as the job requires, and you can also update the compute nodes as needed for your domain.
 
-## Benchmarks
+## CMAQv5.4 Benchmarks
 
-CMAQv5.4 Benchmarks
+| Benchmark Name | Grid Domain | Recommended EC2 Instance| vCPU   |  Cores | Memory | Network Performance | Storage (EBS Only) | On Demand Hourly Cost | Spot Hourly Cost | Region |
+| -------------- | ----------- | ----------  | ------ | ---    |----    | ---------------       | ----  | -------------------   | -------------    | ----- | 
+| Training 12km Listos | (25x25x35)   | c6a.2xlarge    | 8 | 4 | 16 GiB | Up to 12500 Megabit | gp3 | 0.306 | 0.2879 | anywhere |
+| 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | gp3 | 1.224  | 1.0008 | anywhere |
+| 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit  | gp3 | 7.344  | 5.5809 | anywhere |
+| 12US1                | (459x299x35) | hpc6a.48xlarge | 192 | 96 | 384 GiB | 100 Gbps     | gp3 | 2.88   | n/a    | us-east-2b |
+| 12US1                | (459x299x35) | hpc7g.16xlarge | 64 | 128 |       |                | gp3 | 1.6832 | n/a    | us-east-1  |
 
-| Benchmark Name | Grid Domain | EC2 Instance| vCPU   |  Cores | Memory | Network Performance | Storage (EBS Only) | On Demand Hourly Cost | Spot Hourly Cost |
-| -------------- | ----------- | ----------  | ------ | ---    |----    | ---------------       | ----  | -------------------   | -------------    |
-| Training 12km Listos | (25x25x35)   | c6a.2xlarge    | 8 | 4 | 16 GiB | Up to 12500 Megabit | gp3 | 0.306 | 0.2879 |
-| 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | gp3 | 1.224  | 1.0008 |
-| 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit  | gp3 | 7.344  | 5.5809 |
 
 Data in table above is from the following:
 <a href="https://calculator.aws/#/addService/ec2-enhancement?nc2=h_ql_pr_calc">Sizing and Price Calculator from AWS</a>
