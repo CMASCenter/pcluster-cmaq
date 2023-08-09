@@ -27,9 +27,11 @@ The ParallelCluster allows you to run the compute nodes only as long as the job 
 ```
 
 ```{note}
+If you are using SPOT pricing, ie. for the c6a.48xlarge compute nodes.
 Sometimes, the nodes are not available for SPOT pricing in the region you are using.
 If this is the case, the job will not start runnning in the queue, see AWS Troubleshooting.
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">ParallelCluster Troubleshooting</a>
+To avoid this, use the hpc EC2 instances, ie. hpc6a.48xlarge or hpc7g.16xlarge.
 ```
 
 
