@@ -13,8 +13,8 @@ Previous version is available here: <a href="https://pcluster-cmaq.readthedocs.i
 ## Community Multiscale Air Quality Model (CMAQ)
 
 CMAQ is a Linux-based suite of models that requires significant computational resources and specific system configurations to run. CMAQ combines current knowledge in atmospheric science and air quality modeling, multi-processor computing techniques, and an open-source framework to deliver fast, technically sound estimates of ozone, particulates, toxics and acid deposition. <br>
-<a href="https://www.epa.gov/cmaq">US EPA Community Multiscale Air Quality Model (CMAQ) Website</a> <br>
-CMAQ is supported by the CMAS Center: <a href="http://www.cmascenter.org">CMAS Center</a> <br>
+For additional background on CMAQ please visit: <a href="www.epa.gov/CMAQ"<www.epa.gov/CMAQ</a> <br>
+CMAQ is a community modeling effort that is supported by the <a href="http://www.cmascenter.org">CMAS Center</a> <br>
 
 ## Tutorial Overview
 
