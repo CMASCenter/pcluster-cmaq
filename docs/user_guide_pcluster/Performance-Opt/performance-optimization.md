@@ -17,6 +17,22 @@ The ParallelCluster allows you to run the compute nodes only as long as the job 
 | 12US1                | (459x299x35) | hpc7g.16xlarge | 64 | 128 |       |                | gp3 | 1.6832 | n/a    | us-east-1  |
 
 
+```{note}
+*Hpc6a instances have simultaneous multi-threading disabled to optimize for HPC codes. This means that unlike other EC2 instances, Hpc6a vCPUs are physical cores, not threads.  *Hpc6a instances available in US East (Ohio) and GovCloud (US-West) *HPC6a is available ondemand only (no spot pricing)
+```
+
+```{note}
+*hpc7g instances have simultaneous multi-threading disabled to optimize for HPC codes. The instances with fewer cores, 16, 32 pes are custom to only those instances, you are not sharing a slice of an instance (this also removes the need for pinning).
+<a href="https://aws.amazon.com/blogs/hpc/application-deep-dive-into-the-graviton3e-based-amazon-ec2-hpc7g-instance/">hpc7g offers 16, 32 or 64 physical cpu instance size at launch</a>
+```
+
+```{note}
+Sometimes, the nodes are not available for SPOT pricing in the region you are using.
+If this is the case, the job will not start runnning in the queue, see AWS Troubleshooting.
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html">ParallelCluster Troubleshooting</a>
+```
+
+
 Data in table above is from the following:
 <a href="https://calculator.aws/#/addService/ec2-enhancement?nc2=h_ql_pr_calc">Sizing and Price Calculator from AWS</a>
 
@@ -75,34 +91,6 @@ Pricing information in the tables below are subject to change. The links from wh
 ```{seealso}
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/spot.html">Working with Spot Instances - ParallelCluster</a>
 ```
-
-## Spot versus On-Demand Pricing
-
-Table 1. EC2 Instance On-Demand versus Spot Pricing (price is subject to change)
-
-| Instance Name	| vCPUs |  RAM      |  EBS Bandwidth	| Network Bandwidth | Linux On-Demand Price | Linux Spot Price | 
-| ------------  | ----- | --------  | ---------------   | ---------------   | --------------------  | ---------------  |
-| c4.large	| 2	| 3.75 GiB  |   Moderate	|  500 Mbps         | 	$0.116/hour         | $0.0312/hour     |
-| c4.8xlarge	| 36	| 60 GiB    |	10 Gbps	        |  4,000 Mbps       | 	$1.856/hour         | $0.5903/hour     |
-| c5n.large	| 2	| 5.25 GiB  |	Up to 3.5 Gbps	| Up to 25 Gbps     |   $0.108/hour         | $0.0324/hour     |
-| c5n.xlarge	| 4	| 10.5 GiB  |	Up to 3.5 Gbps	| Up to 25 Gbps     |   $0.216/hour         | $0.0648/hour     |
-| c5n.2xlarge	| 8	| 21 GiB    |	Up to 3.5 Gbps	| Up to 25 Gbps     |   $0.432/hour         | $0.1740/hour     |
-| c5n.4xlarge	| 16	| 42 GiB    | 	3.5 Gbps	| Up to 25 Gbps     |   $0.864/hour         | $0.2860/hour     |
-| c5n.9xlarge	| 36	| 96 GiB    |	7 Gbps	        | 50 Gbps           |   $1.944/hour         | $0.5971/hour     |
-| c5n.18xlarge	| 72	| 192 GiB   |	14 Gbps	        | 100 Gbps          |   $3.888/hour         | $1.1732/hour     |
-| c6gn.16xlarge | 64	| 128 GiB   |                   |  100 Gbps         |   $2.7648/hour        | $0.6385/hour     |	
-| c6a.48xlarge  | 192   | 384 GiB   |   40 Gbps         |  50 Gpbs          |   $7.344/hour         | $6.0793/hour     |
-| hpc6a.48xlarge| 96    | 384 GiB   |                   | 100 Gbps          |   $2.88/hour          |  unavailable     |
-| hpc7g.8xlarge | 32    | 128 GiB   |                   |                   |   $1.6832/hour        |  unavailable     |
-| hpc7g.16xlarge| 64    | 128 GiB   |                   |                   |   $1.6832/hour        |  unavailable     |
-
-*Hpc6a instances have simultaneous multi-threading disabled to optimize for HPC codes. This means that unlike other EC2 instances, Hpc6a vCPUs are physical cores, not threads.
-
-*Hpc6a instances available in US East (Ohio) and GovCloud (US-West)
-
-*HPC6a is available ondemand only (no spot pricing)
-
-*hpc7g instances have simultaneous multi-threading disabled to optimize for HPC codes. The instances with fewer cores, 16, 32 pes are custom to only those instances, you are not sharing a slice of an instance (this also removes the need for pinning).
 
 <a href="https://aws.amazon.com/blogs/hpc/application-deep-dive-into-the-graviton3e-based-amazon-ec2-hpc7g-instance/">hpc7g offers 16, 32 or 64 physical cpu instance size at launch</a>
 
