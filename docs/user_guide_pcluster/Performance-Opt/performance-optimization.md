@@ -13,8 +13,8 @@ The ParallelCluster allows you to run the compute nodes only as long as the job 
 | Training 12km Listos | (25x25x35)   | c6a.2xlarge    | 8 | 4 | 16 GiB | Up to 12500 Megabit | gp3 | 0.306 | 0.2879 | anywhere |
 | 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | gp3 | 1.224  | 1.0008 | anywhere |
 | 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit  | gp3 | 7.344  | 5.5809 | anywhere |
-| 12US1                | (459x299x35) | hpc6a.48xlarge | 192 | 96 | 384 GiB | 100 Gbps     | gp3 | 2.88   | n/a    | us-east-2b |
-| 12US1                | (459x299x35) | hpc7g.16xlarge | 64 | 128 |       |                | gp3 | 1.6832 | n/a    | us-east-1  |
+| 12US1                | (459x299x35) | hpc6a.48xlarge | n/a  | 96 | 384 GiB | 100 Gbps     | gp3 | 2.88   | n/a    | us-east-2b |
+| 12US1                | (459x299x35) | hpc7g.16xlarge | n/a | 64  | 128 GiB      |                | gp3 | 1.6832 | n/a    | us-east-1  |
 
 
 ```{note}
