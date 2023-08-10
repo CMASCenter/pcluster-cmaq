@@ -15,7 +15,7 @@ cd pcluster-cmaq
 git pull
 ```
 
-<a href="https://pcluster-cmaq.readthedocs.io/en/latest/index.html">Link to ParallelCluster Tutorial</a>
+<a href="https://pcluster-cmaq.readthedocs.io/en/latest/index.html">Link to CMAQ on AWS Tutorial</a>
 
 
 
