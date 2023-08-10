@@ -134,7 +134,7 @@ Example command: note launch-wizard-with-tcp-access needs to be replaced by your
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
-Once you have verified that the command above works with the --dry-run option, rerun it without as follows.
+Once you have verified that the command above works with the --dry-run option, rerun it after removing the --dry-run option as follows:
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
