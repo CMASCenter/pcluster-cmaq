@@ -19,10 +19,8 @@ CMAQ is a community modeling effort that is supported by the <a href="http://www
 ## Amazon Web Service (AWS) 
 
 AWS provides high performance computing solutions that can be used to run CMAQ. <a href="https://aws.amazon.com/hpc/">AWS HPC</a>
-
-Single VM is a single linux virtual machine created using Amazon Web Service’s (AWS) Elastic Compute Cloud (EC2) to create and run virtual machines in the cloud.<br>
-
-AWS ParallelCluster is an AWS supported open source cluster management tool that helps you to deploy and manage high performance computing (HPC) clusters in the AWS Cloud. It automatically sets up the required compute resources, scheduler, and shared file system. <br>
+<b>Single VM</b> is a single linux virtual machine created using Amazon Web Service’s (AWS) Elastic Compute Cloud (EC2) to create and run virtual machines in the cloud.<br>
+<b>AWS ParallelCluster</b> is an AWS supported open source cluster management tool that helps you to deploy and manage high performance computing (HPC) clusters in the AWS Cloud. It automatically sets up the required compute resources, scheduler, and shared file system. <br>
 
 
 ## Tutorial Overview
