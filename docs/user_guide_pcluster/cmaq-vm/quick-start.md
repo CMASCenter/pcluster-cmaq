@@ -9,7 +9,7 @@ When working on the AWS Cloud you will need to select a Region for your workload
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/supported-regions-v3.html">CLI v3 Supported Regions</a>
 ```
 
-<a href="https://aws.amazon.com/">1. Login to AWS Web Console.</a> and select EC2
+<a href="https://aws.amazon.com/">1. Login to AWS Web Console</a> and select EC2.
 
 ![Login to AWS and then select EC2](aws_web_console_home_select_ec2.png)
 
