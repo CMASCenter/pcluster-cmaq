@@ -1,6 +1,6 @@
 # Create a VM from the AWS Web Console
 
-Here we will use an Amazon Elastic Compute Cloud (EC2) C6a instance to run a small CMAQ benchmark case.  The software needed to run the benchmark is pre-installed on a public Amazon Machine Image (AMI).  The input data is also publicly available through the AWS Open Data Program. 
+Here we will use an Amazon Elastic Compute Cloud (EC2) C6a instance to run a small CMAQ benchmark case.  The software needed to run the benchmark is pre-installed on a public Amazon Machine Image (AMI). The  AMI contains all the software required to spin up your virtual server including OS, libraries (MPI, netCDF, I/O API, CMAQ) as well as input data for the benchmark case, publicly available through the AWS Open Data Program. 
 
 The first step is creating an Virtual Machine (VM) from the AWS Web Console. If you are not able to access the AWS Web Console, skip to section 1.2 to learn how to use the AWS Command Line Interface (CLI).
 
