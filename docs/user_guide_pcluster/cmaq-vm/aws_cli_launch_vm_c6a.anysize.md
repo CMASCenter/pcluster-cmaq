@@ -101,32 +101,27 @@ cat <<EoF > ./runinstances-config.gp3.json
 EoF
 ```
 
-6. Use the publically available AMI to launch a spot c6a.2xlarge EC2 instance using a gp3 volume with hyperthreading disabled. Specify the number of cores and set the number of threads per core to 1 to disable hyperthreading. Use the command line option to specify the number of cores to match the selected EC2 instance type, and to disable hyperthreading:
+6. Use the publically available AMI to launch a spot c6a.2xlarge EC2 instance using a gp3 volume with hyperthreading disabled. Specify the number of cores and set the number of threads per core to 1 to disable hyperthreading. Use the command line option to specify the number of cores to match the selected EC2 instance type, and to disable hyperthreading. Below is an example command. 
 
-`--cpu-options CoreCount=XX, ThreadsPerCore=1`
+`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
+**Note:**
+* The size of instance determines the number of compute cores (CoreCount). In the example above the c6a.2xlarge EC2 instance contains 4 cores with hyperthreading turned off and is sized to run the tutorial benchmark case (i.e., *--cpu-options CoreCount=XX, ThreadsPerCore=1*). If you wish to try the benchmark with a larger VM you can edit the runinstances-config.gp3.json file to select a different version of c6a and then change the CoreCount to match:
 ```
 c6a.2xlarge, CoreCount=4
 c6a.8xlarge, CoreCount=16
 c6a.48xlarge, CoreCount=96 
 ```
-
-7. Create c6a.2xlarge EC2 instance. Below is an example command. 
-
-`aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --dry-run --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
-
-**Note:**
-* The size of instance determines the number of compute cores (CoreCount). The c6a.2xlarge EC2 instance contains 4 cores with hyperthreading turned off and is sized to run the tutorial benchmark case.
 * You will need to obtain a security group id from your IT administrator that allows ssh login access. If this is enabled by default, then you can remove the --security-group-ids launch-wizard-with-tcp-access.
 * Launch-wizard-with-tcp-access needs to be replaced by your security group ID, and your-pem key needs to be replaced by the name of your-pem.pem key.
 
-8. Once you have verified that the command above works with the --dry-run option, rerun it after removing the --dry-run option as follows:
+7. Once you have verified that the command above works with the --dry-run option, rerun it after removing the --dry-run option as follows:
 
 `aws ec2 run-instances --debug --key-name cmaqv5.4 --security-group-ids launch-wizard-179 --region us-east-1 --ebs-optimized --cpu-options CoreCount=4,ThreadsPerCore=1 --cli-input-json file://runinstances-config.gp3.json`
 
-9. Use the q command to return to the cursor. 
+8. Use the q command to return to the cursor. 
 
-10. Use the following command to obtain the public IP address of the machine. Also use this command to verify that it has switched from an initializing state to a running state.
+9. Use the following command to obtain the public IP address of the machine. Also use this command to verify that it has switched from an initializing state to a running state.
 
 `aws ec2 describe-instances --region=us-east-1 --filters "Name=image-id,Values=ami-051ba52c157e4070c" | grep -A 3 PublicIpAddress`
 
