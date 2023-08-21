@@ -1,6 +1,6 @@
 # Create a VM using the AWS Command Line 
 
-If you are not able to use the AWS Web Interface to create the VM, then you can use the AWS Command Line (CLI). We will use an Amazon Elastic Compute Cloud (EC2) C6a instance to run a small CMAQ benchmark case. The software needed to run the benchmark is pre-installed on a public Amazon Machine Image (AMI). The Public AMI contains all the software required to spin up your virtual server including OS, libraries (MPI, netCDF, I/O API, CMAQ) and data to run CMAQv5.4+.
+If you are not able to use the AWS Web Interface to create the VM from the public AMI in the previous section, then you can use the AWS Command Line (CLI). 
 
 1. Install the AQS CLI on your local computer using the following instructions:
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install">Install AWS CLI</a>  
