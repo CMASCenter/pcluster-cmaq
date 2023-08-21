@@ -21,7 +21,7 @@ In the last sections you created and logged into a VM (c6a.2xlarge EC2 instance)
 
 `module load ioapi-3.2/gcc-11.3.0-netcdf  mpi/openmpi-4.1.2  netcdf-4.8.1/gcc-11.3 `
 
-5. Verify that the input data for the benchmark is available.  For this example the benchmark case (12US1_LISTOS) is small with only 25 rows and 25 columns. The GRIDDESC file defines the modeling domain which has 12 km x 12km horizontal grid spacing and is centered over Long Island, New York and Connecticut.
+5. Verify that the input data for the benchmark is available.  The benchmark case (12US1_LISTOS) for this example is small with only 25 rows and 25 columns. The GRIDDESC file defines the modeling domain which has 12 km x 12km horizontal grid spacing and is centered over Long Island, New York and Connecticut.
 
 `ls -lrt /shared/data/12US1_LISTOS/*`
 
@@ -110,7 +110,7 @@ NUMA:
 ```
 
 ```{note}
-If the run time seems to take awhile at the beginning of each day, then you may need to resubmit the job. There is an initial latency issue when storage blocks are initially pulled down from Amazon S3 and written to the volume. For the 12US1 or other large benchmarks with larger input file sizes, this latency or delay is longer.
+If the run time seems to take a while at the beginning of each day, then you may need to resubmit the job. There is an initial latency issue when storage blocks are initially pulled down from Amazon S3 and written to the volume. For the 12US1 or other large benchmarks with larger input file sizes, this latency or delay is longer.
 
 You will need to use a larger EC2 instance to run the larger '12US1' benchmark, and also follow instructions available on how to initialize the volume prior to running:
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html">Initialize EBS Volume</a>.
