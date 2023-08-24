@@ -26,6 +26,42 @@ In the last sections you created and logged into a VM (c6a.2xlarge EC2 instance)
 `ls -lrt /shared/data/12US1_LISTOS/*`
 
 ```
+-rw-rw-r-- 1 ubuntu ubuntu  207 Jun  6 20:05 /shared/data/12US1_LISTOS/GRIDDESC
+
+/shared/data/12US1_LISTOS/emis:
+total 28
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 cmv_c3
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 pt_oilgas
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 gridded
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 ptegu_nopfas
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 ptnonipm
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 smk_dates
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 ptnonipm_nopfas
+
+/shared/data/12US1_LISTOS/met:
+total 12
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 lightning
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 mcip
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  6 20:19 wrfout
+
+/shared/data/12US1_LISTOS/icbc:
+total 24976
+-rw-rw-r-- 1 ubuntu ubuntu 21774044 Jun  6 20:05 ICON_v54_12km_Listos_profile_timeind.nc
+-rw-rw-r-- 1 ubuntu ubuntu   109793 Jun  6 20:05 BCON_v54_12km_Listos_profile_timeind.nc.CO.txt
+-rw-rw-r-- 1 ubuntu ubuntu  3683924 Jun  6 20:05 BCON_v54_12km_Listos_profile_timeind.nc
+drwxrwxr-x 2 ubuntu ubuntu     4096 Jun  6 20:19 cb6r3_ae7_aq
+
+/shared/data/12US1_LISTOS/surface:
+total 2668
+-rw-rw-r-- 1 ubuntu ubuntu 2199208 Jun  6 20:05 OCEAN_08_L3m_MC_CHL_chlor_a_12US1_Listos.nc3
+-rw-rw-r-- 1 ubuntu ubuntu  363296 Jun  6 20:05 OCEAN_08_L3m_MC_CHL_chlor_a_12US1.nc
+-rw-rw-r-- 1 ubuntu ubuntu  145796 Jun  6 20:05 GRIDMASK_STATES_12US1_m3clple_12listos.ncf
+-rw-rw-r-- 1 ubuntu ubuntu   16452 Jun  6 20:05 12US1_surf_m3clple_12listos.ncf
+```
+
+`cat /shared/data/12US1_LISTOS/GRIDDESC`
+
+```
 GRIDDESC
 
 '2018_12Listos'

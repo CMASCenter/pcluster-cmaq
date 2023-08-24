@@ -5,7 +5,10 @@ If you are not able to use the AWS Web Interface to create the VM from the publi
 1. Install the AQS CLI on your local computer using the following instructions:
 <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install">Install AWS CLI</a>  
 
-2. Verify that you can see the public AMI on the us-east-1 region.
+2. Create your key pair and security group
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html">Create key pair and security group</a>
+
+3. Verify that you can see the public AMI on the us-east-1 region.
 
 `aws ec2 describe-images --region us-east-1 --image-id ami-051ba52c157e4070c`
 
