@@ -11,6 +11,6 @@ mkdir obj.gcc-${GCC_VERSION}
 cd gcc-${GCC_VERSION}
 ./contrib/download_prerequisites
 cd ../obj.gcc-${GCC_VERSION}
-../gcc-${GCC_VERSION}/configure --disable-multilib
+../gcc-${GCC_VERSION}/configure --disable-multilib --prefix /shared/build/gcc-9.3-install
 make -j $(nproc)
 sudo make install
