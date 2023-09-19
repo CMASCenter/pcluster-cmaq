@@ -1,0 +1,3 @@
+# packages in environment at /shared/build/mambaforge/envs/cmaqpy:
+#
+# Name                    Version                   Build  Channel
