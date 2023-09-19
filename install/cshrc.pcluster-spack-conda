@@ -1,0 +1,34 @@
+# start .cshrc
+
+umask 002
+
+if ( ! $?LD_LIBRARY_PATH ) then
+    setenv LD_LIBRARY_PATH /shared/build/netcdf/lib:/shared/build/sqlite-3.11/lib:/shared/build/pre2-install/include:/shared/build/cdo-install/lib:/shared/build/sqlite-3.11/lib:/shared/build/proj/libs4cdo-0.0.11/proj-4.8.0/src/.libs:/shared/build/proj/libs4cdo-0.0.11/build/lib:/usr/lib64/R/library/00LOCK-rgdal/00new/rgdal/libs/
+else
+    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib:/shared/build/sqlite-3.11/lib:/shared/build/pre2-install/include:/shared/build/cdo-install/lib:/shared/build/sqlite-3.11/lib:/shared/build/proj/libs4cdo-0.0.11/proj-4.8.0/src/.libs:/shared/build/proj/libs4cdo-0.0.11/build/lib:/usr/lib64/R/library/00LOCK-rgdal/00new/rgdal/libs/:/root/R/aarch64-koji-linux-gnu-library/4.0/00LOCK-rgdal/00new/rgdal/libs/
+endif
+
+set path = ($path /shared/build/netcdf/bin /shared/build/ioapi-3.2/Linux2_x86_64gfort /opt/slurm/bin/ /shared/build/sqlite-3.11/bin /shared/build/pre2-install/bin /home/ec2-user/.local/bin)
+
+if ($?tcsh) then
+   source /usr/share/Modules/init/tcsh
+else
+   source /usr/share/Modules/init/csh
+endif
+
+module use --append /shared/build/Modules/modulefiles
+
+module load openmpi libfabric-aws mamba python spack sqlite verdi conda cdolibs gcc ioapi-3.2
+
+
+alias SCR 'cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts'
+
+module use --append /shared/build/Modules/modulefiles
+
+alias python python3
+
+setenv R_LIBS /shared/build/R-packages
+
+source /shared/build/spack/share/spack/setup-env.csh
+
+conda activate cmaqpy
