@@ -23,7 +23,7 @@ copyright = '2022, CMAS Center'
 author = 'Liz Adams'
 html_logo = 'CMAQLogo.png'
 github_url = 'https://github.com/CMASCenter/pcluster-cmaq'
-last_updated
+last_updated = datetime.now()
 
 
 
