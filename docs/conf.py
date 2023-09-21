@@ -23,6 +23,8 @@ copyright = '2022, CMAS Center'
 author = 'Liz Adams'
 html_logo = 'CMAQLogo.png'
 github_url = 'https://github.com/CMASCenter/pcluster-cmaq'
+last_updated
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -55,8 +57,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'furo'
-last_updated
-html_last_updated_fmt = ''
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
