@@ -162,9 +162,9 @@ Output
   StreamFamilyMembers(2,1:1)= 'PT_EGU'
 ```
 
-:::alert{type=info}
+```note
 CMAQ won’t crash if the stream name in CMAQ_Control_DESID_<MECH>_RED_EGU_POINT_NY.nml was set incorrectly. CMAQ just ignores the incorrect stream name and won’t apply scaling.
-:::
+```
 
 5. **Update the DESID namelist file names in the run script to use the Reduced PT_EGU and diagnostic instructions.**
 
