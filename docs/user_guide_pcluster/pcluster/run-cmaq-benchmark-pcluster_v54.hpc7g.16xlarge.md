@@ -419,4 +419,13 @@ Running on  4x32 cores using the hpc7g.8xlarge instances
 `sbatch  run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.4x32.ncclassic.csh -w queue1-dy-compute-resource-2[1-4]`
 
 
-Once you have submitted a few benchmark runs and they have completed successfully, proceed to the next chapter.
+1. **Edit the CMAQ DESID Chemical Species Control File**
+
+```csh
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc
+cp CMAQ_Control_DESID_cb6r5_ae7_aq.nml CMAQ_Control_DESID_cb6r5_ae7_aq_RED_EGU_POINT_NY.nml
+vi CMAQ_Control_DESID_cb6r5_ae7_aq_RED_EGU_POINT_NY.nml
+```
+
+
+
