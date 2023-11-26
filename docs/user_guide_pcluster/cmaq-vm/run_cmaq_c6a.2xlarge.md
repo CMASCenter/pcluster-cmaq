@@ -166,3 +166,9 @@ i-xxxx
 
 `aws ec2 describe-instances --region=us-east-1`
 
+
+12. The cost to run the simulation per day is a factor of the simulation time and the cost per hour of the instance type (c6a.2xlarge on-demand cost is .306)
+
+166.93 seconds x 1 min/60seconds x 1 hour/60 min = .0459 hours
+
+.0459 hours x $.306/hour = $.014 per simulation day
