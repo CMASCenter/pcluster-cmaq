@@ -19,6 +19,9 @@ The ParallelCluster allows you to run the compute nodes only as long as the job 
 
 ```{note}
 *Hpc6a instances have simultaneous multi-threading disabled to optimize for HPC codes. This means that unlike other EC2 instances, Hpc6a vCPUs are physical cores, not threads.  *Hpc6a instances available in US East (Ohio) and GovCloud (US-West) *HPC6a is available ondemand only (no spot pricing)
+```
+
+```{note}
 *Two hpc7g.8xlarge nodes with 32 cores/node can run the 12US1 case as it has 256 GiB memory. hpc7g.16xlarge with 64cores/node only has 128 GiB memory, and can't run the 12US1 case on 1 node
 ```
 
