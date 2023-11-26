@@ -14,7 +14,7 @@ The ParallelCluster allows you to run the compute nodes only as long as the job 
 | 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | gp3 | 1.224  | 1.0008 | anywhere | .274    | $.335 |
 | 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit  | gp3 | 7.344  | 5.5809 | anywhere | .827    | $6.07 |
 | 12US1                | (459x299x35) | hpc6a.48xlarge | n/a  | 96 | 384 GiB | 100 Gbps     | gp3 | 2.88   | n/a    | us-east-2b | .877 | $2.53 |
-| 12US1                | (459x299x35) | hpc7g.8xlarge | n/a | 64 (2x32)  | 256 GiB      |  200 Gbps | gp3 | 1.6832*2cores | n/a    | us-east-1  | .855 | $2.87 |
+| 12US1                | (459x299x35) | hpc7g.8xlarge | n/a | 64 (2x32)  | 256 GiB      |  200 Gbps | gp3 | 1.6832*2nodes | n/a    | us-east-1  | .855 | $2.87 |
 
 
 ```{note}
