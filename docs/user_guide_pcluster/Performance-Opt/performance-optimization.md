@@ -8,17 +8,18 @@ The ParallelCluster allows you to run the compute nodes only as long as the job 
 
 ## CMAQv5.4 Benchmarks
 
-| Benchmark Name | Grid Domain | Recommended EC2 Instance| vCPU   |  Cores | Memory | EFA Network Bandwidth | Storage (EBS Only) | On Demand Hourly Cost | Spot Hourly Cost | Region |
-| -------------- | ----------- | ----------  | ------ | ---    |----    | ---------------       | ----  | -------------------   | -------------    | ----- | 
-| Training 12km Listos | (25x25x35)   | c6a.2xlarge    | 8 | 4 | 16 GiB | Up to 12500 Megabit | gp3 | 0.306 | 0.2879 | anywhere |
-| 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | gp3 | 1.224  | 1.0008 | anywhere |
-| 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit  | gp3 | 7.344  | 5.5809 | anywhere |
-| 12US1                | (459x299x35) | hpc6a.48xlarge | n/a  | 96 | 384 GiB | 100 Gbps     | gp3 | 2.88   | n/a    | us-east-2b |
-| 12US1                | (459x299x35) | hpc7g.16xlarge | n/a | 64  | 128 GiB      |  200 Gbps | gp3 | 1.6832 | n/a    | us-east-1  |
+| Benchmark Name | Grid Domain | Recommended EC2 Instance| vCPU   |  Cores | Memory | EFA Network Bandwidth | Storage (EBS Only) | On Demand Hourly Cost | Spot Hourly Cost | Region | Time (hr) per Simulation Day | Cost per Simulation Day |
+| -------------- | ----------- | ----------  | ------ | ---    |----    | ---------------       | ----  | -------------------   | -------------    | ----- | --- | --- |
+| Training 12km Listos | (25x25x35)   | c6a.2xlarge    | 8 | 4 | 16 GiB | Up to 12500 Megabit | gp3 | 0.306 | 0.2879 | anywhere | .0459 | $.014 |
+| 12NE3                | (100x100x35) | c6a.8xlarge   | 32  | 16 | 64 GiB | 12500 Megabit  | gp3 | 1.224  | 1.0008 | anywhere | .274    | $.335 |
+| 12US1                | (459x299x35) | c6a.48xlarge | 192 | 96|  384 GiB | 50000 Megabit  | gp3 | 7.344  | 5.5809 | anywhere | .827    | $6.07 |
+| 12US1                | (459x299x35) | hpc6a.48xlarge | n/a  | 96 | 384 GiB | 100 Gbps     | gp3 | 2.88   | n/a    | us-east-2b | .877 | $2.53 |
+| 12US1                | (459x299x35) | hpc7g.8xlarge | n/a | 64 (2x32)  | 256 GiB      |  200 Gbps | gp3 | 1.6832*2cores | n/a    | us-east-1  | .855 | $2.87 |
 
 
 ```{note}
 *Hpc6a instances have simultaneous multi-threading disabled to optimize for HPC codes. This means that unlike other EC2 instances, Hpc6a vCPUs are physical cores, not threads.  *Hpc6a instances available in US East (Ohio) and GovCloud (US-West) *HPC6a is available ondemand only (no spot pricing)
+*Two hpc7g.8xlarge nodes with 32 cores/node can run the 12US1 case as it has 256 GiB memory. hpc7g.16xlarge with 64cores/node only has 128 GiB memory, and can't run the 12US1 case on 1 node
 ```
 
 ```{note}
