@@ -1,0 +1,5 @@
+Cores	Nodes_CPU	COLROW	Day1 Timing (sec)	Day2 Timing (sec)	TotalTime	CPU Hours/day	InputData	Equation using On Demand Pricing	OnDemandCost
+128	2x64	8x16	2074.2	2298.9	4373.1	1.215	/fsx	1.6832/hr * 2 node * 1.214 =	4.089
+192	3x64	12x16	1617.1	1755.3	3372.4	0.937	/fsx	1.6832/hr * 3 node * .937 =	4.73
+256	4x64	16x16	1347.3	1501.4	2848.7	0.7913	/fsx	1.6832/hr * 4 node * .7913 =	5.327
+320	5x64	16x20	1177	1266.6	2443.6	0.6788	/fsx	1.6832/hr * 5 node * .6788 =	5.713

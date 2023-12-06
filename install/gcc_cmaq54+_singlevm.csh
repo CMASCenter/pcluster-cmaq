@@ -13,7 +13,7 @@ git clone -b 5.4+  https://github.com/USEPA/CMAQ.git CMAQ_REPO_v54+
 
 echo "downloaded CMAQ"
 cd CMAQ_REPO_v54+
-setenv PCLUSTER /shared/pcluster-cmaq
+setenv PCLUSTER /shared/pcluster-cmaq/install
 cp $PCLUSTER/bldit_project_v54+_singlevm.csh /shared/build/CMAQ_REPO_v54+
 ./bldit_project_v54+_singlevm.csh
 cd $BUILD/openmpi_gcc/CMAQ_v54+/CCTM/scripts/

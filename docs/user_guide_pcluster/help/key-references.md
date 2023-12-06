@@ -21,3 +21,9 @@
 ### AWS Well-Architected Framework
 
 <a href="https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/welcome.html">AWS Well-Architected Framework</a>
+
+### Cost Comparison on-premisis and cloud
+
+<a href="https://journal.fluidnumerics.com/seeing-clearly-in-the-cloud">WRF Performance on Google Cloud</a>
+
+<a href="https://journal.fluidnumerics.com/comparing-on-premise-and-cloud-costs-for-high-performance-computing>Comparing on-premise and cloud costs for hpc</a>

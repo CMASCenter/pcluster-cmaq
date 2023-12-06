@@ -1,9 +1,10 @@
-# CMAQv5.4 on Single Virtual Machine Advanced (optional) 
+# Create Single VM 
 
-Run CMAQv5.4+ on a single Virtual Machine (VM) using c6a.xlarge (4 CPUs) and Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1031-aws x86_64), then upgrade to c6a.48xlarge.
+Elastic Compute Cloud (EC2) Instances can be used to create a virtual machine.
+This tutorial will explain how to use a public Amazon Machine Image (AMI) that is pre-loaded with software and input data to run CMAQv5.4.
 
 ```{toctree}
-install.md
-install-netcdf-hdf5.md
-save_ami.md
+quick-start.md
+aws_cli_launch_vm_c6a.anysize.md
+run_cmaq_c6a.2xlarge.md
 ```

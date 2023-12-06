@@ -3,62 +3,47 @@
 %   You can adapt this file completely to your liking, but it should at least
 %   contain the root `toctree` directive.
 
-```{include} ../README.md
-:relative-images:
-```
+# CMAQ on AWS Tutorial
+
 ```{warning}
 This documentation is under continuous development
+Previous version is available here: <a href="https://pcluster-cmaq.readthedocs.io/en/cmaqv5.3.3/">CMAQv5.3.3 on AWS Tutorial</a>
 ```
 
-## Overview
+## Community Multiscale Air Quality Model 
 
-This document provides tutorials and information on how users can create High Performance Computers (Single Virtual Machine (VM) or ParallelCluster) on Amazon Web Service (AWS) using the AWS Command Line Interface. The tutorials are aimed at users with cloud computing experience that are already familiar with Amazon Web Service (AWS).  For those with no cloud computing experience we recommend reviewing the Additional Resources listed in [chapter 16](user_guide_pcluster/help/index.md) of this document.
+The Community Multiscale Air Quality (CMAQ) modeling system an active open-source development project of the U.S. EPA.  The CMAQ system is a Linux-based suite of models that requires significant computational resources and specific system configurations to run. CMAQ combines current knowledge in atmospheric science and air quality modeling, multi-processor computing techniques, and an open-source framework to deliver fast, technically sound estimates of ozone, particulates, toxics and acid deposition. <br>
 
- 
+* For additional background on CMAQ please visit the <a href="http://www.epa.gov/CMAQ">U.S. EPA CMAQ Website</a>.
+* CMAQ is a community modeling effort that is supported by the <a href="http://www.cmascenter.org">Community Modeling and Analysis System (CMAS) Center</a> at the University of North Caroline at Chapel Hill.
 
-## Format of this documentation
+## Tutorial Overview
 
-This document provides several hands-on tutorials that are designed to be read in order.  The Introductory Tutorial will walk you through creating a demo ParallelCluster.  You will learn how to set up your AWS Identity and Access Management Roles, configure and create a demo cluster, and exit and delete the cluster.  The Single VM Intermediate Tutorial will show you how to create a single virtual machine using an AMI that has the software and data pre-loaded and give instructions for creating the virtual machine using ec2 instances that have different number of cores, and are matched to the benchmark domain. The Single VM Advanced tutorial will show you how to install the CMAQv5.4 software and libraries, and how to create custom environment modules. The CMAQv5.4 Parallel Cluster Intermediate Chapter will show you how to run a CMAQv5.4 benchmarks on ParallelCluster using pre-loaded software and input data.  The CMAQv5.4 Parallel Cluster Advanced Chapter will show you how to install CMAQv5.4 and the libraries.  The CMAQv5.3.3 Parallel Cluster Intermediate chapter will show you how to run CMAQv5.3.3 using the 12US2 benchmark.  The CMAQv5.3.3 Advanced Tutorial explains how to scale the ParallelCluster for larger compute jobs and install CMAQv5.3.3 and required libraries from scratch on the cloud.  The Chapter "Benchmark on HPC6a-48xlarge with EBS and Lustre" uses CMAQv5.33 on advanced HPC6a compute nodes that are only available in the us-east-2 region. 
-The remaining sections provide instructions on post-processing CMAQ output, comparing output and runtimes from multiple simulations, and copying output from ParallelCluster to an AWS Simple Storage Service (S3) bucket.
+This document provides tutorials on how to use Amazon Web Service (AWS) <a href="https://aws.amazon.com/hpc/">high performance computing services</a>. AWS's Elastic Compute Cloud (EC2) allows you to create and run a single Linux virtual machine, or <b>Single VM</b>, in the cloud. Another AWS resource, <b> ParallelCluster</b>, is a cluster management tool that helps you to deploy and manage many VMs in the cloud. ParallelCluster is well suited for large modeling applications as it automatically sets up the required compute resources, scheduler, and shared file system. 
 
- 
+The following tutorials will walk you through running a CMAQ benchmark case on both a Single VM and on the more advanced ParallelCluster. A benchmark case is provided with pre-installed software allowing you to jump right into running CMAQ and post-processing model output for analysis and visualization.  The Developers Guide provided in Chapter 4 describes how to do the software installation process yourself in order to set up simulations tailored to your own applications.  
 
-## Why might I need to use ParallelCluster? 
+The tutorials are aimed at users with cloud computing experience that are already familiar with AWS.  For those with no cloud computing experience we recommend signing up for a free <a href="https://aws.amazon.com/education/awseducate/">AWS Educate account</a>, as it is open to any individual, regardless of where they are in their education, technical experience, or career journey. If you are a new user to AWS, you can sign up for a <a href="https://aws.amazon.com/free/">free tier account</a>. There are also low-cost tutorials available to learn Parallel Cluster from AWS: <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/6735ed89-c2de-4180-904c-40ac9fba7419/en-US/intro">Parallel Cluster Tutorial</a> and <a href="https://workshops.aws/categories/HPC">AWS Workshops on HPC Computing</a>.
 
-The AWS ParallelCluster may be configured to be the equivalent of a High Performance Computing (HPC) environment, including using job schedulers such as Slurm, running on multiple nodes using code compiled with Message Passing Interface (MPI), and reading and writing output to a high performance, low latency shared disk.  The advantage of using the AWS ParallelCluster command line interface is that the compute nodes can be easily scaled up or down to match the compute requirements of a given simulation. In addition, the user can reduce costs by using Spot instances rather than On-Demand for the compute nodes. ParallelCluster also supports submitting multiple jobs to the job submission queue.
+## User Support
 
-Our goal is make this user guide to running CMAQ on a ParallelCluster as helpful and user-friendly as possible. Any feedback is both welcome and appreciated.
- 
+Please share any issues or suggestions for running CMAQ on the Cloud to the CMAS User Forum, under the <a href="https://forum.cmascenter.org/t/about-the-cloud-computing-category/4285">Cloud Computing Category</a>. This forum is available for users and developers to discuss issues related to using the CMAQ system on the cloud. 
 
-Additional information on AWS ParallelCluster:
+To submit edits to this documentation see instructions available in <a href="https://cyclecloud-cmaq.readthedocs.io/en/latest/user_guide_cyclecloud/contribute/contribute.html">Contribute to this Tutorial.</a>
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/what-is-aws-parallelcluster.html">AWS ParallelCluster documentation</a>
-
-<a href="https://www.youtube.com/watch?v=r4RxT-IMtFY">AWS ParallelCluster training video</a>
-
-<a href="https://repost.aws/tags/TAjBvP4otfT3eX8PswbXo9AQ">AWS HPC discussion forum</a>
-
+## Table of Contents 
 
 ```{toctree}
    :numbered: 3
 :caption: 'Contents:'
-:maxdepth: 2
+:maxdepth: 1
 
-user_guide_pcluster/demo/index.md
-user_guide_pcluster/System-Req/index.md
-user_guide_pcluster/cmaq-vm-intermed/index.md
 user_guide_pcluster/cmaq-vm/index.md
-user_guide_pcluster/cmaqv54-cluster-intermed/index.md
-user_guide_pcluster/cmaqv54-cluster/index.md
-user_guide_pcluster/cmaq-cluster/index.md
-user_guide_pcluster/install/index.md
-user_guide_pcluster/benchmark/index.md
-user_guide_pcluster/post/index.md
-user_guide_pcluster/qa/index.md
-user_guide_pcluster/timing/index.md
-user_guide_pcluster/output/index.md
-user_guide_pcluster/logout/index.md
+user_guide_pcluster/pcluster/index.md
 user_guide_pcluster/Performance-Opt/index.md
+user_guide_pcluster/developers_guide/index.md
+user_guide_pcluster/post/index.md
+user_guide_pcluster/logout/index.md
 user_guide_pcluster/help/index.md
 user_guide_pcluster/future/index.md
 user_guide_pcluster/contribute/index.md

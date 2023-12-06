@@ -1,0 +1,70 @@
+<PlotConfig>
+					<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.footer_line_1_color" value="-16777216" />
+							<property type="java.lang.Integer" key="anl.verdi.plot.config.PlotConfiguration.domain_tick_number" value="10" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.units_tick_color" value="-16777216" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.range_tick_font" value="Dialog-plain-12" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.units_color" value="-12566464" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.range_font" value="Dialog-plain-12" />
+							<ColorMap intervalType="AUTOMATIC" scaleType="LINEAR" logBase="10.0" paletteType="SEQUENTIAL" min="0.0" max="40.0">
+    <Format type="anl.verdi.plot.util.PrintfNumberFormat" pattern="-2.3f" />
+    <Scale description="Color Scale">
+                        <Step>0.0</Step>
+                <Step>5.0</Step>
+                <Step>10.0</Step>
+                <Step>15.0</Step>
+                <Step>20.0</Step>
+                <Step>25.0</Step>
+                <Step>30.0</Step>
+                <Step>35.0</Step>
+            </Scale>
+    <Palette description="Tile Plot default" reverseColors="false">
+                <Color>-2105377</Color>
+                <Color>-16752641</Color>
+                <Color>-16740353</Color>
+                <Color>-16711715</Color>
+                <Color>-12124416</Color>
+                <Color>-2425088</Color>
+                <Color>-27904</Color>
+                <Color>-65536</Color>
+            </Palette>
+</ColorMap>
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.obs_legend_font" value="Dialog-plain-12" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.footer_line_1_auto_text" value="true" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.domain_tick_label_orientation" value="HORIZONTAL" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.footer_line_2_font" value="Dialog.plain-bold-12" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.domain_color" value="-12566464" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.subtitle1_show_line" value="TRUE" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.footer_line_1" value="December 22, 2017 23:00:00 UTC" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.range" value="" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.TilePlotConfiguration_grid_line_color" value="-8355712" />
+							<property type="anl.verdi.formula.Formula$Type" key="anl.verdi.plot.config.PlotConfiguration.plot_type" value="TILE" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.range_show_tick" value="true" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.units_show_tick" value="true" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.TilePlotConfiguration_layer_line_size" value="1" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.footer_line_2" value="Min (355, 204) = -0.121, Max (373, 172) = 170.908" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.range_color" value="-12566464" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.domain" value="" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.units_tick_font" value="Dialog-plain-12" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.range_tick_color" value="-12566464" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.footer_line_1_font" value="Dialog.plain-bold-12" />
+							<property type="java.lang.Integer" key="anl.verdi.plot.config.PlotConfiguration.units_tick_number" value="9" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.legend_show" value="true" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.footer_line_2_color" value="-16777216" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.footer_line_2_auto_text" value="true" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.domain_show_tick" value="true" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.domain_tick_color" value="-12566464" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.domain_tick_font" value="Dialog-plain-12" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.footer_show_line_2" value="true" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.footer_show_line_1" value="true" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.title_show_line" value="TRUE" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.subtitle2_show_line" value="TRUE" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.PlotConfiguration.obs_show_legend" value="false" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.units_font" value="Dialog-plain-12" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.PlotConfiguration.obs_legend_color" value="-16777216" />
+							<property type="java.awt.Font" key="anl.verdi.plot.config.PlotConfiguration.domain_font" value="Dialog-plain-12" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.TilePlotConfiguration_scatter_shape_size" value="8" />
+							<property type="java.awt.Color" key="anl.verdi.plot.config.TilePlotConfiguration_layer_line_color" value="-16777216" />
+							<property type="java.lang.Boolean" key="anl.verdi.plot.config.TilePlotConfiguration_show_grid_lines" value="false" />
+							<property type="java.lang.Integer" key="anl.verdi.plot.config.PlotConfiguration.range_tick_number" value="17" />
+							<property type="java.lang.String" key="anl.verdi.plot.config.PlotConfiguration.units" value="ug m-3" />
+		</PlotConfig>

@@ -240,7 +240,12 @@ module load openmpi/4.1.0
 ### Check what version of the gcc compiler is available
 
 ```
- gcc --version
+gcc --version
+```
+
+Output:
+
+```
 gcc (GCC) 8.3.1 20191121 (Red Hat 8.3.1-5)
 Copyright (C) 2018 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO

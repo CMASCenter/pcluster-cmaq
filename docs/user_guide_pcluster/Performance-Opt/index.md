@@ -6,5 +6,4 @@ Timing information and scaling plots to assist users in optimizing the performan
 
 ```{toctree}
 performance-optimization.md
-sdiff_compare.md
 ```

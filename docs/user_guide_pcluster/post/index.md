@@ -1,9 +1,9 @@
-# Post-process CMAQ and Install R 
+# Post-process and QA 
 
-Post-processing CMAQ Run, Install R and packages 
-Instructions to install R and packages for QA of CMAQ difference in output between two runs.
 
 ```{toctree}
-post-process-pcluster.md
-install_r_and_packages.md
+post/index.md
+qa/index.md
+timing/index.md
+output/index.md
 ```

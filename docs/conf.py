@@ -13,12 +13,13 @@
 import os
 import sys
 # sys.path.insert(0, os.path.abspath('.'))
+#sys.path.append(os.path.abspath('sphinxext'))
 sys.path.insert(0, os.path.abspath('_ext'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'pcluster-cmaq'
+project = 'aws-cmaq'
 copyright = '2022, CMAS Center'
 author = 'Liz Adams'
 html_logo = 'CMAQLogo.png'
@@ -34,6 +35,7 @@ extensions = ["myst_parser",
               "sphinx.ext.duration",
               "sphinx.ext.autosectionlabel",
               "sphinx.ext.autodoc",
+              "sphinx_copybutton",
               "nbsphinx", "edit_on_github" #MyST-NB
 ]
 
@@ -55,6 +57,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'furo'
+html_last_updated_fmt = '%Y-%m-%d %H:%M:%S %z'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

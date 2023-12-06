@@ -16,7 +16,7 @@ with Diagram("AWS Parallel Cluster", show=False):
         with Cluster("Head Node"):
             head = [EC2("c6a.xlarge")]
 
-        with Cluster("hpc6a.48xlarge - 96 CPU/compute node, Scalable by SLURM request"):
+        with Cluster("hpc6a.48xlarge - 96 cores/node, Scalable by SLURM request"):
             workers = [EC2("hpc6a.48xlarge"),
                         EC2("hpc6a.48xlarge"),
                         EC2("hpc6a.48xlarge")]
