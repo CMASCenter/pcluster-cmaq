@@ -6,8 +6,8 @@ set echo
 #  Download and build zlib
 #  ----------------------
 
-#   cd /proj/ie/proj/CMAS/CMAQ/AAQMS/build
-#   setenv BLD_DIR /proj/ie/proj/CMAS/CMAQ/AAQMS/build
+   cd /proj/ie/proj/CMAS/CMAQ/AAQMS/build
+   setenv BLD_DIR /proj/ie/proj/CMAS/CMAQ/AAQMS/build
 #   wget https://zlib.net/zlib-1.3.tar.gz
 #   tar -xzvf zlib-1.3.tar.gz
 #   cd zlib-1.3
@@ -18,22 +18,22 @@ set echo
 #  -----------------------
 #  Download and build HDF5
 #  -----------------------
-#   cd $BLD_DIR
-#   if [ ! /proj/ie/proj/CMAS/CMAQ/AAQMS/build/install/libhdf5.a ] then
-#	   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
-#  tar xvf hdf5-1.10.5.tar.gz
-#   rm -f hdf5-1.10.5.tar.gz
-#   cd hdf5-1.10.5
-#   export CFLAGS="-O3"
-#   export FFLAGS="-O3"
-#   export CXXFLAGS="-O3"
-#   export FCFLAGS="-O3"
-#   setenv  LDFLAGS -L/proj/ie/proj/CMAS/CMAQ/AAQMS/build/install/lib
-#   ./configure --prefix=/proj/ie/proj/CMAS/CMAQ/AAQMS/build/install --enable-fortran --enable-cxx --enable-shared --with-pic
-#   make |& tee make.gcc11.log
-#  make check > make.gcc11.check
-#   make install
-#   endif
+   cd $BLD_DIR
+   if [ ! /proj/ie/proj/CMAS/CMAQ/AAQMS/build/install/libhdf5.a ] then
+	   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
+  tar xvf hdf5-1.10.5.tar.gz
+   rm -f hdf5-1.10.5.tar.gz
+   cd hdf5-1.10.5
+   export CFLAGS="-O3"
+   export FFLAGS="-O3"
+   export CXXFLAGS="-O3"
+   export FCFLAGS="-O3"
+   setenv  LDFLAGS -L/proj/ie/proj/CMAS/CMAQ/AAQMS/build/install/lib
+   ./configure --prefix=/proj/ie/proj/CMAS/CMAQ/AAQMS/build/install --enable-fortran --enable-cxx --enable-shared --with-pic
+   make |& tee make.gcc11.log
+  make check > make.gcc11.check
+   make install
+   endif
 #  ---------------------------
 #  Download and build netCDF-C
 #  ---------------------------
@@ -66,14 +66,3 @@ set echo
    ./configure --with-pic --enable-shared --prefix=/proj/ie/proj/CMAS/CMAQ/AAQMS/build/install
    make |& tee make.gcc11.log
    make install
-   ### version of glibc on dogwood
-   ### rpm -q glibc
-   ###glibc-2.17-326.el7_9.x86_64
-
-   ## version of glibc on longleaf
-   ##rpm -q glibc
-   ##glibc-2.28-225.el8.x86_64
-
-   ## error message on dogwood: undefined reference to `powf@GLIBC_2.27
-
-   ### glibc-2.17-326.el7_9.i686
