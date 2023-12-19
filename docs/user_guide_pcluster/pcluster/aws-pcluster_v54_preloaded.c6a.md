@@ -76,14 +76,14 @@ SharedStorage:
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      Encrypted: true
+      Encrypted: false
       SnapshotId: snap-05a36eeec1f5267bd
   - MountDir: /fsx
     Name: name2
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ImportPath: s3://cmas-cmaq/CMAQv5.4_2018_12US1_Benchmark_2Day_Input/
+      ImportPath: s3://cmas-cmaq/ 
 ```
 
 The Yaml file for the c6a.large-48xlarge contains the settings as shown in the following diagram.
