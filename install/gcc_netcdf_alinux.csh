@@ -85,4 +85,4 @@ cd $DIR/netcdf/bin
 #    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/shared/build/netcdf/lib
 #endif
 
-cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
+#cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
