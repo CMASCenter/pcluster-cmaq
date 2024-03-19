@@ -38,7 +38,7 @@ SharedStorage:
     EbsSettings:
       VolumeType: gp3
       Encrypted: false
-      SnapshotId: snap-0d40f0e5e222d6993 
+      SnapshotId: snap-0093ba4bfd24c25d6 
       Size: 200
   - MountDir: /fsx
     Name: name2
