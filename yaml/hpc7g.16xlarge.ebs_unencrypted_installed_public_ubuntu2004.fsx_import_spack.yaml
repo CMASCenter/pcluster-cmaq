@@ -1,6 +1,6 @@
 Region: us-east-1
 Image:
-  Os: ubuntu2004
+  Os: alinux2 
 HeadNode:
   InstanceType: c7g.xlarge
   Networking:
@@ -27,15 +27,7 @@ Scheduling:
         - Name: compute-resource-1
           InstanceType: hpc7g.16xlarge
           MinCount: 0
-          MaxCount: 12
-          DisableSimultaneousMultithreading: true
-          Efa:
-            Enabled: true
-            GdrSupport: false
-        - Name: compute-resource-2
-          InstanceType: hpc7g.8xlarge
-          MinCount: 0
-          MaxCount: 7
+          MaxCount: 3
           DisableSimultaneousMultithreading: true
           Efa:
             Enabled: true
