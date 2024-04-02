@@ -376,6 +376,8 @@ Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and
 * Note, Lustre Filesystem is created before Azure CycleCloud, and would need manual deletion after the run, recommend using Beeond Filesystem due to level of difficulty of provisioning Lustre Filesystem on CycleCloud
 * Assuming that you have the scheduler node running 2x longer than the compute nodes
 
+Timings for the CycleCloud Cluster are available on the tutorial: <a href="https://cyclecloud-cmaq.readthedocs.io/en/latest/user_guide_cyclecloud/Performance-Opt/performance-optimization.html#slurm-compute-node-provisioning">CycleCloud 12US1 Benchmark Results</a>
+
 
 
 # Recommended Workflow for extending to annual run
