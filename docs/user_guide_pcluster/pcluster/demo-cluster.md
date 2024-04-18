@@ -8,7 +8,7 @@ AWS Identity and Access Management Roles
 Requires the user to have AWS Identity and Access Management roles in AWS ParallelCluster
 
 ```{seealso}
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam.html">AWS Identity and Access Management roles in AWS ParallelCluster</a>
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/iam-roles-in-parallelcluster-v3.html">AWS Identity and Access Management roles in AWS ParallelCluster</a>
 ```
 
 AWS ParallelCluster uses multiple AWS services to deploy and operate a cluster. See the complete list in the AWS Services used in AWS ParallelCluster section.
