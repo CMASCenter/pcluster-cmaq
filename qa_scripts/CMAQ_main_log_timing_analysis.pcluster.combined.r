@@ -16,9 +16,9 @@ b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2d
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case. 
-base.name <- c('192pe_fsx','288pe_fsx','384pe_fsx','480pe_fsx','576pe_fsx','96pe_ebs','192pe_ebs','288pe_ebs','384pe_ebs','480pe_ebs','576pe_ebs')
+base.name <- c('196','288','384','480','576','96','192','288','384','480','576')
 #base.name <- c('data_pin')
-sens.name <- c('96pe_fsx')
+sens.name <- c('96')
 
 # Simulation parameters
 
@@ -50,6 +50,7 @@ for( comp in Compilers) {
 #      if(i%in%grep('debug',files)==F & i%in%grep(comp,files)){
          file <- files[i]
          b.names <- append(b.names,paste(all.names[i]))
+
          data.in  <- scan(file,what='character',sep='\n')
 # get timing info
          Timing <-  as.numeric(substr(data.in[grep('completed...',data.in)],36,42))
@@ -80,6 +81,19 @@ for( comp in Compilers) {
          bar.data <- cbind(bar.data,tmp.data)
    #   }
    }
+#Couldn't get this broup by category working.
+   #tried to use this example: https://www.geeksforgeeks.org/how-to-create-a-grouped-barplot-in-r/
+            gfg <- data.frame(x=b.names, grp = rep(c("fsx", "ebs"), each = 6), subgroup = LETTERS[1:6])
+           # Modifying data 
+            gfg <- reshape(gfg,idvar = "subgroup", timevar = "grp", direction = "wide")
+
+	    row.names(gfg) <- gfg$subgroup
+	    gfg <- gfg[ , 2:ncol(gfg)]
+	    colnames(gfg) <- c("fsx", "ebs")
+	    gfg <- as.matrix(gfg)
+
+	    # Create grouped barplot 
+	   # barplot(height = 768,beside = TRUE)
 
    n.proc.plot <- append(n.proc, "OTHER")
    
@@ -92,10 +106,12 @@ for( comp in Compilers) {
    xmax <- dim(bar.data)[2]*1.2
    png(file = paste('hpc6a_fsx_lustre_1-6nodes_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1280, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on /fsx (lustre) and /ebs (shared) using 1-6 nodes with 96 cpus/node on HPC6a with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,6000.))
+   my_bar <- barplot(bar.data, main = 'Process Timing on /fsx (lustre) and /ebs (shared) using 1-6 nodes with 96 cores/node on HPC6a with pinning',names.arg = b.names,ylab='seconds',xlab = "Cores(Left - fsx,Right - ebs))" , names = c("fsx", "ebs"), col = my.colors,legend = n.proc.plot,xlim = c(0.,xmax),ylim = c(0.,6000.))
    box()
    # Add abline
    abline(v=c(7.3) , col="grey")
+   # Add the text 
+   text(my_bar, data$average+0.4 , paste("shared", sep="") ,cex=1) 
 
    dev.off()
  
