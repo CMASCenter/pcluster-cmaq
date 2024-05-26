@@ -104,9 +104,9 @@ for( comp in Compilers) {
    my.colors <- brewer.pal(12, "Paired")
    #my.colors <- terrain.colors(length(n.proc))
    xmax <- dim(bar.data)[2]*1.2
-   png(file = paste('hpc6a_fsx_lustre_1-6nodes_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1280, height = 768, bg='white')
+   png(file = paste('hpc6a_fsx_shared_1-6nodes_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1280, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   my_bar <- barplot(bar.data, main = 'Process Timing on /fsx (lustre) and /ebs (shared) using 1-6 nodes with 96 cores/node on HPC6a with pinning',names.arg = b.names,ylab='seconds',xlab = "Cores(Left - fsx,Right - ebs))" , names = c("fsx", "ebs"), col = my.colors,legend = n.proc.plot,xlim = c(0.,xmax),ylim = c(0.,6000.))
+   my_bar <- barplot(bar.data, main = 'Process Timing on /fsx (lustre) and /ebs (shared) using 1-6 nodes with 96 cores/node on HPC6a with pinning',names.arg = b.names,ylab='seconds',xlab = "Cores,Filesystem(Left - fsx,Right - ebs))" , names = c("fsx", "ebs"), col = my.colors,legend = n.proc.plot,xlim = c(0.,xmax),ylim = c(0.,6000.))
    box()
    # Add abline
    abline(v=c(7.3) , col="grey")
