@@ -1,0 +1,575 @@
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:010000
+       Which is Equivalent to (UTC): 1:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.3 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:020000
+       Which is Equivalent to (UTC): 2:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.3 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:030000
+       Which is Equivalent to (UTC): 3:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:040000
+       Which is Equivalent to (UTC): 4:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.5 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    1.2 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:050000
+       Which is Equivalent to (UTC): 5:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    5.4 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    1.2 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:060000
+       Which is Equivalent to (UTC): 6:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.0 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.1 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:070000
+       Which is Equivalent to (UTC): 7:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    5.3 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:080000
+       Which is Equivalent to (UTC): 8:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.6 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:090000
+       Which is Equivalent to (UTC): 9:00:00  Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:100000
+       Which is Equivalent to (UTC): 10:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.7 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    5.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:110000
+       Which is Equivalent to (UTC): 11:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.4 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    1.0 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:120000
+       Which is Equivalent to (UTC): 12:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:130000
+       Which is Equivalent to (UTC): 13:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.5 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:140000
+       Which is Equivalent to (UTC): 14:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.8 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:150000
+       Which is Equivalent to (UTC): 15:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.6 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:160000
+       Which is Equivalent to (UTC): 16:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.1 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:170000
+       Which is Equivalent to (UTC): 17:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.2 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:180000
+       Which is Equivalent to (UTC): 18:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.8 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:190000
+       Which is Equivalent to (UTC): 19:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.4 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:200000
+       Which is Equivalent to (UTC): 20:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:210000
+       Which is Equivalent to (UTC): 21:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:220000
+       Which is Equivalent to (UTC): 22:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015356:230000
+       Which is Equivalent to (UTC): 23:00:00 Tuesday,  Dec. 22, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.2 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+
+     ==============================================
+     |>---   PROGRAM COMPLETED SUCCESSFULLY   ---<|
+     ==============================================
+     Date and time 0:00:00   Dec. 23, 2015  (2015357:000000)
+
+     The elapsed time for this simulation was    1003.2 seconds.
+
+real 1021.14
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:010000
+       Which is Equivalent to (UTC): 1:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.4 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:020000
+       Which is Equivalent to (UTC): 2:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.1 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.8 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:030000
+       Which is Equivalent to (UTC): 3:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    6.0 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:040000
+       Which is Equivalent to (UTC): 4:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.5 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:050000
+       Which is Equivalent to (UTC): 5:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:060000
+       Which is Equivalent to (UTC): 6:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    2.2 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.0 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:070000
+       Which is Equivalent to (UTC): 7:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:080000
+       Which is Equivalent to (UTC): 8:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:090000
+       Which is Equivalent to (UTC): 9:00:00  Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:100000
+       Which is Equivalent to (UTC): 10:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:110000
+       Which is Equivalent to (UTC): 11:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    5.5 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.9 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:120000
+       Which is Equivalent to (UTC): 12:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:130000
+       Which is Equivalent to (UTC): 13:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    2.1 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.0 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.1 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.7 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:140000
+       Which is Equivalent to (UTC): 14:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:150000
+       Which is Equivalent to (UTC): 15:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    2.1 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    3.1 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:160000
+       Which is Equivalent to (UTC): 16:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000500
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.9 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:170000
+       Which is Equivalent to (UTC): 17:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.6 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:180000
+       Which is Equivalent to (UTC): 18:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.4 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:190000
+       Which is Equivalent to (UTC): 19:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.6 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:200000
+       Which is Equivalent to (UTC): 20:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.9 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.7 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:210000
+       Which is Equivalent to (UTC): 21:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    2.0 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    4.3 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:220000
+       Which is Equivalent to (UTC): 22:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.5 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+     Processing Day/Time [YYYYDDD:HHMMSS]: 2015357:230000
+       Which is Equivalent to (UTC): 23:00:00 Wednesday,  Dec. 23, 2015
+       Time-Step Length (HHMMSS): 000400
+                 VDIFF completed...    1.8 seconds
+                COUPLE completed...    0.0 seconds
+                  HADV completed...    2.4 seconds
+                  ZADV completed...    0.0 seconds
+                 HDIFF completed...    0.0 seconds
+              DECOUPLE completed...    0.0 seconds
+--
+      =--> Data Output completed...    0.6 seconds
+
+
+     ==============================================
+     |>---   PROGRAM COMPLETED SUCCESSFULLY   ---<|
+     ==============================================
+     Date and time 0:00:00   Dec. 24, 2015  (2015358:000000)
+
+     The elapsed time for this simulation was    1014.8 seconds.
+
+real 1025.22

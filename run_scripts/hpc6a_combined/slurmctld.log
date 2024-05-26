@@ -1,0 +1,1339 @@
+[2022-10-07T18:20:47.651] error: Configured MailProg is invalid
+[2022-10-07T18:20:47.652] slurmctld version 21.08.6 started on cluster parallelcluster
+[2022-10-07T18:20:49.572] No memory enforcing mechanism configured.
+[2022-10-07T18:20:49.974] error: Could not open node state file /var/spool/slurm.state/node_state: No such file or directory
+[2022-10-07T18:20:49.974] error: NOTE: Trying backup state save file. Information may be lost!
+[2022-10-07T18:20:49.974] No node state file (/var/spool/slurm.state/node_state.old) to recover
+[2022-10-07T18:20:49.974] error: Could not open job state file /var/spool/slurm.state/job_state: No such file or directory
+[2022-10-07T18:20:49.974] error: NOTE: Trying backup state save file. Jobs may be lost!
+[2022-10-07T18:20:49.974] No job state file (/var/spool/slurm.state/job_state.old) to recover
+[2022-10-07T18:20:49.974] select/cons_tres: part_data_create_array: select/cons_tres: preparing for 1 partitions
+[2022-10-07T18:20:50.155] error: Could not open reservation state file /var/spool/slurm.state/resv_state: No such file or directory
+[2022-10-07T18:20:50.155] error: NOTE: Trying backup state save file. Reservations may be lost
+[2022-10-07T18:20:50.155] No reservation state file (/var/spool/slurm.state/resv_state.old) to recover
+[2022-10-07T18:20:50.155] error: Could not open trigger state file /var/spool/slurm.state/trigger_state: No such file or directory
+[2022-10-07T18:20:50.155] error: NOTE: Trying backup state save file. Triggers may be lost!
+[2022-10-07T18:20:50.155] No trigger state file (/var/spool/slurm.state/trigger_state.old) to recover
+[2022-10-07T18:20:50.155] read_slurm_conf: backup_controller not specified
+[2022-10-07T18:20:50.155] Reinitializing job accounting state
+[2022-10-07T18:20:50.155] select/cons_tres: select_p_reconfigure: select/cons_tres: reconfigure
+[2022-10-07T18:20:50.155] select/cons_tres: part_data_create_array: select/cons_tres: preparing for 1 partitions
+[2022-10-07T18:20:50.155] Running as primary controller
+[2022-10-07T18:20:50.156] No parameter for mcs plugin, default values set
+[2022-10-07T18:20:50.156] mcs: MCSParameters = (null). ondemand set.
+[2022-10-07T18:21:50.441] SchedulerParameters=default_queue_depth=100,max_rpc_cnt=0,max_sched_time=2,partition_job_depth=0,sched_max_job_start=0,sched_min_interval=2
+[2022-10-07T18:25:55.005] error: Could not open job state file /var/spool/slurm.state/job_state: No such file or directory
+[2022-10-07T18:25:55.005] error: NOTE: Trying backup state save file. Jobs may be lost!
+[2022-10-07T18:25:55.005] No job state file (/var/spool/slurm.state/job_state.old) found
+[2022-10-07T18:34:10.269] _slurm_rpc_submit_batch_job: JobId=1 InitPrio=4294901759 usec=848
+[2022-10-07T18:34:10.963] sched/backfill: _start_job: Started JobId=1 in queue1 on queue1-dy-compute-resource-1-1
+[2022-10-07T18:37:18.958] Node queue1-dy-compute-resource-1-1 now responding
+[2022-10-07T18:37:20.362] job_time_limit: Configuration for JobId=1 complete
+[2022-10-07T18:37:20.362] Resetting JobId=1 start time for node power up
+[2022-10-07T18:37:25.260] _job_complete: JobId=1 WEXITSTATUS 0
+[2022-10-07T18:37:25.260] _job_complete: JobId=1 done
+[2022-10-07T18:38:13.954] _slurm_rpc_submit_batch_job: JobId=2 InitPrio=4294901758 usec=309
+[2022-10-07T18:38:14.410] sched: Allocate JobId=2 NodeList=queue1-dy-compute-resource-1-1 #CPUs=96 Partition=queue1
+[2022-10-07T18:38:27.174] _job_complete: JobId=2 WEXITSTATUS 0
+[2022-10-07T18:38:27.174] _job_complete: JobId=2 done
+[2022-10-07T18:39:47.161] _slurm_rpc_submit_batch_job: JobId=3 InitPrio=4294901757 usec=346
+[2022-10-07T18:39:47.495] sched: Allocate JobId=3 NodeList=queue1-dy-compute-resource-1-1 #CPUs=96 Partition=queue1
+[2022-10-07T18:39:57.214] _job_complete: JobId=3 WEXITSTATUS 0
+[2022-10-07T18:39:57.214] _job_complete: JobId=3 done
+[2022-10-07T18:44:18.958] _slurm_rpc_submit_batch_job: JobId=4 InitPrio=4294901756 usec=290
+[2022-10-07T18:44:19.759] sched: Allocate JobId=4 NodeList=queue1-dy-compute-resource-1-1 #CPUs=96 Partition=queue1
+[2022-10-07T18:58:50.105] _slurm_rpc_submit_batch_job: JobId=5 InitPrio=4294901755 usec=265
+[2022-10-07T18:58:50.590] sched: Allocate JobId=5 NodeList=queue1-dy-compute-resource-1-2 #CPUs=96 Partition=queue1
+[2022-10-07T19:01:38.184] Node queue1-dy-compute-resource-1-2 now responding
+[2022-10-07T19:01:50.769] job_time_limit: Configuration for JobId=5 complete
+[2022-10-07T19:01:50.769] Resetting JobId=5 start time for node power up
+[2022-10-07T19:01:51.737] _job_complete: JobId=5 WEXITSTATUS 1
+[2022-10-07T19:01:51.737] _job_complete: JobId=5 done
+[2022-10-07T19:09:23.527] _slurm_rpc_submit_batch_job: JobId=6 InitPrio=4294901754 usec=354
+[2022-10-07T19:09:24.051] sched/backfill: _start_job: Started JobId=6 in queue1 on queue1-dy-compute-resource-1-3
+[2022-10-07T19:12:27.561] Node queue1-dy-compute-resource-1-3 now responding
+[2022-10-07T19:12:50.399] job_time_limit: Configuration for JobId=6 complete
+[2022-10-07T19:12:50.399] Resetting JobId=6 start time for node power up
+[2022-10-07T19:13:26.399] _job_complete: JobId=6 WEXITSTATUS 1
+[2022-10-07T19:13:26.399] _job_complete: JobId=6 done
+[2022-10-07T19:27:13.195] _slurm_rpc_submit_batch_job: JobId=7 InitPrio=4294901753 usec=305
+[2022-10-07T19:27:13.244] sched: Allocate JobId=7 NodeList=queue1-dy-compute-resource-1-[2-3] #CPUs=192 Partition=queue1
+[2022-10-07T19:27:45.177] _slurm_rpc_kill_job: REQUEST_KILL_JOB JobId=7 uid 1000
+[2022-10-07T19:29:52.552] _slurm_rpc_submit_batch_job: JobId=8 InitPrio=4294901752 usec=350
+[2022-10-07T19:29:53.386] sched: Allocate JobId=8 NodeList=queue1-dy-compute-resource-1-2 #CPUs=96 Partition=queue1
+[2022-10-07T19:29:57.505] Node queue1-dy-compute-resource-1-3 now responding
+[2022-10-07T19:29:57.511] Node queue1-dy-compute-resource-1-2 now responding
+[2022-10-07T19:30:20.411] job_time_limit: Configuration for JobId=8 complete
+[2022-10-07T19:30:20.411] Resetting JobId=8 start time for node power up
+[2022-10-07T19:30:37.485] _job_complete: JobId=8 WEXITSTATUS 0
+[2022-10-07T19:30:37.485] _job_complete: JobId=8 done
+[2022-10-07T19:30:50.441] error: Nodes queue1-dy-compute-resource-1-[2-3] not responding
+[2022-10-07T19:31:40.762] _slurm_rpc_submit_batch_job: JobId=9 InitPrio=4294901751 usec=335
+[2022-10-07T19:31:41.499] sched: Allocate JobId=9 NodeList=queue1-dy-compute-resource-1-2 #CPUs=96 Partition=queue1
+[2022-10-07T19:31:49.361] _job_complete: JobId=9 WEXITSTATUS 0
+[2022-10-07T19:31:49.361] _job_complete: JobId=9 done
+[2022-10-07T19:33:50.976] _slurm_rpc_submit_batch_job: JobId=10 InitPrio=4294901750 usec=343
+[2022-10-07T19:33:53.618] sched: Allocate JobId=10 NodeList=queue1-dy-compute-resource-1-2 #CPUs=96 Partition=queue1
+[2022-10-07T19:41:25.140] _slurm_rpc_submit_batch_job: JobId=11 InitPrio=4294901749 usec=335
+[2022-10-07T19:41:26.054] sched: Allocate JobId=11 NodeList=queue1-dy-compute-resource-1-[3-4] #CPUs=192 Partition=queue1
+[2022-10-07T19:41:49.323] _slurm_rpc_kill_job: REQUEST_KILL_JOB JobId=11 uid 1000
+[2022-10-07T19:41:49.333] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:41:49.333] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T19:41:49.333] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T19:44:17.704] _slurm_rpc_submit_batch_job: JobId=12 InitPrio=4294901748 usec=314
+[2022-10-07T19:44:18.128] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3-4]
+[2022-10-07T19:44:23.992] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T19:44:23.992] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T19:44:23.992] Requeuing JobId=12
+[2022-10-07T19:44:23.992] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T19:44:23.994] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:44:23.994] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T19:44:23.994] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T19:45:06.371] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T19:45:06.371] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T19:46:47.667] Node queue1-dy-compute-resource-1-3 now responding
+[2022-10-07T19:46:48.129] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3,5]
+[2022-10-07T19:46:54.266] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T19:46:54.266] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-5
+[2022-10-07T19:46:54.266] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T19:46:54.274] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:46:54.274] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T19:46:54.274] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T19:46:54.274] Requeuing JobId=12
+[2022-10-07T19:47:06.397] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T19:47:06.397] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T19:49:18.129] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3,6]
+[2022-10-07T19:49:24.472] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T19:49:24.472] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-6
+[2022-10-07T19:49:24.472] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T19:49:24.479] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:49:24.479] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T19:49:24.479] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T19:49:24.482] Requeuing JobId=12
+[2022-10-07T19:50:06.542] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T19:50:06.542] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T19:50:50.583] error: Nodes queue1-dy-compute-resource-1-3 not responding
+[2022-10-07T19:51:48.130] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3,7]
+[2022-10-07T19:51:53.834] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T19:51:53.834] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T19:51:53.834] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T19:51:53.839] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:51:53.839] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T19:51:53.839] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T19:51:53.839] Requeuing JobId=12
+[2022-10-07T19:52:06.528] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T19:52:06.528] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T19:54:18.131] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3,8]
+[2022-10-07T19:54:24.220] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T19:54:24.220] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T19:54:24.220] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T19:54:24.224] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:54:24.224] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T19:54:24.224] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T19:54:24.225] Requeuing JobId=12
+[2022-10-07T19:55:06.666] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T19:55:06.666] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T19:56:48.132] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3,9]
+[2022-10-07T19:56:53.840] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T19:56:53.840] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-9
+[2022-10-07T19:56:53.840] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T19:56:53.844] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:56:53.844] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T19:56:53.844] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T19:56:53.847] Requeuing JobId=12
+[2022-10-07T19:57:06.858] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T19:57:06.858] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T19:59:18.133] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[3,10]
+[2022-10-07T19:59:23.930] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T19:59:23.930] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-10
+[2022-10-07T19:59:23.930] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T19:59:23.935] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T19:59:23.935] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T19:59:23.935] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T19:59:23.937] Requeuing JobId=12
+[2022-10-07T20:00:07.062] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T20:00:07.062] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T20:01:50.229] sched: Allocate JobId=12 NodeList=queue1-dy-compute-resource-1-[3-4] #CPUs=192 Partition=queue1
+[2022-10-07T20:01:54.627] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:01:54.627] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:01:54.627] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:01:54.631] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:01:54.631] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:01:54.631] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:01:54.633] Requeuing JobId=12
+[2022-10-07T20:02:07.035] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:02:07.035] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:04:50.389] sched: Allocate JobId=12 NodeList=queue1-dy-compute-resource-1-[3,5] #CPUs=192 Partition=queue1
+[2022-10-07T20:04:53.458] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:04:53.458] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-5
+[2022-10-07T20:04:53.458] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:04:53.461] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:04:53.461] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:04:53.461] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:04:53.461] Requeuing JobId=12
+[2022-10-07T20:05:07.208] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:05:07.208] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:07:50.571] sched: Allocate JobId=12 NodeList=queue1-dy-compute-resource-1-[3-4] #CPUs=192 Partition=queue1
+[2022-10-07T20:07:53.185] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:07:53.185] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:07:53.185] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:07:53.189] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:07:53.189] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:07:53.189] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:07:53.191] Requeuing JobId=12
+[2022-10-07T20:08:07.317] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:08:07.317] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:10:50.741] sched: Allocate JobId=12 NodeList=queue1-dy-compute-resource-1-[3,5] #CPUs=192 Partition=queue1
+[2022-10-07T20:10:53.375] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:10:53.375] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-5
+[2022-10-07T20:10:53.376] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:10:53.379] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:10:53.379] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:10:53.379] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:10:53.382] Requeuing JobId=12
+[2022-10-07T20:11:07.388] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:11:07.388] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:13:50.914] sched: Allocate JobId=12 NodeList=queue1-dy-compute-resource-1-[3-4] #CPUs=192 Partition=queue1
+[2022-10-07T20:13:53.229] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:13:53.229] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:13:53.229] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:13:53.232] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:13:53.232] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:13:53.232] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:13:53.235] Requeuing JobId=12
+[2022-10-07T20:14:07.518] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:14:07.518] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:16:50.086] sched: Allocate JobId=12 NodeList=queue1-dy-compute-resource-1-[3,5] #CPUs=192 Partition=queue1
+[2022-10-07T20:16:53.179] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:16:53.179] requeue job JobId=12 due to failure of node queue1-dy-compute-resource-1-5
+[2022-10-07T20:16:53.179] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:16:53.183] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:16:53.184] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:16:53.184] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:16:53.186] Requeuing JobId=12
+[2022-10-07T20:16:57.605] _job_complete: JobId=4 WEXITSTATUS 0
+[2022-10-07T20:16:57.605] _job_complete: JobId=4 done
+[2022-10-07T20:17:07.639] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:17:07.639] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:19:18.140] sched/backfill: _start_job: Started JobId=12 in queue1 on queue1-dy-compute-resource-1-[1,3]
+[2022-10-07T20:29:01.230] _slurm_rpc_submit_batch_job: JobId=13 InitPrio=4294901747 usec=318
+[2022-10-07T20:29:01.785] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[4-6] #CPUs=288 Partition=queue1
+[2022-10-07T20:29:22.967] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:29:22.967] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:29:22.967] Requeuing JobId=13
+[2022-10-07T20:29:22.967] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:29:22.967] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:29:22.967] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:29:22.967] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T20:29:22.967] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T20:29:22.970] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:29:22.970] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T20:29:22.970] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T20:29:22.973] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:29:22.973] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:29:22.973] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:29:22.976] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:29:22.976] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:29:22.976] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:30:08.221] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:30:08.221] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:30:08.221] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:30:08.221] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:30:08.221] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T20:30:08.221] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T20:31:50.045] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[7-9] #CPUs=288 Partition=queue1
+[2022-10-07T20:31:53.374] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T20:31:53.374] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T20:31:53.374] Requeuing JobId=13
+[2022-10-07T20:31:53.374] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T20:31:53.374] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T20:31:53.374] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T20:31:53.374] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T20:31:53.374] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T20:31:53.380] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:31:53.380] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T20:31:53.380] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T20:31:53.383] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:31:53.384] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T20:31:53.384] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T20:31:53.386] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:31:53.386] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T20:31:53.387] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T20:32:08.302] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T20:32:08.302] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T20:32:08.302] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T20:32:08.302] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T20:32:08.302] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T20:32:08.302] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T20:34:50.216] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[4-6] #CPUs=288 Partition=queue1
+[2022-10-07T20:34:53.087] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:34:53.087] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:34:53.087] Requeuing JobId=13
+[2022-10-07T20:34:53.087] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:34:53.087] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:34:53.087] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:34:53.087] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T20:34:53.087] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T20:34:53.091] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:34:53.091] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T20:34:53.091] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T20:34:53.097] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:34:53.097] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:34:53.097] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:34:53.100] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:34:53.100] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:34:53.101] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:35:08.473] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:35:08.473] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:35:08.473] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:35:08.474] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:35:08.474] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T20:35:08.474] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T20:37:50.393] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[7-9] #CPUs=288 Partition=queue1
+[2022-10-07T20:37:53.658] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T20:37:53.658] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T20:37:53.658] Requeuing JobId=13
+[2022-10-07T20:37:53.658] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T20:37:53.658] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T20:37:53.658] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T20:37:53.658] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T20:37:53.658] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T20:37:53.661] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:37:53.661] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T20:37:53.661] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T20:37:53.664] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:37:53.664] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T20:37:53.664] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T20:37:53.666] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:37:53.667] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T20:37:53.667] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T20:38:08.561] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T20:38:08.561] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T20:38:08.561] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T20:38:08.561] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T20:38:08.561] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T20:38:08.561] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T20:40:50.562] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[4-6] #CPUs=288 Partition=queue1
+[2022-10-07T20:40:53.168] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:40:53.168] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:40:53.168] Requeuing JobId=13
+[2022-10-07T20:40:53.168] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:40:53.168] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:40:53.168] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:40:53.168] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T20:40:53.168] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T20:40:53.172] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:40:53.172] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T20:40:53.172] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T20:40:53.174] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:40:53.175] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:40:53.175] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:40:53.178] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:40:53.178] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:40:53.178] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:41:08.693] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:41:08.693] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:41:08.693] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:41:08.693] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:41:08.693] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T20:41:08.693] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T20:43:50.800] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[7-9] #CPUs=288 Partition=queue1
+[2022-10-07T20:43:53.399] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T20:43:53.399] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T20:43:53.399] Requeuing JobId=13
+[2022-10-07T20:43:53.399] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T20:43:53.399] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T20:43:53.399] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T20:43:53.399] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T20:43:53.399] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T20:43:53.403] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:43:53.403] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T20:43:53.403] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T20:43:53.406] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:43:53.406] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T20:43:53.406] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T20:43:53.409] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:43:53.409] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T20:43:53.409] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T20:44:08.798] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T20:44:08.798] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T20:44:08.798] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T20:44:08.798] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T20:44:08.798] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T20:44:08.798] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T20:46:50.973] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[4-6] #CPUs=288 Partition=queue1
+[2022-10-07T20:46:53.276] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:46:53.276] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:46:53.276] Requeuing JobId=13
+[2022-10-07T20:46:53.276] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:46:53.276] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:46:53.276] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:46:53.276] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T20:46:53.276] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T20:46:53.281] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:46:53.281] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T20:46:53.281] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T20:46:53.284] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:46:53.284] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:46:53.284] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:46:53.287] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:46:53.287] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:46:53.287] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:47:09.151] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:47:09.151] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:47:09.151] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:47:09.151] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:47:09.151] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T20:47:09.151] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T20:49:50.145] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[7-9] #CPUs=288 Partition=queue1
+[2022-10-07T20:49:53.293] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T20:49:53.293] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T20:49:53.293] Requeuing JobId=13
+[2022-10-07T20:49:53.293] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T20:49:53.293] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T20:49:53.293] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T20:49:53.293] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T20:49:53.293] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T20:49:53.296] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:49:53.296] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T20:49:53.296] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T20:49:53.299] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:49:53.299] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T20:49:53.299] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T20:49:53.302] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:49:53.302] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T20:49:53.302] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T20:50:09.041] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T20:50:09.041] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T20:50:09.041] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T20:50:09.041] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T20:50:09.041] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T20:50:09.041] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T20:52:50.331] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[4-6] #CPUs=288 Partition=queue1
+[2022-10-07T20:52:53.890] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:52:53.890] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:52:53.890] Requeuing JobId=13
+[2022-10-07T20:52:53.890] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:52:53.890] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:52:53.890] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:52:53.890] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T20:52:53.890] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T20:52:53.894] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:52:53.894] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T20:52:53.894] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T20:52:53.898] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:52:53.898] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:52:53.898] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:52:53.902] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:52:53.902] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:52:53.902] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:53:09.195] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:53:09.195] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:53:09.195] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:53:09.195] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:53:09.195] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T20:53:09.195] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T20:55:50.496] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[7-9] #CPUs=288 Partition=queue1
+[2022-10-07T20:55:53.104] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T20:55:53.104] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T20:55:53.104] Requeuing JobId=13
+[2022-10-07T20:55:53.104] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T20:55:53.104] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T20:55:53.104] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T20:55:53.104] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T20:55:53.104] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T20:55:53.107] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:55:53.107] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T20:55:53.107] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T20:55:53.110] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:55:53.111] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T20:55:53.111] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T20:55:53.114] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:55:53.114] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T20:55:53.114] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T20:56:09.294] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T20:56:09.294] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T20:56:09.294] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T20:56:09.294] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T20:56:09.294] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T20:56:09.294] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T20:58:50.674] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[4-6] #CPUs=288 Partition=queue1
+[2022-10-07T20:58:53.283] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T20:58:53.283] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T20:58:53.283] Requeuing JobId=13
+[2022-10-07T20:58:53.283] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T20:58:53.283] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T20:58:53.283] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T20:58:53.283] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T20:58:53.283] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T20:58:53.287] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:58:53.287] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T20:58:53.287] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T20:58:53.292] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:58:53.292] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T20:58:53.293] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T20:58:53.296] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T20:58:53.296] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T20:58:53.296] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T20:59:09.499] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T20:59:09.499] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T20:59:09.499] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T20:59:09.499] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T20:59:09.499] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T20:59:09.499] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T20:59:57.351] _job_complete: JobId=10 WEXITSTATUS 0
+[2022-10-07T20:59:57.351] _job_complete: JobId=10 done
+[2022-10-07T21:01:50.858] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[2,7-8] #CPUs=288 Partition=queue1
+[2022-10-07T21:01:53.452] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:01:53.452] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-7
+[2022-10-07T21:01:53.452] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:01:53.452] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:01:53.452] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:01:53.456] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:01:53.456] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:01:53.456] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:01:53.460] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:01:53.460] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:01:53.460] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:01:53.460] Requeuing JobId=13
+[2022-10-07T21:02:09.485] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:02:09.485] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:02:09.485] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:02:09.485] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:04:50.025] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[2,9-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:04:53.107] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:04:53.107] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-9
+[2022-10-07T21:04:53.107] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:04:53.107] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:04:53.107] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:04:53.111] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:04:53.111] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:04:53.111] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:04:53.116] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:04:53.116] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:04:53.116] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:04:53.119] Requeuing JobId=13
+[2022-10-07T21:05:09.586] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:05:09.586] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:05:09.586] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:05:09.586] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:07:50.203] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[2,4-5] #CPUs=288 Partition=queue1
+[2022-10-07T21:07:53.617] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:07:53.617] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:07:53.617] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:07:53.617] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:07:53.617] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:07:53.620] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:07:53.621] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:07:53.621] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:07:53.623] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:07:53.623] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:07:53.624] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:07:53.625] Requeuing JobId=13
+[2022-10-07T21:08:09.726] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:08:09.726] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:08:09.726] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:08:09.726] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:10:50.371] sched: Allocate JobId=13 NodeList=queue1-dy-compute-resource-1-[2,6-7] #CPUs=288 Partition=queue1
+[2022-10-07T21:10:54.062] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:10:54.062] requeue job JobId=13 due to failure of node queue1-dy-compute-resource-1-6
+[2022-10-07T21:10:54.062] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:10:54.062] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:10:54.062] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:10:54.066] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:10:54.066] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:10:54.066] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:10:54.069] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:10:54.069] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:10:54.069] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:10:54.069] Requeuing JobId=13
+[2022-10-07T21:11:09.866] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:11:09.866] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:11:09.866] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:11:09.866] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:11:37.056] _job_complete: JobId=12 WEXITSTATUS 0
+[2022-10-07T21:11:37.056] _job_complete: JobId=12 done
+[2022-10-07T21:13:02.185] sched/backfill: _start_job: Started JobId=13 in queue1 on queue1-dy-compute-resource-1-[1-3]
+[2022-10-07T21:24:36.296] _slurm_rpc_submit_batch_job: JobId=14 InitPrio=4294901746 usec=1197
+[2022-10-07T21:24:37.186] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:24:53.725] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:24:53.725] Requeuing JobId=14
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:24:53.725] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:24:53.729] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:24:53.729] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:24:53.729] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:24:53.732] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:24:53.732] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:24:53.732] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:24:53.734] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:24:53.734] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:24:53.734] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:24:53.739] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:24:53.739] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:24:53.739] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:25:10.583] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:25:10.583] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:25:10.583] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:25:10.583] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:25:10.583] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:25:10.583] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:25:10.583] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:25:10.583] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:28:50.433] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:28:54.161] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:28:54.161] Requeuing JobId=14
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:28:54.161] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:28:54.163] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:28:54.163] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:28:54.164] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:28:54.165] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:28:54.165] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:28:54.165] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:28:54.167] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:28:54.167] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:28:54.167] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:28:54.168] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:28:54.168] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:28:54.169] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:29:10.610] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:29:10.610] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:29:10.610] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:29:10.610] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:29:10.610] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:29:10.610] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:29:10.611] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:29:10.611] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:30:13.426] _slurm_rpc_submit_batch_job: JobId=15 InitPrio=4294901745 usec=266
+[2022-10-07T21:30:13.512] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:30:24.095] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:30:24.095] requeue job JobId=15 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:30:24.095] Requeuing JobId=15
+[2022-10-07T21:30:24.095] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:30:24.095] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:30:24.096] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:30:24.096] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:30:24.096] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:30:24.099] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:30:24.099] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:30:24.099] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:30:24.102] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:30:24.102] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:30:24.102] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:30:24.105] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:30:24.105] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:30:24.105] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:31:10.732] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:31:10.732] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:31:10.732] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:31:10.732] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:31:10.732] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:31:10.732] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:32:50.673] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:32:53.150] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:32:53.150] Requeuing JobId=14
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:32:53.150] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:32:53.154] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:32:53.154] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:32:53.154] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:32:53.157] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:32:53.157] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:32:53.157] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:32:53.160] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:32:53.160] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:32:53.160] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:32:53.163] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:32:53.163] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:32:53.163] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:33:10.948] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:33:10.948] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:33:10.948] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:33:10.948] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:33:10.948] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:33:10.948] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:33:10.948] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:33:10.948] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:34:50.790] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:34:53.866] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:34:53.866] requeue job JobId=15 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:34:53.866] Requeuing JobId=15
+[2022-10-07T21:34:53.866] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:34:53.866] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:34:53.866] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:34:53.866] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:34:53.866] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:34:53.870] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:34:53.870] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:34:53.870] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:34:53.873] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:34:53.874] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:34:53.874] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:34:53.875] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:34:53.875] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:34:53.875] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:35:10.899] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:35:10.899] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:35:10.899] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:35:10.899] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:35:10.899] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:35:10.899] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:36:50.915] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:36:53.429] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:36:53.429] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:36:53.430] Requeuing JobId=14
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:36:53.430] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:36:53.434] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:36:53.434] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:36:53.434] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:36:53.436] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:36:53.437] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:36:53.437] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:36:53.439] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:36:53.439] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:36:53.439] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:36:53.443] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:36:53.443] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:36:53.444] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:37:10.982] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:37:10.982] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:37:10.982] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:37:10.982] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:37:10.982] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:37:10.982] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:37:10.982] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:37:10.982] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:38:50.028] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:38:53.536] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:38:53.536] requeue job JobId=15 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:38:53.536] Requeuing JobId=15
+[2022-10-07T21:38:53.536] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:38:53.536] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:38:53.536] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:38:53.536] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:38:53.536] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:38:53.539] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:38:53.539] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:38:53.539] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:38:53.542] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:38:53.542] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:38:53.542] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:38:53.546] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:38:53.546] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:38:53.546] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:39:01.480] _slurm_rpc_submit_batch_job: JobId=16 InitPrio=4294901744 usec=320
+[2022-10-07T21:39:11.302] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:39:11.302] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:39:11.302] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:39:11.302] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:39:11.302] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:39:11.302] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:40:50.146] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:40:53.806] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:40:53.806] Requeuing JobId=14
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:40:53.806] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:40:53.810] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:40:53.810] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:40:53.810] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:40:53.813] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:40:53.813] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:40:53.813] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:40:53.815] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:40:53.815] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:40:53.815] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:40:53.818] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:40:53.818] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:40:53.818] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:41:11.356] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:41:11.356] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:41:11.356] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:41:11.356] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:41:11.356] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:41:11.356] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:41:11.356] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:41:11.356] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:42:50.271] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:42:54.726] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:42:54.726] requeue job JobId=15 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:42:54.726] Requeuing JobId=15
+[2022-10-07T21:42:54.726] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:42:54.726] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:42:54.726] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:42:54.726] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:42:54.726] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:42:54.728] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:42:54.728] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:42:54.728] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:42:54.730] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:42:54.730] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:42:54.730] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:42:54.733] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:42:54.733] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:42:54.733] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:43:11.266] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:43:11.266] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:43:11.266] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:43:11.266] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:43:11.266] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:43:11.266] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:44:50.380] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:44:53.454] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:44:53.454] Requeuing JobId=14
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:44:53.454] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:44:53.458] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:44:53.458] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:44:53.458] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:44:53.459] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:44:53.459] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:44:53.460] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:44:53.461] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:44:53.461] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:44:53.461] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:44:53.463] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:44:53.463] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:44:53.463] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:45:11.469] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:45:11.469] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:45:11.469] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:45:11.469] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:45:11.469] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:45:11.469] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:45:11.469] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:45:11.469] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:46:50.510] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:46:53.339] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:46:53.339] requeue job JobId=15 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:46:53.339] Requeuing JobId=15
+[2022-10-07T21:46:53.339] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:46:53.339] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:46:53.339] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:46:53.339] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:46:53.339] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:46:53.343] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:46:53.343] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:46:53.343] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:46:53.347] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:46:53.347] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:46:53.347] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:46:53.350] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:46:53.350] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:46:53.350] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:47:11.443] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:47:11.443] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:47:11.443] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:47:11.443] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:47:11.443] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:47:11.443] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:48:50.621] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:48:54.222] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:48:54.222] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:48:54.222] Requeuing JobId=14
+[2022-10-07T21:48:54.222] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:48:54.222] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:48:54.222] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:48:54.222] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:48:54.222] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:48:54.223] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:48:54.223] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:48:54.226] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:48:54.226] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:48:54.226] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:48:54.229] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:48:54.229] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:48:54.229] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:48:54.233] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:48:54.233] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:48:54.233] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:48:54.236] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:48:54.236] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:48:54.236] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:49:11.575] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:49:11.575] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:49:11.575] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:49:11.575] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:49:11.575] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:49:11.575] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:49:11.575] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:49:11.575] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:50:50.735] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:50:53.375] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:50:53.375] requeue job JobId=15 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:50:53.375] Requeuing JobId=15
+[2022-10-07T21:50:53.375] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:50:53.375] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:50:53.375] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:50:53.375] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:50:53.375] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:50:53.378] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:50:53.378] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:50:53.378] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:50:53.380] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:50:53.380] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:50:53.380] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:50:53.382] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:50:53.382] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:50:53.382] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:51:11.735] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:51:11.735] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:51:11.735] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:51:11.735] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:51:11.735] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:51:11.735] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:52:50.858] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:52:53.934] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:52:53.934] Requeuing JobId=14
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:52:53.934] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:52:53.937] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:52:53.937] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:52:53.938] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:52:53.940] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:52:53.940] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:52:53.940] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:52:53.942] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:52:53.942] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:52:53.942] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:52:53.944] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:52:53.944] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:52:53.944] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:53:11.800] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:53:11.800] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:53:11.800] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:53:11.800] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:53:11.800] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:53:11.800] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:53:11.800] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:53:11.800] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:54:12.677] _job_complete: JobId=13 WEXITSTATUS 0
+[2022-10-07T21:54:12.677] _job_complete: JobId=13 done
+[2022-10-07T21:54:12.682] sched: Allocate JobId=15 NodeList=queue1-dy-compute-resource-1-[1-3] #CPUs=288 Partition=queue1
+[2022-10-07T21:54:12.683] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:54:23.744] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:54:23.744] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:54:23.744] Requeuing JobId=16
+[2022-10-07T21:54:23.744] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:54:23.744] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:54:23.744] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:54:23.744] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:54:23.744] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:54:23.748] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:54:23.748] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:54:23.748] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:54:23.756] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:54:23.756] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:54:23.757] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:54:23.759] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:54:23.759] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:54:23.759] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:55:11.863] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:55:11.863] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:55:11.863] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:55:11.863] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:55:11.863] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:55:11.863] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T21:56:50.091] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T21:56:53.743] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T21:56:53.743] Requeuing JobId=14
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T21:56:53.743] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T21:56:53.747] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:56:53.747] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T21:56:53.747] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T21:56:53.749] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:56:53.749] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T21:56:53.749] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T21:56:53.752] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:56:53.752] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T21:56:53.752] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T21:56:53.754] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:56:53.754] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T21:56:53.754] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T21:57:12.212] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T21:57:12.212] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T21:57:12.212] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T21:57:12.212] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T21:57:12.212] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T21:57:12.212] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T21:57:12.212] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T21:57:12.212] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T21:58:50.203] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T21:58:53.870] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T21:58:53.870] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T21:58:53.870] Requeuing JobId=16
+[2022-10-07T21:58:53.870] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T21:58:53.870] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T21:58:53.870] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T21:58:53.870] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T21:58:53.870] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T21:58:53.873] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:58:53.873] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T21:58:53.873] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T21:58:53.875] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:58:53.875] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T21:58:53.875] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T21:58:53.877] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T21:58:53.877] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T21:58:53.877] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T21:59:12.137] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T21:59:12.137] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T21:59:12.137] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T21:59:12.137] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T21:59:12.137] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T21:59:12.137] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T22:00:50.318] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T22:00:54.137] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T22:00:54.137] Requeuing JobId=14
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T22:00:54.137] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T22:00:54.140] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:00:54.140] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T22:00:54.140] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T22:00:54.143] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:00:54.143] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T22:00:54.143] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T22:00:54.146] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:00:54.146] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T22:00:54.146] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T22:00:54.148] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:00:54.148] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T22:00:54.148] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T22:01:12.184] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T22:01:12.184] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T22:01:12.184] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T22:01:12.185] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T22:01:12.185] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T22:01:12.185] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T22:01:12.185] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T22:01:12.185] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T22:02:50.442] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T22:02:53.646] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T22:02:53.646] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T22:02:53.646] Requeuing JobId=16
+[2022-10-07T22:02:53.646] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T22:02:53.646] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T22:02:53.646] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T22:02:53.646] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T22:02:53.646] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T22:02:53.650] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:02:53.650] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T22:02:53.650] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T22:02:53.654] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:02:53.654] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T22:02:53.654] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T22:02:53.657] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:02:53.657] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T22:02:53.657] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T22:03:12.381] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T22:03:12.381] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T22:03:12.381] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T22:03:12.381] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T22:03:12.381] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T22:03:12.381] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T22:04:50.553] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T22:04:54.048] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T22:04:54.048] Requeuing JobId=14
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T22:04:54.048] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T22:04:54.052] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:04:54.052] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T22:04:54.052] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T22:04:54.055] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:04:54.055] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T22:04:54.055] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T22:04:54.057] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:04:54.057] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T22:04:54.058] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T22:04:54.060] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:04:54.060] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T22:04:54.060] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T22:05:12.271] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T22:05:12.271] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T22:05:12.271] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T22:05:12.271] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T22:05:12.271] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T22:05:12.271] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T22:05:12.271] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T22:05:12.272] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T22:06:50.671] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T22:06:53.461] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T22:06:53.461] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T22:06:53.461] Requeuing JobId=16
+[2022-10-07T22:06:53.461] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T22:06:53.461] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T22:06:53.461] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T22:06:53.461] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T22:06:53.461] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T22:06:53.463] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:06:53.463] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T22:06:53.463] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T22:06:53.465] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:06:53.465] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T22:06:53.465] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T22:06:53.467] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:06:53.467] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T22:06:53.467] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T22:07:12.409] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T22:07:12.409] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T22:07:12.409] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T22:07:12.409] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T22:07:12.409] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T22:07:12.409] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T22:08:50.780] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T22:08:54.078] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T22:08:54.078] Requeuing JobId=14
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T22:08:54.078] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T22:08:54.080] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:08:54.080] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T22:08:54.080] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T22:08:54.082] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:08:54.082] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T22:08:54.082] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T22:08:54.084] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:08:54.084] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T22:08:54.084] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T22:08:54.085] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:08:54.085] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T22:08:54.085] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T22:09:12.626] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T22:09:12.626] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T22:09:12.626] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T22:09:12.626] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T22:09:12.626] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T22:09:12.626] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T22:09:12.626] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T22:09:12.626] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T22:10:50.892] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T22:10:54.192] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T22:10:54.192] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T22:10:54.193] Requeuing JobId=16
+[2022-10-07T22:10:54.193] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T22:10:54.193] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T22:10:54.193] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T22:10:54.193] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T22:10:54.193] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T22:10:54.196] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:10:54.196] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T22:10:54.196] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T22:10:54.199] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:10:54.199] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T22:10:54.199] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T22:10:54.201] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:10:54.201] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T22:10:54.201] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T22:11:12.614] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T22:11:12.614] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T22:11:12.614] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T22:11:12.614] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T22:11:12.614] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T22:11:12.614] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T22:12:50.018] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T22:12:54.192] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T22:12:54.192] Requeuing JobId=14
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T22:12:54.192] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T22:12:54.196] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:12:54.196] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T22:12:54.196] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T22:12:54.199] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:12:54.199] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T22:12:54.199] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T22:12:54.202] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:12:54.203] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T22:12:54.203] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T22:12:54.206] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:12:54.206] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T22:12:54.206] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T22:13:12.716] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T22:13:12.716] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T22:13:12.716] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T22:13:12.716] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T22:13:12.716] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T22:13:12.716] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T22:13:12.716] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T22:13:12.716] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T22:14:50.129] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T22:14:53.713] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T22:14:53.713] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T22:14:53.713] Requeuing JobId=16
+[2022-10-07T22:14:53.713] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T22:14:53.713] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T22:14:53.713] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T22:14:53.713] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T22:14:53.713] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T22:14:53.716] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:14:53.716] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T22:14:53.716] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T22:14:53.719] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:14:53.719] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T22:14:53.719] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T22:14:53.721] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:14:53.721] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T22:14:53.721] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T22:15:12.905] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T22:15:12.905] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T22:15:12.905] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T22:15:12.905] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T22:15:12.905] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T22:15:12.905] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T22:16:50.258] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T22:16:53.909] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T22:16:53.909] Requeuing JobId=14
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T22:16:53.909] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T22:16:53.911] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:16:53.911] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T22:16:53.911] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T22:16:53.913] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:16:53.913] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T22:16:53.913] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T22:16:53.915] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:16:53.915] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T22:16:53.915] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T22:16:53.916] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:16:53.916] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T22:16:53.916] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T22:17:12.962] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T22:17:12.962] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T22:17:12.962] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T22:17:12.962] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T22:17:12.962] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T22:17:12.962] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T22:17:12.962] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T22:17:12.962] powering down node queue1-dy-compute-resource-1-7
+[2022-10-07T22:18:50.372] sched: Allocate JobId=16 NodeList=queue1-dy-compute-resource-1-[8-10] #CPUs=288 Partition=queue1
+[2022-10-07T22:18:54.062] update_node: node queue1-dy-compute-resource-1-8 reason set to: Failure when resuming nodes
+[2022-10-07T22:18:54.062] requeue job JobId=16 due to failure of node queue1-dy-compute-resource-1-8
+[2022-10-07T22:18:54.062] Requeuing JobId=16
+[2022-10-07T22:18:54.062] update_node: node queue1-dy-compute-resource-1-8 state set to DOWN
+[2022-10-07T22:18:54.062] update_node: node queue1-dy-compute-resource-1-9 reason set to: Failure when resuming nodes
+[2022-10-07T22:18:54.062] update_node: node queue1-dy-compute-resource-1-9 state set to DOWN
+[2022-10-07T22:18:54.062] update_node: node queue1-dy-compute-resource-1-10 reason set to: Failure when resuming nodes
+[2022-10-07T22:18:54.062] update_node: node queue1-dy-compute-resource-1-10 state set to DOWN
+[2022-10-07T22:18:54.067] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:18:54.067] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-10"
+[2022-10-07T22:18:54.067] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-10, check slurm.conf
+[2022-10-07T22:18:54.071] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:18:54.071] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-9"
+[2022-10-07T22:18:54.071] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-9, check slurm.conf
+[2022-10-07T22:18:54.074] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:18:54.074] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-8"
+[2022-10-07T22:18:54.074] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-8, check slurm.conf
+[2022-10-07T22:19:12.970] update_node: node queue1-dy-compute-resource-1-8 reason set to: Scheduler health check failed
+[2022-10-07T22:19:12.970] powering down node queue1-dy-compute-resource-1-8
+[2022-10-07T22:19:12.970] update_node: node queue1-dy-compute-resource-1-9 reason set to: Scheduler health check failed
+[2022-10-07T22:19:12.970] powering down node queue1-dy-compute-resource-1-9
+[2022-10-07T22:19:12.970] update_node: node queue1-dy-compute-resource-1-10 reason set to: Scheduler health check failed
+[2022-10-07T22:19:12.970] powering down node queue1-dy-compute-resource-1-10
+[2022-10-07T22:20:50.487] sched: Allocate JobId=14 NodeList=queue1-dy-compute-resource-1-[4-7] #CPUs=384 Partition=queue1
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-4 reason set to: Failure when resuming nodes
+[2022-10-07T22:20:54.435] requeue job JobId=14 due to failure of node queue1-dy-compute-resource-1-4
+[2022-10-07T22:20:54.435] Requeuing JobId=14
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-4 state set to DOWN
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-5 reason set to: Failure when resuming nodes
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-5 state set to DOWN
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-6 reason set to: Failure when resuming nodes
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-6 state set to DOWN
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-7 reason set to: Failure when resuming nodes
+[2022-10-07T22:20:54.435] update_node: node queue1-dy-compute-resource-1-7 state set to DOWN
+[2022-10-07T22:20:54.440] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:20:54.440] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-7"
+[2022-10-07T22:20:54.440] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-7, check slurm.conf
+[2022-10-07T22:20:54.444] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:20:54.444] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-6"
+[2022-10-07T22:20:54.444] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-6, check slurm.conf
+[2022-10-07T22:20:54.448] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:20:54.448] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-4"
+[2022-10-07T22:20:54.448] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-4, check slurm.conf
+[2022-10-07T22:20:54.451] error: get_addr_info: getaddrinfo() failed: Temporary failure in name resolution
+[2022-10-07T22:20:54.451] error: slurm_set_addr: Unable to resolve "queue1-dy-compute-resource-1-5"
+[2022-10-07T22:20:54.451] error: fwd_tree_thread: can't find address for host queue1-dy-compute-resource-1-5, check slurm.conf
+[2022-10-07T22:21:13.214] update_node: node queue1-dy-compute-resource-1-4 reason set to: Scheduler health check failed
+[2022-10-07T22:21:13.214] powering down node queue1-dy-compute-resource-1-4
+[2022-10-07T22:21:13.214] update_node: node queue1-dy-compute-resource-1-5 reason set to: Scheduler health check failed
+[2022-10-07T22:21:13.214] powering down node queue1-dy-compute-resource-1-5
+[2022-10-07T22:21:13.214] update_node: node queue1-dy-compute-resource-1-6 reason set to: Scheduler health check failed
+[2022-10-07T22:21:13.214] powering down node queue1-dy-compute-resource-1-6
+[2022-10-07T22:21:13.214] update_node: node queue1-dy-compute-resource-1-7 reason set to: Scheduler health check failed
+[2022-10-07T22:21:13.214] powering down node queue1-dy-compute-resource-1-7

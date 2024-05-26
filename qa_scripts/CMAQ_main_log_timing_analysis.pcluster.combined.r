@@ -6,19 +6,19 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '../run_scripts/hpc6a_shared/'
-base.dir  <- '../run_scripts/hpc6a_shared/'
+sens.dir  <- '../run_scripts/hpc6a_combined/'
+base.dir  <- '../run_scripts/hpc6a_combined/'
 #files   <- dir(sens.dir, pattern ='CTM_LOG_000.v533_gcc_2016_CONUS_480_24x20pe_lustre3_codemod_pin_precision_20151222')
-files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod.log')
+files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.pin.log')
 #b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.480.24x20pe.2day.cyclecloud.lustre3.codemod.pin.log')
-b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.288.3x96.16x18pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.384.4x96.24x16pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.480.5x96.24x20pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.shared.pin.codemod.log')
+b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.pin.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.288.3x96.16x18pe.2day.pcluster.pin.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.384.4x96.24x16pe.2day.pcluster.pin.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.480.5x96.24x20pe.2day.pcluster.pin.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.pin.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.288.3x96.16x18pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.384.4x96.24x16pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.480.5x96.24x20pe.2day.pcluster.shared.pin.codemod.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.576.6x96.24x24pe.2day.pcluster.shared.pin.codemod.log')
 #b.files <- c('CTM_LOG_000.v533_gcc_2016_CONUS_480_24x20pe_lustre3_codemod_pin_precision_20151222')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case. 
-base.name <- c('192','288','384','480','576')
+base.name <- c('192pe_fsx','288pe_fsx','384pe_fsx','480pe_fsx','576pe_fsx','96pe_ebs','192pe_ebs','288pe_ebs','384pe_ebs','480pe_ebs','576pe_ebs')
 #base.name <- c('data_pin')
-sens.name <- c('96pe')
+sens.name <- c('96pe_fsx')
 
 # Simulation parameters
 
@@ -89,14 +89,14 @@ for( comp in Compilers) {
    # plot data
    my.colors <- brewer.pal(12, "Paired")
    #my.colors <- terrain.colors(length(n.proc))
-   xmax <- dim(bar.data)[2]*1.5
-   png(file = paste('hpc6a_shared_500GB_1-6nodes_pin',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
+   xmax <- dim(bar.data)[2]*1.2
+   png(file = paste('hpc6a_fsx_lustre_1-6nodes_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1280, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on /shared using 1-6 nodes with 96 cpus/node on HPC6a with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,6000.))
-    # Add abline
-      abline(v=c(2, 4) , col="grey")
-
+   barplot(bar.data, main = 'Process Timing on /fsx (lustre) and /ebs (shared) using 1-6 nodes with 96 cpus/node on HPC6a with pinning',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,6000.))
    box()
+   # Add abline
+   abline(v=c(7.3) , col="grey")
+
    dev.off()
  
   totals <- apply(bar.data,c(2),sum)
