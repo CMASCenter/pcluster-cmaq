@@ -12,8 +12,10 @@ set path = ($path /shared/build/netcdf/bin /shared/build/ioapi-3.2/Linux2_x86_64
 
 if ($?tcsh) then
    source /usr/share/modules/init/tcsh
+   source /etc/profile.d/modules.sh
 else
    source /usr/share/modules/init/csh
+   source /etc/profile.d/modules.sh
 endif
 
 module load openmpi
