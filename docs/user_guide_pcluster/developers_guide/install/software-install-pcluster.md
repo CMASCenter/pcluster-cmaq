@@ -60,6 +60,16 @@ Install the pcluster-cmaq git repo to the /shared directory
 
 `module load openmpi/4.1.1`
 
+### If you don't see the openmpi module
+
+#### Install OpenMPI
+
+```
+sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev
+mpirun --version
+```
+
+
 ### Load the Libfabric module
 
 `module load libfabric-aws/1.13.2amzn1.0`
