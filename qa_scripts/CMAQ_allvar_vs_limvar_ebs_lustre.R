@@ -6,17 +6,16 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hpc6a_ebs_fsx/'
+sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hp6a_fsx_desid'
 base.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hpc6a_ebs_fsx/'
-files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.allvar.log')
-b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.allvar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.log')
+files   <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.fsx.pin.full.desid.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.fsx.pin.log')
+b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.allvar.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.allvar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case.
-#base.name <- c('data_pin','lustre_pin','shared_pin')
-base.name <- c('shared_lim','lustre_full','lustre_lim')
-sens.name <- c('shared_full')
+base.name <- c('96_shared_full','96_shared_lim','96_lustre_full','96_lustre_lim')
+sens.name <- c('192_lustre_full','192_lustre_lim')
 
 # Simulation parameters
 
