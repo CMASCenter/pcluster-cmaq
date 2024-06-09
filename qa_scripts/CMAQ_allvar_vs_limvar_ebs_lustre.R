@@ -6,16 +6,16 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hp6a_fsx_desid'
-base.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hpc6a_ebs_fsx/'
-files   <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.fsx.pin.full.desid.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.fsx.pin.log')
-b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.allvar.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.allvar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.log')
+base.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hp6a_fsx_desid/'
+sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hpc6a_ebs_fsx/'
+b.files   <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.fsx.pin.full.desid.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.192.2x96.16x12pe.2day.pcluster.fsx.pin.log')
+files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.allvar.log','run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.allvar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.log')
 #Compilers <- c('intel','gcc','pgi')
 Compilers <- c('gcc')
 # name of the base case timing. I am using the current master branch from the CMAQ_Dev repository.
 # The project directory name is used for the sensitivity case.
-base.name <- c('96_shared_full','96_shared_lim','96_lustre_full','96_lustre_lim')
-sens.name <- c('192_lustre_full','192_lustre_lim')
+sens.name <- c('96_shared_full','96_shared_lim','96_lustre_full','96_lustre_lim')
+base.name <- c('192_lustre_full','192_lustre_lim')
 
 # Simulation parameters
 
@@ -31,13 +31,13 @@ sens.name <- c('192_lustre_full','192_lustre_lim')
 #n.lev     <- length(sens.name[[1]])
 #sens.name <- sens.name[[1]][n.lev]
 all.names <- NULL
-for(i in 1:length(files)){
+#for(i in 1:length(files)){
    all.names <- append(all.names,sens.name)
-}
+#}
 files <- paste(sens.dir,files,sep="")
-for(i in 1:length(files)){
+#for(i in 1:length(files)){
    all.names <- append(all.names,base.name)
-}
+#}
 files <- append(files,paste(base.dir,b.files,sep=''))
 for( comp in Compilers) {
    bar.data <- NULL
@@ -89,11 +89,11 @@ for( comp in Compilers) {
    xmax <- dim(bar.data)[2]*1.2
    png(file = paste('full_vs_lim_output_ebs_lustre_hpc6a_1nodes_96pe_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on EBS and Lustre using 1 node with 96 cpus/node on Parallel Cluster using CBS_full versus CBS_limited',names.arg = b.names,ylab='seconds',xlab="Filesystem(CBS_full, CBS_limited')", col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
+   barplot(bar.data, main = 'Process Timing on EBS and Lustre using 1 or 2 nodes with 96 cpus/node on Parallel Cluster using CBS_full versus CBS_limited',names.arg = b.names,ylab='seconds',xlab="Cores,Filesystem(CBS_full, CBS_limited')", col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
             # Add abline
                   text(x = .2, y = 7900, "ebs-shared")
                 abline(v=c(2.5) , col="black", lwd=3, lty=2)
-		text(x = 2.7, y = 7900, "fsx-lustre")
+		text(x = 2.8, y = 7900, "fsx-lustre")
 
    box()
    dev.off()
