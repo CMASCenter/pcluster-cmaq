@@ -108,8 +108,11 @@ for( comp in Compilers) {
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
    my_bar <- barplot(bar.data, main = 'Process Timing on /fsx (lustre) and /ebs (shared) using 1-6 nodes with 96 cores/node on HPC6a with pinning',names.arg = b.names,ylab='seconds',xlab = "Cores,Filesystem(Left - fsx,Right - ebs))" , names = c("fsx", "ebs"), col = my.colors,legend = n.proc.plot,xlim = c(0.,xmax),ylim = c(0.,6000.))
    box()
-   # Add abline
-   abline(v=c(7.3) , col="grey")
+         # Add abline
+               text(x = .2, y = 5900, "fsx-lustre")
+             abline(v=c(7.3) , col="black", lwd=3, lty=2)
+	       text(x = 8, y = 5900, "ebs-shared")
+
    # Add the text 
    text(my_bar, data$average+0.4 , paste("shared", sep="") ,cex=1) 
 

@@ -6,8 +6,8 @@
 library(RColorBrewer)
 library(stringr)
 
-sens.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_ebs_fsx/'
-base.dir  <- '/shared/pcluster-cmaq/run_scripts/hpc6a_ebs_fsx/'
+sens.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hpc6a_ebs_fsx/'
+base.dir  <- '/proj/ie/proj/CMAS/CMAQ/pcluster-cmaqv5.3.3/pcluster-cmaq-533/run_scripts/hpc6a_ebs_fsx/'
 files   <- dir(sens.dir, pattern ='run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.allvar.log')
 b.files <- c('run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.shared.pin.codemod_liz.writevar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.allvar.log', 'run_cctmv5.3.3_Bench_2016_12US2.hpc6a.48xlarge.96.1x96.12x8pe.2day.pcluster.fsx.pin.codemod_liz.writevar.log')
 #Compilers <- c('intel','gcc','pgi')
@@ -87,10 +87,15 @@ for( comp in Compilers) {
    # plot data
    my.colors <- brewer.pal(12, "Paired")
    #my.colors <- terrain.colors(length(n.proc))
-   xmax <- dim(bar.data)[2]*1.5
+   xmax <- dim(bar.data)[2]*1.2
    png(file = paste('full_vs_lim_output_ebs_lustre_hpc6a_1nodes_96pe_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on EBS and Lustre using 1 node with 96 cpus/node on Parallel Cluster full vs limited output',names.arg = b.names,ylab='seconds', col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
+   barplot(bar.data, main = 'Process Timing on EBS and Lustre using 1 node with 96 cpus/node on Parallel Cluster using CBS_full versus CBS_limited',names.arg = b.names,ylab='seconds',xlab="Filesystem(CBS_full, CBS_limited')", col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
+            # Add abline
+                  text(x = .2, y = 7900, "ebs-shared")
+                abline(v=c(2.5) , col="black", lwd=3, lty=2)
+		text(x = 2.7, y = 7900, "fsx-lustre")
+
    box()
    dev.off()
  
