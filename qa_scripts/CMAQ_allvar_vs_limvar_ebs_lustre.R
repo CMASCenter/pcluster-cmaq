@@ -89,7 +89,7 @@ for( comp in Compilers) {
    xmax <- dim(bar.data)[2]*1.2
    png(file = paste('full_vs_lim_output_ebs_lustre_hpc6a_1nodes_96pe_',comp,'_all',sens.name,'_',base.name,'.png',sep=''), width = 1024, height = 768, bg='white')
   # png(file = paste(comp,'_',sens.name,'.png',sep=''), width = 1024, height = 768, bg='white')
-   barplot(bar.data, main = 'Process Timing on EBS and Lustre using 1 or 2 nodes with 96 cpus/node on Parallel Cluster using CBS_full versus CBS_limited',names.arg = b.names,ylab='seconds',xlab="Cores,Filesystem(CBS_full, CBS_limited')", col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
+   barplot(bar.data, main = 'Process Timing on EBS(s) and Lustre(l) using 1-3 nodes with 96 cpus/node on Parallel Cluster using CBS_full versus CBS_limited',names.arg = b.names,ylab='seconds',xlab="Cores,Filesystem(CBS_full, CBS_limited')", col = my.colors, legend = n.proc.plot, xlim = c(0.,xmax),ylim = c(0.,8000.))
             # Add abline
                   text(x = .2, y = 7900, "ebs-shared")
                 abline(v=c(7.3) , col="black", lwd=3, lty=2)
