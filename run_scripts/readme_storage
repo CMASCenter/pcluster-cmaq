@@ -1,0 +1,21 @@
+Shared performs well compared to /fsx, but need to use the BLD_CCTM_v533_gcc_codemod, or it fails on the second day.
+
+ubuntu@ip-10-0-2-40:/shared/build/openmpi_gcc/CMAQ_v533/CCTM/scripts$ df -h
+Filesystem                 Size  Used Avail Use% Mounted on
+/dev/root                   39G   22G   17G  57% /
+devtmpfs                   3.8G  4.0K  3.8G   1% /dev
+tmpfs                      3.8G     0  3.8G   0% /dev/shm
+tmpfs                      776M 1004K  775M   1% /run
+tmpfs                      5.0M     0  5.0M   0% /run/lock
+tmpfs                      3.8G     0  3.8G   0% /sys/fs/cgroup
+/dev/nvme0n1p15            105M  6.1M   99M   6% /boot/efi
+/dev/loop0                  26M   26M     0 100% /snap/amazon-ssm-agent/7993
+/dev/loop1                  92M   92M     0 100% /snap/lxd/24061
+/dev/loop2                  39M   39M     0 100% /snap/snapd/21465
+/dev/loop3                  56M   56M     0 100% /snap/core18/2823
+/dev/loop4                  64M   64M     0 100% /snap/core20/2318
+/dev/nvme1n1               492G  265G  207G  57% /shared
+10.0.12.139@tcp:/bpxgfbev  1.1T  606G  509G  55% /fsx
+/dev/loop5                  39M   39M     0 100% /snap/snapd/21759
+tmpfs                      776M  4.0K  776M   1% /run/user/1000
+
