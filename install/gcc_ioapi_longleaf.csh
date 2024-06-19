@@ -13,7 +13,7 @@ set echo
 #  ----------------------
 #  Unpack and build IOAPI
 #  ----------------------
-   setenv DIR /proj/ie/proj/CMAS/CMAQ/AAQMS/build
+   setenv DIR /proj/ie/proj/CMAS/EQUATES/RHEL8/LIBRARIES
    setenv PDIR /proj/ie/proj/CMAS/CMAQ/pcluster-cmaq
    cd $DIR
    git clone https://github.com/cjcoats/ioapi-3.2
@@ -26,10 +26,10 @@ set echo
    setenv CPLMODE nocpl
    cd ioapi 
    # need to copy Makefile to fix BASEDIR setting from HOME to /shared/build/ioapi-3.2
-   cp $PDIR/Makefile.basedir_fix_dogwood $BASEDIR/ioapi/Makefile
+   cp $PDIR/Makefile.basedir_fix $BASEDIR/ioapi/Makefile
    # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
    cp $PDIR/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
    make |& tee make.log
    cd $BASEDIR/m3tools
-   cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
-   make HOME=$DIR/install
+   #cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
+   make HOME=$DIR
