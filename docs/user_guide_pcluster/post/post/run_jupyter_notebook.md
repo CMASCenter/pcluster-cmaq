@@ -30,7 +30,9 @@ jupyter notebook
 
     d. View the plots within the Jupyter Notebook in cells after the plots have been generated
 
-    e. Plot of Average SO2 Base (left plot) versus Average SO2 DESID REDUCE CMAQ
+    e. Plot of Difference of SO2 Base minus SO2 DESID REDUCE CMAQ
+
+ ![Difference Plot Comparison](../../../../qa_scripts/workshop/SO2_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_reduction_on_12-22-2017.png)
 
 5. Create Timeseries Plot at Cell where PT_EGU emissions were reduced
 
