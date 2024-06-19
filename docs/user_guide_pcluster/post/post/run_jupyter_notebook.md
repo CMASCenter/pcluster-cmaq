@@ -37,8 +37,11 @@ jupyter notebook
 5. Create Timeseries Plot at Cell where PT_EGU emissions were reduced
 
     a. Double Click on the desid_timeseries.ipynb notebook
+
     b. In each cell you can use the 'shift return' or 'shift enter' to run each cell
+
     c. View the plots within the Jupyter Notebook in cells after the plots have been generated
+
     d. Plot comparing two time series, one for base case and one for DESID reduce case.
 
   ![Time Series Plot Comparison](../../../../qa_scripts/Timeseries_SO2_20171223_desid_4_1.png)
