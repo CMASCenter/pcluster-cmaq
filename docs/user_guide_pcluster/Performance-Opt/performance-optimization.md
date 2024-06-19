@@ -231,8 +231,8 @@ Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
-! 2 day 12US1    | c6a.48xlarge   | 96          |         1       |  ONDEMAND    |   $7.344/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 7.344/hr =   | $2,471 | 14 |
-! 2 day 12US1    | hpc6a.48xlarge   | 96          |         1       |  ONDEMAND    | $2.88/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 2.88/hr =   | $969.4 | 14 |
+| 2 day 12US1    | c6a.48xlarge   | 96          |         1       |  ONDEMAND    |   $7.344/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 7.344/hr =   | $2471 | 14 |
+| 2 day 12US1    | hpc6a.48xlarge   | 96          |         1       |  ONDEMAND    | $2.88/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 2.88/hr =   | $969 | 14 |
 | 2 day 12US1    | hpc7g.16xlarge | 128          |         2       |  ONDEMAND    |   $1.6832/hour  |   4574.00/3600 = 1.27      |  1.27/2 * 365 = 231.87 hours/node * 2 nodes = 463.75 hr * $1.6832/hr = | $780 | 9.6 |
 | 2 day 12US1    | hpc7g.16xlarge | 192          |         3       |  ONDEMAND    |   $1.6832/hour  |   3509.80/3600 = .9749      |  .9749/2 * 365 = 177.9 hours/node * 3 nodes = 533.75 hr * $1.6832/hr = | $898 | 7.4 |
 
@@ -346,6 +346,38 @@ S3 Glacier Flexible Retrieval Costs 6.4 times less than the S3 Standard
 Lower cost option is S3 Glacier Deep Archive (accessed once or twice a year, and restored in 12 hours)
 
 31.5 TB * 1024 GB/TB * $.00099 per GB * 12 months  = $383 USD
+
+### CycleCloud and ParallelCluster Price Comparison of Cost Estimate for Annual Simulation (Filesystem + Compute) 
+
+| Vendor | Cluster Name | Resource Type | Virtual Machine | Nodes | Cores | Minimum Storage Size (GB) | Storage Hourly Price | SPOT $/hr | OnDemand $/hr | CMAQv5.4 two-day runtime (sec) | CMAQv5.4 two-day runtime (hr) | Annual Cost Equation | Total Time (hr/node) | Annual Cost Spot | Annual Cost OnDemand | Storage Cost NFS | Storage Cost Lustre | Storage Cost Beeond | Days to Complete Annual Simulation | Total Cost for Annual Run (Lustre, Compute Node, Scheduler, NFS Storage) | Total Cost for Annual Run (Beeond, Compute Node, Scheduler, NFS Storage) | Cost Savings of using Beeond Filesystem |
+| ----   | -----------  | ------------  | --------------  | ----- | ----  | -----------------------   | -------------------  | --------  | ------------  | ----------------------------   | ----------------------------  | -------------------  | -------------------  | ---------------  | -------------------  | ---------------  | ------------------  | ------------------  |  ------------------------------    |  ------------------------------- | ------------ | ----- |
+| Azure  |  CycleCloud  | Compute       | HB120_v3        | 3     | 288   |                          |                       | $0.36     | $3.60         | 3255.3                         | 0.90425                       | .904/2 * 365 = | 165.025 | $178.23    | $1782               |            |                           |                     |   **6.9**                      | **$2,462**                                                   | **$1847** |  $615 |
+| Azure  |  CycleCloud  | Login         | Standard_D8as_v4 | 1    | 8     |                          |                     | N/A         | $0.0048       | 6510.6                                  | 1.8               | 1.8/2*365 =    | 330.05125           | N/A           | $2                |   |  |  |  |  | |
+| Azure  |  CycleCloud  | Scheduler     |  Standard_D4s_v3 | 1    |  4    |                          |                     | N/A         | $0.19         | 6510.6                                  | 1.8               | 1.8/2*365 =   | 330.05125           | N/A           | $63               |   |  |  |  |  | |
+| Azure  |  CycleCloud  | NFS Storage   | Premium SSD LRS  |      |       |  1                       | $0.0001100          |             |               |                                         |                      |                             |                     |               |                  |  $0.0363056     |                 | | | | |
+| Azure  |  CycleCloud  | Lustre Storage| Ultra tier (500 MB/s/TiB) | | | 4000                       | $0.000466           |             |               |                                         |                      |                             |                     |               |                  |                 | $307.607765 | | | | | |
+| Azure | CycleCloud    | Beeond        | 2 * 960 GB NVMe (block) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  $0 | | | |  |
+|       |               |               |                         |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     | | | |  |
+| AWS   | ParallelCluster | Compute     | hpc7g.16xlarge  | 3     | 192   |                          |                     | N/A         | $1.68         | 3509.8                          | 0.98                 | .98/2 * 365 | 177.9 | N/A | $898 |     |   |   | **7.4** | **$1006** | |  $81.9 |
+| AWS   |  ParallelCluster | Scheduler  | c7g.large | 1  | 2  |   |   |  N/A  | $0.07 | 7019.6 | 1.95 | 1.95/2*365= | 355.8 | N/A  | $25.73  |  |  |  |  |  |  | |
+| AWS   |   ParallelCluster | Shared Storage | EBS: GP3 |  |  |  1  | $0.00010959 |  |  |  |  |  |  |  |  |  $0.03899812 | |  |  |  |  | |
+| AWS   |  ParallelCluster  | Lustre  | Scratch SSD 200 MB/s/TiB |  |  |  1200  | $0.00019178 |  |  |  |  |  |  |  |  |  |  $40.94749118 | |  |  |  |  |
+
+
+### Assumptions for Price Estimate for Annual Simulation (Filesystem + Compute)
+
+* Assuming that you have an anual simulation turn-around time requirement of < 8 days (less than 3787 seconds for 2 day benchmark)
+* Assuming you have the scheduler and filesystems available for 2 * the length of the compute node time for building CMAQ, installing input data, and copying output data to S3 bucket.
+* Note, SPOT pricing is not available for AWS hpc7g.16xlarge
+* Note, SPOT pricing is not recomended for the scheduler node
+* Note, instructions for how to use SPOT pricing on Azure are not yet available
+* Note, have not replicated using the Beeond Filesystem on AWS
+* Note, assuming Lustre Filesystem is used at least as long as the scheduler node
+* Note, Lustre Filesystem is created before Azure CycleCloud, and would need manual deletion after the run, recommend using Beeond Filesystem due to level of difficulty of provisioning Lustre Filesystem on CycleCloud
+* Assuming that you have the scheduler node running 2x longer than the compute nodes
+
+Timings for the CycleCloud Cluster are available on the tutorial: <a href="https://cyclecloud-cmaq.readthedocs.io/en/latest/user_guide_cyclecloud/Performance-Opt/performance-optimization.html#slurm-compute-node-provisioning">CycleCloud 12US1 Benchmark Results</a>
+
 
 
 # Recommended Workflow for extending to annual run

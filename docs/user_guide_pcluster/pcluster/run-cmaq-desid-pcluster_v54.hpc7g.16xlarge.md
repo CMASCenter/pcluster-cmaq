@@ -1,5 +1,9 @@
 # Run DESID CMAQ on hpc7g.16xlarge
 
+```{note}
+This content was transferred from the CMAQ on AWS Workshop, and has not been fully tested.
+```
+
 ## Run CMAQ for DESID
 
 ### Edit the DESID Namelist
