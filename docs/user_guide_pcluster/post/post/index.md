@@ -7,5 +7,4 @@ Instructions to install R and packages for QA of CMAQ difference in output betwe
 post-process-pcluster.md
 install_r_and_packages.md
 install_anaconda.md
-run_jupyter_notebook.md
 ```
