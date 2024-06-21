@@ -20,7 +20,7 @@ set echo
    #git clone -b main https://github.com/lizadams/pcluster-cmaq.git pcluster-cmaq
    cd ioapi-3.2
    git checkout -b 20200828
-   setenv BASEDIR $DIR/ioapi-3.2
+   setenv BASEDIR $INSTDIR/ioapi-3.2
    setenv BIN Linux2_x86_64gfort
    mkdir $BASEDIR/$BIN
    setenv CPLMODE nocpl
