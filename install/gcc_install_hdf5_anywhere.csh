@@ -62,10 +62,13 @@ set echo
 #  ---------------------------------
    cd  $INSTDIR
    wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+   # installation instructions
    tar xvf v4.5.3.tar.gz
    cd netcdf-fortran-4.5.3
-   export LIBS="-lnetcdf"
-   ./configure --with-pic --enable-shared --prefix=$INSTDIR
+   setenv LIBS "-lnetcdf"
+   setenv CPPFLAGS -I${INSTDIR}/include
+   setenv LDFLAGS -L${INSTDIR}/lib
+   ./configure --with-pic  --enable-shared --prefix=$INSTDIR
    make |& tee make.gcc9.log 
    make install
 #  -----------------------------
@@ -136,6 +139,7 @@ set echo
 
 # install test
    cd $INSTDIR/bin
+   ls h5diff
    whereis h5diff
    nc-config --version
    nf-config --version
