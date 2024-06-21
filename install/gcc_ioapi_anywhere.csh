@@ -24,12 +24,12 @@ set echo
    setenv BIN Linux2_x86_64gfort
    mkdir $BASEDIR/$BIN
    setenv CPLMODE nocpl
-   cd ioapi 
    # need to copy Makefile to fix BASEDIR setting from HOME to /shared/build/ioapi-3.2
-   cp $PDIR/Makefile.basedir_fix_dogwood $BASEDIR/ioapi/Makefile
+   cp $PDIR/Makefile.basedir_fix_anywhere $BASEDIR/ioapi/Makefile
    # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
    cp $PDIR/install/Makeinclude.Linux2_x86_64gfort $BASEDIR/ioapi/
+   cp $PDIR/install/Makefile.template.fix $BASEDIR
    make |& tee make.log
-   cd $BASEDIR/m3tools
-   cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
-   make HOME=$DIR/install
+   #cd $BASEDIR/m3tools
+   #cp $PDIR/Makefile.fix_ioapi_lib_path Makefile
+   #make HOME=$DIR/install
