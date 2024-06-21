@@ -28,7 +28,6 @@ set echo
    setenv FFLAGS "-O3"
    setenv CXXFLAGS "-O3"
    setenv FCFLAGS "-O3"
-   #./configure --prefix=/proj/ie/proj/CMAS/EQUATES/RHEL8/LIBRARIES/build-hdf5 --enable-fortran --enable-cxx --enable-shared --with-pic
    ./configure --prefix=/proj/ie/proj/CMAS/EQUATES/RHEL8/LIBRARIES/build-hdf5 --with-zlib=/proj/ie/proj/CMAS/EQUATES/RHEL8/LIBRARIES/zlib-1.2.11/gcc_9.1.0/include,/proj/ie/proj/CMAS/EQUATES/RHEL8/LIBRARIES/zlib-1.2.11/gcc_9.1.0/lib --enable-hl
    make |& tee make.gcc9.log 
 #  make check > make.gcc9.check
@@ -37,7 +36,6 @@ set echo
 #  Download and build netCDF-C
 #  ---------------------------
    cd  $INSTDIR
-   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.1.tar.gz
    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.0.tar.gz
    tar xvf v4.8.0.tar.gz
    cd netcdf-c-4.8.0
@@ -48,7 +46,6 @@ set echo
 #  Download and build netCDF-Fortran
 #  ---------------------------------
    cd  $INSTDIR
-   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz
    wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
    tar xvf v4.5.3.tar.gz
    cd netcdf-fortran-4.5.3
@@ -60,7 +57,6 @@ set echo
 #  Download and build netCDF-CXX
 #  -----------------------------
    cd  $INSTDIR
-   #wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz
    wget https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz
    tar xvf v4.3.1.tar.gz
    cd netcdf-cxx4-4.3.1
