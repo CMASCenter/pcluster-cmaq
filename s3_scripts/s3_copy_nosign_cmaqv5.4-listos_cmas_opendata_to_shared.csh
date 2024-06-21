@@ -9,5 +9,5 @@
 setenv AWS_REGION "us-east-1"
 mkdir -p /shared/data
 setenv DISK shared
-aws --no-sign-request s3 cp --recursive s3://cmaqv5.4-listos /$DISK/data/
+aws --no-sign-request s3 cp --recursive s3://cmas-cmaq/CMAQv5.4_2018_12LISTOS_Benchmark_3Day_Input /$DISK/data/
 

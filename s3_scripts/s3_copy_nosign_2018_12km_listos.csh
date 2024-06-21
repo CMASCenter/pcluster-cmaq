@@ -6,4 +6,4 @@
 
 setenv AWS_REGION "us-east-1"
 
-aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmaqv5.4-listos /shared/data/
+aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-cmaq/CMAQv5.4_2018_12LISTOS_Benchmark_3Day_Input /shared/data/
