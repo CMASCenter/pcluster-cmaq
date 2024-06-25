@@ -187,6 +187,12 @@ Test display
 
 `display xclock`
 
+Install firefox
+
+```
+sudo apt-get install firefox
+```
+
 
 ```{seealso}
 <a href=https://docs.aws.amazon.com/parallelcluster/latest/ug/dcv.html>NICE DCV Settings in YAML</a>
