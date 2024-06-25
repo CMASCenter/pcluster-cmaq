@@ -187,11 +187,19 @@ Test display
 
 `display xclock`
 
-Install firefox
+Install Chrome 
 
 ```
-sudo apt-get install firefox
+sudo apt-get install chromium-browser
+export XAUTHORITY=$HOME/.Xauthority 
 ```
+
+Test chrome
+
+```
+chromium
+```
+
 
 
 ```{seealso}
