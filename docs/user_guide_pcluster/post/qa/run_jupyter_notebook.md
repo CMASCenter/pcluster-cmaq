@@ -13,7 +13,7 @@ cd /shared/pcluster-cmaq/qa_scripts/workshop
 /bin/tcsh
 ```
 
-3. Run Jupyter Notebook (this may take a few minutes to run and to start the firefox browser)
+3. Run Jupyter Notebook (this may take a few minutes to run and to start the browser)
 
 ```
 jupyter notebook
