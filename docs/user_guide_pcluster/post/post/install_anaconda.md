@@ -26,7 +26,5 @@ conda config --set auto_activate_base True
 Install additional packages
 
 ```
-conda install netcdf4
-conda install pyproj
-conda install cartopy
+conda install netcdf4 pyproj cartopy
 ```
