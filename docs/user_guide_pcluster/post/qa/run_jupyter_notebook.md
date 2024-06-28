@@ -20,7 +20,7 @@ jupyter notebook
 ```
 
 
-4. Create Spatial Difference Plot
+4. Create Spatial Plot of Difference at the location of the Maximum Value
 
     a. Double Click on the Spatial_Plots_of_Max_Conc_Differences.ipynb notebook
 
