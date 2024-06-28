@@ -22,7 +22,7 @@ jupyter notebook
 
 4. Create Spatial Difference Plot
 
-    a. Double Click on the Spatial_Plots_of_Ave_Conc_Differences.ipynb notebook
+    a. Double Click on the Spatial_Plots_of_Max_Conc_Differences.ipynb notebook
 
     b. In each cell you can use the 'shift return' or 'shift enter' to run each cell
 
