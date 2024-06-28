@@ -48,14 +48,29 @@ jupyter notebook
 
 6. Create Plot of Daily Average of O3 and NO2. 
 
+    a. Double Click on the cmaq_tutorial.ipynb
 
-![Mean_O3_20171222.png](../../qa_scripts/workshop/Mean_O3_20171222.png)
+    b. In each cell you can use the 'shift return' or 'shift enter' to run each cell
 
-![Mean_NO2_20171222.png](../../qa_scripts/workshop/Mean_NO2_20171222.png)
+    c. In the section "Set up your Inputs" you will use shift+enter, then enter the value, and then enter to submit the answer.
 
-### Use Jupyter Notebook to plot the averges, average differences difference and average percent differences
+    d. View the plots within the Jupyter Notebook in cells after the plots have been generated
+
+    e. Plot of Mean Ozone and NO2
+
+
+![Mean_O3_20171222.png](../../../../qa_scripts/workshop/Mean_O3_20171222.png)
+
+![Mean_NO2_20171222.png](../../../../qa_scripts/workshop/Mean_NO2_20171222.png)
+
+7. Create 
+
 
 This notebook produces a panel of plots per species where the top two plots are averages and then the bottom two are average differences and average percent differences
 
-![Average_Difference.png](../../qa_scripts/workshop/PM25_NO3_average_difference_between_CMAQv54_vs_DESID.png)
+![Average_Difference_PM25_NO3.png](../../../../qa_scripts/workshop/PM25_NO3_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_Emissions_reduction_on_12-22-2017_05.png)
+
+
+![Average_Difference_PM25_SO4.png](../../../../qa_scripts/workshop/PM25_SO4_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_reduction_on_12-22-2017_18.png)
+
 
