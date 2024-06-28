@@ -68,9 +68,5 @@ jupyter notebook
 
 This notebook produces a panel of plots per species where the top two plots are averages and then the bottom two are average differences and average percent differences
 
-![Average_Difference_PM25_NO3.png](../../../../qa_scripts/workshop/PM25_NO3_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_Emissions_reduction_on_12-22-2017_05.png)
-
-
-![Average_Difference_PM25_SO4.png](../../../../qa_scripts/workshop/PM25_SO4_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_reduction_on_12-22-2017_18.png)
-
+![Average_Difference.png](../../../../qa_scripts/workshop/PM25_NO3_average_difference_between_CMAQv54_vs_DESID.png)
 
