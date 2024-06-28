@@ -30,9 +30,9 @@ jupyter notebook
 
     d. View the plots within the Jupyter Notebook in cells after the plots have been generated
 
-    e. Plot of Difference of SO2 Base minus SO2 DESID REDUCE CMAQ
+    e. Plot of Difference of PM25_NO3 Base minus PM25_NO3 DESID REDUCE CMAQ
 
- ![Difference Plot Comparison](../../../../qa_scripts/workshop/SO2_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_reduction_on_12-22-2017.png)
+ ![Maximum Difference Plot Comparison](../../../../qa_scripts/workshop/PM25_NO3_difference_between_Base_CMAQ_vs_DESID_PT_EGU_NY_reduction_on_12-22-2017_00:00.png)
 
 5. Create Timeseries Plot at Cell where PT_EGU emissions were reduced
 
