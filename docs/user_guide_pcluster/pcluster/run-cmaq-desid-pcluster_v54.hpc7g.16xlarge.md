@@ -71,6 +71,7 @@ Modify the following section to use the NY region that is specified in the CMAQ_
   StreamFamilyName(2)     = 'PT_EGUS'
   StreamFamilyMembers(2,1:1)= 'PT_EGU'
 &Desid_Diag
+/
 ```
 
 5. **activate DESID diagnostics to report the reduction in PT_EGU emissions.**
