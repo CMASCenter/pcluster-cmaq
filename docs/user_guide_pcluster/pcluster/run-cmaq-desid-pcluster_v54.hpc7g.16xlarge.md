@@ -126,7 +126,7 @@ set APPL      = 12US1_DESID_REDUCE        #> Application Name (e.g. Gridname)
 3. **Verify the following emission stream names match the names used in the DESID namelist.**
 
 ```csh
-grep STK_EMIS_LAB_00 run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.DESID_RED_NY.csh
+grep STK_EMIS_LAB_00 run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic_DESID_RED_NY.csh
 ```
 
 Output
@@ -146,6 +146,7 @@ setenv STK_EMIS_LAB_009 PT_CMV_C1C2
 4. **Compare the above settings to those used in the Emission Stream Family defined in the DESID Namelist.**
 
 ```csh
+cd BLD_CCTM_v54+_gcc
 grep -A 2 -B 2 StreamFamilyMembers CMAQ_Control_DESID_RED_EGU_POINT_NY.nml
 ```
 
@@ -167,7 +168,7 @@ CMAQ won’t crash if the stream name in CMAQ_Control_DESID_<MECH>_RED_EGU_POINT
 5. **Update the DESID namelist file names in the run script to use the Reduced PT_EGU and diagnostic instructions.**
 
 ```csh
-cd  /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc
+cd  /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 vi run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic_DESID_RED_NY.csh
 ```
 
@@ -182,13 +183,13 @@ setenv DESID_CHEM_CTRL_NML ${BLD}/CMAQ_Control_DESID_${MECH}_RED_EGU_POINT_NY.nm
 
 ```csh
 #> Spatial Masks For Emissions Scaling
-  setenv CMAQ_MASKS $SZpath/GRIDMASK_STATES_12US1_m3clple_12listos.ncf
+  setenv CMAQ_MASKS $SZpath/GRIDMASK_STATES_12US1.nc
 ```
 
 7. **Verify that the file contains New York**
 
 ```csh
-ncdump /shared/build/GRIDMASK/GRIDMASK_STATES_12US1.nc | grep NY
+ncdump /GRIDMASK_STATES_12US1.nc | grep NY
 ```
 
 Output
@@ -215,7 +216,7 @@ cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 
 2. **Submit the Run script to the SLURM queue**
 ```csh
-sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.DESID_RED_NY.csh
+sbatch run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic_DESID_RED_NY.csh
 ```
 
 3. **Check the status of the job**
