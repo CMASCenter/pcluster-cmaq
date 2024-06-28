@@ -33,7 +33,7 @@ Define NY as a region in the DESID Region Definitions
 
 ```csh
 cp CMAQ_Control_DESID.nml CMAQ_Control_DESID_RED_EGU_POINT_NY.nml
-vi  CMAQ_Control_DESID_RED_EGU_POINT_NY.nml &
+vi  CMAQ_Control_DESID_RED_EGU_POINT_NY.nml
 ```
 
 Modify the following section to use the NY region that is specified in the CMAQ_MASKS file, note the CMAQ_MASKS file is defined in the DESID Run script.
@@ -106,21 +106,15 @@ Note, if you define only one diagnostic rule, you must comment out all other rul
 diff CMAQ_Control_DESID_RED_EGU_POINT_NY.nml /shared/pcluster-cmaq/qa_scripts/workshop/CMAQ_Control_DESID_RED_EGU_POINT_NY.nml
 ```
 
-7. **Copy the Run script and edit it to use the DESID namelist files**
-
-```csh
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc
-cp run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.csh run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic_DESID_RED_NY.csh
-```
-
 
 ### Edit runscript to use DESID Namelist
 
 1. **Copy the Run script and edit it to use the DESID namelist files**
 
 ```csh
-cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/BLD_CCTM_v54+_gcc
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts
 cp run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.csh run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic_DESID_RED_NY.csh
+vi run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic_DESID_RED_NY.csh
 ```
 
 2. **Change APPL to a new name**
@@ -132,7 +126,7 @@ set APPL      = 12US1_DESID_REDUCE        #> Application Name (e.g. Gridname)
 3. **Verify the following emission stream names match the names used in the DESID namelist.**
 
 ```csh
-grep STK_EMIS_LAB_00 ../run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.DESID_RED_NY.csh
+grep STK_EMIS_LAB_00 run_cctm_2018_12US1_v54_cb6r5_ae6.20171222.3x64.ncclassic.DESID_RED_NY.csh
 ```
 
 Output
