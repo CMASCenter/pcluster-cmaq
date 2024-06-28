@@ -45,3 +45,17 @@ jupyter notebook
     d. Plot comparing two time series, one for base case and one for DESID reduce case.
 
   ![Time Series Plot Comparison](../../../../qa_scripts/Timeseries_SO2_20171223_desid_4_1.png)
+
+6. Create Plot of Daily Average of O3 and NO2. 
+
+
+![Mean_O3_20171222.png](../../qa_scripts/workshop/Mean_O3_20171222.png)
+
+![Mean_NO2_20171222.png](../../qa_scripts/workshop/Mean_NO2_20171222.png)
+
+### Use Jupyter Notebook to plot the averges, average differences difference and average percent differences
+
+This notebook produces a panel of plots per species where the top two plots are averages and then the bottom two are average differences and average percent differences
+
+![Average_Difference.png](../../qa_scripts/workshop/PM25_NO3_average_difference_between_CMAQv54_vs_DESID.png)
+
