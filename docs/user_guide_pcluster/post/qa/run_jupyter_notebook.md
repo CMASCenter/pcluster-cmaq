@@ -63,7 +63,7 @@ jupyter notebook
 
 ![Mean_NO2_20171222.png](../../../../qa_scripts/workshop/Mean_NO2_20171222.png)
 
-7. Create 
+7. Create Panel Plots of Average Difference for PM25_NO3 
 
 
 This notebook produces a panel of plots per species where the top two plots are averages and then the bottom two are average differences and average percent differences
