@@ -238,8 +238,7 @@ Wait for the status to change from CF to R
 4. **Login to the compute node, install  and run htop**
 
 ```csh
-ssh -Y compute-dy-hpc7g-1
-sudo yum install -y htop
+ssh -Y queue1-dy-compute-resource-1-4
 htop
 ```
 
