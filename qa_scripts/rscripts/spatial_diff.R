@@ -1,11 +1,13 @@
 #Required libraries.
 library(ncdf4)
-#install.packages("/home/kfoley/tools/Rcode/R-packages/M3", repos = NULL, type="source")
-#library("M3")
-source("/proj/ie/proj/CMAS/CMAQ/CMAQv5.5_testing/CMAQ_v5.5/POST/rscripts/M3_functions.r")
+library("M3")
 library(fields)
 library(rlang)
 library(viridis)
+
+# Script author: Kristen Foley
+# Affiliation: US EPA Office of Research and Development
+
 
 setwd("/proj/ie/proj/CMAS/CMAQ/CMAQv5.5_testing/CMAQ_v5.5/POST/rscripts")
 
