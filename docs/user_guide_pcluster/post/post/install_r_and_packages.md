@@ -187,6 +187,20 @@ Test display
 
 `display xclock`
 
+Install Chrome 
+
+```
+sudo apt-get install chromium-browser
+export XAUTHORITY=$HOME/.Xauthority 
+```
+
+Test chrome
+
+```
+chromium
+```
+
+
 
 ```{seealso}
 <a href=https://docs.aws.amazon.com/parallelcluster/latest/ug/dcv.html>NICE DCV Settings in YAML</a>
