@@ -30,3 +30,5 @@ aws --no-sign-request s3 cp --recursive --exclude "*" --include "*201712*" s3://
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180701*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20180702*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/cb6r3_ae6_20200131_MYR/
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*20181208*" --include "*20181222*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/WR705_2018gc2_cracmmv1/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/WR705_2018gc2_cracmmv1/
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*2017*" --include "*201812*" --include "*20180101*" --include "*20180102*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/WR705_2018gc2_cracmmv1/ /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/WR705_2018gc2_cracmmv1/
+
