@@ -10,7 +10,7 @@ setenv AWS_REGION "us-east-1"
 mkdir -p /21dayscratch/scr/l/i/lizadams/CMAQv5.5/openmpi_gcc/data
 setenv DISK /21dayscratch/scr/l/i/lizadams/CMAQv5.5/openmpi_gcc
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*201712*" --include "*20180701*" --include "*20180702*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/met/WRFv4.3.3_LTNG_MCIP5.3.3_compressed /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/met/WRFv4.3.3_LTNG_MCIP5.3.3_compressed
-aws --no-sign-request s3 cp --recursive --exclude "*" --include "*201712*" --include "*20180701*" --include "*20180702*" --include "smk_merge_dates_201807.txt" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis
+aws --no-sign-request s3 cp --recursive --exclude "*" --include "*201712*" --include "*20180701*" --include "*20180702*" --include "smk_merge_dates_201807.txt"  --include "smk_merge_dates_201712.txt" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*stack_groups*" s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis
 aws --no-sign-request s3 cp --recursive  s3://cmas-cmaq-modeling-platform-2018/2018_12US1/emis/emis_dates /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/emis/emis_dates
 aws --no-sign-request s3 cp --recursive --exclude "*" --include "*201712*" --recursive s3://cmas-cmaq-modeling-platform-2018/2018_12US1/epic /$DISK/data/CMAQ_Modeling_Platform_2018/2018_12US1/epic
