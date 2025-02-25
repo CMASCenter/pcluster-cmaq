@@ -55,7 +55,7 @@ logout and log back in to switch to the default shell
 Use module list and then module load to load the libraries
 
 ```
-module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf
+module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf libfabric-aws
 ```
 
 
