@@ -37,7 +37,7 @@ sudo lsblk
 
 ## Resize the EBS Volume
 
-To resize the EBS volume, you will need to login to the cluster and then run the following command:
+To resize the EBS volume, run the following command:
  
 `sudo resize2fs /dev/nvme1n1`
 
