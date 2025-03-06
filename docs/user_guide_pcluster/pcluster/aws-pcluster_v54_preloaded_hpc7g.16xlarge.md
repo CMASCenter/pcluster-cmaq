@@ -109,6 +109,41 @@ Note, this yaml file is configured to have 12 nodes of the hpc7g.16xlarge (64 pe
 
 `pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml --cluster-name cmaq --region us-east-1`
 
+## Output recieved from command line: 
+
+```
+{
+  "cluster": {
+    "clusterName": "cmaq",
+    "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/2e7eb730-faac-11ef-b084-0affc1aac5d7",
+    "region": "us-east-1",
+    "version": "3.9.2",
+    "clusterStatus": "CREATE_IN_PROGRESS",
+    "scheduler": {
+      "type": "slurm"
+    }
+  },
+  "validationMessages": [
+    {
+      "level": "WARNING",
+      "type": "EbsVolumeSizeSnapshotValidator",
+      "message": "The specified volume size is larger than snapshot size. In order to use the full capacity of the volume, you'll need to manually resize the partition according to this doc: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html"
+    },
+    {
+      "level": "INFO",
+      "type": "DeletionPolicyValidator",
+      "message": "The DeletionPolicy is set to Delete. The storage 'ebs-shared' will be deleted when you remove it from the configuration when performing a cluster update or deleting the cluster."
+    },
+    {
+      "level": "INFO",
+      "type": "DeletionPolicyValidator",
+      "message": "The DeletionPolicy is set to Delete. The storage 'name2' will be deleted when you remove it from the configuration when performing a cluster update or deleting the cluster."
+    }
+  ]
+}
+```
+
 Check on status of cluster
 
 `pcluster describe-cluster --region=us-east-1 --cluster-name cmaq`
