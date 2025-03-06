@@ -29,6 +29,18 @@ Copyright (C) 2019 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+## Check the volume sizes
+
+```
+sudo lsblk
+```
+
+## Resize the EBS Volume
+
+To resize the EBS volume, you will need to login to the cluster and then run the following command:
+ 
+`sudo resize2fs /dev/nvme1n1`
+
 
 Change default shell to .tcsh
 
