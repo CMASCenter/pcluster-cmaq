@@ -88,9 +88,10 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
 ## Update cluster to remove the lustre filesystem 
+Use the yaml configuration file that was modified to delete the /fsx or lustre filesystem.
 
 ```
-pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
+pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configuration hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.no_fsx.yaml
 ```
 
 ## Check on the status until it says the update is complete 
