@@ -257,7 +257,7 @@ The CMAQ run script has been configured to run on 192 cores (3 compute nodes of 
 1. **Review the Emissions Scaling Report Section in the CTM_LOG File to verify that for the NY region, the EGU emissions were scaled by 75%**
 
 ```csh
-cd output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_2018_12US1_3x64_classic_DESID_REDUCE
+cd /fsx/data/output/output_v54+_cb6r5_ae7_aq_WR413_MYR_gcc_12US1_DESID_REDUCE 
 grep -A 20 'Stream Type: "Point Emissions File   2' CTM_LOG_001*
 ```
 

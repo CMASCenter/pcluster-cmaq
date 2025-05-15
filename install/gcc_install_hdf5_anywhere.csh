@@ -28,7 +28,7 @@ set echo
   cd zlib-1.2.11
   ./configure --prefix=$INSTDIR/zlib-1.2.11/gcc_9.1.0
   make test |& tee make.test.log
-  make install |& tee make.install.log
+  make install |& tee make.zlib.install.log
 
 #  -----------------------
 #  Download and build HDF5
@@ -45,7 +45,7 @@ set echo
    ./configure --prefix=$INSTDIR --with-zlib=$INSTDIR/zlib-1.2.11/gcc_9.1.0/include,$INSTDIR/zlib-1.2.11/gcc_9.1.0/lib --enable-hl
    make |& tee make.gcc9.log 
 #  make check > make.gcc9.check
-   make install
+   make install |& tee make.hdf5.install.log
 #  ---------------------------
 #  Download and build netCDF-C
 #  ---------------------------
@@ -56,7 +56,7 @@ set echo
    cd netcdf-c-4.8.0
    ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=$INSTDIR
    make |& tee  make.gcc9.log
-   make install
+   make install |& tee make.netCDF-C.install.log
 #  ---------------------------------
 #  Download and build netCDF-Fortran
 #  ---------------------------------
@@ -70,7 +70,7 @@ set echo
    setenv LDFLAGS -L${INSTDIR}/lib
    ./configure --with-pic  --enable-shared --prefix=$INSTDIR
    make |& tee make.gcc9.log 
-   make install
+   make install |& tee make.netCDF-Fortran.install.log
 #  -----------------------------
 #  Download and build netCDF-CXX
 #  -----------------------------
@@ -80,7 +80,7 @@ set echo
    cd netcdf-cxx4-4.3.1
    ./configure --with-pic --enable-shared --prefix=$INSTDIR
    make |& tee  make.gcc9.log
-   make install
+   make install |& tee make.neCDF-CXX.install.log
 #  --------------------------
 #  Download and build OpenMPI
 #  --------------------------
@@ -96,7 +96,7 @@ set echo
 #   ./configure --prefix=$INSTDIR --enable-mpi-cxx
 #   make |& tee make.gcc9.log
 ##  make check > make.gcc9.check
-#   make install
+#   make install |& tee make.openmpi.install.log
 #  ----------------------------------
 #  Download and build Parallel netCDF
 #  ----------------------------------
@@ -112,7 +112,7 @@ set echo
    #./configure --prefix=$INSTDIR MPIF77=mpif90 MPIF90=mpif90 MPICC=mpicc MPICXX=mpicxx --with-mpi=/nas/longleaf/apps/r/4.1.3/openmpi
    ./configure --prefix=$INSTDIR MPIF77=mpif90 MPIF90=mpif90 MPICC=mpicc MPICXX=mpicxx --with-mpi=/nas/longleaf/apps-dogwood/mpi/gcc_9.1.0/openmpi_4.0.1
    make |& tee make.gcc9.log
-   make install
+   make install |& tee make.pnetcdf.install.log
 #  ----------------------------------------
 #  Use tcsh 6.20 instead of the broken 6.21
 #  ----------------------------------------

@@ -29,6 +29,18 @@ Copyright (C) 2019 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+## Check the volume sizes
+
+```
+sudo lsblk
+```
+
+## Resize the EBS Volume
+
+To resize the EBS volume, run the following command:
+ 
+`sudo resize2fs /dev/nvme1n1`
+
 
 Change default shell to .tcsh
 
@@ -55,7 +67,7 @@ logout and log back in to switch to the default shell
 Use module list and then module load to load the libraries
 
 ```
-module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf
+module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf libfabric-aws
 ```
 
 
