@@ -1,4 +1,4 @@
-# Create Cost Allocation Tags for Analysis using AWS Cost Analyzer. 
+# Create Cost Allocation Tags for Analysis using AWS Cost Explorer. 
 
 Step by step instructions for using cost allocation tags. This method was obtained from the following website: <br>
 <a href="https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster">Using Cost Allocation Tags with AWS ParallelCluster"</a>  
@@ -237,7 +237,14 @@ tail cmaq_cost_alloc_tag*.txt
 Output
 
 ```
- tail cmaq_cost_alloc_tag_4.txt
+==================================
+  ***** CMAQ TIMING REPORT *****
+==================================
+Start Day: 2018-08-05
+End Day:   2018-08-07
+Number of Simulation Days: 3
+Domain Name:               2018_12Listos
+Number of Grid Cells:      21875  (ROW x COL x LAY)
 Number of Layers:          35
 Number of Processes:       16
    All times are in seconds.
@@ -263,7 +270,7 @@ pcluster describe-cluster --cluster-name cmaq --region us-east-1
 pcluster delete-cluster --cluster-name cmaq --region us-east-1
 ```
 
-### It takes 24 hours for the cost data to appear in the Cost Analyzer. Once 24 hours has elapsed check the AWS Website Cost Analyzer and select by tags.
+### It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
 
 
 
