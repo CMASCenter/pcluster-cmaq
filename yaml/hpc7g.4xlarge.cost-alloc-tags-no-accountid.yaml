@@ -1,0 +1,66 @@
+Region: us-east-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: c7g.large
+  Networking:
+    SubnetId: subnet-0eed3f3567767ce4d 
+  DisableSimultaneousMultithreading: true
+  Ssh:
+    KeyName: cmas
+  CustomActions:
+    OnNodeConfigured:
+      Script: s3://cost-alloc-tag-pcluster/post_install.sh
+  Iam:
+    S3Access:
+      - BucketName: cost-alloc-tag-pcluster 
+        EnableWriteAccess: False
+    AdditionalIamPolicies:
+      - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget
+  LocalStorage:
+    RootVolume:
+      Encrypted: false
+Scheduling:
+  Scheduler: slurm
+  SlurmSettings:
+    ScaledownIdletime: 5
+  SlurmQueues:
+    - Name: queue1
+      CapacityType: ONDEMAND
+      Networking:
+        SubnetIds:
+          - subnet-0eed3f3567767ce4d 
+        PlacementGroup:
+          Enabled: true
+      ComputeResources:
+        - Name: compute-resource-1
+          InstanceType: hpc7g.4xlarge
+          MinCount: 0
+          MaxCount: 4
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: true
+            GdrSupport: false
+      CustomActions:
+        OnNodeConfigured:
+          Script: s3://cost-alloc-tag-pcluster/post_install.sh
+      Iam:
+        S3Access:
+          - BucketName: cost-alloc-tag-pcluster 
+            EnableWriteAccess: False
+        AdditionalIamPolicies:
+          - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      Encrypted: false
+      SnapshotId: snap-0049a7c309f238500
+Tags:
+  - Key: aws-parallelcluster-username
+    Value: NA
+  - Key: aws-parallelcluster-jobid
+    Value: NA 
+  - Key: aws-parallelcluster-project
+    Value: NA 
