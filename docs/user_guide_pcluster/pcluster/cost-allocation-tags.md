@@ -227,6 +227,22 @@ grep -i error CTM_LOG*
 tail cmaq_cost_alloc_tag*.txt
 ```
 
+Output
+
+```
+ tail cmaq_cost_alloc_tag_4.txt
+Number of Layers:          35
+Number of Processes:       16
+   All times are in seconds.
+
+Num  Day        Wall Time
+01   2018-08-05   57.0
+02   2018-08-06   63.7
+03   2018-08-07   57.6
+     Total Time = 178.30
+      Avg. Time = 59.43
+```
+
 
 ### Check the status of the cluster via the console and the command line to verify that the compute nodes have shut down
 
