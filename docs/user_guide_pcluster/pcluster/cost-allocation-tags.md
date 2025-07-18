@@ -1,7 +1,7 @@
 # Create Cost Allocation Tags and Analysis using AWS Cost Analyzer. 
 
 Step by step instructions for using cost allocation tags. This method was obtained from the following website: 
-https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster/  
+<a href="https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster">Using Cost Allocation Tags with AWS ParallelCluster"</a>  
 
 The following have already been implemented for the CMAS Center Account.
 
