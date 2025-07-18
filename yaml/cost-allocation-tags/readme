@@ -1,0 +1,5 @@
+Files obtained from the following tutorial.
+https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster/
+
+Need to edit sbatch to replace <account_id> before using
+

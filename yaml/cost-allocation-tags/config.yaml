@@ -1,0 +1,45 @@
+Image:
+  Os: alinux2
+HeadNode:
+  InstanceType: t2.micro
+  Networking:
+    SubnetId: <subnet-id>
+  Ssh:
+    KeyName: <key>
+  CustomActions:
+    OnNodeConfigured:
+      Script: s3://<bucket>/post_install.sh
+  Iam:
+    S3Access:
+      - BucketName: <bucket>
+        EnableWriteAccess: False
+    AdditionalIamPolicies:
+      - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: queue1
+      Networking:
+        SubnetIds:
+          - <subnet-id>
+      ComputeResources:
+        - Name: compute-resource1
+          InstanceType: t2.micro
+          MinCount: 0
+          MaxCount: 10
+      CustomActions:
+        OnNodeConfigured:
+          Script: s3://<bucket>/post_install.sh
+      Iam:
+        S3Access:
+          - BucketName: <bucket>
+            EnableWriteAccess: False
+        AdditionalIamPolicies:
+          - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget
+Tags:
+  - Key: aws-parallelcluster-username
+    Value: NA
+  - Key: aws-parallelcluster-jobid
+    Value: NA
+  - Key: aws-parallelcluster-project
+    Value: NA
