@@ -3,7 +3,7 @@
 Step by step instructions for using cost allocation tags. This method was obtained from the following website: <br>
 <a href="https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster">Using Cost Allocation Tags with AWS ParallelCluster"</a>  
 
-The following have already been implemented for the CMAS Center Account.<br>
+Steps 1&2 have already been implemented for the CMAS Center Account.<br>
 
 ## Creation of the  pclusterTagsAndBudget IAM Policy 
 This was done via the AWS console.<br>
@@ -43,7 +43,8 @@ sbatch
 
 This s3 bucket should allow use of this by Manish Soni using a bucket policy with permissions.<br>
 This s3 bucket will be called by the yaml file used to create the cluster.<br>
-An example yaml file is provided in the documentation, and is available here<br>
+
+## Review example yaml file that has the lines that need to be added highlighted by !!
 
 ```
 Image:
@@ -93,16 +94,26 @@ Tags:                                                                        !!
     Value: NA                                                                !!
 ```
 
+## Use above template to modify your cluster yaml to add cost allocation tags
+
+Cut and paste the lines that have !! comments and add them to your cluster yaml file.
+
+## Or - use the Listos Cost Allocation Yaml that is provided here (with the exception of the <account_id>)
+
+cd pcluster-cmaq/yaml/
+
+## Edit the <account_id> to use the value for your account
+ 
 
 ## Use the modified yaml file to create the cluster
 
 ```
-pcluster create-cluster --cluster-configuration test_cost_alloc_cluster.yaml  --cluster-name cmaq --region us-east-1
+pcluster create-cluster --cluster-configuration hpc7g.4xlarge.cost-alloc-tags.yaml  --cluster-name cmaq --region us-east-1
 ```
 
 ### Check on the cluster status
 
-Use this command to check on the status of the cluster
+Use this command to check on the status of the cluster until the clusterStatus is CREATE_COMPLETE.
 
 ```
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
@@ -114,25 +125,85 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 pcluster ssh -v -Y -i ~/cmas.pem --region=us-east-1 --cluster-name cmaq
 ```
 
+### Resize the EBS Volume
+
+To resize the EBS volume, run the following command:<br>
+
+```
+sudo resize2fs /dev/nvme1n1
+```
+
 ### Obtain the Listos Benchmark Case from the S3 bucket
+
+```
+mkdir /shared/data
+cd /shared/data
+aws s3 --no-sign-request cp --region=us-east-1 --recursive s3://cmas-cmaq/CMAQv5.4_2018_12LISTOS_Benchmark_3Day_Input .
+```
 
 ### Obtain the Listos Run script from the S3 bucket
 
-### Link the executable to the CMAQv5.4+.exe
+```
+cp /shared/pcluster-cmaq/run_scripts/c6a/run_cctm_2018_12US1_listos.csh /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
+```
+
+
+### Modify the version number in the run script to match the precompiled code version
 
 ```
-ln -s CMAQv5.4+.exe CMAQv5.4.exe
+ set VRSN      = v54+              #> Code Version
 ```
+
+### Modify the run script to add CMAQ_DATA environment variable and modify INPDIR to match what is available after downloading the inputs, and modify number of processos used
+
+Add the following SLURM instructions to the top of the run script
+
+```
+#!/bin/csh -f
+## For Parallel Cluster 16 cores x 2 = 32
+## data on /fsx or lustre data directory
+## https://dataverse.unc.edu/dataset.xhtml?persistentId=doi:10.15139/S3/LDTWKH
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=16
+#SBATCH --exclusive
+#SBATCH -J CMAQ
+#SBATCH -o cmaq_cost_alloc_tag_%j.txt
+```
+
+Modify this section of the run script #> Set Working, Input, and Output Directories to use:
+
+```
+setenv CMAQ_DATA /shared/data
+setenv INPDIR  ${CMAQ_DATA}/12LISTOS_Training
+   @ NPCOL  =  4; @ NPROW =  8
+```
+
 
 ### Load the modules to get the libraries and compiler
 
-### Obtain the run script for the Listos Benchmark
+```
+module use --append /shared/build/Modules/modulefiles
+```
+
+### Check modules that are now available
 
 ```
-cp /shared/pcluster-cmaq/run_scripts/run_cctm_2018_12US1_listos.csh <path to scripts>
+module avail
+```
+
+### Load the library modules
+
+```
+module load ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5  libfabric-aws/1.19.0amzn4.0 openmpi/4.1.6  
 ```
 
 ### Submit job to slurm using the --comment flag to specify the project name
+
+```
+sbatch --comment ProjectA run_cctm_2018_12US1_listos.csh
+```
+ 
+Note that the projects are listed in the projects_list.conf that is on the s3 bucket, and it may be modified to use different project names.
 
 
 ### Verify that the run completes successfully
