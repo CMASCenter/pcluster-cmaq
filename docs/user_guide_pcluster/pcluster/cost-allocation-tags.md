@@ -205,17 +205,40 @@ sbatch --comment ProjectA run_cctm_2018_12US1_listos.csh
  
 Note that the projects are listed in the projects_list.conf that is on the s3 bucket, and it may be modified to use different project names.
 
+### Use squeue to check on status of runs
+
+```
+squeue
+```
+
+Output
+
+```
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 4    queue1     CMAQ   ubuntu  R       1:24      2 queue1-dy-compute-resource-1-[2-3]
+```
+
 
 ### Verify that the run completes successfully
 
 
+```
+grep -i error CTM_LOG*
+tail cmaq_cost_alloc_tag*.txt
+```
+
+
 ### Check the status of the cluster via the console and the command line to verify that the compute nodes have shut down
 
+```
 pcluster describe-cluster --cluster-name cmaq --region us-east-1
+```
 
 ### Terminate the cluster after the compute nodes have successfully terminated.
 
+```
 pcluster delete-cluster --cluster-name cmaq --region us-east-1
+```
 
 ### It takes 24 hours for the cost data to appear in the Cost Analyzer. Once 24 hours has elapsed check the AWS Website Cost Analyzer and select by tags.
 
