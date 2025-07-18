@@ -1,14 +1,16 @@
 # Create Cost Allocation Tags for Analysis using AWS Cost Analyzer. 
 
-Step by step instructions for using cost allocation tags. This method was obtained from the following website: 
+Step by step instructions for using cost allocation tags. This method was obtained from the following website: <br>
 <a href="https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster">Using Cost Allocation Tags with AWS ParallelCluster"</a>  
 
-The following have already been implemented for the CMAS Center Account.
+The following have already been implemented for the CMAS Center Account.<br>
 
 ## Creation of the  pclusterTagsAndBudget IAM Policy 
-This was done via the AWS console.
-Edited a policy named pclusterTagsAndBudget
-Implemented the following policies
+This was done via the AWS console.<br>
+Edited a policy named pclusterTagsAndBudget<br>
+Implemented the following policies<br>
+
+```
     Type: 'AWS::IAM::ManagedPolicy'
     Properties:
       ManagedPolicyName: pclusterTagsAndBudget
@@ -26,18 +28,22 @@ Implemented the following policies
             Action:
               - 'budgets:ViewBudget'
             Resource: 'arn:aws:budgets::*:budget/*'
+```
 
-The above content is from the pcluster_env.yml file, but I didn't see how that code was used, so I implemented it through the console.
+The above definition is from the pcluster_env.yml file, but I didn't see how that code was used, so I implemented it through the console.
 
-## Creationg of an S3 bucket named: cost-alloc-tag-pcluster that contains the following files that were obtained and then modified according to the tutorial for the CMAS Account:
+## An S3 bucket named: cost-alloc-tag-pcluster was created to host files that were obtained and then modified according to the tutorial for the CMAS Account:
+
+```
 pcluster_env.yml
 post_install.sh
 projects_list.conf
 sbatch
+```
 
-This s3 bucket should allow use of this by Manish Soni using a bucket policy with permissions.
-This s3 bucket will be called by the yaml file used to create the cluster.
-An example yaml file is provided in the documentation, and is available here
+This s3 bucket should allow use of this by Manish Soni using a bucket policy with permissions.<br>
+This s3 bucket will be called by the yaml file used to create the cluster.<br>
+An example yaml file is provided in the documentation, and is available here<br>
 
 ```
 Image:
@@ -88,7 +94,7 @@ Tags:                                                                        !!
 ```
 
 
-## Use your modified yaml file to create the cluster
+## Use the modified yaml file to create the cluster
 
 ```
 pcluster create-cluster --cluster-configuration test_cost_alloc_cluster.yaml  --cluster-name cmaq --region us-east-1
@@ -122,8 +128,9 @@ ln -s CMAQv5.4+.exe CMAQv5.4.exe
 
 ### Obtain the run script for the Listos Benchmark
 
-
-cp run_cctm_2018_12US1_listos.csh
+```
+cp /shared/pcluster-cmaq/run_scripts/run_cctm_2018_12US1_listos.csh <path to scripts>
+```
 
 ### Submit job to slurm using the --comment flag to specify the project name
 
@@ -139,7 +146,7 @@ pcluster describe-cluster --cluster-name cmaq --region us-east-1
 
 pcluster delete-cluster --cluster-name cmaq --region us-east-1
 
-
+### It takes 24 hours for the cost data to appear in the Cost Analyzer. Once 24 hours has elapsed check the AWS Website Cost Analyzer and select by tags.
 
 
 
