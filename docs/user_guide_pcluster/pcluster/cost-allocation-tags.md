@@ -103,6 +103,13 @@ Cut and paste the lines that have !! comments and add them to your cluster yaml 
 cd pcluster-cmaq/yaml/
 
 ## Edit the <account_id> to use the value for your account
+
+```
+vi hpc7g.4xlarge.cost-alloc-tags-no-accountid.yaml
+add account id                                            !! need to avoid placing account information in the git repo
+cp hpc7g.4xlarge.cost-alloc-tags-no-accountid.yaml hpc7g.4xlarge.cost-alloc-tags-update.yaml
+```
+
  
 
 ## Use the modified yaml file to create the cluster
