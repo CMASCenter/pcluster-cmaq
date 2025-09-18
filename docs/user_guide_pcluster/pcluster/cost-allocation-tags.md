@@ -100,7 +100,9 @@ Cut and paste the lines that have !! comments and add them to your cluster yaml 
 
 ## Or - use the Listos Cost Allocation Yaml that is provided here (with the exception of the <account_id>)
 
+```
 cd pcluster-cmaq/yaml/
+```
 
 ## Edit the <account_id> to use the value for your account
 
