@@ -8,14 +8,22 @@ Steps 1&2 have already been implemented for the CMAS Center Account.<br>
 
 ## Activation of an AWS Defined tag: createdBy in the Console
 
-Go to the Billing and Cost Management.
-On the left panel select Cost Allocation Tags
-On the AWS Generated cost allocation tags tab 
-search for aws:createdBy
-Select and then click on activate.
+Go to the Billing and Cost Management.<br>
+On the left panel select Cost Allocation Tags<br>
+On the AWS Generated cost allocation tags tab <br>
+search for aws:createdBy<br>
+Select and then click on activate.<br>
 
 ## Creation and activation of a user defined tag
+The post_install.sh script saved to the s3 bucket will create the user defined tags. <br>
 
+```
+aws-parallelcluster-username
+aws-parallelcluster-jobid
+aws-parallelcluster-project
+```
+<br>
+The values for these tags will be set in the yaml file used to create the parallel cluster.<br>
 
 
 ## Creation of the  pclusterTagsAndBudget IAM Policy 
