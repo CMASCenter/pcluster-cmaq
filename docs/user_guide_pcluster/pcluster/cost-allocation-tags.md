@@ -73,6 +73,17 @@ Example: <br>
 # The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
 ```
 
+Example projects_list.conf:
+
+```
+ec2-user=lizadams, manishsoni, ubuntu
+lizadams=CMASOps, ProjectA
+manishsoni=O3MAT, ProjectB
+ubuntu=ProjectA, ProjectB, CMASOps, O3MAT
+```
+
+Note, I am not sure if we set up login IDs for the parallel cluster, or if we are just logging in as ubuntu..<br>
+
 <br>
 
 Permissions need to be added to the s3 bucket for each user that will be using these cost allocation tags by defining a bucket policy with permissions.<br>
