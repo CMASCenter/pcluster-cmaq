@@ -100,7 +100,7 @@ Scheduling:
           - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget   !!
 Tags:                                                                        !!
   - Key: aws-parallelcluster-username                                        !!
-    Value: Liz                                                                !!
+    Value: lizadams                                                          !!
   - Key: aws-parallelcluster-jobid                                           !!
     Value: 12US1CMAQ                                                         !!
   - Key: aws-parallelcluster-project                                         !!
