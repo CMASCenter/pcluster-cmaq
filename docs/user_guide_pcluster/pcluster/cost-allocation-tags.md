@@ -62,7 +62,32 @@ projects_list.conf
 sbatch
 ```
 
-This s3 bucket should allow use of this by Manish Soni using a bucket policy with permissions.<br>
+Permissions need to be added to the s3 bucket for each user that will be using these cost allocation tags by defining a bucket policy with permissions.<br>
+
+Example - replace <accountID> and <username> 
+```
+"Id": "Bucket-policy-cost-alloc",
+    "Statement": [
+        {
+            "Sid": "Bucket-policy-cost-alloc",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<accountID>:user/<username>"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cost-alloc-tag-pcluster/*",
+                "arn:aws:s3:::cost-alloc-tag-pcluster"
+            ]
+        }
+    ]
+}
+```
+
 This s3 bucket will be called by the yaml file used to create the cluster.<br>
 
 ## Review example yaml file that has the lines that need to be added highlighted by !!
