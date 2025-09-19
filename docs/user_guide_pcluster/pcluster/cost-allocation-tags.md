@@ -62,9 +62,22 @@ projects_list.conf
 sbatch
 ```
 
-Permissions need to be added to the s3 bucket for each user that will be using these cost allocation tags by defining a bucket policy with permissions.<br>
+### Review each of the files that will be placed in the S3 bucket. <br>
+The top of the script will alert you to what needs to be modified.<br>
 
-Example - replace <accountID> and <username> 
+For example, the sbatch script needs to be edited to specify your account ID.<br>
+
+Example: <br>
+
+```
+# The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
+```
+
+<br>
+
+Permissions need to be added to the s3 bucket for each user that will be using these cost allocation tags by defining a bucket policy with permissions.<br>
+<br>
+Example Bucket Policy (use console to create) - replace <accountID> and <username>  <br>
 ```
 "Id": "Bucket-policy-cost-alloc",
     "Statement": [
