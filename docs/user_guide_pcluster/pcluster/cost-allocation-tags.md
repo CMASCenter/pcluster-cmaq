@@ -73,7 +73,11 @@ Example: <br>
 # The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
 ```
 
-Example projects_list.conf:
+Also, the sbatch script has a setting that turns on or off the budgeting capability.<br>
+For users to be notified that they have exceeded their budget allocation, then you would turn this on.<br>
+See the AWS Tutorial for information about how to set up a budget.<br>
+<br>
+Example projects_list.conf:<br>
 
 ```
 ec2-user=lizadams, manishsoni, ubuntu
