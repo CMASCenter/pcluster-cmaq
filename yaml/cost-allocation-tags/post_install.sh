@@ -15,6 +15,7 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # The script configures the Slurm cluster after the deployment. Replace <bucket> with your bucket name.
+# <bucket> was replaced with cost-alloc-tag-pcluster in this example
 
 . "/etc/parallelcluster/cfnconfig"
 

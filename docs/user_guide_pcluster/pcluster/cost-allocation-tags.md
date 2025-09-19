@@ -5,6 +5,19 @@ Step by step instructions for using cost allocation tags. This method was obtain
 
 Steps 1&2 have already been implemented for the CMAS Center Account.<br>
 
+
+## Activation of an AWS Defined tag: createdBy in the Console
+
+Go to the Billing and Cost Management.
+On the left panel select Cost Allocation Tags
+On the AWS Generated cost allocation tags tab 
+search for aws:createdBy
+Select and then click on activate.
+
+## Creation and activation of a user defined tag
+
+
+
 ## Creation of the  pclusterTagsAndBudget IAM Policy 
 This was done via the AWS console.<br>
 Edited a policy named pclusterTagsAndBudget<br>
@@ -87,11 +100,11 @@ Scheduling:
           - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget   !!
 Tags:                                                                        !!
   - Key: aws-parallelcluster-username                                        !!
-    Value: NA                                                                !!
+    Value: Liz                                                                !!
   - Key: aws-parallelcluster-jobid                                           !!
-    Value: NA                                                                !!
+    Value: 12US1CMAQ                                                         !!
   - Key: aws-parallelcluster-project                                         !!
-    Value: NA                                                                !!
+    Value: CMASOPS                                                           !!
 ```
 
 ## Use above template to modify your cluster yaml to add cost allocation tags
