@@ -303,6 +303,7 @@ sudo R
 
 ```
 sudo apt install libudunits2-dev
+sudo apt install libssl-dev 
 ```
 
 
