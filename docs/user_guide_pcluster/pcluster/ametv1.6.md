@@ -208,6 +208,8 @@ limit stacksize unlimited
 setenv LD_LIBRARY_PATH ""
 
 module use --append  /home/ubuntu/Modules/modulefiles
+
+set path = ($path /usr/bin )
 ```
 
 ## Verify that the LD_LIBRARY_PATH is set correctly after loading the modules
@@ -230,6 +232,81 @@ output
 ```
 sudo apt install mariadb-server mariadb-client
 ```
+
+## Secure MariaDB to only allow login from localhost
+
+```
+sudo mariadb-secure-installation
+```
+
+## Initialize a data directory for AMET for the user ubuntu
+following these directions: https://mariadb.com/docs/server/clients-and-utilities/deployment-tools/mariadb-install-db
+(couldn't seem to do it for the user ametsecure
+
+```
+sudo mariadb-install-db --user=ubuntu --basedir=/usr --datadir=/home/ubuntu/MariaDB/data
+```
+
+## Start the MariaDB server
+
+```
+sudo systemctl start mariadb
+```
+
+## Login as root and give permissions to ametsecure user
+
+```
+sudo mysql 
+mysql> USE mysql;
+mysql> CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY 'YOUR_PASSWD';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
+mysql> UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;
+```
+
+## Verify system users
+
+```
+mysql> USE mysql;
+mysql> SELECT User, Host, plugin FROM mysql.user;
+```
+
+Output
+
+```
++-------------+-----------+-----------------------+
+| User        | Host      | plugin                |
++-------------+-----------+-----------------------+
+| mariadb.sys | localhost | mysql_native_password |
+| root        | localhost | mysql_native_password |
+| mysql       | localhost | mysql_native_password |
+| ubuntu      | localhost | mysql_native_password |
+| ametsecure  | localhost | mysql_native_password |
++-------------+-----------+-----------------------+
+```
+
+## Install R
+
+```
+sudo apt install r-base
+```
+
+### Install additional R packages
+
+```
+sudo R
+> install.packages(c("akima","data.table","date","dplyr","dygraphs","fields","ggplot2","grid","gridExtra","htmltools","htmlwidgets","lattice","latticeExtra","leaflet","leaflet.extras","leafpop","lubridate","maps","mapdata","plotly","plotrix","processx","reshape2","RColorBrewer","RMySQL","RMariaDB","stats","webshot","xts","pandoc"),repos="http://cran.r-project.org")
+```
+
+### Install missing packages
+
+```
+sudo apt install libudunits2-dev
+```
+
+
+
 ## Download AMETv1.6
 
 ```
