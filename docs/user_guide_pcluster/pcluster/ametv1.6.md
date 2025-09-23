@@ -527,5 +527,23 @@ wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_A
 wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_DEP_aqExample_201807.nc
 ```
 
-###
+### Download aws cli
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+### Obtain example MET data
+
+```
+cd ~/AMET_v16/model_data/MET/metExample_wrf
+aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_wrf/ .
+cd ~/AMET_v16/model_data/MET/metExample_mcip
+aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_mcip/ .
+cd ~/AMET_v16/model_data/MET/metExample_mpas
+aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_mpas/ .
+```
+
 
