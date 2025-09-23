@@ -71,7 +71,7 @@ sudo apt-get install tcsh
 sudo apt-get install environment-modules
 ```
 
-## Add to bash initialization file
+#### Add to bash initialization file
 either your personal (~/.bashrc) or system-wide (/etc/bash.bashrc) bash initialization file:
 
 ```
@@ -230,19 +230,19 @@ output
 ```
 
 
-### Install MariaDB
+## Install MariaDB
 
 ```
 sudo apt install mariadb-server mariadb-client
 ```
 
-#### Secure MariaDB to only allow login from localhost
+### Secure MariaDB to only allow login from localhost
 
 ```
 sudo mariadb-secure-installation
 ```
 
-#### Initialize a data directory for AMET for the user ubuntu
+### Initialize a data directory for AMET for the user ubuntu
 following these directions: https://mariadb.com/docs/server/clients-and-utilities/deployment-tools/mariadb-install-db
 (couldn't seem to do it for the user ametsecure
 
@@ -250,13 +250,13 @@ following these directions: https://mariadb.com/docs/server/clients-and-utilitie
 sudo mariadb-install-db --user=ubuntu --basedir=/usr --datadir=/home/ubuntu/MariaDB/data
 ```
 
-#### Start the MariaDB server
+### Start the MariaDB server
 
 ```
 sudo systemctl start mariadb
 ```
 
-#### Login as root and give permissions to ametsecure user
+### Login as root and give permissions to ametsecure user
 
 ```
 sudo mysql 
@@ -268,7 +268,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit;
 ```
 
-#### Verify system users
+### Verify system users
 
 ```
 mysql> USE mysql;
@@ -289,13 +289,13 @@ Output
 +-------------+-----------+-----------------------+
 ```
 
-### Install R
+## Install R
 
 ```
 sudo apt install r-base
 ```
 
-#### Install missing software required for R packages
+### Install missing software required for R packages
 
 ```
 sudo apt-get install libudunits2-dev
@@ -309,7 +309,7 @@ sudo apt-get install libabsl-dev
 sudo apt install cmake
 ```
 
-#### Install additional R packages
+### Install additional R packages
 
 ```
 sudo R
@@ -317,10 +317,8 @@ sudo R
 ```
 
 
-ERROR: dependencies ‘systemfonts’, ‘textshaping’ are not available for package ‘svglite’
 
-
-### Download AMETv1.6
+## Download AMETv1.6
 
 ```
 git clone -b 1.6 https://github.com/USEPA/AMET.git AMET_v16
