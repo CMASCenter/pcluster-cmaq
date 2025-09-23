@@ -325,6 +325,7 @@ library()
 
 output:
 
+```
 Packages in library ‘/usr/local/lib/R/site-library’:
 
 akima                   Interpolation of Irregularly and Regularly
@@ -482,11 +483,7 @@ xts                     eXtensible Time Series
 yaml                    Methods to Convert R Data to YAML and Back
 zoo                     S3 Infrastructure for Regular and Irregular
                         Time Series (Z's Ordered Observations)
-
-
-
-
-
+```
 
 ## Download AMETv1.6
 
@@ -507,6 +504,10 @@ sudo apt install default-jre
 ### try to run AMETGUI
 
 Error: Unable to access jarfile /home/ubuntu/AMET_v16/AMETGUI/dist/AMETJavaGUI.jar
+
+### building AMETGUI jar file 
+
+This will take some time, but there are instructions
 
 
 ### Mount the 500G EBS filesystem
