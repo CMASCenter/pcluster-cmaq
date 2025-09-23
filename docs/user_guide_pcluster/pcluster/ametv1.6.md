@@ -295,11 +295,15 @@ sudo apt install r-base
 ### Install missing software required for R packages
 
 ```
-sudo apt install libudunits2-dev
-sudo apt install libssl-dev 
+sudo apt-get install libudunits2-dev
+sudo apt-get install libssl-dev 
 sudo apt-get install libgdal-dev
 sudo apt-get install libmariadbclient-dev libmariadb-client-lgpl-dev libmariadb-dev
-sudo apt install libharfbuzz-dev libfribidi-dev
+sudo apt-get install libharfbuzz-dev libfribidi-dev
+sudo apt-get install libfontconfig1-dev
+sudo apt-get install libgeos-dev libproj-dev
+sudo apt-get install libabsl-dev
+sudo apt install cmake
 ```
 
 ### Install additional R packages
