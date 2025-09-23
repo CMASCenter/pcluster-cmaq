@@ -292,6 +292,16 @@ Output
 sudo apt install r-base
 ```
 
+### Install missing software required for R packages
+
+```
+sudo apt install libudunits2-dev
+sudo apt install libssl-dev 
+sudo apt-get install libgdal-dev
+sudo apt-get install libmariadbclient-dev libmariadb-client-lgpl-dev libmariadb-dev
+sudo apt install libharfbuzz-dev libfribidi-dev
+```
+
 ### Install additional R packages
 
 ```
@@ -299,13 +309,8 @@ sudo R
 > install.packages(c("akima","data.table","date","dplyr","dygraphs","fields","ggplot2","grid","gridExtra","htmltools","htmlwidgets","lattice","latticeExtra","leaflet","leaflet.extras","leafpop","lubridate","maps","mapdata","plotly","plotrix","processx","reshape2","RColorBrewer","RMySQL","RMariaDB","stats","webshot","xts","pandoc"),repos="http://cran.r-project.org")
 ```
 
-### Install missing packages
 
-```
-sudo apt install libudunits2-dev
-sudo apt install libssl-dev 
-```
-
+ERROR: dependencies ‘systemfonts’, ‘textshaping’ are not available for package ‘svglite’
 
 
 ## Download AMETv1.6
