@@ -508,8 +508,20 @@ sudo apt install default-jre
 
 Error: Unable to access jarfile /home/ubuntu/AMET_v16/AMETGUI/dist/AMETJavaGUI.jar
 
+
+### Mount the 500G EBS filesystem
+
+```
+sudo mkdir /shared
+lsblk
+sudo mkfs -t xfs /dev/nvme1n1
+sudo mount /dev/nvme1n1 /shared
+```
+
 ### Obtain example AQ data
 
 ```
 wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_ACONC_aqExample_201807.nc
 ```
+
+###
