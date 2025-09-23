@@ -516,12 +516,16 @@ sudo mkdir /shared
 lsblk
 sudo mkfs -t xfs /dev/nvme1n1
 sudo mount /dev/nvme1n1 /shared
+sudo chown ubuntu /shared
+cd /shared
+mkdir -p AMET_v16/model_data
 ```
 
 ### Obtain example AQ data
-
 ```
 wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_ACONC_aqExample_201807.nc
+wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_DEP_aqExample_201807.nc
 ```
 
 ###
+
