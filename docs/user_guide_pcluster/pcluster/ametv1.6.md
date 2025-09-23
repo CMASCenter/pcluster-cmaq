@@ -546,4 +546,11 @@ cd ~/AMET_v16/model_data/MET/metExample_mpas
 aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_mpas/ .
 ```
 
+### Obtain example AQS Obs data
+
+```
+cd ~/AMET_v16/
+wget https://cmas-amet.s3.amazonaws.com/AMET/2000_2024_NAmerican_AQ_Obs_Data/AMET_obsdata_2018.tar.gz
+tar -xzvf AMET_obsdata_2018.tar.gz
+```
 
