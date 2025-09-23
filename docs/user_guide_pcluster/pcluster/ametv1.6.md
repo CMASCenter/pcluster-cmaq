@@ -59,6 +59,12 @@ mpirun --version
 mpirun (Open MPI) 4.1.6
 ```
 
+#### Install imagemagick
+
+```
+sudo apt install imagemagick
+```
+
 ### Install tcsh
 
 ```
@@ -314,7 +320,171 @@ sudo apt install cmake
 ```
 sudo R
 > install.packages(c("akima","data.table","date","dplyr","dygraphs","fields","ggplot2","grid","gridExtra","htmltools","htmlwidgets","lattice","latticeExtra","leaflet","leaflet.extras","leafpop","lubridate","maps","mapdata","plotly","plotrix","processx","reshape2","RColorBrewer","RMySQL","RMariaDB","stats","webshot","xts","pandoc"),repos="http://cran.r-project.org")
+library()
 ```
+
+output:
+
+Packages in library ‘/usr/local/lib/R/site-library’:
+
+akima                   Interpolation of Irregularly and Regularly
+                        Spaced Data
+askpass                 Password Entry Utilities for R, Git, and SSH
+base64enc               Tools for base64 encoding
+bit                     Classes and Methods for Fast Memory-Efficient
+                        Boolean Selections
+bit64                   A S3 Class for Vectors of 64bit Integers
+blob                    A Simple S3 Class for Representing Vectors of
+                        Binary Data ('BLOBS')
+brew                    Templating Framework for Report Generation
+bslib                   Custom 'Bootstrap' 'Sass' Themes for 'shiny'
+                        and 'rmarkdown'
+cachem                  Cache R Objects with Automatic Pruning
+callr                   Call R from R
+classInt                Choose Univariate Class Intervals
+cli                     Helpers for Developing Command Line Interfaces
+cpp11                   A C++11 Interface for R's C Interface
+crosstalk               Inter-Widget Interactivity for HTML Widgets
+curl                    A Modern and Flexible Web Client for R
+data.table              Extension of `data.frame`
+date                    Functions for Handling Dates
+DBI                     R Database Interface
+deldir                  Delaunay Triangulation and Dirichlet (Voronoi)
+                        Tessellation
+digest                  Create Compact Hash Digests of R Objects
+dotCall64               Enhanced Foreign Function Interface Supporting
+                        Long Vectors
+dplyr                   A Grammar of Data Manipulation
+dygraphs                Interface to 'Dygraphs' Interactive Time Series
+                        Charting Library
+e1071                   Misc Functions of the Department of Statistics,
+                        Probability Theory Group (Formerly: E1071), TU
+                        Wien
+evaluate                Parsing and Evaluation Tools that Provide More
+                        Details than the Default
+farver                  High Performance Colour Space Manipulation
+fastmap                 Fast Data Structures
+fields                  Tools for Spatial Data
+fontawesome             Easily Work with 'Font Awesome' Icons
+fs                      Cross-Platform File System Operations Based on
+                        'libuv'
+generics                Common S3 Generics not Provided by Base R
+                        Methods Related to Model Fitting
+ggplot2                 Create Elegant Data Visualisations Using the
+                        Grammar of Graphics
+glue                    Interpreted String Literals
+gridExtra               Miscellaneous Functions for "Grid" Graphics
+gtable                  Arrange 'Grobs' in Tables
+highr                   Syntax Highlighting for R Source Code
+hms                     Pretty Time of Day
+htmltools               Tools for HTML
+htmlwidgets             HTML Widgets for R
+httr                    Tools for Working with URLs and HTTP
+interp                  Interpolation Methods
+isoband                 Generate Isolines and Isobands from Regularly
+                        Spaced Elevation Grids
+jpeg                    Read and write JPEG images
+jquerylib               Obtain 'jQuery' as an HTML Dependency Object
+jsonlite                A Simple and Robust JSON Parser and Generator
+                        for R
+knitr                   A General-Purpose Package for Dynamic Report
+                        Generation in R
+labeling                Axis Labeling
+later                   Utilities for Scheduling Functions to Execute
+                        Later with Event Loops
+lattice                 Trellis Graphics for R
+latticeExtra            Extra Graphical Utilities Based on Lattice
+lazyeval                Lazy (Non-Standard) Evaluation
+leaflet                 Create Interactive Web Maps with the JavaScript
+                        'Leaflet' Library
+leaflet.extras          Extra Functionality for 'leaflet' Package
+leaflet.providers       Leaflet Providers
+leafpop                 Include Tables, Images and Graphs in Leaflet
+                        Pop-Ups
+lifecycle               Manage the Life Cycle of your Package Functions
+lubridate               Make Dealing with Dates a Little Easier
+magrittr                A Forward-Pipe Operator for R
+mapdata                 Extra Map Databases
+maps                    Draw Geographical Maps
+memoise                 'Memoisation' of Functions
+mime                    Map Filenames to MIME Types
+openssl                 Toolkit for Encryption, Signatures and
+                        Certificates Based on OpenSSL
+pandoc                  Manage and Run Universal Converter 'Pandoc'
+                        from 'R'
+pillar                  Coloured Formatting for Columns
+pkgconfig               Private Configuration for 'R' Packages
+plogr                   The 'plog' C++ Logging Library
+plotly                  Create Interactive Web Graphics via 'plotly.js'
+plotrix                 Various Plotting Functions
+plyr                    Tools for Splitting, Applying and Combining
+                        Data
+png                     Read and write PNG images
+processx                Execute and Control System Processes
+promises                Abstractions for Promise-Based Asynchronous
+                        Programming
+proxy                   Distance and Similarity Measures
+ps                      List, Query, Manipulate System Processes
+purrr                   Functional Programming Tools
+R6                      Encapsulated Classes with Reference Semantics
+rappdirs                Application Directories: Determine Where to
+                        Save Data, Caches, and Logs
+raster                  Geographic Data Analysis and Modeling
+RColorBrewer            ColorBrewer Palettes
+Rcpp                    Seamless R and C++ Integration
+RcppEigen               'Rcpp' Integration for the 'Eigen' Templated
+                        Linear Algebra Library
+reshape2                Flexibly Reshape Data: A Reboot of the Reshape
+                        Package
+rlang                   Functions for Base Types and Core R and
+                        'Tidyverse' Features
+RMariaDB                Database Interface and MariaDB Driver
+rmarkdown               Dynamic Documents for R
+RMySQL                  Database Interface and 'MySQL' Driver for R
+s2                      Spherical Geometry Operators Using the S2
+                        Geometry Library
+S7                      An Object Oriented System Meant to Become a
+                        Successor to S3 and S4
+sass                    Syntactically Awesome Style Sheets ('Sass')
+scales                  Scale Functions for Visualization
+sf                      Simple Features for R
+sp                      Classes and Methods for Spatial Data
+spam                    SPArse Matrix
+stringi                 Fast and Portable Character String Processing
+                        Facilities
+stringr                 Simple, Consistent Wrappers for Common String
+                        Operations
+svglite                 An 'SVG' Graphics Device
+sys                     Powerful and Reliable Tools for Running System
+                        Commands in R
+systemfonts             System Native Font Finding
+terra                   Spatial Data Analysis
+textshaping             Bindings to the 'HarfBuzz' and 'Fribidi'
+                        Libraries for Text Shaping
+tibble                  Simple Data Frames
+tidyr                   Tidy Messy Data
+tidyselect              Select from a Set of Strings
+timechange              Efficient Manipulation of Date-Times
+tinytex                 Helper Functions to Install and Maintain TeX
+                        Live, and Compile LaTeX Documents
+units                   Measurement Units for R Vectors
+utf8                    Unicode Text Processing
+uuid                    Tools for Generating and Handling of UUIDs
+vctrs                   Vector Helpers
+viridisLite             Colorblind-Friendly Color Maps (Lite Version)
+webshot                 Take Screenshots of Web Pages
+withr                   Run Code 'With' Temporarily Modified Global
+                        State
+wk                      Lightweight Well-Known Geometry Parsing
+xfun                    Supporting Functions for Packages Maintained by
+                        'Yihui Xie'
+xts                     eXtensible Time Series
+yaml                    Methods to Convert R Data to YAML and Back
+zoo                     S3 Infrastructure for Regular and Irregular
+                        Time Series (Z's Ordered Observations)
+
+
+
 
 
 
@@ -324,4 +494,22 @@ sudo R
 git clone -b 1.6 https://github.com/USEPA/AMET.git AMET_v16
 ```
 
+### Build tools_src
 
+Edit makefile to specify location of the libraries, and also use  -fallow-argument-mismatch flag
+
+### Install java
+
+```
+sudo apt install default-jre
+```
+
+### try to run AMETGUI
+
+Error: Unable to access jarfile /home/ubuntu/AMET_v16/AMETGUI/dist/AMETJavaGUI.jar
+
+### Obtain example AQ data
+
+```
+wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_ACONC_aqExample_201807.nc
+```
