@@ -17,17 +17,19 @@ Launch Instance<br>
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-## Reboot and then relogin
+### Reboot and then relogin
 
 Use the console to reboot the instance
 
-## Install GCC 
+## Install Compilers and Libraries
+
+### Install GCC 
 
 ```
 sudo apt-get install gcc
 ```
 
-## Check version of gcc
+#### Check version of gcc
 
 ```
 gcc --version
@@ -37,33 +39,33 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-## Install gfortran 
+### Install gfortran 
 
 ```
 sudo apt-get install gfortran
 ```
 
-## Install OpenMPI
+### Install OpenMPI
 
 ```
 sudo apt install build-essential
 sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev
 ```
 
-## Check version of OpenMPI
+#### Check version of OpenMPI
 
 ```
 mpirun --version
 mpirun (Open MPI) 4.1.6
 ```
 
-## Install tcsh
+### Install tcsh
 
 ```
 sudo apt-get install tcsh
 ```
 
-## Install environment modules
+### Install environment modules
 
 ```
 sudo apt-get install environment-modules
@@ -79,7 +81,7 @@ if ! shopt -q login_shell; then
 fi
 ```
 
-## For tcsh
+### For tcsh
 
 ```
  sudo ln -s /usr/share/modules/init/csh /etc/csh/cshrc.d/modules
@@ -89,22 +91,23 @@ or
 Or update personal (~/.cshrc) initialization file:
 
 ```
-# enable module command in non-login shells
+# Enable module command in non-login shells
+
 if (! $?loginsh) then
     source /usr/share/modules/init/csh
 endif
 ```
 
-## Install netcdf
+### Install netcdf
 
 ```
 wget https://raw.githubusercontent.com/USEPA/CMAQ/refs/heads/main/DOCS/Users_Guide/Tutorials/scripts/cmaq_libraries/gcc_11.4_install_netcdf_for_nc4_compression.csh
 chmod 755 gcc_11.4_install_netcdf_for_nc4_compression.csh
 ```
 
-## edit the script to remove the module load commands
+#### edit the script to remove the module load commands
 
-## run script
+#### run script
 
 ```
 ./gcc_11.4_install_netcdf_for_nc4_compression.csh
@@ -120,26 +123,26 @@ netCDF-Fortran 4.5.3
 ```
 
 
-## Install I/O API
+### Install I/O API
 
 ```
 wget https://raw.githubusercontent.com/USEPA/CMAQ/refs/heads/main/DOCS/Users_Guide/Tutorials/scripts/cmaq_libraries/gcc_11.4_install_ioapi_for_nc4_compression.csh 
 chmod 755 gcc_11.4_install_ioapi_for_nc4_compression.csh
 ```
 
-## Edit the script to use https for the git clone instead of ssh
+#### Edit the script to use https for the git clone instead of ssh
 
 ```
 git clone https://github.com/cjcoats/ioapi-3.2.git
 ```
 
-Run the installation script
+#### Run the installation script
 
 ```
 ./gcc_11.4_install_ioapi_for_nc4_compression.csh
 ```
 
-## Add environment modules for netCDF and I/O API
+#### Add environment modules for netCDF and I/O API
 
 ```
 mkdir -p /home/ubuntu/Modules/modulefiles/netcdf
@@ -167,7 +170,7 @@ prepend-path PATH "${basedir}/bin`"
 prepend-path LD_LIBRARY_PATH "${basedir}/lib"
 ```
 
-### Add environment module for I/O API
+#### Add environment module for I/O API
 
 ```
 mkdir -p /home/ubuntu/Modules/modulefiles/ioapi-3.2 
@@ -189,7 +192,7 @@ prepend-path PATH "${basedir}/Linux2_x86_64gfort10"
 prepend-path LD_LIBRARY_PATH "${basedir}/ioapi/fixed_src"
 ```
 
-## Add the following commands to your .cshrc
+#### Add the following commands to your .cshrc
 
 ```
 # start .cshrc
@@ -212,7 +215,7 @@ module use --append  /home/ubuntu/Modules/modulefiles
 set path = ($path /usr/bin )
 ```
 
-## Verify that the LD_LIBRARY_PATH is set correctly after loading the modules
+#### Verify that the LD_LIBRARY_PATH is set correctly after loading the modules
 
 ```
 module avail
@@ -227,19 +230,19 @@ output
 ```
 
 
-## Install MariaDB
+### Install MariaDB
 
 ```
 sudo apt install mariadb-server mariadb-client
 ```
 
-## Secure MariaDB to only allow login from localhost
+#### Secure MariaDB to only allow login from localhost
 
 ```
 sudo mariadb-secure-installation
 ```
 
-## Initialize a data directory for AMET for the user ubuntu
+#### Initialize a data directory for AMET for the user ubuntu
 following these directions: https://mariadb.com/docs/server/clients-and-utilities/deployment-tools/mariadb-install-db
 (couldn't seem to do it for the user ametsecure
 
@@ -247,13 +250,13 @@ following these directions: https://mariadb.com/docs/server/clients-and-utilitie
 sudo mariadb-install-db --user=ubuntu --basedir=/usr --datadir=/home/ubuntu/MariaDB/data
 ```
 
-## Start the MariaDB server
+#### Start the MariaDB server
 
 ```
 sudo systemctl start mariadb
 ```
 
-## Login as root and give permissions to ametsecure user
+#### Login as root and give permissions to ametsecure user
 
 ```
 sudo mysql 
@@ -265,7 +268,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit;
 ```
 
-## Verify system users
+#### Verify system users
 
 ```
 mysql> USE mysql;
@@ -286,13 +289,13 @@ Output
 +-------------+-----------+-----------------------+
 ```
 
-## Install R
+### Install R
 
 ```
 sudo apt install r-base
 ```
 
-### Install missing software required for R packages
+#### Install missing software required for R packages
 
 ```
 sudo apt-get install libudunits2-dev
@@ -306,7 +309,7 @@ sudo apt-get install libabsl-dev
 sudo apt install cmake
 ```
 
-### Install additional R packages
+#### Install additional R packages
 
 ```
 sudo R
@@ -317,7 +320,7 @@ sudo R
 ERROR: dependencies ‘systemfonts’, ‘textshaping’ are not available for package ‘svglite’
 
 
-## Download AMETv1.6
+### Download AMETv1.6
 
 ```
 git clone -b 1.6 https://github.com/USEPA/AMET.git AMET_v16
