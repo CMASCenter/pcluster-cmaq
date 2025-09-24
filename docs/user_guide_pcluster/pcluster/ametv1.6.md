@@ -721,3 +721,23 @@ Need to download the CMAQ code and also include that as a requirement.
  setenv SPEC_DEP   ${CMAQ_HOME}/POST/combine/scripts/spec_def_files/SpecDef_Dep_${MECH}.txt
 
 ```
+
+### Grow the root partition
+
+```
+df -T
+Filesystem      Type      1K-blocks      Used Available Use% Mounted on
+/dev/root       ext4       29378688  29348668     13636 100% /
+tmpfs           tmpfs       1964536         0   1964536   0% /dev/shm
+tmpfs           tmpfs        785816       916    784900   1% /run
+tmpfs           tmpfs          5120         0      5120   0% /run/lock
+efivarfs        efivarfs        128         5       119   4% /sys/firmware/efi/efivars
+/dev/nvme0n1p16 ext4         901520    153796    684596  19% /boot
+/dev/nvme0n1p15 vfat         106832      6250    100582   6% /boot/efi
+/dev/nvme1n1    xfs      1048320000 934988208 113331792  90% /shared
+tmpfs           tmpfs        392904        16    392888   1% /run/user/1000
+
+ip-172-31-16-32:~/AMET_v16/model_data/MET/metExample_mcip% sudo growpart /dev/nvme0n1 1
+
+This step seems to be taking awhile.. Should have saved the root volume to a snapshot.
+```
