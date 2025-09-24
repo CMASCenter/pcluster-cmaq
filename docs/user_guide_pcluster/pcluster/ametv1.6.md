@@ -681,3 +681,42 @@ gzip: 20160706_2300: No space left on device
 ### Modify root volume to be 300 GB instead of 30 GB.
 
 
+### missing linkem.csh script
+
+This script is referenced in these instructions: https://github.com/USEPA/AMET/blob/1.6/docs/AMET_Install_Guide_v16.md#install-amet-source-code-and-tier-3-software
+
+```
+Note, the combine script directory contains a script called linkem that needs to be edited to point to your CMAQv5.5+ REPO directory to obtain the species definition files.
+
+cd $AMETBASE/tools_src/combine/scripts/spec_def_files
+vi linkem.csh
+
+Modify the set src = line to point to the CMAQv5.5+ Repository.
+
+set src = /path_to/CMAQ/CMAQv5.5+/build/CMAQ_REPO_v5.5+/CCTM/src/MECHS
+
+modify to the path for your CMAQ installation directory
+
+set src = /path_to/CMAQ_REPO/CCTM/src/MECHS
+
+Then run the linkem.csh script to create links to the species definition files.
+
+./linkem.csh
+```
+
+It looks like the aqProject_pre_and_post.csh script is referencing combine and the species definition files directly from CMAQv5.5:
+Need to download the CMAQ code and also include that as a requirement.
+
+```
+# =====================================================================
+#> 4. Combine Configuration Options
+# =====================================================================
+
+#> Set the full path of combine executable.
+ setenv EXEC_combine ${CMAQ_HOME}/POST/combine/scripts/BLD_combine_${VRSN}_${compiler}${compilerVrsn}/combine_${VRSN}.exe
+
+#> Set location of species definition files for concentration and deposition species needed to run combine.
+ setenv SPEC_CONC  ${CMAQ_HOME}/POST/combine/scripts/spec_def_files/SpecDef_${MECH}.txt
+ setenv SPEC_DEP   ${CMAQ_HOME}/POST/combine/scripts/spec_def_files/SpecDef_Dep_${MECH}.txt
+
+```
