@@ -6,7 +6,7 @@ Name the instance AMETv1.6<br>
 Select Ubuntu AMI from the quickstart option.<br>
 Select the t3.medium instance type <br>
 Create a pem key <br>
-Configure storage, select 100 GB for root, and select new volume with 500 GB of EBS storage<br>
+Configure storage, select 100 GB for root, and select new volume with 1000 GB of EBS storage<br>
 Launch Instance<br>
 
 ## Login to EC2 instance using the pem key
