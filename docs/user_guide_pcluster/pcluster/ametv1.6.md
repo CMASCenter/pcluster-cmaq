@@ -510,7 +510,7 @@ Error: Unable to access jarfile /home/ubuntu/AMET_v16/AMETGUI/dist/AMETJavaGUI.j
 This will take some time, but there are instructions
 
 
-### Mount the 500G EBS filesystem
+### Mount the 1000G EBS filesystem
 
 ```
 sudo mkdir /shared
