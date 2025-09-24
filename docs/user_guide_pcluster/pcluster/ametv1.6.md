@@ -651,9 +651,10 @@ call dbDisconnect() when finished working with a connection
 I had already added the ametsecure user, so, I think it will be ok to proceed, and skip this step.
 
 
-### Try running
+### Try running metExample_wrf
 
 ```
+cd $AMETBASE/scripts_db/metExample_wrf
 ./matching_surface.csh |& tee log.populate.sfc
 Enter the AMET user password: 
 Date/Time START
