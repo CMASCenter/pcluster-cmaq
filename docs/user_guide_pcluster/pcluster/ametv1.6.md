@@ -547,14 +547,39 @@ cd ~/AMET_v16/model_data/MET/metExample_mpas
 aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_mpas/ .
 ```
 
+### Extract example metExample_mcip data
+
+```
+#!/bin/csh
+foreach i (*.tar.gz)
+    tar -xzvf $i
+end
+```
+
 Note, ran out of disk space on /shared, so I had to resize the volume to 1000 G, this also requires a wait on the EBS volume being optimized.
 This process takes a long time - 15 hours. It is best to get the size correct when you create the instance, rather than having to resize it.
 
-Then I need to resize the volume using the following command:
+Then I need to resize the xfs volume using the following command:
 
 ```
 sudo lsblk
-sudo growpart /dev/nvme1n1 1  ! need to verify this is the volume and partition listed in the sudo lsblk command
+sudo xfs_growfs -d /shared  ! need to verify this is the volume and partition listed in the sudo lsblk command
+```
+
+### Verify that the size has been increased
+
+```
+df -h
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root         29G  7.9G   21G  29% /
+tmpfs            1.9G     0  1.9G   0% /dev/shm
+tmpfs            768M  908K  767M   1% /run
+tmpfs            5.0M     0  5.0M   0% /run/lock
+efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
+/dev/nvme0n1p16  881M  151M  669M  19% /boot
+/dev/nvme0n1p15  105M  6.2M   99M   6% /boot/efi
+/dev/nvme1n1    1000G  494G  506G  50% /shared
+tmpfs            384M   16K  384M   1% /run/user/1000
 ```
 
 ### Obtain example AQS Obs data
