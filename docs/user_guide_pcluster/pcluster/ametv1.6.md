@@ -741,3 +741,63 @@ ip-172-31-16-32:~/AMET_v16/model_data/MET/metExample_mcip% sudo growpart /dev/nv
 
 This step seems to be taking awhile.. Should have saved the root volume to a snapshot.
 ```
+
+This seemed to resize, but didn't change the available space on /root
+
+```
+df -h
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root         29G   28G   14M 100% /
+tmpfs            1.9G     0  1.9G   0% /dev/shm
+tmpfs            768M  916K  767M   1% /run
+tmpfs            5.0M     0  5.0M   0% /run/lock
+efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
+/dev/nvme0n1p16  881M  151M  669M  19% /boot
+/dev/nvme0n1p15  105M  6.2M   99M   6% /boot/efi
+/dev/nvme1n1    1000G  904G   96G  91% /shared
+tmpfs            384M   16K  384M   1% /run/user/1000
+```
+### Resize the partition
+
+```
+sudo resize2fs /dev/nvme0n1p1
+```
+
+This worked, now have 290G available.
+```
+df -hT
+Filesystem      Type      Size  Used Avail Use% Mounted on
+/dev/root       ext4      290G   28G  262G  10% /
+tmpfs           tmpfs     1.9G     0  1.9G   0% /dev/shm
+tmpfs           tmpfs     768M  916K  767M   1% /run
+tmpfs           tmpfs     5.0M     0  5.0M   0% /run/lock
+efivarfs        efivarfs  128K  4.1K  119K   4% /sys/firmware/efi/efivars
+/dev/nvme0n1p16 ext4      881M  151M  669M  19% /boot
+/dev/nvme0n1p15 vfat      105M  6.2M   99M   6% /boot/efi
+/dev/nvme1n1    xfs      1000G  908G   92G  91% /shared
+tmpfs           tmpfs     384M   16K  384M   1% /run/user/1000
+```
+
+
+### Install CMAQ
+
+```
+git clone -b 5.5+ https://github.com/USEPA/CMAQ.git CMAQ55plus_REPO
+```
+
+### Load Modules
+
+```
+module load ioapi-3.2/gcc-13.3  netcdf/gcc-13.3  openmpi/gcc  
+```
+
+### edit bldit_cctm.csh script
+
+```
+cd /home/ubuntu/CMAQ55plus_REPO
+vi bldit_project.csh
+modify CMAQ_HOME to use !!! set CMAQ_HOME = /home/ubuntu/CMAQv5.5+
+./bldit_project.csh
+cd /home/ubuntu/CMAQv5.5+
+edit the config_cmaq.csh script to specify the paths of the netCDF and I/O API Libraries
+```
