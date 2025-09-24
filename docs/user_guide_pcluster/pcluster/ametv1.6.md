@@ -547,6 +547,14 @@ cd ~/AMET_v16/model_data/MET/metExample_mpas
 aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_mpas/ .
 ```
 
+Note, ran out of disk space on /shared, so I had to resize the volume to 1000 G, this also requires a wait on the EBS volume being optimized.
+Then I need to resize the volume using the following command:
+
+```
+sudo lsblk
+sudo growpart /dev/nvme1n1 1  ! need to verify this is the volume and partition listed in the sudo lsblk command
+```
+
 ### Obtain example AQS Obs data
 
 ```
