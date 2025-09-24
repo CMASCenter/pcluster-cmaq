@@ -319,7 +319,7 @@ sudo apt install cmake
 
 ```
 sudo R
-> install.packages(c("akima","data.table","date","dplyr","dygraphs","fields","ggplot2","grid","gridExtra","htmltools","htmlwidgets","lattice","latticeExtra","leaflet","leaflet.extras","leafpop","lubridate","maps","mapdata","plotly","plotrix","processx","reshape2","RColorBrewer","RMySQL","RMariaDB","stats","webshot","xts","pandoc"),repos="http://cran.r-project.org")
+> install.packages(c("akima","data.table","date","dplyr","dygraphs","fields","ggplot2","grid","gridExtra","htmltools","htmlwidgets","lattice","latticeExtra","leaflet","leaflet.extras","leafpop","lubridate","maps","mapdata","plotly","plotrix","processx","reshape2","RColorBrewer","RMySQL","RMariaDB","stats","webshot","xts","pandoc","ncdf4"),repos="http://cran.r-project.org")
 library()
 ```
 
@@ -607,3 +607,63 @@ Add the path to the wgrib executible to your .cshrc
 ```
 set path = ($path /usr/bin /usr/lib/ /usr/local/bin/ ~/LIBRARIES/LIBRARIES_gcc/wgrib )
 ```
+
+### Edit amet-config.R
+
+Add the following:
+
+```
+## Misc Executables 
+Bldoverlay_exe_config    <- paste(amet_base,"/bin/bldoverlay.exe",sep="")       ## Full path to build overlay executable
+EXEC_sitex_daily_config  <- paste(amet_base,"/bin/sitecmp_dailyo3.exe",sep="") ## Full path to site compare daily executable
+EXEC_sitex_config        <- paste(amet_base,"/bin/sitecmp.exe",sep="")          ## Full path to site compare executable
+```
+
+### Set the AMETBASE environment variable
+setenv AMETBASE /home/ubuntu/AMET_v16
+
+### These instructions assumes that the amet database has been created, but it hasn't been yet.
+
+https://github.com/USEPA/AMET/blob/1.6/docs/AMET_User_Guide_v16.md#52-basic-mysql-commands
+
+```
+ mysql -u ametsecure -D amet -p
+Enter password: 
+ERROR 1049 (42000): Unknown database 'amet'
+
+```
+
+Now getting error
+
+```
+./create_amet_user.csh
+Creating new AMET user
+Enter the MYSQL root user, root: 
+Enter the MYSQL root user password (no terminal echo): \nEnter the AMET username to create: ametsecure
+Enter the AMET user password (no terminal echo): \nRe-enter the AMET user password (no terminal echo): 
+Creating or modifying user ametsecure...
+Failed to grant new user privileges with the error: Error : Access denied for user 'ubuntu'@'localhost' (using password: YES) [1045]
+.Error: 
+Execution halted
+Warning message:
+call dbDisconnect() when finished working with a connection 
+```
+
+
+### Try running
+
+```
+./matching_surface.csh |& tee log.populate.sfc
+Enter the AMET user password: 
+Date/Time START
+Wed Sep 24 16:04:10 UTC 2025
+Loading required package: RMariaDB
+Loading required package: date
+Loading required package: ncdf4
+Error: Required Package ncdf4 was not loaded
+Execution halted
+Date/Time END
+Wed Sep 24 16:04:11 UTC 2025
+```
+
+Added ncdf4 to the list of packages to be installed from cran.
