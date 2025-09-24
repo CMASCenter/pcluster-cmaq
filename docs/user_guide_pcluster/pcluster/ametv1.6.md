@@ -630,7 +630,6 @@ https://github.com/USEPA/AMET/blob/1.6/docs/AMET_User_Guide_v16.md#52-basic-mysq
  mysql -u ametsecure -D amet -p
 Enter password: 
 ERROR 1049 (42000): Unknown database 'amet'
-
 ```
 
 Now getting error
@@ -648,6 +647,8 @@ Execution halted
 Warning message:
 call dbDisconnect() when finished working with a connection 
 ```
+
+I had already added the ametsecure user, so, I think it will be ok to proceed, and skip this step.
 
 
 ### Try running
@@ -667,3 +668,9 @@ Wed Sep 24 16:04:11 UTC 2025
 ```
 
 Added ncdf4 to the list of packages to be installed from cran.
+
+### Reran after installing necdf4.
+
+The data is currently loading into the amet table.
+
+
