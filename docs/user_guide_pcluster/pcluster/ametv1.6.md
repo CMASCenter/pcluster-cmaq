@@ -6,7 +6,7 @@ Name the instance AMETv1.6<br>
 Select Ubuntu AMI from the quickstart option.<br>
 Select the t3.medium instance type <br>
 Create a pem key <br>
-Configure storage, select 100 GB for root, and select new volume with 1000 GB of EBS storage<br>
+Configure storage, select 300 GB for root, and select new volume with 1000 GB of EBS storage<br>
 Launch Instance<br>
 
 ## Login to EC2 instance using the pem key
@@ -673,5 +673,11 @@ Added ncdf4 to the list of packages to be installed from cran.
 ### Reran after installing necdf4.
 
 The data is currently loading into the amet table.
+
+Getting message that there is no space on the device.
+gzip: 20160706_2300: No space left on device
+
+
+### Modify root volume to be 300 GB instead of 30 GB.
 
 
