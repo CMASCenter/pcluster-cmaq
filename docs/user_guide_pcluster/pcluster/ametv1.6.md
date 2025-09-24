@@ -548,6 +548,8 @@ aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v
 ```
 
 Note, ran out of disk space on /shared, so I had to resize the volume to 1000 G, this also requires a wait on the EBS volume being optimized.
+This process takes a long time - 15 hours. It is best to get the size correct when you create the instance, rather than having to resize it.
+
 Then I need to resize the volume using the following command:
 
 ```
