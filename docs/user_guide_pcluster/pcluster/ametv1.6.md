@@ -585,8 +585,25 @@ tmpfs            384M   16K  384M   1% /run/user/1000
 ### Obtain example AQS Obs data
 
 ```
-cd ~/AMET_v16/
+cd ~/AMET_v16/obs/AQ
 wget https://cmas-amet.s3.amazonaws.com/AMET/2000_2024_NAmerican_AQ_Obs_Data/AMET_obsdata_2018.tar.gz
 tar -xzvf AMET_obsdata_2018.tar.gz
 ```
 
+### Install wgrib on ubuntu
+
+https://www.cpc.ncep.noaa.gov/products/wesley/wgrib.html
+ 
+```
+mkdir -p ~/LIBRARIES/LIBRARIES_gcc/wgrib
+cd ~/LIBRARIES/LIBRARIES_gcc/wgrib
+wget https://ftp.cpc.ncep.noaa.gov/wd51we/wgrib/wgrib.tar
+tar -xvf wgrib.tar
+cd wgrib
+make |& tee make.log
+```
+Add the path to the wgrib executible to your .cshrc
+
+```
+set path = ($path /usr/bin /usr/lib/ /usr/local/bin/ ~/LIBRARIES/LIBRARIES_gcc/wgrib )
+```
