@@ -855,4 +855,5 @@ export XAUTHORITY=$HOME/.Xauthority
 
 ### Load MET data
 
+To load the mpas data into the database, a larger memory machine would be needed.
 
