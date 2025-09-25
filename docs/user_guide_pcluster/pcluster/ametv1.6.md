@@ -843,3 +843,16 @@ Done with project table creation.
 **Populating new AQ project.  This may take some time....
 ```
 
+Getting an error when trying to use chromium to display html files.
+
+eglInitialize OpenGL failed with error EGL_NOT_INITIALIZED, trying next display type
+[12499:12499:0925/144643.310809:ERROR:ui/gl/angle_platform_impl.cc:42] Display.cpp:1089 (initialize): ANGLE Display::initialize error 12289: Cannot create an OpenGL ES platform on GLX without the GLX_ARB_create_context extension.
+
+Also getting an error when try to use chromium to display html or pdf files.
+
+Added the following to the .bashrc
+export XAUTHORITY=$HOME/.Xauthority
+
+### Load MET data
+
+
