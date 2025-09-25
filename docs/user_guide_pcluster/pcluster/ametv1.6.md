@@ -818,3 +818,28 @@ gcc -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/open
 
 cp ./CMAQ55plus_REPO/POST/hr2day/inputs/tz.csv ${CMAQ_HOME}/POST/hr2day/inputs/tz.csv
 
+### Run aqProject_pre_and_post.csh script
+
+```
+./aqProject_pre_and_post.csh |& tee ./aqProject_pre_and_post.log
+```
+
+Output
+```
+ Inserting metadata for station AM0098E for NAMN network
+ Inserting metadata for station AM0099E for NAMN network
+ Inserting metadata for station AM0100E for NAMN network
+ Inserting metadata for station AM0101E for NAMN network
+ Inserting metadata for station AM0102E for NAMN network
+ Inserting metadata for station AM0103E for NAMN network
+ Warning message:
+call dbDisconnect() when finished working with a connection 
+done. 
+Warning messages:
+1: call dbDisconnect() when finished working with a connection 
+2: call dbDisconnect() when finished working with a connection 
+**Checking to see if AQ project table exists, if not create it. Will update existing table if requested.**
+Done with project table creation.
+**Populating new AQ project.  This may take some time....
+```
+
