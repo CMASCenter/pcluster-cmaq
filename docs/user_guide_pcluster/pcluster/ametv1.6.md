@@ -801,3 +801,20 @@ modify CMAQ_HOME to use !!! set CMAQ_HOME = /home/ubuntu/CMAQv5.5+
 cd /home/ubuntu/CMAQv5.5+
 edit the config_cmaq.csh script to specify the paths of the netCDF and I/O API Libraries
 ```
+
+### find the location of the openmpi include files to specify in the config_cmaq.csh
+
+```
+mpicc -showme 
+```
+
+Output
+
+```
+gcc -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -L/usr/lib/x86_64-linux-gnu/openmpi/lib -lmpi
+```
+
+### Edit the  aqProject_pre_and_post.csh script
+
+cp ./CMAQ55plus_REPO/POST/hr2day/inputs/tz.csv ${CMAQ_HOME}/POST/hr2day/inputs/tz.csv
+
