@@ -857,3 +857,15 @@ export XAUTHORITY=$HOME/.Xauthority
 
 To load the mpas data into the database, a larger memory machine would be needed.
 
+### Automount /shared
+
+follow these instructions: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
+
+### Creating an AMI of this EC2 instance.
+
+### Install php and 
+
+```
+sudo apt-get php
+sudo apt-get install php-mysql
+```
