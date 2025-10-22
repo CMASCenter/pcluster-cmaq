@@ -969,9 +969,9 @@ cat /etc/apache2/ports.conf
 Output:
 
 ```
-# If you just change the port or add more ports here, you will likely also
-# have to change the VirtualHost statement in
-# /etc/apache2/sites-enabled/000-default.conf
+### If you just change the port or add more ports here, you will likely also
+### have to change the VirtualHost statement in
+### /etc/apache2/sites-enabled/000-default.conf
 
 Listen 80
 Listen 172.31.16.32:443
