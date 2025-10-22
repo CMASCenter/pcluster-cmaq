@@ -958,7 +958,15 @@ drwxrwxr-x 2 www-data www-data   4096 Sep 23 17:55 images
 
 Edited the querygen_aq.php to login to the mysql database
 
-Edited the apache2 ports.conf file to specify the private IP address for the EC2 instance that is being used to run AMETv1.6
+When starting a new EC2 instance from a saved AMI, you will need to verify that the apache webserver is running
+
+```
+sudo netstat -tnlp | grep :443
+```
+
+I will likely have failed, as the new EC2 instance has a different internal IP address than what is in the port.conf file.
+ 
+Edit the apache2 ports.conf file to specify the private IP address for the EC2 instance that is being used to run AMETv1.6
 
 sudo vi /etc/apache2/ports.conf
 
