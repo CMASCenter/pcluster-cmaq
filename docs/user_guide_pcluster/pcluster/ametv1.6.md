@@ -1002,4 +1002,10 @@ After the file is edited to use the private ip address, then restart the apache 
 sudo systemctl restart apache2
 ```
 
+To view the website, use the public IP address for the ec2 server in the following command on a web browser:
+
+```
+http://54.89.147.142:443/querygen_aq.php
+```
+
 
