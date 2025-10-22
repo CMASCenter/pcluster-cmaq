@@ -889,6 +889,7 @@ chromium http://0.0.0.0:8000/querygen_aq.php
 
 I can see the website, and in the original php -S window, I get the following errors:
 
+```
 [Thu Sep 25 21:18:52 2025] PHP 8.3.6 Development Server (http://0.0.0.0:8000) started
 [Thu Sep 25 21:19:05 2025] 127.0.0.1:36810 Accepted
 [Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "project_id" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 131
@@ -915,7 +916,6 @@ Stack trace:
 [Thu Sep 25 21:19:05 2025] 127.0.0.1:36818 Accepted
 [Thu Sep 25 21:19:05 2025] 127.0.0.1:36816 [404]: GET /general.css - No such file or directory
 [Thu Sep 25 21:19:05 2025] 127.0.0.1:36816 Closing
-
 ```
 
 If it can't connect to the database, then restart it.
