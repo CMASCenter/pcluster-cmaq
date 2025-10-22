@@ -892,39 +892,6 @@ I can see the website, and in the original php -S window, I get the following er
 [Thu Sep 25 21:18:52 2025] PHP 8.3.6 Development Server (http://0.0.0.0:8000) started
 [Thu Sep 25 21:19:05 2025] 127.0.0.1:36810 Accepted
 [Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "project_id" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 131
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ametplot" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 132
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "data_format" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 133
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "state" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 134
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "stat_id" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 135
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ob_network_g" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 136
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ob_network_s" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 137
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ys" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 138
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ms" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 139
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ds" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 140
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ye" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 141
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "me" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 142
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "de" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 143
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ob_time" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 144
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "fcast_cond" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 145
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "fcast_hr" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 146
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "init_utc" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 147
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "elev_cond" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 148
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "elev" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 149
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "lat1" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 150
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "lat2" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 151
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "lon1" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 152
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "lon2" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 153
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "t1" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 154
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "t2" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 155
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ws1" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 156
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ws2" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 157
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "wd1" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 158
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "wd2" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 159
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "q1" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 160
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "q2" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 161
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "start_hour" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 162
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "end_hour" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 163
-[Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "ind_month" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 164
 [Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "POCode" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 165
 [Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "DoW" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 166
 [Thu Sep 25 21:19:05 2025] PHP Warning:  Undefined array key "Filter" in /home/ubuntu/AMET_v16/AMET_Website/querygen_aq.php on line 167
@@ -950,3 +917,89 @@ Stack trace:
 [Thu Sep 25 21:19:05 2025] 127.0.0.1:36816 Closing
 
 ```
+
+If it can't connect to the database, then restart it.
+
+```
+sudo systemctl start mariadb
+```
+
+I am using firefox to connect
+
+```
+firefox http://0.0.0.0:8000/querygen_aq.php
+```
+
+Other method is to use ssh port tunneling to reduce the time it takes to respond to the website.
+
+Installed the code to /var/www/html
+
+```
+/var/www/html$ ls -rlt
+total 720
+-rw-rw-r-- 1 www-data www-data   4333 Sep 23 17:55 AMET_Species_Name_Mapping.txt
+-rw-rw-r-- 1 www-data www-data    420 Sep 23 17:55 example_stat_file.txt
+-rw-rw-r-- 1 www-data www-data   2283 Sep 23 17:55 disaq_4km_met_sites.txt
+-rw-rw-r-- 1 www-data www-data    331 Sep 23 17:55 disaq_1km_met_sites.txt
+-rw-rw-r-- 1 www-data www-data   2700 Sep 23 17:55 O3_NA_monitors_2018.txt
+-rw-rw-r-- 1 www-data www-data   8434 Sep 23 17:55 O3_NAA_Sites_v2_short_names.txt
+-rw-rw-r-- 1 www-data www-data   4257 Sep 23 17:55 O3_NAA_Sites_v2_no_names.txt
+drwxrwxr-x 2 www-data www-data   4096 Sep 23 17:55 images
+-rw-rw-r-- 1 www-data www-data   6475 Sep 23 17:55 run_info_met.template
+-rw-r--r-- 1 www-data www-data  10671 Sep 25 18:41 index.html.back
+-rw-rw-r-- 1 www-data www-data    286 Sep 25 19:47 index.html.sv
+-rwxrwxr-x 1 www-data www-data 259423 Sep 29 18:30 querygen_met.php
+-rw-rw-r-- 1 www-data www-data   3861 Oct 10 17:10 amet-lib.php
+-rwxrwxr-x 1 www-data www-data   2061 Oct 10 17:24 amet-config.R
+-rw-rw-r-- 1 www-data www-data   2084 Oct 10 17:27 amet-www-config.php
+-rw-rw-r-- 1 www-data www-data  11397 Oct 10 17:30 run_info.template
+-rwxrwxr-x 1 ubuntu   ubuntu   362697 Oct 10 19:58 querygen_aq.php
+```
+
+Edited the querygen_aq.php to login to the mysql database
+
+Edited the apache2 ports.conf file to specify the private IP address for the EC2 instance that is being used to run AMETv1.6
+
+sudo vi /etc/apache2/ports.conf
+
+```
+cat /etc/apache2/ports.conf
+```
+
+Output:
+
+```
+# If you just change the port or add more ports here, you will likely also
+# have to change the VirtualHost statement in
+# /etc/apache2/sites-enabled/000-default.conf
+
+Listen 80
+Listen 172.31.16.32:443
+#Listen 3306
+
+<IfModule ssl_module>
+        Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+        Listen 443
+</IfModule>
+
+
+<VirtualHost 172.31.16.32:443>
+
+## This first-listed virtual host is also the default for *:80
+
+ServerName http://localhost
+
+DocumentRoot /var/www/html
+</VirtualHost>
+```
+
+After the file is edited to use the private ip address, then restart the apache web server.
+
+```
+sudo systemctl restart apache2
+```
+
+
