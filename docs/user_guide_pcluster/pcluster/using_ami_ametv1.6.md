@@ -143,3 +143,28 @@ efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
 /dev/nvme1n1    1000G  787G  214G  79% /shared
 tmpfs            1.6G   20K  1.6G   1% /run/user/1000
 ```
+
+### AMET_Website installed under /var/www/html
+
+``
+ls -rlt /var/www/html
+total 724
+-rw-rw-r-- 1 www-data www-data   4333 Sep 23 17:55 AMET_Species_Name_Mapping.txt
+-rw-rw-r-- 1 www-data www-data    420 Sep 23 17:55 example_stat_file.txt
+-rw-rw-r-- 1 www-data www-data   2283 Sep 23 17:55 disaq_4km_met_sites.txt
+-rw-rw-r-- 1 www-data www-data    331 Sep 23 17:55 disaq_1km_met_sites.txt
+-rw-rw-r-- 1 www-data www-data   2700 Sep 23 17:55 O3_NA_monitors_2018.txt
+-rw-rw-r-- 1 www-data www-data   8434 Sep 23 17:55 O3_NAA_Sites_v2_short_names.txt
+-rw-rw-r-- 1 www-data www-data   4257 Sep 23 17:55 O3_NAA_Sites_v2_no_names.txt
+drwxrwxr-x 2 www-data www-data   4096 Sep 23 17:55 images
+-rw-rw-r-- 1 www-data www-data   6475 Sep 23 17:55 run_info_met.template
+-rw-r--r-- 1 www-data www-data  10671 Sep 25 18:41 index.html.back
+-rw-rw-r-- 1 www-data www-data    286 Sep 25 19:47 index.html.sv
+-rwxrwxr-x 1 www-data www-data 259423 Sep 29 18:30 querygen_met.php
+-rw-rw-r-- 1 www-data www-data   3861 Oct 10 17:10 amet-lib.php
+-rwxrwxr-x 1 www-data www-data   2061 Oct 10 17:24 amet-config.R
+-rw-rw-r-- 1 www-data www-data   2084 Oct 10 17:27 amet-www-config.php
+-rw-rw-r-- 1 www-data www-data  11397 Oct 10 17:30 run_info.template
+-rwxrwxr-x 1 ubuntu   ubuntu   362697 Oct 10 19:58 querygen_aq.php
+drwxrwxrwx 2 www-data www-data  16384 Nov  3 15:12 cache
+```
