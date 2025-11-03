@@ -81,3 +81,65 @@ Load Modules
 ```
 module load ioapi-3.2/gcc-13.3  netcdf/gcc-13.3  openmpi/gcc  
 ```
+
+## Review directory set-up for files on /home/ubuntu
+
+ls -lrt
+
+```
+total 48
+drwxrwxr-x  3 ubuntu ubuntu 4096 Sep 23 16:43 Modules
+drwxr-xr-x  3 ubuntu ubuntu 4096 Sep 23 18:15 aws
+drwxrwxr-x 10 ubuntu ubuntu 4096 Sep 24 17:35 CMAQ55plus_REPO
+drwxrwxr-x  8 ubuntu ubuntu 4096 Sep 24 17:52 CMAQv5.5+
+drwx------  4 ubuntu ubuntu 4096 Sep 25 14:39 snap
+drwxrwxr-x  3 ubuntu ubuntu 4096 Sep 25 17:17 MariaDB
+drwxrwxrwx 15 ubuntu ubuntu 4096 Sep 25 19:30 AMET_v16
+drwxrwxr-x  3 ubuntu ubuntu 4096 Sep 25 20:44 LIBRARIES
+-rw-rw-r--  1 ubuntu ubuntu  467 Sep 29 17:25 ports.conf
+-rw-rw-r--  1 ubuntu ubuntu 4962 Nov  3 15:22 branch_differences
+-rw-rw-r--  1 ubuntu ubuntu  445 Nov  3 16:29 readme
+```
+
+## Review directory set-up for files on /shared/AMET_v16
+
+```
+/shared/AMET_v16% ls -rlt */*
+model_data/MET:
+total 24
+drwxrwxr-x 2 ubuntu ubuntu  4096 Sep 23 22:58 metExample_wrf
+drwxrwxr-x 2 ubuntu ubuntu  4096 Sep 23 23:58 metExample_mpas
+drwxrwxr-x 3 ubuntu ubuntu 12288 Sep 25 12:54 metExample_mcip
+
+model_data/AQ:
+total 4
+drwxrwxr-x 2 ubuntu ubuntu   40 Nov  3 17:25 aqExample
+```
+
+## Review size of data on /shared/AMET_v16 (note this is a 1 TB volume)
+
+```
+du -sh
+768G
+```
+
+## Review size of data on /home/ubuntu
+
+```
+du -sh
+46G	.
+```
+
+```
+df -h
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root        290G   61G  230G  21% /
+tmpfs            7.8G     0  7.8G   0% /dev/shm
+tmpfs            3.1G  1.0M  3.1G   1% /run
+tmpfs            5.0M     0  5.0M   0% /run/lock
+efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
+/dev/nvme0n1p16  881M  151M  669M  19% /boot
+/dev/nvme0n1p15  105M  6.2M   99M   6% /boot/efi
+/dev/nvme1n1    1000G  787G  214G  79% /shared
+tmpfs            1.6G   20K  1.6G   1% /run/user/1000
+```
