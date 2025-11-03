@@ -61,3 +61,23 @@ sudo systemctl restart apache2
 Test connection to the web server by changing the IP address to the public IP address for your instance.
 
 http://54.144.167.199:443/querygen_aq.php
+
+## Load modules
+
+Change to the c-shell
+
+```
+csh
+```
+
+Check modules available
+
+```
+module avail
+```
+
+Load Modules
+
+```
+module load ioapi-3.2/gcc-13.3  netcdf/gcc-13.3  openmpi/gcc  
+```
