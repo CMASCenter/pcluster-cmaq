@@ -4,6 +4,7 @@ Select Launch instance from AMI
  * Select Instance Type t3.xlarge
  * Select key pair
  * Select existing security group - AMET_mysql and launch-wizard-379
+ * security group contains permissions for port 443 and 3306 for inbound and outbound restricted to your IP address that you can create at the time that you launch a new instance from the AMI.
 
 
 ## Login to the EC2 instance
