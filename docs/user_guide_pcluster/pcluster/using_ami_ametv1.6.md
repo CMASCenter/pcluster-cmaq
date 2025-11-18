@@ -1,16 +1,14 @@
 # Create EC2 instance running AMETv1.6_web 
 Select AMI named AMETv1.6_web  that contains the AMETv1.6 installation with all data for MET and AQ loaded into database
 Select Launch instance from AMI
- * Select Instance Type t3.xlarge
+ * Select Instance Type t3.xlarge (4vcpu and 16 GB memory) or t3.large (2 vcpu 8 GB memory)
  * Select key pair
  * Select existing security group - AMET_mysql and launch-wizard-379
- * security group contains permissions for port 443 and 3306 for inbound and outbound restricted to your IP address that you can create at the time that you launch a new instance from the AMI.
+ * AMET_mysql security group contains permissions for port 443 and 3306 for inbound and outbound open to all or restricted to your IP address or you can add these permissions when you launch a new instance from the AMI.
 
 
 ## Login to the EC2 instance
  ssh -Y -i ./<your_pem_name>.pem ubuntu@xx.xx.xx
-
-
 
 
 ## Edit the apache2 ports.conf file
@@ -56,6 +54,12 @@ After the file is edited to use the private ip address, then restart the apache 
 
 ```
 sudo systemctl restart apache2
+```
+
+Start the mariadb
+
+```
+sudo systemctl start mariadb
 ```
 
 
