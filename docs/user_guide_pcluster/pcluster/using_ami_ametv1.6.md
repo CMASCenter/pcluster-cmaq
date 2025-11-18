@@ -7,7 +7,7 @@ Select Launch instance from AMI
 
 
 ## Login to the EC2 instance
-
+ ssh -Y -i ./<your_pem_name>.pem ubuntu@xx.xx.xx
 
 
 
