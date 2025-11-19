@@ -1,4 +1,4 @@
-# Create EC2 instance running AMETv1.6_web 
+# Spin up a server using pre-installed AMET AMI
 Select AMI named AMETv1.6_web  that contains the AMETv1.6 installation with all data for MET and AQ loaded into database
 Select Launch instance from AMI
  * Select Instance Type t3.xlarge (4vcpu and 16 GB memory) or t3.large (2 vcpu 8 GB memory)
