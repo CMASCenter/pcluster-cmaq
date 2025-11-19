@@ -218,4 +218,37 @@ mkdir new_project
 
 ### use the s3 cp command to upload your data
 
+### Load your project data into the database
+
+Create a new project under the script_db directory
+
+```
+cd ~/AMET_v16/scripts_db/
+cp -rp aqExample new_project
+cd new_project
+mv aqProject_pre_and_post.csh new_project_pre_and_post.csh
+```
+
+Modify the project name in the script
+
+```
+vi new_project_pre_and_post.csh
+
+Change:
+  set APPL      = aqExample         #> Application Name (e.g. Gridname)
+to:
+  set APPL      = new_project         #> Application Name (e.g. Gridname)
+```
+
+Edit the run description
+
+```
+Change:
+ setenv RUN_DESCRIPTION "CMAQv5.5 AMET aqExample test case. July 2018."
+to
+ setenv RUN_DESCRIPTION "CMAQv5.5 AMET new project. Nov. 2025"
+```
+
+Edit the path to the combine output, if that is what you are uploading for your new_project.
+
 
