@@ -43,6 +43,7 @@ user_guide_pcluster/pcluster/index.md
 user_guide_pcluster/Performance-Opt/index.md
 user_guide_pcluster/developers_guide/index.md
 user_guide_pcluster/post/index.md
+user_guide_pcluster/amet/index.md
 user_guide_pcluster/logout/index.md
 user_guide_pcluster/help/index.md
 user_guide_pcluster/future/index.md
