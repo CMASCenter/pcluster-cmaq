@@ -218,7 +218,7 @@ mkdir new_project
 
 ### use the s3 cp command to upload your data
 
-### Load your project data into the database
+# Load your project data into the database
 
 Create a new project under the script_db directory
 
