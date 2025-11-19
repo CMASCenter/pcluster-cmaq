@@ -79,6 +79,8 @@ Select amet
 Choose a Project:
 Select aqExample
 
+![AMET GUI Select Database and Project](./AMET_GUI_choose_database_and_project.png)
+
 Under AQ Observation Networks
 Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
 
