@@ -1,4 +1,4 @@
-# Spin up a server using an AMET AMI 
+# Run AMET on a VM 
 
 
 ```{toctree}
