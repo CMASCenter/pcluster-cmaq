@@ -1,4 +1,4 @@
-## Instructions for installing AMETv1.6 on an EC2 instance
+## How AMETv1.6 was installed (developers only)
 
 ### Launch EC2 instance from the AWS Console 
 
