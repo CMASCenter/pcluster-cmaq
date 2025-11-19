@@ -1,6 +1,6 @@
-# Instructions for installing AMETv1.6 on an EC2 instance
+## Instructions for installing AMETv1.6 on an EC2 instance
 
-## Launch EC2 instance from the AWS Console 
+### Launch EC2 instance from the AWS Console 
 
 Name the instance AMETv1.6<br>
 Select Ubuntu AMI from the quickstart option.<br>
@@ -9,9 +9,9 @@ Create a pem key <br>
 Configure storage, select 300 GB for root, and select new volume with 1000 GB of EBS storage<br>
 Launch Instance<br>
 
-## Login to EC2 instance using the pem key
+### Login to EC2 instance using the pem key
 
-## Update Linux
+#### Update Linux
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
@@ -21,9 +21,9 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 Use the console to reboot the instance
 
-## Install Compilers and Libraries
+### Install Compilers and Libraries
 
-### Install GCC 
+#### Install GCC 
 
 ```
 sudo apt-get install gcc
