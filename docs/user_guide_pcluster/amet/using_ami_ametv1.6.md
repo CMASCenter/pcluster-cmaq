@@ -8,10 +8,12 @@ Select Launch instance from AMI
 
 
 ## Login to the EC2 instance
+
+```
  ssh -Y -i ./<your_pem_name>.pem ubuntu@xx.xx.xx
+```
 
 
-## Edit the apache2 ports.conf file
 Edit the apache2 ports.conf file to specify the private IP address for the EC2 instance that is being used to run AMETv1.6
 
 sudo vi /etc/apache2/ports.conf
@@ -96,9 +98,9 @@ Select Run Program
 
 
 
-## Prepare to load your own data
+Prepare to load your own data
 
-### Load modules
+Load modules
 
 Change to the c-shell
 
@@ -118,7 +120,7 @@ Load Modules
 module load ioapi-3.2/gcc-13.3  netcdf/gcc-13.3  openmpi/gcc  
 ```
 
-### Review directory set-up for files on /home/ubuntu
+Review directory set-up for files on /home/ubuntu
 
 ls -lrt
 
@@ -137,7 +139,7 @@ drwxrwxr-x  3 ubuntu ubuntu 4096 Sep 25 20:44 LIBRARIES
 -rw-rw-r--  1 ubuntu ubuntu  445 Nov  3 16:29 readme
 ```
 
-### Review directory set-up for files on /shared/AMET_v16
+Review directory set-up for files on /shared/AMET_v16
 
 ```
 /shared/AMET_v16% ls -rlt */*
@@ -152,21 +154,21 @@ total 4
 drwxrwxr-x 2 ubuntu ubuntu   40 Nov  3 17:25 aqExample
 ```
 
-### Review size of data on /shared/AMET_v16 (note this is a 1 TB volume)
+Review size of data on /shared/AMET_v16 (note this is a 1 TB volume)
 
 ```
 du -sh
 768G
 ```
 
-### Review size of data on /home/ubuntu
+Review size of data on /home/ubuntu
 
 ```
 du -sh
 46G	.
 ```
 
-### Review size of the file systems available
+Review size of the file systems available
 
 ```
 df -h
@@ -182,7 +184,7 @@ efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
 tmpfs            1.6G   20K  1.6G   1% /run/user/1000
 ```
 
-### Note that AMET_Website is installed under /var/www/html
+Note that AMET_Website is installed under /var/www/html
 
 ```
 ls -rlt /var/www/html
@@ -209,14 +211,14 @@ drwxrwxrwx 2 www-data www-data  16384 Nov  3 15:12 cache
 
 # Upload your data
 
-### Change to the directory on /shared volume
+Change to the directory on /shared volume
 
 ```
 cd /shared/AMET_v16/model_data/AQ/ 
 mkdir new_project
 ```
 
-### use the s3 cp command to upload your data
+use the s3 cp command to upload your data
 
 # Load your project data into the database
 
