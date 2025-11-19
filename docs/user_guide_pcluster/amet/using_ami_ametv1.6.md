@@ -90,6 +90,8 @@ Select Spatial Plot > Spatial Plot(multi networks)
 
 Select Run Program
 
+![AMET GUI Select Obs Network and Species](./AMET_GUI_select_AQ_Observ_Networks_and_Species_to_Plot.png)
+
 
 
 ## Prepare to load your own data
