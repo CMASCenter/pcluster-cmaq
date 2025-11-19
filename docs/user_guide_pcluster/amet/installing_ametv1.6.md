@@ -182,7 +182,7 @@ prepend-path LD_LIBRARY_PATH "${basedir}/lib"
 mkdir -p /home/ubuntu/Modules/modulefiles/ioapi-3.2 
 ```
 
-### add the following contents to the gcc-13.3 file in the ioapi-3.2 module directory
+#### add the following contents to the gcc-13.3 file in the ioapi-3.2 module directory
 
 ```
 #%Module
@@ -671,7 +671,7 @@ Wed Sep 24 16:04:11 UTC 2025
 
 Added ncdf4 to the list of packages to be installed from cran.
 
-### Reran after installing necdf4.
+#### Reran after installing necdf4.
 
 The data is currently loading into the amet table.
 
