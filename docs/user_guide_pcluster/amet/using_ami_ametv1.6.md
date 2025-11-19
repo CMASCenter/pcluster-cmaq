@@ -11,7 +11,7 @@ Select Launch instance from AMI
  ssh -Y -i ./<your_pem_name>.pem ubuntu@xx.xx.xx
 
 
-### Edit the apache2 ports.conf file
+## Edit the apache2 ports.conf file
 Edit the apache2 ports.conf file to specify the private IP address for the EC2 instance that is being used to run AMETv1.6
 
 sudo vi /etc/apache2/ports.conf
@@ -70,6 +70,29 @@ Change the IP address to the public IP address for your instance in this example
 ```
 http://54.144.167.199:443/querygen_aq.php
 ```
+
+## Create a plot using the AMET Web GUI
+
+Choose a Database:
+Select amet 
+
+Choose a Project:
+Select aqExample
+
+Under AQ Observation Networks
+Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
+
+Under Species to Plot
+Select PM25_TOT
+
+Under Choose Program to Run
+Select Spatial Plot > Spatial Plot(multi networks)
+
+Select Run Program
+
+
+
+## Prepare to load your own data
 
 ### Load modules
 
