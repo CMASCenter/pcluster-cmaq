@@ -65,7 +65,9 @@ sudo systemctl start mariadb
 
 Test connection to the web server by changing the IP address to the public IP address for your instance.
 
+```
 http://54.144.167.199:443/querygen_aq.php
+```
 
 ## Load modules
 
