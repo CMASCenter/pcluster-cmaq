@@ -236,7 +236,7 @@ output
 ```
 
 
-## Install MariaDB
+### Install MariaDB
 
 ```
 sudo apt install mariadb-server mariadb-client
@@ -295,7 +295,7 @@ Output
 +-------------+-----------+-----------------------+
 ```
 
-## Install R
+### Install R
 
 ```
 sudo apt install r-base
@@ -485,7 +485,7 @@ zoo                     S3 Infrastructure for Regular and Irregular
                         Time Series (Z's Ordered Observations)
 ```
 
-## Download AMETv1.6
+### Download AMETv1.6
 
 ```
 git clone -b 1.6 https://github.com/USEPA/AMET.git AMET_v16
