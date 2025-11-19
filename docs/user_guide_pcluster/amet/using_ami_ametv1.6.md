@@ -71,7 +71,7 @@ Change the IP address to the public IP address for your instance in this example
 http://54.144.167.199:443/querygen_aq.php
 ```
 
-# Create a plot using the AMET Web GUI
+# Create plots using the AMET Web GUI
 
 Choose a Database:
 Select amet 
