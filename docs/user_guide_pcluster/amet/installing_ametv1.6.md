@@ -104,7 +104,7 @@ if (! $?loginsh) then
 endif
 ```
 
-#### Install netcdf
+Install netcdf
 
 ```
 wget https://raw.githubusercontent.com/USEPA/CMAQ/refs/heads/main/DOCS/Users_Guide/Tutorials/scripts/cmaq_libraries/gcc_11.4_install_netcdf_for_nc4_compression.csh
@@ -128,7 +128,7 @@ netCDF-Fortran 4.5.3
 ```
 
 
-#### Install I/O API
+Install I/O API
 
 ```
 wget https://raw.githubusercontent.com/USEPA/CMAQ/refs/heads/main/DOCS/Users_Guide/Tutorials/scripts/cmaq_libraries/gcc_11.4_install_ioapi_for_nc4_compression.csh 
@@ -484,7 +484,7 @@ zoo                     S3 Infrastructure for Regular and Irregular
                         Time Series (Z's Ordered Observations)
 ```
 
-#### Download AMETv1.6
+Download AMETv1.6
 
 ```
 git clone -b 1.6 https://github.com/USEPA/AMET.git AMET_v16
@@ -852,17 +852,17 @@ Also getting an error when try to use chromium to display html or pdf files.
 Added the following to the .bashrc
 export XAUTHORITY=$HOME/.Xauthority
 
-#### Load MET data
+Load MET data
 
 To load the mpas data into the database, a larger memory machine would be needed.
 
-#### Automount /shared
+Automount /shared
 
 follow these instructions: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
 
-#### Creating an AMI of this EC2 instance.
+Creating an AMI of this EC2 instance.
 
-#### Install php and 
+Install php and 
 
 ```
 sudo apt-get php
