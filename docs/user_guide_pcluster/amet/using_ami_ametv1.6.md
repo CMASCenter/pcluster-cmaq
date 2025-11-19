@@ -7,7 +7,7 @@ Select Launch instance from AMI
  * AMET_mysql security group contains permissions for port 443 and 3306 for inbound and outbound open to all or restricted to your IP address or you can add these permissions when you launch a new instance from the AMI.
 
 
-## Login to the EC2 instance
+# Login to the EC2 instance
 
 ```
  ssh -Y -i ./<your_pem_name>.pem ubuntu@xx.xx.xx
@@ -58,14 +58,14 @@ After the file is edited to use the private ip address, then restart the apache 
 sudo systemctl restart apache2
 ```
 
-## Start the mariadb
+# Start the mariadb
 
 ```
 sudo systemctl start mariadb
 ```
 
 
-## Test connection to the web server
+# Test connection to the web server
 
 Change the IP address to the public IP address for your instance in this example.
 
