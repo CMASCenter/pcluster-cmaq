@@ -1,6 +1,6 @@
 ## How AMETv1.6 was installed (developers only)
 
-### Launch EC2 instance from the AWS Console 
+Launch EC2 instance from the AWS Console 
 
 Name the instance AMETv1.6<br>
 Select Ubuntu AMI from the quickstart option.<br>
@@ -9,27 +9,27 @@ Create a pem key <br>
 Configure storage, select 300 GB for root, and select new volume with 1000 GB of EBS storage<br>
 Launch Instance<br>
 
-#### Login to EC2 instance using the pem key
+Login to EC2 instance using the pem key<br>
 
-##### Update Linux
+Update Linux<br>
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-#### Reboot and then relogin
+Reboot and then relogin<br>
 
 Use the console to reboot the instance
 
-#### Install Compilers and Libraries
+Install Compilers and Libraries
 
-##### Install GCC 
+   Install GCC 
 
 ```
 sudo apt-get install gcc
 ```
 
-##### Check version of gcc
+Check version of gcc
 
 ```
 gcc --version
@@ -39,45 +39,45 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-#### Install gfortran 
+Install gfortran 
 
 ```
 sudo apt-get install gfortran
 ```
 
-#### Install OpenMPI
+Install OpenMPI
 
 ```
 sudo apt install build-essential
 sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev
 ```
 
-##### Check version of OpenMPI
+Check version of OpenMPI
 
 ```
 mpirun --version
 mpirun (Open MPI) 4.1.6
 ```
 
-##### Install imagemagick
+Install imagemagick
 
 ```
 sudo apt install imagemagick
 ```
 
-#### Install tcsh
+Install tcsh
 
 ```
 sudo apt-get install tcsh
 ```
 
-#### Install environment modules
+Install environment modules
 
 ```
 sudo apt-get install environment-modules
 ```
 
-##### Add to bash initialization file
+Add to bash initialization file
 either your personal (~/.bashrc) or system-wide (/etc/bash.bashrc) bash initialization file:
 
 ```
@@ -87,7 +87,7 @@ if ! shopt -q login_shell; then
 fi
 ```
 
-#### For tcsh
+For tcsh
 
 ```
  sudo ln -s /usr/share/modules/init/csh /etc/csh/cshrc.d/modules
@@ -111,9 +111,8 @@ wget https://raw.githubusercontent.com/USEPA/CMAQ/refs/heads/main/DOCS/Users_Gui
 chmod 755 gcc_11.4_install_netcdf_for_nc4_compression.csh
 ```
 
-##### edit the script to remove the module load commands
+Edit the script to remove the module load commands
 
-##### run script
 
 ```
 ./gcc_11.4_install_netcdf_for_nc4_compression.csh
@@ -136,19 +135,19 @@ wget https://raw.githubusercontent.com/USEPA/CMAQ/refs/heads/main/DOCS/Users_Gui
 chmod 755 gcc_11.4_install_ioapi_for_nc4_compression.csh
 ```
 
-##### Edit the script to use https for the git clone instead of ssh
+Edit the script to use https for the git clone instead of ssh
 
 ```
 git clone https://github.com/cjcoats/ioapi-3.2.git
 ```
 
-##### Run the installation script
+Run the installation script
 
 ```
 ./gcc_11.4_install_ioapi_for_nc4_compression.csh
 ```
 
-##### Add environment modules for netCDF and I/O API
+Add environment modules for netCDF and I/O API
 
 ```
 mkdir -p /home/ubuntu/Modules/modulefiles/netcdf
@@ -176,13 +175,13 @@ prepend-path PATH "${basedir}/bin`"
 prepend-path LD_LIBRARY_PATH "${basedir}/lib"
 ```
 
-##### Add environment module for I/O API
+Add environment module for I/O API
 
 ```
 mkdir -p /home/ubuntu/Modules/modulefiles/ioapi-3.2 
 ```
 
-#### add the following contents to the gcc-13.3 file in the ioapi-3.2 module directory
+add the following contents to the gcc-13.3 file in the ioapi-3.2 module directory
 
 ```
 #%Module
@@ -198,7 +197,7 @@ prepend-path PATH "${basedir}/Linux2_x86_64gfort10"
 prepend-path LD_LIBRARY_PATH "${basedir}/ioapi/fixed_src"
 ```
 
-##### Add the following commands to your .cshrc
+Add the following commands to your .cshrc
 
 ```
 # start .cshrc
@@ -221,7 +220,7 @@ module use --append  /home/ubuntu/Modules/modulefiles
 set path = ($path /usr/bin )
 ```
 
-##### Verify that the LD_LIBRARY_PATH is set correctly after loading the modules
+Verify that the LD_LIBRARY_PATH is set correctly after loading the modules
 
 ```
 module avail
@@ -236,19 +235,19 @@ output
 ```
 
 
-#### Install MariaDB
+Install MariaDB
 
 ```
 sudo apt install mariadb-server mariadb-client
 ```
 
-#### Secure MariaDB to only allow login from localhost
+Secure MariaDB to only allow login from localhost
 
 ```
 sudo mariadb-secure-installation
 ```
 
-#### Initialize a data directory for AMET for the user ubuntu
+Initialize a data directory for AMET for the user ubuntu
 following these directions: https://mariadb.com/docs/server/clients-and-utilities/deployment-tools/mariadb-install-db
 (couldn't seem to do it for the user ametsecure
 
@@ -256,13 +255,13 @@ following these directions: https://mariadb.com/docs/server/clients-and-utilitie
 sudo mariadb-install-db --user=ubuntu --basedir=/usr --datadir=/home/ubuntu/MariaDB/data
 ```
 
-#### Start the MariaDB server
+Start the MariaDB server
 
 ```
 sudo systemctl start mariadb
 ```
 
-#### Login as root and give permissions to ametsecure user
+Login as root and give permissions to ametsecure user
 
 ```
 sudo mysql 
@@ -274,7 +273,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit;
 ```
 
-#### Verify system users
+Verify system users
 
 ```
 mysql> USE mysql;
@@ -295,13 +294,13 @@ Output
 +-------------+-----------+-----------------------+
 ```
 
-#### Install R
+Install R
 
 ```
 sudo apt install r-base
 ```
 
-#### Install missing software required for R packages
+Install missing software required for R packages
 
 ```
 sudo apt-get install libudunits2-dev
@@ -315,7 +314,7 @@ sudo apt-get install libabsl-dev
 sudo apt install cmake
 ```
 
-#### Install additional R packages
+Install additional R packages
 
 ```
 sudo R
@@ -491,26 +490,26 @@ zoo                     S3 Infrastructure for Regular and Irregular
 git clone -b 1.6 https://github.com/USEPA/AMET.git AMET_v16
 ```
 
-#### Build tools_src
+Build tools_src
 
 Edit makefile to specify location of the libraries, and also use  -fallow-argument-mismatch flag
 
-#### Install java
+Install java
 
 ```
 sudo apt install default-jre
 ```
 
-#### try to run AMETGUI
+try to run AMETGUI
 
 Error: Unable to access jarfile /home/ubuntu/AMET_v16/AMETGUI/dist/AMETJavaGUI.jar
 
-#### building AMETGUI jar file 
+building AMETGUI jar file 
 
 This will take some time, but there are instructions
 
 
-#### Mount the 1000G EBS filesystem
+Mount the 1000G EBS filesystem
 
 ```
 sudo mkdir /shared
@@ -522,13 +521,13 @@ cd /shared
 mkdir -p AMET_v16/model_data
 ```
 
-#### Obtain example AQ data
+Obtain example AQ data
 ```
 wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_ACONC_aqExample_201807.nc
 wget https://cmas-amet.s3.amazonaws.com/AMET/v1.6_example/AQ/aqExample/COMBINE_DEP_aqExample_201807.nc
 ```
 
-#### Download aws cli
+Download aws cli
 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -536,7 +535,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-#### Obtain example MET data
+Obtain example MET data
 
 ```
 cd ~/AMET_v16/model_data/MET/metExample_wrf
@@ -547,7 +546,7 @@ cd ~/AMET_v16/model_data/MET/metExample_mpas
 aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://cmas-amet/AMET/v1.5_example/MET/metExample_mpas/ .
 ```
 
-#### Extract example metExample_mcip data
+Extract example metExample_mcip data
 
 ```
 #!/bin/csh
@@ -567,7 +566,7 @@ sudo lsblk
 sudo xfs_growfs -d /shared  ! need to verify this is the volume and partition listed in the sudo lsblk command
 ```
 
-#### Verify that the size has been increased
+Verify that the size has been increased
 
 ```
 df -h
@@ -583,7 +582,7 @@ efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
 tmpfs            384M   16K  384M   1% /run/user/1000
 ```
 
-#### Obtain example AQS Obs data
+Obtain example AQS Obs data
 
 ```
 cd ~/AMET_v16/obs/AQ
@@ -591,7 +590,7 @@ wget https://cmas-amet.s3.amazonaws.com/AMET/2000_2024_NAmerican_AQ_Obs_Data/AME
 tar -xzvf AMET_obsdata_2018.tar.gz
 ```
 
-#### Install wgrib on ubuntu
+Install wgrib on ubuntu
 
 https://www.cpc.ncep.noaa.gov/products/wesley/wgrib.html
  
@@ -609,21 +608,21 @@ Add the path to the wgrib executible to your .cshrc
 set path = ($path /usr/bin /usr/lib/ /usr/local/bin/ ~/LIBRARIES/LIBRARIES_gcc/wgrib )
 ```
 
-#### Edit amet-config.R
+Edit amet-config.R
 
 Add the following:
 
 ```
-## Misc Executables 
+# Misc Executables 
 Bldoverlay_exe_config    <- paste(amet_base,"/bin/bldoverlay.exe",sep="")       ## Full path to build overlay executable
 EXEC_sitex_daily_config  <- paste(amet_base,"/bin/sitecmp_dailyo3.exe",sep="") ## Full path to site compare daily executable
 EXEC_sitex_config        <- paste(amet_base,"/bin/sitecmp.exe",sep="")          ## Full path to site compare executable
 ```
 
-#### Set the AMETBASE environment variable
+Set the AMETBASE environment variable
 setenv AMETBASE /home/ubuntu/AMET_v16
 
-#### These instructions assumes that the amet database has been created, but it hasn't been yet.
+These instructions assumes that the amet database has been created, but it hasn't been yet.
 
 https://github.com/USEPA/AMET/blob/1.6/docs/AMET_User_Guide_v16.md#52-basic-mysql-commands
 
@@ -652,7 +651,7 @@ call dbDisconnect() when finished working with a connection
 I had already added the ametsecure user, so, I think it will be ok to proceed, and skip this step.
 
 
-#### Try running metExample_wrf
+Try running metExample_wrf
 
 ```
 cd $AMETBASE/scripts_db/metExample_wrf
@@ -671,7 +670,7 @@ Wed Sep 24 16:04:11 UTC 2025
 
 Added ncdf4 to the list of packages to be installed from cran.
 
-#### Reran after installing necdf4.
+Reran after installing necdf4.
 
 The data is currently loading into the amet table.
 
@@ -679,10 +678,10 @@ Getting message that there is no space on the device.
 gzip: 20160706_2300: No space left on device
 
 
-#### Modify root volume to be 300 GB instead of 30 GB.
+Modify root volume to be 300 GB instead of 30 GB.
 
 
-#### missing linkem.csh script
+missing linkem.csh script
 
 This script is referenced in these instructions: https://github.com/USEPA/AMET/blob/1.6/docs/AMET_Install_Guide_v16.md#install-amet-source-code-and-tier-3-software
 
@@ -722,7 +721,7 @@ Need to download the CMAQ code and also include that as a requirement.
 
 ```
 
-#### Grow the root partition
+Grow the root partition
 
 ```
 df -T
@@ -757,7 +756,7 @@ efivarfs         128K  4.1K  119K   4% /sys/firmware/efi/efivars
 /dev/nvme1n1    1000G  904G   96G  91% /shared
 tmpfs            384M   16K  384M   1% /run/user/1000
 ```
-#### Resize the partition
+Resize the partition
 
 ```
 sudo resize2fs /dev/nvme0n1p1
@@ -779,19 +778,19 @@ tmpfs           tmpfs     384M   16K  384M   1% /run/user/1000
 ```
 
 
-#### Install CMAQ
+Install CMAQ
 
 ```
 git clone -b 5.5+ https://github.com/USEPA/CMAQ.git CMAQ55plus_REPO
 ```
 
-#### Load Modules
+Load Modules
 
 ```
 module load ioapi-3.2/gcc-13.3  netcdf/gcc-13.3  openmpi/gcc  
 ```
 
-#### edit bldit_cctm.csh script
+edit bldit_cctm.csh script
 
 ```
 cd /home/ubuntu/CMAQ55plus_REPO
@@ -802,7 +801,7 @@ cd /home/ubuntu/CMAQv5.5+
 edit the config_cmaq.csh script to specify the paths of the netCDF and I/O API Libraries
 ```
 
-#### find the location of the openmpi include files to specify in the config_cmaq.csh
+find the location of the openmpi include files to specify in the config_cmaq.csh
 
 ```
 mpicc -showme 
@@ -814,11 +813,11 @@ Output
 gcc -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -L/usr/lib/x86_64-linux-gnu/openmpi/lib -lmpi
 ```
 
-#### Edit the  aqProject_pre_and_post.csh script
+Edit the  aqProject_pre_and_post.csh script
 
 cp ./CMAQ55plus_REPO/POST/hr2day/inputs/tz.csv ${CMAQ_HOME}/POST/hr2day/inputs/tz.csv
 
-#### Run aqProject_pre_and_post.csh script
+Run aqProject_pre_and_post.csh script
 
 ```
 ./aqProject_pre_and_post.csh |& tee ./aqProject_pre_and_post.log
