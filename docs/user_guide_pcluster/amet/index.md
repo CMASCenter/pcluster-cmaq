@@ -1,4 +1,4 @@
-# Create an EC2 instance from an AMET AMI 
+# Spin up a server using an AMET AMI 
 
 
 ```{toctree}
