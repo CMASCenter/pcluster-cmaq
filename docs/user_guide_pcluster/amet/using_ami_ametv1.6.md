@@ -56,14 +56,14 @@ After the file is edited to use the private ip address, then restart the apache 
 sudo systemctl restart apache2
 ```
 
-### Start the mariadb
+## Start the mariadb
 
 ```
 sudo systemctl start mariadb
 ```
 
 
-### Test connection to the web server
+## Test connection to the web server
 
 Change the IP address to the public IP address for your instance in this example.
 
