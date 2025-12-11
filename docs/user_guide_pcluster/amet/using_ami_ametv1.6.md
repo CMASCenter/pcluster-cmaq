@@ -75,7 +75,7 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_aq.php
 ```
 
-# Create plots using the AMET Web GUI
+# Create plots using the AMET Website
 
 Choose a Database:
 Select amet 
@@ -83,7 +83,7 @@ Select amet
 Choose a Project:
 Select aqExample
 
-![AMET GUI Select Database and Project](./AMET_GUI_choose_database_and_project.png)
+![AMET Website Select Database and Project](./AMET_website_choose_database_and_project.png)
 
 Under AQ Observation Networks
 Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
@@ -91,14 +91,14 @@ Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
 Under Species to Plot
 Select PM25_TOT
 
-![AMET GUI Select Obs Network and Species](./AMET_GUI_select_AQ_Observ_Networks_and_Species_to_Plot.png)
+![AMET Website Select Obs Network and Species](./AMET_website_select_AQ_Observ_Networks_and_Species_to_Plot.png)
 
 Under Choose Program to Run
 Select Spatial Plot > Spatial Plot(multi networks)
 
 Select Run Program
 
-![AMET GUI Select Plot and Run Program](./amet_website_run_programs.png)
+![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
 
 
