@@ -100,6 +100,21 @@ Select Run Program
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
+Results of options selected in querygen_aq.php
+
+![AMET Website Result](./amet_results_from_query.png)
+
+PM2.5_TOT Normalized Mean Bias Plot
+
+![AMET Normalized Mean Bias Spatial Plot](./amet_nmb.png)
+
+PM2.5_TOT Normalized Mean Error Plot
+
+![AMET Normalized Mean Error Spatial Plot](./amet_nme.png)
+
+PM2.5_TOT Mean Bias Plot
+
+![AMET Mean Bias Spatial Plot](./amet_mb.png)
 
 
 Prepare to load your own data
