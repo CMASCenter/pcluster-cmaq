@@ -91,12 +91,14 @@ Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
 Under Species to Plot
 Select PM25_TOT
 
+![AMET GUI Select Obs Network and Species](./AMET_GUI_select_AQ_Observ_Networks_and_Species_to_Plot.png)
+
 Under Choose Program to Run
 Select Spatial Plot > Spatial Plot(multi networks)
 
 Select Run Program
 
-![AMET GUI Select Obs Network and Species](./AMET_GUI_select_AQ_Observ_Networks_and_Species_to_Plot.png)
+![AMET GUI Select Plot and Run Program](./amet_website_run_programs.png)
 
 
 
