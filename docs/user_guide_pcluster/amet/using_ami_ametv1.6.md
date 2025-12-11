@@ -102,7 +102,7 @@ Select Run Program
 
 Results of options selected in querygen_aq.php
 
-![AMET Website Result](./amet_results_from_query.png)
+![AMET Website Result](./amet_results_from_query_top.png)
 
 PM2.5_TOT Normalized Mean Bias Plot
 
