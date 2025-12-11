@@ -7,6 +7,7 @@
  * Select existing security group - AMET_mysql and launch-wizard-379
  * AMET_mysql security group contains permissions for port 443 and 3306 for inbound and outbound open to all or restricted to your IP address or you can add these permissions when you launch a new instance from the AMI.
 
+![AMET Security Group](./amet_mysql_security_group_inbound_and_outbound_rules.png)
 
 # Login to the EC2 instance
 
