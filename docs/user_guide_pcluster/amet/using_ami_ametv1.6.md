@@ -160,6 +160,21 @@ Soccerplot Generated
 
 ![Soccerplot](./amet_result_query_soccerplot.png)
 
+# Create Stacked Bar Plot using CSN Network for PM2.5
+
+Under Observation Network
+Select CSN
+
+Under Species to Plot
+Select PM25_TOT
+
+![AMET Website Select Obs Network and Species](./amet_select_CSN_PM25_TOT.png)
+
+Under Choose Program to Run
+Select PM2.5 Stacked Bar Plot AE6 (CSN or IMPROVE, multirun)
+
+![AMET Website Result of Query](./amet_result_query_stacked_barplot_ae6.png)
+
 
 Prepare to load your own data
 
