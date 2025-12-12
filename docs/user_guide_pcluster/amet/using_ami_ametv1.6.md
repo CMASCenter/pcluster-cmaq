@@ -217,7 +217,7 @@ Choose Plotly Multi-species Timeseries
 Plotly Timeseries of O3, NOY, and Isoprene
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
 
-![Hourly Timeseries Plot of O3](./amet_plot_hourly_timeseries_O3.png)
+![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
 
 
