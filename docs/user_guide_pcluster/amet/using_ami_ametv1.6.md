@@ -175,6 +175,10 @@ Select PM2.5 Stacked Bar Plot AE6 (CSN or IMPROVE, multirun)
 
 ![AMET Website Result of Query](./amet_result_query_stacked_barplot_ae6.png)
 
+Stacked Bar Plot of PM2.5 using CSN Network
+
+![Stacked Bar Plot](./amet_plot_PM25_Stacked_BarPlot_AE6.png)
+
 
 Prepare to load your own data
 
