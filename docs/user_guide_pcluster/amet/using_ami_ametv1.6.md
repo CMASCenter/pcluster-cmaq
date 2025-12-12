@@ -199,7 +199,7 @@ Hourly Boxplot of O3
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
 
-# Create Interactive Hourly Timeseries of O3 using Plotly
+# Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
 
 Under Observation Network
 Select AQS Hourly
