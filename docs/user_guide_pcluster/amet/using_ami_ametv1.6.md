@@ -179,6 +179,26 @@ Stacked Bar Plot of PM2.5 using CSN Network
 
 ![Stacked Bar Plot](./amet_plot_PM25_Stacked_BarPlot_AE6.png)
 
+# Create Hourly Boxplot using AQS Hourly and O3 Species
+
+Under Observation Network
+Select AQS Hourly
+
+Under Species to Plot
+Select O3
+
+![AMET Website Select Obs Network and Species](./amet_select_AQS_hourly_and_O3_species.png)
+
+Under Choose Program to Run
+Select Hourly Boxplot (single network, multiple runs)
+
+![Query Result](./amet_result_query_hourly_boxplot.png)
+
+Hourly Boxplot of O3
+
+![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
+
+
 
 Prepare to load your own data
 
