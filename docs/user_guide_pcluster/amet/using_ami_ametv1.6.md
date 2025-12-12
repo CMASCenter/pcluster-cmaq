@@ -75,7 +75,7 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_aq.php
 ```
 
-# Create plots using the AMET Website
+# Create PM2.5 plots using the AMET Website
 
 Choose a Database:
 Select amet 
@@ -115,6 +115,25 @@ PM2.5_TOT Normalized Mean Error Plot
 PM2.5_TOT Mean Bias Plot
 
 ![AMET Mean Bias Spatial Plot](./amet_mb.png)
+
+# Create O3_8hrmax plots using AMET Website
+
+Under AQ Observation Networks
+Select AQS - Daily O3 (1-hr and 8-hr max) O3
+
+Under Species to Plot
+Select O3_8hrmax
+
+![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_AQS_Daily_O3_species_to_plot_O3_8hrmax.png)
+
+Under Choose Program to Run
+Select Density Scatterplot (single run, single network) 
+
+![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
+
+Results of options selected in querygen_aq.php form
+
+![AMET Website Result](amet_result_query_O3_8hrmax_scatterplot.png)
 
 
 Prepare to load your own data
