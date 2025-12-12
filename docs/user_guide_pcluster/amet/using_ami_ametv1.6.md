@@ -116,7 +116,7 @@ PM2.5_TOT Mean Bias Plot
 
 ![AMET Mean Bias Spatial Plot](./amet_mb.png)
 
-# Create O3_8hrmax plots using AMET Website
+# Create O3_8hrmax Density Scatterplot using AMET Website
 
 Under AQ Observation Networks
 Select AQS - Daily O3 (1-hr and 8-hr max) O3
