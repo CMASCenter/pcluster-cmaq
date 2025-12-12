@@ -199,6 +199,28 @@ Hourly Boxplot of O3
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
 
+# Create Interactive Hourly Timeseries of O3 using Plotly
+
+Under Observation Network
+Select AQS Hourly
+
+Under Species to Plot
+Select O3, Isoprene, NOY
+
+![AMET select AQS Hourly and Multispecies](./amet_select_AQS_hourly_multiple_species_O3_NOY_isoprene.png)
+
+Under Choose Program to Run
+Choose Plotly Multi-species Timeseries
+
+![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries.png)
+
+Plotly Timeseries of O3, NOY, and Isoprene
+Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
+
+![Hourly Timeseries Plot of O3](./amet_plot_hourly_timeseries_O3.png)
+
+
+
 
 # Prepare to load your own data
 
