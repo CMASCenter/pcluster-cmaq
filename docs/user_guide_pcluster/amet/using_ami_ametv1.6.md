@@ -75,7 +75,7 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_aq.php
 ```
 
-# Create PM2.5 plots using the AMET Website
+# Create PM2.5 Spatial Plots using the AMET Website
 
 Choose a Database:
 Select amet 
