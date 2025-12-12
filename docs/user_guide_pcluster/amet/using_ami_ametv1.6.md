@@ -135,6 +135,11 @@ Results of options selected in querygen_aq.php form
 
 ![AMET Website Result](./amet_result_query_O3_8hrmax_scatterplot.png)
 
+Scatterplot of O3_8hrmax
+
+![Scatterplot of O3_8hrmax](./amet_plot_density_scatterplot_singlerun_singlenetwork.png)
+
+
 # Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
 
 Under Species to Plot
