@@ -133,7 +133,7 @@ Select Density Scatterplot (single run, single network)
 
 Results of options selected in querygen_aq.php form
 
-![AMET Website Result](amet_result_query_O3_8hrmax_scatterplot.png)
+![AMET Website Result](./amet_result_query_O3_8hrmax_scatterplot.png)
 
 
 Prepare to load your own data
