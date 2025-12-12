@@ -135,6 +135,26 @@ Results of options selected in querygen_aq.php form
 
 ![AMET Website Result](./amet_result_query_O3_8hrmax_scatterplot.png)
 
+# Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
+
+Under Species to Plot
+Select SO4, NO3, and NH4
+
+![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_Improve_CSN_CASTNET_SPECIES_SO4_NO3_NH4.png)
+
+Under Choose Program to Run
+Select Density Scatterplot (single run, single network)
+
+![Choose Program to Run](./amet_select_run_soccerplot)
+
+Results of querygen_aq.php (links)
+
+![AMET Website Result](amet_result_query_soccerplot_links.png)
+
+Soccerplot Generated
+
+![Soccerplot](./amet_result_query_soccerplot.png)
+
 
 Prepare to load your own data
 
