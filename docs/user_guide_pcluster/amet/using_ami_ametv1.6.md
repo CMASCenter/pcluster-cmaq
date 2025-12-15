@@ -219,7 +219,24 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
+# Create Bugle Plot of PM2.5_TOT for AQS Daily and Hourly
 
+Under Observation Network
+Select AQS Hourly and AQS Daily
+
+Under Species to Plot
+Select PM25_TOT
+
+![AMET select AQS Hourly, AQS Daily and PM25_TOT](./amet_select_AQS_hourly_daily_PM25_TOT.png)
+
+Under Choose Program to Run
+Choose Bugle Plot(Multiple Networks) under Misc Scripts
+
+![AMET run Bugle Plot](./amet_run_bugle_PM25_TOT.png)
+
+Bugle Plot of PM25_TOT for Networks AQS Hourly and AQS Daily
+
+![Bugle Plot of PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Hourly_Daily.png)
 
 
 # Prepare to load your own data
