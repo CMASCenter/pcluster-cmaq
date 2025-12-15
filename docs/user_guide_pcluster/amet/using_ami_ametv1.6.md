@@ -150,7 +150,7 @@ Select SO4, NO3, and NH4
 Under Choose Program to Run
 Select Density Scatterplot (single run, single network)
 
-![Choose Program to Run](./amet_select_density_scatterplot_singlerun_singlenetwork.png)
+![Choose Program to Run](./amet_select_run_soccerplot.png)
 
 Results of querygen_aq.php (links)
 
