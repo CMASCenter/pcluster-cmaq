@@ -219,7 +219,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
-# Create Bugle Plot of PM2.5_TOT for AQS Daily and Hourly
+# Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
 
 Under Observation Network
 Select AQS Daily, CSN, and IMPROVE
