@@ -222,21 +222,25 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 # Create Bugle Plot of PM2.5_TOT for AQS Daily and Hourly
 
 Under Observation Network
-Select AQS Hourly and AQS Daily
+Select AQS Daily, CSN, and IMPROVE
 
 Under Species to Plot
 Select PM25_TOT
 
-![AMET select AQS Hourly, AQS Daily and PM25_TOT](./amet_select_AQS_hourly_daily_PM25_TOT.png)
+![AMET select AQS Daily CSN and IMPROVE and PM25_TOT](./amet_select_AQS_daily_CSN_IMPROVE_PM25_TOT.png)
 
 Under Choose Program to Run
 Choose Bugle Plot(Multiple Networks) under Misc Scripts
 
 ![AMET run Bugle Plot](./amet_run_bugle_PM25_TOT.png)
 
-Bugle Plot of PM25_TOT for Networks AQS Hourly and AQS Daily
+Bugle Plot of Normalized Mean Bias (NMB) PM25_TOT for Networks AQS Hourly and AQS Daily
 
-![Bugle Plot of PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Hourly_Daily.png)
+![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_Daily_CSN_IMPROVE_NMB.png)
+
+Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and AQS Daily
+
+![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)
 
 
 # Prepare to load your own data
