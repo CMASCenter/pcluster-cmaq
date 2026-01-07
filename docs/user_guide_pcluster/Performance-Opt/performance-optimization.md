@@ -229,7 +229,7 @@ Head node c7g.large compute cost = entire time that the parallel cluster is runn
 
 Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation based on ** 2 day ** 12US1 benchmark
 
-| Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
+| Benchmark Case | Compute Node | Number of cores |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
 | 2 day 12US1    | c6a.48xlarge   | 96          |         1       |  ONDEMAND    |   $7.344/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 7.344/hr =   | $2471 | 14 |
 | 2 day 12US1    | hpc6a.48xlarge   | 96          |         1       |  ONDEMAND    | $2.88/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 2.88/hr =   | $969 | 14 |
@@ -243,7 +243,7 @@ The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDeman
 
 ### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12)
 
-|Benchmark Case |	Compute Node |	Number of PES| Total Memory GiB | # Nodes|npcol ☓ nprow | Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
+|Benchmark Case |	Compute Node |	Number of cores| Total Memory GiB | # Nodes|npcol ☓ nprow | Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
 |-------------  | -------------  | ------------  | ------------| ----- | -------  | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
 |12US1 |	hpc6a.48xlarge/96cores |	128	| 2	| 768 | 8x16 | ondemand	 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
 |12US1 |	hpc6a.48xlarge | 	192	| 2	| 768 | 12x16 | ondemand |	2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
