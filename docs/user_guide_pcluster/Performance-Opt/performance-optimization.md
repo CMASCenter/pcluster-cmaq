@@ -243,20 +243,20 @@ The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDeman
 
 ### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12)
 
-|Benchmark Case |	Compute Node |	Number of PES| # Nodes|npcol ☓ nprow |	Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
-|-------------  | -------------  | ------------  | ------------| -------  | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
-|12US1 |	hpc6a.48xlarge | 	128	| 2	| 8x16 | ondemand	 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
-|12US1 |	hpc6a.48xlarge | 	192	| 2	| 12x16 | ondemand |	2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
-|12US1 |	hpc6a.48xlarge |	128	| 2	| 8x16 | ondemand |	2601 |	gcc (11.4.1) | 	/shared	|  $5.91 | 	0.72 |	 $1,558.54 |	 $1,559 | 	11 |
-|12US1 |	hpc6a.48xlarge |	192	| 2	| 12x16 | ondemand |	1854 |	gcc (11.4.1) | 	/shared	 | $5.91  |	0.52 |	 $1,110.93 |	 $1,111 |	8 |
-|12US1 |	hpc7g.16xlarge |	128	| 2	| 8x16	| ondemand |	2100  |	gcc (11.4.1) | 	/shared	 | $3.44  |	0.58 |	 $731.67 |	 $732 |	9 |
-|12US1 |	hpc7g.16xlarge |	192	| 3	| 12x16 | ondemand |	FAILED| gcc (11.4.1) | 	/shared	 | $5.12  |		 |   $-   	|         |	 |
-|12US1 |	hpc7g.16xlarge |	128	| 2	| 8x16	|  ondemand |	2147 | 	gcc (11.4.1) | 	/lustre	 | $3.44  |	0.60 |	 $748.04| 	 $748 | 	9 | 
-|12US1 |	hpc7g.16xlarge |	192	| 3	| 12x16	|  ondemand |	1592 |	gcc (11.4.1) | 	/lustre	 | $5.12  |	0.44 |	 $826.36| 	 $826  |	7 |
-|36US3 |	hpc7g.16xlarge |	64	| 2	| 8x8	| ondemand |	631	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.18 |	 $109.02| 	 $109  |	3 |
-|36US3 |	hpc7g.16xlarge |	128	| 2	| 4x32	| ondemand |	411	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.11 |	 $71.01 |	 $71  |	2 |
-|36US3 |	hpc7g.16xlarge |	128	| 2	| 8x16	| ondemand |	363	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.10 |	 $62.72 |	 $63  |	2 | 
-|36US3 |	hpc7g.16xlarge |	192	| 3	| 12x16	| ondemand |	287	 | gcc (11.4.1)	| /lustre	 | $5.12  |	0.08 |	 $73.87 |	 $74  |	1 |
+|Benchmark Case |	Compute Node |	Number of PES| Total Memory GiB | # Nodes|npcol ☓ nprow | Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
+|-------------  | -------------  | ------------  | ------------| ----- | -------  | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
+|12US1 |	hpc6a.48xlarge | 	128	| 2	| 768 | 8x16 | ondemand	 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
+|12US1 |	hpc6a.48xlarge | 	192	| 2	| 768 | 12x16 | ondemand |	2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
+|12US1 |	hpc6a.48xlarge |	128	| 2	| 768 |8x16 | ondemand |	2601 |	gcc (11.4.1) | 	/shared	|  $5.91 | 	0.72 |	 $1,558.54 |	 $1,559 | 	11 |
+|12US1 |	hpc6a.48xlarge |	192	| 2	| 768 |12x16 | ondemand |	1854 |	gcc (11.4.1) | 	/shared	 | $5.91  |	0.52 |	 $1,110.93 |	 $1,111 |	8 |
+|12US1 |	hpc7g.16xlarge |	128	| 2	| 256 |8x16	| ondemand |	2100  |	gcc (11.4.1) | 	/shared	 | $3.44  |	0.58 |	 $731.67 |	 $732 |	9 |
+|12US1 |	hpc7g.16xlarge |	192	| 3	| 384 |12x16 | ondemand |	FAILED| gcc (11.4.1) | 	/shared	 | $5.12  |		 |   $-   	|         |	 |
+|12US1 |	hpc7g.16xlarge |	128	| 2	| 256 |8x16	|  ondemand |	2147 | 	gcc (11.4.1) | 	/lustre	 | $3.44  |	0.60 |	 $748.04| 	 $748 | 	9 | 
+|12US1 |	hpc7g.16xlarge |	192	| 3	| 384 |12x16	|  ondemand |	1592 |	gcc (11.4.1) | 	/lustre	 | $5.12  |	0.44 |	 $826.36| 	 $826  |	7 |
+|36US3 |	hpc7g.16xlarge |	64	| 2	| 256 |8x8	| ondemand |	631	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.18 |	 $109.02| 	 $109  |	3 |
+|36US3 |	hpc7g.16xlarge |	128	| 2	| 256| 4x32	| ondemand |	411	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.11 |	 $71.01 |	 $71  |	2 |
+|36US3 |	hpc7g.16xlarge |	128	| 2	| 256| 8x16	| ondemand |	363	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.10 |	 $62.72 |	 $63  |	2 | 
+|36US3 |	hpc7g.16xlarge |	192	| 3	| 384 |12x16	| ondemand |	287	 | gcc (11.4.1)	| /lustre	 | $5.12  |	0.08 |	 $73.87 |	 $74  |	1 |
 
 ### Storage Cost Estimate
 
