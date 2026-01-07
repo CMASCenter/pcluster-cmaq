@@ -243,7 +243,7 @@ The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDeman
 
 ### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12)
 
-|Benchmark Case |	Compute Node |	Number of PES| 	Number of Nodes|npcol ☓ nprow |	Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost	Annual Cost	| Days|
+|Benchmark Case |	Compute Node |	Number of PES| 	Number of Nodes|npcol ☓ nprow |	Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
 |-------------  | -------------  | ------------  | ------------| -------  | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
 |12US1 |	hpc6a.48xlarge | 	128	| 2	| 8x16 | ondemand	 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
 |12US1 |	hpc6a.48xlarge | 	192	| 2	| 12x16 | ondemand |	2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
