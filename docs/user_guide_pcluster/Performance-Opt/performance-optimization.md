@@ -201,7 +201,7 @@ Cost information is available within the AWS Web Console for your account as you
 
 ### Cost Explorer
 
-Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a two day session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
+Example screenshots of the AWS Cost Explorer Graphs were obtained after running several of the CMAQ Benchmarks, varying # nodes and # cpus and NPCOL/NPROW.  These costs are of a ** two day ** session of running CMAQ on the ParallelCluster, and should only be used to understand the relative cost of the EC2 instances (head node and compute nodes), compared to the storage, and network costs.
 
 In Figure 6 The Cost Explorer Display shows the cost of different EC2 Instance Types: note that c6a.48xlarge (purple) is highest cost - as these the most expensive compute nodes that were used. The hpc7g.16xlarge compute nodes incurred less cost (green).
 
@@ -227,7 +227,7 @@ Figure 8. Cost by Service Type - AWS Console
 Head node c7g.large compute cost = entire time that the parallel cluster is running ( creation to deletion) = 6 hours * $0.0725/hr = $ .435 using ondemand pricing.
 
 
-Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation based on 2 day 12US1 benchmark
+Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation based on ** 2 day ** 12US1 benchmark
 
 | Benchmark Case | Compute Node | Number of PES |  Number of Nodes | Pricing    |   Cost per node | Time to completion (hour)   | Equation Extrapolate Cost for Annual Simulation | Annual Cost                | Days to Complete Annual Simulation | 
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
@@ -243,7 +243,7 @@ The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDeman
 
 ### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12)
 
-|Benchmark Case |	Compute Node |	Number of PES| 	Number of Nodes|npcol ☓ nprow |	Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
+|Benchmark Case |	Compute Node |	Number of PES| # Nodes|npcol ☓ nprow |	Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
 |-------------  | -------------  | ------------  | ------------| -------  | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
 |12US1 |	hpc6a.48xlarge | 	128	| 2	| 8x16 | ondemand	 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
 |12US1 |	hpc6a.48xlarge | 	192	| 2	| 12x16 | ondemand |	2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
