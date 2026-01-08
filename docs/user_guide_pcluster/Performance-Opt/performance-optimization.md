@@ -241,16 +241,16 @@ These cost estimates depend on the availability of number of nodes for the insta
 The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDemand Pricing is $780, the cost of running an annual simulation on 3 hpc7g.16xlarge nodes using OnDemand pricing is $898. If you run on only 2 nodes, then you would pay less, but wait longer for the run to be completed, 9.6 days using 2 nodes versus 7.4 days using 3 nodes.
 ```
 
-### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12)
+### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12) (ondemand pricing)
 
-|Benchmark Case |	Compute Node |	# nodes | Total Memory GiB |npcol ☓ nprow | # cores |Pricing	|Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
-|-------------  | -------------  | ------------  | ------------| ----- | -------  | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
-|12US1 |	hpc6a.48xlarge/96cores/384GiBMem |2| 768 | 8x16 | 128 | ondemand	 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
-|12US1 |	hpc6a.48xlarge | 	2	| 768 | 12x16 | 192 | ondemand |	2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
-|12US1 |	hpc6a.48xlarge |	2	| 768 | 8x16 | 128 | ondemand |	2601 |	gcc (11.4.1) | 	/shared	|  $5.91 | 	0.72 |	 $1,558.54 |	 $1,559 | 	11 |
-|12US1 |	hpc6a.48xlarge |	2	| 768 | 12x16 | 192 |  ondemand |	1854 |	gcc (11.4.1) | 	/shared	 | $5.91  |	0.52 |	 $1,110.93 |	 $1,111 |	8 |
-|12US1 |    hpc6a.48xlarge | 
-|12US1 |	hpc7g.16xlarge/64cores/128GiBMem |2| 256 |8x16	| 128 | ondemand |	2100  |	gcc (11.4.1) | 	/shared	 | $3.44  |	0.58 |	 $731.67 |	 $732 |	9 |
+|Benchmark Case |	Compute Node |	# nodes | Total Memory GiB |npcol ☓ nprow | # cores |Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
+|-------------  | -------------  | ------------  | ------------| ----- | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
+|12US1 |	hpc6a.48xlarge/96cores/384GiBMem |2| 768 | 8x16 | 128 |	2700 |	Intel (25.0.4) | 	/shared |	 $5.91 | 	0.75 |	 $1,617.86 | 	 $1,618| 	11 |
+|12US1 |	hpc6a.48xlarge | 	2	| 768 | 12x16 | 192 | 2044 |	Intel (25.0.4) | 	/shared	| $5.91  |	0.57|	 $1,224.78 |	 $1,225 | 	9 |
+|12US1 |	hpc6a.48xlarge |	2	| 768 | 8x16 | 128 |	2601 |	gcc (11.4.1) | 	/shared	|  $5.91 | 	0.72 |	 $1,558.54 |	 $1,559 | 	11 |
+|12US1 |	hpc6a.48xlarge |	2	| 768 | 12x16 | 192 |	1854 |	gcc (11.4.1) | 	/shared	 | $5.91  |	0.52 |	 $1,110.93 |	 $1,111 |	8 |
+|12US1 |        hpc6a.48xlarge |        3       | 1152 | 16 x 18 | 288 |     |               |           |        |          |             |            |         |
+|12US1 |	hpc7g.16xlarge/64cores/128GiBMem |2| 256 |8x16	| 128 2100  |	gcc (11.4.1) | 	/shared	 | $3.44  |	0.58 |	 $731.67 |	 $732 |	9 |
 |12US1 |	hpc7g.16xlarge |	3	| 384 |12x16 | 192 |ondemand |	FAILED| gcc (11.4.1) | 	/shared	 | $5.12  |		 |   $-   	|         |	 |
 |12US1 |	hpc7g.16xlarge |	2	| 256 |8x16	|128 |  ondemand |	2147 | 	gcc (11.4.1) | 	/lustre	 | $3.44  |	0.60 |	 $748.04| 	 $748 | 	9 | 
 |12US1 |	hpc7g.16xlarge |	3	| 384 |12x16| 192	|  ondemand |	1592 |	gcc (11.4.1) | 	/lustre	 | $5.12  |	0.44 |	 $826.36| 	 $826  |	7 |
