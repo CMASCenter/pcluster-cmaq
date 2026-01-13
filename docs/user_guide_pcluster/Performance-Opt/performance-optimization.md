@@ -233,6 +233,8 @@ Table 5. Extrapolated Cost of compute nodes used for CMAQv5.4+ Annual Simulation
 | -------------  | --------     |------------  |  --------------- | -------    |  -------------- | ------------------          |  ------------------------------------------- | ----    |  -------------------------------    |
 | 2 day 12US1    | c6a.48xlarge   | 96          |         1       |  ONDEMAND    |   $7.344/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 7.344/hr =   | $2471 | 14 |
 | 2 day 12US1    | hpc6a.48xlarge   | 96          |         1       |  ONDEMAND    | $2.88/hour   |   6639.10/3600 = 1.84      |  1.84/2 * 365 = 336.6 hours/node * 1 node =   336.6  hr * 2.88/hr =   | $969 | 14 |
+| 2 day 12US1    | hpc6a.48xlarge | 192          |         2       |  ONDEMAND    | $2.88/hour    |  3908.00/3600 = 1.085      | 1.085/2 * 365 = 198.1 hours/node * 2 nodes = 396.22 * 2.88/hr =  | $1141.136 | 8.2 |
+| 2 day 12US1    | hpc6a.48xlarge | 288          |         3       |  ONDEMAND    | $2.88/hour    |  3091.30/3600 = .859       | .859/2 * 365 = 156.7 hours/node * 3 nodes = 470.13 * 2.88/hr = | $1353.989 | 6.53 |
 | 2 day 12US1    | hpc7g.16xlarge | 128          |         2       |  ONDEMAND    |   $1.6832/hour  |   4574.00/3600 = 1.27      |  1.27/2 * 365 = 231.87 hours/node * 2 nodes = 463.75 hr * $1.6832/hr = | $780 | 9.6 |
 | 2 day 12US1    | hpc7g.16xlarge | 192          |         3       |  ONDEMAND    |   $1.6832/hour  |   3509.80/3600 = .9749      |  .9749/2 * 365 = 177.9 hours/node * 3 nodes = 533.75 hr * $1.6832/hr = | $898 | 7.4 |
 
