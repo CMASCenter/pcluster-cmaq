@@ -241,7 +241,7 @@ These cost estimates depend on the availability of number of nodes for the insta
 The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDemand Pricing is $780, the cost of running an annual simulation on 3 hpc7g.16xlarge nodes using OnDemand pricing is $898. If you run on only 2 nodes, then you would pay less, but wait longer for the run to be completed, 9.6 days using 2 nodes versus 7.4 days using 3 nodes.
 ```
 
-### Manish Soni Timings and cost estimate using latest version of the Parallel Cluster (v3.12) (ondemand pricing)
+### Timings and cost estimate using latest version of the Parallel Cluster (v3.12) (ondemand pricing)
 
 |Benchmark Case |	Compute Node |	# nodes | Total Memory GiB |npcol ☓ nprow | # cores |Average CPU-sec/day|	Compiler|	Disk|	Node cost(login +compute) $|	Time to completion (hour)|	Annual Cost |	Annual Cost	| Days|
 |-------------  | -------------  | ------------  | ------------| ----- | ------  | ----- | ---------- |  ------  | ----- | --------   | ------  |  -------------------- | -- |
