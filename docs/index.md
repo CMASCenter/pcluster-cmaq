@@ -15,7 +15,6 @@ Every month on the first Thursday 3pm - 4 pm Eastern Time. Upcoming sessions:
     May 7, 3:00 PM
     June 4, 3:00 PM
     July 2, 3:00 PM
-
 <a href="https://unc.zoom.us/meeting/register/tJMscumurzMvHtFJ32koXFqT5PAbJdlrceHR">Zoom Registration Link</a>
 ```
 
