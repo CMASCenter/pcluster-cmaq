@@ -66,6 +66,14 @@ sudo systemctl restart apache2
 sudo systemctl start mariadb
 ```
 
+# Check the version of mariadb that was installed
+
+SELECT VERSION();
++-----------------------------------+
+| VERSION()                         |
++-----------------------------------+
+| 10.11.13-MariaDB-0ubuntu0.24.04.1 |
+
 
 # Test connection to the web server
 
