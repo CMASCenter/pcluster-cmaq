@@ -6,6 +6,81 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
+The plots available include:
+Choose AMET Script to Execute
+<ol> Scatter Plots
+    <li>AQ_Scatterplot.R>Multiple Networks Model/Ob Scatterplot (select stats only)</li>
+   <li> AQ_Scatterplot_ggplot.R">GGPlot Scatterplot (multi network, single run)</li>
+   <li> AQ_Scatterplot_plotly.R">Interactive Multiple Network Scatterplot</li>
+    <li>AQ_Scatterplot_multisim_plotly.R">Interactive Multiple Simulation Scatterplot</li>
+    <li>AQ_Scatterplot_single.R">Single Network Model/Ob Scatterplot (includes all stats)</li>
+    <li>AQ_Scatterplot_density.R">Density Scatterplot (single run, single network)</li>
+    <li>AQ_Scatterplot_density_ggplot.R>GGPlot Density Scatterplot (single run, single network)</li>
+    <li>AQ_Scatterplot_mtom.R>Model/Model Scatterplot (multiple networks)</li>
+    <li>AQ_Scatterplot_mtom_density_ggplot.R>Model/Model Density Scatterplot (single network)</li>
+    <li>AQ_Scatterplot_percentiles.R>Scatterplot of Percentiles (single network, single run)</li>
+    <li>AQ_Scatterplot_bins.R>Binned MB & RMSE Scatterplots (single net., mult. run)</li>
+    <li>AQ_Scatterplot_bins_plotly.R>Interactive Binned Plot (single net., mult. run)</li>
+    <li>AQ_Scatterplot_multi.R>Multi Simulation Scatter plot (single network, mult runs)</li>
+</ol>
+<ol>  Time Series Plots
+   <li> AQ_Timeseries.R>Time-series Plot (single network, multiple sites averaged)</li>
+    <li>AQ_Timeseries_bysite.R>Individual Site Time-series Plots (single network, multiple sites not average)</li>
+    <li>AQ_Timeseries_dygraph.R">Dygraph Time-series Plot (single network, multiple sites averaged)</li>
+    <li>AQ_Timeseries_plotly.R>Plotly Muli-simulation Timeseries</li>
+    <li>AQ_Timeseries_plotly_bysite.R>Individual Site Plotly Time-series Plots (single network, multiple sites not average)</li>
+    <li>AQ_Timeseries_networks_plotly.R>Plotly Multi-network Timeseries</li>
+    <li>AQ_Timeseries_species_plotly.R>Plotly Multi-species Timeseries</li>
+    <li>AQ_Timeseries_multi_networks.R>Multi-Network Time-series Plot (mult. net., single run)</li>
+    <li>AQ_Timeseries_multi_species.R>Multi-Species Time-series Plot (mult. species, single run)</li>
+    <li>AQ_Timeseries_MtoM.R>Model-to-Model Time-series Plot (single net., multi run)</li>
+    <li>AQ_Monthly_Stat_Plot.R>Year-long Monthly Statistics Plot (single network)</li>
+    <li>AQ_Monthly_Stat_Plot_plotly.R>Interactive Year-long Monthly Statistics Plot (single network)</li>
+</ol>
+<ol>  Spatial Plots
+   <li>AQ_Stats_Plots.R>Species Statistics and Spatial Plots (multi networks)</li>
+   <li> AQ_Stats_Plots_leaflet.R>Interactive Species Statistics and Spatial Plots (single plot)</li>
+   <li> AQ_Stats_Plots_leaflet_network.R>Interactive Species Statistics and Spatial Plots (multiple plots)</li>
+   <li> AQ_Plot_Spatial.R>Spatial Plot (multi networks)</li>
+   <li> AQ_Plot_Spatial_leaflet.R>Interactive Spatial Plot</li>
+  <li>  AQ_Plot_Spatial_leaflet_network.R>Interactive Spatial Plot (multiple plots)</li>
+   <li> AQ_Plot_Spatial_Species_Diff_leaflet.R>Interactive Species Diff Spatial Plot (multi networks,multi species)</li>
+    <li>AQ_Plot_Spatial_MtoM.R>Model/Model Diff Spatial Plot (multi network, multi run)</li>
+    <li>AQ_Plot_Spatial_MtoM_leaflet.R>Interactive Model/Model Diff Spatial Plot (multi network, multi run)</li>
+    <li>AQ_Plot_Spatial_MtoM_Species.R>Model/Model Species Diff Spatial Plot (multi network, multi run)</li>
+    <li>AQ_Plot_Spatial_Diff.R>Spatial Plot of Bias/Error Difference (multi network, multi run)</li>
+    <li>AQ_Plot_Spatial_Diff_leaflet.R>Interactive Spatial Plot of Bias/Error Difference (single plot)</li>
+    <li>AQ_Plot_Spatial_Diff_leaflet_network.R>Interactive Spatial Plot of Bias/Error Difference (multiple plots)</li>
+</ol>
+  Box Plots
+    AQ_Boxplot.R>Boxplot (single network, multi run)
+    AQ_Boxplot_ggplot.R>GGPlot Boxplot (single network, multi run)
+    AQ_Boxplot_plotly.R>Plotly Boxplot (single network, multi run)
+    AQ_Boxplot_DofW.R>Day of Week Boxplot (single network, multiple runs)
+    AQ_Boxplot_Hourly.R>Hourly Boxplot (single network, multiple runs)
+    AQ_Boxplot_MDA8.R>8hr Average Boxplot (single network, hourly data, can be slow)
+    AQ_Boxplot_Roselle.R>Roselle Boxplot (single network, multiple simulations)
+  Misc Scripts
+    AQ_Kellyplot.R>Kelly Plot (single species, single network, full year data)
+    AQ_Kellyplot_plotly.R>Plotly Kelly Plot (single species, single network, full year data)
+    AQ_Kellyplot_region.R>Climate Region Kelly Plot (single species, single network, multi sim)
+    AQ_Kellyplot_region_plotly.R>Plolty Climate Region Kelly Plot (single species, single network, multi sim)
+    AQ_Kellyplot_season.R>Seasonal Kelly Plot (single species, single network, multi sim)
+    AQ_Kellyplot_season_plotly.R>Plotly Seasonal Kelly Plot (single species, single network, multi sim)
+    AQ_Stats.R>Species Statistics (multi species, single network)
+    AQ_Raw_Data.R>Create raw data csv file (single network, single simulation)
+    AQ_Soccerplot.R>Soccergoal" plot (multiple networks)
+    AQ_Soccerplot_plotly.R>Plotly "Soccergoal" plot (multiple networks/species)
+    AQ_Bugleplot.R>"Bugle" plot (multiple networks)
+    AQ_Histogram.R>Histogram (single network/species only)
+    AQ_Histogram_plotly.R>Interactive Histogram (single network, single species, multi run)
+    AQ_Temporal_Plots.R>CDF, Q-Q, Taylor Plots (single network, multi run)
+  Experimental Scripts (may not work correctly)
+    AQ_Overlay_File.R>Create PAVE/VERDI Obs Overlay File (hourly/daily data only)
+    AQ_Scatterplot_log.R>Log-Log Model/Ob Scatterplot (multiple networks)
+    AQ_Spectral_Analysis.R>Spectral Analysis (single network, single run, experimental)
+
+
 # Create Meteorology Plots using the AMET Website
 
 ## Create 2m Temperature Spatial Plots
