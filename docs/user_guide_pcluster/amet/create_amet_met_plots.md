@@ -36,7 +36,7 @@ Select Run Program
 
 Results of options selected in querygen_met.php
 
-![AMET Website Result](./amet_met_results_from_query.png)
+![AMET Website Result](./met_plots/amet_met_results_from_query_spatial.png)
 
 2m Temperature Normalized Mean Bias Plot
 
