@@ -151,25 +151,53 @@ Timeseries Plot of 2m Temperature
 ![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_T_timeseries.png)
 
 
-## Create Hourly Boxplot using AQS Hourly and O3 Species
+## Create Boxplot using METAR Met Observations and T(2m) Model Values
 
-Under Observation Network
-Select AQS Hourly
+Under Met Observation Networks
+Choose METAR
 
-Under Species to Plot
-Select O3
+Under Met Variable to Use
+Select T(2m)
 
-![AMET Website Select Obs Network and Species](./amet_select_AQS_hourly_and_O3_species.png)
+![AMET Website Select Obs Network and Species](./amet_select_METAR_and_T2.png)
 
 Under Choose Program to Run
-Select Hourly Boxplot (single network, multiple runs)
+Boxplot (single network, multi-run)
 
-![Query Result](./amet_result_query_hourly_boxplot.png)
+![Query Result](./amet_result_query_boxplot.png)
 
-Hourly Boxplot of O3
+Boxplot of T2 all
 
-![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
+![Boxplot of T2 all](./metExample_wrf_T_boxplot_all.png)
 
+Boxplot of T2 Bias
+
+![Boxplot of T2 Bias](./metExample_wrf_T_boxplot_bias.png)
+
+Boxplot of T2 Normalized Bias
+
+![Boxplot of T2 Normalized Bias](./metExample_wrf_T_boxplot_norm_bias.png)
+
+## Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values
+
+Under Met Observation Networks
+Choose METAR
+
+Under Met Variable to Use
+Select T(2m) 
+
+![AMET Website Select Obs Network and Species](./amet_select_METAR_and_T2.png)
+
+Under Choose Program to Run
+Plotly Boxplot (single network, multi-run)
+
+![Query Result](./amet_result_query_boxplot_plotly.png)
+
+Plotly Boxplot of T2
+
+![Plotly Boxplot of T2 ](./metExample_wrf_T_boxplot_plotly.png)
+
+Note, the Bias and Normalized Bias Plots were not created successfully.
 
 ## Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
 
