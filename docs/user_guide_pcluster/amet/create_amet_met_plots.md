@@ -58,6 +58,11 @@ Results of options selected in querygen_met.php
 
 ![AMET Mean Error Square Error Spatial Plot](./met_plots/plot_met_metExample_wrf_T_RMSE.png)
 
+2m Temperature Correlation Plot
+
+![AMET Correlation Spatial Plot](./met_plots/plot_met_metExample_wrf_T_Corr.png)
+
+
 ## Create 2m Temperature Density Scatterplot
 
 Under Met Variable to choose
