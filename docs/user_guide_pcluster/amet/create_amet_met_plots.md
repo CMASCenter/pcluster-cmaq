@@ -34,7 +34,7 @@ Select Run Program
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
-Results of options selected in querygen_aq.php
+Results of options selected in querygen_met.php
 
 ![AMET Website Result](./amet_met_results_from_query.png)
 
@@ -68,7 +68,7 @@ Select Density Scatterplot (single run, single network)
 
 ![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_density_scatterplot.png)
 
-Results of options selected in querygen_aq.php form
+Results of options selected in querygen_met.php form
 
 ![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_scatterplot.png)
 
@@ -76,45 +76,24 @@ Scatterplot of 2m Temperature
 
 ![Scatterplot of 2m Temperature](./met_plots/metExample_wrf_T_scatterplot_density.png)
 
+## Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature
 
-## Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
-
-Under Species to Plot
-Select SO4, NO3, and NH4
-
-![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_Improve_CSN_CASTNET_SPECIES_SO4_NO3_NH4.png)
+Under Met Variable to choose
+Select T(2m)
 
 Under Choose Program to Run
-Select Density Scatterplot (single run, single network)
+Timeseries Plot (single network, multiple sites averaged)
 
-![Choose Program to Run](./amet_select_run_soccerplot.png)
+![AMET Website Select Plot and Run Program](./met_plots/amet_run_program_timeseries.png)
 
-Results of querygen_aq.php (links)
+Results of options selected in querygen_met.php form
 
-![AMET Website Result](amet_result_query_soccerplot_links.png)
+![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_timeseries.png)
 
-Soccerplot Generated
+Timeseries Plot of 2m Temperature
 
-![Soccerplot](./amet_result_query_soccerplot.png)
+![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_T_timeseries.png)
 
-## Create Stacked Bar Plot using CSN Network for PM2.5
-
-Under Observation Network
-Select CSN
-
-Under Species to Plot
-Select PM25_TOT
-
-![AMET Website Select Obs Network and Species](./amet_select_CSN_PM25_TOT.png)
-
-Under Choose Program to Run
-Select PM2.5 Stacked Bar Plot AE6 (CSN or IMPROVE, multirun)
-
-![AMET Website Result of Query](./amet_result_query_stacked_barplot_ae6.png)
-
-Stacked Bar Plot of PM2.5 using CSN Network
-
-![Stacked Bar Plot](./amet_plot_PM25_Stacked_BarPlot_AE6.png)
 
 ## Create Hourly Boxplot using AQS Hourly and O3 Species
 
@@ -272,7 +251,8 @@ Note that AMET_Website is installed under /var/www/html
 
 ```
 ls -rlt /var/www/html
-total 724
+ubuntu@ip-172-31-30-106:/var/www/html/cache$ ls -rlt /var/www/html
+total 1128
 -rw-rw-r-- 1 www-data www-data   4333 Sep 23 17:55 AMET_Species_Name_Mapping.txt
 -rw-rw-r-- 1 www-data www-data    420 Sep 23 17:55 example_stat_file.txt
 -rw-rw-r-- 1 www-data www-data   2283 Sep 23 17:55 disaq_4km_met_sites.txt
@@ -284,13 +264,13 @@ drwxrwxr-x 2 www-data www-data   4096 Sep 23 17:55 images
 -rw-rw-r-- 1 www-data www-data   6475 Sep 23 17:55 run_info_met.template
 -rw-r--r-- 1 www-data www-data  10671 Sep 25 18:41 index.html.back
 -rw-rw-r-- 1 www-data www-data    286 Sep 25 19:47 index.html.sv
--rwxrwxr-x 1 www-data www-data 259423 Sep 29 18:30 querygen_met.php
 -rw-rw-r-- 1 www-data www-data   3861 Oct 10 17:10 amet-lib.php
 -rwxrwxr-x 1 www-data www-data   2061 Oct 10 17:24 amet-config.R
--rw-rw-r-- 1 www-data www-data   2084 Oct 10 17:27 amet-www-config.php
 -rw-rw-r-- 1 www-data www-data  11397 Oct 10 17:30 run_info.template
--rwxrwxr-x 1 ubuntu   ubuntu   362697 Oct 10 19:58 querygen_aq.php
-drwxrwxrwx 2 www-data www-data  16384 Nov  3 15:12 cache
+-rw-rw-r-- 1 www-data www-data   2084 Nov 19 16:12 amet-www-config.php
+-rwxrwxr-x 1 ubuntu   ubuntu   362779 Dec 11 17:59 querygen_aq.php
+-rwxrwxr-x 1 ubuntu   ubuntu   259959 Jan 14 18:08 querygen_met.php
+drwxrwxrwx 8 www-data www-data 425984 Mar  1 18:46 cache
 ```
 
 ## Upload your own meteorology data
