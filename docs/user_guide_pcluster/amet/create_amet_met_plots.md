@@ -8,7 +8,7 @@ http://[your-ec2-external-ip-address]:443/querygen_met.php
 
 # Create Meteorology Plots using the AMET Website
 
-## Create PM2.5 Spatial Plots
+## Create 2m Temperature Spatial Plots
 
 Choose a Database:
 Select amet 
