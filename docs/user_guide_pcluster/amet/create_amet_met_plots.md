@@ -89,6 +89,29 @@ Spatial Plot of 2m Temperature Difference between Model and Observations
 ![Spatial Plot of 2m Temperature Differences](./met_plots/metExample_wrf_T_interactive_spatial_model_obs_diff_plot.png)
 
 
+## Create Interactive 2M Temperature Model to Model Difference Spatial Plots
+
+![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_interactive_spatial_mtom_diff.png)
+
+Results of options selected in querygen_met.php form
+
+![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_interactive_spatial_mtom_diff.png)
+
+Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot
+
+![Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_avg.png )
+
+Spatial Plot of 2m Temperature Model to Model Maximum Difference Interactive Plot
+
+![Spatial Plot of 2m Temperature Model to Model Max Diff Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_max.png)
+
+Spatial Plot of 2m Temperature Model to Model Minimum Difference Interactive Plot
+
+![Spatial Plot of 2m Temperature Model to Model Min Diff Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_min.png)
+
+Spatial Plot of 2m Temperature Model to Model Difference Ratio Interactive Plot
+
+![Spatial Plot of 2m Temperature Model to Model Diff Ratio Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_ratio.png)
 
 
 ## Create 2m Temperature Density Scatterplot
