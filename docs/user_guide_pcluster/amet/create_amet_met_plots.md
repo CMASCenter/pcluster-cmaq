@@ -62,6 +62,34 @@ Results of options selected in querygen_met.php
 
 ![AMET Correlation Spatial Plot](./met_plots/plot_met_metExample_wrf_T_Corr.png)
 
+## Create Interactive 2M Temperature Spatial Plots
+
+Under Met Variable to choose
+Select T(2m)
+
+Under Choose Program to Run
+Select Interactive Spatial Plot (multiple plots)
+
+![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_interactive_spatial.png)
+
+Results of options selected in querygen_met.php form
+
+![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_interactive_spatial.png)
+
+Spatial Plot of 2m Temperature Observations
+
+![Spatial Plot of 2m Temperature Observations](./met_plots/metExample_wrf_T_interactive_spatial_obs_plot.png)
+
+Spatial Plot of 2m Temperature Model
+
+![Spatial Plot of 2m Temperature Model](./met_plots/metExample_wrf_T_interactive_spatial_model_plot.png)
+
+Spatial Plot of 2m Temperature Difference between Model and Observations
+
+![Spatial Plot of 2m Temperature Differences](./met_plots/metExample_wrf_T_interactive_spatial_model_obs_diff_plot.png)
+
+
+
 
 ## Create 2m Temperature Density Scatterplot
 
