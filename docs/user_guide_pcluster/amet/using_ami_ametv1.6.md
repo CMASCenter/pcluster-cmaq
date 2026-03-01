@@ -9,7 +9,7 @@
 
 ![AMET Security Group](./amet_mysql_security_group_inbound_and_outbound_rules.png)
 
-# Login to the EC2 instance
+## Login to the EC2 instance
 
 ```
  ssh -Y -i ./<your_pem_name>.pem ubuntu@xx.xx.xx
@@ -60,13 +60,13 @@ After the file is edited to use the private ip address, then restart the apache 
 sudo systemctl restart apache2
 ```
 
-# Start the mariadb
+## Start the mariadb
 
 ```
 sudo systemctl start mariadb
 ```
 
-# Check the version of mariadb that was installed
+## Check the version of mariadb that was installed
 
 SELECT VERSION();
 +-----------------------------------+
@@ -75,7 +75,7 @@ SELECT VERSION();
 | 10.11.13-MariaDB-0ubuntu0.24.04.1 |
 
 
-# Test connection to the web server querygen_aq.php
+## Test connection to the web server querygen_aq.php
 
 Change the IP address to the public IP address for your instance in this example.
 
