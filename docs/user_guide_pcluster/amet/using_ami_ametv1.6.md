@@ -253,7 +253,9 @@ Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and A
 ![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)
 
 
-# Prepare to load your own data
+# Load your own data to MariaDB
+
+## Prepare to load your own data
 
 Load modules
 
@@ -364,7 +366,7 @@ drwxrwxr-x 2 www-data www-data   4096 Sep 23 17:55 images
 drwxrwxrwx 2 www-data www-data  16384 Nov  3 15:12 cache
 ```
 
-# Upload your data
+## Upload your data
 
 Change to the directory on /shared volume
 
@@ -375,7 +377,7 @@ mkdir new_project
 
 use the s3 cp command to upload your data
 
-# Load your project data into the database
+## Load your project data into the database
 
 Create a new project under the script_db directory
 
