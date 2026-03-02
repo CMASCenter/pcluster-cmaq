@@ -503,6 +503,13 @@ cd /shared/AMET_v16/model_data/MET/
 mkdir new_project
 ```
 
+Note, the MPAS data is 462 GB. The root volume of this AMI is only 500GB.
+Therefore, you will need to attach another 1 TB ebs volume to the EC2 instance.
+See these instructions.
+https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html
+https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
+To load this data into the database, you will also need to change the EC2 instance type from t3.large to t3.2xlarge.
+
 use the s3 cp command to upload your data
 
 ## Load your project data into the database
