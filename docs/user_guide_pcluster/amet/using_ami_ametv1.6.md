@@ -221,9 +221,13 @@ Verify you see the website and that it looks similar to the image below.
 ![AMET Website Select Database and Project](./AMET_website_choose_database_and_project.png)
 
 <ul>
-<li>Under AQ Observation Networks</li>
+<li>Under AQ Observation Networks
+<ul>
 <li>Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)</li>
 </ul>
+</li>
+</ul>
+
 
 <ul>
 <li>Under Species to Plot<li>
