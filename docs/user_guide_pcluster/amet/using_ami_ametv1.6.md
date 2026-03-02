@@ -288,10 +288,11 @@ Verify you see the website and that it looks similar to the image below.
 ![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_AQS_Daily_O3_species_to_plot_O3_8hrmax.png)
 
 <ul>
-<li>Under Choose Program to Run</li>
+<li>Under Choose Program to Run
 <ul>
 <li>Select Density Scatterplot (single run, single network) </li>
 </ul>
+</li>
 </ul>
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
@@ -351,8 +352,13 @@ Verify you see the website and that it looks similar to the image below.
 
 ![AMET Website Select Obs Network and Species](./amet_select_CSN_PM25_TOT.png)
 
-Under Choose Program to Run
-Select PM2.5 Stacked Bar Plot AE6 (CSN or IMPROVE, multirun)
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select PM2.5 Stacked Bar Plot AE6 (CSN or IMPROVE, multirun)</li>
+</ul>
+</li>
+</ul>
 
 ![AMET Website Result of Query](./amet_result_query_stacked_barplot_ae6.png)
 
@@ -362,20 +368,35 @@ Stacked Bar Plot of PM2.5 using CSN Network
 
 # Create Hourly Boxplot using AQS Hourly and O3 Species
 
-Under Observation Network
-Select AQS Hourly
+<ul>
+<li>Under Observation Network
+<ul>
+<li>Select AQS Hourly</li>
+</ul>
+</li>
+</ul>
 
-Under Species to Plot
-Select O3
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select O3</li>
+</ul>
+</li>
+</ul>
 
 ![AMET Website Select Obs Network and Species](./amet_select_AQS_hourly_and_O3_species.png)
 
-Under Choose Program to Run
-Select Hourly Boxplot (single network, multiple runs)
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select Hourly Boxplot (single network, multiple runs)</li>
+</ul>
+</li>
+</ul>
 
 ![Query Result](./amet_result_query_hourly_boxplot.png)
 
-Hourly Boxplot of O3
+<li>Hourly Boxplot of O3</li>
 
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
