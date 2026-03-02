@@ -213,7 +213,7 @@ Verify you see the website and that it looks similar to the image below.
   </ul>
 <li>Choose project 1
   <ul>
-    <li>aqExample</li>
+    <li>select aqExample</li>
   </ul>
 </li>
 </ul>
@@ -227,41 +227,57 @@ Verify you see the website and that it looks similar to the image below.
 </ul>
 </ul>
 
-Under Species to Plot
-Select PM25_TOT
+<ul>
+<li>Under Species to Plot<li>
+<ul>
+<li>Select PM25_TOT</li>
+</ul>
+<ul>
 
 ![AMET Website Select Obs Network and Species](./AMET_website_select_AQ_Observ_Networks_and_Species_to_Plot.png)
 
-Under Choose Program to Run
-Select Spatial Plot > Spatial Plot(multi networks)
+<ul>
+<li>Under Choose Program to Run<li>
+<ul>
+<li>Select Spatial Plot(multi networks)</li>
+</ul>
+</ul>
 
-Select Run Program
+<li>Select Run Program</li>
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
-Results of options selected in querygen_aq.php
+<li>Results of options selected in querygen_aq.php</li>
 
 ![AMET Website Result](./amet_results_from_query_top.png)
 
-PM2.5_TOT Normalized Mean Bias Plot
+<li>PM2.5_TOT Normalized Mean Bias Plot</li>
 
 ![AMET Normalized Mean Bias Spatial Plot](./amet_nmb.png)
 
-PM2.5_TOT Normalized Mean Error Plot
+<li>PM2.5_TOT Normalized Mean Error Plot</li>
 
 ![AMET Normalized Mean Error Spatial Plot](./amet_nme.png)
 
-PM2.5_TOT Mean Bias Plot
+<li>PM2.5_TOT Mean Bias Plot</li>
 
 ![AMET Mean Bias Spatial Plot](./amet_mb.png)
 
 # Create O3_8hrmax Density Scatterplot
 
-Under AQ Observation Networks
-Select AQS - Daily O3 (1-hr and 8-hr max) O3
+<ul>
+<li>Under AQ Observation Networks</li>
+<ul>
+<li>Select AQS - Daily O3 (1-hr and 8-hr max) O3</li>
+</ul>
+</ul>
 
-Under Species to Plot
-Select O3_8hrmax
+<ul>
+<li>Under Species to Plot</li>
+<ul>
+<li>Select O3_8hrmax</li>
+</ul>
+</ul>
 
 ![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_AQS_Daily_O3_species_to_plot_O3_8hrmax.png)
 
