@@ -75,7 +75,9 @@ SELECT VERSION();
 | 10.11.13-MariaDB-0ubuntu0.24.04.1 |
 
 
-## Test connection to the web server querygen_aq.php
+# Create Air Quality Plots using the AMET AQ Website
+
+Verify connection to the web server querygen_aq.php
 
 Change the IP address to the public IP address for your instance in this example.
 
@@ -83,7 +85,8 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_aq.php
 ```
 
-# Create Air Quality Plots using the AMET AQ Website
+Verify you see the website and that it looks similar to the image below.
+
 
 # Create PM2.5 Spatial Plots
 
