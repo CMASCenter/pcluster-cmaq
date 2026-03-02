@@ -6,6 +6,16 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
+<ul> 
+    <li id="set-1">
+      Bench Press <a class="reveal" onclick="toggleMe();"> </a>
+      <dl class="hide-me"> 
+        <dt>Set 1</dt>
+        <dd>Weight </dd>
+        <dd>Reps </dd>
+      </dl>
+    </li>
+</ul>
 There are 72 plotting scripts available including:
 <ol> Scatter Plots(13)
     <li>AQ_Scatterplot.R>Multiple Networks Model/Ob Scatterplot (select stats only)</li>
