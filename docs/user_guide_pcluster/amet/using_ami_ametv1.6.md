@@ -230,15 +230,22 @@ Verify you see the website and that it looks similar to the image below.
 
 
 <ul>
-<li>Under Species to Plot<li>
+<li>Under Species to Plot
+<ul>
 <li>Select PM25_TOT</li>
+</ul>
+</li>
 </ul>
 
 ![AMET Website Select Obs Network and Species](./AMET_website_select_AQ_Observ_Networks_and_Species_to_Plot.png)
 
 <ul>
-<li>Under Choose Program to Run</li>
+<li>Under Choose Program to Run
+<ul>
 <li>Select Spatial Plot(multi networks)</li>
+</ul>
+</li>
+</ul>
 
 <li>Select Run Program</li>
 
