@@ -1,4 +1,4 @@
-## Test web server
+## Test AMET Website 
 
 Change the IP address to the public IP address for your instance in this example.
 
