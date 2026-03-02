@@ -242,7 +242,7 @@ Verify you see the website and that it looks similar to the image below.
 <ul>
 <li>Under Choose Program to Run
 <ul>
-<li>Select Spatial Plot(multi networks)</li>
+<li>Select Species Statistics and Spatial Plot(multi networks)</li>
 </ul>
 </li>
 </ul>
@@ -306,7 +306,7 @@ Verify you see the website and that it looks similar to the image below.
 ![Scatterplot of O3_8hrmax](./amet_plot_density_scatterplot_singlerun_singlenetwork.png)
 
 
-# Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
+# Create Soccerplot
 
 <ul>
 <li>Under AQ Observation Networks
@@ -367,6 +367,7 @@ Verify you see the website and that it looks similar to the image below.
 </li>
 </ul>
 
+
 ![AMET Website Select Obs Network and Species](./amet_select_CSN_PM25_TOT.png)
 
 <ul>
@@ -376,6 +377,8 @@ Verify you see the website and that it looks similar to the image below.
 </ul>
 </li>
 </ul>
+
+<li>Results of querygen_aq.php (links)</li>
 
 ![AMET Website Result of Query](./amet_result_query_stacked_barplot_ae6.png)
 
