@@ -234,10 +234,7 @@ Verify you see the website and that it looks similar to the image below.
 
 <ul>
 <li>Under Choose Program to Run</li>
-<ul>
 <li>Select Spatial Plot(multi networks)</li>
-</ul>
-</ul>
 
 <li>Select Run Program</li>
 
@@ -258,6 +255,8 @@ Verify you see the website and that it looks similar to the image below.
 <li>PM2.5_TOT Mean Bias Plot</li>
 
 ![AMET Mean Bias Spatial Plot](./amet_mb.png)
+
+</ul>
 
 # Create O3_8hrmax Density Scatterplot
 
