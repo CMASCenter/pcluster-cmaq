@@ -295,7 +295,7 @@ Verify you see the website and that it looks similar to the image below.
 </li>
 </ul>
 
-![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
+![AMET Website Select Plot and Run Program](./amet_website_density_scatterplot.png)
 
 <li>Results of options selected in querygen_aq.php form</li>
 
