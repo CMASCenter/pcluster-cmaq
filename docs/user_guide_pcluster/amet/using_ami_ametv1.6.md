@@ -309,19 +309,34 @@ Verify you see the website and that it looks similar to the image below.
 # Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
 
 <ul>
-<li>Under Species to Plot</li>
+<li>Under AQ Observation Networks
 <ul>
-<li>Select SO4, NO3, and NH4</li>
+<li>Select IMPROVE</li>
+<li>Select CSN</li>
+<li>Select Castnet</li>
 </ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select SO4</li>
+<li>Select NO3</li>
+<li> Select NH4</li>
+</ul>
+</li>
 </ul>
 
 ![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_Improve_CSN_CASTNET_SPECIES_SO4_NO3_NH4.png)
 
 <ul>
-<li>Under Choose Program to Run</li>
+<li>Under Choose Program to Run
 <ul>
 <li>Select Density Scatterplot (single run, single network)</li>
 </ul>
+</li>
 </ul>
 
 ![Choose Program to Run](./amet_select_run_soccerplot.png)
@@ -337,17 +352,19 @@ Verify you see the website and that it looks similar to the image below.
 # Create Stacked Bar Plot using CSN Network for PM2.5
 
 <ul>
-<li>Under Observation Network</li>
+<li>Under Observation Network
 <ul>
 <li>Select CSN</li>
 </ul>
+</li>
 </ul>
 
 <ul>
-<li>Under Species to Plot</li>
+<li>Under Species to Plot
 <ul>
 <li>Select PM25_TOT</li>
 </ul>
+</li>
 </ul>
 
 ![AMET Website Select Obs Network and Species](./amet_select_CSN_PM25_TOT.png)
@@ -362,7 +379,7 @@ Verify you see the website and that it looks similar to the image below.
 
 ![AMET Website Result of Query](./amet_result_query_stacked_barplot_ae6.png)
 
-Stacked Bar Plot of PM2.5 using CSN Network
+<li>Stacked Bar Plot of PM2.5 using CSN Network</li>
 
 ![Stacked Bar Plot](./amet_plot_PM25_Stacked_BarPlot_AE6.png)
 
@@ -403,44 +420,78 @@ Stacked Bar Plot of PM2.5 using CSN Network
 
 # Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
 
-Under Observation Network
-Select AQS Hourly
+<ul>
+<li>Under Observation Network
+<ul>
+<li>Select AQS Hourly</li>
+</ul>
+</li>
+</ul>
 
-Under Species to Plot
-Select O3, Isoprene, NOY
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select O3</li>
+<li>Select Isoprene</li>
+<li> Select NOY</li>
+</ul>
+</li>
+</ul>
 
 ![AMET select AQS Hourly and Multispecies](./amet_select_AQS_hourly_multiple_species_O3_NOY_isoprene.png)
 
-Under Choose Program to Run
-Choose Plotly Multi-species Timeseries
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Choose Plotly Multi-species Timeseries</li>
+</ul>
+</li>
+</ul>
 
 ![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries.png)
 
-Plotly Timeseries of O3, NOY, and Isoprene
+# Plotly Timeseries of O3, NOY, and Isoprene
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
 
 ![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
 # Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
 
-Under Observation Network
-Select AQS Daily, CSN, and IMPROVE
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Daily</li>
+<li> Select CSN</li>
+<li> Select IMPROVE</li>
+</ul>
+</li>
+</ul>
 
-Under Species to Plot
-Select PM25_TOT
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select PM25_TOT</ul>
+</ul>
+</li>
+</ul>
 
 ![AMET select AQS Daily CSN and IMPROVE and PM25_TOT](./amet_select_AQS_daily_CSN_IMPROVE_PM25_TOT.png)
 
-Under Choose Program to Run
-Choose Bugle Plot(Multiple Networks) under Misc Scripts
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Choose Bugle Plot(Multiple Networks) under Misc Scripts</li>
+</ul>
+</li>
+</ul>
 
 ![AMET run Bugle Plot](./amet_run_bugle_PM25_TOT.png)
 
-Bugle Plot of Normalized Mean Bias (NMB) PM25_TOT for Networks AQS Hourly and AQS Daily
+<li>Bugle Plot of Normalized Mean Bias (NMB) PM25_TOT for Networks AQS Hourly and AQS Daily</li>
 
 ![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_Daily_CSN_IMPROVE_NMB.png)
 
-Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and AQS Daily
+<li>Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and AQS Daily</li>
 
 ![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)
 
