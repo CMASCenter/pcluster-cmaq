@@ -6,8 +6,7 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
-## Users selections 
-### Programs to run
+## Select Program to run 
 <details>
   <summary>13 Scatter Plots | Click to expand!</summary>
 <ol> Name of R Script | Select Program 
