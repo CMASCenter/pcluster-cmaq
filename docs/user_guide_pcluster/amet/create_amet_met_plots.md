@@ -52,33 +52,36 @@ Choose AMET Script to Execute
     <li>AQ_Plot_Spatial_Diff_leaflet.R>Interactive Spatial Plot of Bias/Error Difference (single plot)</li>
     <li>AQ_Plot_Spatial_Diff_leaflet_network.R>Interactive Spatial Plot of Bias/Error Difference (multiple plots)</li>
 </ol>
-  Box Plots
-    AQ_Boxplot.R>Boxplot (single network, multi run)
-    AQ_Boxplot_ggplot.R>GGPlot Boxplot (single network, multi run)
-    AQ_Boxplot_plotly.R>Plotly Boxplot (single network, multi run)
-    AQ_Boxplot_DofW.R>Day of Week Boxplot (single network, multiple runs)
-    AQ_Boxplot_Hourly.R>Hourly Boxplot (single network, multiple runs)
-    AQ_Boxplot_MDA8.R>8hr Average Boxplot (single network, hourly data, can be slow)
-    AQ_Boxplot_Roselle.R>Roselle Boxplot (single network, multiple simulations)
-  Misc Scripts
-    AQ_Kellyplot.R>Kelly Plot (single species, single network, full year data)
-    AQ_Kellyplot_plotly.R>Plotly Kelly Plot (single species, single network, full year data)
-    AQ_Kellyplot_region.R>Climate Region Kelly Plot (single species, single network, multi sim)
-    AQ_Kellyplot_region_plotly.R>Plolty Climate Region Kelly Plot (single species, single network, multi sim)
-    AQ_Kellyplot_season.R>Seasonal Kelly Plot (single species, single network, multi sim)
-    AQ_Kellyplot_season_plotly.R>Plotly Seasonal Kelly Plot (single species, single network, multi sim)
-    AQ_Stats.R>Species Statistics (multi species, single network)
-    AQ_Raw_Data.R>Create raw data csv file (single network, single simulation)
-    AQ_Soccerplot.R>Soccergoal" plot (multiple networks)
-    AQ_Soccerplot_plotly.R>Plotly "Soccergoal" plot (multiple networks/species)
-    AQ_Bugleplot.R>"Bugle" plot (multiple networks)
-    AQ_Histogram.R>Histogram (single network/species only)
-    AQ_Histogram_plotly.R>Interactive Histogram (single network, single species, multi run)
-    AQ_Temporal_Plots.R>CDF, Q-Q, Taylor Plots (single network, multi run)
-  Experimental Scripts (may not work correctly)
-    AQ_Overlay_File.R>Create PAVE/VERDI Obs Overlay File (hourly/daily data only)
-    AQ_Scatterplot_log.R>Log-Log Model/Ob Scatterplot (multiple networks)
-    AQ_Spectral_Analysis.R>Spectral Analysis (single network, single run, experimental)
+<ol>  Box Plots
+   <li> AQ_Boxplot.R>Boxplot (single network, multi run)</li>
+    <li>AQ_Boxplot_ggplot.R>GGPlot Boxplot (single network, multi run)</li>
+    <li>AQ_Boxplot_plotly.R>Plotly Boxplot (single network, multi run)</li>
+    <li>AQ_Boxplot_DofW.R>Day of Week Boxplot (single network, multiple runs)</li>
+    <li>AQ_Boxplot_Hourly.R>Hourly Boxplot (single network, multiple runs)</li>
+    <li>AQ_Boxplot_MDA8.R>8hr Average Boxplot (single network, hourly data, can be slow)</li>
+    <li>AQ_Boxplot_Roselle.R>Roselle Boxplot (single network, multiple simulations)</li>
+</ol>
+<ol>  Misc Scripts
+    <li>AQ_Kellyplot.R>Kelly Plot (single species, single network, full year data)</li>
+    <li>AQ_Kellyplot_plotly.R>Plotly Kelly Plot (single species, single network, full year data)</li>
+    <li>AQ_Kellyplot_region.R>Climate Region Kelly Plot (single species, single network, multi sim)</li>
+    <li>AQ_Kellyplot_region_plotly.R>Plolty Climate Region Kelly Plot (single species, single network, multi sim)</li>
+    <li>AQ_Kellyplot_season.R>Seasonal Kelly Plot (single species, single network, multi sim)</li>
+    <li>AQ_Kellyplot_season_plotly.R>Plotly Seasonal Kelly Plot (single species, single network, multi sim)</li>
+    <li>AQ_Stats.R>Species Statistics (multi species, single network)</li>
+    <li>AQ_Raw_Data.R>Create raw data csv file (single network, single simulation)</li>
+    <li>AQ_Soccerplot.R>Soccergoal" plot (multiple networks)</li>
+    <li>AQ_Soccerplot_plotly.R>Plotly "Soccergoal" plot (multiple networks/species)</li>
+    <li>AQ_Bugleplot.R>"Bugle" plot (multiple networks)</li>
+    <li>AQ_Histogram.R>Histogram (single network/species only)</li>
+    <li>AQ_Histogram_plotly.R>Interactive Histogram (single network, single species, multi run)</li>
+    <li>AQ_Temporal_Plots.R>CDF, Q-Q, Taylor Plots (single network, multi run)</li>
+</ol>
+<ol>  Experimental Scripts (may not work correctly)
+    <li>AQ_Overlay_File.R>Create PAVE/VERDI Obs Overlay File (hourly/daily data only)</li>
+    <li>AQ_Scatterplot_log.R>Log-Log Model/Ob Scatterplot (multiple networks)</li>
+    <li>AQ_Spectral_Analysis.R>Spectral Analysis (single network, single run, experimental)</li>
+</ol>
 
 
 # Create Meteorology Plots using the AMET Website
