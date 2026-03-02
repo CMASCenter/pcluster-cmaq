@@ -87,6 +87,9 @@ http://[your-ec2-external-ip-address]:443/querygen_aq.php
 
 Verify you see the website and that it looks similar to the image below.
 
+Use the website to select the database, project, variables to plot, and plotting programs.
+Click on the arrow to display the list the available programs for creating different types of plots.
+
 # Programs to create plots
 <details>
   <summary>Scatter Plots (14) | Click to expand!</summary>

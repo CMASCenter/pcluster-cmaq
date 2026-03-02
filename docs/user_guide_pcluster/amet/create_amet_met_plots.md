@@ -6,8 +6,8 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
-Users select the database, project, variables to plot, and plotting programs.
-Use the toggle to list the available programs for creating different types of plots.
+Use the website to select the database, project, variables to plot, and plotting programs.
+Click on the arrow to display the list the available programs for creating different types of plots.
 
 
 ## Programs to create plots
