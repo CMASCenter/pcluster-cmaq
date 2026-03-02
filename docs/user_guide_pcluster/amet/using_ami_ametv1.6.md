@@ -375,7 +375,12 @@ cd /shared/AMET_v16/model_data/AQ/
 mkdir new_project
 ```
 
-use the s3 cp command to upload your data
+Use the s3 cp command to obtain your data
+
+```
+cd new_project
+aws s3 --no-sign-request --region=us-east-1 cp --recursive s3://[your_project_bucket_name]
+```
 
 ## Load your project data into the database
 

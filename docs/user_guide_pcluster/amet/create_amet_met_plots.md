@@ -82,6 +82,17 @@ Their are 72 plotting scripts available including:
     <li>AQ_Spectral_Analysis.R>Spectral Analysis (single network, single run, experimental)</li>
 </ol>
 
+<ol>Met Observation Networks
+Choose meteorology monitoring networks to use
+    <li>All</li>
+    <li>METAR</li>
+    <li>AIRNOW</li>
+    <li>ASOS</li>
+    <li>Maritime</li>
+    <li>SAO</li>
+    <li>Other-Mtr</li>
+</ol>
+
 
 # Create Meteorology Plots using the AMET Website
 
