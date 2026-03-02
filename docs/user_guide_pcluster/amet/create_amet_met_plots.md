@@ -6,6 +6,10 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
+Users select the database, project, variables to plot, and plotting programs.
+The following pull-down lists the available plotting programs.
+
+
 ## Select Program to run 
 <details>
   <summary>13 Scatter Plots | Click to expand!</summary>
