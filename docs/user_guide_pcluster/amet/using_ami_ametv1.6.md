@@ -421,7 +421,7 @@ Verify you see the website and that it looks similar to the image below.
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
 
-# Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
+# Create Interactive Hourly Timeseries using Plotly
 
 <ul>
 <li>Under Observation Network
