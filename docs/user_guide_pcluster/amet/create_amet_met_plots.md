@@ -110,6 +110,7 @@ The following pull-down lists the available plotting programs.
 
 ### Meteorology Observation Networks
 <details>
+<summary> Available Meteorology Observation Networks<summary>
 <ol>Met Observation Networks | Click to expand!
 Choose meteorology monitoring networks to use
     <li>All</li>
@@ -125,33 +126,46 @@ Choose meteorology monitoring networks to use
 
 ## Instructions to use the AMET Website
 
-<ul>Create 2m Temperature Spatial Plots
-
-<li>Choose a Database:
+### Create 2m Temperature Spatial Plots
 <ul>
-<li>Select amet </li>
+<li>Choose database</li>
+  <ul>
+    <li>select amet</li>
+  </ul>
+<li>Choose project 1
+  <ul>
+    <li>MetExample_wrf</li>
+  </ul>
+</li>
+<li>Choose project 2
+  <ul>
+    <li>MetExample_mpas</li>
+  </ul>
+</li>
 </ul>
-</li>
-
-<li>Choose a Project:
-<ul><li>Select MetExample_wrf</li></ul>
-</li>
 
 ![AMET Meteorology Website Select Database and Project](./AMET_website_choose_database_and_project.png)
 
-<li>Choose Project 2
-Select MetExample_mpas
+<ul>
+<li>Choose Met Variable</li>
+  <ul>
+    <li>select T(2m)</li>
+  </ul>
+</li>
+</ul>
 
-
-Choose Met Variable to Use
-Select T(2m)
 
 ![AMET Meteorology Website Select Met Variable to use](./AMET_website_met_choose_variable_T.png)
 
-Under Choose Program to Run
-Select Species Statistics and Spatial Plot(multi networks)
+<ul>
+<li>Choose Program to Run</li>
+  <ul>
+    <li>select Species Statistics and Spatial Plot(multi networks)</li>
+  </ul>
+</li>
+<li> Select Run Program</li>
+</ul>
 
-Select Run Program
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
