@@ -111,7 +111,7 @@ The following pull-down lists the available plotting programs.
 ### Met Observation Networks
 
 <details>
-<summary> Available Meteorology Observation Networks<summary>
+<summary> Available Meteorology Observation Networks</summary>
 <ol>Choose Met Observation Network | Click to expand!
     <li>All</li>
     <li>METAR</li>
