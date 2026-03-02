@@ -6,7 +6,7 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
-Their are 72 plotting scripts available including:
+There are 72 plotting scripts available including:
 <ol> Scatter Plots(13)
     <li>AQ_Scatterplot.R>Multiple Networks Model/Ob Scatterplot (select stats only)</li>
    <li> AQ_Scatterplot_ggplot.R">GGPlot Scatterplot (multi network, single run)</li>
