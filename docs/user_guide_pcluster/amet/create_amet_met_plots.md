@@ -296,28 +296,28 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
-## Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
+## Create Bugle Plot
 
 Under Observation Network
-Select AQS Daily, CSN, and IMPROVE
+Select METAR
 
-Under Species to Plot
-Select PM25_TOT
+Under Met Species to Plot
+Select T(2m)
 
-![AMET select AQS Daily CSN and IMPROVE and PM25_TOT](./amet_select_AQS_daily_CSN_IMPROVE_PM25_TOT.png)
+![AMET select METAR ](./amet_select_METAR_T.png)
 
 Under Choose Program to Run
 Choose Bugle Plot(Multiple Networks) under Misc Scripts
 
-![AMET run Bugle Plot](./amet_run_bugle_PM25_TOT.png)
+![AMET run Bugle Plot](./amet_run_bugle_T.png)
 
-Bugle Plot of Normalized Mean Bias (NMB) PM25_TOT for Networks AQS Hourly and AQS Daily
+Bugle Plot of Normalized Mean Bias (NMB) T for METAR Obs Network
 
-![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_Daily_CSN_IMPROVE_NMB.png)
+![Bugle Plot of NMB Temperature](./amet_plot_bugle_T_Daily_METAR_NMB.png)
 
-Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and AQS Daily
+Bugle Plot of Normalized Mean Error (NME) Temperature for Networks METAR
 
-![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)
+![Bugle Plot of NMB Temp](./amet_plot_bugle_temp_metar_NME.png)
 
 
 # Load your own data to MariaDB
@@ -451,31 +451,37 @@ Create a new project under the script_db directory
 
 ```
 cd ~/AMET_v16/scripts_db/
-cp -rp aqExample new_project
+cp -rp metExample_wrf new_project
 cd new_project
-mv aqProject_pre_and_post.csh new_project_pre_and_post.csh
+mv matching_raob.csh new_project_matching_raob.csh
 ```
 
 Modify the project name in the script
 
 ```
-vi new_project_pre_and_post.csh
+vi new_project_matching_raob.csh
 
 Change:
-  set APPL      = aqExample         #> Application Name (e.g. Gridname)
+  setenv AMET_PROJECT    metExample_wrf
 to:
-  set APPL      = new_project         #> Application Name (e.g. Gridname)
+  setenv AMET_PROJECT    new_project
 ```
 
 Edit the run description
 
 ```
 Change:
- setenv RUN_DESCRIPTION "CMAQv5.5 AMET aqExample test case. July 2018."
+ setenv RUN_DESCRIPTION "WRF release test dataset."
 to
- setenv RUN_DESCRIPTION "CMAQv5.5 AMET new project. Nov. 2025"
+ setenv RUN_DESCRIPTION "WRF new project dataset."
 ```
 
-Edit the path to the combine output, if that is what you are uploading for your new_project.
+Edit the path to the wrf output, if that is what you are uploading for your new_project.
 
+```
+Change:
+setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_subset
+to 
+setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
+```
 
