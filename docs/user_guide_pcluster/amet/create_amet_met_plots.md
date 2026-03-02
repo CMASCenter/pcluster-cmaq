@@ -509,6 +509,7 @@ See these instructions.
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
 To load this data into the database, you will also need to change the EC2 instance type from t3.large to t3.2xlarge.
+https://repost.aws/questions/QUHXsEc4U1R_-ze2xuilqHwg/is-it-possible-to-change-instance-type-without-terminating-and-creating-new-instance-what-is-the-difference 
 
 use the s3 cp command to upload your data
 
