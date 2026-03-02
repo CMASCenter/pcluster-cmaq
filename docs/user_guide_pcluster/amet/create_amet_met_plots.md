@@ -10,9 +10,9 @@ Users select the database, project, variables to plot, and plotting programs.
 The following pull-down lists the available plotting programs.
 
 
-## Select Program to run 
+## Programs to create plots
 <details>
-  <summary>13 Scatter Plots | Click to expand!</summary>
+  <summary>Scatter Plots (13) | Click to expand!</summary>
 <ol> Name of R Script | Select Program 
     <li>AQ_Scatterplot.R  | Multiple Networks Model/Ob Scatterplot (select stats only)</li>
    <li> AQ_Scatterplot_ggplot.R | GGPlot Scatterplot (multi network, single run)</li>
@@ -31,7 +31,7 @@ The following pull-down lists the available plotting programs.
 </details>
 
 <details>
-  <summary>12 Timeseries Plots |  Click to expand!</summary>
+  <summary>Timeseries Plots (12) |  Click to expand!</summary>
 <ol>Name of R Script | Program 
    <li> AQ_Timeseries.R | Time-series Plot (single network, multiple sites averaged)</li>
     <li>AQ_Timeseries_bysite.R | Individual Site Time-series Plots (single network, multiple sites not average)</li>
@@ -48,7 +48,7 @@ The following pull-down lists the available plotting programs.
 </ol>
 </details>
 <details>
-  <summary>13 Spatial Plots | Click to expand!</summary>
+  <summary>Spatial Plots (13) | Click to expand!</summary>
 <ol>Name of R Script | Program  
    <li>AQ_Stats_Plots.R | Species Statistics and Spatial Plots (multi networks)</li>
    <li> AQ_Stats_Plots_leaflet.R | Interactive Species Statistics and Spatial Plots (single plot)</li>
@@ -67,7 +67,7 @@ The following pull-down lists the available plotting programs.
 </details>
 
 <details>
-  <summary> 7 Box Plots | Click to expand!</summary>
+  <summary>Box Plots (7) | Click to expand!</summary>
 <ol>Name of R Script | Program  
    <li> AQ_Boxplot.R | Boxplot (single network, multi run)</li>
     <li>AQ_Boxplot_ggplot.R | GGPlot Boxplot (single network, multi run)</li>
@@ -80,7 +80,7 @@ The following pull-down lists the available plotting programs.
 </details>
 
 <details>
-  <summary>14 Misc Plots | Click to expand!</summary>
+  <summary>Misc Plots (14) | Click to expand!</summary>
 <ol>Name of R Script | Program  
     <li>AQ_Kellyplot.R | Kelly Plot (single species, single network, full year data)</li>
     <li>AQ_Kellyplot_plotly.R | Plotly Kelly Plot (single species, single network, full year data)</li>
@@ -100,7 +100,7 @@ The following pull-down lists the available plotting programs.
 </details>
 
 <details>
-  <summary>13 Experimental Scripts | Click to expand!</summary>
+  <summary>Experimental Scripts (13) | Click to expand!</summary>
 <ol>Name of R Script | Program (may not work correctly) 
     <li>AQ_Overlay_File.R | Create PAVE/VERDI Obs Overlay File (hourly/daily data only)</li>
     <li>AQ_Scatterplot_log.R | Log-Log Model/Ob Scatterplot (multiple networks)</li>
@@ -108,7 +108,8 @@ The following pull-down lists the available plotting programs.
 </ol>
 </details>
 
-### Meteorology Observation Networks
+### Met Observation Networks
+
 <details>
 <summary> Available Meteorology Observation Networks<summary>
 <ol>Choose Met Observation Network | Click to expand!
