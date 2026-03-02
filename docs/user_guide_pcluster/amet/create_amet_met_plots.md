@@ -128,9 +128,11 @@ Choose meteorology monitoring networks to use
 <ul>
 <li>Select amet </li>
 </ul>
+</li>
 
 <li>Choose a Project:
 <ul><li>Select MetExample_wrf</li></ul>
+</li>
 
 ![AMET Meteorology Website Select Database and Project](./AMET_website_choose_database_and_project.png)
 
