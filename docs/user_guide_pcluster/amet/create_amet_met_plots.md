@@ -169,19 +169,27 @@ The following pull-down lists the available plotting programs.
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
-Results of options selected in querygen_met.php
+<ul>
+<li>Results of options selected in querygen_met.php</li>
+</ul>
 
 ![AMET Website Result](./met_plots/amet_met_results_from_query_spatial.png)
 
-2m Temperature Normalized Mean Bias Plot
+<ul>
+<li> 2m Temperature Normalized Mean Bias Plot</li>
+</ul>
 
 ![AMET Normalized Mean Bias Spatial Plot of 2m Temperature](./met_plots/plot_met_metExample_wrf_T_NMB.png)
 
-2m Temperature Normalized Mean Error Plot
+<ul>
+<li>2m Temperature Normalized Mean Error Plot</li>
+</ul>
 
 ![AMET Normalized Mean Error Spatial Plot](./met_plots/plot_met_metExample_wrf_T_NME.png)
 
-2m Temperature Mean Bias Plot
+<ul>
+<li>2m Temperature Mean Bias Plot</li>
+</ul>
 
 ![AMET Mean Bias Spatial Plot](./met_plots/plot_met_metExample_wrf_T_MB.png)
 
