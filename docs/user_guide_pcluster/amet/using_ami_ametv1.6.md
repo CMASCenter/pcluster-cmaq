@@ -334,7 +334,7 @@ Verify you see the website and that it looks similar to the image below.
 <ul>
 <li>Under Choose Program to Run
 <ul>
-<li>Select Density Scatterplot (single run, single network)</li>
+<li>Select Soccergoal Plot (multiple networks)</li>
 </ul>
 </li>
 </ul>
