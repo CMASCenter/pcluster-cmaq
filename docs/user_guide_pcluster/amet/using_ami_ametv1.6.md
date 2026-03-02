@@ -206,16 +206,26 @@ Verify you see the website and that it looks similar to the image below.
 
 # Create PM2.5 Spatial Plots
 
-Choose a Database:
-Select amet 
-
-Choose a Project:
-Select aqExample
+<ul>
+<li>Choose database</li>
+  <ul>
+    <li>select amet</li>
+  </ul>
+<li>Choose project 1
+  <ul>
+    <li>aqExample</li>
+  </ul>
+</li>
+</ul>
 
 ![AMET Website Select Database and Project](./AMET_website_choose_database_and_project.png)
 
-Under AQ Observation Networks
-Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
+<ul>
+<li>Under AQ Observation Networks</li>
+<ul>
+<li>Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)</li>
+</ul>
+</ul>
 
 Under Species to Plot
 Select PM25_TOT
