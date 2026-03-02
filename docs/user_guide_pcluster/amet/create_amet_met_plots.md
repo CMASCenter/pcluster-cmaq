@@ -1,4 +1,4 @@
-## Test AMET Met Website 
+## Create Met Plots using the AMET Met Website 
 
 Change the IP address to the public IP address for your instance in this example.
 
@@ -7,7 +7,7 @@ http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
 Users select the database, project, variables to plot, and plotting programs.
-The following pull-down lists the available plotting programs.
+Use the toggle to list the available programs for creating different types of plots.
 
 
 ## Programs to create plots
@@ -124,9 +124,9 @@ The following pull-down lists the available plotting programs.
 </details>
 
 
-## Example Meteorlogy Plot using AMET MET Website
+### Example Create Meteorology Plots using AMET MET Website
 
-### Create 2m Temperature Spatial Plots
+#### Create 2m Temperature Spatial Plots
 <ul>
 <li>Choose database</li>
   <ul>
@@ -205,7 +205,7 @@ The following pull-down lists the available plotting programs.
 
 ![AMET Correlation Spatial Plot](./met_plots/plot_met_metExample_wrf_T_Corr.png)
 
-## Create Interactive 2M Temperature Spatial Plots
+#### Create Interactive 2M Temperature Spatial Plots
 
 Under Met Variable to choose
 Select T(2m)
