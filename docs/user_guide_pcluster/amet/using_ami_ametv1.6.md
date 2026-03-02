@@ -85,7 +85,7 @@ http://[your-ec2-external-ip-address]:443/querygen_aq.php
 
 # Create Air Quality Plots using the AQ AMET Website
 
-## Create PM2.5 Spatial Plots
+# Create PM2.5 Spatial Plots
 
 Choose a Database:
 Select amet 
@@ -126,7 +126,7 @@ PM2.5_TOT Mean Bias Plot
 
 ![AMET Mean Bias Spatial Plot](./amet_mb.png)
 
-## Create O3_8hrmax Density Scatterplot
+# Create O3_8hrmax Density Scatterplot
 
 Under AQ Observation Networks
 Select AQS - Daily O3 (1-hr and 8-hr max) O3
@@ -150,7 +150,7 @@ Scatterplot of O3_8hrmax
 ![Scatterplot of O3_8hrmax](./amet_plot_density_scatterplot_singlerun_singlenetwork.png)
 
 
-## Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
+# Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
 
 Under Species to Plot
 Select SO4, NO3, and NH4
@@ -170,7 +170,7 @@ Soccerplot Generated
 
 ![Soccerplot](./amet_result_query_soccerplot.png)
 
-## Create Stacked Bar Plot using CSN Network for PM2.5
+# Create Stacked Bar Plot using CSN Network for PM2.5
 
 Under Observation Network
 Select CSN
@@ -189,7 +189,7 @@ Stacked Bar Plot of PM2.5 using CSN Network
 
 ![Stacked Bar Plot](./amet_plot_PM25_Stacked_BarPlot_AE6.png)
 
-## Create Hourly Boxplot using AQS Hourly and O3 Species
+# Create Hourly Boxplot using AQS Hourly and O3 Species
 
 Under Observation Network
 Select AQS Hourly
@@ -209,7 +209,7 @@ Hourly Boxplot of O3
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
 
-## Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
+# Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
 
 Under Observation Network
 Select AQS Hourly
@@ -229,7 +229,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
-## Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
+# Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
 
 Under Observation Network
 Select AQS Daily, CSN, and IMPROVE

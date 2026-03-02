@@ -123,10 +123,7 @@ Use the toggle to list the available programs for creating different types of pl
 </ol>
 </details>
 
-
-### Example Create Meteorology Plots using AMET MET Website
-
-#### Create 2m Temperature Spatial Plots
+## Create 2m Temperature Spatial Plots
 <ul>
 <li>Choose database</li>
   <ul>
@@ -205,7 +202,7 @@ Use the toggle to list the available programs for creating different types of pl
 
 ![AMET Correlation Spatial Plot](./met_plots/plot_met_metExample_wrf_T_Corr.png)
 
-#### Create Interactive 2M Temperature Spatial Plots
+## Create Interactive 2M Temperature Spatial Plots
 
 Under Met Variable to choose
 Select T(2m)
