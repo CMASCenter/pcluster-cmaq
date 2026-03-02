@@ -6,7 +6,8 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
-## Users select program to run 
+## Users selections 
+### Programs to run
 <details>
   <summary>13 Scatter Plots | Click to expand!</summary>
 <ol> Name of R Script | Select Program 
@@ -104,7 +105,9 @@ http://[your-ec2-external-ip-address]:443/querygen_met.php
 </ol>
 </details>
 
-<ol>Met Observation Networks
+### Meteorology Observation Networks
+<details>
+<ol>Met Observation Networks | Click to expand!
 Choose meteorology monitoring networks to use
     <li>All</li>
     <li>METAR</li>
@@ -114,25 +117,28 @@ Choose meteorology monitoring networks to use
     <li>SAO</li>
     <li>Other-Mtr</li>
 </ol>
+</details>
 
 
-# Create Meteorology Plots using the AMET Website
+## Instructions to use the AMET Website
 
-## Create 2m Temperature Spatial Plots
+<ul>Create 2m Temperature Spatial Plots
 
-Choose a Database:
-Select amet 
+<li>Choose a Database:
+<ul>
+<li>Select amet </li>
+</ul>
 
-Choose a Project:
-Select MetExample_wrf 
+<li>Choose a Project:
+<ul><li>Select MetExample_wrf</li></ul>
 
 ![AMET Meteorology Website Select Database and Project](./AMET_website_choose_database_and_project.png)
 
-Choose Project 2
+<li>Choose Project 2
 Select MetExample_mpas
 
 
-Under Met Variable to Use
+Choose Met Variable to Use
 Select T(2m)
 
 ![AMET Meteorology Website Select Met Variable to use](./AMET_website_met_choose_variable_T.png)
