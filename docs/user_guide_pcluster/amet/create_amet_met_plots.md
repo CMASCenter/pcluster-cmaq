@@ -287,25 +287,22 @@ Plotly Boxplot of T2
 
 Note, the Bias and Normalized Bias Plots were not created successfully.
 
-## Create Interactive Hourly Timeseries of O3, NOY, and Isoprene using Plotly
+## Create Interactive Hourly Timeseries of T2 using Plotly
 
-Under Observation Network
-Select AQS Hourly
+Under Met Observation Network
+Select METAR
 
-Under Species to Plot
-Select O3, Isoprene, NOY
-
-![AMET select AQS Hourly and Multispecies](./amet_select_AQS_hourly_multiple_species_O3_NOY_isoprene.png)
+Under Met Species to Plot
+Select T 
 
 Under Choose Program to Run
 Choose Plotly Multi-species Timeseries
 
-![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries.png)
+![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_T_timeseries.png)
 
-Plotly Timeseries of O3, NOY, and Isoprene
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
 
-![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
+![Hourly Timeseries Plot of T](./amet_plotly_hourly_timeseries_multispecies_T.png)
 
 ## Create Bugle Plot
 
