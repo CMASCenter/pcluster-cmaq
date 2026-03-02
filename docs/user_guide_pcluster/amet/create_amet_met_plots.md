@@ -11,6 +11,8 @@ Use the toggle to list the available programs for creating different types of pl
 
 
 ## Programs to create plots
+
+Uses can select one of 72 different programs in the AMET MET Website to create plots.
 <details>
   <summary>Scatter Plots (13) | Click to expand!</summary>
 <ol> Name of R Script | Select Program 
