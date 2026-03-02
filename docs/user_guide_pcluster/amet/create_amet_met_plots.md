@@ -1,4 +1,4 @@
-## Test AMET Website 
+## Test AMET Met Website 
 
 Change the IP address to the public IP address for your instance in this example.
 
@@ -111,8 +111,8 @@ The following pull-down lists the available plotting programs.
 ### Met Observation Networks
 
 <details>
-<summary> Available Meteorology Observation Networks</summary>
-<ol>Choose Met Observation Network | Click to expand!
+<summary> Available Meteorology Observation Networks | Click to expand!</summary>
+<ol>Meteorology Network (select METAR, not sure about other networks)
     <li>All</li>
     <li>METAR</li>
     <li>AIRNOW</li>
@@ -124,7 +124,7 @@ The following pull-down lists the available plotting programs.
 </details>
 
 
-## Instructions to use the AMET Website
+## Example Meteorlogy Plot using AMET MET Website
 
 ### Create 2m Temperature Spatial Plots
 <ul>
@@ -144,7 +144,7 @@ The following pull-down lists the available plotting programs.
 </li>
 </ul>
 
-![AMET Meteorology Website Select Database and Project](./AMET_website_choose_database_and_project.png)
+![AMET Meteorology Website Select Database and Project](./met_plots/AMET_MET_website_choose_database_and_project.png)
 
 <ul>
 <li>Choose Met Variable</li>
