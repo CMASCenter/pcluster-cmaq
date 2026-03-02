@@ -1,4 +1,4 @@
-## Test connection to the web server querygen_met.php
+## Test web server
 
 Change the IP address to the public IP address for your instance in this example.
 
