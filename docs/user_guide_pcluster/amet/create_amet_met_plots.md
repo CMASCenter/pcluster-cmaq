@@ -7,7 +7,6 @@ http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
 The plots available include:
-Choose AMET Script to Execute
 <ol> Scatter Plots
     <li>AQ_Scatterplot.R>Multiple Networks Model/Ob Scatterplot (select stats only)</li>
    <li> AQ_Scatterplot_ggplot.R">GGPlot Scatterplot (multi network, single run)</li>
