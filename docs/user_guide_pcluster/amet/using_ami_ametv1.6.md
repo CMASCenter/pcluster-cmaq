@@ -232,12 +232,12 @@ Verify you see the website and that it looks similar to the image below.
 <ul>
 <li>Select PM25_TOT</li>
 </ul>
-<ul>
+</ul>
 
 ![AMET Website Select Obs Network and Species](./AMET_website_select_AQ_Observ_Networks_and_Species_to_Plot.png)
 
 <ul>
-<li>Under Choose Program to Run<li>
+<li>Under Choose Program to Run</li>
 <ul>
 <li>Select Spatial Plot(multi networks)</li>
 </ul>
@@ -281,47 +281,67 @@ Verify you see the website and that it looks similar to the image below.
 
 ![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_AQS_Daily_O3_species_to_plot_O3_8hrmax.png)
 
-Under Choose Program to Run
-Select Density Scatterplot (single run, single network) 
+<ul>
+<li>Under Choose Program to Run</li>
+<ul>
+<li>Select Density Scatterplot (single run, single network) </li>
+</ul>
+</ul>
 
 ![AMET Website Select Plot and Run Program](./amet_website_run_programs.png)
 
-Results of options selected in querygen_aq.php form
+<li>Results of options selected in querygen_aq.php form</li>
 
 ![AMET Website Result](./amet_result_query_O3_8hrmax_scatterplot.png)
 
-Scatterplot of O3_8hrmax
+<li>Scatterplot of O3_8hrmax</li>
 
 ![Scatterplot of O3_8hrmax](./amet_plot_density_scatterplot_singlerun_singlenetwork.png)
 
 
 # Create Soccerplot using Improve, CSN, Castnet Observational Networks for species SO4, NO3, NH4
 
-Under Species to Plot
-Select SO4, NO3, and NH4
+<ul>
+<li>Under Species to Plot</li>
+<ul>
+<li>Select SO4, NO3, and NH4</li>
+</ul>
+</ul>
 
 ![AMET Website Select Obs Network and Species](./amet_select_aq_obs_network_Improve_CSN_CASTNET_SPECIES_SO4_NO3_NH4.png)
 
-Under Choose Program to Run
-Select Density Scatterplot (single run, single network)
+<ul>
+<li>Under Choose Program to Run</li>
+<ul>
+<li>Select Density Scatterplot (single run, single network)</li>
+</ul>
+</ul>
 
 ![Choose Program to Run](./amet_select_run_soccerplot.png)
 
-Results of querygen_aq.php (links)
+<li>Results of querygen_aq.php (links)</li>
 
 ![AMET Website Result](amet_result_query_soccerplot_links.png)
 
-Soccerplot Generated
+<li>Soccerplot Generated</li>
 
 ![Soccerplot](./amet_result_query_soccerplot.png)
 
 # Create Stacked Bar Plot using CSN Network for PM2.5
 
-Under Observation Network
-Select CSN
+<ul>
+<li>Under Observation Network</li>
+<ul>
+<li>Select CSN</li>
+</ul>
+</ul>
 
-Under Species to Plot
-Select PM25_TOT
+<ul>
+<li>Under Species to Plot</li>
+<ul>
+<li>Select PM25_TOT</li>
+</ul>
+</ul>
 
 ![AMET Website Select Obs Network and Species](./amet_select_CSN_PM25_TOT.png)
 
