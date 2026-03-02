@@ -6,18 +6,9 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
- # A collapsible section with markdown
+## There are 72 plotting scripts available including: 
 <details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
-
-There are 72 plotting scripts available including:
+  <summary>Scatter Plots (13) Click to expand!</summary>
 <ol> Scatter Plots(13)
     <li>AQ_Scatterplot.R>Multiple Networks Model/Ob Scatterplot (select stats only)</li>
    <li> AQ_Scatterplot_ggplot.R">GGPlot Scatterplot (multi network, single run)</li>
@@ -33,7 +24,11 @@ There are 72 plotting scripts available including:
     <li>AQ_Scatterplot_bins_plotly.R>Interactive Binned Plot (single net., mult. run)</li>
     <li>AQ_Scatterplot_multi.R>Multi Simulation Scatter plot (single network, mult runs)</li>
 </ol>
-<ol>  Time Series Plots(12)
+</details>
+
+<details>
+  <summary>Timeseries Plots (12) Click to expand!</summary>
+<ol>Timeseries Plots
    <li> AQ_Timeseries.R>Time-series Plot (single network, multiple sites averaged)</li>
     <li>AQ_Timeseries_bysite.R>Individual Site Time-series Plots (single network, multiple sites not average)</li>
     <li>AQ_Timeseries_dygraph.R">Dygraph Time-series Plot (single network, multiple sites averaged)</li>
@@ -47,7 +42,10 @@ There are 72 plotting scripts available including:
     <li>AQ_Monthly_Stat_Plot.R>Year-long Monthly Statistics Plot (single network)</li>
     <li>AQ_Monthly_Stat_Plot_plotly.R>Interactive Year-long Monthly Statistics Plot (single network)</li>
 </ol>
-<ol>  Spatial Plots(13)
+</details>
+<details>
+  <summary>Spatial Plots (13) Click to expand!</summary>
+<ol>  Spatial Plots
    <li>AQ_Stats_Plots.R>Species Statistics and Spatial Plots (multi networks)</li>
    <li> AQ_Stats_Plots_leaflet.R>Interactive Species Statistics and Spatial Plots (single plot)</li>
    <li> AQ_Stats_Plots_leaflet_network.R>Interactive Species Statistics and Spatial Plots (multiple plots)</li>
@@ -62,7 +60,11 @@ There are 72 plotting scripts available including:
     <li>AQ_Plot_Spatial_Diff_leaflet.R>Interactive Spatial Plot of Bias/Error Difference (single plot)</li>
     <li>AQ_Plot_Spatial_Diff_leaflet_network.R>Interactive Spatial Plot of Bias/Error Difference (multiple plots)</li>
 </ol>
-<ol>  Box Plots(7)
+</details>
+
+<details>
+  <summary>Box Plots (7) Click to expand!</summary>
+<ol>  Box Plots
    <li> AQ_Boxplot.R>Boxplot (single network, multi run)</li>
     <li>AQ_Boxplot_ggplot.R>GGPlot Boxplot (single network, multi run)</li>
     <li>AQ_Boxplot_plotly.R>Plotly Boxplot (single network, multi run)</li>
@@ -71,6 +73,10 @@ There are 72 plotting scripts available including:
     <li>AQ_Boxplot_MDA8.R>8hr Average Boxplot (single network, hourly data, can be slow)</li>
     <li>AQ_Boxplot_Roselle.R>Roselle Boxplot (single network, multiple simulations)</li>
 </ol>
+</details>
+
+<details>
+  <summary>Misc Plots (14) Click to expand!</summary>
 <ol>  Misc Scripts(14)
     <li>AQ_Kellyplot.R>Kelly Plot (single species, single network, full year data)</li>
     <li>AQ_Kellyplot_plotly.R>Plotly Kelly Plot (single species, single network, full year data)</li>
@@ -87,11 +93,16 @@ There are 72 plotting scripts available including:
     <li>AQ_Histogram_plotly.R>Interactive Histogram (single network, single species, multi run)</li>
     <li>AQ_Temporal_Plots.R>CDF, Q-Q, Taylor Plots (single network, multi run)</li>
 </ol>
-<ol>  Experimental Scripts (may not work correctly)(3)
+</details>
+
+<details>
+  <summary>Experimental Scripts (13) Click to expand!</summary>
+<ol>  Experimental Scripts (may not work correctly)
     <li>AQ_Overlay_File.R>Create PAVE/VERDI Obs Overlay File (hourly/daily data only)</li>
     <li>AQ_Scatterplot_log.R>Log-Log Model/Ob Scatterplot (multiple networks)</li>
     <li>AQ_Spectral_Analysis.R>Spectral Analysis (single network, single run, experimental)</li>
 </ol>
+</details>
 
 <ol>Met Observation Networks
 Choose meteorology monitoring networks to use
