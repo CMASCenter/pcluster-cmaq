@@ -6,28 +6,28 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_met.php
 ```
 
-## There are 72 plotting scripts available including: 
+## There are 72 Programs to Run in the AMET Website including: 
 <details>
-  <summary>Scatter Plots (13) Click to expand!</summary>
-<ol> Scatter Plots(13)
-    <li>AQ_Scatterplot.R>Multiple Networks Model/Ob Scatterplot (select stats only)</li>
-   <li> AQ_Scatterplot_ggplot.R">GGPlot Scatterplot (multi network, single run)</li>
-   <li> AQ_Scatterplot_plotly.R">Interactive Multiple Network Scatterplot</li>
-    <li>AQ_Scatterplot_multisim_plotly.R">Interactive Multiple Simulation Scatterplot</li>
-    <li>AQ_Scatterplot_single.R">Single Network Model/Ob Scatterplot (includes all stats)</li>
-    <li>AQ_Scatterplot_density.R">Density Scatterplot (single run, single network)</li>
-    <li>AQ_Scatterplot_density_ggplot.R>GGPlot Density Scatterplot (single run, single network)</li>
-    <li>AQ_Scatterplot_mtom.R>Model/Model Scatterplot (multiple networks)</li>
-    <li>AQ_Scatterplot_mtom_density_ggplot.R>Model/Model Density Scatterplot (single network)</li>
-    <li>AQ_Scatterplot_percentiles.R>Scatterplot of Percentiles (single network, single run)</li>
-    <li>AQ_Scatterplot_bins.R>Binned MB & RMSE Scatterplots (single net., mult. run)</li>
-    <li>AQ_Scatterplot_bins_plotly.R>Interactive Binned Plot (single net., mult. run)</li>
-    <li>AQ_Scatterplot_multi.R>Multi Simulation Scatter plot (single network, mult runs)</li>
+  <summary>13 Programs to create Scatter Plots | Click to expand!</summary>
+<ol> Name of R Script | Program 
+    <li>AQ_Scatterplot.R  | Multiple Networks Model/Ob Scatterplot (select stats only)</li>
+   <li> AQ_Scatterplot_ggplot.R | GGPlot Scatterplot (multi network, single run)</li>
+   <li> AQ_Scatterplot_plotly.R | Interactive Multiple Network Scatterplot</li>
+    <li>AQ_Scatterplot_multisim_plotly.R | Interactive Multiple Simulation Scatterplot</li>
+    <li>AQ_Scatterplot_single.R | Single Network Model/Ob Scatterplot (includes all stats)</li>
+    <li>AQ_Scatterplot_density.R | Density Scatterplot (single run, single network)</li>
+    <li>AQ_Scatterplot_density_ggplot.R | GGPlot Density Scatterplot (single run, single network)</li>
+    <li>AQ_Scatterplot_mtom.R | Model/Model Scatterplot (multiple networks)</li>
+    <li>AQ_Scatterplot_mtom_density_ggplot.R | Model/Model Density Scatterplot (single network)</li>
+    <li>AQ_Scatterplot_percentiles.R | Scatterplot of Percentiles (single network, single run)</li>
+    <li>AQ_Scatterplot_bins.R | Binned MB & RMSE Scatterplots (single net., mult. run)</li>
+    <li>AQ_Scatterplot_bins_plotly.R | nteractive Binned Plot (single net., mult. run)</li>
+    <li>AQ_Scatterplot_multi.R | Multi Simulation Scatter plot (single network, mult runs)</li>
 </ol>
 </details>
 
 <details>
-  <summary>Timeseries Plots (12) Click to expand!</summary>
+  <summary>12 Timeseries Plots (12) Click to expand!</summary>
 <ol>Timeseries Plots
    <li> AQ_Timeseries.R>Time-series Plot (single network, multiple sites averaged)</li>
     <li>AQ_Timeseries_bysite.R>Individual Site Time-series Plots (single network, multiple sites not average)</li>
