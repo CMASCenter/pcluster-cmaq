@@ -83,7 +83,7 @@ Change the IP address to the public IP address for your instance in this example
 http://[your-ec2-external-ip-address]:443/querygen_aq.php
 ```
 
-# Create Air Quality Plots using the AMET Website
+# Create Air Quality Plots using the AQ AMET Website
 
 ## Create PM2.5 Spatial Plots
 
