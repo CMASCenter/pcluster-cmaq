@@ -222,16 +222,12 @@ Verify you see the website and that it looks similar to the image below.
 
 <ul>
 <li>Under AQ Observation Networks</li>
-<ul>
 <li>Select  AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)</li>
-</ul>
 </ul>
 
 <ul>
 <li>Under Species to Plot<li>
-<ul>
 <li>Select PM25_TOT</li>
-</ul>
 </ul>
 
 ![AMET Website Select Obs Network and Species](./AMET_website_select_AQ_Observ_Networks_and_Species_to_Plot.png)
