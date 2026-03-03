@@ -12,7 +12,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 ## Programs to create plots
 
-Uses can select one of 72 different programs in the AMET MET Website to create plots.
+Uses can select one of 62 different programs in the AMET MET Website to create plots.
 <details>
   <summary>Scatter Plots (13) | Click to expand!</summary>
 <ol> Name of R Script | Select Program 
