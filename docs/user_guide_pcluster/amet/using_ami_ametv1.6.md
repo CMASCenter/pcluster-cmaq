@@ -666,6 +666,12 @@ Edit the path to the combine output, if that is what you are uploading for your 
 
 # Loading EPA's EQUATES Database
 
+Create the amad_EQUATES database using mysql
+
+```
+mysql CREATE DATABASE new_database;
+```
+
 Imported the mysql dump provided by Wyat Appel using the following command.
 
 sudo mysql -p amad_EQUATES < amad_EQUATES.dump & 
@@ -719,9 +725,55 @@ After the successful import, was able to use the AMET Website to view all of the
 </li>
 </ul> 
 
-![AMET run Interactive Year-long Monthly Statistics Plot](./amet_run_year_long_statistics.png)
+# Create Plotly Kelly Plot (single species, single network, full year data)
+
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul> 
+<li>Select CMAQv532_12US1_2003
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Daily (e.g. PM2.5,PM10, and PAMS species) </li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select PM2.5_TOT</ul>
+</ul>
+</li>
+</ul>
+
+![AMET select AQS Daily and PM2.5_TOT](./amet_select_AQS_daily_PM2.5_TOT.png)
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Kelly Plot (single species, single network, full year data)</li>
+</ul>
+</li>
+</ul>
+
+
+![AMET run Plotly Kelly Plot](./amet_run_year_plotly_kelly_plot.png)
 
 <li>Interactive Year-long Monthly Statistics Plot using Networks AQS Hourly and Ozone</li>
 
-![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2019_O3_stats_plot.png)
+![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2003_PM25_TOT_Kellyplot_NMB.png)
 
