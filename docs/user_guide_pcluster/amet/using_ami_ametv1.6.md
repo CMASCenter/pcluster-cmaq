@@ -725,6 +725,12 @@ After the successful import, was able to use the AMET Website to view all of the
 </li>
 </ul> 
 
+![AMET run Interactive Year-long Monthly Statistics Plot](./amet_run_year_long_statistics.png )
+
+<li>Interactive Year-long Monthly Statistics Plot using Networks AQS Hourly and Ozone</li>
+
+![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2019_O3_stats_plot.png)
+
 # Create Plotly Kelly Plot (single species, single network, full year data)
 
 <ul>
