@@ -499,7 +499,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 <li>Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and AQS Daily</li>
 
-![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)
+![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.p![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)ng)
 
 
 # Load your own AQ model data to MariaDB
@@ -664,4 +664,12 @@ to
 
 Edit the path to the combine output, if that is what you are uploading for your new_project.
 
+## Loading EPA's EQUATES Database
 
+Imported the mysql dump provided by Wyat Appel using the following command.
+
+sudo mysql -p amad_EQUATES < amad_EQUATES.dump & 
+
+After the successful import, was able to use the AMET Website to view all of the imported tables.
+
+![AMET AQ WEBSITE display of 2002-2019](./amad_EQUATES_tables.png)
