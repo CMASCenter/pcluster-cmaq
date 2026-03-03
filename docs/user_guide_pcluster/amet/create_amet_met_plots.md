@@ -102,7 +102,7 @@ Uses can select one of 72 different programs in the AMET MET Website to create p
 </details>
 
 <details>
-  <summary>Experimental Scripts (13) | Click to expand!</summary>
+  <summary>Experimental Scripts (3) | Click to expand!</summary>
 <ol>Name of R Script | Program (may not work correctly) 
     <li>AQ_Overlay_File.R | Create PAVE/VERDI Obs Overlay File (hourly/daily data only)</li>
     <li>AQ_Scatterplot_log.R | Log-Log Model/Ob Scatterplot (multiple networks)</li>
