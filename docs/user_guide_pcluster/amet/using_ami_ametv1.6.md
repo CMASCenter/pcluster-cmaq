@@ -664,7 +664,7 @@ to
 
 Edit the path to the combine output, if that is what you are uploading for your new_project.
 
-## Loading EPA's EQUATES Database
+# Loading EPA's EQUATES Database
 
 Imported the mysql dump provided by Wyat Appel using the following command.
 
@@ -674,7 +674,7 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![AMET AQ WEBSITE display of 2002-2019](./amad_EQUATES_tables.png)
 
-## Create Interactive Year-long Monthly Statistics Plot (single network)
+# Create Interactive Year-long Monthly Statistics Plot (single network)
 
 <ul>
 <li>Under Observation Network
