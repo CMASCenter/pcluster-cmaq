@@ -207,7 +207,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 
 
-# Create PM2.5 Spatial Plots
+## Create PM2.5 Spatial Plots
 
 <ul>
 <li>Choose database</li>
@@ -272,7 +272,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 </ul>
 
-# Create O3_8hrmax Density Scatterplot
+## Create O3_8hrmax Density Scatterplot
 
 <ul>
 <li>Under AQ Observation Networks</li>
@@ -309,7 +309,7 @@ Click on the arrow to display the list the available programs for creating diffe
 ![Scatterplot of O3_8hrmax](./amet_plot_density_scatterplot_singlerun_singlenetwork.png)
 
 
-# Create Soccerplot
+## Create Soccerplot
 
 <ul>
 <li>Under AQ Observation Networks
@@ -352,7 +352,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 ![Soccerplot](./amet_result_query_soccerplot.png)
 
-# Create Stacked Bar Plot using CSN Network for PM2.5
+## Create Stacked Bar Plot using CSN Network for PM2.5
 
 <ul>
 <li>Under Observation Network
@@ -389,7 +389,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 ![Stacked Bar Plot](./amet_plot_PM25_Stacked_BarPlot_AE6.png)
 
-# Create Hourly Boxplot using AQS Hourly and O3 Species
+## Create Hourly Boxplot using AQS Hourly and O3 Species
 
 <ul>
 <li>Under Observation Network
@@ -424,7 +424,7 @@ Click on the arrow to display the list the available programs for creating diffe
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
 
-# Create Interactive Hourly Timeseries using Plotly
+## Create Interactive Hourly Timeseries using Plotly
 
 <ul>
 <li>Under Observation Network
@@ -461,7 +461,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
 
-# Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
+## Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
 
 <ul>
 <li>Under Observation Network
