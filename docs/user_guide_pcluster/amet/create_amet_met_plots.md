@@ -301,7 +301,7 @@ Choose METAR
 Under Met Variable to Use
 Select T(2m)
 
-![AMET Website Select Obs Network and Species](./amet_select_METAR_and_T2.png)
+![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
 
 Under Choose Program to Run
 Boxplot (single network, multi-run)
@@ -310,15 +310,15 @@ Boxplot (single network, multi-run)
 
 Boxplot of T2 all
 
-![Boxplot of T2 all](./metExample_wrf_T_boxplot_all.png)
+![Boxplot of T2 all](./met_plots/metExample_wrf_T_boxplot_all.png)
 
 Boxplot of T2 Bias
 
-![Boxplot of T2 Bias](./metExample_wrf_T_boxplot_bias.png)
+![Boxplot of T2 Bias](./met_plots/metExample_wrf_T_boxplot_bias.png)
 
 Boxplot of T2 Normalized Bias
 
-![Boxplot of T2 Normalized Bias](./metExample_wrf_T_boxplot_norm_bias.png)
+![Boxplot of T2 Normalized Bias](./met_plots/metExample_wrf_T_boxplot_norm_bias.png)
 
 ## Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values
 
@@ -328,16 +328,16 @@ Choose METAR
 Under Met Variable to Use
 Select T(2m) 
 
-![AMET Website Select Obs Network and Species](./amet_select_METAR_and_T2.png)
+![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
 
 Under Choose Program to Run
 Plotly Boxplot (single network, multi-run)
 
-![Query Result](./amet_result_query_boxplot_plotly.png)
+![Query Result](./met_plots/amet_result_query_boxplot_plotly.png)
 
 Plotly Boxplot of T2
 
-![Plotly Boxplot of T2 ](./metExample_wrf_T_boxplot_plotly.png)
+![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly.png)
 
 Note, the Bias and Normalized Bias Plots were not created successfully.
 
@@ -352,11 +352,11 @@ Select T
 Under Choose Program to Run
 Choose Plotly Multi-species Timeseries
 
-![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_T_timeseries.png)
+![AMET run Plotly Multispecies Timeseries](./met_plots/amet_run_plotly_timeseries_multisimulation.png)
 
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
 
-![Hourly Timeseries Plot of T](./amet_plotly_hourly_timeseries_multispecies_T.png)
+![Hourly Timeseries Plot of T](./met_plots/amet_plotly_hourly_timeseries_multispecies.png)
 
 ## Create Bugle Plot
 
