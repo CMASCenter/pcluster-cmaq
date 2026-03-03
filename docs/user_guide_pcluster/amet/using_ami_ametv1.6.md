@@ -677,6 +677,23 @@ After the successful import, was able to use the AMET Website to view all of the
 # Create Interactive Year-long Monthly Statistics Plot (single network)
 
 <ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2019
+</ul>
+</li>
+</ul>
+
+
+<ul>
 <li>Under Observation Network
 <ul>
 <li> Select AQS Hourly</li>
