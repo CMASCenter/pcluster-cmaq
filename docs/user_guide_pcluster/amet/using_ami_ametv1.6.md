@@ -779,7 +779,7 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![AMET run Plotly Kelly Plot](./amet_run_year_plotly_kelly_plot.png)
 
-<li>Interactive Year-long Monthly Statistics Plot using Networks AQS Hourly and Ozone</li>
+<li>Plotly Kelly Plot of AQS Daily and PM2.5_TOT</li>
 
-![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2003_PM25_TOT_Kellyplot_NMB.png)
+![Plotly Kelly Plot of AQS Daily and PM2.5_TOT](./CMAQv532_12US1_2003_PM25_TOT_Kellyplot_NMB.png)
 
