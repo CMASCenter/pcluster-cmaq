@@ -673,3 +673,38 @@ sudo mysql -p amad_EQUATES < amad_EQUATES.dump &
 After the successful import, was able to use the AMET Website to view all of the imported tables.
 
 ![AMET AQ WEBSITE display of 2002-2019](./amad_EQUATES_tables.png)
+
+## Create Interactive Year-long Monthly Statistics Plot (single network)
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Hourly</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select O3</ul>
+</ul>
+</li>
+</ul>
+
+![AMET select AQS Hourly and O3](./amet_select_AQS_hourly_O3.png)
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Interactive Year-long Monthly Statistics Plot (single network)</li>
+</ul>
+</li>
+</ul> 
+
+![AMET run Interactive Year-long Monthly Statistics Plot](./amet_run_year_long_statistics.png)
+
+<li>Interactive Year-long Monthly Statistics Plot using Networks AQS Hourly and Ozone</li>
+
+![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2019_O3_stats_plot.png)
+
