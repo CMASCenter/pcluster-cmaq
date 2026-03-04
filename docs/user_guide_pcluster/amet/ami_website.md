@@ -666,10 +666,12 @@ Edit the path to the combine output, if that is what you are uploading for your 
 
 # Loading EPA's EQUATES Database
 
+This method was used to load the EQUATES Database to the EC2 instance.
+
 Create the amad_EQUATES database using mysql
 
 ```
-mysql CREATE DATABASE new_database;
+mysql CREATE DATABASE amad_EQUATES;
 ```
 
 Imported the mysql dump provided by Wyat Appel using the following command.
