@@ -12,11 +12,11 @@
 ## EC2 Instance Type Cost
 T3 instance type, physical processor: Intel Skylake E5, CPU Architecture:  x86_64 
 
-| EC2 Instance Type      | # vCPUs | Memory | Cost/hour |
-| ---------------------- | ------- | -----  | --------  |
-| t3.2xlarge             |   8     | 32GB   | $.33      |
-| t3.xlarge              |   4     | 16GB   | $.166     |
-| t3.large               |   2     | 4GB    | $.083     |
+| EC2 Instance Type      | # vCPUs | Memory | Cost/hour | Cost/day | 
+| ---------------------- | ------- | -----  | --------  | -----    | 
+| t3.2xlarge             |   8     | 32GB   | $.33      | $7.92    |
+| t3.xlarge              |   4     | 16GB   | $.166     | $3.98    |
+| t3.large               |   2     | 4GB    | $.083     | $1.99    |
 
 ## Storage type costs
 
