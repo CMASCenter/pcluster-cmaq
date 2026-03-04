@@ -125,7 +125,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 </ol>
 </details>
 
-### Create 2m Temperature Spatial Plots
+## Create 2m Temperature Spatial Plots
 <ul>
 <li>Choose database</li>
   <ul>
@@ -204,7 +204,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 
 ![AMET Correlation Spatial Plot](./met_plots/plot_met_metExample_wrf_T_Corr.png)
 
-### Create Interactive 2M Temperature Spatial Plots
+## Create Interactive 2M Temperature Spatial Plots
 
 Under Met Variable to choose
 Select T(2m)
@@ -231,7 +231,7 @@ Spatial Plot of 2m Temperature Difference between Model and Observations
 ![Spatial Plot of 2m Temperature Differences](./met_plots/metExample_wrf_T_interactive_spatial_model_obs_diff_plot.png)
 
 
-### Create Interactive 2M Temperature Model to Model Difference Spatial Plots
+## Create Interactive 2M Temperature Model to Model Difference Spatial Plots
 
 ![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_interactive_spatial_mtom_diff.png)
 
@@ -256,7 +256,7 @@ Spatial Plot of 2m Temperature Model to Model Difference Ratio Interactive Plot
 ![Spatial Plot of 2m Temperature Model to Model Diff Ratio Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_ratio.png)
 
 
-### Create 2m Temperature Density Scatterplot
+## Create 2m Temperature Density Scatterplot
 
 Under Met Variable to choose
 Select T(2m)
@@ -274,7 +274,7 @@ Scatterplot of 2m Temperature
 
 ![Scatterplot of 2m Temperature](./met_plots/metExample_wrf_T_scatterplot_density.png)
 
-### Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature
+## Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature
 
 Under Met Variable to choose
 Select T(2m)
@@ -293,7 +293,7 @@ Timeseries Plot of 2m Temperature
 ![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_T_timeseries.png)
 
 
-### Create Boxplot using METAR Met Observations and T(2m) Model Values
+## Create Boxplot using METAR Met Observations and T(2m) Model Values
 
 Under Met Observation Networks
 Choose METAR
@@ -320,7 +320,7 @@ Boxplot of T2 Normalized Bias
 
 ![Boxplot of T2 Normalized Bias](./met_plots/metExample_wrf_T_boxplot_norm_bias.png)
 
-### Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values
+## Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values
 
 Under Met Observation Networks
 Choose METAR
@@ -341,7 +341,7 @@ Plotly Boxplot of T2
 
 Note, the Bias and Normalized Bias Plots were not created successfully.
 
-### Create Interactive Hourly Timeseries of T2 using Plotly
+## Create Interactive Hourly Timeseries of T2 using Plotly
 
 Under Met Observation Network
 Select METAR
@@ -358,7 +358,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of T](./met_plots/amet_plotly_hourly_timeseries_multispecies.png)
 
-### Create Bugle Plot
+## Create Bugle Plot
 
 Under Observation Network
 Select METAR
