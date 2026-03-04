@@ -9,6 +9,15 @@
 
 ![AMET Security Group](./amet_mysql_security_group_inbound_and_outbound_rules.png)
 
+Note, cost estimates below need to be verified.
+T3 instance type, physical processor: Intel Skylake E5, CPU Architecture:  x86_64 
+
+| EC2 Instance Type      | # vCPUs | Memory | Cost/hour |
+| ---------------------- | ------- | -----  | --------  |
+| t3.2xlarge             |   8     | 32GB   | $.33      |
+| t3.xlarge              |   4     | 16GB   | $.166     |
+| t3.large               |   2     | 4GB    | $.083     |
+
 ## Login to the EC2 instance
 
 ```
