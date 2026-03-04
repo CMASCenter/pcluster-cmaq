@@ -23,6 +23,9 @@ T3 instance type, physical processor: Intel Skylake E5, CPU Architecture:  x86_6
 A 500 GiB AWS gp3 EBS volume typically costs $40.00 per month for storage alone ($0.08 per GiB-month)
 3,000 IOPS & 125 MB/s throughput free
 
+The Amazon Machine Image (AMI) with 500 GB of storage, which relies on EBS snapshots, typically costs
+$25.00 per month ($0.05 per GB-month) in the US East region
+
 
 ## Login to the EC2 instance
 
