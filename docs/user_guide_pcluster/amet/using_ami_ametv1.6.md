@@ -680,7 +680,7 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![AMET AQ WEBSITE display of 2002-2019](./amad_EQUATES_tables.png)
 
-# Create Interactive Year-long Monthly Statistics Plot (single network)
+## Create Interactive Year-long Monthly Statistics Plot (single network)
 
 <ul>
 <li>Select Database ID
@@ -731,7 +731,7 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2019_O3_stats_plot.png)
 
-# Create Plotly Kelly Plot (single species, single network, full year data)
+## Create Plotly Kelly Plot (single species, single network, full year data)
 
 <ul>
 <li>Select Database ID
