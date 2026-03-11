@@ -694,7 +694,9 @@ mysql CREATE DATABASE amad_EQUATES;
 
 Imported the mysql dump provided by Wyat Appel using the following command.
 
+```
 sudo mysql -p amad_EQUATES < amad_EQUATES.dump & 
+```
 
 After the successful import, was able to use the AMET Website to view all of the imported tables.
 
