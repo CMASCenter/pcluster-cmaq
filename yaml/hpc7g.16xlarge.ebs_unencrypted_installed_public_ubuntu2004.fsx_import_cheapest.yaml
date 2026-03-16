@@ -37,7 +37,6 @@ SharedStorage:
     FsxLustreSettings:
       DeletionPolicy: Delete 
       StorageCapacity: 1200
-      DeploymentType: PERSISTENT_2
-      PerUnitStorageThroughput: 125
+      DeploymentType: SCRATCH_2 
       DataCompressionType: LZ4
       ImportPath: s3://cmas-cmaq
