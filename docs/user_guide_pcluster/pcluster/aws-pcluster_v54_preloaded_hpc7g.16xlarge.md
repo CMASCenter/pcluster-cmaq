@@ -145,7 +145,6 @@ SharedStorage:
       DeletionPolicy: Delete
       StorageCapacity: 1200
       DeploymentType: SCRATCH_2
-      PerUnitStorageThroughput: 125
       DataCompressionType: LZ4
       ImportPath: s3://cmas-cmaq
 ```
