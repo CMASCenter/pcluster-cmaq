@@ -12,6 +12,66 @@ The CMAQ libraries were installed using the gcc compiler on c6g.large.
 
 ## Configure the ParallelCluster
 
+
+Run another configure cluster to use the hpc7g.16xlarge compute nodes.
+
+`pcluster configure --config hpc7g.test`
+
+Allowed values for AWS Region ID:
+15
+
+Allowed values for EC2 Key Pair Name:
+Use the key pair that you created.
+
+Allowed values for Scheduler:
+1. Slurm
+
+Allowed values for Operating System:
+4. ubuntu2404
+
+Head node instance type [c7i-flex.large]:
+c7g.large
+
+Number of queues [1]:
+1
+
+Name of queue 1 [queue1]:
+queue1
+
+Number of compute resources for queue1 [1]:
+1
+
+Compute instance type for compute resource 1 in queue1 [c7i-flex.large]:
+hpc7g.16xlarge
+
+Compute instance type for compute resource 1 in queue1 [c7i-flex.large]: hpc7g.16xlarge
+The EC2 instance selected supports enhanced networking capabilities using Elastic Fabric Adapter (EFA). EFA enables you to run applications requiring high levels of inter-node communications at scale on AWS at no additional charge (https://docs.aws.amazon.com/parallelcluster/latest/ug/efa-v3.html).
+Enable EFA on hpc7g.16xlarge (y/n) [y]:
+y
+
+Maximum instance count [10]: 
+10
+
+Enabling EFA requires compute instances to be placed within a Placement Group. Please specify an existing Placement Group name or leave it blank for ParallelCluster to create one.
+Placement Group name []:
+
+Automate VPC creation? (y/n) [n]:
+
+Allowed values for VPC ID:
+
+The creation of a public and private subnet combination will result in
+charges for NAT gateway creation that are not covered under the free tier.
+Please refer to https://aws.amazon.com/vpc/pricing/ for more details.
+
+Automate Subnet creation? (y/n) [y]:
+y
+
+Allowed values for Availability Zone:
+1. us-east-1a
+
+Allowed values for Network Configuration: 
+2. Head node and compute fleet in the same public subnet
+
 Use an existing yaml file from the git repo to create a ParallelCluster
 
 `cd /your/local/machine/install/path/`
