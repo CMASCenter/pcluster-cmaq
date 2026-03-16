@@ -54,9 +54,10 @@ Copy file to .cshrc
 cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
 ```
 
-Note that the .cshrc to add custom module path
+Edit the .cshrc to add custom module paths
 
 ```
+module use --append /opt/amazon/modules/modulefiles
 module use --append /shared/build/Modules/modulefiles
 ```
 
