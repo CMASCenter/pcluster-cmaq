@@ -42,12 +42,6 @@ To resize the EBS volume, run the following command:
 `sudo resize2fs /dev/nvme1n1`
 
 
-Change default shell to .tcsh
-
-```
-sudo usermod -s /bin/tcsh ubuntu
-```
-
 Copy file to .cshrc
 
 ```
@@ -61,6 +55,13 @@ module use --append /opt/amazon/modules/modulefiles
 module use --append /shared/build/Modules/modulefiles
 ```
 
+Change default shell to .tcsh
+
+```
+sudo usermod -s /bin/tcsh ubuntu
+```
+
+
 Change shell to csh
 
 logout and log back in to switch to the default shell
@@ -68,6 +69,8 @@ logout and log back in to switch to the default shell
 Use module list and then module load to load the libraries
 
 ```
+module avail
+module list
 module load netcdf-4.8.1/gcc-9.5  ioapi-3.2/gcc-9.5-netcdf libfabric-aws openmpi
 ```
 
