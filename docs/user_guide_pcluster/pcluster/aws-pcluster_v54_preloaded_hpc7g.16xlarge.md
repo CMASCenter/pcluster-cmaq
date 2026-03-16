@@ -93,12 +93,12 @@ Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.y
 
 ```{note}
 1. the hpc7g.16xlarge*.yaml is configured to use ONDEMAND instance pricing for the compute nodes.
-2. the hpc7g.16xlarge*.yaml is configured to the the hpc7g.16xlarge as the compute node for the compute-resource-1 queue, with up to 12 compute nodes, specified by MaxCount: 12.
+2. the hpc7g.16xlarge*.yaml is configured to the the hpc7g.16xlarge as the compute node for the compute-resource-1 queue, with up to 10 compute nodes, specified by MaxCount: 12.
 3. the hpc7g.16xlarge*.yaml is configured to the the hpc7g.8xlarge as the compute node for the compute-resource-1 queue, with up to 7 compute nodes.
 3. the hpc7g.16xlarge*.yaml is configured to disable multithreading (This option restricts the computing to CPUS rather than allowing the use of all virtual CPUS. (128 virtual cpus reduced to 64 cpus)
 4. the hpc7g.16xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
 5. the hpc7g.16xlarge*.yaml is configured to enables the elastic fabric adapter
-6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 64 cpus x 12 = 768, the max settings for NPCOL, NPROW is NPCOL = 24, NPROW = 32 or NPCOL=32, NPROW=24 in the CMAQ run script. Note: CMAQ will need to be benchmarked using the 12US1 to determine the optimal number of compute nodes to use.
+6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 64 cpus x 10 = 640, the max settings for NPCOL, NPROW is NPCOL = 20, NPROW = 32 or NPCOL=32, NPROW=20 in the CMAQ run script. Note: CMAQ will need to be benchmarked using the 12US1 to determine the optimal number of compute nodes to use, as it likely gets less efficient as more cpus are added.
 ```
 
 Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the demo cluster
@@ -106,57 +106,47 @@ Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the val
 ```
 Region: us-east-1
 Image:
-  Os: ubuntu2004
+  Os: ubuntu2204
 HeadNode:
   InstanceType: c7g.large
   Networking:
-    SubnetId: subnet-xx-xx-xx           << replace
-  DisableSimultaneousMultithreading: true
+    SubnetId: subnet-03a533b72486e9572  << replace
   Ssh:
-    KeyName: your_key                     << replace
-  LocalStorage:
-    RootVolume:
-      Encrypted: true
+    KeyName: your_ed25519_key  << replace
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
     - Name: queue1
-      CapacityType: ONDEMAND 
+      ComputeResources:
+      - Name: hpc7g16xlarge
+        Instances:
+        - InstanceType: hpc7g.16xlarge
+        MinCount: 0
+        MaxCount: 10
+        Efa:
+          Enabled: true
       Networking:
-        SubnetIds:
-          - subnet-xx-xx-x         x    << replace
         PlacementGroup:
           Enabled: true
-      ComputeResources:
-        - Name: compute-resource-1
-          InstanceType: hpc7g.16xlarge
-          MinCount: 0
-          MaxCount: 12
-          DisableSimultaneousMultithreading: true
-          Efa:
-            Enabled: true
-            GdrSupport: false
-        - Name: compute-resource-2
-          InstanceType: hpc7g.8xlarge
-          MinCount: 0
-          MaxCount: 7
-          DisableSimultaneousMultithreading: true
-          Efa:
-            Enabled: true
-            GdrSupport: false
+        SubnetIds:
+        - subnet-03a533b72486e9572 << replace
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
     StorageType: Ebs
     EbsSettings:
-      Encrypted: true
-      SnapshotId: snap-0049a7c309f238500
-  - MountDir: /fsx
-    Name: name2
+      Encrypted: false
+      SnapshotId: snap-0049a7c309f238500  << replace
+  - Name: FsxLustre0
     StorageType: FsxLustre
+    MountDir: /fsx
     FsxLustreSettings:
+      DeletionPolicy: Delete
       StorageCapacity: 1200
-      ImportPath: s3://cmas-cmaq/
+      DeploymentType: PERSISTENT_2
+      PerUnitStorageThroughput: 125
+      DataCompressionType: LZ4
+      ImportPath: s3://cmas-cmaq
 ```
 
 The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
@@ -176,13 +166,14 @@ Note, this yaml file is configured to have 12 nodes of the hpc7g.16xlarge (64 pe
 ## Output recieved from command line: 
 
 ```
+pcluster create-cluster --cluster-configuration hpc7g.16xlarge.ebs_encrypted_installed_public_ubuntu2004.fsx_import_cheapest.yaml --cluster-name cmaq-upgrade --region us-east-1
 {
   "cluster": {
-    "clusterName": "cmaq",
+    "clusterName": "cmaq-upgrade",
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
-    "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq/2e7eb730-faac-11ef-b084-0affc1aac5d7",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/cmaq-upgrade/5acdf5d0-217a-11f1-af2b-12a98fd563d9",
     "region": "us-east-1",
-    "version": "3.9.2",
+    "version": "3.14.2",
     "clusterStatus": "CREATE_IN_PROGRESS",
     "scheduler": {
       "type": "slurm"
@@ -202,10 +193,11 @@ Note, this yaml file is configured to have 12 nodes of the hpc7g.16xlarge (64 pe
     {
       "level": "INFO",
       "type": "DeletionPolicyValidator",
-      "message": "The DeletionPolicy is set to Delete. The storage 'name2' will be deleted when you remove it from the configuration when performing a cluster update or deleting the cluster."
+      "message": "The DeletionPolicy is set to Delete. The storage 'FsxLustre0' will be deleted when you remove it from the configuration when performing a cluster update or deleting the cluster."
     }
   ]
 }
+
 ```
 
 Check on status of cluster
