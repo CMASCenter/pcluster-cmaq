@@ -42,13 +42,20 @@ To resize the EBS volume, run the following command:
 `sudo resize2fs /dev/nvme1n1`
 
 
-Copy file to .cshrc
+## Copy file to .cshrc
+
+Copy the example .cshrc to your path
 
 ```
 cp /shared/pcluster-cmaq/install/dot.cshrc.pcluster ~/.cshrc
 ```
 
 Edit the .cshrc to add custom module paths
+
+```
+vi ~/.cshrc
+```
+Add the following commands:
 
 ```
 module use --append /opt/amazon/modules/modulefiles
