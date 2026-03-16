@@ -12,16 +12,21 @@ The CMAQ libraries were installed using the gcc compiler on c6g.large.
 
 ## Configure the ParallelCluster
 
-Note, the latest version of pcluster requires a ed25519_key.
-To create this key, login to your ec2 instance website for your account.
-On the left menu, look for Key Pairs under Network and Security
-Click on the orange button to `Create a key pair`
+Note, the latest version of pcluster requires a ed25519_key.<br>
 
+To create this key, login to your ec2 instance website for your account.<br>
+
+On the left menu, look for Key Pairs under Network and Security<br>
+
+Click on the orange button to `Create a key pair`<br>
+
+```
 Specify a name.
 Choose ED25519 as the key pair type
 Choose pem as the format
 
 Click `Create key pair`
+```
 
 Download the key pair to your local machine, and use the following command to set the permissions of your private key file.
 
