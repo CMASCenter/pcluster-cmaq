@@ -144,11 +144,13 @@ SharedStorage:
     FsxLustreSettings:
       DeletionPolicy: Delete
       StorageCapacity: 1200
-      DeploymentType: PERSISTENT_2
+      DeploymentType: SCRATCH_2
       PerUnitStorageThroughput: 125
       DataCompressionType: LZ4
       ImportPath: s3://cmas-cmaq
 ```
+
+*note, PERSISTANT_2 lustre file systems do not support ImportPath or linking to s3 bucket.
 
 The Yaml file for the hpc7g.16xlarge contains the settings as shown in the following diagram.
 
