@@ -87,9 +87,9 @@ Use a configuration file from the github repo that was cloned to your local mach
 
 `cd pcluster-cmaq/yaml`
 
-Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml
+Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_cheapest.yaml
 
-`vi hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.yaml`
+`vi hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_cheapest.yaml`
 
 ```{note}
 1. the hpc7g.16xlarge*.yaml is configured to use ONDEMAND instance pricing for the compute nodes.
@@ -99,6 +99,7 @@ Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import.y
 4. the hpc7g.16xlarge*.yaml is configured to enable the setting of a placement group to allow low inter-node latency
 5. the hpc7g.16xlarge*.yaml is configured to enables the elastic fabric adapter
 6. given this yaml configuration, the maximum number of PEs that could be used to run CMAQ is 64 cpus x 10 = 640, the max settings for NPCOL, NPROW is NPCOL = 20, NPROW = 32 or NPCOL=32, NPROW=20 in the CMAQ run script. Note: CMAQ will need to be benchmarked using the 12US1 to determine the optimal number of compute nodes to use, as it likely gets less efficient as more cpus are added.
+7. the lustre file system is configured to use the lowest cost PerUnitStorageThroughput value of 125, and also uses LZ4 data compression *** this is NEW **
 ```
 
 Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the demo cluster
