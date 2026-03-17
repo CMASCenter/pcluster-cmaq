@@ -1022,8 +1022,13 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 </li>
 </ul>
 
-Under Choose Program to Run
-Select Interactive Spatial Plot (multiple plots)
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select Interactive Spatial Plot (multiple plots)</li>
+</ul>
+</li>
+</ul>
 
 ![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_interactive_spatial.png)
 
@@ -1071,11 +1076,21 @@ Spatial Plot of 2m Temperature Model to Model Difference Ratio Interactive Plot
 
 ## Create 2m Temperature Density Scatterplot
 
-Under Met Variable to choose
-Select T(2m)
+<ul>
+<li>Under Met Variable to choose
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
 
-Under Choose Program to Run
-Select Density Scatterplot (single run, single network) 
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select Density Scatterplot (single run, single network) </li>
+</ul>
+</li>
+</ul>
 
 ![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_density_scatterplot.png)
 
@@ -1089,11 +1104,21 @@ Scatterplot of 2m Temperature
 
 ## Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature
 
-Under Met Variable to choose
-Select T(2m)
+<ul>
+<li>Under Met Variable to choose
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
 
-Under Choose Program to Run
-Timeseries Plot (single network, multiple sites averaged)
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Timeseries Plot (single network, multiple sites averaged)</li>
+</ul>
+</li>
+</ul>
 
 ![AMET Website Select Plot and Run Program](./met_plots/amet_run_program_timeseries.png)
 
@@ -1108,16 +1133,31 @@ Timeseries Plot of 2m Temperature
 
 ## Create Boxplot using METAR Met Observations and T(2m) Model Values
 
-Under Met Observation Networks
-Choose METAR
+<ul>
+<li>Under Met Observation Networks
+<ul>
+<li>Choose METAR</li>
+</ul>
+</li>
+</ul>
 
-Under Met Variable to Use
-Select T(2m)
+<ul>
+<li> Under Met Variable to Use
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
 
 ![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
 
-Under Choose Program to Run
-Boxplot (single network, multi-run)
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Boxplot (single network, multi-run)</li>
+</ul>
+</li>
+</ul>
 
 ![Query Result](./amet_result_query_boxplot.png)
 
