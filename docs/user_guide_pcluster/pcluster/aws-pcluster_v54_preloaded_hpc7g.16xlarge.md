@@ -33,7 +33,7 @@ Download the key pair to your local machine, and use the following command to se
 `chmod 400 your_user_name-key-pair-region_name.pem`
 
 
-Run another configure cluster to use the hpc7g.16xlarge compute nodes.
+## Configure cluster to use the hpc7g.16xlarge compute nodes.
 
 `pcluster configure --config hpc7g.test`
 
@@ -85,7 +85,7 @@ Use an existing yaml file from the git repo to create a ParallelCluster
 
 `cd /your/local/machine/install/path/`
 
-Use a configuration file from the github repo that was cloned to your local machine
+## Use a configuration file from the github repo that was cloned to your local machine
 
 `git clone -b main https://github.com/CMASCenter/pcluster-cmaq.git pcluster-cmaq`
 
@@ -107,7 +107,7 @@ Edit the hpc7g.16xlarge.ebs_unencrypted_installed_public_ubuntu2004.fsx_import_c
 7. the lustre file system is configured to use the lowest cost SCRATCH_2 deployment type, and also uses LZ4 data compression *** this is NEW **
 ```
 
-Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the demo cluster
+Replace the key pair and subnet ID in the hpc7g.16xlarge*.yaml file with the values created when you configured the cluster that used hpc7g.16xlarge compute nodes 
 
 ```
 Region: us-east-1
