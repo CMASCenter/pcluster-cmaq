@@ -552,7 +552,8 @@ Extract example metExample_mcip data
 #!/bin/csh
 foreach i (*.tar.gz)
     tar -xzvf $i
-    rm $i     ! need to remove tar.gz file after extraction to avoid filling up disk
+    rm $i     
+## need to remove tar.gz file after extraction to avoid filling up disk
 end
 ```
 
