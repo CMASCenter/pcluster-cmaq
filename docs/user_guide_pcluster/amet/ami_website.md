@@ -1166,28 +1166,38 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of T](./met_plots/amet_plotly_hourly_timeseries_multispecies.png)
 
-## Create Bugle Plot
+## Create Bugle Plot of T(2m)
 
-Under Observation Network
-Select METAR
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select METAR</li>
+</ul>
+</li>
+</ul> 
 
-Under Met Species to Plot
-Select T(2m)
+<ul>
+<li>Under Met Species to Plot
+<ul>
+<li> Select T(2m)</li>
+</ul>
+</li>
+</ul> 
 
-![AMET select METAR ](./amet_select_METAR_T.png)
+![AMET select METAR ](./met_plots/amet_select_METAR_T.png)
 
 Under Choose Program to Run
 Choose Bugle Plot(Multiple Networks) under Misc Scripts
 
-![AMET run Bugle Plot](./amet_run_bugle_T.png)
+![AMET run Bugle Plot](./met_plots/amet_run_bugle_T.png)
 
 Bugle Plot of Normalized Mean Bias (NMB) T for METAR Obs Network
 
-![Bugle Plot of NMB Temperature](./amet_plot_bugle_T_Daily_METAR_NMB.png)
+![Bugle Plot of NMB Temperature](./met_plots/metExample_wrf_T_bugle_plot_bias.png)
 
 Bugle Plot of Normalized Mean Error (NME) Temperature for Networks METAR
 
-![Bugle Plot of NMB Temp](./amet_plot_bugle_temp_metar_NME.png)
+![Bugle Plot of NMB Temp](./metExample_wrf_T_bugle_plot_error.png)
 
 
 # Load your own data to MariaDB
