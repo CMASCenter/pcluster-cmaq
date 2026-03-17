@@ -263,6 +263,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Model_Model</li>
 </ol>
 
+<details>
 <ol>European Networks (10) | Click to expand!
 <li>ADMN (SO4,NO3,NH4,Precip, Na Ion, Cl Ion)</li>
 <li>AGANET (HCl, NO2, NOY, SOX, HNO3, SO2, Cl, Na)</li>
@@ -275,7 +276,9 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>EMEP - Daily O3 (1-rh and 8-hr max O3)</li>
 <li>EMEP - Dep (SO4, NO3, NH44, Cl, Na, trace metals)</li>
 </ol>
+</details>
 
+<details>
 <ol>Campaigns (3) | Click to expand!
 <li>CALNEX</li>
 <li>SOAS</li>
