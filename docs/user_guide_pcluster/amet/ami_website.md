@@ -934,10 +934,11 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 
 ## Create 2m Temperature Spatial Plots
 <ul>
-<li>Choose database</li>
+<li>Choose database
   <ul>
     <li>select amet</li>
   </ul>
+</li>
 <li>Choose project 1
   <ul>
     <li>MetExample_wrf</li>
@@ -953,7 +954,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 ![AMET Meteorology Website Select Database and Project](./met_plots/AMET_MET_website_choose_database_and_project.png)
 
 <ul>
-<li>Choose Met Variable</li>
+<li>Choose Met Variable
   <ul>
     <li>select T(2m)</li>
   </ul>
@@ -964,7 +965,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 ![AMET Meteorology Website Select Met Variable to use](./AMET_website_met_choose_variable_T.png)
 
 <ul>
-<li>Choose Program to Run</li>
+<li>Choose Program to Run
   <ul>
     <li>select Species Statistics and Spatial Plot(multi networks)</li>
   </ul>
