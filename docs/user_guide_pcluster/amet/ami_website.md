@@ -222,8 +222,9 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 
+# Observation Networks (48) 
 <details>
-  <summary>AQ Observation Networks | Click to expand!</summary>
+  <summary>AQ Observation Networksi (35) | Click to expand!</summary>
 <ol>Name of US Air Quality Monitoring Network
 <li>IMPROVE (e.g. SO4,NO3,PM2.5,EC,OC,TC)</li>
 <li>CSN (e.g. SO4,NO3,NH4,PM2.5,EC,OC,TC)</li>
@@ -262,7 +263,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Model_Model</li>
 </ol>
 
-<ol>European Networks
+<ol>European Networks (10) | Click to expand!
 <li>ADMN (SO4,NO3,NH4,Precip, Na Ion, Cl Ion)</li>
 <li>AGANET (HCl, NO2, NOY, SOX, HNO3, SO2, Cl, Na)</li>
 <li>AirBase_Hourly (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
@@ -275,7 +276,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>EMEP - Dep (SO4, NO3, NH44, Cl, Na, trace metals)</li>
 </ol>
 
-<ol>Campaigns
+<ol>Campaigns (3) | Click to expand!
 <li>CALNEX</li>
 <li>SOAS</li>
 <li>Special </li>
