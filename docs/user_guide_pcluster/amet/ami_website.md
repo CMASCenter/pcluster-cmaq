@@ -494,7 +494,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 <ul>
 <li> Under Species to Plot
 <ul>
-<li>Select PM25_TOT</li>
+<li>`Select PM25_TOT`</li>
 </ul>
 </li>
 </ul>
@@ -1014,8 +1014,13 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 
 ## Create Interactive 2M Temperature Spatial Plots
 
-Under Met Variable to choose
-Select T(2m)
+<ul>
+<li>Under Met Variable to choose
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
 
 Under Choose Program to Run
 Select Interactive Spatial Plot (multiple plots)
