@@ -222,6 +222,65 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 
+<details>
+  <summary>AQ Observation Networks | Click to expand!</summary>
+<ol>Name of US Air Quality Monitoring Network
+<li>IMPROVE (e.g. SO4,NO3,PM2.5,EC,OC,TC)</li>
+<li>CSN (e.g. SO4,NO3,NH4,PM2.5,EC,OC,TC)</li>
+<li>CASTNet (e.g. SO4,NO3,NH4,SO2,HNO3,TNO3)</li>
+<li>CASTNet - Hourly (O3, RH, Precip, T, Solor Rad, WSPD, WDIR)</li>
+<li>CASTNet Daily (1-hr and 8-hr max O3)</li>
+<li>CASTNet Dry Dep (SO4,NO3,NH4,HNO3,TNO3,O3,SO2)</li>
+<li>CAPMoN (SO4,NO3,NH4,HNO3,TNO3,SO2)</li>
+<li>NAPS - Hourly (O3,NO,NO2,NOX,SO2,PM2.5,PM10)</li>
+<li>NAPS - Daily O3 (1-hr and 8-hr max O3)</li>
+<li>NADP (e.g. SO4,NO3,NH4,Precip, Cl Ion)</li>
+<li>AMON (NH3)</li>
+<li>AIRMON (Deposition) (SO4,NO3,NH4,Precip)</li>
+<li>AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)</li>
+<li>AQS - Daily O3 (1-hr and 8-hr max O3)</li>
+<li>AQS - Daily (e.g. PM2.5,PM10, and PAMS species)</li>
+<li>AQS - Daily VOCs (select PAMS species)</li>
+<li>AQS - Daily OAQPS O3 (Various 8-hr max O3)</li>
+<li>AQS - Daily (Old name) PM2.5,PM10, and PAMS species network</li>
+<li>SEARCH Hourly (e.g. O3,CO,SO2,NO,HNO3,etc.)</li>
+<li>SEARCH Daily (Fine and Coarse Mode Species)</li>
+<li>AERONET (AOD: 340, 380, 440, 500, 675, 870, 1020, 1640)</li>
+<li>FluxNet (Soil/Flux variables)</li>
+<li>NOAA ESRL (Hourly O3)</li>
+<li>TOAR (Daily O3 values)</li>
+<li>TOAR2 Hourly (O3,CO,SO2,NO,NO2,NOX,PM2.5)</li>
+<li>TOAR2 Daily O3 (e.g., 1-hr max, MDA8)</li>
+<li>TOAR2 Daily Average (O3,CO,SO2,NO,NO2,NOX,PM2.5)</li>
+<li>PurpleAir Hourly (PM2.5)</li>
+<li>PurpleAir Daily (Daily PM2.5)</li>
+<li>AirNow Hourly (O3, PM2.5)</li>
+<li>AirNow Daily O3 (e.g., 1-hr max, MDA8 O3)</li>
+<li>NYCCAS (Two-week PM2.5)</li>
+<li>MDN (Hg)</li>
+<li>AMTIC (HAPs)</li>
+<li>Model_Model</li>
+</ol>
+
+<ol>European Networks
+<li>ADMN (SO4,NO3,NH4,Precip, Na Ion, Cl Ion)</li>
+<li>AGANET (HCl, NO2, NOY, SOX, HNO3, SO2, Cl, Na)</li>
+<li>AirBase_Hourly (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
+<li>AirBase_Daily (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
+<li>AURN_Hourly (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
+<li>AURN_Daily (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
+<li>EMEP - Hourly (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
+<li>EMEP - Daily (SO4, NO3, NH44, trace metals, PM2.5, PM10, O3)</li>
+<li>EMEP - Daily O3 (1-rh and 8-hr max O3)</li>
+<li>EMEP - Dep (SO4, NO3, NH44, Cl, Na, trace metals)</li>
+</ol>
+
+<ol>Campaigns
+<li>CALNEX</li>
+<li>SOAS</li>
+<li>Special </li>
+</ol>
+</details>
 
 
 
