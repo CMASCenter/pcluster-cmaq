@@ -494,7 +494,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 <ul>
 <li> Under Species to Plot
 <ul>
-<li>Select PM25_TOT</ul>
+<li>Select PM25_TOT</li>
 </ul>
 </li>
 </ul>
