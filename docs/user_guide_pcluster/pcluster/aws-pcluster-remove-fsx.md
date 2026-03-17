@@ -100,6 +100,10 @@ pcluster update-cluster --region us-east-1 --cluster-name cmaq --cluster-configu
 pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 ```
 
+## Verify that the fsx volume is being deleted in the AWS Website Console
+
+![fsx filesystem status](fsx-filesystem-deleting.png)
+
 ## Update the compute fleet to restart the compute nodes 
 
 ```
