@@ -256,6 +256,7 @@ The cost of running an annual simulation on 2 hpc7g.16xlarge nodes using OnDeman
 |12US1 |	hpc7g.16xlarge |	3	| 384 |12x16 | 192 |FAILED| gcc (11.4.1) | 	/shared	 | $5.12  |		 |   $-   	|         |	 |
 |12US1 |	hpc7g.16xlarge |	2	| 256 |8x16	|128 |  2147 | 	gcc (11.4.1) | 	/lustre	 | $3.44  |	0.60 |	 $748.04| 	 $748 | 	9 | 
 |12US1 |	hpc7g.16xlarge |	3	| 384 |12x16| 192	|	1592 |	gcc (11.4.1) | 	/lustre	 | $5.12  |	0.44 |	 $826.36| 	 $826  |	7 |
+|12US1 |    hpc7g.16xlarge |    4   | 512 |16x16| 256   | 1297 | gcc (11.4.1)    |  /lustre  | $6.80  | 0.36 | $893.52 |     $894  | 5.5  | 
 |36US3 |	hpc7g.16xlarge |	2	| 256 |8x8	|64|  	631	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.18 |	 $109.02| 	 $109  |	3 |
 |36US3 |	hpc7g.16xlarge |	2	| 256| 4x32	|128| 	411	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.11 |	 $71.01 |	 $71  |	2 |
 |36US3 |	hpc7g.16xlarge |	2	| 256| 8x16	|128| 	363	 | gcc (11.4.1)	| /lustre	 | $3.44  |	0.10 |	 $62.72 |	 $63  |	2 | 
