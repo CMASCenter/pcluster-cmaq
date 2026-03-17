@@ -517,7 +517,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 <li>Bugle Plot of Normalized Mean Error (NME) PM25_TOT for Networks AQS Hourly and AQS Daily</li>
 
-![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.p![Bugle Plot of NMB PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)ng)
+![Bugle Plot of NME PM25_TOT](./amet_plot_bugle_PM25_TOT_AQS_Daily_CSN_IMPROVE_NME.png)
 
 
 # Load your own AQ model data to MariaDB
