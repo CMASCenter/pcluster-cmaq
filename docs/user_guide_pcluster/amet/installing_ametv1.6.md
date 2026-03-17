@@ -557,6 +557,31 @@ foreach i (*.tar.gz)
 end
 ```
 
+Also need to modify the loop_over_days.csh script to  
+
+```
+cd ~/AMET_v16/scripts_db/metExample_mcip
+vi loop_over_days.csh
+```
+
+Uncomment this section
+
+```
+  ## SURFACE MET disabled below. To enable daily surface met matching the $sfcscript needs
+  ## this line modified for correct METOUTPUT setting passed into the script:
+    setenv METOUTPUT ${METCRO2DX}
+  echo "Running AMET surface met matching"
+  $sfcscript
+
+```
+
+And link the following files
+
+```
+cd ~/AMET_v16/model_data/MET/metExample_mcip
+ln -s METCRO2D_160731.nc METCRO2D
+ln -s GRIDCRO2D_160731.nc GRIDCRO2D
+```
 Note, ran out of disk space on /shared, so I had to resize the volume to 1000 G, this also requires a wait on the EBS volume being optimized.
 This process takes a long time - 15 hours. It is best to get the size correct when you create the instance, rather than having to resize it.
 
