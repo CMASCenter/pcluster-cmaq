@@ -287,6 +287,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 
+# Example plots using the aqExample database
 
 ## Create PM2.5 Spatial Plots
 
