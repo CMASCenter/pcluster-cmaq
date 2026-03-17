@@ -16,15 +16,35 @@ It appears you can create the demo cluster, and even the intermediate or advance
 
 Use the AWS Web Interface to add a policy called AWSEC2SpotServiceRolePolicy to the account prior to running a job that uses spot pricing on the ParallelCluster.
 
-## Install Parallel Cluster AWS CLI 3.0 
+## Install Parallel Cluster AWS CLI 3.14.2
 
-Use Parallel Cluster AWS Command Line Interface (CLI) v3.0 to configure and launch a demo cluster 
+Use Parallel Cluster AWS Command Line Interface (CLI) v3.14.2 to configure and launch a demo cluster 
 
 Requires the user to have a key.pair that was created on an ec2.instance
 
 ```{seealso}
 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Guide to obtaining AWS Key Pair</a>
 ```
+
+Note, the latest version of pcluster requires a ed25519_key.<br>
+
+To create this key, login to your ec2 instance website for your account.<br>
+
+On the left menu, look for Key Pairs under Network and Security<br>
+
+Click on the orange button to `Create a key pair`<br>
+
+```
+Specify a name.
+Choose ED25519 as the key pair type
+Choose pem as the format
+
+Click `Create key pair`
+```
+Download the key pair to your local machine, and use the following command to set the permissions of your private key file.
+
+`chmod 400 your_user_name-key-pair-region_name.pem`
+
 
 Install AWS ParallelCluster Command Line Interface on your local machine
 
@@ -58,11 +78,11 @@ Run pcluster version.
 
 `pcluster version`
 
-Output:
+Output: (note, this version number may change over time)
 
 ```
 {
-"version": "3.1.2"
+"version": "3.14.2"
 }
 ```
 
@@ -73,6 +93,12 @@ If you start a new terminal window, you need to re-activate the virtual environm
 ```
 source ~/apc-ve/bin/activate
 source ~/.nvm/nvm.sh
+```
+
+To update to the latest version of parallel cluster, use the following command:
+
+```
+python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
 Verify that the parallel cluster is working using:
