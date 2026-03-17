@@ -110,7 +110,7 @@ pcluster describe-cluster --region=us-east-1 --cluster-name cmaq
 pcluster update-compute-fleet --region us-east-1 --cluster-name cmaq --status START_REQUESTED
 ```
 
-## To re-add the /fsx filesystem
+## To add or re-add the /fsx filesystem
 
 Follow the same procedure of stopping the compute nodes, then upgrading the cluster configuration to use a yaml file with the /fsx defined. 
 
