@@ -262,6 +262,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>AMTIC (HAPs)</li>
 <li>Model_Model</li>
 </ol>
+</details>
 
 <details>
 <ol>European Networks (10) | Click to expand!
