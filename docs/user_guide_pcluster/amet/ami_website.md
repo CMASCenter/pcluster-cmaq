@@ -890,6 +890,59 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2019_O3_stats_plot.png)
 
+## Create Interactive Plotly Mutli-simulation Timeseries  (single network)
+
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2018
+<li>Select CMAQv532_12US1_2017
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Daily (e.g. PM2.5, PM10, and PAMS species)</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select PM25_TOT</ul>
+</ul>
+</li>
+</ul>
+
+![AMET select AQS Hourly and O3](./amet_select_AQS_Daily_PM25_TOT.png)
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Multi-simulation Timeseries</li>
+</ul>
+</li>
+</ul>
+
+![AMET run Plotly Multi-simulation Timeseries Plot](./amet_multisimulation_timeseries.png )
+
+<li>Interactive Plotly Multi-simulation Timeseries Plot using Networks AQS Daily and PM25_TOT</li>
+
+![Interactive Plotly Multi-simulation Timeseries Plot PM25_TOT](./CCMAQv532_12US1_2018_PM25_TOT_274056_timeseries.png)
+
+
 ## Create Plotly Kelly Plot (single species, single network, full year data)
 
 <ul>
