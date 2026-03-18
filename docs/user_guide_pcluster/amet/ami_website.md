@@ -627,8 +627,8 @@ Query result
 
 ![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries.png)
 
-## Plotly Timeseries of O3, NOY, and Isoprene
-Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
+Plotly Timeseries of O3, NOY, and Isoprene<br>
+Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.<br>
 
 ![Interactive Hourly Timeseries Plot of O3, Isoprene, NOY](./amet_plotly_hourly_timeseries_multispecies.png)
 
