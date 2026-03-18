@@ -1645,7 +1645,8 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 - Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php 
 
-- Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?
+- Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database.
+  - The amad_EQUATES database contains a limited subset of observational networks (AQS Daily, AQS Hourly, CASNET, and NADP)
 
 ## Bug or Error in the plot
 
