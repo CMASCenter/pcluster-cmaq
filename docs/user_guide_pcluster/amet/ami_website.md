@@ -1629,31 +1629,26 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 # Types of Errors and how to avoid them.
 
-<ol>
-<li>user selects wrong inputs for the type of plot that they choose to run.  </li>
-<ol>
-<li>Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax) </li>
-<ul>
-<li>Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3) </li>
-</ul>
-<li>Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project. </li>
-<li>Selects only one network for a plot program that is looking for multiple networks </li>
-</ol>
-<ol>
-<li>Error due to missing data</li>
-<ul>
-   <li>MetExample_mcip_surface didn't load because the loop_over_days.csh script has that commented out, and the user needs to edit, link the required input files and rerun. </li>
-   <li>Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php </li>
-  <li>Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?</li>
-</ul>
-<ol>
-<li>Bug or Error in the plot
-<ul>
-the legend symbols don't match the data, or data isn't plotted the way that the user expects. </li>
-</ul>
-<ul>
-<li>Bug - or error due to missing or mis-named program, search *.Rout for 'Fatal Error'</li>
-</ul>
-</ol>
-</ol>
-</ol>
+Selection of wrong inputs for the type of plot that they choose to run.
+
+- Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax)
+  - Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3)
+
+- Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project.
+
+- Selects only one network for a plot program that is looking for multiple networks
+
+
+Error due to missing data
+
+- MetExample_mcip_surface didn't load because the loop_over_days.csh script has that commented out, and the user needs to edit, link the required input files and rerun.
+
+- Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php 
+
+- Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?
+
+Bug or Error in the plot
+
+- the legend symbols don't match the data, or data isn't plotted the way that the user expects.
+
+- Bug - or error due to missing or mis-named program, search *.Rout for 'Fatal Error'
