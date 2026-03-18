@@ -289,6 +289,19 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 
+# Air Quality Variables ()
+<details>
+  <summary>Variables () | Click to expand!</summary>
+<ol>Gas variables 
+<li>O3, Ozone (hourly or daily)</li>
+<li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
+<li>O3_8hrmax, Ozone 8-hrmax(daily)	</li>
+<li>O3_1hrmax_9cell, Ozone 1-hrmax 9-cell avg(daily)</li>
+<li>O3_8hrmax_9cell, Ozone 8-hrmax 9-cell avg(daily)</li>
+<li>O3_1hrmax_time, Ozone 1-hrmax hour(daily)</li>
+</ol>
+</details>
+
 
 # Example plots using the aqExample database
 
