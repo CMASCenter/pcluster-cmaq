@@ -1659,7 +1659,7 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 ## Usability errors
   
-- If programs are failing, check to see if memory is being exceeded
+- If programs are failing with a 'Killed' message, check to see if memory is being exceeded
   - consider upgrading the EC2 type to larger memory and cpus
 
 - Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. 
