@@ -1631,12 +1631,12 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 ## Selection of wrong inputs for the type of plot that they choose to run.
 
-- Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax)
+- Selection of O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax)
   - Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3)
 
 - Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project.
 
-- Selects only one network for a plot program that is looking for multiple networks
+- Selection of only one network for a plot program that is looking for multiple networks
 
 
 ## Error due to missing data
