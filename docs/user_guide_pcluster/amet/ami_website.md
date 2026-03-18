@@ -505,6 +505,44 @@ Click on the arrow to display the list the available programs for creating diffe
 
 ![Hourly Boxplot of O3](./amet_plot_hourly_boxplot_O3.png)
 
+## Create Daily Boxplot using AQS Daily and O3_8hrmax Species
+
+<ul>
+<li>Under Observation Network 
+<ul>
+<li>AQS - Daily O3 (1-hr and 8-hr max O3)</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select O3_8hrmax</li>
+</ul>
+</li>
+</ul>
+    
+![AMET Website Select Obs Network and Species](./amet_select_AQS_Daily_and_O3_8hrmax_species.png)
+    
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select Plotly Boxplot (single network, multiple runs)</li>
+</ul>
+</li>
+</ul>
+
+![Select Program](./amet_result_program_interactive_boxplot.png)
+
+Query result
+![Query Result](./amet_result_query_daily_interactive_boxplot.png)
+
+<li>Hourly Boxplot of O3</li>
+
+![Hourly Boxplot of O3](./amet_plot_daily_interactive_boxplot_O38hrmax.png)
+
+
 ## Create Day of Week (DoW)  Boxplot using AQS Daily and O3_8hrmax Species
     
 <ul>
