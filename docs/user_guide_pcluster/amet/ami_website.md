@@ -1629,14 +1629,16 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 # Types of Errors and how to avoid them.
 
-<ol> 
 <li>user selects wrong inputs for the type of plot that they choose to run.  </li>
+<ol>
 <li>Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax) </li>
 <ul>
 <li>Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3) </li>
 </ul>
 <li>Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project. </li>
 <li>Selects only one network for a plot program that is looking for multiple networks </li>
+<ol>
+<ol>
 <li>Error due to missing data</li>
 <ul>
    <li>MetExample_mcip_surface didn't load because the loop_over_days.csh script has that commented out, and the user needs to edit, link the required input files and rerun. </li>
