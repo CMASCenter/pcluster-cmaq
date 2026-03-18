@@ -1629,7 +1629,7 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 # Types of Errors Creating Plots and how to avoid them.
 
-## Selection of wrong inputs for the type of plot that they choose to run.
+## Selection of wrong inputs for the plot type selected to run 
 
 - Selection of O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax)
   - Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3)
