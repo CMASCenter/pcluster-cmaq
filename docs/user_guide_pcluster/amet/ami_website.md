@@ -1628,8 +1628,7 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 ```
 
 # Types of Errors and how to avoid them.
-<details>
-<summary>multiple sources of error</summary> 
+
 <ol> 
 <li>user selects wrong inputs for the type of plot that they choose to run.  </li>
 <li>Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax) </li>
@@ -1648,4 +1647,3 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 <li>Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. </li>
 <li>Error due to missing or mis-named program, search *.Rout for 'Fatal Error'</li>
 </ol>
-</details>
