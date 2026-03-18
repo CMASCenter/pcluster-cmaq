@@ -1660,6 +1660,10 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 ## Usability errors
   
 - If programs are failing with a 'Killed' message, check to see if memory is being exceeded
+  - login to the server and use htop to view the amount of memory/cpus being used
+
+![AMET Memory Usage running Plotly Multisimulation Plot with EQUATES Data](./amet_htop_memory_usage_for_plotly_multisimulation.png)
+
   - consider upgrading the EC2 type to larger memory and cpus
 
 - Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. 
