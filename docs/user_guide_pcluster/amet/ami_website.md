@@ -105,8 +105,11 @@ http://[your-ec2-external-ip-address]:443/querygen_aq.php
 
 Verify you see the website and that it looks similar to the image below.
 
-Use the website to select the database, project, variables to plot, and plotting programs.
-Click on the arrow to display the list the available programs for creating different types of plots.
+Use the website to select the database, project, observation network, variables to plot, and plotting programs.<br>
+
+Note, errors may occur when you make selections on the AMET Website, see a list of typical error types below.<br>
+
+Click on the arrow to display the list the available programs for creating different types of plots.<br>
 
 # Programs to create plots (74)
 <details>
