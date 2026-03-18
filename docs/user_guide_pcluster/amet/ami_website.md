@@ -1627,7 +1627,7 @@ to
 setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 ```
 
-# Types of Errors and how to avoid them.
+# Types of Errors Creating Plots and how to avoid them.
 
 ## Selection of wrong inputs for the type of plot that they choose to run.
 
