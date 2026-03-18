@@ -1635,13 +1635,16 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
   - Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3)
 
 - Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project.
+  - Pay attention to the dates selected!
 
 - Selection of only one network for a plot program that is looking for multiple networks
+  - Pay attention to the description in paranthesis next to the Program Name
 
 
 ## Error due to missing data
 
 - MetExample_mcip_surface didn't load because the loop_over_days.csh script has that commented out, and the user needs to edit, link the required input files and rerun.
+  - run a mysql query to verify that the data exists, or check your database loading logs
 
 - Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php 
 
@@ -1653,3 +1656,11 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 - the legend symbols don't match the data, or data isn't plotted the way that the user expects.
 
 - Bug - or error due to missing or mis-named program, search *.Rout for 'Fatal Error'
+
+## Usability errors
+  
+- If programs are failing, check to see if memory is being exceeded
+  - consider upgrading the EC2 type to larger memory and cpus
+
+- Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. 
+  - consider clearing your local browser cache
