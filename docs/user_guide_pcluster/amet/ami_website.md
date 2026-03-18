@@ -1629,6 +1629,7 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 # Types of Errors and how to avoid them.
 
+<ol>
 <li>user selects wrong inputs for the type of plot that they choose to run.  </li>
 <ol>
 <li>Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax) </li>
@@ -1637,7 +1638,7 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 </ul>
 <li>Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project. </li>
 <li>Selects only one network for a plot program that is looking for multiple networks </li>
-<ol>
+</ol>
 <ol>
 <li>Error due to missing data</li>
 <ul>
@@ -1645,7 +1646,14 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
    <li>Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php </li>
   <li>Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?</li>
 </ul>
-<li>Error in the plot, ie, the legend symbols don't match the data, or data isn't plotted the way that the user expects. </li>
-<li>Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. </li>
-<li>Error due to missing or mis-named program, search *.Rout for 'Fatal Error'</li>
+<ol>
+<li>Bug or Error in the plot
+<ul>
+the legend symbols don't match the data, or data isn't plotted the way that the user expects. </li>
+</ul>
+<ul>
+<li>Bug - or error due to missing or mis-named program, search *.Rout for 'Fatal Error'</li>
+</ul>
+</ol>
+</ol>
 </ol>
