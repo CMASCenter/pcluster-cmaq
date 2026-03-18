@@ -940,7 +940,7 @@ After the successful import, was able to use the AMET Website to view all of the
 
 <li>Interactive Plotly Multi-simulation Timeseries Plot using Networks AQS Daily and PM25_TOT</li>
 
-![Interactive Plotly Multi-simulation Timeseries Plot PM25_TOT](./CCMAQv532_12US1_2018_PM25_TOT_274056_timeseries.png)
+![Interactive Plotly Multi-simulation Timeseries Plot PM25_TOT](./CMAQv532_12US1_2018_PM25_TOT_274056_timeseries.png)
 
 
 ## Create Plotly Kelly Plot (single species, single network, full year data)
