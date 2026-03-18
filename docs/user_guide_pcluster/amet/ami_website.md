@@ -265,7 +265,8 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 <details>
-<ol>European Networks (10) | Click to expand!
+  <summary> European Networks (10) | click to expant!
+<ol>Name of European Network
 <li>ADMN (SO4,NO3,NH4,Precip, Na Ion, Cl Ion)</li>
 <li>AGANET (HCl, NO2, NOY, SOX, HNO3, SO2, Cl, Na)</li>
 <li>AirBase_Hourly (NO, NO2, NOX, SO2, CO, PM2.5, PM10, O3)</li>
@@ -280,7 +281,8 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 <details>
-<ol>Campaigns (3) | Click to expand!
+<summary>Campaigns (3) | Click to expand!
+<ol>Name of Campaign
 <li>CALNEX</li>
 <li>SOAS</li>
 <li>Special </li>
