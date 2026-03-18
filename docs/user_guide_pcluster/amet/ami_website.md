@@ -538,9 +538,9 @@ Click on the arrow to display the list the available programs for creating diffe
 Query result
 ![Query Result](./amet_result_query_daily_interactive_boxplot.png)
 
-<li>Hourly Boxplot of O3</li>
+<li>Daily Boxplot of O3_8hrmax</li>
 
-![Hourly Boxplot of O3](./amet_plot_daily_interactive_boxplot_O38hrmax.png)
+![Daily Boxplot of O3_8hrmax](./amet_plot_daily_interactive_boxplot_O38hrmax.png)
 
 
 ## Create Day of Week (DoW)  Boxplot using AQS Daily and O3_8hrmax Species
@@ -614,7 +614,7 @@ Query result
 ## Plotly Timeseries of O3, NOY, and Isoprene
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
 
-![Hourly Timeseries Plot of O3](./amet_plotly_hourly_timeseries_multispecies.png)
+![Interactive Hourly Timeseries Plot of O3, Isoprene, NOY](./amet_plotly_hourly_timeseries_multispecies.png)
 
 ## Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
 
