@@ -1630,7 +1630,8 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 # Types of Errors and how to avoid them.
 <details>
 <summary>multiple sources of error</summary> 
-<ol> user selects wrong inputs for the type of plot that they choose to run.  
+<ol> 
+<li>user selects wrong inputs for the type of plot that they choose to run.  </li>
 <li>Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax) </li>
 <ol>
 <li>Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3) </li>
@@ -1640,8 +1641,8 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 <li>Error due to missing data</li>
 <ol>
    <li>MetExample_mcip_surface didn't load because the loop_over_days.csh script has that commented out, and the user needs to edit, link the required input files and rerun. </li>
-        <li>Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php </li>
-        <li>Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?</li>
+   <li>Observation data not available to be loaded for specific networks, ie. METAR is the only network that appears to work for querygen_met.php </li>
+  <li>Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?</li>
 </ol>
 <li>Error in the plot, ie, the legend symbols don't match the data, or data isn't plotted the way that the user expects. </li>
 <li>Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. </li>
