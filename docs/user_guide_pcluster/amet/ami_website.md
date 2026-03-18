@@ -394,7 +394,7 @@ Click on the arrow to display the list the available programs for creating diffe
 ![Scatterplot of O3_8hrmax](./amet_plot_density_scatterplot_singlerun_singlenetwork.png)
 
 
-## Create Soccerplot
+## Create Soccerplot using Multiple Obs Networks, Multiple Species
 
 <ul>
 <li>Under AQ Observation Networks
