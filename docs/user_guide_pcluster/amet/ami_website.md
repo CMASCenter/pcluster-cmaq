@@ -1629,7 +1629,7 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 
 # Types of Errors and how to avoid them.
 
-Selection of wrong inputs for the type of plot that they choose to run.
+## Selection of wrong inputs for the type of plot that they choose to run.
 
 - Selects O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax)
   - Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3)
@@ -1639,7 +1639,7 @@ Selection of wrong inputs for the type of plot that they choose to run.
 - Selects only one network for a plot program that is looking for multiple networks
 
 
-Error due to missing data
+## Error due to missing data
 
 - MetExample_mcip_surface didn't load because the loop_over_days.csh script has that commented out, and the user needs to edit, link the required input files and rerun.
 
@@ -1647,7 +1647,7 @@ Error due to missing data
 
 - Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database. Is this a problem with selecting the wrong species, or an issue with no data for the obs?
 
-Bug or Error in the plot
+## Bug or Error in the plot
 
 - the legend symbols don't match the data, or data isn't plotted the way that the user expects.
 
