@@ -31,7 +31,7 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 ### Database: amad_EQUATES
 <details>
 <summary> Projects | Click to expand!</summary>
-<ol>**Air Quality**
+<ol><b>Air Quality</b>
 <li>CMAQv532_12US1_2002</li>
 <li> CMAQv532_12US1_2003</li>
 <li> CMAQv532_12US1_2004</li>
