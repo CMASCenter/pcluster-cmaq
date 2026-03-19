@@ -394,7 +394,10 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Mn, Mangenese(Mn)	</li>
 <li>soil, Soil(IMPROVE Eqn.)	</li>
 </ol>
-<ol>Subset of Gas variables available for aqExample
+</details>
+<details>
+ <summary>Subset of variables available for aqExample | Click to expand!</summary>
+<ol>Subset of Gas variables
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
 <li>O3_8hrmax, Ozone 8-hrmax(daily)	</li>
@@ -420,15 +423,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Isoprene</li>
 <li>Toluene</li>
 </ol>
-<ol>Metorological Variables for metExample
-<li>T(2m), 2 meter Temperature</li>
-<li>Hourly Precipitation</li>
-<li>Water Vapor Mixing Ratio</li>
-<li>Wind Speed</li>
-<li>Solar Radiation</li>
-<li>Surface Pressure</li>
-</ol>
-<ol>Subset of Particles in aqExample
+<ol>Subset of Particles
 <li>SO4</li>
 <li>NO3</li>
 <li>NH4</li>
@@ -470,6 +465,20 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Mn, Mangenese(Mn)	</li>
 <li>soil, Soil(IMPROVE Eqn.)	</li>
 </ol>
+</details>
+
+<details>
+<summary>Metorological Variables for metExample</summary>
+<ol>Metorological Variables
+<li>T(2m), 2 meter Temperature</li>
+<li>Hourly Precipitation</li>
+<li>Water Vapor Mixing Ratio</li>
+<li>Wind Speed</li>
+<li>Solar Radiation</li>
+<li>Surface Pressure</li>
+</ol>
+</details>
+
 </details>
 
 
