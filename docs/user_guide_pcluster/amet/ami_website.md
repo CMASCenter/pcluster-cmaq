@@ -882,6 +882,18 @@ to
 
 Edit the path to the combine output, if that is what you are uploading for your new_project.
 
+Check if observation data is available.
+
+```
+cd ~/AMET_v16/obs
+ls -lrt */*
+```
+
+Currently only the obsdata for 2018 has been copied from the s3 bucket to this location.
+Follow instructions on the readme file to copy additional years, and then extract them.
+
+Once your model data and the observation data is available, run the net_project_pre_and_post.csh script.
+
 # Loading EPA's EQUATES Database
 
 This method was used to load the EQUATES Database to the EC2 instance.
