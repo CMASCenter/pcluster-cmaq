@@ -13,10 +13,10 @@ Create a VM with preloaded AMET databases and projects and perform analysis usin
 ### Database: amet
 <details>
   <summary> Projects | Click to expand!</summary>
-<ol>Air Quality
+<ol>**Air Quality**
 <li>aqExample</li>
 </ol>
-<ol>Meterology
+<ol>**Meterology**
 <li>metExample_mcip</li>
 <li>metExample_wrf</li>
 <li>metExample_mpas</li>
@@ -27,7 +27,7 @@ Create a VM with preloaded AMET databases and projects and perform analysis usin
 ### Database: amad_EQUATES
 <details>
 <summary> Projects | Click to expand!</summary>
-<ol>Air Quality
+<ol>**Air Quality**
 <li>CMAQv532_12US1_2002</li>
 <li> CMAQv532_12US1_2003</li>
 <li> CMAQv532_12US1_2004</li>
