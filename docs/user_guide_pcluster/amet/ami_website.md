@@ -409,7 +409,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 <details>
- <summary>Subset of variables available for aqExample (64) | Click to expand!</summary>
+ <summary>Subset of variables available for aqExample (126) | Click to expand!</summary>
 <ol>Subset of Gas phase variables (24)
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
@@ -478,7 +478,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Mn, Mangenese(Mn)	</li>
 <li>soil, Soil(IMPROVE Eqn.)	</li>
 </ol>
-<ol>Subset of Wet/Dry Deposition Species
+<ol>Subset of Wet/Dry Deposition Species (25)
 <li>SO4_dep, SO4(wetdep) </li>
 <li>SO4_conc, SO4(wetconc)		 </li>
 <li>NO3_dep, NO3(wetdep)		 </li>
@@ -505,7 +505,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>O3_ddep, O3(drydep)		 </li>
 <li>SO2_ddep, SO2(drydep)		 </li>
 </ol>
-<ol>Subset of Toxics
+<ol>Subset of Toxics (37)
 <li>Acrolein</li>
 <li>Acrylonitrile</li>
 <li>Acetaldehyde</li>
