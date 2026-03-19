@@ -351,7 +351,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 # Air Quality Variables ()
 <details>
-  <summary>List of AQ Variables available for EQUATES () | Click to expand!</summary>
+  <summary>List of AQ Variables available for EQUATES (40) | Click to expand!</summary>
 <ol>Variables available for EQUATES
 <li>SO4 </li>
 <li>NO3</li>
@@ -397,7 +397,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 <details>
  <summary>Subset of variables available for aqExample | Click to expand!</summary>
-<ol>Subset of Gas variables
+<ol>Subset of Gas variables (24)
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
 <li>O3_8hrmax, Ozone 8-hrmax(daily)	</li>
@@ -423,7 +423,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Isoprene</li>
 <li>Toluene</li>
 </ol>
-<ol>Subset of Particles
+<ol>Subset of Particles(40)
 <li>SO4</li>
 <li>NO3</li>
 <li>NH4</li>
@@ -469,7 +469,7 @@ Click on the arrow to display the list the available programs for creating diffe
 
 <details>
 <summary>Metorological Variables for metExample</summary>
-<ol>Metorological Variables
+<ol>Metorological Variables (6)
 <li>T(2m), 2 meter Temperature</li>
 <li>Hourly Precipitation</li>
 <li>Water Vapor Mixing Ratio</li>
