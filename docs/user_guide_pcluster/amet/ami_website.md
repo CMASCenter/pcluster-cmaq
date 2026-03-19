@@ -67,6 +67,8 @@ Some programs also support model to model comparisons, multiple projects, multip
 
 # Spin up a server using pre-installed AMET AMI
 
+<br>Note, the AMI is currently private, and only available upon request. Please send an email if you would like to be a beta-tester.</br>
+
  * Select AMI named AMETv1.6_web  that contains the AMETv1.6 installation with all data for MET and AQ loaded into database
  * Select Launch instance from AMI
  * Select Instance Type t3.xlarge (4vcpu and 16 GB memory) or t3.large (2 vcpu 8 GB memory)
@@ -1055,6 +1057,8 @@ sudo mysql -p amad_EQUATES < amad_EQUATES.dump &
 After the successful import, was able to use the AMET Website to view all of the imported tables.
 
 ![AMET AQ WEBSITE display of 2002-2019](./amad_EQUATES_tables.png)
+
+# Example plots using the EQUATES 2002-2019 Projects in the amad_EQUATES database
 
 ## Create Interactive Year-long Monthly Statistics Plot (single network)
 
