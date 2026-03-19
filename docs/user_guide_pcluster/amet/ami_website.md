@@ -4,7 +4,7 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 
-## This chapter provides instructions to
+## Learn how to use AMET on AWS
 
 - Create a VM with preloaded AMET databases and projects
 - Perform analysis of the 3 MET projects (mcip, wrf, mpas)  provided using the AMET Met Website
