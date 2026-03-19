@@ -396,7 +396,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 <details>
- <summary>Subset of variables available for aqExample | Click to expand!</summary>
+ <summary>Subset of variables available for aqExample (64) | Click to expand!</summary>
 <ol>Subset of Gas variables (24)
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
@@ -468,7 +468,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 <details>
-<summary>Metorological Variables for metExample</summary>
+<summary>Metorological Variables for metExample (6) | Click to Expand!</summary>
 <ol>Metorological Variables (6)
 <li>T(2m), 2 meter Temperature</li>
 <li>Hourly Precipitation</li>
