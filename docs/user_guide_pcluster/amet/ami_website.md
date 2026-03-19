@@ -977,6 +977,8 @@ After the successful import, was able to use the AMET Website to view all of the
 </ul>
 
 
+![AMET select multiple projects for multisimulation plots](./amet_select_multiple_projects.png)
+
 <ul>
 <li>Under Observation Network
 <ul>
