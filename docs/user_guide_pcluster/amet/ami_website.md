@@ -1,14 +1,14 @@
-# AMET
+#AMET
 
 The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance.
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">AMET User Guide</a>
 
-# Goal is to provide instructions to
+## This chapter provides instructions to
 
 - Create a VM with preloaded AMET databases and projects
-- Perform analysis of the 3 projects provided using the AMET Met Website
-- Perform analysis using the aqExample project and the 18 EQUATES projects using the AMET AQ Website
+- Perform analysis of the 3 MET projects (mcip, wrf, mpas)  provided using the AMET Met Website
+- Perform analysis using the AQ project aqExample and 18 EQUATES projects using the AMET AQ Website
 - Load model data and observation data for a new project
 - Troubleshoot and avoid errors
 
@@ -18,7 +18,7 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 <details>
   <summary> Projects | Click to expand!</summary>
 <ol><b>AIR QUALITY</b>
-<li>aqExample</li>
+<li>aqExample CMAQv5.5 test case July 2018</li>
 </ol>
 <ol><b>METEOROLOGY</b>
 <li>metExample_mcip</li>
