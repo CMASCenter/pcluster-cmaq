@@ -428,7 +428,7 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>Solar Radiation</li>
 <li>Surface Pressure</li>
 </ol>
-<ol>Particles
+<ol>Subset of Particles in aqExample
 <li>SO4</li>
 <li>NO3</li>
 <li>NH4</li>
