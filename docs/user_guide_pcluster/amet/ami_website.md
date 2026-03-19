@@ -22,9 +22,9 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 <li>aqExample CMAQv5.5 test case July 2018</li>
 </ol>
 <ol><b>METEOROLOGY</b>
-<li>metExample_mcip</li>
-<li>metExample_wrf</li>
-<li>metExample_mpas</li>
+<li>metExample_mcip, MCIP Test Case July 2016</li>
+<li>metExample_wrf, WRF Test Case July 2016</li>
+<li>metExample_mpas, MPAS Test Case July 2016</li>
 </ol>
 </details>
 
