@@ -2,7 +2,7 @@
 
 The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance.
 
-<a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">AMET User Guide</a>
+<a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 
 ## This chapter provides instructions to
 
