@@ -1816,17 +1816,19 @@ cd /shared/AMET_v16/model_data/MET/
 mkdir new_project
 ```
 
-Note, the MPAS data is 462 GB. The root volume of this AMI is only 500GB.
-Therefore, you will need to attach another 1 TB ebs volume to the EC2 instance.
-See these instructions.
+The wrfExample_mpas model data was 462 GB. The root volume of this AMI is only 500GB.
+Therefore, you will need to attach another 1 TB ebs volume to the EC2 instance if you needed to load model data for a new MPAS project..
+The model data for the projects that have already been loaded into the database have been deleted as they are no longer needed.
+
+See these instructions to attach a new volume.
 <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html">Instruction to attach EBS Volume to VM</a>
 <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Instruction to use EBS Volume on AWS</a>
 To load this data into the database, you will also need to change the EC2 instance type from t3.large to t3.2xlarge.
 <a href="https://repost.aws/questions/QUHXsEc4U1R_-ze2xuilqHwg/is-it-possible-to-change-instance-type-without-terminating-and-creating-new-instance-what-is-the-difference">Change instance type</a>
 
-use the s3 cp command to upload your data
+use the s3 cp command to upload your data to the /shared/AMET_v16/model_data/MET/new_project directory
 
-## Load your project data into the database
+## Load your project data into the database for a new MET project
 
 Create a new project under the script_db directory
 
@@ -1865,6 +1867,11 @@ setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_subset
 to 
 setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 ```
+
+## Load your project data into the database for a new AQ project
+
+need to add this contents
+
 
 # Types of Errors Creating Plots and how to avoid them.
 
