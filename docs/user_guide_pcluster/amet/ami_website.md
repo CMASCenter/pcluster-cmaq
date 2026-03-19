@@ -359,7 +359,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 
-# Air Quality Variables ()
+# Air Quality and Met Variables ()
 <details>
   <summary>List of AQ Variables available for EQUATES (40) | Click to expand!</summary>
 <ol>Variables available for EQUATES
