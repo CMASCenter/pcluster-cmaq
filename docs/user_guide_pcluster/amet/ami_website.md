@@ -2,7 +2,7 @@
 
 The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance.
 
-https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview
+<a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">AMET User Guide</a>
 
 # Goal
 
@@ -1698,10 +1698,10 @@ mkdir new_project
 Note, the MPAS data is 462 GB. The root volume of this AMI is only 500GB.
 Therefore, you will need to attach another 1 TB ebs volume to the EC2 instance.
 See these instructions.
-https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html
-https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
+<a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html">Instruction to attach EBS Volume to VM</a>
+<a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Instruction to use EBS Volume on AWS</a>
 To load this data into the database, you will also need to change the EC2 instance type from t3.large to t3.2xlarge.
-https://repost.aws/questions/QUHXsEc4U1R_-ze2xuilqHwg/is-it-possible-to-change-instance-type-without-terminating-and-creating-new-instance-what-is-the-difference 
+<a href="https://repost.aws/questions/QUHXsEc4U1R_-ze2xuilqHwg/is-it-possible-to-change-instance-type-without-terminating-and-creating-new-instance-what-is-the-difference">Change instance type</a>
 
 use the s3 cp command to upload your data
 
