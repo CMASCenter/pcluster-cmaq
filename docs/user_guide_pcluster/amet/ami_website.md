@@ -6,7 +6,7 @@ https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview
 
 # Goal
 
-* Show users how to create a VM that has AMET databases and projects pre-loaded and ready for analysis using the AMET Website.
+Show users how to create a VM that has AMET databases and projects pre-loaded and ready for analysis using the AMET Website.
 
 
 
@@ -14,33 +14,44 @@ Database: amet
 
 Projects:
 
-- aqExample
-- metExample_mcip
-- metExample_wrf
-- metExample_mpas
+# Database: amet
+<details>
+  <summary> Projects | Click to expand!</summary>
+<ol>Air Quality
+<li>aqExample</li>
+</ol>
+<ol>Meterology
+<li>metExample_mcip</li>
+<li>metExample_wrf</li>
+<li>metExample_mpas</li>
+</ol>
+</details>
 
-Database: amad_EQUATES
 
-Projects:
-
-- CMAQv532_12US1_2002
-- CMAQv532_12US1_2003
-- CMAQv532_12US1_2004
-- CMAQv532_12US1_2005
-- CMAQv532_12US1_2006
-- CMAQv532_12US1_2007
-- CMAQv532_12US1_2008
-- CMAQv532_12US1_2009
-- CMAQv532_12US1_2010
-- CMAQv532_12US1_2011
-- CMAQv532_12US1_2012
-- CMAQv532_12US1_2013
-- CMAQv532_12US1_2014
-- CMAQv532_12US1_2015
-- CMAQv532_12US1_2016
-- CMAQv532_12US1_2017
-- CMAQv532_12US1_2018
-- CMAQv532_12US1_2019
+# Database: amad_EQUATES
+<details>
+<summary> Projects | Click to expand!</summary>
+<ol>Air Quality
+<li>CMAQv532_12US1_2002</li>
+<li> CMAQv532_12US1_2003</li>
+<li> CMAQv532_12US1_2004</li>
+<li> CMAQv532_12US1_2005</li>
+<li> CMAQv532_12US1_2006</li>
+<li> CMAQv532_12US1_2007</li>
+<li> CMAQv532_12US1_2008</li>
+<li> CMAQv532_12US1_2009</li>
+<li> CMAQv532_12US1_2010</li>
+<li> CMAQv532_12US1_2011</li>
+<li> CMAQv532_12US1_2012</li>
+<li> CMAQv532_12US1_2013</li>
+<li> CMAQv532_12US1_2014</li>
+<li> CMAQv532_12US1_2015</li>
+<li> CMAQv532_12US1_2016</li>
+<li> CMAQv532_12US1_2017</li>
+<li> CMAQv532_12US1_2018</li>
+<li> CMAQv532_12US1_2019</li>
+</ol>
+</details>
 
 # Spin up a server using pre-installed AMET AMI
 
