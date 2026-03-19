@@ -58,6 +58,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'furo'
 html_last_updated_fmt = '%Y-%m-%d %H:%M:%S %z'
+html_theme_options = {
+    'navigation_depth': 4,
+}
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
