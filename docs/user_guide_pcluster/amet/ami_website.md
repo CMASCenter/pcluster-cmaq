@@ -410,7 +410,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 <details>
  <summary>Subset of variables available for aqExample (64) | Click to expand!</summary>
-<ol>Subset of Gas variables (24)
+<ol>Subset of Gas phase variables (24)
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
 <li>O3_8hrmax, Ozone 8-hrmax(daily)	</li>
@@ -477,6 +477,72 @@ Click on the arrow to display the list the available programs for creating diffe
 <li>K, Potassium(K)</li>
 <li>Mn, Mangenese(Mn)	</li>
 <li>soil, Soil(IMPROVE Eqn.)	</li>
+</ol>
+<ol>Subset of Wet/Dry Deposition Species
+<li>SO4_dep, SO4(wetdep) </li>
+<li>SO4_conc, SO4(wetconc)		 </li>
+<li>NO3_dep, NO3(wetdep)		 </li>
+<li>NO3_conc, NO3(wetconc)		 </li>
+<li>NH4_dep, NH4(wetdep)		 </li>
+<li>NH4_conc, NH4(wetconc)		 </li>
+<li>Cl_dep, Cl Ion(wetdep)		 </li>
+<li>Cl_conc, Cl Ion(wetconc)		 </li>
+<li>CA_dep, Ca(wetdep)		 </li>
+<li>CA_conc, Ca(wetconc)		 </li>
+<li>MG_dep, Mg(wetdep)		 </li>
+<li>MG_conc, Mg(wetconc)		 </li>
+<li>K_dep, K(wetdep)		 </li>
+<li>K_conc, K(wetconc)		 </li>
+<li>NA_dep, Na(wetdep)		 </li>
+<li>NA_conc, Na(wetconc)		 </li>
+<li>HGconc, Hg(wetconc)		 </li>
+<li>HGdep, Hg(wetdep)		 </li>
+<li>SO4_ddep, SO4(drydep)		 </li>
+<li>NO3_ddep, NO3(drydep)		 </li>
+<li>NH4_ddep, NH4(drydep)		 </li>
+<li>HNO3_ddep, HNO3(drydep)		 </li>
+<li>TNO3_ddep, TNO3(drydep)		 </li>
+<li>O3_ddep, O3(drydep)		 </li>
+<li>SO2_ddep, SO2(drydep)		 </li>
+</ol>
+<ol>Subset of Toxics
+<li>Acrolein</li>
+<li>Acrylonitrile</li>
+<li>Acetaldehyde</li>
+<li>Benzene</li>    
+<li>BR2_C2_12</li> 
+<li>Butadiene, 13Butadiene13</li>	
+<li>Cadmium_PM10</li>
+<li>Cadmium_PM25</li>
+<li>Carbontet  </li>
+<li>Chromium_PM10</li>
+<li>Chromium_PM2</li>
+<li>CHCL3      </li>
+<li>CL_ETHE   </li>
+<li>CL2      </li>
+<li>CL2_C2_12</li>
+<li>CL2_ME  </li>
+<li>CL3_ETHE</li>
+<li>CL4_ETHE</li>
+<li>CL4_Ethane1122 </li>
+<li>CR_III_PM10   </li>
+<li>CR_III_PM25  </li>
+<li>CR_VI_PM10  </li>
+<li>CR_VI_PM25 </li>
+<li>Dichlorobenzene</li>
+<li>Formaldehyde  </li>
+<li>Lead_PM10    </li>
+<li>Lead_PM25   </li>
+<li>Manganese_PM10  </li>
+<li>Manganese_PM25 </li>
+<li>MEOH</li>
+<li>MXYL</li>
+<li>Nickel_PM10 </li>
+<li>Nickel_PM25 </li>
+<li>OXYL     </li> 
+<li>Propdichloride </li>
+<li>PXYL </li>
+<li>Toluene</li>
 </ol>
 </details>
 
