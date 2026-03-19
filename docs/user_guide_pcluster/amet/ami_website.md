@@ -6,7 +6,7 @@ https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview
 
 # Goal
 
-Show users how to create a VM that has AMET databases and projects pre-loaded and ready for analysis using the AMET Website.
+Create a VM with preloaded AMET databases and projects and perform analysis using the AMET Website.
 
 
 
