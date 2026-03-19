@@ -945,7 +945,7 @@ After the successful import, was able to use the AMET Website to view all of the
 </li>
 </ul>
 
-![AMET select AQS Hourly and O3](./amet_select_AQS_Daily_PM25_TOT.png)
+![AMET select AQS Daily and PM25_TOT](./amet_select_AQS_Daily_PM25_TOT.png)
 
 <ul>
 <li>Under Choose Program to Run
@@ -957,9 +957,58 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![AMET run Plotly Multi-simulation Timeseries Plot](./amet_multisimulation_timeseries.png )
 
-<li>Interactive Plotly Multi-simulation Timeseries Plot using Networks AQS Daily and PM25_TOT</li>
+## Create Interactive Plotly Mutli-simulation Timeseries for SO2 and AQS Hourly (single network)
 
-![Interactive Plotly Multi-simulation Timeseries Plot PM25_TOT](./CMAQv532_12US1_2018_PM25_TOT_274056_timeseries.png)
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2018
+<li>Select CMAQv532_12US1_2017
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select SO2</ul>
+</ul>
+</li>
+</ul>
+
+![AMET select AQS Hourly and SO2](./amet_select_AQS_Hourly_SO2.png)
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Multi-simulation Timeseries</li>
+</ul>
+</li>
+</ul>
+
+![AMET run Plotly Multi-simulation Timeseries Plot](./amet_plotly_multisimulation_timeseries.png )
+
+
+<li>Interactive Plotly Multi-simulation (EQUATES 2017, 2018) Timeseries Plot using Networks AQS Hourly and SO2</li>
+
+![Interactive Plotly Multi-simulation Timeseries Plot AQS Hourly, SO2](./CMAQv532_12US1_2018_2017_SO2_timeseries.png)
 
 
 ## Create Plotly Kelly Plot (single species, single network, full year data)
