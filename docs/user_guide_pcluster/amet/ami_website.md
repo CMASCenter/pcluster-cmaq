@@ -4,9 +4,13 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">AMET User Guide</a>
 
-# Goal
+# Goal is to provide instructions to
 
-Create a VM with preloaded AMET databases and projects and perform analysis using the AMET Website.
+- Create a VM with preloaded AMET databases and projects
+- Perform analysis of the 3 projects provided using the AMET Met Website
+- Perform analysis using the aqExample project and the 18 EQUATES projects using the AMET AQ Website
+- Load model data and observation data for a new project
+- Troubleshoot and avoid errors
 
 ## Databases and Projects Available
 
