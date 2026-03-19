@@ -1,3 +1,47 @@
+# AMET
+
+The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance.
+
+https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview
+
+# Goal
+
+* Show users how to create a VM that has AMET databases and projects pre-loaded and ready for analysis using the AMET Website.
+
+
+
+Database: amet
+
+Projects:
+
+- aqExample
+- metExample_mcip
+- metExample_wrf
+- metExample_mpas
+
+Database: amad_EQUATES
+
+Projects:
+
+- CMAQv532_12US1_2002
+- CMAQv532_12US1_2003
+- CMAQv532_12US1_2004
+- CMAQv532_12US1_2005
+- CMAQv532_12US1_2006
+- CMAQv532_12US1_2007
+- CMAQv532_12US1_2008
+- CMAQv532_12US1_2009
+- CMAQv532_12US1_2010
+- CMAQv532_12US1_2011
+- CMAQv532_12US1_2012
+- CMAQv532_12US1_2013
+- CMAQv532_12US1_2014
+- CMAQv532_12US1_2015
+- CMAQv532_12US1_2016
+- CMAQv532_12US1_2017
+- CMAQv532_12US1_2018
+- CMAQv532_12US1_2019
+
 # Spin up a server using pre-installed AMET AMI
 
  * Select AMI named AMETv1.6_web  that contains the AMETv1.6 installation with all data for MET and AQ loaded into database
