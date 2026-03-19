@@ -351,14 +351,124 @@ Click on the arrow to display the list the available programs for creating diffe
 
 # Air Quality Variables ()
 <details>
-  <summary>Variables () | Click to expand!</summary>
-<ol>Gas variables 
+  <summary>List of AQ Variables available for EQUATES () | Click to expand!</summary>
+<ol>Variables available for EQUATES
+<li>SO4 </li>
+<li>NO3</li>
+<li>NH4</li>
+<li>EC</li>
+<li>OC</li>
+<li>TC </li>
+<li>other, PMOther</li>
+<li>ncom</li>
+<li>Cl, Cl Ion</li>
+<li>Na, Na Ion</li>
+<li>PM_TOT, PM2.5 Mass(I+J)	</li>
+<li>PM_FRM, PM2.5 FRM Equiv.(I+J)</li>	
+<li>PM25_SO4, PM2.5 SO4	</li>
+<li>PM25_NO3, PM_2.5 NO3	</li>
+<li>PM25_NH4, PM_2.5 NH4	</li>
+<li>PM25_TOT, PM_2.5 Total Mass	</li>
+<li>PM25_FRM, PM_2.5 FRM Equiv.	</li>
+<li>PM25_EC, PM_2.5 EC	</li>
+<li>PM25_OC, PM_2.5 OC	</li>
+<li>PM25_TC, PM_2.5 TC	</li>
+<li>PM25_Cl, PM_2.5 Cl Ion	</li>
+<li>PM25_Na, PM_2.5 Na Ion	</li>
+<li>PMC_SO4, PM_Coarse SO4	</li>
+<li>PMC_NO3, PM_Coarse NO3	</li>
+<li>PMC_NH4, PM_Coarse NH4	</li>
+<li>PMC_TOT, PM_Coarse Total Mass</li>	
+<li>PMC_Cl, PM_Coarse Cl Ion	</li>
+<li>PMC_Na, PM_Coarse Na Ion	</li>
+<li>PM10, PM10 Mass	</li>
+<li>Na, Sodium(Na)	</li>
+<li>Cl, Chlorine(Cl)	</li>
+<li>Fe, Iron(Fe)	</li>
+<li>Al, Aluminium(Al)	</li>
+<li>Si, Silicon(Si)	</li>
+<li>Ti, Titanium(Ti)	</li>
+<li>Ca, Calcium(Ca)	</li>
+<li>Mg, Magnesium(Mg)	</li>
+<li>K, Potassium(K)	</li>
+<li>Mn, Mangenese(Mn)	</li>
+<li>soil, Soil(IMPROVE Eqn.)	</li>
+</ol>
+<ol>Subset of Gas variables available for aqExample
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
 <li>O3_8hrmax, Ozone 8-hrmax(daily)	</li>
 <li>O3_1hrmax_9cell, Ozone 1-hrmax 9-cell avg(daily)</li>
 <li>O3_8hrmax_9cell, Ozone 8-hrmax 9-cell avg(daily)</li>
 <li>O3_1hrmax_time, Ozone 1-hrmax hour(daily)</li>
+<li>SO2</li>
+<li>NH3</li>
+<li>HNO3</li>   
+<li>TNO3, TNO3(NO3+HNO3)</li>
+<li>CO</li>
+<li>NO</li>
+<li>NO2</li>
+<li>NOX</li>
+<li>NOY</li>
+<li>H2O2</li>
+<li>HOx</li>
+<li>Acetaldehyde</li>
+<li>Formaldehyde</li>
+<li>Benzene</li>
+<li>Ethane</li>
+<li>Ethylene</li>
+<li>Isoprene</li>
+<li>Toluene</li>
+</ol>
+<ol>Metorological Variables for metExample
+<li>T(2m), 2 meter Temperature</li>
+<li>Hourly Precipitation</li>
+<li>Water Vapor Mixing Ratio</li>
+<li>Wind Speed</li>
+<li>Solar Radiation</li>
+<li>Surface Pressure</li>
+</ol>
+<ol>Particles
+<li>SO4</li>
+<li>NO3</li>
+<li>NH4</li>
+<li>EC</li>
+<li>OC</li>
+<li>TC</li>
+<li>other, PMOther	</li>
+<li>ncom</li>
+<li>Cl, Cl Ion	</li>
+<li>Na, Na Ion	</li>
+<li>PM_TOT, PM2.5 Mass(I+J)	</li>
+<li>PM_FRM, PM2.5 FRM Equiv.(I+J)	</li>
+<li>PM25_SO4, PM2.5 SO4	</li>
+<li>PM25_NO3, PM_2.5 NO3	</li>
+<li>PM25_NH4, PM_2.5 NH4	</li>
+<li>PM25_TOT, PM_2.5 Total Mass	</li>
+<li>PM25_FRM, PM_2.5 FRM Equiv.	</li>
+<li>PM25_EC, PM_2.5 EC	</li>
+<li>PM25_OC, PM_2.5 OC	</li>
+<li>PM25_TC, PM_2.5 TC	</li>
+<li>PM25_Cl, PM_2.5 Cl Ion	</li>
+<li>PM25_Na, PM_2.5 Na Ion	</li>
+<li>PMC_SO4, PM_Coarse SO4	</li>
+<li>PMC_NO3, PM_Coarse NO3	</li>
+<li>PMC_NH4, PM_Coarse NH4	</li>
+<li>PMC_TOT, PM_Coarse Total Mass</li>	
+<li>PMC_Cl, PM_Coarse Cl Ion	</li>
+<li>PMC_Na, PM_Coarse Na Ion	</li>
+<li>PM10, PM10 Mass	</li>
+<li>Na, Sodium(Na)	</li>
+<li>Cl, Chlorine(Cl)	</li>
+<li>Fe, Iron(Fe)	</li>
+<li>Al, Aluminium(Al)	</li>
+<li>Si, Silicon(Si)	</li>
+<li>Ti, Titanium(Ti)	</li>
+<li>Ca, Calcium(Ca)	</li>
+<li>Mg, Magnesium(Mg)	</li>
+<li>K, Potassium(K)</li>
+<li>Mn, Mangenese(Mn)	</li>
+<li>soil, Soil(IMPROVE Eqn.)	</li>
 </ol>
 </details>
 
