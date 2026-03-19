@@ -1,6 +1,14 @@
 # AMET
 
-The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance. The AMET Website users to make selections through their web browser to create plots. Check box or pull-down options include selection of projects, species, observation networks, and program to run. The Run Program button runs the selected program and options on the VM and querying the database and creating the plots.  Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, Soccer Plots. Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable the items in the legend. Some programs also support model to model comparisons, multiple projects, multiple observation networks, and multiple species.
+The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance. 
+
+The AMET Website helps users make selections and generate plots using their web browser. 
+
+Check box or pull-down options include selection of projects, species, observation networks, and program to run. The Run Program button runs the selected program and options on the VM and querying the database and creating the plots.  
+
+Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, Soccer Plots. 
+
+Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable the items in the legend. Some programs also support model to model comparisons, multiple projects, multiple observation networks, and multiple species.
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 
