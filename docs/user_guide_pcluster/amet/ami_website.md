@@ -1960,6 +1960,7 @@ need to add this contents
 
 - Selection of O3 for AQS Daily, when AQS Daily only supports O3_8hrmax and O3_1hrmax)
   - Pay attention to the description in paranthesis next to the Obs Network name: AQS - Daily O3 (1-hr and 8-hr max O3)
+  - In order for a plot to be generated, the observational network and the project (model output) must both contain species selected by the user for the same time range of interest. 
 
 - Date selection is automatically set for the first project, but if you add a second project, you need to change the data range to include that second project.
   - Pay attention to the dates selected!
@@ -1977,6 +1978,8 @@ need to add this contents
 
 - Plots failed using CSN and IMPROVE with PM25_TOT but worked for AQS-Daily for the plotly multisimulation timeseries plot using the EQUATES database.
   - The amad_EQUATES database contains a limited subset of observational networks (AQS Daily, AQS Hourly, CASNET, and NADP)
+
+- Observational data must be download and extracted for all of the years that correspondfor each project (model data), to enable obs/model pairing and loading into the database.
 
 ## Bug or Error in the plot
 
