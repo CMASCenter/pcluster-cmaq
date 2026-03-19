@@ -8,7 +8,9 @@ Check box or pull-down options include selection of projects, species, observati
 
 Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, Soccer Plots. 
 
-Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable the items in the legend. Some programs also support model to model comparisons, multiple projects, multiple observation networks, and multiple species.
+Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable the items in the legend. 
+
+Some programs also support model to model comparisons, multiple projects, multiple observation networks, and multiple species.
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 
