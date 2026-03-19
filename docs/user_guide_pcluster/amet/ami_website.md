@@ -8,13 +8,9 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 
 Create a VM with preloaded AMET databases and projects and perform analysis using the AMET Website.
 
+## Databases and Projects Available
 
-
-Database: amet
-
-Projects:
-
-# Database: amet
+### Database: amet
 <details>
   <summary> Projects | Click to expand!</summary>
 <ol>Air Quality
@@ -28,7 +24,7 @@ Projects:
 </details>
 
 
-# Database: amad_EQUATES
+### Database: amad_EQUATES
 <details>
 <summary> Projects | Click to expand!</summary>
 <ol>Air Quality
