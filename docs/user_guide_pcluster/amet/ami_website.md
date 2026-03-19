@@ -14,7 +14,8 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 
 ## Databases and Projects Available
 
-### Database: amet
+<b>Database: amet</b>
+
 <details>
   <summary> Projects | Click to expand!</summary>
 <ol><b>AIR QUALITY</b>
@@ -28,7 +29,8 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 </details>
 
 
-### Database: amad_EQUATES
+<b>Database: amad_EQUATES</b>
+
 <details>
 <summary> Projects | Click to expand!</summary>
 <ol><b>Air Quality</b>
@@ -100,9 +102,9 @@ cat /etc/apache2/ports.conf
 Output:
 
 ```
-### If you just change the port or add more ports here, you will likely also
-### have to change the VirtualHost statement in
-### /etc/apache2/sites-enabled/000-default.conf
+#If you just change the port or add more ports here, you will likely also
+# have to change the VirtualHost statement in
+# /etc/apache2/sites-enabled/000-default.conf
 
 Listen 80
 Listen 172.31.16.32:443
@@ -1244,7 +1246,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 </ol>
 </details>
 
-### Met Observation Networks
+<b>Met Observation Networks</b>
 
 <details>
 <summary> Available Meteorology Observation Networks | Click to expand!</summary>
