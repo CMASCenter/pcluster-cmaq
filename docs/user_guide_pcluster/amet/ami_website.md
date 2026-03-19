@@ -17,10 +17,10 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 ### Database: amet
 <details>
   <summary> Projects | Click to expand!</summary>
-<ol>**Air Quality**
+<ol><b>AIR QUALITY</b>
 <li>aqExample</li>
 </ol>
-<ol>**Meterology**
+<ol><b>METEOROLOGY</b>
 <li>metExample_mcip</li>
 <li>metExample_wrf</li>
 <li>metExample_mpas</li>
