@@ -297,7 +297,6 @@ Click on the arrow to display the list the available programs for creating diffe
 
 # Observation Networks (48) 
 Note, not all databases have all observation networks.
-Example, aqExample database has the following observation networks.
 
 ```
  select distinct network from aqExample;
@@ -320,8 +319,20 @@ Example, aqExample database has the following observation networks.
 +-------------------+
 ```
 
+```
+select distinct network from CMAQv532_12US1_2002;
++---------------+
+| network       |
++---------------+
+| AQS_Daily     |
+| AQS_Daily_O3  |
+| AQS_Hourly    |
+| CASTNET_Daily |
++---------------+
+```
+
 <details>
-  <summary>AQ Observation Networksi (35) | Click to expand!</summary>
+  <summary>AQ Observation Networks (35) | Click to expand!</summary>
 <ol>Name of US Air Quality Monitoring Network
 <li>IMPROVE (e.g. SO4,NO3,PM2.5,EC,OC,TC)</li>
 <li>CSN (e.g. SO4,NO3,NH4,PM2.5,EC,OC,TC)</li>
