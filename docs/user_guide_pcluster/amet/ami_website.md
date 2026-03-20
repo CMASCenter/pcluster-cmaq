@@ -2024,4 +2024,57 @@ Execution halted
 
 Note, that this query failed as there is no observational data loaded for the NADP network.
 
+## Use the query by logging into the mysql database to understand what is missing
+
+```
+SELECT d.network,d.stat_id,s.lat,s.lon,LPAD(d.i,3,'0') as row,LPAD(d.j,3,'0') as col,d.ob_dates,d.ob_datee,d.ob_hour,d.month , d.SO4_ob, d.SO4_mod ,d.POCode,s.state,s.county from  aqExample  as d, site_metadata as s  WHERE (d.network='AQS_Hourly')  and s.stat_id=d.stat_id and d.ob_dates BETWEEN 20180601 and 20180831 and d.ob_datee BETWEEN 20180601 and 20180831 and (d.ob_hour >= 00 and d.ob_hour <= 23)  ORDER BY ob_dates,ob_hour limit 10;
+```
+
+Output
+
+```
++------------+-----------+----------+------------+------+------+------------+------------+---------+-------+--------+---------+--------+-------+---------+
+| network    | stat_id   | lat      | lon        | row  | col  | ob_dates   | ob_datee   | ob_hour | month | SO4_ob | SO4_mod | POCode | state | county  |
++------------+-----------+----------+------------+------+------+------------+------------+---------+-------+--------+---------+--------+-------+---------+
+| AQS_Hourly | 060010007 | 37.68753 | -121.78422 | 148  | 035  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 1      | CA    | Alameda |
+| AQS_Hourly | 060010007 | 37.68753 | -121.78422 | 148  | 035  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 3      | CA    | Alameda |
+| AQS_Hourly | 060010007 | 37.68753 | -121.78422 | 148  | 035  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 6      | CA    | Alameda |
+| AQS_Hourly | 060010009 | 37.74307 | -122.16993 | 149  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 1      | CA    | Alameda |
+| AQS_Hourly | 060010009 | 37.74307 | -122.16993 | 149  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 3      | CA    | Alameda |
+| AQS_Hourly | 060010011 | 37.81478 | -122.28235 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 1      | CA    | Alameda |
+| AQS_Hourly | 060010011 | 37.81478 | -122.28235 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 3      | CA    | Alameda |
+| AQS_Hourly | 060010012 | 37.79362 | -122.26338 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 1      | CA    | Alameda |
+| AQS_Hourly | 060010012 | 37.79362 | -122.26338 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 3      | CA    | Alameda |
+| AQS_Hourly | 060010013 | 37.86477 | -122.30274 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   NULL |    NULL | 1      | CA    | Alameda |
++------------+-----------+----------+------------+------+------+------------+------------+---------+-------+--------+---------+--------+-------+---------+
+10 rows in set (59.217 sec)
+```
+
+```
+SELECT d.network,d.stat_id,s.lat,s.lon,LPAD(d.i,3,'0') as row,LPAD(d.j,3,'0') as col,d.ob_dates,d.ob_datee,d.ob_hour,d.month , d.SO4_ob, d.SO4_mod ,d.POCode,s.state,s.county from  aqExample  as d, site_metadata as s  WHERE (d.network='NADP')  and s.stat_id=d.stat_id and d.ob_dates BETWEEN 20180601 and 20180831 and d.ob_datee BETWEEN 20180601 and 20180831 and (d.ob_hour >= 00 and d.ob_hour <= 23)  ORDER BY ob_dates,ob_hour limit 10;
+```
+
+Output:
+
+```
++---------+---------+---------+-----------+------+------+------------+------------+---------+-------+--------+---------+--------+-------+------------+
+| network | stat_id | lat     | lon       | row  | col  | ob_dates   | ob_datee   | ob_hour | month | SO4_ob | SO4_mod | POCode | state | county     |
++---------+---------+---------+-----------+------+------+------------+------------+---------+-------+--------+---------+--------+-------+------------+
+| NADP    | SK20    | 52.0223 | -109.8616 | 262  | 139  | 2018-06-30 | 2018-07-31 |      17 |     7 |   NULL |    NULL | 1      | SK    | -999       |
+| NADP    | SD08    | 43.9461 | -101.8552 | 182  | 181  | 2018-06-30 | 2018-07-31 |      17 |     7 |   NULL |    NULL | 1      | SD    | Jackson    |
+| NADP    | GA20    | 32.0849 |  -81.9367 | 081  | 331  | 2018-06-30 | 2018-07-31 |      19 |     7 |   NULL |    NULL | 1      | GA    | Evans      |
+| NADP    | PA42    | 40.6575 |  -77.9397 | 164  | 346  | 2018-07-02 | 2018-07-09 |       4 |     7 |   NULL |    NULL | 1      | PA    | Huntingdon |
+| NADP    | WY99    |  43.873 | -104.1917 | 182  | 166  | 2018-07-02 | 2018-07-10 |       6 |     7 |   NULL |    NULL | 1      | WY    | Weston     |
+| NADP    | ME94    | 45.2436 |  -67.6308 | 224  | 402  | 2018-07-02 | 2018-07-10 |       7 |     7 |   NULL |    NULL | 1      | ME    | Washington |
+| NADP    | NY10    | 42.2994 |  -79.3964 | 177  | 333  | 2018-07-02 | 2018-07-10 |       7 |     7 |   NULL |    NULL | 1      | NY    | Chautauqua |
+| NADP    | ME00    | 46.8675 |  -68.0134 | 237  | 395  | 2018-07-02 | 2018-07-10 |      12 |     7 |   NULL |    NULL | 1      | ME    | Aroostook  |
+| NADP    | SD04    | 43.5577 |  -103.484 | 179  | 170  | 2018-07-02 | 2018-07-10 |      13 |     7 |   NULL |    NULL | 1      | SD    | Custer     |
+| NADP    | WA24    | 46.7606 | -117.1847 | 221  | 086  | 2018-07-02 | 2018-07-10 |      14 |     7 |   NULL |    NULL | 1      | WA    | Whitman    |
++---------+---------+---------+-----------+------+------+------------+------------+---------+-------+--------+---------+--------+-------+------------+
+10 rows in set (0.036 sec)
+```
+
+
+
+
 
