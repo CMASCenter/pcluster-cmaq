@@ -931,6 +931,44 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Interactive Hourly Timeseries Plot of O3, Isoprene, NOY](./amet_plotly_hourly_timeseries_multispecies.png)
 
+## Create Multi-species Timeseries Plot
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li>Select AQS Hourly</li>
+</ul>
+</li>
+</ul>
+  
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select O3</li>
+<li> Select NOX</li>
+</ul>
+</li>
+</ul>
+
+![AMET select AQS Hourly and Multispecies O3 and NOX](./amet_select_AQS_hourly_multiple_species_O3_NOX.png)
+  
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Choose Plotly Multi-species Timeseries</li>
+</ul>
+</li>
+</ul>
+
+![AMET run Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries_O3_NOX.png)
+
+![AMET result of Multispecies Timeseries](./amet_result_multispecies_timeseries_O3_NOX.png)
+
+Multispecies Timeseries of O3 and NOX and Bias Timeseries<br>
+
+![Multispecies Timeseries Plot of O3 and NOX](./amet_timeseries_multispecies_O3_NOX.png)
+
+
 ## Create Bugle Plot of PM2.5_TOT for AQS Daily, CSN, and IMPROVE
 
 <ul>
