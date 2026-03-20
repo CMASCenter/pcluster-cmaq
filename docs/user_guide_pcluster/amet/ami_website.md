@@ -1998,3 +1998,30 @@ need to add this contents
 
 - Error in loading the plot in the browser (browser slows down and asks if you want to stop the process) - plotly animated plots. 
   - consider clearing your local browser cache
+
+## View error logs on the VM
+
+```
+cd /var/www/html/cache
+ls *.Rout
+tail AQ_Timeseries.Rout
+```
+
+Tail of Output:
+
+```
++          }
++          #####################################
++       } # Close else statement
++    } # Close if/else statement
++ } # End num_runs loop
+[1] "SELECT d.network,d.stat_id,s.lat,s.lon,LPAD(d.i,3,'0') as row,LPAD(d.j,3,'0') as col,d.ob_dates,d.ob_datee,d.ob_hour,d.month , d.NH4_ob, d.NH4_mod, d.precip_ob, d.precip_mod ,d.POCode,s.state,s.county from  aqExample  as d, site_metadata as s  WHERE d.NH4_ob is not NULL and d.network='NADP' and s.stat_id=d.stat_id and d.ob_dates BETWEEN 20180601 and 20180831 and d.ob_datee BETWEEN 20180601 and 20180831 and (d.ob_hour >= 00 and d.ob_hour <= 23)  and (d.valid_code = 't' or d.valid_code = 'd' or d.valid_code = 'w' or d.valid_code = 'wi' or d.valid_code = 'wd' or d.valid_code = 'wa') ORDER BY ob_dates,ob_hour"
+Error in `$<-.data.frame`(`*tmp*`, "ob_hour", value = 0) : 
+  replacement has 1 row, data has 0
+Calls: query_dbase -> $<- -> $<-.data.frame
+Execution halted
+```
+
+Note, that this query failed as there is no observational data loaded for the NADP network.
+
+
