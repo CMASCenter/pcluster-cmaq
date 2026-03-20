@@ -4,7 +4,7 @@ The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the mo
 
 AMET Website helps users generate and view plots created by AMET R programs using a web browser. 
 
-Select projects, species, observational networks and programs to run using the interactive website with check box, and pull-down menue options. Create plots by selecting one or more observation networks and species, and select the program to run. Click on the `Run Program` button to run the program for the selected observation network and species on the VM. The R program queries the database, creates the plots, and provides links for the user to view either a pdf or png or html (for interactive plots) version of each plot.  
+Select projects, species, observational networks and programs to run using the interactive website with check box, and pull-down menu options. Create plots by selecting one or more observation networks and species, and select the program to run. Click on the `Run Program` button to run the program for the selected observation network and species on the VM. The R program queries the database, creates the plots, and provides links for the user to view either a pdf or png or html (for interactive plots) version of each plot.  
 
 Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, Soccer Plots. 
 
