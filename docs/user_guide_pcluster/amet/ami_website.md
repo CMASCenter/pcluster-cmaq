@@ -10,7 +10,7 @@ Multiple programs are available to choose from for each plot type including Scat
 
 Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable items displayed on the plot by clicking on them in the legend.
 
-Some programs also support model to model comparisons, multiple projects, multiple observation networks, and multiple species.
+Some programs also support model to model comparisons by selecting multiple projects, and also support plotting of results from multiple observation networks, and for multiple species.
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 
