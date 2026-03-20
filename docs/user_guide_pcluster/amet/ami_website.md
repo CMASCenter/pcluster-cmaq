@@ -362,10 +362,10 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 
-# Air Quality and Met Variables (172)
+# Air Quality and Met Species (172)
 <details>
-  <summary>List of AQ Variables available for EQUATES (40) | Click to expand!</summary>
-<ol>Variables available for EQUATES
+  <summary>List of AQ Species available for EQUATES (40) | Click to expand!</summary>
+<ol>Species available for EQUATES
 <li>SO4 </li>
 <li>NO3</li>
 <li>NH4</li>
@@ -547,8 +547,8 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 <details>
-<summary>Metorological Variables for metExample (6) | Click to Expand!</summary>
-<ol>Metorological Variables (6)
+<summary>Metorological Species for metExample (6) | Click to Expand!</summary>
+<ol>Metorological Species (6)
 <li>T(2m), 2 meter Temperature</li>
 <li>Hourly Precipitation</li>
 <li>Water Vapor Mixing Ratio</li>
@@ -1483,7 +1483,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 ![AMET Meteorology Website Select Database and Project](./met_plots/AMET_MET_website_choose_database_and_project.png)
 
 <ul>
-<li>Choose Met Variable
+<li>Choose Met Species 
   <ul>
     <li>select T(2m)</li>
   </ul>
