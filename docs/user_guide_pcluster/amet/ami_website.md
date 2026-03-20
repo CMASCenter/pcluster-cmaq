@@ -8,7 +8,7 @@ Check box or pull-down options include selection of projects, species, observati
 
 Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, Soccer Plots. 
 
-Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable the items by clicking on them in the legend.
+Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable items displayed on the plot by clicking on them in the legend.
 
 Some programs also support model to model comparisons, multiple projects, multiple observation networks, and multiple species.
 
