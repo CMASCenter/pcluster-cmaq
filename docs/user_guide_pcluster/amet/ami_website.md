@@ -399,7 +399,7 @@ select distinct network from CMAQv532_12US1_2002;
 
 # Air Quality and Met Species (172)
 Note, to get started with creating plots using AMET, it is best to use a subset of the species listed under <b>Species to Plot</b>.
-The examples in this documentation use one or more of the following five criteria air pollutants: particulate matter (PM25_TOT, PM10_TOT), ground-level ozone (O3, O3_8hrmax, O3_1hrmax), sulfur dioxide (SO2), carbon monoxide (CO) and nitrogen dioxide (NO2, NOX, NOY), along with NO3 (Nitrate) and NH4 ammonium which are key component of secondary inorganic fine particulate matter. 
+The examples in this documentation use one or more of the following five criteria air pollutants: particulate matter (PM25_TOT, PM10_TOT), ground-level ozone (O3, O3_8hrmax, O3_1hrmax), sulfur dioxide (SO2), carbon monoxide (CO) and nitrogen dioxide (NO2, NOX, NOY), along with NO3 (Nitrate) and NH4 ammonium which are key component of secondary inorganic fine particulate matter, and VOCs including Ethane, Isoprene, Tolulene that react with NOX to form Ozone. 
 
 <details>
   <summary>List of AQ Species available for EQUATES (40) | Click to expand!</summary>
