@@ -2022,7 +2022,7 @@ Calls: query_dbase -> $<- -> $<-.data.frame
 Execution halted
 ```
 
-Note, that this query failed as there is no observational data loaded for the NADP network.
+Note, that this query failed as there is no observational data loaded for the NADP network. (scroll to the right to see the full contents of the log file.)
 
 ## Use the query by logging into the mysql database to understand what is missing
 
