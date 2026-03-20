@@ -296,6 +296,30 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 # Observation Networks (48) 
+Note, not all databases have all observation networks.
+Example, aqExample database has the following observation networks.
+
+```
+ select distinct network from aqExample;
++-------------------+
+| network           |
++-------------------+
+| AQS_Daily         |
+| AQS_Daily_O3      |
+| AQS_Hourly        |
+| CASTNET           |
+| CASTNET_Daily     |
+| CASTNET_Drydep    |
+| CASTNET_Drydep_O3 |
+| CASTNET_Hourly    |
+| CSN               |
+| IMPROVE           |
+| NADP              |
+| NAPS              |
+| NAPS_Daily_O3     |
++-------------------+
+```
+
 <details>
   <summary>AQ Observation Networksi (35) | Click to expand!</summary>
 <ol>Name of US Air Quality Monitoring Network
