@@ -2112,7 +2112,35 @@ Output:
 10 rows in set (0.036 sec)
 ```
 
+```
+select * from aqExample where network='AQS_Daily' limit 2;
+```
 
+Output
 
+```
+| proj_code | POCode | valid_code | invalid_code | replicate | network   | stat_id   | stat_id_POCode | lat     | lon      | i    | j    | ob_dates   | ob_datee   | ob_hour | month | precip_ob | precip_mod | SO4_ob | SO4_mod | NO3_ob | NO3_mod   | NH4_ob | NH4_mod  | PM_TOT_ob | PM_TOT_mod | OC_ob | OC_mod  | EC_ob | EC_mod   | TC_ob | TC_mod  | Cl_ob | Cl_mod    | PM10_IJK_ob | PM10_IJK_mod | PMC_TOT_ob | PMC_TOT_mod | PM25_SO4_ob | PM25_SO4_mod | PM25_NO3_ob | PM25_NO3_mod | PM25_NH4_ob | PM25_NH4_mod | PM25_OC_ob | PM25_OC_mod | PM25_EC_ob | PM25_EC_mod | PM25_TC_ob | PM25_TC_mod | PM25_TOT_ob | PM25_TOT_mod | PM10_ob | PM10_mod | PM25_Cl_ob | PM25_Cl_mod | PMC_TOT_CUT_ob | PMC_TOT_CUT_mod | Na_ob | Na_mod   | NaCl_ob | NaCl_mod | Fe_ob | Fe_mod   | Al_ob | Al_mod    | Si_ob | Si_mod   | Ti_ob | Ti_mod     | Ca_ob | Ca_mod   | Mg_ob | Mg_mod    | K_ob | K_mod    | Mn_ob | Mn_mod     | soil_ob | soil_mod | OTHER_ob | OTHER_mod | NCOM_ob | NCOM_mod | OTHER_REM_ob | OTHER_REM_mod | PM_TOT_88101_ob | PM_TOT_88101_mod | PM_TOT_88502_ob | PM_TOT_88502_mod | OC_88305_ob | OC_88305_mod | OC_88305_adj_ob | OC_88305_adj_mod | OC_88370_ob | OC_88370_mod | OC_88370_adj_ob | OC_88370_adj_mod | OC_88320_ob | OC_88320_mod | EC_88307_ob | EC_88307_mod | EC_88307_adj_ob | EC_88307_adj_mod | EC_88380_ob | EC_88380_mod | EC_88321_ob | EC_88321_mod | TNO3_ob | TNO3_mod | SO4_IJK_ob | SO4_IJK_mod | NO3_IJK_ob | NO3_IJK_mod | NH4_IJK_ob | NH4_IJK_mod | TNO3_IJK_ob | TNO3_IJK_mod | PM25_TNO3_ob | PM25_TNO3_mod | MG_JK_ob | MG_JK_mod | CA_JK_ob | CA_JK_mod | K_JK_ob | K_JK_mod | CL_PMC_ob | CL_PMC_mod | NA_PMC_ob | NA_PMC_mod | NA_IJK_ob | NA_IJK_mod | HNO3_ob | HNO3_mod | SO2_ob | SO2_mod | SO2_adj_ob | SO2_adj_mod | O3_ob | O3_mod | SFC_TMP_ob | SFC_TMP_mod | RH_ob | RH_mod | Solar_Rad_ob | Solar_Rad_mod | WSPD10_ob | WSPD10_mod | O3_1hrmax_ob | O3_1hrmax_mod | O3_1hrmax_9cell_ob | O3_1hrmax_9cell_mod | O3_1hrmax_time_ob | O3_1hrmax_time_mod | O3_8hrmax_ob | O3_8hrmax_mod | O3_8hrmax_9cell_ob | O3_8hrmax_9cell_mod | O3_8hrmax_time_ob | O3_8hrmax_time_mod | W126_ob | W126_mod | SUM06_ob | SUM06_mod | SO2_ddep_ob | SO2_ddep_mod | HNO3_ddep_ob | HNO3_ddep_mod | TNO3_ddep_ob | TNO3_ddep_mod | SO4_ddep_ob | SO4_ddep_mod | NO3_ddep_ob | NO3_ddep_mod | NH4_ddep_ob | NH4_ddep_mod | O3_ddep_ob | O3_ddep_mod | NH4_dep_ob | NH4_dep_mod | NO3_dep_ob | NO3_dep_mod | SO4_dep_ob | SO4_dep_mod | Cl_dep_ob | Cl_dep_mod | Na_dep_ob | Na_dep_mod | CA_dep_ob | CA_dep_mod | MG_dep_ob | MG_dep_mod | K_dep_ob | K_dep_mod | NH4_conc_ob | NH4_conc_mod | NO3_conc_ob | NO3_conc_mod | SO4_conc_ob | SO4_conc_mod | Cl_conc_ob | Cl_conc_mod | Na_conc_ob | Na_conc_mod | CA_conc_ob | CA_conc_mod | MG_conc_ob | MG_conc_mod | K_conc_ob | K_conc_mod | PM_FRM_ob | PM_FRM_mod | Isoprene_ob | Isoprene_mod | Ethylene_ob | Ethylene_mod | Ethane_ob | Ethane_mod | Toluene_ob | Toluene_mod | Acetaldehyde_ob | Acetaldehyde_mod | Formaldehyde_ob | Formaldehyde_mod | Benzene_ob | Benzene_mod | TC_88305_ob | TC_88305_mod | TC_88370_ob | TC_88370_mod | EC_88320_ob | EC_88320_mod | TC_88320_ob | TC_88320_mod | PM25_OC_88305_ob | PM25_OC_88305_mod | PM25_EC_88307_ob | PM25_EC_88307_mod | PM25_TC_88305_ob | PM25_TC_88305_mod | PM25_OC_88370_ob | PM25_OC_88370_mod | PM25_EC_88380_ob | PM25_EC_88380_mod | PM25_TC_88370_ob | PM25_TC_88370_mod | PM25_OC_88320_ob | PM25_OC_88320_mod | PM25_EC_88321_ob | PM25_EC_88321_mod | PM25_TC_88320_ob | PM25_TC_88320_mod | CO_ob | CO_mod | NO_ob | NO_mod | NO2_ob | NO2_mod | NOX_ob | NOX_mod | NOY_ob | NOY_mod | PBLH_mod |
+```
 
+```
+SELECT d.network,d.stat_id,s.lat,s.lon,LPAD(d.i,3,'0') as row,LPAD(d.j,3,'0') as col,d.ob_dates,d.ob_datee,d.ob_hour,d.month , d.NO_ob, d.NO_mod ,d.POCode,s.state,s.county from  aqExample  as d, site_metadata as s  WHERE (d.network='AQS_Hourly')  and s.stat_id=d.stat_id and d.ob_dates BETWEEN 20180601 and 20180831 and d.ob_datee BETWEEN 20180601 and 20180831 and (d.ob_hour >= 00 and d.ob_hour <= 23)  ORDER BY ob_dates,ob_hour limit 10;
+```
 
+Output:
+
+```
++------------+-----------+----------+------------+------+------+------------+------------+---------+-------+-------+---------+--------+-------+---------+
+| network    | stat_id   | lat      | lon        | row  | col  | ob_dates   | ob_datee   | ob_hour | month | NO_ob | NO_mod  | POCode | state | county  |
++------------+-----------+----------+------------+------+------+------------+------------+---------+-------+-------+---------+--------+-------+---------+
+| AQS_Hourly | 060010007 | 37.68753 | -121.78422 | 148  | 035  | 2018-06-30 | 2018-06-30 |      16 |     6 |   0.2 | 0.32431 | 1      | CA    | Alameda |
+| AQS_Hourly | 060010007 | 37.68753 | -121.78422 | 148  | 035  | 2018-06-30 | 2018-06-30 |      16 |     6 |  -999 | 0.32431 | 3      | CA    | Alameda |
+| AQS_Hourly | 060010007 | 37.68753 | -121.78422 | 148  | 035  | 2018-06-30 | 2018-06-30 |      16 |     6 |  -999 | 0.32431 | 6      | CA    | Alameda |
+| AQS_Hourly | 060010009 | 37.74307 | -122.16993 | 149  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |     2 |  1.2824 | 1      | CA    | Alameda |
+| AQS_Hourly | 060010009 | 37.74307 | -122.16993 | 149  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |  -999 |  1.2824 | 3      | CA    | Alameda |
+| AQS_Hourly | 060010011 | 37.81478 | -122.28235 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   1.2 |  2.4289 | 1      | CA    | Alameda |
+| AQS_Hourly | 060010011 | 37.81478 | -122.28235 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |  -999 |  2.4289 | 3      | CA    | Alameda |
+| AQS_Hourly | 060010012 | 37.79362 | -122.26338 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   1.2 |  2.4289 | 1      | CA    | Alameda |
+| AQS_Hourly | 060010012 | 37.79362 | -122.26338 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |  -999 |  2.4289 | 3      | CA    | Alameda |
+| AQS_Hourly | 060010013 | 37.86477 | -122.30274 | 150  | 032  | 2018-06-30 | 2018-06-30 |      16 |     6 |   6.9 |  2.4289 | 1      | CA    | Alameda |
++------------+-----------+----------+------------+------+------+------------+------------+---------+-------+-------+---------+--------+-------+---------+
+```
