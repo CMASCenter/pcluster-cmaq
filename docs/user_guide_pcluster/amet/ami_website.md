@@ -296,7 +296,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 
 # Observation Networks (48) 
-Note, not all databases have all observation networks.
+Note, not all databases have all observation networks, and observation networks have different observed species.
 
 ```
  select distinct network from aqExample;
@@ -398,6 +398,9 @@ select distinct network from CMAQv532_12US1_2002;
 </details>
 
 # Air Quality and Met Species (172)
+Note, to get started with creating plot using AMET, it is best to use a subset of the available species.
+The five criteria air pollutants: particulate matter (PM25_TOT, PM10_TOT), ground-level ozone (O3), sulfur dioxide (SO2), carbon monoxide (CO) and nitrogen dioxide (NO2). 
+
 <details>
   <summary>List of AQ Species available for EQUATES (40) | Click to expand!</summary>
 <ol>Species available for EQUATES
