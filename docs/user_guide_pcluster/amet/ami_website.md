@@ -410,6 +410,9 @@ Click on the arrow to display the list the available programs for creating diffe
 </details>
 <details>
  <summary>Subset of variables available for aqExample (126) | Click to expand!</summary>
+Note, not all species are available at all observation networks.
+Example: PAMS Network has select VOCs, NO and NO2. 
+a href="https://rstudio-connect.sonomatechdata.com/pams_dashboard/">Species available for PAMS Observation Network</a>
 <ol>Subset of Gas phase variables (24)
 <li>O3, Ozone (hourly or daily)</li>
 <li>O3_1hrmax, Ozone 1-hrmax(daily)</li>
