@@ -674,7 +674,7 @@ Example: PAMS Network has select VOCs, NO and NO2.
 Run using the same project (aqExample), different observation network (AQS Daily) and same species (PM2.5_TOT) 
 This creates a single plot with all metrics, use the legend to deselect every metric except the metric of interest (corr was chosen in this case).
 
-![AMET Website Leaflet Program Result](./amet_leaflet_website_result)
+![AMET Website Leaflet Program Result](./amet_leaflet_website_result.png)
 
 <li>PM2.5_TOT Corr Plot using Leaflet Interactive Plot</li>
 
