@@ -921,12 +921,12 @@ Query result
 <li>Under Species to Plot
 <ul>
 <li>Select O3</li>
-<li> Select NOY</li>
+<li> Select NOX</li>
 </ul>
 </li>
 </ul>
 
-![AMET select AQS Hourly and Multispecies](./amet_select_AQS_hourly_multiple_species_O3_NOY.png)
+![AMET select AQS Hourly and Multispecies](./amet_select_AQS_hourly_multiple_species_O3_NOX.png)
 
 <ul>
 <li>Under Choose Program to Run
@@ -938,10 +938,10 @@ Query result
 
 ![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries.png)
 
-Plotly Timeseries of O3 and NOY<br>
+Plotly Timeseries of O3 and NOX<br>
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.<br>
 
-![Interactive Hourly Timeseries Plot of O3, Isoprene, NOY](./amet_plotly_hourly_timeseries_multispecies.png)
+![Interactive Hourly Timeseries Plot of O3 and NOX](./amet_plotly_hourly_timeseries_multispecies.png)
 
 ## Create Multi-species Timeseries Plot
 
