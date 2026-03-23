@@ -669,6 +669,17 @@ Example: PAMS Network has select VOCs, NO and NO2.
 
 </ul>
 
+## Interactive (Leaflet) Species Statistics and Spatial Plot
+
+Run using the same project (aqExample), different observation network (AQS Daily) and same species (PM2.5_TOT) 
+This creates a single plot with all metrics, use the legend to deselect every metric except the metric of interest (corr was chosen in this case).
+
+<li>PM2.5_TOT Corr Plot using Leaflet Interactive Plot</li>
+
+![AMET PM25_TOT Corr Spatial Plot](./amet_aqs_daily_pm25_tot_corr_leaflet_plot.png)
+
+
+
 ## Create O3_8hrmax Density Scatterplot
 
 <ul>
