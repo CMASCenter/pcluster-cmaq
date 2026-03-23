@@ -941,7 +941,7 @@ Query result
 Plotly Timeseries of O3 and NOX<br>
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.<br>
 
-![Interactive Hourly Timeseries Plot of O3 and NOX](./amet_plotly_hourly_timeseries_multispecies.png)
+![Interactive Hourly Timeseries Plot of O3 and NOX](./amet_plotly_hourly_timeseries_multispecies_update.png)
 
 ## Create Multi-species Timeseries Plot
 
