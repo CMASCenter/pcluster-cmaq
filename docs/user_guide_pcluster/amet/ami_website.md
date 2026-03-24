@@ -1318,6 +1318,10 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![AMET run Plotly Multi-simulation Timeseries Plot](./amet_multisimulation_timeseries.png )
 
+<li>Interactive Plotly Multi-simulation (EQUATES 2017, 2018) Timeseries Plot using Networks AQS Daily and PM25_TOT</li>
+
+![Interactive Plotly Multi-simulation Timeseries Plot AQS Daily, PM25_TOT](./CMAQv532_12US1_2018_2017_PM25_TOT_timeseries.png)
+
 
 
 ## Create Interactive Plotly Mutli-simulation Timeseries for SO2 and AQS Hourly (single network)
