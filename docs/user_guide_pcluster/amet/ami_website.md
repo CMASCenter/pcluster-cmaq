@@ -1269,7 +1269,7 @@ After the successful import, was able to use the AMET Website to view all of the
 
 ![Year-long Monthly Statistics Plot of O3](./CMAQv532_12US1_2019_O3_stats_plot.png)
 
-## Create Interactive Plotly Mutli-simulation Timeseries  (single network)
+## Create Interactive Plotly Multi-simulation Timeseries  (single network)
 
 <ul>
 <li>Select Database ID
