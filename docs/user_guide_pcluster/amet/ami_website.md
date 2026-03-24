@@ -938,7 +938,9 @@ Query result
 
 ![AMET run Plotly Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries.png)
 
-Plotly Timeseries of O3 and NOX<br>
+
+* Plotly Timeseries of O3 and NOX<br>
+
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.<br>
 
 ![Interactive Hourly Timeseries Plot of O3 and NOX](./amet_plotly_hourly_timeseries_multispecies_update.png)
@@ -974,9 +976,8 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![AMET run Multispecies Timeseries](./amet_run_plotly_multispecies_timeseries_O3_NOX.png)
 
-![AMET result of Multispecies Timeseries](./amet_result_multispecies_timeseries_O3_NOX.png)
 
-Multispecies Timeseries of O3 and NOX and Bias Timeseries<br>
+* Multispecies Timeseries of O3 and NOX and Bias Timeseries<br>
 
 ![Multispecies Timeseries Plot of O3 and NOX](./amet_timeseries_multispecies_O3_NOX.png)
 
