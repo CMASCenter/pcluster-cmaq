@@ -620,7 +620,7 @@ Input selections made on the website (querygen_aq.php or querygen_met.php) are s
 
 The program selection is saved to the run_script.csh, and the run_info.r file is referenced in that run script using the `AMETRINPUT` environment variable.
 
-Example run script:
+Example run script for the program `Species Statistics and Spatial Plots`, the R program for this plot is named `AQ_Stats_Plots.R`:
 
 ```
 #!/bin/csh -f
