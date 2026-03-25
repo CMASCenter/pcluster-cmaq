@@ -6,7 +6,7 @@ AMET Website helps users generate and view plots created by AMET R programs usin
 
 Select projects, species, observational networks and programs to run using the interactive website with check box, and pull-down menu options. Create plots by selecting one or more observation networks and species, and select the program to run. Click on the `Run Program` button to run the program for the selected observation network and species on the VM. The R program queries the database, creates the plots, and provides links for the user to view either a pdf or png or html (for interactive plots) version of each plot.  
 
-Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, Soccer Plots. 
+Multiple programs are available to choose from for each plot type including Scatter Plots, Time Series Plots, Spatial Plots, Box Plots, Stacked Bar Plots, Kelly Plots, and Soccer Plots. 
 
 Programs that use Plotly are interactive, allowing you to subset the time range, and enable or disable items displayed on the plot by clicking on them in the legend.
 
@@ -177,7 +177,7 @@ Verify you see the website and that it looks similar to the image below.
 
 Use the website to select the database, project, observation network, variables to plot, and plotting programs.<br>
 
-Note, errors may occur when you make selections on the AMET Website, see a list of typical error types below.<br>
+Note, errors may occur when you make incompatible selections on the AMET Website, see a list of typical error types below.<br>
 
 Click on the arrow to display the list the available programs for creating different types of plots.<br>
 
