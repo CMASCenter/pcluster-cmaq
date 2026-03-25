@@ -606,12 +606,15 @@ Example: PAMS Network has select VOCs, NO and NO2.
 The following is an example of how selections and actions on the website result in the creation of plots.
 
 Make the following Website selections and then select `Run Program`
+
+```
 Choose database: amet
 Choose project: aqExample
 Choose AQ Network: AQS - Hourly  (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
 Choose species: PM25_TOT
 Choose Date/Time Range: 07-01-2018 to 07-31-2018
 Choose Program: Species Statistics and Spatial Plots (multi networks)
+```
 
 Input selections made on the website (querygen_aq.php or querygen_met.php) are saved as inputs to the run_info.r file. 
 
