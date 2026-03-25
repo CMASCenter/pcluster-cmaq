@@ -699,22 +699,25 @@ The run_script.csh is run on the Virtual Machine and links to the resulting plot
 <li>Under Date and Time Criteria 
 <ul>
 <li>Select Start Date</li>
-</ul>
 <ul>
 <li> Year: 2018</li>
 <li> Month: 07</li>
 <li> Day: 01</li>
 </ul>
+</ul>
 <ul>
 <li>Select End Date</li>
-</ul>
 <ul>
 <li> Year: 2018</li>
 <li> Month: 07</li>
 <li> Day: 31</li>
 </ul>
+</ul>
 </li>
 </ul>
+
+
+![AMET Website Select Date and Time Criteria](./amet_select_date_time_criteria.png)
 
 <ul>
 <li>Under Choose Program to Run
