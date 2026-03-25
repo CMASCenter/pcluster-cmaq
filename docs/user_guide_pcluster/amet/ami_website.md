@@ -603,9 +603,17 @@ Example: PAMS Network has select VOCs, NO and NO2.
 
 # Method used to create plots 
 
+The following is an example of how selections and actions on the website result in the creation of plots.
 
+Make the following Website selections and then select `Run Program`
+Choose database: amet
+Choose project: aqExample
+Choose AQ Network: AQS - Hourly  (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
+Choose species: PM25_TOT
+Choose Date/Time Range: 07-01-2018 to 07-31-2018
+Choose Program: Species Statistics and Spatial Plots (multi networks)
 
-Input selections made on the website (querygen_aq.php or querygen_met.php) are saved as inputs in the run_info.r file. 
+Input selections made on the website (querygen_aq.php or querygen_met.php) are saved as inputs to the run_info.r file. 
 
 The program selection is saved to the run_script.csh, and the run_info.r file is referenced in that run script.
 
@@ -621,34 +629,30 @@ setenv AMETRINPUT /var/www/html/cache/run_info.r
 setenv AMET_OUT /var/www/html/cache
 setenv MYSQL_CONFIG /var/www/html/amet-config.R
 setenv HOME /var/www/html/cache
-R CMD BATCH --no-save --verbose /home/ubuntu/AMET_v16/R_analysis_code/AQ_Scatterplot.R web_query.txt
+R CMD BATCH --no-save --verbose /home/ubuntu/AMET_v16/R_analysis_code/AQ_Stats_Plots.R web_query.txt
 ```
 
-When you make the following selections on the website
-Choose database: amad_EQUATES
-Choose project as CMAQv532_12US1_2019
-Choose AQ Network: AQS - Daily O3
-Choose species: O3_1hrmax
-
-This is the contents of run_info.r related to those selections, note: this is not the full file.
+This is the contents of run_info.r related to the above selections, note: this is not the full file.
 
 ```
 ### Database Name ###
-dbase<-"amad_EQUATES"
+dbase<-"amet"
 
 ### Project ID Name 1 ###
-run_name1<-"CMAQv532_12US1_2019"
+run_name1<-"aqExample"
 
 ### Array of Observation Network Flags ###
 #inc_networks<-
-inc_aqs_daily_o3<-"y"
+inc_aqs_hourly<-"y"
 
 ### Species ###
-species_in<-"O3_1hrmax"
+species_in<-"PM25_TOT"
+
+#### Main Database Query String ###
+query<-" and s.stat_id=d.stat_id and d.ob_dates BETWEEN 20180701 and 20180731 and d.ob_datee BETWEEN 20180701 and 20180731 and (d.ob_hour >= 00 and d.ob_hour <= 23) "
 ```
 
-The run_script.csh is run on the Virtual Machine and links to the resulting plots are displayed back in another tab on the browser, and/or an error message is displayed with a link to the web_query.txt.
-
+The run_script.csh is run on the Virtual Machine and links to the resulting plots are displayed in another tab on the browser, and/or an error message is displayed with a link to the web_query.txt.
 
 
 # Example plots using the aqExample database
