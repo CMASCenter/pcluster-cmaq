@@ -696,6 +696,27 @@ The run_script.csh is run on the Virtual Machine and links to the resulting plot
 ![AMET Website Select Obs Network and Species](./AMET_website_select_AQ_Observ_Networks_and_Species_to_Plot.png)
 
 <ul>
+<li>Under Date and Time Criteria 
+<ul>
+<li>Select Start Date</li>
+</ul>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+<ul>
+<li>Select End Date</li>
+</ul>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 31</li>
+</ul>
+</li>
+</ul>
+
+<ul>
 <li>Under Choose Program to Run
 <ul>
 <li>Select Species Statistics and Spatial Plot(multi networks)</li>
