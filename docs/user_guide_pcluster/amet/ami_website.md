@@ -737,15 +737,35 @@ The run_script.csh is run on the Virtual Machine and links to the resulting plot
 
 <li>PM2.5_TOT Normalized Mean Bias Plot</li>
 
-![AMET Normalized Mean Bias Spatial Plot](./amet_nmb.png)
+![AMET Normalized Mean Bias Spatial Plot](./amet_pm25_tot_nmb.png)
 
 <li>PM2.5_TOT Normalized Mean Error Plot</li>
 
-![AMET Normalized Mean Error Spatial Plot](./amet_nme.png)
+![AMET Normalized Mean Error Spatial Plot](./amet_pm25_tot_nme.png)
 
 <li>PM2.5_TOT Mean Bias Plot</li>
 
-![AMET Mean Bias Spatial Plot](./amet_mb.png)
+![AMET Mean Bias Spatial Plot](./amet_pm25_tot_mb.png)
+
+<li>PM2.5_TOT Mean Error Plot</li>
+
+![AMET Mean Error Spatial Plot](./amet_pm25_tot_me.png)
+
+<li>PM2.5_TOT FBias Plot</li>
+
+![AMET FBias Spatial Plot](./amet_pm25_tot_fb.png)
+
+<li>PM2.5_TOT FError Plot</li>
+
+![AMET FError Spatial Plot](./amet_pm25_tot_fe.png)
+
+<li>PM2.5_TOT RMSE Plot</li>
+
+![AMET RMSE Spatial Plot](./amet_pm25_tot_rmse.png)
+
+<li>PM2.5_TOT Correlation Plot</li>
+
+![AMET Correlation Spatial Plot](./amet_pm25_tot_corr.png)
 
 </ul>
 
