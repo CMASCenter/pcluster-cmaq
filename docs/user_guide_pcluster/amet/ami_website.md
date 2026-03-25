@@ -601,6 +601,55 @@ Example: PAMS Network has select VOCs, NO and NO2.
 
 </details>
 
+# Method used to create plots 
+
+
+
+Input selections made on the website (querygen_aq.php or querygen_met.php) are saved as inputs in the run_info.r file. 
+
+The program selection is saved to the run_script.csh, and the run_info.r file is referenced in that run script.
+
+Example run script:
+
+```
+#!/bin/csh -f
+cd /var/www/html/cache 
+setenv PATH /usr/bin 
+setenv R_LIBS /usr/local/lib/R/site-library
+setenv AMETBASE /home/ubuntu/AMET_v16
+setenv AMETRINPUT /var/www/html/cache/run_info.r
+setenv AMET_OUT /var/www/html/cache
+setenv MYSQL_CONFIG /var/www/html/amet-config.R
+setenv HOME /var/www/html/cache
+R CMD BATCH --no-save --verbose /home/ubuntu/AMET_v16/R_analysis_code/AQ_Scatterplot.R web_query.txt
+```
+
+When you make the following selections on the website
+Choose database: amad_EQUATES
+Choose project as CMAQv532_12US1_2019
+Choose AQ Network: AQS - Daily O3
+Choose species: O3_1hrmax
+
+This is the contents of run_info.r related to those selections, note: this is not the full file.
+
+```
+### Database Name ###
+dbase<-"amad_EQUATES"
+
+### Project ID Name 1 ###
+run_name1<-"CMAQv532_12US1_2019"
+
+### Array of Observation Network Flags ###
+#inc_networks<-
+inc_aqs_daily_o3<-"y"
+
+### Species ###
+species_in<-"O3_1hrmax"
+```
+
+The run_script.csh is run on the Virtual Machine and links to the resulting plots are displayed back in another tab on the browser, and/or an error message is displayed with a link to the web_query.txt.
+
+
 
 # Example plots using the aqExample database
 
