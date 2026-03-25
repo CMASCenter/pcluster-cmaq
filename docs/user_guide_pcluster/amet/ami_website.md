@@ -655,7 +655,7 @@ species_in<-"PM25_TOT"
 query<-" and s.stat_id=d.stat_id and d.ob_dates BETWEEN 20180701 and 20180731 and d.ob_datee BETWEEN 20180701 and 20180731 and (d.ob_hour >= 00 and d.ob_hour <= 23) "
 ```
 
-The run_script.csh is run on the Virtual Machine and links to the resulting plots are displayed in another tab on the browser, and/or an error message is displayed with a link to the web_query.txt.
+The run_script.csh is run on the Virtual Machine and links to the resulting plots are displayed in another tab on the browser, or an error message is displayed with a link to the web_query.txt.
 
 
 # Example plots using the aqExample database
