@@ -616,7 +616,7 @@ Choose Date/Time Range: 07-01-2018 to 07-31-2018
 Choose Program: Species Statistics and Spatial Plots (multi networks)
 ```
 
-Input selections made on the website (querygen_aq.php or querygen_met.php) are saved as inputs to the run_info.r file. 
+Input selections made on the website (querygen_aq.php or querygen_met.php) are saved as inputs to the run_info.r file under the /var/www/html/cache directory. 
 
 The program selection is saved to the run_script.csh, and the run_info.r file is referenced in that run script using the `AMETRINPUT` environment variable.
 
