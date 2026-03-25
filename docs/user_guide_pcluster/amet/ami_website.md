@@ -1219,6 +1219,58 @@ After the successful import, was able to use the AMET Website to view all of the
 
 # Example plots using the EQUATES 2002-2019 Projects in the amad_EQUATES database
 
+## Create Summary Panel Plot w/ spatial, timeseries, histogram, and density scatterplot
+
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul> 
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2019
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Daily O3</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select O3_1hrmax</ul>
+</ul>
+</li>
+</ul>
+
+![AMET select AQS Hourly and O3](./amet_select_aqs_daily_o3_O3_1hrmax.png)
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Summary panel plot w/spatial, timeseries, histogram, and density scatterplot</li>
+</ul>
+</li>
+</ul>
+
+![AMET run Summary Panel Plot w/ spatial, timeseries, histogram, and density scatterplot](./amet_select_program_summary_panel.png )
+
+<li>Summary Panel Plot w/ spatial, timeseries, histogram, and density scatterplot using Networks AQS Daily O3 and Ozone_1hrmax</li>
+
+![Summary Panel Plot of O3_1hrmax](./CMAQv532_12US1_2019_O3_1hrmax_summary_panel_plot.png)
+
+
 ## Create Interactive Year-long Monthly Statistics Plot (single network)
 
 <ul>
