@@ -86,7 +86,7 @@ T3 instance type, physical processor: Intel Skylake E5, CPU Architecture:  x86_6
 | ---------------------- | ------- | -----  | --------  | -----    | 
 | t3.2xlarge             |   8     | 32GB   | $.33      | $7.92    |
 | t3.xlarge              |   4     | 16GB   | $.166     | $3.98    |
-| t3.large               |   2     | 4GB    | $.083     | $1.99    |
+| t3.large               |   2     | 8GB    | $.083     | $1.99    |
 
 ## Storage type costs
 
@@ -826,7 +826,7 @@ This creates a single plot with all metrics, use the legend to deselect every me
 <ul>
 <li>Select IMPROVE</li>
 <li>Select CSN</li>
-<li>Select Castnet</li>
+<li>Select CASTNet</li>
 </ul>
 </li>
 </ul>
