@@ -1003,7 +1003,7 @@ Query result
 
 <li>Day of Week (DoW) Boxplot of O3</li>
 
-![DoW Boxplot of O3_8hrmax](./aqExample_O3_8hrmax.png)
+![DoW Boxplot of O3_8hrmax](./aqExample_O3_8hrmax_boxplot_dow.png)
 
 
 
