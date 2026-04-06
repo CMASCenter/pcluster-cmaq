@@ -114,13 +114,13 @@ Configure AWS Command line credentials on your local machine
 
  `aws configure` 
 
-## Configure a Demo Cluster
+## Configure a Demo Cluster (upgraded these instructions to use an hpc compute node)
 
 To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
 An example of the yaml file contents is described in the following Diagram:
 
-Figure 1. Diagram of YAML file used to configure a ParallelCluster with a t2.micro head node and t2.micro compute nodes
+Figure 1. Diagram of YAML file used to configure a ParallelCluster with a t2.micro head node and hpc7g.16xlarge compute nodes
 
 ![t2.micro yaml configuration](../../yml_plots/hello-world-yaml.png)
 
@@ -135,20 +135,22 @@ Create a yaml configuration file for the cluster following these instructions
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-configuring.html">Link to ParallelCluster Configure Instructions</a>
 ```
 
- `pcluster configure --config new-hello-world.yaml`
+ `pcluster configure --config hpc7g.test.yaml`
 
 Input the following answers at each prompt:
 
 1. Allowed values for AWS Region ID: `us-east-1`
 2. Allowed values for EC2 Key Pair Name:  `choose your key pair`
 2. Allowed values for Scheduler: `slurm`
-3. Allowed values for Operating System: `ubuntu2004`
-4. Head node instance type: `t2.micro`
+3. Allowed values for Operating System: `ubuntu2404`
+4. Head node instance type: `c7g.large`
 5. Number of queues: `1`
 6. Name of queue 1: `queue1`
 7. Number of compute resources for queue1 [1]: `1`
-8. Compute instance type for compute resource 1 in queue1: `t2.micro`
+8. Compute instance type for compute resource 1 in queue1: `hpc7g.16xlarge`
 9. Maximum instance count [10]: `10`
+10. Enabling EFA requires compute instances to be placed within a Placement Group. Please specify an existing Placement Group name or leave it blank for ParallelCluster to create one.
+Placement Group name []:
 10. Automate VPC creation?: `y`
 11. Allowed values for Availability Zone: `1`
 12. Allowed values for Network Configuration: `2. Head node and compute fleet in the same public subnet`
@@ -160,20 +162,20 @@ The choice of operating system (specified during the yaml creation, or in an exi
 ```
 
 1. Centos7 has an older gcc version 4
-2. Ubuntu2004 has gcc version 9+
+2. Ubuntu2404 has gcc version 9+
 3. Alinux or Amazon Linux/Red Hat Linux (haven't tried)
 
 
 Examine the yaml file 
 
- `cat new-hello-world.yaml`
+ `cat hpc7g.test.yaml`
 
 ```
 Region: us-east-1
 Image:
-  Os: ubuntu2004
+  Os: ubuntu2204
 HeadNode:
-  InstanceType: t2.micro
+  InstanceType: c7g.large
   Networking:
     SubnetId: subnet-xx-xx-xx                  <<< unique to your account
   Ssh:
@@ -183,11 +185,15 @@ Scheduling:
   SlurmQueues:
   - Name: queue1
     ComputeResources:
-    - Name: t2micro
-      InstanceType: t2.micro
+    - Name: hpc7g16xlarge
+      InstanceType: hpc7g16xlarge
       MinCount: 0
       MaxCount: 10
+      Efa:
+        Enabled: true
     Networking:
+      PlacementGroup:
+        Enabled: true
       SubnetIds:
       - subnet-xx-xx-xx                        <<< unique to your account
 ```
