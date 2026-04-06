@@ -206,11 +206,11 @@ The key pair and Subnetid in the yaml file are unique to your account.  To creat
 
 ## Create a Demo Cluster
 
- `pcluster create-cluster --cluster-configuration new-hello-world.yaml --cluster-name hello-pcluster --region us-east-1`
+ `pcluster create-cluster --cluster-configuration hpc7g.test.yaml --cluster-name test-pcluster --region us-east-1`
 
 Check on the status of the cluster
 
- `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
+ `pcluster describe-cluster --region=us-east-1 --cluster-name test-pcluster
 
 List available clusters
 
@@ -218,11 +218,11 @@ List available clusters
 
 Check on status of cluster again
 
- `pcluster describe-cluster --region=us-east-1 --cluster-name hello-pcluster`
+ `pcluster describe-cluster --region=us-east-1 --cluster-name test-pcluster`
 
 After 5-10 minutes, you see the following status: "clusterStatus": "CREATE_COMPLETE"
 
-While the cluster has been created, only the t2.micro head node is running.  Before any jobs can be submitted to the slurm queue, the compute nodes need to be started.
+While the cluster has been created, only the c7g.large head node is running.  Before any jobs can be submitted to the slurm queue, the compute node status needs to be checked.
 
 ```{note}
 The compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
@@ -243,9 +243,9 @@ chmod 400 your-key.pem
 
 
 Example:
- pcluster ssh -v -Y -i ~/your-key.pem --cluster-name hello-pcluster
+ pcluster ssh -v -Y -i ~/your-key.pem --cluster-name test-pcluster
 
- `pcluster ssh -v -Y -i ~/[your-key-pair] --cluster-name hello-pcluster`
+ `pcluster ssh -v -Y -i ~/[your-key-pair] --cluster-name test-pcluster`
 
 login prompt should look something like (this will depend on what OS was chosen in the yaml file).
 
@@ -271,11 +271,9 @@ Verify that Slurm is available (if slurm is not available, then you may need to 
 
 `which sbatch`
 
-Do not install sofware on this demo cluster
+Do not install sofware on this test cluster
 
-the t2.micro head node is too small
-
-Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml for the Intermediate Tutorial
+Save the key pair and SubnetId from this hpc7g.test.yaml to use in the yaml for the Intermediate Tutorial
 
 ## Exit the cluster
 
@@ -284,7 +282,7 @@ Save the key pair and SubnetId from this new-hello-world.yaml to use in the yaml
 ## Delete the Demo Cluster
 
 
- `pcluster delete-cluster --cluster-name hello-pcluster --region us-east-1`
+ `pcluster delete-cluster --cluster-name test-pcluster --region us-east-1`
 
 
 ```{seealso}
