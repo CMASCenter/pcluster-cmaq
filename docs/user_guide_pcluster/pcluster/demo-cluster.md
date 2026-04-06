@@ -114,7 +114,7 @@ Configure AWS Command line credentials on your local machine
 
  `aws configure` 
 
-## Configure a Demo Cluster (upgraded these instructions to use an hpc compute node)
+## Configure a Demo Cluster (recent upgrade with instructions to use an hpc compute node)
 
 To create a parallel cluster, a yaml file needs to be created that is unique to your account.
 
