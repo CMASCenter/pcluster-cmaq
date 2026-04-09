@@ -116,7 +116,7 @@ Configure AWS Command line credentials on your local machine
 
 ## Configure a Demo Cluster (recent upgrade with instructions to use an hpc compute node)
 
-To create a parallel cluster, a yaml file needs to be created that is unique to your account.
+To create a parallel cluster, a yaml file needs to be created with Network subnetID and pem key names that are unique to your account.
 
 An example of the yaml file contents is described in the following Diagram:
 
@@ -226,6 +226,17 @@ While the cluster has been created, only the c7g.large head node is running.  Be
 
 ```{note}
 The compute nodes are not "provisioned" or "created" at this time (so they do not begin to incur costs).  The compute nodes are only provisioned when a slurm job is scheduled.  After a slurm job is completed, then the compute nodes will be terminated after 5 minutes of idletime.
+```
+
+Verify that the output from describe-cluster contains the following output;
+
+ "computeFleetStatus": "RUNNING",
+ "clusterStatus": "UPDATE_COMPLETE",
+
+If the computeFleetStatus is "UNKNOWN" there is likely a missing IAM Policy. Please review the log file from the parallelcluster CLI on your local machine for any errors:
+
+```
+tail ~/.parallelcluster/pcluster-cli.log
 ```
 
 
