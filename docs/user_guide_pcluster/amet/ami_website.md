@@ -2024,7 +2024,7 @@ Bugle Plot of Normalized Mean Error (NME) Temperature for Networks METAR
 ![Bugle Plot of NMB Temp](./metExample_wrf_T_bugle_plot_error.png)
 
 
-# Load your own data to MariaDB
+# Load your own MET data to MariaDB
 
 ## Prepare to load your own data
 
