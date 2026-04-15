@@ -2199,11 +2199,6 @@ to
 setenv METOUTPUT $AMETBASE/model_data/MET/$AMET_PROJECT/wrfout_new_project
 ```
 
-## Load your project data into the database for a new AQ project
-
-need to add this contents
-
-
 # Types of Errors Creating Plots and how to avoid them.
 
 ## Selection of wrong inputs for the plot type selected to run 
