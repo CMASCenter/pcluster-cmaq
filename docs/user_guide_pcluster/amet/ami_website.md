@@ -2078,16 +2078,54 @@ Boxplot of T2 Bias
 
 ## Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values
 
-Under Met Observation Networks
-Choose METAR
+<ul>
+<li>Under Met Observation Networks
+<ul>
+<li>Choose METAR</li>
+</ul>
+</li>
+</ul>
 
-Under Met Variable to Use
-Select T(2m) 
+<ul>
+<li> Under Met Variable to Use
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
+
 
 ![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
 
-Under Choose Program to Run
-Plotly Boxplot (single network, multi-run)
+<ul>
+<li>Under Date and Time Criteria select 1 week of data (plot may exceed memory and crash if using full month)
+<ul> 
+<li>Select Start Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 07</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Boxplot (single network, multi-run)</li>
+</ul>
+</li>
+</ul>
 
 ![Query Result](./met_plots/amet_result_query_boxplot_plotly.png)
 
@@ -2095,7 +2133,13 @@ Plotly Boxplot of T2
 
 ![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly.png)
 
-Note, the Bias and Normalized Bias Plots were not created successfully.
+Plotly Bias Plot of T2
+
+![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly_bias.png)
+
+Plotly NMB Plot of T2
+
+![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly_nmb.png)
 
 ## Create Interactive Hourly Timeseries of T2 using Plotly
 
