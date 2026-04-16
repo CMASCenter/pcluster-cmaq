@@ -1923,12 +1923,9 @@ Spatial Plot of 2m Temperature Difference between Model and Observations
 </li>
 </ul>
 
-
-![AMET Website Select Plot and Run Program](./met_plots/amet_run_interactive_model-model-diff-spatial-plot.png)
-
 Results of options selected in querygen_met.php form
 
-![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_interactive_spatial_mtom_diff.png)
+![AMET Website Select Plot and Run Program](./met_plots/amet_run_interactive_model-model-diff-spatial-plot.png)
 
 Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot
 
