@@ -1836,7 +1836,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 <li>Results of options selected in querygen_met.php</li>
 </ul>
 
-![AMET Website Result](./met_plots/amet_met_results_from_query_spatial.png)
+![AMET Website Result](./met_plots/amet_met_results_from_query_spatial_07.png)
 
 <ul>
 <li> 2m Temperature Normalized Mean Bias Plot</li>
