@@ -2143,20 +2143,59 @@ Plotly NMB Plot of T2
 
 ## Create Interactive Hourly Timeseries of T2 using Plotly
 
-Under Met Observation Network
-Select METAR
+<ul>
+<li>Under Met Observation Networks
+<ul>
+<li>Choose METAR</li>
+</ul>
+</li>
+</ul>
 
-Under Met Species to Plot
-Select T 
+<ul>
+<li> Under Met Variable to Use
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
 
-Under Choose Program to Run
-Choose Plotly Multi-species Timeseries
+
+![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
+
+<ul>
+<li>Under Date and Time Criteria select 1 month of data
+<ul>
+<li>Select Start Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 31</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Multi-species Timeseries</li>
+</ul>
+</li>
+</ul>
 
 ![AMET run Plotly Multispecies Timeseries](./met_plots/amet_run_plotly_timeseries_multisimulation.png)
 
 Note, this plot is interactive, and you can turn off items by clicking on an item in the legend, and also window to a specific time within the plot.
 
-![Hourly Timeseries Plot of T](./met_plots/amet_plotly_hourly_timeseries_multispecies.png)
+![Hourly Timeseries Plot of T](./met_plots/amet_plotly_hourly_timeseries_T_METAR.png)
 
 ## Create Bugle Plot of T(2m)
 
