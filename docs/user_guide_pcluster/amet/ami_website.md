@@ -1923,6 +1923,8 @@ Spatial Plot of 2m Temperature Difference between Model and Observations
 </li>
 </ul>
 
+![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_interactive_model-model-diff-spaital.png)
+
 Results of options selected in querygen_met.php form
 
 ![AMET Website Select Plot and Run Program](./met_plots/amet_run_interactive_model-model-diff-spatial-plot.png)
