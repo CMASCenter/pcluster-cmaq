@@ -1984,7 +1984,7 @@ Results of options selected in querygen_met.php form
 
 Timeseries Plot of 2m Temperature
 
-![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_mpas_T_timeseries.png)
+![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_mpas_T_METAR_timeseries.png)
 
 
 ## Create Boxplot using METAR Met Observations and T(2m) Model Values
