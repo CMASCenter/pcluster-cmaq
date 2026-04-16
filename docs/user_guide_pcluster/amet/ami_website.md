@@ -1915,7 +1915,7 @@ Results of options selected in querygen_met.php form
 
 Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot
 
-![Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_avg.png )
+![Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_avg_07.png )
 
 Spatial Plot of 2m Temperature Model to Model Maximum Difference Interactive Plot
 
@@ -2011,7 +2011,7 @@ Timeseries Plot of 2m Temperature
 ![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_mpas_T_METAR_timeseries.png)
 
 
-## Create Boxplot using METAR Met Observations and T(2m) Model Values
+## Create GGPlot Boxplot using METAR Met Observations and T(2m) Model Values
 
 <ul>
 <li>Under Met Observation Networks
@@ -2032,26 +2032,49 @@ Timeseries Plot of 2m Temperature
 ![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
 
 <ul>
-<li>Under Choose Program to Run
+<li>Under Date and Time Criteria select 1 week of data (full month of data is too crowded for this plot)
+<ul> 
+<li>Select Start Date</li>
 <ul>
-<li>Boxplot (single network, multi-run)</li>
+<li> Year: 2016</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2016</li>
+<li> Month: 07</li> 
+<li> Day: 07</li>
+</ul>
 </ul>
 </li>
 </ul>
 
-![Query Result](./amet_result_query_boxplot.png)
+![AMET Website Select Date and Time Criteria for metExample projects](./Select_date_and_time_criteria_for_metExample_1week.png)
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>GGPlot Boxplot (single network, multi-run)</li>
+</ul>
+</li>
+</ul>
+
+![Select Program](./amet_result_program_ggplot_boxplot.png)
+
+![Query Result](./amet_result_query_ggplot_boxplot.png)
 
 Boxplot of T2 all
 
-![Boxplot of T2 all](./met_plots/metExample_wrf_T_boxplot_all.png)
+![Boxplot of T2 all](./met_plots/metExample_wrf_T_ggplot_boxplot_all.png)
 
 Boxplot of T2 Bias
 
-![Boxplot of T2 Bias](./met_plots/metExample_wrf_T_boxplot_bias.png)
+![Boxplot of T2 Bias](./met_plots/metExample_wrf_T_ggplot_boxplot_bias.png)
 
-Boxplot of T2 Normalized Bias
-
-![Boxplot of T2 Normalized Bias](./met_plots/metExample_wrf_T_boxplot_norm_bias.png)
 
 ## Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values
 
