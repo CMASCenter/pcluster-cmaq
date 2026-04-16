@@ -2197,7 +2197,7 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![Hourly Timeseries Plot of T](./met_plots/amet_plotly_hourly_timeseries_T_METAR.png)
 
-## Create Bugle Plot of T(2m)
+## Create Histogram Plot of T(2m)
 
 <ul>
 <li>Under Observation Network
@@ -2217,18 +2217,25 @@ Note, this plot is interactive, and you can turn off items by clicking on an ite
 
 ![AMET select METAR ](./met_plots/amet_select_METAR_T.png)
 
-Under Choose Program to Run
-Choose Bugle Plot(Multiple Networks) under Misc Scripts
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Interactive Histogram (single network, single species, multi-run) under Misc Scripts</li>
+</ul>
+</li>
+</ul>
 
-![AMET run Bugle Plot](./met_plots/amet_run_bugle_T.png)
+![AMET run Histogram](./met_plots/amet_run_histogram_T.png)
 
-Bugle Plot of Normalized Mean Bias (NMB) T for METAR Obs Network
 
-![Bugle Plot of NMB Temperature](./met_plots/metExample_wrf_T_bugle_plot_bias.png)
 
-Bugle Plot of Normalized Mean Error (NME) Temperature for Networks METAR
+Interactive Histogram Plot ( Frequency values for T and METAR Obs Network and for Bias)
 
-![Bugle Plot of NMB Temp](./metExample_wrf_T_bugle_plot_error.png)
+![Histogram Plot of NMB Temperature](./met_plots/metExample_wrf_T_histogram_plot_values_bias.png)
+
+Turn off Bias by clicking in Legend, and zoom in to show frequency of temperature ranges for METAR and metExample_wrf
+
+![Histogram Plot of Temp](./met_plots/metExample_wrf_T_histogram_plot_values.png)
 
 
 # Load your own MET data to MariaDB
