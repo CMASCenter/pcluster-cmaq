@@ -1836,7 +1836,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 <li>Results of options selected in querygen_met.php</li>
 </ul>
 
-![AMET Website Result](./met_plots/amet_met_results_from_query_spatial_07.png)
+![AMET Website Result](./met_plots/amet_met_results_from_query_spatial.png)
 
 <ul>
 <li> 2m Temperature Normalized Mean Bias Plot</li>
@@ -1915,7 +1915,7 @@ Results of options selected in querygen_met.php form
 
 Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot
 
-![Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_avg_07.png )
+![Spatial Plot of 2m Temperature Model to Model Average Difference Interactive Plot](./met_plots/metExample_wrf_T_spatialplot_mtom_diff_avg.png )
 
 Spatial Plot of 2m Temperature Model to Model Maximum Difference Interactive Plot
 
