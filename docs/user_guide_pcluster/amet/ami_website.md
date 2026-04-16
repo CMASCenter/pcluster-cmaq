@@ -733,7 +733,7 @@ The run_script.csh is run on the Virtual Machine and links to the resulting plot
 
 <li>Results of options selected in querygen_aq.php</li>
 
-![AMET Website Result](./amet_results_from_query_top.png)
+![AMET Website Result](./amet_results_from_query_top_species_statistics_spatial.png)
 
 <li>PM2.5_TOT Normalized Mean Bias Plot</li>
 
@@ -1836,7 +1836,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 <li>Results of options selected in querygen_met.php</li>
 </ul>
 
-![AMET Website Result](./met_plots/amet_met_results_from_query_spatial.png)
+![AMET Website Result](./met_plots/amet_results_from_query_top_species_statistics_spatial_T.png)
 
 <ul>
 <li> 2m Temperature Normalized Mean Bias Plot</li>
