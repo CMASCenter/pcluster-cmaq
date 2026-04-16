@@ -1945,6 +1945,30 @@ Scatterplot of 2m Temperature
 </ul>
 
 <ul>
+<li>Under Date and Time Criteria
+<ul>
+<li>Select Start Date</li>
+<ul>
+<li> Year: 2016</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2016</li>
+<li> Month: 07</li>
+<li> Day: 31</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Date and Time Criteria for metExample projects](./Select_date_and_time_criteria_for_metExample.png)
+
+
+<ul>
 <li>Under Choose Program to Run
 <ul>
 <li>Timeseries Plot (single network, multiple sites averaged)</li>
@@ -1960,7 +1984,7 @@ Results of options selected in querygen_met.php form
 
 Timeseries Plot of 2m Temperature
 
-![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_T_timeseries.png)
+![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_mpas_T_timeseries.png)
 
 
 ## Create Boxplot using METAR Met Observations and T(2m) Model Values
