@@ -1957,6 +1957,37 @@ Spatial Plot of 2m Temperature Model to Model Difference Ratio Interactive Plot
 </ul>
 
 <ul>
+<li>Under Data Format and Plot Specifications, Under AMET Plots Axis Options 
+<ul>
+<li>Select x-axis min</li>
+<ul>
+<li> 250</li>
+</ul>
+</ul>
+<ul>
+<li>Select x-axis max</li>
+<ul>
+<li> 350</li>
+</ul>
+</ul>
+<ul>
+<li>Select y-axis min</li>
+<ul>
+<li> 250</li>
+</ul>
+</ul>
+<ul>
+<li>Select y-axis max</li>
+<ul>
+<li> 350</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Min and Max x-axis and y-axis](./met_plots/AMET_website_choose_min_max_xaxis_yaxis.png)
+
+<ul>
 <li>Under Choose Program to Run
 <ul>
 <li>Select Density Scatterplot (single run, single network) </li>
