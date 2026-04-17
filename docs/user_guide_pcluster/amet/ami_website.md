@@ -2114,7 +2114,7 @@ Boxplot of T2 Bias
 ![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
 
 <ul>
-<li>Under Date and Time Criteria select 1 week of data (plot may exceed memory and crash if using full month)
+<li>Under Date and Time Criteria select 1 week of data  (this is one method to subset the time range, using an interactive plot, you can also grab a subset of the time region or a subset of the temperature range, which is demonstrated in the next Plotly interactive plot))
 <ul> 
 <li>Select Start Date</li>
 <ul>
