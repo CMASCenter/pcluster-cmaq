@@ -2158,6 +2158,78 @@ Plotly NMB Plot of T2
 ![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly_nmb.png)
 
 
+## Create Plotly Boxplot using METAR Met Observations and T(2m) Model Values for South Climate Region
+
+<ul>
+<li>Under Climate Regions 
+<ul>
+<li>Choose South</li>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Climate Region: South](./met_plots/amet_select_climate_region_south.png)
+
+<ul>
+<li>Under Met Observation Networks
+<ul>
+<li>Choose METAR</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Met Variable to Use
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
+
+
+![AMET Website Select Obs Network and Species](./met_plots/amet_select_METAR_and_T2.png)
+
+<ul>
+<li>Under Date and Time Criteria select 1 month of data 
+<ul>
+<li>Select Start Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 31</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Boxplot (single network, multi-run)</li>
+</ul>
+</li>
+</ul>
+
+Plotly Boxplot of T2 - this is an interactive plot, zoom in to show a smaller range of temperatures, 290K - 320K
+
+![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly_07_zoomed.png)
+
+Plotly Bias Plot of T2
+
+![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_bias_boxplot_plotly_South_Climate_Zoomed)
+
+
+
+
 ## Create Roselle Boxplot
 <ul>
 <li>Under Date and Time Criteria select 1 month of data 
