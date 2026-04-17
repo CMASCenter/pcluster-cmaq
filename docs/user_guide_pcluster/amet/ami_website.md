@@ -2225,9 +2225,7 @@ Plotly Boxplot of T2 - this is an interactive plot, zoom in to show a smaller ra
 
 Plotly Bias Plot of T2
 
-![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_bias_boxplot_plotly_South_Climate_Zoomed)
-
-
+![Plotly Bias Boxplot of T2 ](./met_plots/metExample_wrf_T_bias_boxplot_plotly_South_Climate_Zoomed.png)
 
 
 ## Create Roselle Boxplot
