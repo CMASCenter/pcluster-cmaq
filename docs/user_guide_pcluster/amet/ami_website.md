@@ -1764,6 +1764,11 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 </ol>
 </details>
 
+## Map of World METAR Stations
+
+<a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
+<a href="https://turbli.com/maps/world-metar-map/">World METAR Map of Temperature</a>
+
 ## Create 2m Temperature Spatial Plots
 <ul>
 <li>Choose database
@@ -2008,6 +2013,11 @@ Scatterplot of 2m Temperature metExample_wrf vs METAR
 Scatterplot of 2m Temperature metExample_mpas vs METAR
 
 ![Scatterplot of 2m Temperature mpas](./met_plots/metExample_wrf_T_scatterplot_density_mpas.png)
+
+Notice that the range of temperatures for mpas is much larger than for wrf.
+Restrict the area used, to be all of the climate regions (all of the US states) and replot.
+
+
 
 ## Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature
 
