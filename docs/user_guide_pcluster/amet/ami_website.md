@@ -2001,9 +2001,13 @@ Results of options selected in querygen_met.php form
 
 ![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_scatterplot_min_max_xaxis_yaxis.png)
 
-Scatterplot of 2m Temperature
+Scatterplot of 2m Temperature metExample_wrf vs METAR
 
-![Scatterplot of 2m Temperature](./met_plots/metExample_wrf_T_scatterplot_density.png)
+![Scatterplot of 2m Temperature wrf](./met_plots/metExample_wrf_T_scatterplot_density.png)
+
+Scatterplot of 2m Temperature metExample_mpas vs METAR
+
+![Scatterplot of 2m Temperature mpas](./met_plots/metExample_wrf_T_scatterplot_density_mpas.png)
 
 ## Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature
 
