@@ -2008,7 +2008,7 @@ Results of options selected in querygen_met.php form
 
 Scatterplot of 2m Temperature metExample_wrf vs METAR
 
-![Scatterplot of 2m Temperature wrf](./met_plots/metExample_wrf_T_scatterplot_density.png)
+![Scatterplot of 2m Temperature wrf](./met_plots/metExample_wrf_T_scatterplot_density_wrf.png)
 
 Scatterplot of 2m Temperature metExample_mpas vs METAR
 
