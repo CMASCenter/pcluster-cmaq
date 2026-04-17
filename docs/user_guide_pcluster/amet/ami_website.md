@@ -1999,7 +1999,7 @@ Spatial Plot of 2m Temperature Model to Model Difference Ratio Interactive Plot
 
 Results of options selected in querygen_met.php form
 
-![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_scatterplot.png)
+![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_scatterplot_min_max_xaxis_yaxis.png)
 
 Scatterplot of 2m Temperature
 
