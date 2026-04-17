@@ -2157,6 +2157,74 @@ Plotly NMB Plot of T2
 
 ![Plotly Boxplot of T2 ](./met_plots/metExample_wrf_T_boxplot_plotly_nmb.png)
 
+
+## Create Roselle Boxplot
+<ul>
+<li>Under Date and Time Criteria select 1 month of data 
+<ul>
+<li>Select Start Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2018</li>
+<li> Month: 07</li>
+<li> Day: 31</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Roselle Boxplot (single network, multiple simulations)</li>
+</ul>
+</li>
+</ul>
+
+![Select Roselle Boxplot Program](./met_plots/amet_run_roselle_boxplot.png)
+
+
+![Query Result](./met_plots/amet_result_query_roselle_boxplot.png)
+
+Roselle Boxplot of T2
+
+![Roselle Boxplot of T2 ](./met_plots/metExample_wrf_T_roselle_boxplot.png)
+
+Roselle Bias Boxplot Plot of T2
+
+![Roselle Bias Boxplot of T2 ](./met_plots/metExample_wrf_T_roselle_boxplot_bias.png)
+
+
+## Create Interactive Hourly Timeseries of T2 using Plotly
+
+<ul>
+<li>Under Met Observation Networks
+<ul>
+<li>Choose METAR</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Met Variable to Use
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
 ## Create Interactive Hourly Timeseries of T2 using Plotly
 
 <ul>
