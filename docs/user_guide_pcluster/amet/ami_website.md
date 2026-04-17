@@ -2015,7 +2015,19 @@ Scatterplot of 2m Temperature metExample_mpas vs METAR
 ![Scatterplot of 2m Temperature mpas](./met_plots/metExample_wrf_T_scatterplot_density_mpas.png)
 
 Notice that the range of temperatures for mpas is much larger than for wrf.
-Restrict the area used, to be all of the climate regions (all of the US states) and replot.
+Restrict the area used, to be all of the Regional Planning Office Regions (all of the US states) and replot the scatterplots for both wrf and mpas.
+The METAR stations are world-wide, and MPAS model covers the northern hemisphere, therefore to see a comparison of the models over a consistent area, it is advised to select a state, or region of interest, in this case the selection is for all of the Regional Planning Office regions.
+
+Scatterplot of 2m Temperature metExample_wrf vs METAR restricted to RPO Regions
+
+![Scatterplot of 2m Temperature wrf](./met_plots/metExample_wrf_T_scatterplot_density_wrf_rpo.png)
+
+Scatterplot of 2m Temperature metExample_mpas vs METAR restricted to RPO Regions
+
+![Scatterplot of 2m Temperature mpas](./met_plots/metExample_wrf_T_scatterplot_density_mpas_rpo.png)
+
+
+
 
 
 
