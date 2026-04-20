@@ -82,7 +82,6 @@ VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201807.nc
 ![VERDI Plot of PM25_TOT from CMAQ Output](./verdi_plot_PM25_TOT_aqExample_2018.png)
 
 
-
 VERDI Plot of TA in METCRO3D_20180703.nc4
 
 ![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_ta_metcro3d_20180703.png)
@@ -1378,7 +1377,7 @@ Imported the mysql dump provided by Wyat Appel using the following command.
 sudo mysql -p amad_EQUATES < amad_EQUATES.dump & 
 ```
 
-After the successful import, was able to use the AMET Website to view all of the imported tables.
+Verify the import by using the AMET Website to view all of the imported tables.
 
 ![AMET AQ WEBSITE display of 2002-2019](./amad_EQUATES_tables.png)
 
