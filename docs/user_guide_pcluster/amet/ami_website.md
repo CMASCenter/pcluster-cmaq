@@ -35,10 +35,8 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>metExample_mcip, MCIP Test Case July 2016, 12US1 (459x299x35)</li>
 <li>metExample_wrf, WRF Test Case July 2016, 12US1 (472x312x36)</li>
 <li>metExample_mpas, MPAS Test Case July 2016,  Globally-uniform 120 km resolution mesh </li>
-</ol>
-</details>
-
-Grid Details for aqExample
+<ol><b>Grid Details</b>
+<li>aqExample</li>
 
 ```
 // global attributes:
@@ -80,7 +78,7 @@ VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201607.nc
 ![VERDI Plot of PM25_TOT from CMAQ Output for aqExample](./verdi_plot_PM25_TOT_aqExample.png)
 
 
-Grid Details for MCIP Output
+<li>metExample_mcip</li>
 
 ```
 // global attributes:
@@ -115,7 +113,7 @@ VERDI Plot of TA in METCRO3D_20180701.nc4
 
 ![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_TA_METCRO3D_20180701.png)
 
-Grid Details for WRF Output
+<li>metExample_wrf</li>
 
 ```
 // global attributes:
@@ -132,6 +130,9 @@ Grid Details for WRF Output
 VERDI Plot of T2 in wrfout<br>
 
 ![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
+
+</ol>
+</details>
 
 
 More details about understanding WRF Output data<br>
