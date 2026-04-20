@@ -87,17 +87,18 @@ Grid Details for WRF Output
 		:DY = 12000.f ;
 ```
 
-VERDI Plot of T2 in wrfout
+VERDI Plot of T2 in wrfout<br>
 
 ![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
 
 
-More details about understanding WRF Output data
+More details about understanding WRF Output data<br>
 <a href="https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/output.html">WRF Output Description</a>
 
-More details about MPAS Atmosphere
+More details about MPAS Atmosphere<br>
 <a href="https://mpas-dev.github.io/atmosphere/atmosphere.html">MPAS Atmosphere</a>
-More details about MPAS-CMAQ
+
+More details about MPAS-CMAQ<br>
 <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch14_MPAS-CMAQ.md">MPAS-CMAQ Model</a>
 
 
