@@ -38,6 +38,48 @@ Some programs also support model to model comparisons by selecting multiple proj
 </ol>
 </details>
 
+Grid Details for aqExample
+
+```
+// global attributes:
+		:IOAPI_VERSION = "$Id: @(#) ioapi library version 3.1 $                                           " ;
+		:EXEC_ID = "????????????????                                                                " ;
+		:FTYPE = 1 ;
+		:CDATE = 2018323 ;
+		:CTIME = 171303 ;
+		:WDATE = 2018323 ;
+		:WTIME = 171303 ;
+		:SDATE = 2016183 ;
+		:STIME = 0 ;
+		:TSTEP = 10000 ;
+		:NTHIK = 1 ;
+		:NCOLS = 459 ;
+		:NROWS = 299 ;
+		:NLAYS = 1 ;
+		:NVARS = 89 ;
+		:GDTYP = 2 ;
+		:P_ALP = 33. ;
+		:P_BET = 45. ;
+		:P_GAM = -97. ;
+		:XCENT = -97. ;
+		:YCENT = 40. ;
+		:XORIG = -2556000. ;
+		:YORIG = -1728000. ;
+		:XCELL = 12000. ;
+		:YCELL = 12000. ;
+		:VGTYP = 7 ;
+		:VGTOP = 5000.f ;
+		:VGLVLS = 1.f, 0.f ;
+		:GDNAM = "12US1           " ;
+```
+
+VERDI plot of aqExample PM2.5
+
+VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201607.nc
+
+![VERDI Plot of PM25_TOT from CMAQ Output for aqExample](./verdi_plot_PM25_TOT_aqExample.png)
+
+
 Grid Details for MCIP Output
 
 ```
