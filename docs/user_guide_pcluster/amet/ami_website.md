@@ -1,6 +1,6 @@
 # AMET on AWS
 
-The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors using the program sitecmp a post-processing routine from CMAQ.  These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance. 
+The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors using the program sitecmp, a post-processing routine from CMAQ.  These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance. 
 
 AMET Website helps users generate and view plots created by AMET R programs using a web browser. 
 
@@ -91,6 +91,10 @@ VERDI Plot of TA in METCRO3D_20180703.nc4
 VERDI Plot of T2 in wrfout<br>
 
 ![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
+
+VERDI Plot of T2 in metExample_mpas
+
+![VERDI Plot of T2 from mpasoutput](./met_plots/verdi_plot_mpas_output_T2.png)
 
 
 More details about understanding WRF Output data<br>
