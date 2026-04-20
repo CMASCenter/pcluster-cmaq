@@ -1,6 +1,6 @@
 # AMET on AWS
 
-The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors. These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance. 
+The Atmospheric Model Evaluation Tool (AMET) (Appel et al., 2011) matches the model output for particular locations to the corresponding observed values from one or more networks of monitors using the program sitecmp a post-processing routine from CMAQ.  These pairings of values (model and observation) are then used to statistically and graphically analyze the model’s performance. 
 
 AMET Website helps users generate and view plots created by AMET R programs using a web browser. 
 
