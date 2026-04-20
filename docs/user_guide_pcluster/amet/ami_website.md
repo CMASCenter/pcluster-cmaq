@@ -82,31 +82,6 @@ VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201807.nc
 ![VERDI Plot of PM25_TOT from CMAQ Output](./verdi_plot_PM25_TOT_aqExample_2018.png)
 
 
-VERDI Plot of TA in METCRO3D_20180703.nc4
-
-![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_ta_metcro3d_20180703.png)
-
-<li>metExample_wrf</li>
-
-VERDI Plot of T2 in wrfout<br>
-
-![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
-
-VERDI Plot of T2 in metExample_mpas
-
-![VERDI Plot of T2 from mpasoutput](./met_plots/verdi_plot_mpas_output_T2.png)
-
-
-More details about understanding WRF Output data<br>
-<a href="https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/output.html">WRF Output Description</a>
-
-More details about MPAS Atmosphere<br>
-<a href="https://mpas-dev.github.io/atmosphere/atmosphere.html">MPAS Atmosphere</a>
-
-More details about MPAS-CMAQ<br>
-<a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch14_MPAS-CMAQ.md">MPAS-CMAQ Model</a>
-
-
 <b>Database: amad_EQUATES</b>
 
 <details>
@@ -668,6 +643,14 @@ Example: PAMS Network has select VOCs, NO and NO2.
 </details>
 
 </details>
+
+VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.nc 
+
+![VERDI Plot of PM25_AVG from CMAQ Output](./verdi_HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.png)
+
+
+
+
 
 # Method used to create plots 
 
@@ -1836,6 +1819,32 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 <a href="https://turbli.com/maps/world-metar-map/">World METAR Map of Temperature</a>
+
+
+VERDI Plot of TA in METCRO3D_20180703.nc4
+    
+![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_ta_metcro3d_20180703.png)
+  
+<li>metExample_wrf</li>
+
+VERDI Plot of T2 in wrfout<br>
+
+![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
+
+VERDI Plot of T2 in metExample_mpas 
+
+![VERDI Plot of T2 from mpasoutput](./met_plots/verdi_plot_mpas_output_T2.png)
+
+More details about understanding WRF Output data<br>
+<a href="https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/output.html">WRF Output Description</a>
+
+More details about MPAS Atmosphere<br>
+<a href="https://mpas-dev.github.io/atmosphere/atmosphere.html">MPAS Atmosphere</a>
+
+More details about MPAS-CMAQ<br>
+<a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch14_MPAS-CMAQ.md">MPAS-CMAQ Model</a>
+
+
 
 ## Create 2m Temperature Spatial Plots
 <ul>
