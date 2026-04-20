@@ -77,6 +77,10 @@ Some programs also support model to model comparisons by selecting multiple proj
 </ol>
 </details>
 
+VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201807.nc 
+
+![VERDI Plot of PM25_TOT from CMAQ Output](./verdi_plot_PM25_TOT_aqExample_2018.png)
+
 
 
 VERDI Plot of TA in METCRO3D_20180701.nc4
