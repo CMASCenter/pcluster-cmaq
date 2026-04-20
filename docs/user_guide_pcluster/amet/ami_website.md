@@ -35,8 +35,7 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>metExample_mcip, MCIP Test Case July 2016, 12US1 (459x299x35)</li>
 <li>metExample_wrf, WRF Test Case July 2016, 12US1 (472x312x36)</li>
 <li>metExample_mpas, MPAS Test Case July 2016,  Globally-uniform 120 km resolution mesh </li>
-<ol><b>Grid Details</b>
-<li>aqExample</li>
+<ol><b>aqExample Grid Details</b>
 <li>metExample_mcip</li>
 <li>// global attributes:</li>
 <li>		:IOAPI_VERSION = "ioapi-3.2: $Id: init3.F90 1 2017-06-10 18:05:20Z coats $                        " ;</li>
@@ -64,7 +63,8 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>		:YORIG = -1728000. ;</li>
 <li>		:XCELL = 12000. ;</li>
 <li>		:YCELL = 12000. ;</li>
-<li>metExample_mcip</li>
+</ol>
+<ol><b>metExample_mcip Grid Details</b>
 <li>// global attributes:</li>
 <li>        :TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;</li>
 <li>        :START_DATE = "2016-06-29_00:00:00" ;</li>
