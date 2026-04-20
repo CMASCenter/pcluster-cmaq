@@ -29,7 +29,7 @@ Some programs also support model to model comparisons by selecting multiple proj
 <details>
   <summary> Projects | Click to expand!</summary>
 <ol><b>AIR QUALITY</b>
-<li>aqExample CMAQv5.5 test case July 2018</li>
+<li>aqExample CMAQv5.5 test case July 2018, 12US1 (459x299x35)</li>
 </ol>
 <ol><b>METEOROLOGY</b>
 <li>metExample_mcip, MCIP Test Case July 2016, 12US1 (459x299x35)</li>
