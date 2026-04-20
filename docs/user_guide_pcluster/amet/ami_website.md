@@ -32,11 +32,68 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>aqExample CMAQv5.5 test case July 2018</li>
 </ol>
 <ol><b>METEOROLOGY</b>
-<li>metExample_mcip, MCIP Test Case July 2016, 12US1)</li>
-<li>metExample_wrf, WRF Test Case July 2016, 12US1</li>
+<li>metExample_mcip, MCIP Test Case July 2016, 12US1 (459x299x35)</li>
+<li>metExample_wrf, WRF Test Case July 2016, 12US1 (472x312x36)</li>
 <li>metExample_mpas, MPAS Test Case July 2016,  Globally-uniform 120 km resolution mesh </li>
 </ol>
 </details>
+
+Grid Details for MCIP Output
+
+```
+// global attributes:
+		:IOAPI_VERSION = "ioapi-3.2: $Id: init3.F90 1 2017-06-10 18:05:20Z coats $                        " ;
+		:EXEC_ID = "mcip                                                                            " ;
+		:FTYPE = 1 ;
+		:CDATE = 2022102 ;
+		:CTIME = 185908 ;
+		:WDATE = 2022102 ;
+		:WTIME = 185908 ;
+		:SDATE = 2018184 ;
+		:STIME = 0 ;
+		:TSTEP = 10000 ;
+		:NTHIK = 1 ;
+		:NCOLS = 459 ;
+		:NROWS = 299 ;
+		:NLAYS = 1 ;
+		:NVARS = 41 ;
+		:GDTYP = 2 ;
+		:P_ALP = 33. ;
+		:P_BET = 45. ;
+		:P_GAM = -97. ;
+		:XCENT = -97. ;
+		:YCENT = 40. ;
+		:XORIG = -2556000. ;
+		:YORIG = -1728000. ;
+		:XCELL = 12000. ;
+		:YCELL = 12000. ;
+```
+
+VERDI Plot of TA in METCRO3D_20180701.nc4
+
+![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_TA_METCRO3D_20180701.png)
+
+Grid Details for WRF Output
+
+```
+// global attributes:
+		:TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;
+		:START_DATE = "2016-06-29_00:00:00" ;
+		:SIMULATION_START_DATE = "2015-12-21_00:00:00" ;
+		:WEST-EAST_GRID_DIMENSION = 472 ;
+		:SOUTH-NORTH_GRID_DIMENSION = 312 ;
+		:BOTTOM-TOP_GRID_DIMENSION = 36 ;
+		:DX = 12000.f ;
+		:DY = 12000.f ;
+```
+
+VERDI Plot of T2 in wrfout
+
+![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
+
+
+More details about understanding WRF Output data
+<a href="https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/output.html">WRF Output Description</a>
 
 More details about MPAS Atmosphere
 <a href="https://mpas-dev.github.io/atmosphere/atmosphere.html">MPAS Atmosphere</a>
