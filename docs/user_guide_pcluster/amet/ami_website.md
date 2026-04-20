@@ -330,6 +330,23 @@ select distinct network from CMAQv532_12US1_2002;
 +---------------+
 ```
 
+Map of AQS 
+
+<a href="https://gispub.epa.gov/airnow/?monitors=pm&showtempmonitors=true&">Map of AQS</a>
+
+<a href="https://aqs.epa.gov/aqsweb/documents/about_aqs_data.html">About AQS Data</a>
+
+<a href="https://www.epa.gov/outdoor-air-quality-data/interactive-map-air-quality-monitors">Interactive Map of Air Quality Monitors</a>
+
+<a href="https://epa.maps.arcgis.com/apps/webappviewer/index.html?id=5f239fd3e72f424f98ef3d5def547eb5&extent=-146.2334,13.1913,-46.3896,56.5319">AirData Air Quality Models</a>
+
+<a href="https://hub.arcgis.com/maps/EPA::us-epa-nonattainment-areas-and-designations-pm2-5-daily-24-hour-2006-naaqs/explore?location=38.060448%2C-96.955594%2C4&path=">US EPA Nonattainment Areas and Designations - PM2.5 Daily (24-hour) (2006 NAAQS)</a>
+
+<a href="https://www.arcgis.com/home/item.html?id=4c20ce3f77b54889963a1d0b0978f730#visualize">PM2.5 Speciation Data 2021-2023, US EPA, OAR, OAQPS</a>
+
+Chemical Speciation Network (CSN) 
+Interagency Monitoring of Protected Visual Environments (IMPROVE) network
+
 <details>
   <summary>AQ Observation Networks (35) | Click to expand!</summary>
 <ol>Name of US Air Quality Monitoring Network
