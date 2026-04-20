@@ -32,11 +32,16 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>aqExample CMAQv5.5 test case July 2018</li>
 </ol>
 <ol><b>METEOROLOGY</b>
-<li>metExample_mcip, MCIP Test Case July 2016</li>
-<li>metExample_wrf, WRF Test Case July 2016</li>
-<li>metExample_mpas, MPAS Test Case July 2016</li>
+<li>metExample_mcip, MCIP Test Case July 2016, 12US1)</li>
+<li>metExample_wrf, WRF Test Case July 2016, 12US1</li>
+<li>metExample_mpas, MPAS Test Case July 2016,  Globally-uniform 120 km resolution mesh </li>
 </ol>
 </details>
+
+More details about MPAS Atmosphere
+<a href="https://mpas-dev.github.io/atmosphere/atmosphere.html">MPAS Atmosphere</a>
+More details about MPAS-CMAQ
+<a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch14_MPAS-CMAQ.md">MPAS-CMAQ Model</a>
 
 
 <b>Database: amad_EQUATES</b>
