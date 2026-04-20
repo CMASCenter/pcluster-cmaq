@@ -2153,7 +2153,9 @@ Scatterplot of 2m Temperature metExample_mpas vs METAR
 
 Notice that the range of temperatures for mpas is much larger than for wrf. 260 K is 8 deg. Farenheit, do MPAS/METAR model-obs values exist in July? Perhaps in the artic.
 Restrict the area used, to be all of the Regional Planning Office Regions (all of the US states) and replot the scatterplots for both wrf and mpas.
-The METAR stations are world-wide, and MPAS model covers the northern hemisphere, therefore to see a comparison of the models over a consistent area, it is advised to select a state, or region of interest, in this case the selection is for all of the Regional Planning Office regions.
+The METAR stations are world-wide, and MPAS model also covers the globe. 
+Recommend that comparisons of T2 (surface temperature) from the WRF and MPAS models be done over similar spatial areas.
+First select a state, or region of interest, in this case the selection is for all of the Regional Planning Office regions.
 
 Scatterplot of 2m Temperature metExample_wrf vs METAR restricted to RPO Regions (United States)
 
