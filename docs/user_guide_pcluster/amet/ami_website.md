@@ -35,52 +35,8 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>metExample_mcip, MCIP Test Case July 2016, 12US1 (459x299x35)</li>
 <li>metExample_wrf, WRF Test Case July 2016, 12US1 (472x312x36)</li>
 <li>metExample_mpas, MPAS Test Case July 2016,  Globally-uniform 120 km resolution mesh </li>
-<ol><b>aqExample Grid Details</b>
-<li>metExample_mcip</li>
-<li>// global attributes:</li>
-<li>		:IOAPI_VERSION = "ioapi-3.2: $Id: init3.F90 1 2017-06-10 18:05:20Z coats $                        " ;</li>
-<li>		:EXEC_ID = "mcip                                                                            " ;</li>
-<li>		:FTYPE = 1 ;</li>
-<li>		:CDATE = 2022102;</li> 
-<li>		:CTIME = 185908 ;</li>
-<li>		:WDATE = 2022102 ;</li>
-<li>		:WTIME = 185908 ;</li>
-<li>		:SDATE = 2018184 ;</li>
-<li>		:STIME = 0 ;</li>
-<li>		:TSTEP = 10000 ;</li>
-<li>		:NTHIK = 1 ;</li>
-<li>		:NCOLS = 459 ;</li>
-<li>		:NROWS = 299 ;</li>
-<li>		:NLAYS = 1 ;</li>
-<li>		:NVARS = 41 ;</li>
-<li>		:GDTYP = 2 ;</li>
-<li>		:P_ALP = 33. ;</li>
-<li>		:P_BET = 45. ;</li>
-<li>		:P_GAM = -97. ;</li>
-<li>		:XCENT = -97. ;</li>
-<li>		:YCENT = 40. ;</li>
-<li>		:XORIG = -2556000. ;</li>
-<li>		:YORIG = -1728000. ;</li>
-<li>		:XCELL = 12000. ;</li>
-<li>		:YCELL = 12000. ;</li>
-</ol>
-<ol><b>metExample_mcip Grid Details</b>
-<li>// global attributes:</li>
-<li>        :TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;</li>
-<li>        :START_DATE = "2016-06-29_00:00:00" ;</li>
-<li>        :SIMULATION_START_DATE = "2015-12-21_00:00:00" ;</li>
-<li>     :WEST-EAST_GRID_DIMENSION = 472 ;</li>
-<li>        :SOUTH-NORTH_GRID_DIMENSION = 312 ;</li>
-<li>        :BOTTOM-TOP_GRID_DIMENSION = 36 ;</li>
-<li>        :DX = 12000.f ;</li>
-<li>        :DY = 12000.f ;</li>
 </ol>
 </details>
-
-VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201807.nc 
-
-![VERDI Plot of PM25_TOT from CMAQ Output](./verdi_plot_PM25_TOT_aqExample_2018.png)
-
 
 <b>Database: amad_EQUATES</b>
 
@@ -644,15 +600,14 @@ Example: PAMS Network has select VOCs, NO and NO2.
 
 </details>
 
-VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.nc 
-
-![VERDI Plot of PM25_AVG from CMAQ Output](./verdi_HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.png)
 
 
+VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201807.nc
 
-
+![VERDI Plot of PM25_TOT from CMAQ Output](./verdi_plot_PM25_TOT_aqExample_2018.png)
 
 # Method used to create plots 
+
 
 The following is an example of how selections and actions on the website result in the creation of plots.
 
@@ -1370,6 +1325,10 @@ Verify the import by using the AMET Website to view all of the imported tables.
 
 # Example plots using the EQUATES 2002-2019 Projects in the amad_EQUATES database
 
+VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.nc
+
+![VERDI Plot of PM25_AVG from CMAQ Output](./verdi_HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.png)
+
 ## Create Summary Panel Plot w/ spatial, timeseries, histogram, and density scatterplot
 
 <ul>
@@ -1819,6 +1778,51 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 
 <a href="https://github.com/USEPA/AMET/blob/1.5/docs/AMET_User_Guide_v15.md#Overview">Link to AMET User Guide</a>
 <a href="https://turbli.com/maps/world-metar-map/">World METAR Map of Temperature</a>
+
+<details>
+  <summary> Projects | Click to expand!</summary>
+<ol><b>aqExample Grid Details</b>
+<li>metExample_mcip</li>
+<li>// global attributes:</li>
+<li>        :IOAPI_VERSION = "ioapi-3.2: $Id: init3.F90 1 2017-06-10 18:05:20Z coats $                        " ;</li>
+<li>        :EXEC_ID = "mcip                                                                            " ;</li>
+<li>        :FTYPE = 1 ;</li>
+<li>        :CDATE = 2022102;</li>
+<li>        :CTIME = 185908 ;</li>
+<li>        :WDATE = 2022102 ;</li>
+<li>        :WTIME = 185908 ;</li>
+<li>        :SDATE = 2018184 ;</li>
+<li>        :STIME = 0 ;</li>
+<li>        :TSTEP = 10000 ;</li>
+<li>        :NTHIK = 1 ;</li>
+<li>        :NCOLS = 459 ;</li>
+<li>        :NROWS = 299 ;</li>
+<li>        :NLAYS = 1 ;</li>
+<li>        :NVARS = 41 ;</li>
+<li>        :GDTYP = 2 ;</li>
+<li>        :P_ALP = 33. ;</li>
+<li>        :P_BET = 45. ;</li>
+<li>        :P_GAM = -97. ;</li>
+<li>        :XCENT = -97. ;</li>
+<li>        :YCENT = 40. ;</li>
+<li>        :XORIG = -2556000. ;</li>
+<li>        :YORIG = -1728000. ;</li>
+<li>        :XCELL = 12000. ;</li>
+<li>        :YCELL = 12000. ;</li>
+</ol>
+<ol><b>metExample_mcip Grid Details</b>
+<li>// global attributes:</li>
+<li>        :TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;</li>
+<li>        :START_DATE = "2016-06-29_00:00:00" ;</li>
+<li>        :SIMULATION_START_DATE = "2015-12-21_00:00:00" ;</li>
+<li>     :WEST-EAST_GRID_DIMENSION = 472 ;</li>
+<li>        :SOUTH-NORTH_GRID_DIMENSION = 312 ;</li>
+<li>        :BOTTOM-TOP_GRID_DIMENSION = 36 ;</li>
+<li>        :DX = 12000.f ;</li>
+<li>        :DY = 12000.f ;</li>
+</ol>
+</details>
+
 
 
 VERDI Plot of TA in METCRO3D_20180703.nc4
