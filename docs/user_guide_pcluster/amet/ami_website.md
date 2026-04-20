@@ -83,9 +83,9 @@ VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201807.nc
 
 
 
-VERDI Plot of TA in METCRO3D_20180701.nc4
+VERDI Plot of TA in METCRO3D_20180703.nc4
 
-![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_TA_METCRO3D_20180701.png)
+![VERDI Plot of TA from MCIP Output](./met_plots/verdi_plot_ta_metcro3d_20180703.png)
 
 <li>metExample_wrf</li>
 
