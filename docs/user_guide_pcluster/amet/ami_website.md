@@ -37,77 +37,47 @@ Some programs also support model to model comparisons by selecting multiple proj
 <li>metExample_mpas, MPAS Test Case July 2016,  Globally-uniform 120 km resolution mesh </li>
 <ol><b>Grid Details</b>
 <li>aqExample</li>
-
-```
-// global attributes:
-		:IOAPI_VERSION = "$Id: @(#) ioapi library version 3.1 $                                           " ;
-		:EXEC_ID = "????????????????                                                                " ;
-		:FTYPE = 1 ;
-		:CDATE = 2018323 ;
-		:CTIME = 171303 ;
-		:WDATE = 2018323 ;
-		:WTIME = 171303 ;
-		:SDATE = 2016183 ;
-		:STIME = 0 ;
-		:TSTEP = 10000 ;
-		:NTHIK = 1 ;
-		:NCOLS = 459 ;
-		:NROWS = 299 ;
-		:NLAYS = 1 ;
-		:NVARS = 89 ;
-		:GDTYP = 2 ;
-		:P_ALP = 33. ;
-		:P_BET = 45. ;
-		:P_GAM = -97. ;
-		:XCENT = -97. ;
-		:YCENT = 40. ;
-		:XORIG = -2556000. ;
-		:YORIG = -1728000. ;
-		:XCELL = 12000. ;
-		:YCELL = 12000. ;
-		:VGTYP = 7 ;
-		:VGTOP = 5000.f ;
-		:VGLVLS = 1.f, 0.f ;
-		:GDNAM = "12US1           " ;
-```
-
-VERDI plot of aqExample PM2.5
-
-VERDI Plot of PM25_TOT in COMBINE_ACONC_aqExample_201607.nc
-
-![VERDI Plot of PM25_TOT from CMAQ Output for aqExample](./verdi_plot_PM25_TOT_aqExample.png)
-
-
 <li>metExample_mcip</li>
+<li>// global attributes:</li>
+<li>		:IOAPI_VERSION = "ioapi-3.2: $Id: init3.F90 1 2017-06-10 18:05:20Z coats $                        " ;</li>
+<li>		:EXEC_ID = "mcip                                                                            " ;</li>
+<li>		:FTYPE = 1 ;</li>
+<li>		:CDATE = 2022102;</li> 
+<li>		:CTIME = 185908 ;</li>
+<li>		:WDATE = 2022102 ;</li>
+<li>		:WTIME = 185908 ;</li>
+<li>		:SDATE = 2018184 ;</li>
+<li>		:STIME = 0 ;</li>
+<li>		:TSTEP = 10000 ;</li>
+<li>		:NTHIK = 1 ;</li>
+<li>		:NCOLS = 459 ;</li>
+<li>		:NROWS = 299 ;</li>
+<li>		:NLAYS = 1 ;</li>
+<li>		:NVARS = 41 ;</li>
+<li>		:GDTYP = 2 ;</li>
+<li>		:P_ALP = 33. ;</li>
+<li>		:P_BET = 45. ;</li>
+<li>		:P_GAM = -97. ;</li>
+<li>		:XCENT = -97. ;</li>
+<li>		:YCENT = 40. ;</li>
+<li>		:XORIG = -2556000. ;</li>
+<li>		:YORIG = -1728000. ;</li>
+<li>		:XCELL = 12000. ;</li>
+<li>		:YCELL = 12000. ;</li>
+<li>metExample_mcip</li>
+<li>// global attributes:</li>
+<li>        :TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;</li>
+<li>        :START_DATE = "2016-06-29_00:00:00" ;</li>
+<li>        :SIMULATION_START_DATE = "2015-12-21_00:00:00" ;</li>
+<li>     :WEST-EAST_GRID_DIMENSION = 472 ;</li>
+<li>        :SOUTH-NORTH_GRID_DIMENSION = 312 ;</li>
+<li>        :BOTTOM-TOP_GRID_DIMENSION = 36 ;</li>
+<li>        :DX = 12000.f ;</li>
+<li>        :DY = 12000.f ;</li>
+</ol>
+</details>
 
-```
-// global attributes:
-		:IOAPI_VERSION = "ioapi-3.2: $Id: init3.F90 1 2017-06-10 18:05:20Z coats $                        " ;
-		:EXEC_ID = "mcip                                                                            " ;
-		:FTYPE = 1 ;
-		:CDATE = 2022102 ;
-		:CTIME = 185908 ;
-		:WDATE = 2022102 ;
-		:WTIME = 185908 ;
-		:SDATE = 2018184 ;
-		:STIME = 0 ;
-		:TSTEP = 10000 ;
-		:NTHIK = 1 ;
-		:NCOLS = 459 ;
-		:NROWS = 299 ;
-		:NLAYS = 1 ;
-		:NVARS = 41 ;
-		:GDTYP = 2 ;
-		:P_ALP = 33. ;
-		:P_BET = 45. ;
-		:P_GAM = -97. ;
-		:XCENT = -97. ;
-		:YCENT = 40. ;
-		:XORIG = -2556000. ;
-		:YORIG = -1728000. ;
-		:XCELL = 12000. ;
-		:YCELL = 12000. ;
-```
+
 
 VERDI Plot of TA in METCRO3D_20180701.nc4
 
@@ -115,24 +85,9 @@ VERDI Plot of TA in METCRO3D_20180701.nc4
 
 <li>metExample_wrf</li>
 
-```
-// global attributes:
-		:TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;
-		:START_DATE = "2016-06-29_00:00:00" ;
-		:SIMULATION_START_DATE = "2015-12-21_00:00:00" ;
-		:WEST-EAST_GRID_DIMENSION = 472 ;
-		:SOUTH-NORTH_GRID_DIMENSION = 312 ;
-		:BOTTOM-TOP_GRID_DIMENSION = 36 ;
-		:DX = 12000.f ;
-		:DY = 12000.f ;
-```
-
 VERDI Plot of T2 in wrfout<br>
 
 ![VERDI Plot of T2 from wrfoutput](./met_plots/verdi_plot_wrf_output_T2.png)
-
-</ol>
-</details>
 
 
 More details about understanding WRF Output data<br>
@@ -150,24 +105,24 @@ More details about MPAS-CMAQ<br>
 <details>
 <summary> Projects | Click to expand!</summary>
 <ol><b>Air Quality</b>
-<li>CMAQv532_12US1_2002</li>
-<li> CMAQv532_12US1_2003</li>
-<li> CMAQv532_12US1_2004</li>
-<li> CMAQv532_12US1_2005</li>
-<li> CMAQv532_12US1_2006</li>
-<li> CMAQv532_12US1_2007</li>
-<li> CMAQv532_12US1_2008</li>
-<li> CMAQv532_12US1_2009</li>
-<li> CMAQv532_12US1_2010</li>
-<li> CMAQv532_12US1_2011</li>
-<li> CMAQv532_12US1_2012</li>
-<li> CMAQv532_12US1_2013</li>
-<li> CMAQv532_12US1_2014</li>
-<li> CMAQv532_12US1_2015</li>
-<li> CMAQv532_12US1_2016</li>
-<li> CMAQv532_12US1_2017</li>
-<li> CMAQv532_12US1_2018</li>
-<li> CMAQv532_12US1_2019</li>
+<li>CMAQv532_12US1_2002,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2003,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2004,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2005,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2006,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2007,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2008,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2009,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2010,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2011,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2012,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2013,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2014,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2015,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2016,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2017,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2018,  12US1 (459x299x35)</li>
+<li> CMAQv532_12US1_2019,  12US1 (459x299x35)</li>
 </ol>
 </details>
 
