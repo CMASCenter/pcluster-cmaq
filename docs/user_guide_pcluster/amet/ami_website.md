@@ -1909,6 +1909,75 @@ Spatial Plot of 2m Temperature Difference between Model and Observations
 
 ![Spatial Plot of 2m Temperature Differences](./met_plots/metExample_wrf_T_interactive_spatial_model_obs_diff_plot.png)
 
+## Create Interactive 2M Temperature Spatial Plots using metExample_mpas
+
+<ul>
+<li>Choose database
+  <ul>
+    <li>select amet</li>
+  </ul>
+</li>
+<li>Choose project 1
+  <ul>
+    <li>MetExample_mpas</li>
+  </ul>
+</li>
+</ul>
+
+<ul>
+<li>Under Met Variable to choose
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select Interactive Spatial Plot (multiple plots)</li>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Plot and Run Program](./met_plots/AMET_website_choose_interactive_spatial.png)
+
+Interactive Spatial Plot of 2m Temperature Model/Observations NMB Statistic Selected 
+
+![Spatial Plot of 2m Temperature Observations/Model NMB](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_nmb.png)
+
+Spatial Plot of 2m Temperature Model/Observation NME Statistic Selected
+
+![Spatial Plot of 2m Temperature Observations/Model NME](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_nme.png)
+
+Spatial Plot of 2m Temperature Model/Observations FB Statistic Selected
+
+![Spatial Plot of 2m Temperature Model/Observations FB](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_fb.png)
+
+Spatial Plot of 2m Temperature Model/Observations FE Statistic Selected
+
+![Spatial Plot of 2m Temperature Model/Observations FE](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_fe.png)
+
+Spatial Plot of 2m Temperature Model/Observations RMSE Statistic Selected
+
+![Spatial Plot of 2m Temperature Model/Observations RMSE](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_rmse.png)
+
+
+Spatial Plot of 2m Temperature Model/Observations MB Statistic Selected
+
+![Spatial Plot of 2m Temperature Model/Observations MB](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_mb.png)
+
+Spatial Plot of 2m Temperature Model/Observations ME Statistic Selected
+
+![Spatial Plot of 2m Temperature Model/Observations ME](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_me.png)
+
+Spatial Plot of 2m Temperature Model/Observations Corr Statistic Selected
+
+![Spatial Plot of 2m Temperature Model/Observations Corr](./met_plots/metExample_mpas_T_interactive_spatial_model_plot_corr.png)
+
+
+
+
 
 ## Create Interactive 2M Temperature Model to Model Difference Spatial Plots
 
