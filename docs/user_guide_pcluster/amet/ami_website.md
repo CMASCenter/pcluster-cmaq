@@ -410,6 +410,11 @@ Additional details about observation networks
 
 <a href="https://www.arcgis.com/home/item.html?id=4c20ce3f77b54889963a1d0b0978f730#visualize">PM2.5 Speciation Data 2021-2023, US EPA, OAR, OAQPS</a>
 
+<a href="https://www.epa.gov/amtic/chemical-speciation-network-csn">Chemical Speciation Network (CSN) Monitor Locations and Information</a>
+
+<a href="https://www.epa.gov/amtic/amtic-ambient-air-monitoring-networks">Ambient Air Monitoring Networks</a>
+
+<a href="https://vista.cira.colostate.edu/Improve/">Interagency Monitoring of Protected Visual Environments</a>
 
 # Air Quality and Met Species (172)
 Note, to get started with creating plots using AMET, it is best to use a subset of the species listed under <b>Species to Plot</b>.
