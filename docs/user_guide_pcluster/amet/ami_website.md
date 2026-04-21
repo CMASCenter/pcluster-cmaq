@@ -396,7 +396,7 @@ select distinct network from CMAQv532_12US1_2002;
 </ol>
 </details>
 
-Additional details about observation networks
+Additional details about observation networks:
 
 <a href="https://gispub.epa.gov/airnow/?monitors=pm&showtempmonitors=true&">Map of AQS</a>
   
@@ -1347,9 +1347,9 @@ Verify the import by using the AMET Website to view all of the imported tables.
 
 # Example plots using the EQUATES 2002-2019 Projects in the amad_EQUATES database
 
-VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.nc
+VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_2018.nc
 
-![VERDI Plot of PM25_AVG from CMAQ Output](./verdi_HR2DAY_LST_ACONC_EQUATES_v532_12US1_2019.png)
+![VERDI Plot of PM25_AVG from CMAQ Output](./verdi_HR2DAY_LST_ACONC_EQUATES_v532_12US1_2018.png)
 
 ## Create Summary Panel Plot w/ spatial, timeseries, histogram, and density scatterplot
 
