@@ -294,7 +294,7 @@ Click on the arrow to display the list the available programs for creating diffe
 </ol>
 </details>
 
-# Observation Networks (48) 
+# Air Quality Observation Networks (48) 
 Note, not all databases have all observation networks, and observation networks have different observed species.
 
 ```
@@ -1784,7 +1784,7 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
 </ol>
 </details>
 
-<b>Met Observation Networks</b>
+# Met Observation Networks
 
 <details>
 <summary> Available Meteorology Observation Networks | Click to expand!</summary>
@@ -1798,6 +1798,8 @@ Uses can select one of 62 different programs in the AMET MET Website to create p
     <li>Other-Mtr</li>
 </ol>
 </details>
+
+Currently, AMET_Webite supports only T2 (2 meter Temperature) from the METAR Observation Network
 
 ## Map of World METAR Stations
 
