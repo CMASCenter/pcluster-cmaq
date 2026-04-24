@@ -40,6 +40,8 @@ Some programs also support model to model comparisons by selecting multiple proj
 
 <b>Database: amad_EQUATES</b>
 
+<a href="https://www.epa.gov/cmaq/equates#how_to_download_equates_data">EQUATES: EPA’s Air QUAlity TimE Series Project</a>
+
 <details>
 <summary> Projects | Click to expand!</summary>
 <ol><b>Air Quality</b>
