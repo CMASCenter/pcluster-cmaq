@@ -400,7 +400,7 @@ select distinct network from CMAQv532_12US1_2002;
 
 Additional details about observation networks:
 
-<a href="https://space-geographer.projects.earthengine.app/view/tdep">Earth Engine Applet for Visualizing NADP TDep</a>
+<a href="https://space-geographer.projects.earthengine.app/view/tdep">Earth Engine Applet for Visualizing NADP Total Deposition (TDep) of Total Sulfur and Nitrogen Deposition</a>
 
 ![Map of EPA AirData Air Quality Monitors for O3 and PM2.5](./epa_airdata_air_quality_monitors.png)
 
