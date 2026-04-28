@@ -2266,6 +2266,69 @@ Timeseries Plot of 2m Temperature
 
 ![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_mpas_T_METAR_timeseries.png)
 
+## Create Timeseries Plot (single network, multiple sites averaged) for 2m Temperature for Select Region
+
+<ul>
+<li>Under Met Variable to choose
+<ul>
+<li>Select T(2m)</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Monitor / Network and Species Criteria 
+<ul>  
+<li>Select VISTAS RPO</li>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Obs Network and Species](./met_plots/amet_select_region_METAR_and_T2.png)
+
+<ul>
+<li>Under Date and Time Criteria
+<ul>
+<li>Select Start Date</li>
+<ul>
+<li> Year: 2016</li>
+<li> Month: 07</li>
+<li> Day: 01</li>
+</ul>
+</ul>
+<ul>
+<li>Select End Date</li>
+<ul>
+<li> Year: 2016</li> 
+<li> Month: 07</li>
+<li> Day: 31</li>
+</ul>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Date and Time Criteria for metExample projects](./Select_date_and_time_criteria_for_metExample.png)
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Timeseries Plot (single network, multiple sites averaged)</li>
+</ul>
+</li>
+</ul>
+
+![AMET Website Select Plot and Run Program](./met_plots/amet_run_program_timeseries.png)
+
+Results of options selected in querygen_met.php form
+
+![AMET Website Result](./met_plots/AMET_website_result_query_T_2m_timeseries.png)
+
+Timeseries Plot of 2m Temperature for VISTAS RPO Region
+
+![Timeseries plot of 2m Temperature](./met_plots/metExample_wrf_mpas_T_METAR_timeseries_vistas_rpo_region.png)
+
+
 
 ## Create GGPlot Boxplot using METAR Met Observations and T(2m) Model Values
 
