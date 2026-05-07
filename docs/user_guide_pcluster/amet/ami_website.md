@@ -410,6 +410,8 @@ Additional details about observation networks:
   
 <a href="https://aqs.epa.gov/aqsweb/documents/about_aqs_data.html">About AQS Data</a>
 
+<a href="https://www.epa.gov/castnet/download-data">CASTNET sites provide air quality data in rural locations</a>
+
 <a href="https://www.epa.gov/outdoor-air-quality-data/interactive-map-air-quality-monitors">Interactive Map of Air Quality Monitors</a>
 
 
