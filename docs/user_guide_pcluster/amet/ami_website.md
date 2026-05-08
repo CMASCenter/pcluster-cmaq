@@ -1843,7 +1843,7 @@ Currently, AMET_Webite supports only T2 (2 meter Temperature) from the METAR Obs
 <li>        :XCELL = 12000. ;</li>
 <li>        :YCELL = 12000. ;</li>
 </ol>
-<ol><b>metExample_mcip Grid Details</b>
+<ol><b>metExample_wrf Grid Details</b>
 <li>// global attributes:</li>
 <li>        :TITLE = " OUTPUT FROM WRF V3.8 MODEL" ;</li>
 <li>        :START_DATE = "2016-06-29_00:00:00" ;</li>
