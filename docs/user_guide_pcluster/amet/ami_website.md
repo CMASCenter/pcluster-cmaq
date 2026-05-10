@@ -1043,6 +1043,96 @@ Query result
 ![DoW Boxplot of O3_8hrmax](./aqExample_O3_8hrmax_boxplot_dow.png)
 
 
+## Create Day of Week (DoW)  Boxplot using AQS Hourly and PM25_TOT
+    
+<ul>
+<li>Under Observation Network
+<ul>
+<li>Select AQS Hourly)</li>
+</ul>
+</li>
+</ul>
+  
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select PM25_TOT</li>
+</ul>
+</li>
+</ul>
+    
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select  Day of Week Boxplot (single network, multiple runs)</li>
+</ul>
+</li>
+</ul>
+
+<li>Day of Week (DoW) Boxplot of PM25_TOT</li>
+
+![DoW Boxplot of PM25_TOT](./aqExample_PM25_TOT__boxplot_dow.png)
+
+## Create Hour of Day (Hourly) Boxplot using AQS Hourly and PM25_TOT
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li>Select AQS Hourly)</li>
+</ul>
+</li>
+</ul>
+ 
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select PM25_TOT</li>
+</ul>
+</li>
+</ul>
+   
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select  Hourly Boxplot (single network, multiple runs)</li>
+</ul>
+</li>
+</ul>
+
+<li>Hourly Boxplot of PM25_TOT</li>
+
+![Hourly Boxplot of PM25_TOT](./aqExample_PM25_TOT_boxplot_hourly.png)
+
+## Create Hour of Day (Hourly) Boxplot using AQS Hourly and Isoprene
+
+<ul>
+<li>Under Observation Network
+<ul>   
+<li>Select AQS Hourly)</li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Under Species to Plot
+<ul>
+<li>Select Isoprene</li>
+</ul>
+</li>
+</ul>
+  
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Select Hourly Boxplot (single network, multiple runs)</li>
+</ul>
+</li>
+</ul>
+
+<li>Hourly Boxplot of O3</li>
+
+![Hourly Boxplot of O3](./aqExample_Isoprene_boxplot_hourly.png)
+
 
 ## Create Interactive Hourly Timeseries using Plotly
 
