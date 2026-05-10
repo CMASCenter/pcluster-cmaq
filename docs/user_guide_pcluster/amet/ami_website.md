@@ -1828,6 +1828,57 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 
 ![Multi-Panel Stacked Bar Plot of AQS Daily and PM2.5_TOT](./CMAQv532_12US1_2002_stacked_barplot_panel.png)
 
+## Create Roselle Stacked Bar Plot (full year data)
+
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2002
+<li>Select CMAQv532_12US1_2003
+<li>Select CMAQv532_12US1_2004
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Daily O3  (1-hr and 8-hr max O3) </li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select O3_8hrmax</ul>
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Roselle Boxplot</li>
+</ul>
+</li>
+</ul>
+
+
+<li>Roselle Box Plot AQS Daily O3 and O3_8hrmax for 2002-2004</li>
+
+![Roselle Box Plot AQS Daily O3 and O3_8hrmax for 2002-2004](./CMAQv532_12US1_2002_O3_8hrmax_boxplot_roselle.png)
+
 
 # Create Met Plots using the AMET Met Website 
 
