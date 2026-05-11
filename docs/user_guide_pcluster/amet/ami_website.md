@@ -1687,7 +1687,6 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 </li>
 </ul>
 
-
 ![AMET select multiple projects for multisimulation plots](./amet_select_multiple_projects.png)
 
 <ul>
@@ -1718,10 +1717,59 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 
 ![AMET run Plotly Multi-simulation Timeseries Plot](./amet_plotly_multisimulation_timeseries.png )
 
-
 <li>Interactive Plotly Multi-simulation (EQUATES 2017, 2018) Timeseries Plot using Networks AQS Hourly and SO2</li>
 
 ![Interactive Plotly Multi-simulation Timeseries Plot AQS Hourly, SO2](./CMAQv532_12US1_2018_2017_SO2_timeseries.png)
+
+## Create Interactive Plotly Mutli-simulation Timeseries for PM25_TOT and major components and AQS Hourly (single network)
+
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2019
+</ul>
+</li>
+</ul>
+
+![AMET select multiple projects for multisimulation plots](./amet_select_multiple_projects.png)
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> AQS - Daily (e.g. PM2.5,PM10, and PAMS species)
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select PM25_TOT, PM25_EC, PM25_NH4+, PM25_NO3, PM25_OC, PM25_SO4</ul>
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Multi-simulation Timeseries</li>
+</ul>
+</li>
+</ul>
+
+
+<li>Interactive Plotly Multi-simulation (EQUATES 2019) Timeseries Plot using Networks AQS Daily and PM25_TOT and it's components zoomed in for 3 month period</li>
+
+![Interactive Plotly Multi-simulation Timeseries Plot AQS Daily, PM25](./CMAQv532_12US1_2019_multispec_timeseries.png)
 
 ## Create Kelly Plot (single species, single network, full year data)
     
