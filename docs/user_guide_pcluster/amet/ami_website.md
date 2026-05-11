@@ -1769,10 +1769,10 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 
 
 
-| Seasonal Kelly Plots     |                          | 
+| Seasonal Ozone 8hrmax Kelly Plots     |                          | 
 :-------------------------:|:-------------------------:
-![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_ME.png)   |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NMB.png)
-![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NME.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_MB.png)
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_ME.png)   |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_MB.png)
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NME.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NMB.png)
 ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_RMSE.png) |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_Corr.png)
 
 
@@ -1789,7 +1789,7 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 <ul>
 <li>Select Project ID
 <ul> 
-<li>Select CMAQv532_12US1_2003
+<li>Select CMAQv532_12US1_2019
 </ul>
 </li>
 </ul>
@@ -1821,12 +1821,14 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 </li>
 </ul>
 
+| Seasonal Daily PM2.5 Plotly Kelly Plots     |                          |
+:-------------------------:|:-------------------------:
+![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_ME.png)   |  ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_MB.png)
+![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_NME.png)  |  ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_NMB.png)
+![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_RMSE.png) |  ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_Corr.png)
 
-![AMET run Plotly Kelly Plot](./amet_run_year_plotly_kelly_plot.png)
 
-<li>Plotly Kelly Plot of AQS Daily and PM2.5_TOT</li>
 
-![Plotly Kelly Plot of AQS Daily and PM2.5_TOT](./CMAQv532_12US1_2003_PM25_TOT_Kellyplot_NMB.png)
 
 ## Create Multi-Panel Stacked Bar Plot (full year data)
 
