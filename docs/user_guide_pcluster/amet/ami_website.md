@@ -1768,7 +1768,6 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 </ul>
 
 
-![AMET run Kelly Plot](./amet_run_year_plotly_kelly_plot.png)
 
 | Seasonal Kelly Plots     |                          | 
 :-------------------------:|:-------------------------:
