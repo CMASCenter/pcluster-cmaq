@@ -1723,6 +1723,59 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 
 ![Interactive Plotly Multi-simulation Timeseries Plot AQS Hourly, SO2](./CMAQv532_12US1_2018_2017_SO2_timeseries.png)
 
+## Create Kelly Plot (single species, single network, full year data)
+    
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+    
+<ul>
+<li>Select Project ID
+<ul> 
+<li>Select CMAQv532_12US1_2019
+</ul>
+</li>
+</ul>
+  
+
+<ul>
+<li>Under Observation Network
+<ul>
+<li> Select AQS Daily O3 (e.g. 1-hr and 8-hr max O3)) </li>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select O3_8hrmax</ul>
+</ul>
+</li>
+</ul>
+
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Kelly Plot (single species, single network, full year data)</li>
+</ul>
+</li>
+</ul>
+
+
+![AMET run Kelly Plot](./amet_run_year_plotly_kelly_plot.png)
+
+| Italic             |  Block letters |
+:-------------------------:|:-------------------------:
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_Corr.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NMB.png)
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NME.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_MB.png)
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_RMSE.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_ME.png)
+
 
 ## Create Plotly Kelly Plot (single species, single network, full year data)
 
