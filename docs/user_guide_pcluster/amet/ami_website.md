@@ -1770,11 +1770,11 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 
 ![AMET run Kelly Plot](./amet_run_year_plotly_kelly_plot.png)
 
-| Italic             |  Block letters |
+| Seasonal Kelly Plots     |                          | 
 :-------------------------:|:-------------------------:
-![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_Corr.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NMB.png)
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_ME.png)   |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NMB.png)
 ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_NME.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_MB.png)
-![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_RMSE.png)  |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_ME.png)
+![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_RMSE.png) |  ![](CMAQv532_12US1_2019_O3_8hrmax_795236_Kellyplot_Corr.png)
 
 
 ## Create Plotly Kelly Plot (single species, single network, full year data)
