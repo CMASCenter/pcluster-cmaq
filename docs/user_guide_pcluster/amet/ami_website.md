@@ -1721,7 +1721,7 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 
 ![Interactive Plotly Multi-simulation Timeseries Plot AQS Hourly, SO2](./CMAQv532_12US1_2018_2017_SO2_timeseries.png)
 
-## Create Interactive Plotly Mutli-simulation Timeseries for PM25_TOT and major components and AQS Hourly (single network)
+## Create Interactive Plotly Multi-species Timeseries for PM25_TOT and major components and AQS Hourly (single network)
 
 <ul>
 <li>Select Database ID
@@ -1757,19 +1757,65 @@ VERDI Plot of PM25_AVG (Daily Average) from HR2DAY_LST_ACONC_EQUATES_v532_12US1_
 </li>
 </ul>
 
-
 <ul>
 <li>Under Choose Program to Run
 <ul>
-<li>Plotly Multi-simulation Timeseries</li>
+<li>Plotly Multi-species Timeseries</li>
+</ul>
+</li>
+</ul>
+
+<li>Interactive Plotly Multi-species (EQUATES 2019) Timeseries Plot using Networks AQS Daily and PM25_TOT and it's components zoomed in for 3 month period</li>
+
+![Interactive Plotly Multi-species Timeseries Plot AQS Daily, PM25](./CMAQv532_12US1_2019_multispec_timeseries.png)
+
+## Create Interactive Plotly Multi-species Timeseries for O3 and Precursors and AQS Hourly (single network)
+
+<ul>
+<li>Select Database ID
+<ul>
+<li>Select amad_EQUATES
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Select Project ID
+<ul>
+<li>Select CMAQv532_12US1_2019
 </ul>
 </li>
 </ul>
 
 
-<li>Interactive Plotly Multi-simulation (EQUATES 2019) Timeseries Plot using Networks AQS Daily and PM25_TOT and it's components zoomed in for 3 month period</li>
+<ul>
+<li>Under Observation Network
+<ul>
+<li> AQS - Hourly (e.g. NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3,etc.)
+</ul>
+</li>
+</ul>
 
-![Interactive Plotly Multi-simulation Timeseries Plot AQS Daily, PM25](./CMAQv532_12US1_2019_multispec_timeseries.png)
+<ul>
+<li> Under Species to Plot
+<ul>
+<li>Select NO,NO2,NOx,NOy,SO2,CO,PM2.5,O3</ul>
+</ul>
+</li>
+</ul>
+
+<ul>
+<li>Under Choose Program to Run
+<ul>
+<li>Plotly Multi-species Timeseries</li>
+</ul>
+</li>
+</ul>
+
+<li>Interactive Plotly Multi-species (EQUATES 2019) Timeseries Plot using Networks AQS Daily and it's precursors zoomed in for 3 month period</li>
+
+![Interactive Plotly Multi-species Timeseries Plot AQS Daily, O3 and precursors](./CMAQv532_12US1_2019_multispec_timeseries_O3_CO_NOY.png)
+
 
 ## Create Kelly Plot (single species, single network, full year data)
     
