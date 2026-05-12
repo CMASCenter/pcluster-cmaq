@@ -1041,4 +1041,9 @@ To view the website, use the public IP address for the ec2 server in the followi
 http://54.89.147.142:443/querygen_aq.php
 ```
 
+Note, latest versions of quarygen_aq.php and querygen_met.php are available here:
+
+https://github.com/lizadams/AMET/tree/develop_website/AMET_Website
+
+
 
