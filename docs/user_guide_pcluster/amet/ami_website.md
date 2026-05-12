@@ -1916,7 +1916,9 @@ Ozone 8hrmax Seasonal Kelly Plots
 </li>
 </ul>
 
-| Seasonal Daily PM2.5 Plotly Kelly Plots     |                          |
+Seasonal Daily PM2.5 Plotly Kelly Plots
+
+| Error             |  Bias                        |
 :-------------------------:|:-------------------------:
 ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_ME.png)   |  ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_MB.png)
 ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_NME.png)  |  ![](CMAQv532_12US1_2019_PM25_TOT_Kellyplot_NMB.png)
