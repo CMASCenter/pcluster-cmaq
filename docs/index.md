@@ -29,6 +29,11 @@ The following tutorials will walk you through running a CMAQ benchmark case on b
 
 The tutorials are aimed at users with cloud computing experience that are already familiar with AWS.  For those with no cloud computing experience we recommend signing up for a free <a href="https://aws.amazon.com/education/awseducate/">AWS Educate account</a>, as it is open to any individual, regardless of where they are in their education, technical experience, or career journey. If you are a new user to AWS, you can sign up for a <a href="https://aws.amazon.com/free/">free tier account</a>. There are also low-cost tutorials available to learn Parallel Cluster from AWS: <a href="https://catalog.workshops.aws/cmaq-tutorial/en-US/">Parallel Cluster Tutorial</a> and <a href="https://workshops.aws/categories/HPC">AWS Workshops on HPC Computing</a>.
 
+## GMD Paper
+
+Efstathiou, C. I., Adams, E., Coats, C. J., Zelt, R., Reed, M., McGee, J., Foley, K. M., Sidi, F. I., Wong, D. C., Fine, S., and Arunachalam, S.: Enabling high-performance cloud computing for the Community Multiscale Air Quality Model (CMAQ) version 5.3.3: performance evaluation and benefits for the user community, Geosci. Model Dev., 17, 7001–7027, <a href="https://doi.org/10.5194/gmd-17-7001-2024">https://doi.org/10.5194/gmd-17-7001-2024</a>, 2024.  <a href="https://gmd.copernicus.org/articles/17/7001/2024/gmd-17-7001-2024.pdf>Enabling high-performance cloud computing for the Community Multiscale Air Quality Model (CMAQ) version 5.3.3: performance evaluation and benefits for the user community"</a>
+
+
 ## User Support
 
 Please share any issues or suggestions for running CMAQ on the Cloud to the CMAS User Forum, under the <a href="https://forum.cmascenter.org/t/about-the-cloud-computing-category/4285">Cloud Computing Category</a>. This forum is available for users and developers to discuss issues related to using the CMAQ system on the cloud. 
