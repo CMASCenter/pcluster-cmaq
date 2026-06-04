@@ -498,5 +498,14 @@ Need to retry
 May need to specify a different script for the head node and the compute node.
 
 
+Tried using 
+
+```
+pcluster create-cluster  --cluster-name pcluster --region us-east-1 --cluster-configuration hpc7g.test2
+```
+
+When I submitted the job the compute nodes started and then died, and there were no log files.
+
+Ran out of time, so I am deleting the cluster
 
 
