@@ -16,7 +16,7 @@ HeadNode:
       - BucketName: cost-alloc-tag-pcluster 
         EnableWriteAccess: False
     AdditionalIamPolicies:
-      - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget
+      - Policy: arn:aws:iam::440858712842:policy/pclusterTagsAndBudget
   LocalStorage:
     RootVolume:
       Encrypted: false
@@ -49,7 +49,7 @@ Scheduling:
           - BucketName: cost-alloc-tag-pcluster 
             EnableWriteAccess: False
         AdditionalIamPolicies:
-          - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget
+          - Policy: arn:aws:iam::440858712842:policy/pclusterTagsAndBudget
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
