@@ -359,10 +359,10 @@ search for ec2
 look for the headnode and compute nodes that are running.
 Select the headnode, and then click on the Tags (all the way on the right)
 
-![AWS Console EC2 Display Tags applied to headnode](aws_console_ec2_display_tags_of_headnode)
+![AWS Console EC2 Display Tags applied to headnode](aws_console_ec2_display_tags_of_headnode.png)
 
 
-![AWS Console EC2 Display Tags applied to compute node](aws_console_ec2_display_tags_of_compute_node)
+![AWS Console EC2 Display Tags applied to compute node](aws_console_ec2_display_tags_of_compute_node.png)
 
  
 
