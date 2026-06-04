@@ -364,5 +364,44 @@ Select the headnode, and then click on the Tags (all the way on the right)
 
 ![AWS Console EC2 Display Tags applied to compute node](aws_console_ec2_display_tags_of_compute_node.png)
 
+### Tried updating the cluster to use different values for tags
+
+Error message:
+
+```
+
+pcluster update-cluster --cluster-configuration hpc7g.test2  --cluster-name pcluster --region us-east-1
+{
+  "message": "Update failure",
+  "updateValidationErrors": [
+    {
+      "parameter": "Tags[aws-parallelcluster-jobid].Value",
+      "requestedValue": "12LISTOS_Training_hpc7g.16xlarge",
+      "message": "Update actions are not currently supported for the 'Value' parameter. Restore 'Value' value to '12US1CMAQ.hpc7g.4xlarge'. If you need this change, please consider creating a new cluster instead of updating the existing one.",
+      "currentValue": "12US1CMAQ.hpc7g.4xlarge"
+    },
+    {
+      "parameter": "Tags[aws-parallelcluster-project].Value",
+      "requestedValue": "CMASOPS-12LISTOS_Training",
+      "message": "Update actions are not currently supported for the 'Value' parameter. Restore 'Value' value to 'CMASOPS'. If you need this change, please consider creating a new cluster instead of updating the existing one.",
+      "currentValue": "CMASOPS"
+    }
+  ],
+  "changeSet": [
+    {
+      "parameter": "Tags[aws-parallelcluster-jobid].Value",
+      "requestedValue": "12LISTOS_Training_hpc7g.16xlarge",
+      "currentValue": "12US1CMAQ.hpc7g.4xlarge"
+    },
+    {
+      "parameter": "Tags[aws-parallelcluster-project].Value",
+      "requestedValue": "CMASOPS-12LISTOS_Training",
+      "currentValue": "CMASOPS"
+    }
+  ]
+}
+
+```
+
  
 
