@@ -280,7 +280,7 @@ module avail
 ### Load the library modules
 
 ```
-module load ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5  libfabric-aws/1.19.0amzn4.0 openmpi/4.1.6  
+module load libfabric-aws/2.3.1amzn1.0  openmpi/4.1.7  ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5
 ```
 
 ### Submit job to slurm using the --comment flag to specify the project name
