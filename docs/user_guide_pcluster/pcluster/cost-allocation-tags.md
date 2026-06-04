@@ -16,6 +16,7 @@ Select and then click on activate.<br>
 
 ## Creation and activation of a user defined tag
 The post_install.sh script saved to the s3 bucket will create the user defined tags. <br>
+Link to post_install.sh script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/post_install.sh">post_install.sh</a>
 
 ```
 aws-parallelcluster-username
