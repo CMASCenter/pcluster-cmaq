@@ -61,6 +61,6 @@ Tags:
   - Key: aws-parallelcluster-username
     Value: ubuntu
   - Key: aws-parallelcluster-jobid
-    Value: 12US1CMAQ
+    Value: 12US1CMAQ.hpc7g.16xlarge
   - Key: aws-parallelcluster-project
     Value: CMASOps

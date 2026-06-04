@@ -68,7 +68,8 @@ The top of the script will alert you to what needs to be modified.<br>
 
 For example, the sbatch script needs to be edited to specify your account ID.<br>
 
-Example: <br>
+Example sbatch script: <br>
+Link to sbatch script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/sbatch">sbatch</a>
 
 ```
 # The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
@@ -79,6 +80,7 @@ For users to be notified that they have exceeded their budget allocation, then y
 See the AWS Tutorial for information about how to set up a budget.<br>
 <br>
 Example projects_list.conf:<br>
+Link to projects_list.conf <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/projects_list.conf">projects_list.conf</a>
 
 ```
 ec2-user=lizadams, manishsoni, ubuntu

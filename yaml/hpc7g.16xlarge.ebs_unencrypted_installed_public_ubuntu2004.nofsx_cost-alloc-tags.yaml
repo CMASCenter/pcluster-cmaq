@@ -31,15 +31,6 @@ SharedStorage:
     EbsSettings:
       Encrypted: false
       SnapshotId: snap-0049a7c309f238500
-  - Name: FsxLustre0
-    StorageType: FsxLustre
-    MountDir: /fsx
-    FsxLustreSettings:
-      DeletionPolicy: Delete 
-      StorageCapacity: 1200
-      DeploymentType: SCRATCH_2 
-      DataCompressionType: LZ4
-      ImportPath: s3://cmas-cmaq
 Tags:
   - Key: aws-parallelcluster-username
     Value: ubuntu
@@ -47,3 +38,4 @@ Tags:
     Value: 12US1CMAQ.hpc7g.4xlarge
   - Key: aws-parallelcluster-project
     Value: CMASOPS
+
