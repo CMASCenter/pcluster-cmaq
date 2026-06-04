@@ -59,8 +59,8 @@ SharedStorage:
       SnapshotId: snap-0049a7c309f238500
 Tags:
   - Key: aws-parallelcluster-username
-    Value: NA
+    Value: ubuntu
   - Key: aws-parallelcluster-jobid
-    Value: NA 
+    Value: 12US1CMAQ
   - Key: aws-parallelcluster-project
-    Value: NA 
+    Value: CMASOps
