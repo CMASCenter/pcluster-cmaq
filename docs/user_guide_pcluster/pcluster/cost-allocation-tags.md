@@ -403,5 +403,11 @@ pcluster update-cluster --cluster-configuration hpc7g.test2  --cluster-name pclu
 
 ```
 
+### Stop the compute fleet before trying to update tags
+
+```
+pcluster update-compute-fleet --cluster-name pcluster --region us-east-1 --status STOP_REQUESTED
+```
+
  
 
