@@ -220,10 +220,10 @@ sudo resize2fs /dev/nvme1n1
 ```
 
 ### Obtain the Listos Benchmark Case from the S3 bucket
+Note, my original instructions were to put the data on /shared/data, but after having issue running, it is better to move to /fsx to avoid error not finding CONC file.
 
 ```
-mkdir /shared/data
-cd /shared/data
+cd /fsx
 aws s3 --no-sign-request cp --region=us-east-1 --recursive s3://cmas-cmaq/CMAQv5.4_2018_12LISTOS_Benchmark_3Day_Input .
 ```
 
@@ -259,7 +259,7 @@ Add the following SLURM instructions to the top of the run script
 Modify this section of the run script #> Set Working, Input, and Output Directories to use:
 
 ```
-setenv CMAQ_DATA /shared/data
+setenv CMAQ_DATA /fsx
 setenv INPDIR  ${CMAQ_DATA}/12LISTOS_Training
    @ NPCOL  =  4; @ NPROW =  8
 ```
