@@ -352,7 +352,17 @@ pcluster delete-cluster --cluster-name cmaq --region us-east-1
 ### It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
 
 
+### Verify that the cost allocation tags are visible on the head node and compute nodes using the AWS Console
 
+Login to aws console
+search for ec2 
+look for the headnode and compute nodes that are running.
+Select the headnode, and then click on the Tags (all the way on the right)
+
+![AWS Console EC2 Display Tags applied to headnode](aws_console_ec2_display_tags_of_headnode)
+
+
+![AWS Console EC2 Display Tags applied to compute node](aws_console_ec2_display_tags_of_compute_node)
 
  
 
