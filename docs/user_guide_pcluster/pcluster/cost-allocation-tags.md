@@ -220,7 +220,7 @@ sudo resize2fs /dev/nvme1n1
 ```
 
 ### Obtain the Listos Benchmark Case from the S3 bucket
-Note, my original instructions were to put the data on /shared/data, but after having issue running, it is better to move to /fsx to avoid error not finding CONC file.
+Note, my original instructions were to put the data on /shared/data, but after having issue running, it is better to move to /fsx to avoid error not finding CONC file due to slower disk speed of /shared volume.
 
 ```
 cd /fsx
@@ -409,5 +409,94 @@ pcluster update-cluster --cluster-configuration hpc7g.test2  --cluster-name pclu
 pcluster update-compute-fleet --cluster-name pcluster --region us-east-1 --status STOP_REQUESTED
 ```
 
- 
+```
+ pcluster describe-cluster --cluster-name pcluster --region us-east-1   
+{
+  "creationTime": "2026-06-04T18:54:48.482Z",
+  "headNode": {
+    "launchTime": "2026-06-04T19:08:04.000Z",
+    "instanceId": "i-01453c1a12388173e",
+    "publicIpAddress": "13.221.205.184",
+    "instanceType": "c7g.large",
+    "state": "running",
+    "privateIpAddress": "10.0.10.204"
+  },
+  "version": "3.14.2",
+  "clusterConfiguration": {
+  },
+  "tags": [
+    {
+      "value": "3.14.2",
+      "key": "parallelcluster:version"
+    },
+    {
+      "value": "12US1CMAQ.hpc7g.4xlarge",
+      "key": "aws-parallelcluster-jobid"
+    },
+    {
+      "value": "pcluster",
+      "key": "parallelcluster:cluster-name"
+    },
+    {
+      "value": "CMASOPS",
+      "key": "aws-parallelcluster-project"
+    },
+    {
+      "value": "lizadams",
+      "key": "aws-parallelcluster-username"
+    }
+  ],
+  "cloudFormationStackStatus": "CREATE_COMPLETE",
+  "clusterName": "pcluster",
+  "computeFleetStatus": "STOPPED",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:440858712842:stack/pcluster/dc2e8710-6046-11f1-8fe5-0e525b316913",
+  "lastUpdatedTime": "2026-06-04T18:54:48.482Z",
+  "region": "us-east-1",
+  "clusterStatus": "CREATE_COMPLETE",
+  "scheduler": {
+    "type": "slurm"
+  }
+}
+``` 
+
+### try to update the cluster tag aws-parallelcluster-jobid now that the compute nodes are stopped.
+
+still failed
+
+```
+ pcluster update-cluster --cluster-name pcluster --region us-east-1 --cluster-configuration hpc7g.test2
+{
+  "message": "Update failure",
+  "updateValidationErrors": [
+    {
+      "parameter": "Tags[aws-parallelcluster-jobid].Value",
+      "requestedValue": "12LISTOS_Training_hpc7g.16xlarge",
+      "message": "Update actions are not currently supported for the 'Value' parameter. Restore 'Value' value to '12US1CMAQ.hpc7g.4xlarge'. If you need this change, please consider creating a new cluster instead of updating the existing one.",
+      "currentValue": "12US1CMAQ.hpc7g.4xlarge"
+    }
+  ],
+  "changeSet": [
+    {
+      "parameter": "Tags[aws-parallelcluster-jobid].Value",
+      "requestedValue": "12LISTOS_Training_hpc7g.16xlarge",
+      "currentValue": "12US1CMAQ.hpc7g.4xlarge"
+    }
+  ]
+}
+```
+
+So, it looks like once the tags and values are specified when the parallel cluster is created, then they can't be changed.
+
+If you need different values, you need to create a new cluster and delete the old one.
+
+### Found an error in the yaml file I was using
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-config-v3.html">Review Custom Bootstrap Actions in Config file</a>
+
+Need to retry
+
+May need to specify a different script for the head node and the compute node.
+
+
+
 
