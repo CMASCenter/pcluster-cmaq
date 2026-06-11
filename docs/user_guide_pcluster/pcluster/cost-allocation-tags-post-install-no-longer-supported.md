@@ -15,6 +15,16 @@ On the AWS Generated cost allocation tags tab <br>
 search for aws:createdBy<br>
 Select and then click on activate.<br>
 
+## Creation and activation of a user defined tag (method to use a post_install.sh script no longer works, but users can set tags in the yaml file, see below)
+The post_install.sh script saved to the s3 bucket will create the user defined tags. <br>
+Link to post_install.sh script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/post_install.sh">post_install.sh</a>
+
+```
+aws-parallelcluster-username
+aws-parallelcluster-jobid
+aws-parallelcluster-project
+```
+<br>
 The values for these tags will be set in the yaml file used to create the parallel cluster.<br>
 
 
@@ -43,11 +53,74 @@ Implemented the following policies<br>
             Resource: 'arn:aws:budgets::*:budget/*'
 ```
 
+The above definition is from the pcluster_env.yml file, but I didn't see how that code was used, so I implemented it through the console.
+
+## An S3 bucket named: cost-alloc-tag-pcluster was created to host files that were obtained and then modified according to the tutorial for the CMAS Account:
+
+```
+pcluster_env.yml
+post_install.sh
+projects_list.conf
+sbatch
+```
+
+### Review each of the files that will be placed in the S3 bucket. <br>
+The top of the script will alert you to what needs to be modified.<br>
+
+For example, the sbatch script needs to be edited to specify your account ID.<br>
+
+Example sbatch script: <br>
+Link to sbatch script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/sbatch">sbatch</a>
+
+```
+# The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
+```
+
+Also, the sbatch script has a setting that turns on or off the budgeting capability.<br>
+For users to be notified that they have exceeded their budget allocation, then you would turn this on.<br>
+See the AWS Tutorial for information about how to set up a budget.<br>
+<br>
+Example projects_list.conf:<br>
+Link to projects_list.conf <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/projects_list.conf">projects_list.conf</a>
+
+```
+ec2-user=lizadams, manishsoni, ubuntu
+lizadams=CMASOps, ProjectA
+manishsoni=O3MAT, ProjectB
+ubuntu=ProjectA, ProjectB, CMASOps, O3MAT
+```
 
 Note, currently we use one login ID, ubuntu to login IDs for the parallel cluster.<br>
 
 <br>
 
+Permissions need to be added to the s3 bucket for each user that will be using these cost allocation tags by defining a bucket policy with permissions.<br>
+<br>
+Example Bucket Policy (use console to create) - replace <accountID> and <username>  <br>
+```
+"Id": "Bucket-policy-cost-alloc",
+    "Statement": [
+        {
+            "Sid": "Bucket-policy-cost-alloc",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<accountID>:user/<username>"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cost-alloc-tag-pcluster/*",
+                "arn:aws:s3:::cost-alloc-tag-pcluster"
+            ]
+        }
+    ]
+}
+```
+
+This s3 bucket will be called by the yaml file used to create the cluster.<br>
 
 ## Review example yaml file that has the lines that need to be added highlighted by !!
 
@@ -60,6 +133,15 @@ HeadNode:
     SubnetId: <subnet-id>
   Ssh:
     KeyName: <key>
+  CustomActions:                                                     !! Add this code without the !! markers and text  to your yaml file
+    OnNodeConfigured:                                                !!
+      Script: s3://<bucket>/post_install.sh                          !!  <bucket> is replaced by s3 bucket name: cost-alloc-tag-pcluster (or create a and use a new bucket name)
+  Iam:                                                               !!
+    S3Access:                                                        !!
+      - BucketName: <bucket>                                         !!
+        EnableWriteAccess: False                                     !!
+    AdditionalIamPolicies:                                            !!
+      - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget !!
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
@@ -72,6 +154,15 @@ Scheduling:
           InstanceType: t2.micro
           MinCount: 0
           MaxCount: 10
+      CustomActions:                                                         !!
+        OnNodeConfigured:                                                    !!
+          Script: s3://<bucket>/post_install.sh                              !!
+      Iam:                                                                   !!
+        S3Access:                                                            !!
+          - BucketName: <bucket>                                             !!
+            EnableWriteAccess: False                                         !!
+        AdditionalIamPolicies:                                               !!
+          - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget   !!
 Tags:                                                                        !!
   - Key: aws-parallelcluster-username                                        !!
     Value: lizadams                                                          !!
@@ -84,8 +175,6 @@ Tags:                                                                        !!
 ## Use above template to modify your cluster yaml to add cost allocation tags
 
 Cut and paste the lines that have !! comments and add them to your cluster yaml file.
-Note, these tags can not be updated using the pcluster command. Once the tags are set, they are used for the lifetime of the pcluster.
-To use new tags, you need to create new plcuster.
 
 ## Or - use the Listos Cost Allocation Yaml that is provided here (with the exception of the <account_id>)
 
@@ -194,6 +283,14 @@ module avail
 ```
 module load libfabric-aws/2.3.1amzn1.0  openmpi/4.1.7  ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5
 ```
+
+### Submit job to slurm using the --comment flag to specify the project name
+
+```
+sbatch --comment ProjectA run_cctm_2018_12US1_listos.csh
+```
+ 
+Note that the projects are listed in the projects_list.conf that is on the s3 bucket, and it may be modified to use different project names.
 
 ### Use squeue to check on status of runs
 
@@ -389,7 +486,7 @@ still failed
 }
 ```
 
-This confirms that once the tags and values are specified when the parallel cluster is created, then they can't be changed.
+So, it looks like once the tags and values are specified when the parallel cluster is created, then they can't be changed.
 
 If you need different values, you need to create a new cluster and delete the old one.
 
@@ -407,5 +504,9 @@ Tried using
 ```
 pcluster create-cluster  --cluster-name pcluster --region us-east-1 --cluster-configuration hpc7g.test2
 ```
+
+When I submitted the job the compute nodes started and then died, and there were no log files.
+
+Ran out of time, so I am deleting the cluster
 
 
