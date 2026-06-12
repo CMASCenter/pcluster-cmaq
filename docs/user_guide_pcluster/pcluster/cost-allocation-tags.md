@@ -176,9 +176,9 @@ Add the following SLURM instructions to the top of the run script
 Modify this section of the run script #> Set Working, Input, and Output Directories to use:
 
 ```
-setenv CMAQ_DATA /fsx
-setenv INPDIR  ${CMAQ_DATA}/12LISTOS_Training
-   @ NPCOL  =  4; @ NPROW =  8
+setenv CMAQ_DATA /fsx    # add this environment variable
+setenv APPL 12LISTOS_Training   # change this setting
+   @ NPCOL  =  4; @ NPROW =  8  # change this setting
 ```
 
 
@@ -199,6 +199,14 @@ module avail
 ```
 module load libfabric-aws/2.3.1amzn1.0  openmpi/4.1.7  ioapi-3.2/gcc-9.5-netcdf  netcdf-4.8.1/gcc-9.5
 ```
+
+### Submit the run to the queue
+
+```
+cd /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
+sbatch run_cctm_2018_12US1_listos.csh
+```
+
 
 ### Use squeue to check on status of runs
 
@@ -257,8 +265,6 @@ pcluster describe-cluster --cluster-name cmaq --region us-east-1
 ```
 pcluster delete-cluster --cluster-name cmaq --region us-east-1
 ```
-
-### It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
 
 
 ### Verify that the cost allocation tags are visible on the head node and compute nodes using the AWS Console
@@ -398,19 +404,5 @@ This confirms that once the tags and values are specified when the parallel clus
 
 If you need different values, you need to create a new cluster and delete the old one.
 
-### Found an error in the yaml file I was using
 
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-config-v3.html">Review Custom Bootstrap Actions in Config file</a>
-
-Need to retry
-
-May need to specify a different script for the head node and the compute node.
-
-
-Tried using 
-
-```
-pcluster create-cluster  --cluster-name pcluster --region us-east-1 --cluster-configuration hpc7g.test2
-```
-
-
+### It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
