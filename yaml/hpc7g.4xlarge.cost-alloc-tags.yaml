@@ -1,55 +1,29 @@
 Region: us-east-1
 Image:
-  Os: ubuntu2004
+  Os: ubuntu2404
 HeadNode:
   InstanceType: c7g.large
   Networking:
-    SubnetId: subnet-0eed3f3567767ce4d 
-  DisableSimultaneousMultithreading: true
+    SubnetId: subnet-0dba51d6958a00750
   Ssh:
-    KeyName: cmas
-  CustomActions:
-    OnNodeConfigured:
-      Script: s3://cost-alloc-tag-pcluster/post_install.sh
-  Iam:
-    S3Access:
-      - BucketName: cost-alloc-tag-pcluster 
-        EnableWriteAccess: False
-    AdditionalIamPolicies:
-      - Policy: arn:aws:iam::440858712842:policy/pclusterTagsAndBudget
-  LocalStorage:
-    RootVolume:
-      Encrypted: false
+    KeyName: cmas_ed25519_key
 Scheduling:
   Scheduler: slurm
-  SlurmSettings:
-    ScaledownIdletime: 5
   SlurmQueues:
-    - Name: queue1
-      CapacityType: ONDEMAND
-      Networking:
-        SubnetIds:
-          - subnet-0eed3f3567767ce4d 
-        PlacementGroup:
-          Enabled: true
-      ComputeResources:
-        - Name: compute-resource-1
-          InstanceType: hpc7g.4xlarge
-          MinCount: 0
-          MaxCount: 4
-          DisableSimultaneousMultithreading: true
-          Efa:
-            Enabled: true
-            GdrSupport: false
-      CustomActions:
-        OnNodeConfigured:
-          Script: s3://cost-alloc-tag-pcluster/post_install.sh
-      Iam:
-        S3Access:
-          - BucketName: cost-alloc-tag-pcluster 
-            EnableWriteAccess: False
-        AdditionalIamPolicies:
-          - Policy: arn:aws:iam::440858712842:policy/pclusterTagsAndBudget
+  - Name: queue1
+    ComputeResources:
+    - Name: hpc7g4xlarge
+      Instances:
+      - InstanceType: hpc7g.4xlarge
+      MinCount: 0
+      MaxCount: 10
+      Efa:
+        Enabled: true
+    Networking:
+      PlacementGroup:
+        Enabled: true
+      SubnetIds:
+      - subnet-0dba51d6958a00750
 SharedStorage:
   - MountDir: /shared
     Name: ebs-shared
@@ -57,10 +31,19 @@ SharedStorage:
     EbsSettings:
       Encrypted: false
       SnapshotId: snap-0049a7c309f238500
+  - Name: FsxLustre0
+    StorageType: FsxLustre
+    MountDir: /fsx
+    FsxLustreSettings:
+      DeletionPolicy: Delete
+      StorageCapacity: 1200
+      DeploymentType: SCRATCH_2
+      DataCompressionType: LZ4
+      ImportPath: s3://cmas-cmaq
 Tags:
   - Key: aws-parallelcluster-username
-    Value: ubuntu
+    Value: lizadams
   - Key: aws-parallelcluster-jobid
-    Value: 12US1CMAQ.hpc7g.4xlarge
+    Value: listos.hpc7g.4xlarge.retry
   - Key: aws-parallelcluster-project
     Value: CMASOPS
