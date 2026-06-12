@@ -249,11 +249,16 @@ cp /shared/pcluster-cmaq/run_scripts/c6a/run_cctm_2018_12US1_listos.csh /shared/
  set VRSN      = v54+              #> Code Version
 ```
 
-### Modify the run script to add CMAQ_DATA environment variable and modify INPDIR to match what is available after downloading the inputs, and modify number of processos used
-
+### Modify the run script
+            
+1. Add slurm instructions
+2. Add CMAQ_DATA environment variable
+3. modify APPL environment variable to match input data
+4. Modify number of processors used
+          
 Add the following SLURM instructions to the top of the run script
-
-```
+              
+```         
 #!/bin/csh -f
 ## For Parallel Cluster 16 cores x 2 = 32
 ## data on /fsx or lustre data directory
@@ -268,9 +273,9 @@ Add the following SLURM instructions to the top of the run script
 Modify this section of the run script #> Set Working, Input, and Output Directories to use:
 
 ```
-setenv CMAQ_DATA /fsx
-setenv INPDIR  ${CMAQ_DATA}/12LISTOS_Training
-   @ NPCOL  =  4; @ NPROW =  8
+setenv CMAQ_DATA /fsx    # add this environment variable
+setenv APPL 12LISTOS_Training   # change this setting
+   @ NPCOL  =  4; @ NPROW =  8  # change this setting
 ```
 
 
