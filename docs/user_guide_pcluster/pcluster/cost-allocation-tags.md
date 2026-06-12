@@ -69,9 +69,13 @@ sbatch
 ```
 
 ### Review each of the files that will be placed in the S3 bucket.
+
 The top of the script will alert you to what needs to be modified.<br>
 
-For example, the sbatch script needs to be edited to specify your account ID.<br>
+Example pcluster_env.yml script, this does not need to be modified:<br>
+Link to pcluster_env.yml script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/pcluster_env.yml">pcluster_env.yml</a>
+
+The sbatch script needs to be edited to specify your account ID.<br>
 
 Example sbatch script: <br>
 Link to sbatch script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/sbatch">sbatch</a>
