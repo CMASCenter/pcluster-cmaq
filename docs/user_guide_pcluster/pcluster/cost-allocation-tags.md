@@ -86,6 +86,15 @@ See the AWS Tutorial for information about how to set up a budget.<br>
 Example projects_list.conf:<br>
 Link to projects_list.conf <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/projects_list.conf">projects_list.conf</a>
 
+The project list is case sensitive. When the user submits their command using 
+
+```
+sbatch --comment <project name>  run_cctm_2018_12US1_listos.csh
+```
+
+The value used for project name must match the value in the projects_list.conf for that user.
+Note, that the tag specified in the yaml file is the value used, and the value specified at the sbatch --comment no longer changes the tag associated with the cluster.
+
 ```
 ec2-user=lizadams, manishsoni, ubuntu
 lizadams=CMASOps, ProjectA
@@ -359,8 +368,17 @@ ubuntu@ip-10-0-7-27:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts$ sbatch --c
 Submitted batch job 2
 ```
 
+```
+ sbatch --comment ProjectC run_cctm_2018_12US1_listos.csh
+```
+
+Output
+```
+You are not allowed to use the project ProjectC
+```
  
-Note that the projects are listed in the projects_list.conf that is on the s3 bucket, and it may be modified to use different project names.
+Note that the projects are listed in the projects_list.conf from the s3 bucket, and it may be modified to use different project names.
+The restriction to specific project names works in Slurm, but doesn't work to properly tagged to the project specified by the sbatch --comment <project name> command
 
 ### Use squeue to check on status of runs
 
