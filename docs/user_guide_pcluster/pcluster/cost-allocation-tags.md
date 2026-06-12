@@ -16,7 +16,7 @@ On the AWS Generated cost allocation tags tab <br>
 search for aws:createdBy<br>
 Select and then click on activate.<br>
 
-## Creation and activation of a user defined tag (method to use a post_install.sh script no longer works, but users can set tags in the yaml file, see below)
+## Tags used in this example
 The post_install.sh script saved to the s3 bucket will create the user defined tags. <br>
 Link to post_install.sh script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/post_install.sh">post_install.sh</a>
 
@@ -56,7 +56,10 @@ Implemented the following policies<br>
 
 The above definition is from the pcluster_env.yml file, but I didn't see how that code was used, so I implemented it through the console.
 
-## An S3 bucket named: cost-alloc-tag-pcluster was created to host files that were obtained and then modified according to the tutorial for the CMAS Account:
+## Create S3 bucket 
+
+In this example, create a s3 bucket named cost-alloc-tag-pcluster.
+Obtain and modify the following files according to the tutorial.
 
 ```
 pcluster_env.yml
@@ -65,7 +68,7 @@ projects_list.conf
 sbatch
 ```
 
-### Review each of the files that will be placed in the S3 bucket. <br>
+### Review each of the files that will be placed in the S3 bucket.
 The top of the script will alert you to what needs to be modified.<br>
 
 For example, the sbatch script needs to be edited to specify your account ID.<br>
@@ -73,9 +76,8 @@ For example, the sbatch script needs to be edited to specify your account ID.<br
 Example sbatch script: <br>
 Link to sbatch script: <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/sbatch">sbatch</a>
 
-```
-# The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
-```
+### Edit the batch script
+The script is used as wrapper to the Slurm sbatch command. Replace <account_id> with the id of your account.
 
 Also, the sbatch script has a setting that turns on or off the budgeting capability.<br>
 For users to be notified that they have exceeded their budget allocation, then you would turn this on.<br>
