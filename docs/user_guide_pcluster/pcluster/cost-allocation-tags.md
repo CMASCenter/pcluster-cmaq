@@ -149,6 +149,11 @@ cp /shared/pcluster-cmaq/run_scripts/c6a/run_cctm_2018_12US1_listos.csh /shared/
 ### Modify the version number in the run script to match the precompiled code version
 
 ```
+vi /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/run_cctm_2018_12US1_listos.csh
+```
+
+Change version number.
+```
  set VRSN      = v54+              #> Code Version
 ```
 
