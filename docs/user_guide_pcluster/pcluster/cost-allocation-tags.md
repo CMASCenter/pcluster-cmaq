@@ -144,6 +144,9 @@ HeadNode:
         EnableWriteAccess: False                                     !!
     AdditionalIamPolicies:                                            !!
       - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget !!
+  LocalStorage:
+    RootVolume:
+      Encrypted: false
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
@@ -174,6 +177,22 @@ Scheduling:
             EnableWriteAccess: False                                         !!
         AdditionalIamPolicies:                                               !!
           - Policy: arn:aws:iam::<account_id>:policy/pclusterTagsAndBudget   !!
+SharedStorage:
+  - MountDir: /shared
+    Name: ebs-shared
+    StorageType: Ebs
+    EbsSettings:
+      Encrypted: false
+      SnapshotId: snap-0049a7c309f238500
+  - Name: FsxLustre0
+    StorageType: FsxLustre
+    MountDir: /fsx
+    FsxLustreSettings:
+      DeletionPolicy: Delete
+      StorageCapacity: 1200
+      DeploymentType: SCRATCH_2
+      DataCompressionType: LZ4
+      ImportPath: s3://cmas-cmaq
 Tags:                                                                        !!
   - Key: aws-parallelcluster-username                                        !!
     Value: <name>                                                            !!
@@ -531,27 +550,15 @@ still failed
 }
 ```
 
-So, it looks like once the tags and values are specified when the parallel cluster is created, then they can't be changed.
 
-If you need different values, you need to create a new cluster and delete the old one.
+When different cost tag values need to be used, then delete the current cluster, revise the yaml file to modify the tags, and then create a new cluster.
 
-### Found an error in the yaml file I was using
-
-<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/custom-bootstrap-actions-config-v3.html">Review Custom Bootstrap Actions in Config file</a>
-
-Need to retry
-
-May need to specify a different script for the head node and the compute node.
-
-
-Tried using 
-
-```
-pcluster create-cluster  --cluster-name pcluster --region us-east-1 --cluster-configuration hpc7g.test2
-```
-
-When I submitted the job the compute nodes started and then died, and there were no log files.
-
-Ran out of time, so I am deleting the cluster
-
-
+### Exploring Tags in Cost Explorer
+It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
+            
+### AWS Tutorial on creating Pcluster with Slurm Accounting
+            
+Note that this requires an external (MySQL or MariaDB) database server.
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_07_slurm-accounting-v3.html">Creating a cluster with Slurm accounting</a>
+and
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/slurm-accounting-v3.html">Slurm accounting with AWS Parallel Cluster</a>
