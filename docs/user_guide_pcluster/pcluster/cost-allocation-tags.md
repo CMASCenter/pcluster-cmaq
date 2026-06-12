@@ -247,7 +247,8 @@ cp /shared/pcluster-cmaq/run_scripts/c6a/run_cctm_2018_12US1_listos.csh /shared/
 ### Modify the version number in the run script to match the precompiled code version
 
 ```
- set VRSN      = v54+              #> Code Version
+cd  /shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts/
+vi run_cctm_2018_12US1_listos.csh
 ```
 
 ### Modify the run script
@@ -271,11 +272,26 @@ Add the following SLURM instructions to the top of the run script
 #SBATCH -o cmaq_cost_alloc_tag_%j.txt
 ```
 
-Modify this section of the run script #> Set Working, Input, and Output Directories to use:
+Modify the CMAQ version
 
 ```
+ set VRSN      = v54+              #> Code Version
+```
+
+Change the APPL environment variable
+
+```
+set APPL  = 12LISTOS_Training
+```
+
+Modify this section of the run script #> Set Working, Input, and Output Directories to use:
+```
 setenv CMAQ_DATA /fsx    # add this environment variable
-setenv APPL 12LISTOS_Training   # change this setting
+
+```
+
+Modify the number of processors used
+```
    @ NPCOL  =  4; @ NPROW =  8  # change this setting
 ```
 
