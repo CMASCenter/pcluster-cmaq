@@ -2,7 +2,8 @@
 
 Step by step instructions for using cost allocation tags. This method was obtained from the following website: <br>
 <a href="https://aws.amazon.com/blogs/compute/using-cost-allocation-tags-with-aws-parallelcluster">Using Cost Allocation Tags with AWS ParallelCluster"</a>  
-Note, these instructions to use the post_install.sh script don't work any more because tags assigned to parallel cluster must be done at start up, and can't be modified after the cluster is created.
+Note, tags can't be updated for the pcluster after the cluster is created.
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/Tags-v3.html">Limited Tag updates on Parallel Cluster</a>
 
 Steps 1&2 have already been implemented for the CMAS Center Account.<br>
 
