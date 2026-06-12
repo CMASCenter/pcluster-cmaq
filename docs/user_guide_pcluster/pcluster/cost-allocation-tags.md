@@ -231,24 +231,25 @@ tail cmaq_cost_alloc_tag*.txt
 Output
 
 ```
+================================== 
+  ***** CMAQ TIMING REPORT *****                                                
 ==================================
-  ***** CMAQ TIMING REPORT *****
-==================================
-Start Day: 2018-08-05
-End Day:   2018-08-07
+Start Day: 2018-08-05                                                           
+End Day:   2018-08-07   
 Number of Simulation Days: 3
-Domain Name:               2018_12Listos
+Domain Name:               2018_12Listos                                        
 Number of Grid Cells:      21875  (ROW x COL x LAY)
 Number of Layers:          35
-Number of Processes:       16
+Number of Processes:       32
    All times are in seconds.
 
-Num  Day        Wall Time
-01   2018-08-05   57.0
-02   2018-08-06   63.7
-03   2018-08-07   57.6
-     Total Time = 178.30
-      Avg. Time = 59.43
+Num  Day        Wall Time                                                       
+01   2018-08-05   54.0
+02   2018-08-06   40.3
+03   2018-08-07   46.6 
+     Total Time = 140.90
+      Avg. Time = 46.96
+
 ```
 
 
