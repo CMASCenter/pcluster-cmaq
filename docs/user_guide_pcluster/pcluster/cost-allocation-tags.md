@@ -415,4 +415,5 @@ It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hour
 
 ### AWS Tutorial on creating Pcluster with Slurm Accounting
 
+Note that this requires an external (MySQL or MariaDB) database server.
 <a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_07_slurm-accounting-v3.html">Creating a cluster with Slurm accounting</a>
