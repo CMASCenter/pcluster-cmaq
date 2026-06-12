@@ -157,7 +157,12 @@ Change version number.
  set VRSN      = v54+              #> Code Version
 ```
 
-### Modify the run script to add CMAQ_DATA environment variable and modify INPDIR to match what is available after downloading the inputs, and modify number of processos used
+### Modify the run script
+
+1. Add slurm instructions
+2. Add CMAQ_DATA environment variable
+3. modify APPL environment variable to match input data
+4. Modify number of processors used
 
 Add the following SLURM instructions to the top of the run script
 
@@ -405,4 +410,9 @@ This confirms that once the tags and values are specified when the parallel clus
 If you need different values, you need to create a new cluster and delete the old one.
 
 
-### It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
+### Exploring Tags in Cost Explorer
+It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
+
+### AWS Tutorial on creating Pcluster with Slurm Accounting
+
+<a href="https://docs.aws.amazon.com/parallelcluster/latest/ug/tutorials_07_slurm-accounting-v3.html">Creating a cluster with Slurm accounting</a>
