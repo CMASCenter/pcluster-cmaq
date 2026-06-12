@@ -88,21 +88,13 @@ Cut and paste the lines that have !! comments and add them to your cluster yaml 
 Note, these tags can not be updated using the pcluster command. Once the tags are set, they are used for the lifetime of the pcluster.
 To use new tags, you need to create new plcuster.
 
-## Or - use the Listos Cost Allocation Yaml that is provided here (with the exception of the <account_id>)
+## Or - review the Listos Cost Allocation Yaml that is provided here:
+For an account outside of CMAS, you will need to run the pcluster configure command using your account and then modify that yaml file to add the tags.
 
 ```
 cd pcluster-cmaq/yaml/
+cat hpc7g.4xlarge.cost-alloc-tags.yaml
 ```
-
-## Edit the <account_id> to use the value for your account
-
-```
-vi hpc7g.4xlarge.cost-alloc-tags-no-accountid.yaml
-add account id                                            !! need to avoid placing account information in the git repo
-cp hpc7g.4xlarge.cost-alloc-tags-no-accountid.yaml hpc7g.4xlarge.cost-alloc-tags-update.yaml
-```
-
- 
 
 ## Use the modified yaml file to create the cluster
 
