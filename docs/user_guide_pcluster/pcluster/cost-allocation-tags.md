@@ -317,8 +317,23 @@ module load libfabric-aws/2.3.1amzn1.0  openmpi/4.1.7  ioapi-3.2/gcc-9.5-netcdf 
 ### Submit job to slurm using the --comment flag to specify the project name
 
 ```
-sbatch --comment ProjectA run_cctm_2018_12US1_listos.csh
+sbatch --comment CMASOps run_cctm_2018_12US1_listos.csh
 ```
+
+### Note the project names are case sensitive
+
+Using CMASOPS in all caps for the project name does not work, and the user is told that they are not allowed to run a job using that project name.
+
+```
+sbatch --comment CMASOPS run_cctm_2018_12US1_listos.csh
+You are not allowed to use the project CMASOPS
+```
+Changing the project name from CMASOPS to CMASOps works
+```
+ubuntu@ip-10-0-7-27:/shared/build/openmpi_gcc/CMAQ_v54+/CCTM/scripts$ sbatch --comment CMASOps run_cctm_2018_12US1_listos.csh
+Submitted batch job 2
+```
+
  
 Note that the projects are listed in the projects_list.conf that is on the s3 bucket, and it may be modified to use different project names.
 
