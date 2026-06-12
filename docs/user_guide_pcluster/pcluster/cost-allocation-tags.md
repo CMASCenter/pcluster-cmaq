@@ -202,6 +202,10 @@ Tags:                                                                        !!
     Value: CMASOPS                                                           !!
 ```
 
+Note, these tags can not be updated using the pcluster command. Once the tags are set, they are used for the lifetime of the pcluster.
+To use new tags, you need to create new plcuster.
+
+
 ## Use above template to modify your cluster yaml to add cost allocation tags
 
 Cut and paste the lines that have !! comments and add them to your cluster yaml file.
