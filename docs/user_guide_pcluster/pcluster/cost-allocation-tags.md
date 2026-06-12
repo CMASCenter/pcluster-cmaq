@@ -418,9 +418,6 @@ pcluster describe-cluster --cluster-name cmaq --region us-east-1
 pcluster delete-cluster --cluster-name cmaq --region us-east-1
 ```
 
-### It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
-
-
 ### Verify that the cost allocation tags are visible on the head node and compute nodes using the AWS Console
 
 Login to aws console
@@ -433,7 +430,15 @@ Select the headnode, and then click on the Tags (all the way on the right)
 
 ![AWS Console EC2 Display Tags applied to compute node](aws_console_ec2_display_tags_of_compute_node.png)
 
-### Tried updating the cluster to use different values for tags
+### Use Cost Explorer to examine costs by tag
+
+Note It takes 24 hours for the cost data to appear in the Cost Explorer. Once 24 hours has elapsed check the AWS Website Cost Explorer and select by tags.
+
+![AWS Console Cost Explorer](aws_cost_explorer_cost_by_tag.png)
+
+### Unable to update Tag values
+
+Tried updating the cluster to use different values for tags
 
 Error message:
 
