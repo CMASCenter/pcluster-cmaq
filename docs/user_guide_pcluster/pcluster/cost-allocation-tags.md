@@ -216,7 +216,7 @@ Output
 
 ```
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 4    queue1     CMAQ   ubuntu  R       1:24      2 queue1-dy-compute-resource-1-[2-3]
+                 1    queue1     CMAQ   ubuntu CF       0:04      2 queue1-dy-hpc7g4xlarge-[1-2]
 ```
 
 
