@@ -87,7 +87,8 @@ Also, the sbatch script has a setting that turns on or off the budgeting capabil
 For users to be notified that they have exceeded their budget allocation, then you would turn this on.<br>
 See the AWS Tutorial for information about how to set up a budget.<br>
 <br>
-Example projects_list.conf:<br>
+
+### Example projects_list.conf:
 Link to projects_list.conf <a href="https://github.com/lizadams/cost-alloc-tag-pcluster-s3bucket/blob/main/projects_list.conf">projects_list.conf</a>
 
 The project list is case sensitive. When the user submits their command using 
