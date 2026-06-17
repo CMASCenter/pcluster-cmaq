@@ -10,7 +10,7 @@ This documentation is under continuous development
 Previous version is available here: <a href="https://pcluster-cmaq.readthedocs.io/en/cmaqv5.3.3/">CMAQv5.3.3 on AWS Tutorial</a>
 Zoom Help Sessions are available: 
 Every month on the first Thursday 3pm - 4 pm Eastern Time. Upcoming sessions:
-    May 7, June 4, July 2
+    July 2, August 6, Sept. 3, Oct. 1
 <a href="https://unc.zoom.us/meeting/register/tJMscumurzMvHtFJ32koXFqT5PAbJdlrceHR">Zoom Registration Link</a>
 ```
 
