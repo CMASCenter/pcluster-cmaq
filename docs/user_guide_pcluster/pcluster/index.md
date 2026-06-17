@@ -14,6 +14,4 @@ run-cmaq-benchmark-pcluster_v54.hpc7g.16xlarge.md
 run-cmaq-desid-pcluster_v54.hpc7g.16xlarge.md
 aws-pcluster-remove-fsx.md
 cost-allocation-tags.md
-installing_ametv1.6.md
-using_ami_ametv1.6.md
 ```
