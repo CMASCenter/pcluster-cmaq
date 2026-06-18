@@ -32,7 +32,7 @@ github_url = 'https://github.com/CMASCenter/pcluster-cmaq'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ["myst_parser",
-              "sphinx.notfound.extension.html_collect_pages",
+              "sphinx.ext.notfound",
               "sphinx.ext.duration",
               "sphinx.ext.autosectionlabel",
               "sphinx.ext.autodoc",
