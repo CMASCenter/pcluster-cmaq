@@ -1,6 +1,6 @@
 ## Contribute to Pcluster-cmaq Documentation
 
-Please take note of any issues and submit to <a href="https://github.com/lizadams/pcluster-cmaq/issues">Github Issue</a>
+Please take note of any issues and submit to <a href="https://github.com/CMASCenter/pcluster-cmaq/issues">Github Issue</a>
 
 ```{note}
 At the top of each page of the documentation, there is also an pencil icon, that you can click.
