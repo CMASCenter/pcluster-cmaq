@@ -38,7 +38,7 @@ Efstathiou, C. I., Adams, E., Coats, C. J., Zelt, R., Reed, M., McGee, J., Foley
 
 Please share any issues or suggestions for running CMAQ on the Cloud to the CMAS User Forum, under the <a href="https://forum.cmascenter.org/t/about-the-cloud-computing-category/4285">Cloud Computing Category</a>. This forum is available for users and developers to discuss issues related to using the CMAQ system on the cloud. 
 
-To submit edits to this documentation see instructions available in <a href="https://cyclecloud-cmaq.readthedocs.io/en/latest/user_guide_cyclecloud/contribute/contribute.html">Contribute to this Tutorial.</a>
+To submit edits to this documentation see instructions available in <a href="https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/contribute/contribute.html">Contribute to this Tutorial.</a>
 
 ## Table of Contents 
 
