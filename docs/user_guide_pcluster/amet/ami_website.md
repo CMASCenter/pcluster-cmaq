@@ -1489,6 +1489,9 @@ Once your model data and the observation data is available, run the net_project_
 
 This method was used to load the EQUATES Database to the EC2 instance.
 
+If you need additional storage, it is recommended to add an additional attached storage volume, rather than expanding the root volume.
+Follow instructions here: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/making-instance-stores-available-on-your-instances.html">Make instance store volume available for use on an EC2 instance</a>
+
 Create the amad_EQUATES database using mysql
 
 ```
