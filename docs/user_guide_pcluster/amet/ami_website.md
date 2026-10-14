@@ -69,7 +69,7 @@ Some programs also support model to model comparisons by selecting multiple proj
 # Spin up a server using pre-installed AMET AMI
 
 <br>Note, the AMI is currently private, and only available upon request. Please send an email if you would like to be a beta-tester.</br>
-<a href="mailto:lizadams@email.unc.edu">Send Email</a>
+<a href="mailto:cmas@email.unc.edu">Send Email</a>
 
  * Select AMI named AMETv1.6_web  that contains the AMETv1.6 installation with all data for MET and AQ loaded into database
  * Select Launch instance from AMI
